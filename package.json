@@ -1,10 +1,15 @@
 {
   "name": "archive.typophile.com",
   "version": "1.0.0",
-  "description": "",
+  "description": "Archive the last living version of typophile.com from the Wayback Machine.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "get": "sh get.sh",
+    "cdx": "node src/000_fetchCDX.js",
+    "cutoff": "node src/001_cutoffDate.js",
+    "latest": "node src/002_latestVersions.js",
+    "list": "node src/003_downloadList.js",
+    "download": "node src/004_download.js"
   },
   "repository": {
     "type": "git",

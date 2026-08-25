@@ -1,16 +1,27 @@
-# get the cdx files
-curl 'https://web.archive.org/cdx/search/cdx?url=*.typophile.com' > data/web.archive/001_typophile.com.cdx ;
+#!/bin/sh
+# Fetch the last living version of typophile.com from the Wayback Machine.
+#
+# Every step is resumable and safe to re-run: nothing already correct on disk
+# is fetched twice. Interrupt with Ctrl-C whenever you like and start again.
+#
+#   sh get.sh
+#
+# Pass extra flags to the downloader through, e.g.:
+#   sh get.sh --concurrency=6
 
-# process the cdx files and group it by uri
-node src/001_groupByURI.js
+set -e
 
-# get the latest version of the files
-node src/002_searchCutOffDate.js
+# 0. Fetch the CDX index (paged; skips pages already on disk).
+node src/000_fetchCDX.js
 
-# create the download list
-node src/003_createDownloadList.js 
+# 1. Find when the site went offline -- later captures are placeholders.
+node src/001_cutoffDate.js
 
-# download the nodes
-rm -rf data/web.archive/typophile.com 
-mkdir -p data/web.archive/typophile.com/node
-sh data/web.archive/004_typophile.com.lastOnline.sh
+# 2. Keep the newest good capture of every URL.
+node src/002_latestVersions.js
+
+# 3. Turn those into download jobs with local target paths.
+node src/003_downloadList.js
+
+# 4. Download whatever is missing or outdated, verifying every file.
+node src/004_download.js "$@"
