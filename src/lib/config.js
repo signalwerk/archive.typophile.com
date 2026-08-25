@@ -2,31 +2,34 @@
 
 export const DOMAIN = "typophile.com";
 
-export const DIRS = {
-  data: "data",
-  cdx: "data/cdx",
-  cdxPages: "data/cdx/pages",
-  index: "data/index",
-  files: "data/files",
-  state: "data/state",
-};
+export const DATA = "data";
 
-export const FILES = {
-  cdxMeta: "data/cdx/meta.json",
-  cdx: `data/cdx/${DOMAIN}.cdx`,
-  cutoff: "data/index/001_cutoff.json",
-  latest: "data/index/002_latest.jsonl",
-  latestMeta: "data/index/002_latest.meta.json",
-  downloads: "data/index/003_downloads.jsonl",
-  downloadsMeta: "data/index/003_downloads.meta.json",
-  downloadState: "data/state/downloads.jsonl",
-  failures: "data/state/failures.jsonl",
-};
+// The cutoff is global, not per-archive: the site died once. Archives that
+// never captured a placeholder page (arquivo.pt has captures into 2018) would
+// otherwise happily keep post-mortem junk.
+export const CUTOFF_FILE = "data/cutoff.json";
 
-// Checksums of captures that show an "offline" placeholder instead of real
-// content. The earliest capture carrying one of these marks the moment the
-// site went down -- everything from then on is worthless, so we only keep
-// captures strictly older than that cutoff.
+// Every archive gets the same layout under its own folder.
+export function archiveDirs(archiveId) {
+  const root = `${DATA}/archives/${archiveId}`;
+  return {
+    root,
+    raw: `${root}/raw`,
+    index: `${root}/index`,
+    files: `${root}/files`,
+    state: `${root}/state`,
+    latest: `${root}/index/latest.jsonl`,
+    latestMeta: `${root}/index/latest.meta.json`,
+    downloads: `${root}/index/downloads.jsonl`,
+    downloadsMeta: `${root}/index/downloads.meta.json`,
+    downloadState: `${root}/state/downloads.jsonl`,
+    failures: `${root}/state/failures.jsonl`,
+  };
+}
+
+// Checksums of captures that show a placeholder instead of real content.
+// These are base32 SHA-1 payload digests, which every archive reports in the
+// same format -- so the same list identifies the same pages everywhere.
 export const OFFLINE_HASHES = {
   LAQLAMRVDS5VQFZECJLHS3S7MOTE3HBU: "Typophile turned 15 years old this month. Time for a reboot.",
   "3COOZZTE4S6HH7QGZF7AHHQ5ETTXVPA3": "Typophile turned 15 years old this month. Time for a reboot.",
@@ -46,6 +49,5 @@ export const HTTP = {
   retries: 5,
   backoffBaseMs: 2_000,
   maxBackoffMs: 120_000,
-  // Minimum spacing between request starts, across all workers.
   minRequestIntervalMs: 100,
 };

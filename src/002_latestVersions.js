@@ -1,123 +1,111 @@
-// Step 2 -- pick the last good capture of every URL.
+// Step 2 -- pick the last good capture of every URL, per archive.
 //
-// Streams the CDX index and keeps, per URL, the newest capture that
-//   * was taken before the cutoff from step 1,
-//   * answered with a 2xx status.
-// Everything else (redirects, 404s, placeholder-era captures) is dropped.
+// Keeps, for each URL in each archive, the newest capture that was taken
+// before the global cutoff and answered with a 2xx status. The full capture
+// metadata is carried through so the archives can be compared and merged
+// later on.
 //
 //   node src/002_latestVersions.js
+//   node src/002_latestVersions.js --archive=arquivo.pt
 
 import fs from "fs";
-import { DIRS, FILES } from "./lib/config.js";
-import { ensureDir, readLines, readJson, writeJson, formatCount } from "./lib/util.js";
+import { archiveDirs, CUTOFF_FILE } from "./lib/config.js";
+import { selectArchives } from "./lib/archives/index.js";
+import { ensureDir, readJson, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
-const VAGUE_MIMES = new Set(["warc/revisit", "unk", "", "-"]);
+const args = parseArgs();
+const VAGUE_MIMES = new Set(["warc/revisit", "unk", "", "-", null, undefined]);
 
-async function main() {
-  ensureDir(DIRS.index);
+async function processArchive(archive, cutoff) {
+  const dirs = archiveDirs(archive.id);
+  ensureDir(dirs.index);
 
-  const cutoffData = readJson(FILES.cutoff);
-  if (!cutoffData) throw new Error(`missing ${FILES.cutoff} -- run step 001 first`);
-  const cutoff = String(cutoffData.cutoff);
-  console.log(`cutoff: ${cutoff}`);
-
-  // urlkey -> best capture so far
   const best = new Map();
-  // urlkey -> most recent concrete mime type, used to resolve revisit records
   const mimeHint = new Map();
+  const stats = { captures: 0, afterCutoff: 0, notOk: 0, considered: 0 };
+  const urls = new Set();
 
-  const stats = {
-    captures: 0,
-    afterCutoff: 0,
-    notOk: 0,
-    considered: 0,
-    urlsSeen: new Set(),
-  };
-
-  let lines = 0;
-  for await (const line of readLines(FILES.cdx)) {
-    lines++;
-    if (lines % 250_000 === 0) console.log(`   scanned ${formatCount(lines)} captures ...`);
-
-    const [urlkey, timestamp, original, mimetype, statuscode, digest, length] = line.split(" ");
-    if (!urlkey || !timestamp) continue;
-
+  for await (const capture of archive.streamCaptures({ dirs })) {
     stats.captures++;
-    stats.urlsSeen.add(urlkey);
+    urls.add(capture.k);
 
-    if (timestamp >= cutoff) {
-      stats.afterCutoff++;
-      continue;
-    }
-    if (!/^2\d\d$/.test(statuscode)) {
-      stats.notOk++;
-      continue;
-    }
-
+    if (capture.ts >= cutoff) { stats.afterCutoff++; continue; }
+    if (!/^2\d\d$/.test(String(capture.s))) { stats.notOk++; continue; }
     stats.considered++;
 
-    if (!VAGUE_MIMES.has(mimetype)) {
-      const hint = mimeHint.get(urlkey);
-      if (!hint || hint.ts < timestamp) mimeHint.set(urlkey, { ts: timestamp, mime: mimetype });
+    if (!VAGUE_MIMES.has(capture.m)) {
+      const hint = mimeHint.get(capture.k);
+      if (!hint || hint.ts < capture.ts) mimeHint.set(capture.k, { ts: capture.ts, mime: capture.m });
     }
 
-    const current = best.get(urlkey);
-    if (!current || timestamp > current.ts) {
-      best.set(urlkey, { ts: timestamp, o: original, m: mimetype, d: digest, len: Number(length) || 0 });
-    }
+    const current = best.get(capture.k);
+    if (!current || capture.ts > current.ts) best.set(capture.k, capture);
   }
 
-  // Write the result, resolving revisit/unknown mime types from the hint map.
-  const out = fs.createWriteStream(`${FILES.latest}.part`);
+  const out = fs.createWriteStream(`${dirs.latest}.part`);
   let written = 0;
-  let revisitResolved = 0;
+  let mimeResolved = 0;
 
-  for (const urlkey of [...best.keys()].sort()) {
-    const entry = best.get(urlkey);
-    let mime = entry.m;
+  for (const key of [...best.keys()].sort()) {
+    const capture = best.get(key);
+    let mime = capture.m;
     if (VAGUE_MIMES.has(mime)) {
-      const hint = mimeHint.get(urlkey);
-      if (hint) {
-        mime = hint.mime;
-        revisitResolved++;
-      }
+      const hint = mimeHint.get(key);
+      if (hint) { mime = hint.mime; mimeResolved++; }
     }
-    const record = { k: urlkey, ts: entry.ts, d: entry.d, m: mime, o: entry.o, len: entry.len };
-    if (!out.write(JSON.stringify(record) + "\n")) {
-      await new Promise((r) => out.once("drain", r));
-    }
+    const record = {
+      archive: archive.id,
+      k: capture.k,
+      ts: capture.ts,
+      url: capture.url,
+      m: mime,
+      s: String(capture.s),
+      d: capture.d,
+      len: capture.len,
+      ...(capture.extra ? { extra: capture.extra } : {}),
+    };
+    if (!out.write(JSON.stringify(record) + "\n")) await new Promise((r) => out.once("drain", r));
     written++;
   }
   await new Promise((r) => out.end(r));
-  fs.renameSync(`${FILES.latest}.part`, FILES.latest);
+  fs.renameSync(`${dirs.latest}.part`, dirs.latest);
 
-  const urlsTotal = stats.urlsSeen.size;
-  const meta = {
+  writeJson(dirs.latestMeta, {
+    archive: archive.id,
     cutoff,
     captures: stats.captures,
     capturesAfterCutoff: stats.afterCutoff,
     capturesNotOk: stats.notOk,
     capturesConsidered: stats.considered,
-    urlsTotal,
+    urlsTotal: urls.size,
     urlsWithGoodCapture: written,
-    urlsWithoutGoodCapture: urlsTotal - written,
-    mimeResolvedFromHistory: revisitResolved,
+    urlsWithoutGoodCapture: urls.size - written,
+    mimeResolvedFromHistory: mimeResolved,
     generatedAt: new Date().toISOString(),
-  };
-  writeJson(FILES.latestMeta, meta);
+  });
 
-  console.log(`
-captures scanned .......... ${formatCount(stats.captures)}
-  at/after cutoff ......... ${formatCount(stats.afterCutoff)}
-  not 2xx ................. ${formatCount(stats.notOk)}
-  usable .................. ${formatCount(stats.considered)}
+  return { stats, urls: urls.size, written };
+}
 
-distinct URLs ............. ${formatCount(urlsTotal)}
-  with a good capture ..... ${formatCount(written)}
-  without ................. ${formatCount(urlsTotal - written)}
-  mime taken from history . ${formatCount(revisitResolved)}
+async function main() {
+  const cutoffData = readJson(CUTOFF_FILE);
+  if (!cutoffData) throw new Error(`missing ${CUTOFF_FILE} -- run step 001 first`);
+  const cutoff = String(cutoffData.cutoff);
+  console.log(`global cutoff: ${cutoff}`);
 
-wrote ${FILES.latest}`);
+  for (const archive of selectArchives(args.archive)) {
+    console.log(`\n=== ${archive.label} ===`);
+    const { stats, urls, written } = await processArchive(archive, cutoff);
+    if (stats.captures === 0) {
+      console.log(`   no index on disk -- run step 000 first`);
+      continue;
+    }
+    console.log(`   captures ............. ${formatCount(stats.captures)}`);
+    console.log(`     at/after cutoff .... ${formatCount(stats.afterCutoff)}`);
+    console.log(`     not 2xx ............ ${formatCount(stats.notOk)}`);
+    console.log(`   distinct URLs ........ ${formatCount(urls)}`);
+    console.log(`   with a good capture .. ${formatCount(written)}`);
+  }
 }
 
 main().catch((err) => {
