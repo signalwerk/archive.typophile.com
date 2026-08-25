@@ -47,26 +47,54 @@ function key2url(key) {
 }
 
 const downloads = [];
-for (const [key, value] of Object.entries(result.urls)) {
+for (const [key, item] of Object.entries(result.urls)) {
   if (
-    value.mimeType === "text/html" &&
+    item.mimeType === "text/html" &&
     key.match(/com\,typophile\)\/node\/[0-9]+$/)
   ) {
-    // downloads.push(`wget -r -np -nH -k -L -p -P data/web.archive/typophile.com ${key}`);
 
-    downloads.push(value);
+    const { host, path } = key2url(item.url);
+   const nodeId = parseInt(path.split("/").at(-1), 10)
+    const url = `http://${host}${path}`;
+
+    downloads.push({ ...item, 
+      
+      $process: { 
+        
+        
+        url, path, host, nodeId } });
   }
 }
-fs.writeFileSync(
-  "data/web.archive/004_typophile.com.lastOnline.sh",
-  downloads
-    .map((item) => {
-      const { host, path } = key2url(item.url);
-      const url = `http://${host}${path}`;
 
-      return `curl http://web.archive.org/web/${item.timestamp}${
+fs.writeFileSync(
+  "data/web.archive/004_typophile.com.download.json",
+  JSON.stringify(downloads, null, 2)
+);
+
+const prefix = `download_file() {
+  url=$1
+  filepath=$2
+
+  if [ ! -f "$filepath" ]; then
+    echo "Downloading file from $url"
+    curl -o "$filepath" "$url"
+  else
+    echo "File already exists at $filepath"
+  fi
+}
+
+`
+
+
+fs.writeFileSync(
+  "data/web.archive/004_typophile.com.download.sh",
+  `${prefix}${downloads
+    .map((item) => {
+      return `download_file http://web.archive.org/web/${item.timestamp}${
         loadOriginal ? "id_" : ""
-      }/${encodeURI(url)} > data/web.archive/typophile.com${path}.html`;
+      }/${encodeURI(item.$process.url)} data/web.archive/typophile.com${
+        item.$process.path
+      }.html`;
     })
-    .join("\n")
+    .join("\n")}`
 );
