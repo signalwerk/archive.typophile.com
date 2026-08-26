@@ -1,5 +1,6 @@
-import { Layout, Pager } from "../components/Layout.jsx";
-import { ThreadList } from "../components/ThreadList.jsx";
+import { Layout } from "../../components/Layout.jsx";
+import { Pager } from "../../components/Pager/Pager.jsx";
+import { ThreadList } from "../../components/ThreadList.jsx";
 
 export function IndexPage({ threads, page, pages, forums, totals }) {
   return (

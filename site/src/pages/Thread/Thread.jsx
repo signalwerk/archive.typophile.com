@@ -1,8 +1,7 @@
-import { Layout } from "../components/Layout.jsx";
-import { formatDate } from "../components/DateTime/DateTime.jsx";
-import { MetaLine } from "../components/MetaLine/MetaLine.jsx";
-import { sanitize } from "../../lib/sanitize.mjs";
-import { Avatar } from "../components/Avatar.jsx";
+import { Layout } from "../../components/Layout.jsx";
+import { formatDate } from "../../components/DateTime/DateTime.jsx";
+import { MetaLine } from "../../components/MetaLine/MetaLine.jsx";
+import { Avatar } from "../../components/Avatar/Avatar.jsx";
 
 function Entry({ entry, op = false, anchor, user }) {
   const name = user?.name || "unknown";
@@ -21,11 +20,13 @@ function Entry({ entry, op = false, anchor, user }) {
               dateHref={anchor ? `#${anchor}` : undefined}
               votes={entry.votes}
             />
-          {/* html_clean has internal links repointed at our copies; fall back
-              to the captured html if the cleanup pass has not run yet. */}
+            {/* Step 8 produces html_clean: executable markup removed, internal
+                links repointed. The captured html is deliberately NOT used as a
+                fallback -- it has not been sanitised, and an empty body is a
+                visible mistake where silently rendering scripts would not be. */}
           <div
             className="body"
-            dangerouslySetInnerHTML={{ __html: sanitize(entry.html_clean ?? entry.html) }}
+            dangerouslySetInnerHTML={{ __html: entry.html_clean ?? "" }}
           />
         </div>
       </div>

@@ -1,8 +1,8 @@
-import { Layout } from "../components/Layout.jsx";
+import { Layout } from "../../components/Layout.jsx";
 import { Fragment } from "react";
-import { DateTime } from "../components/DateTime/DateTime.jsx";
-import { Avatar } from "../components/Avatar.jsx";
-import { NodePreview } from "../components/NodePreview/NodePreview.jsx";
+import { DateTime } from "../../components/DateTime/DateTime.jsx";
+import { Avatar } from "../../components/Avatar/Avatar.jsx";
+import { NodePreview } from "../../components/NodePreview/NodePreview.jsx";
 
 // `threadContext` adds the forum and the thread's reply count. A member's own
 // replies do not carry it: the count would be the whole thread's, not theirs,

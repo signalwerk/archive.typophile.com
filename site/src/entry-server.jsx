@@ -1,9 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { IndexPage } from "./pages/Index.jsx";
-import { ForumPage } from "./pages/Forum.jsx";
-import { ThreadPage } from "./pages/Thread.jsx";
-import { AboutPage } from "./pages/About.jsx";
-import { UserPage } from "./pages/User.jsx";
+import { IndexPage } from "./pages/Index/Index.jsx";
+import { ForumPage } from "./pages/Forum/Forum.jsx";
+import { ThreadPage } from "./pages/Thread/Thread.jsx";
+import { AboutPage } from "./pages/About/About.jsx";
+import { UserPage } from "./pages/User/User.jsx";
 
 // Pure rendering: the caller supplies the data, so the dev server and the
 // static build produce identical output from identical input.

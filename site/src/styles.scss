@@ -1,5 +1,11 @@
+@use "./components/Avatar/Avatar";
 @use "./components/MetaLine/MetaLine";
 @use "./components/NodePreview/NodePreview";
+@use "./components/Pager/Pager";
+@use "./pages/About/About";
+@use "./pages/Index/Index";
+@use "./pages/Thread/Thread";
+@use "./pages/User/User";
 
 /* Monochrome and quiet: the pages are here to be read, not decorated.
    Light only -- black on white, in every colour scheme. */
@@ -89,25 +95,7 @@ a:hover {
 .masthead__title a {
   text-decoration: none;
 }
-.plain {
-  list-style: none;
-  margin: 0 0 1.2rem;
-  padding: 0;
-}
 
-.changes {
-  margin: 0 0 1.2rem;
-  padding-left: 1.1rem;
-}
-.changes li {
-  margin-bottom: 0.6rem;
-}
-.changes strong {
-  font-weight: 600;
-}
-.plain li {
-  padding: 0.15rem 0;
-}
 .masthead__nav {
   margin-left: auto;
   display: flex;
@@ -122,14 +110,6 @@ a:hover {
   margin: 0 0 2rem;
 }
 
-.foot {
-  margin-top: 4rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  font-size: 0.75rem;
-  color: var(--faint);
-}
-
 /* --- listings ------------------------------------------------------------ */
 
 /* The list container only; each row styles itself -- see NodePreview.scss. */
@@ -137,26 +117,6 @@ a:hover {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.forums {
-  list-style: none;
-  margin: 0 0 2rem;
-  padding: 0;
-  display: grid;
-  gap: 0.15rem 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-}
-.forums a {
-  font-size: 0.875rem;
-  text-decoration: none;
-}
-.forums a:hover {
-  text-decoration: underline;
-}
-.forums .count {
-  color: var(--faint);
-  font-size: 0.75rem;
 }
 
 /* --- a thread ------------------------------------------------------------ */
@@ -180,100 +140,8 @@ a:hover {
   text-decoration: underline;
 }
 
-.post {
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--rule);
-}
-.post--op {
-  border-top: 0;
-  padding-top: 0;
-}
-
-/* Archived markup: keep it readable and stop it breaking the layout. */
-.body {
-  overflow-wrap: break-word;
-}
-.body :is(img, video, iframe, table) {
-  max-width: 100%;
-}
-.body img {
-  height: auto;
-}
-.body :is(pre, table) {
-  overflow-x: auto;
-  display: block;
-}
-.body blockquote {
-  margin: 0.8rem 0;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--rule);
-  color: var(--muted);
-}
-.body pre {
-  background: var(--wash);
-  padding: 0.7rem;
-  font-size: 0.8125rem;
-}
-.body p:first-child {
-  margin-top: 0;
-}
-.body p:last-child {
-  margin-bottom: 0;
-}
-
 /* --- people -------------------------------------------------------------- */
 
-.avatar {
-  display: block;
-  flex: none;
-  object-fit: cover;
-  background: var(--wash);
-  border: 1px solid var(--rule);
-}
-.avatar--empty {
-  display: grid;
-  place-items: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--faint);
-  letter-spacing: 0.02em;
-}
-
-.entry {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-}
-.entry__who {
-  flex: none;
-  text-decoration: none;
-}
-.entry__main {
-  min-width: 0;
-  flex: 1;
-}
-
-.profile {
-  display: flex;
-  gap: 1.1rem;
-  align-items: center;
-  margin: 0 0 2.5rem;
-}
-.profile h1 {
-  margin: 0 0 0.2rem;
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-.profile__meta {
-  margin: 0;
-  font-size: 0.8125rem;
-  color: var(--faint);
-}
-
-.page-title {
-  font-size: 1.5rem;
-  margin: 0 0 0.3rem;
-}
 .section-title {
   font-size: 0.8125rem;
   font-weight: 600;
@@ -285,87 +153,4 @@ a:hover {
 .section-title .count {
   color: var(--faint);
   font-weight: 400;
-}
-.activity:first-of-type .section-title {
-  margin-top: 0;
-}
-
-.members {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.members li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-.members li > a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  min-width: 0;
-}
-.members__name {
-  font-size: 0.9375rem;
-}
-.members li > a:hover .members__name {
-  text-decoration: underline;
-}
-.members__meta {
-  margin-left: auto;
-  font-size: 0.75rem;
-  color: var(--faint);
-  white-space: nowrap;
-}
-
-.profile-fields {
-  margin: 0;
-  display: grid;
-  gap: 0.35rem 1rem;
-}
-.profile-fields > div {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-}
-.profile-fields dt {
-  flex: none;
-  width: 8.5rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--faint);
-}
-.profile-fields dd {
-  margin: 0;
-  font-size: 0.875rem;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-/* --- pagination ---------------------------------------------------------- */
-
-.pager {
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
-  margin-top: 2rem;
-  font-size: 0.8125rem;
-}
-.pager__spacer {
-  margin-left: auto;
-  color: var(--faint);
-}
-
-.note {
-  margin: 1rem 0;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid var(--rule);
-  background: var(--wash);
-  font-size: 0.8125rem;
-  color: var(--muted);
 }

@@ -1,4 +1,4 @@
-import { Layout } from "../components/Layout.jsx";
+import { Layout } from "../../components/Layout.jsx";
 
 const REPO = "https://github.com/signalwerk/archive.typophile.com";
 
@@ -82,8 +82,8 @@ export function AboutPage({ totals, forums, archives }) {
         </li>
       </ul>
       <p>
-        In every case the captured page is kept unchanged alongside the edited
-        one, so nothing here is irreversible.
+        The originals are not ours to alter: every thread names the archive its
+        copy came from and the moment it was taken, and links to that capture.
       </p>
 
       <h2 className="section-title">Who made it</h2>

@@ -1,9 +1,8 @@
 // Step 8 -- clean up the stored HTML.
 //
-// First pass: point links at our own copies. Every <a> whose href resolves to
-// a node or member we actually recovered is repointed at our route; the link
-// text, the title attribute and everything else are left untouched, and links
-// to things we do not have keep their original href.
+// Removes anything that would execute or fetch from elsewhere, and points
+// links at our own copies where we hold the target. Both are done on a real
+// parse of the document; see lib/cleanHtml.js.
 //
 // The result goes in a new `html_clean` field. The captured `html` is never
 // modified, so this pass can be re-run or extended without losing the
@@ -18,7 +17,7 @@ import crypto from "crypto";
 import { fileURLToPath } from "url";
 import YAML from "yaml";
 import { DATA } from "./lib/config.js";
-import { rewriteLinks } from "./lib/links.js";
+import { cleanHtml } from "./lib/cleanHtml.js";
 import { ensureDir, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
 const args = parseArgs();
@@ -34,7 +33,7 @@ const META_FILE = `${DATA}/parsed/clean.meta.json`;
 function cleanerVersion() {
   const here = path.dirname(fileURLToPath(import.meta.url));
   const hash = crypto.createHash("sha1");
-  for (const f of [`${here}/lib/links.js`, `${here}/008_cleanHtml.js`]) {
+  for (const f of [`${here}/lib/cleanHtml.js`, `${here}/lib/links.js`, `${here}/008_cleanHtml.js`]) {
     try { hash.update(fs.readFileSync(f)); } catch { /* ignore */ }
   }
   return hash.digest("hex").slice(0, 16);
@@ -70,6 +69,7 @@ function main() {
   const counts = {
     threads: 0, cleaned: 0, unchanged: 0, entries: 0,
     links: 0, internal: 0, rewritten: 0, missing: 0,
+    dropped: 0, handlers: 0, jsUrls: 0,
   };
   const missingCounts = new Map();
 
@@ -95,6 +95,9 @@ function main() {
       counts.internal += known.internal ?? 0;
       counts.rewritten += known.rewritten ?? 0;
       counts.entries += known.entries ?? 0;
+      counts.dropped += known.dropped ?? 0;
+      counts.handlers += known.handlers ?? 0;
+      counts.jsUrls += known.jsUrls ?? 0;
       for (const miss of known.missing ?? []) {
         missingCounts.set(miss, (missingCounts.get(miss) || 0) + 1);
       }
@@ -105,16 +108,19 @@ function main() {
     try { doc = YAML.parse(fs.readFileSync(file, "utf8")); } catch { continue; }
     if (!doc) continue;
 
-    const totals = { links: 0, internal: 0, rewritten: 0, entries: 0 };
+    const totals = { links: 0, internal: 0, rewritten: 0, entries: 0, dropped: 0, handlers: 0, jsUrls: 0 };
     const missedHere = [];
 
     const clean = (entry) => {
       if (!entry) return entry;
       totals.entries++;
-      const { html: cleaned, stats } = rewriteLinks(entry.html, have);
+      const { html: cleaned, stats } = cleanHtml(entry.html, have);
       totals.links += stats.links;
       totals.internal += stats.internal;
       totals.rewritten += stats.rewritten;
+      totals.dropped += stats.dropped;
+      totals.handlers += stats.handlers;
+      totals.jsUrls += stats.jsUrls;
       for (const miss of stats.missing) {
         missingCounts.set(miss, (missingCounts.get(miss) || 0) + 1);
         missedHere.push(miss);
@@ -148,6 +154,9 @@ function main() {
     counts.internal += totals.internal;
     counts.rewritten += totals.rewritten;
     counts.entries += totals.entries;
+    counts.dropped += totals.dropped;
+    counts.handlers += totals.handlers;
+    counts.jsUrls += totals.jsUrls;
 
     if (counts.threads % 2000 === 0) process.stdout.write(`\r  ${formatCount(counts.threads)} threads ...`);
   }
@@ -176,6 +185,7 @@ function main() {
   console.log(`  point at us ....... ${formatCount(counts.internal)}`);
   console.log(`  repointed ......... ${formatCount(counts.rewritten)}`);
   console.log(`  target not held ... ${formatCount(counts.missing)} (${formatCount(missing.length)} distinct)`);
+  console.log(`removed ............. ${formatCount(counts.dropped)} element(s), ${formatCount(counts.handlers)} inline handler(s), ${formatCount(counts.jsUrls)} javascript: address(es)`);
   console.log(`\nstored as html_clean alongside the captured html`);
 }
 

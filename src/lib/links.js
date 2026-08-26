@@ -1,16 +1,7 @@
-// Rewrite links that point at pages we recovered, so a thread from 2004 links
-// to our copy instead of a dead host.
+// Work out what an address in an archived page refers to.
 //
-// Only the href is touched. The link text, the title attribute and every other
-// attribute are left exactly as they were -- the point is to make the archive
-// navigable, not to edit what people wrote.
-//
-// A link is only rewritten when we actually hold that node or member. Anything
-// else keeps its original href and stays honestly dead.
-
-// The <a> tags, and the href inside one of them.
-const A_TAG = /<a\b[^>]*>/gi;
-const HREF = /(\bhref\s*=\s*)("([^"]*)"|'([^']*)'|([^\s"'>]+))/i;
+// Used by the cleaning pass to decide whether a link can be repointed at our
+// own copy. Knowing nothing about markup, it deals only in URLs.
 
 // Replay wrappers, in case the copy we stored came from a rewritten page.
 const REPLAY_PREFIXES = [
@@ -67,30 +58,3 @@ export function internalTarget(rawHref) {
   return null;
 }
 
-// `have` answers whether we hold a given node or member.
-export function rewriteLinks(html, have) {
-  if (!html) return { html, stats: { links: 0, rewritten: 0, internal: 0, missing: [] } };
-
-  const stats = { links: 0, rewritten: 0, internal: 0, missing: [] };
-
-  const out = String(html).replace(A_TAG, (tag) =>
-    tag.replace(HREF, (match, prefix, _whole, dq, sq, uq) => {
-      stats.links++;
-      const raw = dq ?? sq ?? uq ?? "";
-      const target = internalTarget(raw);
-      if (!target) return match;
-
-      stats.internal++;
-      if (!have(target.type, target.id)) {
-        stats.missing.push(`${target.type}/${target.id}`);
-        return match;
-      }
-
-      stats.rewritten++;
-      const quote = sq !== undefined ? "'" : '"';
-      return `${prefix}${quote}/${target.type}/${target.id}/${target.hash}${quote}`;
-    })
-  );
-
-  return { html: out, stats };
-}
