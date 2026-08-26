@@ -19,6 +19,9 @@ function Activity({ title, items, empty }) {
             title={it.title}
             href={`/node/${it.node}/${it.comment ? `#comment-${it.comment}` : ""}`}
             date={it.date}
+            comments={it.comments}
+            forum={it.forum}
+            forumTitle={it.forumTitle}
           />
         ))}
       </ul>

@@ -43,7 +43,24 @@ export function resolve(route, index) {
     }
     case "user": {
       const doc = loadUser(route.user);
-      return doc ? { doc } : null;
+      if (!doc) return null;
+      // A member file records what they wrote, not the state of the thread it
+      // landed in. The forum and the reply count come from the thread index,
+      // so neither has to be duplicated into every member file.
+      const byNode = new Map(index.threads.map((t) => [t.id, t]));
+      const withThread = (items) =>
+        (items ?? []).map((it) => {
+          const thread = byNode.get(it.node);
+          return {
+            ...it,
+            forum: thread?.forum ?? it.forum ?? null,
+            forumTitle: thread?.forumTitle ?? null,
+            comments: thread?.comments ?? null,
+          };
+        });
+      return {
+        doc: { ...doc, posts: withThread(doc.posts), comments: withThread(doc.comments) },
+      };
     }
     default:
       return null;
