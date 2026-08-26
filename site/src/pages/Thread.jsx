@@ -1,4 +1,4 @@
-import { Layout, formatDate } from "../components/Layout.jsx";
+import { Layout, formatDate, formatDateTime } from "../components/Layout.jsx";
 import { sanitize } from "../../lib/sanitize.mjs";
 import { Avatar } from "../components/Avatar.jsx";
 
@@ -14,9 +14,16 @@ function Entry({ entry, op = false, anchor, user }) {
         <div className="entry__main">
           <div className="byline">
             <strong>{href ? <a href={href}>{name}</a> : name}</strong>
-            {entry.date ? <span>{formatDate(entry.date)}</span> : null}
+            {entry.date ? (
+              anchor ? (
+                <a href={`#${anchor}`}>
+                  <time dateTime={entry.date}>{formatDateTime(entry.date)}</time>
+                </a>
+              ) : (
+                <time dateTime={entry.date}>{formatDateTime(entry.date)}</time>
+              )
+            ) : null}
             {entry.votes != null ? <span>{entry.votes} votes</span> : null}
-            {anchor ? <a href={`#${anchor}`}>#</a> : null}
           </div>
           {/* html_clean has internal links repointed at our copies; fall back
               to the captured html if the cleanup pass has not run yet. */}

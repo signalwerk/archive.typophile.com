@@ -17,12 +17,22 @@ export function Layout({ children, wide = false }) {
   );
 }
 
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
 export function formatDate(iso) {
   if (!iso) return null;
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
   if (!m) return iso;
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  return `${Number(m[3])} ${months[Number(m[2]) - 1]} ${m[1]}`;
+  return `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}`;
+}
+
+// The stored date is naive local time, exactly as the page showed it, so it is
+// printed as-is on a 24-hour clock rather than being converted to anything.
+export function formatDateTime(iso) {
+  if (!iso) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso);
+  if (!m) return formatDate(iso);
+  return `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]} ${m[4]}:${m[5]}`;
 }
 
 export function Pager({ page, pages, hrefFor }) {
