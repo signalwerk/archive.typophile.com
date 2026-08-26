@@ -92,6 +92,19 @@ function nameFromByline(text) {
   return name && name.length < 80 ? name : null;
 }
 
+// The site shipped a shared placeholder for members with no picture; that is
+// an absence, not an avatar, so it is not recorded as one.
+const GENERIC_AVATAR = /\/misc\/id_generic\.gif(\?|$)/i;
+
+function avatarFrom($, scope) {
+  if (!scope || scope.length === 0) return null;
+  const src = scope.find(".picture img").first().attr("src");
+  if (!src || GENERIC_AVATAR.test(src)) return null;
+  // Stored absolute in some generations and relative in others; keep one form.
+  const m = /(\/files\/pictures\/[^?#"'\s]+)/.exec(src);
+  return m ? m[1] : src;
+}
+
 // No generation seen so far renders a score, but the hook is here so a
 // generation that does can fill it in without touching the callers.
 function findVotes($, scope) {
@@ -175,6 +188,7 @@ const sidebars = {
     const userId = user.id ?? pictureUser.id;
     const userName = user.name ?? pictureUser.name ?? nameFromByline(submitted.text());
     const userPath = user.path ?? pictureUser.path ?? null;
+    const userImage = avatarFrom($, node.find(".userinfo").first());
 
     const dateRaw = textAfterFirstBr($, submitted);
     const date = parseDate(dateRaw);
@@ -220,6 +234,7 @@ const sidebars = {
       comments.push({
         id, user_id: cu.id ?? cpic.id, user_name: cName,
         user_path: cu.path ?? cpic.path ?? null,
+        user_image: avatarFrom($, c.find(".infopic").first()),
         date_raw: cDateRaw, date: cDate, votes: findVotes($, c), html: cHtml,
       });
     });
@@ -228,6 +243,7 @@ const sidebars = {
       ...commonMeta($),
       post: {
         id: ctx.nodeId, user_id: userId, user_name: userName, user_path: userPath,
+        user_image: userImage,
         date_raw: dateRaw, date, votes: findVotes($, node), html,
       },
       comments,
@@ -298,6 +314,7 @@ const classic = {
 
       comments.push({
         id, user_id: cu.id, user_name: cu.name, user_path: cu.path,
+        user_image: avatarFrom($, cinfo),
         date_raw: cDateRaw, date: cDate, votes: findVotes($, c), html: cHtml,
       });
     });
@@ -306,6 +323,7 @@ const classic = {
       ...commonMeta($),
       post: {
         id: ctx.nodeId, user_id: user.id, user_name: user.name, user_path: user.path,
+        user_image: avatarFrom($, info),
         date_raw: dateRaw, date, votes: findVotes($, node), html,
       },
       comments,

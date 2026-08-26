@@ -1,4 +1,4 @@
-import { buildIndex, loadNode, paginate } from "./data.mjs";
+import { buildIndex, loadNode, loadUser, buildUserIndex, paginate } from "./data.mjs";
 
 // Turn a route into exactly the data that route needs -- nothing more, so a
 // thread page never pays for the full index being parsed.
@@ -18,6 +18,23 @@ export function resolve(route, index) {
     }
     case "thread": {
       const doc = loadNode(route.node);
+      if (!doc) return null;
+      // Bylines show each member's avatar; look them up once per thread rather
+      // than opening a user file per post.
+      const { byId } = buildUserIndex();
+      const pictures = {};
+      for (const e of [doc.post, ...(doc.comments ?? [])]) {
+        if (!e?.user_id || pictures[e.user_id] !== undefined) continue;
+        pictures[e.user_id] = byId.get(e.user_id)?.picture ?? null;
+      }
+      return { doc, pictures };
+    }
+    case "users": {
+      const { users } = buildUserIndex();
+      return { page: paginate(users, route.page), total: users.length };
+    }
+    case "user": {
+      const doc = loadUser(route.user);
       return doc ? { doc } : null;
     }
     default:
@@ -25,4 +42,4 @@ export function resolve(route, index) {
   }
 }
 
-export { buildIndex, loadNode, paginate };
+export { buildIndex, loadNode, loadUser, buildUserIndex, paginate };

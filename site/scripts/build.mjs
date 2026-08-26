@@ -52,7 +52,7 @@ async function main() {
   const { buildIndex } = await import(path.join(root, "lib/data.mjs"));
   const { resolve } = await import(path.join(root, "lib/resolve.mjs"));
   const { routeToPath } = await import(path.join(root, "lib/routes.mjs"));
-  const { PER_PAGE } = await import(path.join(root, "lib/data.mjs"));
+  const { PER_PAGE, PICTURES_DIR, buildUserIndex } = await import(path.join(root, "lib/data.mjs"));
 
   console.log("reading parsed threads ...");
   const index = buildIndex();
@@ -67,6 +67,11 @@ async function main() {
     for (let p = 1; p <= pages; p++) routes.push({ type: "forum", forum: forum.id, page: p });
   }
   for (const t of index.threads) routes.push({ type: "thread", node: t.id });
+
+  const { users } = buildUserIndex();
+  const userPages = Math.max(1, Math.ceil(users.length / PER_PAGE));
+  for (let p = 1; p <= userPages; p++) routes.push({ type: "users", page: p });
+  for (const u of users) routes.push({ type: "user", user: u.id });
 
   const total = Math.min(routes.length, limit);
   console.log(`rendering ${total.toLocaleString("en-US")} pages ...`);
@@ -87,6 +92,17 @@ async function main() {
   }
   process.stdout.write("\r");
 
+  // Avatars sit with the parsed data; copy them into the published tree.
+  let pictures = 0;
+  if (fs.existsSync(PICTURES_DIR)) {
+    const out = path.join(DIST, "pictures");
+    fs.mkdirSync(out, { recursive: true });
+    for (const name of fs.readdirSync(PICTURES_DIR)) {
+      fs.copyFileSync(path.join(PICTURES_DIR, name), path.join(out, name));
+      pictures++;
+    }
+  }
+
   // GitHub Pages: custom domain, and no Jekyll processing of the output.
   fs.writeFileSync(path.join(DIST, "CNAME"), "typophile.signalwerk.ch\n");
   fs.writeFileSync(path.join(DIST, ".nojekyll"), "");
@@ -95,6 +111,7 @@ async function main() {
 
   const secs = ((Date.now() - started) / 1000).toFixed(1);
   console.log(`wrote ${done.toLocaleString("en-US")} pages to dist/ in ${secs}s`);
+  console.log(`copied ${pictures.toLocaleString("en-US")} avatar(s)`);
   if (skipped) console.log(`skipped ${skipped} route(s) with no data`);
 }
 

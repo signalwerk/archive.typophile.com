@@ -10,6 +10,8 @@ export const DATA_DIR = process.env.TYPOPHILE_DATA
   : path.resolve(here, "../../data/parsed");
 
 const NODES_DIR = path.join(DATA_DIR, "nodes");
+const USERS_DIR = path.join(DATA_DIR, "users");
+export const PICTURES_DIR = path.join(USERS_DIR, "pictures");
 const CACHE_FILE = path.resolve(here, "../.cache/index.json");
 
 export const PER_PAGE = 100;
@@ -24,6 +26,43 @@ export function loadNode(id) {
   } catch {
     return null;
   }
+}
+
+// --- members ---------------------------------------------------------------
+//
+// The member index is one small line per user, written by step 7, so listing
+// pages never touch the per-user files.
+
+export function loadUser(id) {
+  const file = path.join(USERS_DIR, `${id}.yaml`);
+  if (!fs.existsSync(file)) return null;
+  try {
+    return YAML.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+let userIndexCache = null;
+
+export function buildUserIndex() {
+  const file = path.join(USERS_DIR, "_index.jsonl");
+  if (!fs.existsSync(file)) return { users: [], byId: new Map() };
+
+  const stat = fs.statSync(file);
+  const stamp = `${stat.size}:${Math.round(stat.mtimeMs)}`;
+  if (userIndexCache?.stamp === stamp) return userIndexCache.value;
+
+  const users = [];
+  for (const line of fs.readFileSync(file, "utf8").split("\n")) {
+    if (!line) continue;
+    try { users.push(JSON.parse(line)); } catch { /* torn line */ }
+  }
+  users.sort((a, b) => (b.posts + b.comments) - (a.posts + a.comments));
+
+  const value = { users, byId: new Map(users.map((u) => [u.id, u])) };
+  userIndexCache = { stamp, value };
+  return value;
 }
 
 // --- the index -------------------------------------------------------------

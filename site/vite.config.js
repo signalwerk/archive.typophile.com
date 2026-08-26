@@ -23,6 +23,24 @@ function forumDevServer() {
           if (url.startsWith("/@") || url.startsWith("/src/") || url.startsWith("/node_modules/")) {
             return next();
           }
+
+          // Avatars live with the parsed data, not in the site tree; the static
+          // build copies them into dist/pictures, so dev serves them from here.
+          if (url.startsWith("/pictures/")) {
+            const { PICTURES_DIR } = await server.ssrLoadModule("/lib/data.mjs");
+            const name = path.basename(decodeURIComponent(url));
+            const file = path.join(PICTURES_DIR, name);
+            if (fs.existsSync(file)) {
+              const ext = path.extname(name).toLowerCase();
+              const type = ext === ".png" ? "image/png"
+                : ext === ".jpg" || ext === ".jpeg" ? "image/jpeg"
+                : ext === ".gif" ? "image/gif" : "application/octet-stream";
+              res.setHeader("Content-Type", type);
+              return res.end(fs.readFileSync(file));
+            }
+            res.statusCode = 404;
+            return res.end("no such picture");
+          }
           const route = parseRoute(url);
           if (!route) return next();
 

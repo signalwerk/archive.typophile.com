@@ -1,31 +1,38 @@
 import { Layout, formatDate } from "../components/Layout.jsx";
 import { sanitize } from "../../lib/sanitize.mjs";
+import { Avatar } from "../components/Avatar.jsx";
 
-function Author({ name, id, path }) {
-  if (!name) return <strong>unknown</strong>;
-  const href = id ? `https://web.archive.org/web/2015/http://typophile.com/user/${id}` : null;
-  return href ? (
-    <strong><a href={href} rel="nofollow noreferrer">{name}</a></strong>
+function Author({ entry }) {
+  const name = entry.user_name || "unknown";
+  return entry.user_id ? (
+    <strong><a href={`/user/${entry.user_id}/`}>{name}</a></strong>
   ) : (
     <strong>{name}</strong>
   );
 }
 
-function Entry({ entry, op = false, anchor }) {
+function Entry({ entry, op = false, anchor, picture }) {
   return (
     <article className={op ? "post post--op" : "post"} id={anchor}>
-      <div className="byline">
-        <Author name={entry.user_name} id={entry.user_id} path={entry.user_path} />
-        {entry.date ? <span>{formatDate(entry.date)}</span> : null}
-        {entry.votes != null ? <span>{entry.votes} votes</span> : null}
-        {anchor ? <a href={`#${anchor}`}>#</a> : null}
+      <div className="entry">
+        <a className="entry__who" href={entry.user_id ? `/user/${entry.user_id}/` : undefined}>
+          <Avatar user={{ name: entry.user_name, picture }} size={44} />
+        </a>
+        <div className="entry__main">
+          <div className="byline">
+            <Author entry={entry} />
+            {entry.date ? <span>{formatDate(entry.date)}</span> : null}
+            {entry.votes != null ? <span>{entry.votes} votes</span> : null}
+            {anchor ? <a href={`#${anchor}`}>#</a> : null}
+          </div>
+          <div className="body" dangerouslySetInnerHTML={{ __html: sanitize(entry.html) }} />
+        </div>
       </div>
-      <div className="body" dangerouslySetInnerHTML={{ __html: sanitize(entry.html) }} />
     </article>
   );
 }
 
-export function ThreadPage({ doc }) {
+export function ThreadPage({ doc, pictures = {} }) {
   const comments = doc.comments ?? [];
   return (
     <Layout>
@@ -46,10 +53,15 @@ export function ThreadPage({ doc }) {
         </p>
       ) : null}
 
-      {doc.post ? <Entry entry={doc.post} op /> : null}
+      {doc.post ? <Entry entry={doc.post} op picture={pictures[doc.post.user_id]} /> : null}
 
       {comments.map((c, i) => (
-        <Entry key={c.id ?? i} entry={c} anchor={c.id ? `comment-${c.id}` : undefined} />
+        <Entry
+          key={c.id ?? i}
+          entry={c}
+          anchor={c.id ? `comment-${c.id}` : undefined}
+          picture={pictures[c.user_id]}
+        />
       ))}
 
       <p className="foot">

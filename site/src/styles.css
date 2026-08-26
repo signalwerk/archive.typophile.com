@@ -104,6 +104,44 @@ a:hover { text-decoration-thickness: 2px; }
 .body p:first-child { margin-top: 0; }
 .body p:last-child { margin-bottom: 0; }
 
+/* --- people -------------------------------------------------------------- */
+
+.avatar {
+  display: block;
+  flex: none;
+  object-fit: cover;
+  background: var(--wash);
+  border: 1px solid var(--rule);
+}
+.avatar--empty {
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--faint);
+  letter-spacing: 0.02em;
+}
+
+.entry { display: flex; gap: 0.9rem; align-items: flex-start; }
+.entry__who { flex: none; text-decoration: none; }
+.entry__main { min-width: 0; flex: 1; }
+
+.profile { display: flex; gap: 1.1rem; align-items: center; margin: 0 0 2.5rem; }
+.profile h1 { margin: 0 0 0.2rem; font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; }
+.profile__meta { margin: 0; font-size: 0.8125rem; color: var(--faint); }
+
+.page-title { font-size: 1.5rem; letter-spacing: -0.015em; margin: 0 0 0.3rem; }
+.section-title { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2rem 0 0.6rem; }
+.section-title .count { color: var(--faint); font-weight: 400; }
+.activity:first-of-type .section-title { margin-top: 0; }
+
+.members { list-style: none; margin: 0; padding: 0; }
+.members li { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.members li > a { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; min-width: 0; }
+.members__name { font-size: 0.9375rem; }
+.members li > a:hover .members__name { text-decoration: underline; }
+.members__meta { margin-left: auto; font-size: 0.75rem; color: var(--faint); white-space: nowrap; }
+
 /* --- pagination ---------------------------------------------------------- */
 
 .pager { display: flex; gap: 1rem; align-items: baseline; margin-top: 2rem; font-size: 0.8125rem; }
