@@ -68,9 +68,9 @@ async function main() {
   }
   for (const t of index.threads) routes.push({ type: "thread", node: t.id });
 
+  // Members are reached by clicking a name on a post, not from a directory,
+  // so only the individual pages are generated.
   const { users } = buildUserIndex();
-  const userPages = Math.max(1, Math.ceil(users.length / PER_PAGE));
-  for (let p = 1; p <= userPages; p++) routes.push({ type: "users", page: p });
   for (const u of users) routes.push({ type: "user", user: u.id });
 
   const total = Math.min(routes.length, limit);

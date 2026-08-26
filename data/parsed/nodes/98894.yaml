@@ -1,0 +1,173 @@
+node: 98894
+title: Python Script - Find all selected glyphs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150331101340"
+  captured_at: 2015-03-31T10:13:40Z
+  url: http://www.typophile.com/node/98894
+  digest: FTPQMZKLI45FVNY7UXGD37D5I54JARAA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/98894.html
+  fingerprint: 1c269be69727d54e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150331101340"
+      digest: FTPQMZKLI45FVNY7UXGD37D5I54JARAA
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/98894.html
+post:
+  id: 98894
+  user: 205201
+  date: 2012-12-12T19:41:00
+  date_raw: 12 Dec 2012 — 7:41pm
+  votes: null
+  html: |-
+    <p>I'm trying to write a simple python script that acts on the glyphs that the user has selected in the FontLab font window:</p>
+    <p><img src="http://typophile.com/files/glyph-slots.png"></p>
+    <p>I'm especially interested in the glyphs (or maybe more accurately "glyph slots") that are in the encoding but are un-filled.</p>
+    <p>So far I've tried two things:</p>
+    <p><code><br>
+    # 1 - glyph slots<br>
+    selectedSlots = fl.count_selected<br>
+    print "Number of selected glyph slots:", selectedSlots<br>
+    </code><br>
+    <code><br>
+    # 2 - selected glyph names<br>
+    selectedNames = [ fl.font.glyphs[i].name for i in range(len(fl.font.glyphs)) if fl.Selected(i) ]<br>
+    print "List of selected glyph names:", selectedNames<br>
+    </code></p>
+    <p>Script number 1 reports a count of the full user selection - all selected glyph slots - filled and un-filled - perfect! Script number 2 returns a list of glyphnames but only the selected glyphs that are filled - no good. Results of running 1 and 2:</p>
+    <p><code><br>
+    Number of selected glyph slots: 3<br>
+    List of selected glyph names: ['eacute']<br>
+    </code></p>
+    <p>Can anyone suggest a technique that will list the glyphnames associated with all the selected glyph slots?</p>
+    <p>cheers<br>
+    - kannery</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/glyph-slots.png">glyph-slots.png</a></td><td>10.43 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 534280
+    user: 3320
+    date: 2012-12-15T18:40:00
+    date_raw: 15 Dec 2012 — 6:40pm
+    votes: null
+    html: <p>If a slot is empty, there is nothing in FontLab to read.</p>
+  - id: 534292
+    user: 205201
+    date: 2012-12-16T00:43:00
+    date_raw: 16 Dec 2012 — 12:43am
+    votes: null
+    html: |-
+      <p>FontLab can read the glyphnames associated with the slots, even if they are empty:</p>
+      <p><code><br>
+      # Generate a list of encoding glyph names<br>
+      enc = fl.font.encoding<br>
+      encodingNames = [ enc[i].name for i in range(len(enc)) ]<br>
+      print "List of the encoding glyph names:", encodingNames<br>
+      </code><br>
+      <code><br>
+      List of the encoding glyph names:<br>
+      ['acute', 'aacute', 'eacute', 'iacute', 'oacute', 'uacute', 'yacute', 'cacute']<br>
+      </code></p>
+      <p>And even if the slots are empty, FontLab also knows how many slots are selected (see script #1 in my first post). So possibly there is a way for FontLab to associate glyphnames with selected slots -- empty or not.</p>
+      <p>I hope. Is there a way?</p>
+      <p>cheers<br>
+      -k</p>
+  - id: 534298
+    user: 18942
+    date: 2012-12-16T07:41:00
+    date_raw: 16 Dec 2012 — 7:41am
+    votes: null
+    html: |-
+      <p>I don't use Fontlab (I use mainly FontForge); it seems to me you are trying to list names of characters that are not in the font. What you can do is determine the unicode range of those characters that are in the font and then print the names given by the encoding. If the first and last character are in the font then the following code seems to work on my demo version of Fontlab</p>
+      <pre>def encodingNames():
+        gl = fl.font.glyphs
+        sIndices = [ g.unicode 
+           for g in gl if fl.Selected(g.index) ]
+        eNames = [ enc[i].name 
+           for i in range(sIndices[0],sIndices[-1]+1) ]
+        return eNames
+      print "List of glyph names in the selected range:", encodingNames()
+      </pre>
+  - id: 534315
+    user: 205201
+    date: 2012-12-16T13:45:00
+    date_raw: 16 Dec 2012 — 1:45pm
+    votes: null
+    html: |-
+      <p>Thanks for your suggestion Michel, its an interesting script. But unfortunately your script would only work for me in a very rare special case: if the user happens to select a filled slot with an ID thats numerically lower than any unfilled selected slot AND, at the same time, the user also happens to select another filled slot with an ID thats numerically higher than any selected unfilled slot.</p>
+      <p>Its just too narrow of a scenario, but your script does give some inspiration for crafty workarounds, so thanks.</p>
+      <p>I guess what I'm after would be a magical method where you could probe for glyphnames like this:</p>
+      <p><code><br>
+      fl.font.encoding.Selected(glyphname)<br>
+      </code></p>
+      <p>Where it would return TRUE if the encoding slot was selected.</p>
+      <p>cheers,<br>
+      -k</p>
+  - id: 535957
+    user: 3320
+    date: 2013-01-01T10:57:00
+    date_raw: 1 Jan 2013 — 10:57am
+    votes: null
+    html: <p>No it can't. Your script is reading an encoding not the font data.</p>
+  - id: 536204
+    user: 205201
+    date: 2013-01-02T23:44:00
+    date_raw: 2 Jan 2013 — 11:44pm
+    votes: null
+    html: |-
+      <p>I came up with a workaround:</p>
+      <pre># Find all selected glyph slots
+
+      f = fl.font
+      s1 = [ g.name for g in f.glyphs if fl.Selected(g.index) ]
+      slots = [ e.name for e in f.encoding if e.unicode &gt; -1 ]
+      empties = [ n for n in slots if not f.has_key(n) ]
+
+      # Create temporary blank glyphs in all empty glyph slots
+      for n in empties:
+      	g = Glyph()
+      	g.name = n
+      	f.glyphs.append(g)
+      fl.UpdateFont()
+
+      s2 = [ n for n in empties if fl.Selected(f[n].index) ]
+
+      # Remove temporary blank glyphs
+      for n in empties:
+      	del(f.glyphs[f[n].index])
+      fl.UpdateFont()
+
+      allSelected = s1 + s2
+      print "All selected slots:", allSelected
+
+      </pre><p>
+      Using the example from my first post, the user has selected one full glyph slot [eacute] and two empty glyph slots [uacute, yacute] :</p>
+      <p><img src="http://typophile.com/files/glyph-slots.png"> </p>
+      <p>Running the script in this state yields the result:</p>
+      <pre>All selected slots: [eacute, uacute, yacute]
+      </pre><p>
+      A kludgy script, but it gets the job done. If anyone has a more elegant solution, please post ( Adam? Eigi? ).</p>
+      <p>cheers,<br>
+      -kannery</p>

@@ -1,0 +1,352 @@
+node: 29469
+title: Opentype features take a vacation with one font using FL5 Mac
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427232843"
+  captured_at: 2015-04-27T23:28:43Z
+  url: http://typophile.com/node/29469?page=1
+  digest: ECPPBO43SCPXXHAPA3AXIQS7GF2R2BYR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/29469__q_page=1.html
+  fingerprint: 9de59ec944e6f051
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: false
+  have:
+    - 1
+  missing:
+    - 0
+  parts:
+    - page: 1
+      archive: commoncrawl.org
+      timestamp: "20150427232843"
+      digest: ECPPBO43SCPXXHAPA3AXIQS7GF2R2BYR
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/29469__q_page=1.html
+post:
+  id: 29469
+  user: 3135
+  date: 2006-11-13T12:22:00
+  date_raw: 13 Nov 2006 — 12:22pm
+  votes: null
+  html: |-
+    <p>I have been working on a typeface called Tovarich which has several opentype features which used to work fine until a few days ago. I can't figure out what I did to screw it up but I must have done something bone-headed.<br>
+    From within FontLab 5, my features compile properly without complaint. They show up and work as expected in the preview screen. When I output the font as PostScripot flavored OTF, my features vanish in both InDesign and Illustrator CS. There are brackets around the feature names in the menu indicating "nobody home" and the features don't work. For the past few days, I have been trashing my features and redoing them all to no avail.  I trashed them and then imported features from one of my other fonts which is working fine but it still does not work! I have trashed my cashe several times, rebooted, resaved the font under a new name and redone the features again all with the same unpleasant result, terminal frustration! What the heck have I done wrong? Why will the exact same feature code work on one font and not another?<br>
+    I would be tearing my hair out but that ship has long sailed,</p>
+    <p>Any help would be appreciated,</p>
+    <p>ChrisL</p>
+comments:
+  - id: 404695
+    user: 45774
+    date: 2010-04-03T04:01:00
+    date_raw: 3 Apr 2010 — 4:01am
+    votes: null
+    html: |-
+      <p>@ Adam</p>
+      <p><cite>Dotlessi and idotaccent are not PDF-compatible glyphnames. They resolve to an unknown character. Instead of "idotaccent", Adobe recommends using "i" with a suffix, and FontLab recommends "i.TRK", specifically.</cite></p>
+      <p>Now I am totally confused. This shocks me. I thought, that the only important thing is, that the characters have the correct Unicode and if you search for a string "Adam" in a PDF, the characters are first translated to Unicode. I thought, that the character names are totally unimportant for the user in case of OpenType fonts. I thought for example, that I could name the letter b "barbarella", as long as the Unicode is correct.</p>
+  - id: 404696
+    user: 1133
+    date: 2010-04-03T04:23:00
+    date_raw: 3 Apr 2010 — 4:23am
+    votes: null
+    html: |-
+      <p><cite>Now I am totally confused. This shocks me. I thought, that the only important thing is, that the characters have the correct Unicode and if you search for a string “Adam” in a PDF, the characters are first translated to Unicode. </cite></p>
+      <p>Citing the FontLab Studio manual, published in 2006. The chapter “Glyph Naming and Character Encoding” (which I have written), page 145, says: </p>
+      <p>————————————————————————————————————</p>
+      <dd>When fonts are embedded in electronic documents or sent to a printer, under some circumstances only the information about the glyphs (their glyph indexes, names and outlines) are retained, while the encoding information (the associated Unicode codepoints) is lost. The electronic document “looks right” but the underlying text streams are obscured or not available. In such cases, meaningfully constructed glyph names can be used as a help to rebuild or at least approximate the original text. A practical example: the user creates a text document that uses an OpenType PS font. The document is printed to a PostScript file. Since PostScript does not support OpenType PS, the font is embedded in the print stream as Type 1. The OpenType information such as layout tables or Unicode codepoints is lost. If Acrobat Distiller is used to convert the PostScript file to a PDF document, the application first tries to locate the original OpenType PS font on the user’s system: if the font is found, Distiller is able to use its original Unicode codepoints and embed them in the PDF document. But if the original OpenType PS font is not available to Distiller (for example because the PS-to-PDF conversion happens on a different machine), Distiller embeds the Type 1 font found in the PostScript stream, with no Unicode information. Now, when the text in the PDF document is being searched, copy-pasted or otherwise extracted by an application such as Acrobat or Google, the application can attempt to rebuild the Unicode codepoints basing on glyph names included in the embedded Type 1 font. For Latin or Cyrillic scripts, the recreated text will likely be a very close match of the original; for Thai or Hindi, the text recreated that way will probably be only a crude approximation, with letters arranged in incorrect sequence, and some information missing. But yet, some is often better than nothing.</dd>
+      <p>————————————————————————————————————</p>
+      <p>Apart from Distiller, there are many other PDF creation applications, and only some embed the Unicode codepoints in the PDF file. The backup option is always the glyphnames, which is why they need to be “meaningful”. </p>
+      <p>This mechanism has also been described in several other locations, including here on Typophile. I recommend reading the section “Advanced Glyph Naming and Encoding” (p. 145 ff.) of the FontLab Studio manual, which is quite essential reading on this topic. </p>
+      <p>Adobe has also published about this:<br>
+      <a href="http://www.adobe.com/devnet/opentype/archives/glyph.html" title="http://www.adobe.com/devnet/opentype/archives/glyph.html">http://www.adobe.com/devnet/opentype/archives/glyph.html</a></p>
+      <p>This information has been up for a long time now, and still is relevant.</p>
+  - id: 404699
+    user: 45774
+    date: 2010-04-03T04:26:00
+    date_raw: 3 Apr 2010 — 4:26am
+    votes: null
+    html: |-
+      <p>@ Adam</p>
+      <p>With regard to the names I begin to understand, but why do you recommend having small capitals two times in the font, alphabet.smcp and Alphabet.c2sc?</p>
+      <p><cite>Dotlessi and idotaccent are not PDF-compatible glyphnames</cite></p>
+      <p>Because of the missing suffixes – would I.dotless and i.dotaccent work? Why is i.TRK PDF-compatible? What are "meaningfully constructed glyph names"? I will read that chapter of the FontLab manual.</p>
+      <p>Thanks.</p>
+  - id: 404701
+    user: 1133
+    date: 2010-04-03T05:29:00
+    date_raw: 3 Apr 2010 — 5:29am
+    votes: null
+    html: |-
+      <p>Arno, </p>
+      <p>1. I thought I explained it already twice: </p>
+      <dd>PDF readers will know that <code>“A.c2sc”</code> stands for a smallcap version of the <em>“A”</em> character, while <code>“a.smcp”</code> stands for a smallcap version of the <em>“a”</em> character. This way, copy-paste and searching will still work properly even if the text is set in smallcaps.</dd>
+      <p>In other words: if you want to preserve the case difference of the original text in the typeset PDF even if the text is set is smallcaps, you would duplicate the glyphs. Specifically: the searchability and copy-paste of the PDF will work the same regardless of whether the PDF was created with Unicode codepoints included or without them. </p>
+      <p>If you include just one set of smallcap glyphs, let’s say <code>“A.sc”</code>, and use them in both the <code>“smcp”</code> and <code>“c2sc”</code> features, then copy-pasting smallcap text from one PDF may result in the text “Arno Enslin” (if the Unicode codepoints were embedded in the PDF) while doing it from other PDFs (where the Unicode codepoints were not embedded) would produce “ARNO ENSLIN”. </p>
+      <p>Duplicating the smallcap glyphs is Adobe’s practice, very sensible in my opinion. Using kerning classes and CFF subroutinization will cause the font be only minimally larger than if you don’t duplicate them, but the functionality of the font will be more consistent. </p>
+      <p>Adobe recommends including separate glyphs if the Unicode character information should be maintained separately. This also means that Adobe includes separate glyphs for U+002D (-, HYPHEN OR MINUS SIGN) called <code>“hyphen”</code> and for U+00AD (DISCRETIONARY HYPHEN) called <code>“uni00AD”</code>, and also separate glyphs for U+2126 (Ω, OHM SIGN) called <code>“Omega”</code> and for U+03A9 (Ω, GREEK CAPITAL LETTER OMEGA) called <code>“uni03A9”</code>. </p>
+      <p>Some font vendors tend to assign multiple Unicode codepoints to one glyph if the glyph looks the same for several Unicode characters, and they use the same glyph in OpenType Layout features even if the underlying text character is different. This is a matter of policy and practice. At FontLab, we recommend following Adobe’s policy because it has important technical reasons (which I detailed above) and results in fonts that behave more consistently and provide better functionality for the end-user — even if producing such fonts (with duplicated glyphs) is a bit more tedious. </p>
+      <p>2. “Meaningful” glyphnames are glyphnames in which the basename (i.e. anything up to the optional suffix which is separate by a dot) can be resolved to a Unicode string. Each component of the basename (i.e. either a single portion or several portions separated by underscores in case of ligatures) should follow the Adobe glyphname conventions, i.e. they should either be in the Adobe Glyph List for New Fonts (AGLFN) or have a <code>“uniXXXX”</code> form for four-digit Unicodes and a <code>“uXXXXX”</code> form for five-digit Unicodes. This means that names such as <code>“aacute”</code>, <code>“aacute.smcp”</code>, <code>“aacute.whatever”</code>, <code>“s_t”</code>, <code>“sacute_t”</code> or <code>“s_t.dlig”</code> are all meaningful, but <code>“aacutesmall”</code>, <code>“st”</code> or <code>“sacutet”</code> are not. </p>
+      <p>Please read the FontLab Studio manual chapter for more information as well as the Adobe document that I linked in my earlier post. </p>
+      <p>I recommend reading the manual in general, anyway (not just the ”Glyph Naming and Character Encoding” chapter), because it *does* include important information on various topics related to font development. </p>
+      <p>The suffix after the dot doesn't matter. <code>“i.TRK”</code> and <code>“i.dotless”</code> are equally meaningful. The advantage of using <code>“i.TRK”</code> is that future FontLab applications such as Fontographer 5.1 will recognize this name and build the <code>“locl”</code> OpenType Layout feature automatically. </p>
+      <p>Similarly, using <code>“A.c2sc”</code> and <code>“a.smcp”</code> rather than, say, <code>“A.sc”</code> and <code>“a.sc”</code> will allow Fontographer 5.1, TransType 4 and FontLab Studio 6 to build the <code>“c2sc”</code> and <code>“smcp”</code> features automatically since the suffix will indicate which OpenType Layout feature the glyph “belongs to”. </p>
+      <p>BTW, the reason why the OHM SIGN and not GREEK CAPITAL LETTER OMEGA carries the glyphname <code>“Omega”</code> is historical and clearly looks somewhat inconsistent. But it’s just a glyphname, which, as I indicated, is primarily intended to allow the glyph being identified properly in the PostScript and PDF formats. This is why the glyphnames in an OpenType TT font is stored in the <code>“post”</code> table. Since glyphnames are for PostScript and PDF, they should primarily conform with recommendations developed by the creators of PostScript and PDF — which happens to be Adobe. </p>
+      <p>FontLab’s glyphname conventions and recommendations are compatible with Adobe’s, but are a bit more specific: they provide additional guidance which will help font developers get additional functionality (i.e. automatic OpenType Layout generation in our upcoming applications). Since our applications will soon ship with an additional set of new encoding files, adhering to FontLab’s conventions will allow developers to use those encodings. </p>
+      <p>Of course, font developers can use different glyphname suffixes which are not compatible with FontLab’s recommendations, as long as they follow Adobe’s recommendations for glyph basenames. This will result in PDF-compatible glyphnames but may not leverage the full functionality in our new applications.</p>
+  - id: 404703
+    user: 45774
+    date: 2010-04-03T05:10:00
+    date_raw: 3 Apr 2010 — 5:10am
+    votes: null
+    html: |-
+      <p>@ Adam</p>
+      <p><cite>I thought I explained it already twice</cite></p>
+      <p>I am so shocked, that I could not imagine, that you also were regarding to the doubling of the whole alphabet, which I will not do for the OTF that I build, because – compressing or not – somehow it is unaesthetic. Thanks for clarifying.</p>
+      <p>Have as nice weekend, I must buy nourishments now. And later I must feed a rabbit (no joke).</p>
+  - id: 404704
+    user: 1133
+    date: 2010-04-03T05:35:00
+    date_raw: 3 Apr 2010 — 5:35am
+    votes: null
+    html: |-
+      <p>Arno, </p>
+      <p>there are tons of aspects of the OpenType font format or the Unicode Standard which are “somehow unaesthetic”. Both OpenType and Unicode are technical standards which try to make a compromise between the “theoretical models” of how text encoding and digital fonts could be made in an idealized world, and the “pragmatic technical implications” which result from decades of software development. </p>
+      <p>Outline font formats (OpenType), text encoding formats (Unicode), and printable file formats (PDF) have a long history. They originated years ago, in very limited environments. They usually emerged from older formats (OpenType from TrueType and Type 1, PDF from PostScript, Unicode from a variety of different text encoding standards). </p>
+      <p>All of those formats have the one or another “original sin” which has been carried on over those decades. Some of them are “buried deep” in the formats and can no longer be changed without breaking backwards compatibility. So we’re stuck with them for good — at least until completely new, fresh formats emerge that are developed from scratch. Plus, well, there is no guarantee that the “new fresh formats” will be free of any problems. They may solve some problems for good, but they are likely to introduce other limitations that will become cumbersome in 20 years. </p>
+      <p>It’s evolution. </p>
+      <p>As I said — every font developer is free to make the fonts in any way they like. It’s your discretion. I’m trying to plot out the consequences for each choice a font developer makes, and I’m recommending the solutions which I believe are beneficial for the end-users. But some aspects are, of course, less debatable than others. This particular aspect we’re discussing is certainly one of the more debatable ones. There is no single clearly prescribed solution — but there are good reasons to consider the consequences of doing it one way or another.</p>
+  - id: 404707
+    user: 1133
+    date: 2010-04-03T05:39:00
+    date_raw: 3 Apr 2010 — 5:39am
+    votes: null
+    html: |-
+      <p>Of course in the code sample in a few posts above: </p>
+      <p><code>sub Idotaccent by Idotaccent.smcp;</code></p>
+      <p>it should say: </p>
+      <p><code>sub Idotaccent by Idotaccent.c2sc;</code></p>
+      <p>Sorry for the typo.<br>
+      Adam</p>
+  - id: 405129
+    user: 2021
+    date: 2010-04-06T10:45:00
+    date_raw: 6 Apr 2010 — 10:45am
+    votes: null
+    html: |-
+      <p>@Adam: <em>If you include just one set of smallcap glyphs, let’s say “A.sc”, and use them in both the “smcp” and “c2sc” features, then copy-pasting smallcap text from one PDF may result in the text “Arno Enslin” (if the Unicode codepoints were embedded in the PDF) while doing it from other PDFs (where the Unicode codepoints were not embedded) would produce “ARNO ENSLIN”.</em></p>
+      <p>Why is it not preferable to always use "A.smcp"-method glyphs in both c2sc and smcp features?<br>
+      If text from a pdf file with small caps is then imported into an unsmart application which does not support small caps, or is set in an unsmart font which doesn't include small caps, then both "c2sc" and "smcp" features will result in ARNO ENSLIN, which is a best practice, IMO.</p>
+      <p>If a pdf document has text set in the "smcp" feature with "a.smcp" method, then importing its text into an "unsmart" document will result in the U&amp;lc "Arno Enslin", which offers no distinction from normal U&amp;lc setting, which is its likely environment. Surely the point of setting small caps mixed in with U&amp;lc is to provide a meaningful distinction, which gets lost with fonts that have the "smcp" feature implemented with "a.smcp" glyphs!</p>
+  - id: 405173
+    user: 32723
+    date: 2010-04-06T14:33:00
+    date_raw: 6 Apr 2010 — 2:33pm
+    votes: null
+    html: |-
+      <p>These questions regarding search and copy-and-paste in/from PDFs apply to every PDF 'taste'? PDF X/1, X/3 or XML-structured does not handle this? Is there any option in PDF generation to avoid these problems?</p>
+      <p>I'm developing a font with more than 2500 glyphs and <em>really</em> want to avoid duplexing a whole set of characters (due to language support, each group of lowercase, uppercase, small caps, petite caps and swashes goes over to 300 glyphs).</p>
+      <p>Another question: if text copied from a PDF loses Unicode information, glyphs built with combining diacritics will be come unreadable in the destination? The name (say uni01230a011e00) is enough to a smart applcation rebuild these complex glyphs with diacritics?</p>
+      <p>(Actually, the search question seems more important to me as OT smart applications are <em>very</em> few by now).</p>
+  - id: 405410
+    user: 1133
+    date: 2010-04-07T15:12:00
+    date_raw: 7 Apr 2010 — 3:12pm
+    votes: null
+    html: |-
+      <p>Freiberger, </p>
+      <p>there can be a /ToUnicode resource in the PDF which stores the true glyph-to-Unicode mapping, and there can be Tagged PDF structures that give a parallel true text contents. Thomas Merz of PDFlib explained this here:<br>
+      <a href="http://typophile.com/node/2994#comment-140541" title="http://typophile.com/node/2994#comment-140541">http://typophile.com/node/2994#comment-140541</a><br>
+      and more recently, Adobe's Miguel Sousa talked about this:<br>
+      <a href="http://typophile.com/node/34108#comment-304550" title="http://typophile.com/node/34108#comment-304550">http://typophile.com/node/34108#comment-304550</a></p>
+      <p>But the main point is that both PDF tags and the /ToUnicode resource are optional. There are and will be PDFs around that come without it, just with plain strings of glyphs in the page contents. For those, extracting the text contents from glyphnames is the only option. (For example, if /ToUnicode is missing, Acrobat will analyse the document add it when the document is resaved as PDF/X or when tags are added. That analysis is based on glyphnames).  </p>
+      <p>Adam</p>
+  - id: 405429
+    user: 909
+    date: 2010-04-07T16:04:00
+    date_raw: 7 Apr 2010 — 4:04pm
+    votes: null
+    html: |-
+      <p>@Nick:</p>
+      <p>If the underlying text should be all-caps, then the user should set it that way and apply c2sc. If the underlying text is upper-and-lowercase, as in say the opening line of a book, then the user should set it that way and apply smcp.</p>
+      <p>The idea that the font shouldn't change the underlying text is fairly basic to the character/glyph model of Unicode and OpenType. This principle that led to the ill-formed "crcy" and "dpng" features being deprecated and later dropped from the OpenType spec. What you are suggesting would be to go against that principle. Of course, you're welcome to do what you want in your own fonts, but in this case it's counter to the philosophy of the standards involved.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 405440
+    user: 1133
+    date: 2010-04-07T16:30:00
+    date_raw: 7 Apr 2010 — 4:30pm
+    votes: null
+    html: |-
+      <p>Nick, </p>
+      <p>the intention of electronic text is to preserve the characters that are input. If the Unicode codepoints are natively embedded in the PDF, then the application will recreate the input as it was done. If I input "Arno Enslin", apply smcp and c2sc, I will still get Arno Enslin back. If I input "arno enslin", I will get "arno enslin". If I input "ARNO ENSLIN", I will get "ARNO ENSLIN". </p>
+      <p>If the Unicode codepoints are not natively embedded and need to be recreated using glyphnames, you have two options: </p>
+      <p>1. To still behave the same way as above, i.e. you get out what you put in. But this can be only done if you provide separate "identities" for the glyphs, i.e. dupe them as "A.c2sc" and "a.smcp". This approach will give you CONSISTENT behavior. </p>
+      <p>2. To behave DIFFERENTLY, INCONSISTENTLY, i.e. no matter what you input ("Arno Enslin", "arno enslin", "ARNO ENSLIN", you'll always get "ARNO ENSLIN" back). This is what you get if you only put "A.sc" or "A.smcp" or whatever glyphs into the font. This approach means: in half the cases (where the Unicode codepoints have been natively embedded), you'll get one result, in other half of cases (where they need to be recreated using glyphnames), you'll get another result. In fact, you may get two different results using the same app depending on whether the OpenType font was PostScript- or TrueType-flavored. </p>
+      <p>I for one am for predictable and consistent behavior for the user. Inconsistent behavior will result in user's confusion, uncertainty and disappointment. </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 405460
+    user: 32723
+    date: 2010-04-07T17:40:00
+    date_raw: 7 Apr 2010 — 5:40pm
+    votes: null
+    html: |-
+      <p>Many thanks, Adam. So the best practice is to duplicate the small caps set as any workaround causes problems. Hope a font with almost 3,000 glyphs does not cause any performance issue.</p>
+      <p>I know this is off-topic, but I cannot find the answer: after copy-and-append a set of glyphs in FLS5, how can I change the suffix of the whole set in an automatic way? Is this posible?</p>
+  - id: 405465
+    user: 31798
+    date: 2010-04-07T17:46:00
+    date_raw: 7 Apr 2010 — 5:46pm
+    votes: null
+    html: |-
+      <p><cite> after copy-and-append a set of glyphs in FLS5, how can I change the suffix of the whole set in an automatic way? Is this posible? </cite></p>
+      <p>command click on the glyph.<br>
+      From the 'more' submenu choose 'add suffix to name' and check the first checkbox in the resulting dialog box.</p>
+      <p>I recommend also checking the second box so you are presented with the dialog box by default when you append glyphs.</p>
+      <p>André</p>
+  - id: 405470
+    user: 32723
+    date: 2010-04-07T17:59:00
+    date_raw: 7 Apr 2010 — 5:59pm
+    votes: null
+    html: <p>Great, André! Many thanks.</p>
+  - id: 470244
+    user: 35635
+    date: 2011-07-07T23:06:00
+    date_raw: 7 Jul 2011 — 11:06pm
+    votes: null
+    html: |-
+      <p>This thread is really enlightening. Thank you.</p>
+      <p>By the way, I've read an explanation of the <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/archives/glyph.html " rel="nofollow"> Adobe Glyph</a> and some info related. I understand haphazardly as follows:</p>
+      <ol>
+      <li> That all the glyphs should be mapped back into the map table and encoding based AGL AGLFN last ver for OT fonts today.</li>
+      <li> PDF is a sort of "catalyst" to determine the quality of an OT font, so the naming and coding of glyphs absolutely must meet the standards on above (number 1).</li>
+      <li> Glyphs which included into the range as wide as any, remain to be defined into unicode which will only lead to - at least - 31 characters. So I tried to make an example of naming "A" glyphs an the related alternate, as follows:</li>
+      </ol>
+      <p>0x0041 !A.alt1<br>
+      0x0041 !A.alt2<br>
+      0x0041 !A.alt3<br>
+      0x0041 !A.medi1<br>
+      0x0041 !A.medi2<br>
+      0x0041 !A.ss01<br>
+      0x0041 !A.ss02<br>
+      0x0041 A</p>
+      <p>Will they be defined as "A" and the glyphs variant of ?</p>
+      <p>Please verify and explanation, if I've being lost? :-) Thanks</p>
+      <p>Best regards<br>
+      Andi</p>
+  - id: 470326
+    user: 1133
+    date: 2011-07-08T18:50:00
+    date_raw: 8 Jul 2011 — 6:50pm
+    votes: null
+    html: |-
+      <p>Andi,</p>
+      <p>no, this portion of .nam will cause that A.ss01 will get the Unicode U+0041 if you do "Generate Unicode", and A will also get that Unicode, and you'll get conflicts. In a font, only one glyph should exist out of those which have the same Unicode in a .nam file. Basically, what you're showing is that if your font has A.ss01 and no A, and you'll do "Generate Unicode" and then "Generate Names", then your A.ss01 will be renamed to A. Which I don't think is what you want. </p>
+      <p>Do not put any glyphs that should be accessed through OpenType Layout features into the .nam file. The .nam file specifies glyphnames that should have Unicodes, and glyphs that have Unicodes are accessible directly through the "cmap" table, without OpenType Layout. </p>
+      <p>All glyphs that are accessible though OpenType Layout features should only be specified in the OpenType Layout feature definitions (OpenType panel and perhaps Classes panel). </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 470372
+    user: 35635
+    date: 2011-07-09T10:57:00
+    date_raw: 9 Jul 2011 — 10:57am
+    votes: null
+    html: |-
+      <p>Thanks Adam, it really opened my horizons</p>
+      <p>After testing generated, indeed this way it produces .NULL on alternate ss01 (opened via indesign). Does that mean any alternates glyphs to be accessed via OTLF its codepoint should be blank? </p>
+      <p>At this time, my understanding of your explanation is A.ss01 not require codepoint, and let the features OTLF do the rest. In other words, alternate glyphs do not need to be placed inside .NAM file and will be accessible via OTLF, despite having no codepoint. Is this true?</p>
+      <p>Would you be more specific in the handling of codepoint -- for instance -- A.alt, A.ss01, A.medi, A.fina .... and also how about f_j, f_j.alt1, f_j.alt2 ? </p>
+      <p>This is to ensure that I was on the right path :-)</p>
+      <p>Your explanation certainly will make this problem does not drag on. (I found a similar problem on many threads on this site)</p>
+      <p>Thanks in advance<br>
+      Best regards</p>
+  - id: 470439
+    user: 1133
+    date: 2011-07-10T06:44:00
+    date_raw: 10 Jul 2011 — 6:44am
+    votes: null
+    html: |-
+      <p>&gt; At this time, my understanding of your explanation is A.ss01 not require<br>
+      &gt; codepoint, and let the features OTLF do the rest. In other words,<br>
+      &gt; alternate glyphs do not need to be placed inside .NAM file and will<br>
+      &gt; be accessible via OTLF, despite having no codepoint. Is this true?</p>
+      <p>Yes. The typesetting process, when OpenType Layout is involved, works like the following: </p>
+      <p>1. The application has a Unicode text string, i.e. a series of Unicode codepoints — the entire text of a document, or a text thread or frame. The application splits the text string into "text runs", i.e. a series of Unicode codepoints which belong to the same writing system (script), have the same directionality (LTR or RTL), and should be rendered using the same font and size. So an English word inserted into Arabic text would be put into a separate text run, and also a word set in italic font within text set in a roman font would be put into a separate text run. </p>
+      <p>2. For every text run, the application looks up the font which should be used, and reads its "cmap" table, which contains a mapping of Unicode codepoints to the "default glyphs" for each codepoint. Therefore, each Unicode codepoint which your font supports must have one default glyph — and that's the glyph which you assign the Unicode codepoint to. So you'd have Unicode codepoints assigned to "A", "f", "j" etc. </p>
+      <p>3. The application stores the glyph ID (the numerical index of a glyph, visible in FLS in the Index mode of the Font Window) of the default glyphs for every codepoint in the text run. In other words, a text run is internally "replaced" by a glyph ID run. At this point, the Unicode codepoint no longer matter. Everything from now on is performed on glyph IDs. (So obviously, each glyph in your font has a glyph ID — but there is no way for it not to have it. All glyphs in a font are just a list, and the first glyph in the list has the ID 0, the second glyph has the ID 1 etc.) </p>
+      <p>4. The application reads the font's "GSUB" table, and replaces the default glyphs' IDs with the glyph IDs of the alternate glyphs — depending on which OpenType Layout features are applied to the glyph ID run (Those features can be either specified by the user, such as "liga" or "smcp" or "ss01", or they can be demanded by the script shaping engine, such as "init", "medi", "fina" or "isol" for Arabic). So if the "ss01" feature is applied, and the font's GSUB table specifies that the glyph "A" (with a certain glyph ID) is to be replaced by the glyph "A.ss01" (with a different glyph ID), then those glyph IDs are replaced. In some cases, multiple glyphs are replaced by one glyph (e.g. if "liga" is applied, the glyphs "f" and "j" are replaced by the glyph "f_j" — again, we're using glyph names here for human-readability, but in the process actually the numerical glyph IDs are used). </p>
+      <p>5. For every feature that should apply to the glyph ID run, and every lookup specified in the "GSUB" table, the replacements are being performed again and again until a final glyph ID run is produced (so at some point, if the user has specified both "liga" and "ss01", then first "f" "j" are replaced by "f_j", and in a later lookup, "f_j" is replaced by "f_j.ss01" — this process is iterative). Again: in all this, the app only tracks the glyph IDs. Unicode codepoints no longer matter at this point, they only matter at the beginning. And the glyph names actually don't matter at all — they're only there for font developers to make the glyphs a bit more "accessible". Well, actually, the glyph names are also used by some PDF readers to reconstruct the Unicode codepoints of a glyph ID run once it has been exported to PDF, but that's a totally different story. </p>
+      <p>6. Typically, the application keeps track somehow of the mapping between the original Unicode text run and the final glyph ID run in order to enable the user to use the text cursor, perform text selection etc. But if the application is not interactive (e.g. it's a server app that generates PNGs or PDFs), this doesn't necessarily happen. </p>
+      <p>7. At this stage, the application needs to know not only the glyph IDs but also the sizes of the "box" in which each glyph will be placed, measured in font units. The height of the box is determined by the font's linespacing values (ascender and descender in the "hhea" or "OS/2" table, depending on the OS and app), and the width is the distance between the left and right sidebearing. So these are "metric boxes", not "bounding boxes" (which are determined by the actual glyph's outlines). At this stage, the app does not need to know anything about the glyphs' outlines at all. The application reads the font's "GPOS" table, and adjusts the positioning of each glyph in the final glyph ID run accordingly (using the "kern", "mark", "mkmk" and other features). In other words, the application "moves around" those boxes. </p>
+      <p>8. After the "moving around" of the boxes has happened, the application knows the final width of the entire box that encompasses the glyph ID run. It scales each "glyph ID run box" to the point size in which the glyph ID run will be rendered, and then glues together all the processed glyph ID runs until the width of the text frame or page is reached, and then breaks the line if necessary. In this case, it will often need to perform the whole above process again (or even several times), because it needs to insert some hyphens if there's hyphenation, or it needs change the way contextual alternates work (because now the text run is truncated to a certain line length). Linebreaking is performed differently by different applications: e.g. in InDesign the "single-line composer" basically just breaks each line at the point where the next glyph would not fit into the frame width, and then, if the text is set to be full-justified, it stretches the word spaces to fill up the entire width of the frame, but the "paragraph composer" makes several (approximately 7-8) different approaches on how to distribute the space, and chooses the "most optimal" version according to some internal criteria. In this process, depending on the app and the linebreaking algorithm, the entire process described above is performed several or even many times. The more lookups, especially contextual lookups, the font uses, the longer the process takes. But in general, this process is very fast on today's computers. </p>
+      <p>9. Only after the app has a final set of glyph IDs, their "boxes" and their positions for a given line, it calls the rasterizer which reads the font's "CFF" or "glyf" table and "paints" the glyph images into the boxes, at the given point size. So only at this final stage, the actual glyph outlines come into place. </p>
+      <p>So, that's the entire "typesetting process using OpenType Layout features" in a nutshell. The steps 1-8 describe the process of "line layout and linebreaking", and step 9 describes "rendering" or "rasterization". As you may have notices, the actual line layout and linebreaking is actually a much more complex process from the rendering or rasterization itself. Of course in real life, those processes interact a bit, because, for example, TrueType hinting programs can modify the width of the glyphs (and the width is needed to determine the size of the "boxes"), so in reality, the rasterization of the glyphs may happen earlier. But conceptually, those processes are separate. </p>
+      <p>A more extensive description of the process has been written by John Hudson: <a href="http://www.microsoft.com/typography/Glyph%20Processing/intro.mspx" rel="nofollow"><strong>Windows Glyph Processing: an OpenType Primer</strong></a>. </p>
+      <p>I hope this is helpful. </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 471965
+    user: 35635
+    date: 2011-07-23T02:49:00
+    date_raw: 23 Jul 2011 — 2:49am
+    votes: null
+    html: |-
+      <p>Thanks Adam, for the philosophical explanation and your time. You really took us wandered (banc) into a "The typesetting process". Of course this is a very valuable lesson. (I beg permission to publish the translated version on our website sometime in the future). A lesson best will always come from the best teachers.</p>
+      <p>Although I can say that I now understand what you explain word by word, but I am ashamed to say that I've fully understood in its application. Proved with the a dizzying following cases:</p>
+      <p>In case of revision of a font, a change commonly done by moving the entire codepoint of glyph alternates from the PUA to blank. The result is a font OT-PS which was normal in the running  text, especially on the Adobe InDesign application. It also runs (partly) in MSWord 2010, but  the OT is not supported at all on the Corel Draw application.</p>
+      <p>The entire script OTLF work well on text runs. But the gaffe occurred when "insert glyph" is performed (InDesign). I can show a little description:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/enc01_4445.jpg"></div><p></p>
+      <ol>
+      <li>Some alternates glyphs get the right reference from the main glyph codepoint assigned, while others not at all, for example on the frame of the InDesign user interface, the GID 644 reads as the Null. But if the "Insert glyph" is applied it will produce the appropriate glyph, although it is .Null.
+      <p>Conversely, the GID 617 are referenced from the ligature f_f (0066 + 0066), but if the "Insert glyph" is applied it will produce inaccurate glyphs. Application of this yields only f + f (normal) and not ligature alternate as the proper purpose.</p></li>
+      <li>In other cases, the scenario of naming glyphs like this: L, L.alt1, L.alt2, L.end1. L.end2 L.sso1, L.ss02. But strangely, L.end2 and L.ss02 referenced as the Null. However OTLF in applications has gone well. Does this indicating a laying false  OTLF's script?
+      <p>I've tried to track down this problem by trying to put the script OTLF into best possible place as is ligature into the LIGA and  contextual ligature into CLIG. Although a ligature tags it turn out can also be placed inside sso1 (Because it is work well?). But the result remains the same, some glyphs as NULL. So temporary conclusion, not the source of the problem are OTLF script. Can you tell me something that I do not know in this case?</p></li>
+      <li>Actually, it has been done "sort glyphs by index" before generating the font. But the case no. 1 and 2 may shows that the process had no relation at all with the order and position in the glyph index.</li>
+      </ol>
+      <p>thanks<br>
+      Take a great weekend<br>
+      Best Regards</p>
+  - id: 472007
+    user: 1043
+    date: 2011-07-23T08:44:00
+    date_raw: 23 Jul 2011 — 8:44am
+    votes: null
+    html: |-
+      <p>This alternate ligature bit seems to be a bug in InDesign. </p>
+      <p>I've been working on a font that has alternate forms for the "f" ligatures. If the alternate ligature is inserted using the Glyph palette, the result is individual glyphs (in some cases, alternate forms of the "f" or "l", which are also present in the font). If I select the incorrect glyphs and look at the OpenType popup menu, ligatures will have been disabled. If I re-enable it, the proper alternate ligature is displayed.</p>
+      <p>It seems that inserting an alternate ligature (or alternate discretionary ligature) causes InDesign to disable ligatures (and/or discretionary ligatures). I haven't done extensive testing in other apps, but the alternate ligatures work correctly in other apps so far, such as Illustrator and QuarkXPress. I've tried everything I can think of to rewrite the OT features to get it to work properly in InDesign with no success. Adobe fonts, such as Poetica, are similarly affected.</p>
+      <p>Given all that, I can only conclude that it's a bug in InDesign and it's not possible to fix it in feature code. I'm not looking forward to writing instructions for users on how to work around it. It may be that the best solution is to abandon single-glyph ligatures in favor of contextual alternates.</p>
+  - id: 472011
+    user: 3135
+    date: 2011-07-23T09:10:00
+    date_raw: 23 Jul 2011 — 9:10am
+    votes: null
+    html: <p>Thanks, Mark!</p>
+  - id: 472058
+    user: 35635
+    date: 2011-07-24T06:21:00
+    date_raw: 24 Jul 2011 — 6:21am
+    votes: null
+    html: |-
+      <p>Thanks <strong>Mark</strong>, <em>I was not feel alone</em> :) </p>
+      <p>If it's a bug may indeed be prudent with your solution. But this is certainly not reducing our efforts to find the best solution in the future.</p>
+      <p><strong>@Dezzcom</strong>, Thanks for letting me write in your thread.</p>
+      <p>Best regards</p>
+  - id: 472063
+    user: 3135
+    date: 2011-07-24T08:19:00
+    date_raw: 24 Jul 2011 — 8:19am
+    votes: null
+    html: <p>No problem, Andi, t would have been Threadbare lately without you ;-)</p>

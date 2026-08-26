@@ -18,11 +18,6 @@ export function parseRoute(pathname) {
   m = /^\/node\/(\d+)$/.exec(p);
   if (m) return { type: "thread", node: Number(m[1]) };
 
-  if (p === "/users") return { type: "users", page: 1 };
-
-  m = /^\/users\/page\/(\d+)$/.exec(p);
-  if (m) return { type: "users", page: Number(m[1]) };
-
   m = /^\/user\/(\d+)$/.exec(p);
   if (m) return { type: "user", user: Number(m[1]) };
 
@@ -37,8 +32,6 @@ export function routeToPath(route) {
       return route.page > 1 ? `/forum/${route.forum}/page/${route.page}/` : `/forum/${route.forum}/`;
     case "thread":
       return `/node/${route.node}/`;
-    case "users":
-      return route.page > 1 ? `/users/page/${route.page}/` : "/users/";
     case "user":
       return `/user/${route.user}/`;
     default:

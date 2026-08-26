@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/447.html
-  fingerprint: b542b5cdaac8292b
-  parser: 34efae9498635f11
+  fingerprint: 03c0d12819966482
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150421132544"
+      digest: 54WGUQHAH7DH636ZFNAOBUMCKM2X3HGI
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/447.html
 post:
   id: 447
   user: 1629
@@ -24,7 +38,6 @@ post:
   date_raw: 24 Jun 2003 — 2:22pm
   votes: null
   html: <p>Hi folks! I am looking for a bit more information on Postscript drawing to help me troubleshoot my current font. <br> <br><img src="http://www.typophile.com/forums/messages/4101/12179.gif" alt="Here's a picture of the problem."> <br> <br>As you can see, I have a few long, thin, unwanted lines across a few glyphs, i.e., 2, 7, 0, A, B, F, G, H, Q, R, U, W, X, Y, Z. Somewhere I picked up that those are called 'rays'. <br> <br>I understand that rays can be caused by open paths, overlapping points, lack of extrema or crossing BCP handles, but I can find none of those things in these (albeit extremely complex) glyphs. <br> <br>Anything else I can look for to fix? <br> <br>Thanks in advance! <br> <br>p.s. When printed or rendered anti-aliased, they disappear, but of course I want them to look right everywhere, y'know? <br></p>
-  html_clean: <p>Hi folks! I am looking for a bit more information on Postscript drawing to help me troubleshoot my current font. <br> <br><img src="http://www.typophile.com/forums/messages/4101/12179.gif" alt="Here's a picture of the problem."> <br> <br>As you can see, I have a few long, thin, unwanted lines across a few glyphs, i.e., 2, 7, 0, A, B, F, G, H, Q, R, U, W, X, Y, Z. Somewhere I picked up that those are called 'rays'. <br> <br>I understand that rays can be caused by open paths, overlapping points, lack of extrema or crossing BCP handles, but I can find none of those things in these (albeit extremely complex) glyphs. <br> <br>Anything else I can look for to fix? <br> <br>Thanks in advance! <br> <br>p.s. When printed or rendered anti-aliased, they disappear, but of course I want them to look right everywhere, y'know? <br></p>
 comments:
   - id: 2863
     user: 749
@@ -32,46 +45,39 @@ comments:
     date_raw: 24 Jun 2003 — 2:37pm
     votes: null
     html: <p>This is "spiking" caused by having an inordinate number of points in each character, or by having points on top of points (sometimes consecutive, sometimes not). The way to get rid of spiking is to drastically reduce the number of vertices in your outlines, and especially make sure that there aren't any points sitting on top of each other. <br> <br>Often the spiking disappears when printing, or when anti-aliased, as you mention. But it's not a sure thing, by any means. Spiking can show up in printed documents at unpredictable times. <br> <br>Alan</p>
-    html_clean: <p>This is "spiking" caused by having an inordinate number of points in each character, or by having points on top of points (sometimes consecutive, sometimes not). The way to get rid of spiking is to drastically reduce the number of vertices in your outlines, and especially make sure that there aren't any points sitting on top of each other. <br> <br>Often the spiking disappears when printing, or when anti-aliased, as you mention. But it's not a sure thing, by any means. Spiking can show up in printed documents at unpredictable times. <br> <br>Alan</p>
   - id: 2864
     user: 1629
     date: 2003-06-24T14:59:00
     date_raw: 24 Jun 2003 — 2:59pm
     votes: null
     html: <p>Thanks, Alan! <br> <br>Do you know how many points is a good limit to prevent spiking? <br> <br>And does anybody know if FontLab can report the number of points in a glyph? <br> <br>Cheers.</p>
-    html_clean: <p>Thanks, Alan! <br> <br>Do you know how many points is a good limit to prevent spiking? <br> <br>And does anybody know if FontLab can report the number of points in a glyph? <br> <br>Cheers.</p>
   - id: 2865
     user: 749
     date: 2003-06-24T15:09:00
     date_raw: 24 Jun 2003 — 3:09pm
     votes: null
     html: <p>I always try to stay under 300, even that is extremely rare and really pushing it. Thought it's my understanding that the real limit is around 1000 points. <br> <br>If you select the outlines in FontLab and right-click, then go to "Properties", it will tell you how many outlines and points you have selected. Or if nothing is selected, you'll get window showing more info about the character, which also includes the number of points in the glyph (the first number in the upper left part where all the little numbers are). <br> <br>You can also turn on FontAudit in FontLab to see if there are any point sitting on top of each other. <br> <br>Alan</p>
-    html_clean: <p>I always try to stay under 300, even that is extremely rare and really pushing it. Thought it's my understanding that the real limit is around 1000 points. <br> <br>If you select the outlines in FontLab and right-click, then go to "Properties", it will tell you how many outlines and points you have selected. Or if nothing is selected, you'll get window showing more info about the character, which also includes the number of points in the glyph (the first number in the upper left part where all the little numbers are). <br> <br>You can also turn on FontAudit in FontLab to see if there are any point sitting on top of each other. <br> <br>Alan</p>
   - id: 2866
     user: 1629
     date: 2003-06-24T15:45:00
     date_raw: 24 Jun 2003 — 3:45pm
     votes: null
     html: <p>Thanks a million! <br> <br>You've been a great help.</p>
-    html_clean: <p>Thanks a million! <br> <br>You've been a great help.</p>
   - id: 2867
     user: 1629
     date: 2003-06-29T17:51:00
     date_raw: 29 Jun 2003 — 5:51pm
     votes: null
     html: '<p>Update: <br>I also found this helpful: <a href="http://www.macromedia.com/support/fontographer/ts/documents/spike.htm" target="_blank">http://www.macromedia.com/support/fontographer/ts/documents/spike.htm</a> <br> <br></p>'
-    html_clean: '<p>Update: <br>I also found this helpful: <a href="http://www.macromedia.com/support/fontographer/ts/documents/spike.htm" target="_blank">http://www.macromedia.com/support/fontographer/ts/documents/spike.htm</a> <br> <br></p>'
   - id: 2868
     user: 1629
     date: 2003-06-29T20:08:00
     date_raw: 29 Jun 2003 — 8:08pm
     votes: null
     html: "<p>After all, I found that 95% of the time, the spikes would go away when I deleted these tiny little shapes with very few points.  <br> <br>Maybe it has to do with the tiny angle of the curve handles? <br> <br>Here's an example: <br> <br><img src=\"http://www.typophile.com/forums/messages/4101/12310.gif\" alt=\"image of tiny problem-causing shape\"></p>"
-    html_clean: "<p>After all, I found that 95% of the time, the spikes would go away when I deleted these tiny little shapes with very few points.  <br> <br>Maybe it has to do with the tiny angle of the curve handles? <br> <br>Here's an example: <br> <br><img src=\"http://www.typophile.com/forums/messages/4101/12310.gif\" alt=\"image of tiny problem-causing shape\"></p>"
   - id: 2869
     user: 749
     date: 2003-06-29T21:03:00
     date_raw: 29 Jun 2003 — 9:03pm
     votes: null
     html: <p>That's one good way to prevent the spiking. Too many of those tiny shapes might be more than the rasterizer can handle. <br> <br>But also look at the structure of that little shape. It's breaking a few of the rules for Bezier drawing, so that could be it, too. It also looks like one of its points is sitting on top of a point on the other path. <br> <br>Ultimately, I think the idea is that Type 1 fonts weren't meant to be so incredibly complicated, so it sometimes freaks out when you push it too far. <br> <br>Alan</p>
-    html_clean: <p>That's one good way to prevent the spiking. Too many of those tiny shapes might be more than the rasterizer can handle. <br> <br>But also look at the structure of that little shape. It's breaking a few of the rules for Bezier drawing, so that could be it, too. It also looks like one of its points is sitting on top of a point on the other path. <br> <br>Ultimately, I think the idea is that Type 1 fonts weren't meant to be so incredibly complicated, so it sometimes freaks out when you push it too far. <br> <br>Alan</p>

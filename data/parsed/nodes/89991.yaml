@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/89991.html
-  fingerprint: 06bd810e0ae15e8f
-  parser: 34efae9498635f11
+  fingerprint: 11912f223fbf757b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419145811"
+      digest: BSMX2UUL6SQ4DWI3A2QNT7O5DZIPHW6N
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/89991.html
 post:
   id: 89991
   user: 17947
@@ -57,40 +71,6 @@ post:
     	sub slash by fraction;<br>
     } frac03;<br>
     } frac;</code></p>
-  html_clean: |-
-    <p>Hi Guys,</p>
-    <p>I've looked over the great posts that are here for this and I think I've settled on the code below, which I grabbed from the Adobe Caslon Pro font. It's nice and compact and should suit out needs just right.</p>
-    <p>It all seems to be working fine but I'm not completely clear as to how the single quote works and I don't want to end up in a "A little knowedge is a dangerous thing" situation. An Adobe page states that the single quote "Marks a glyph or glyph class for contextual substitution or positioning" but I'm still lost.</p>
-    <p>Thanks for any help you can offer my feeble mind.</p>
-    <p>All Best,<br>
-    Ken</p>
-    <p><code>@frac1regfigs=zero one two three four five six seven eight nine<br>
-    @frac2numr=zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr<br>
-    @frac3dnom=zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom<br>
-    @frac4fracsdnom=perthousand slash percent onehalf onethird onequarter twothirds threequarters threeeighths seveneighths one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom</code></p>
-    <p><code>feature frac {<br>
-    lookup frac01 {<br>
-    #all to numerators<br>
-    sub @frac1regfigs by @frac2numr;<br>
-    } frac01;<br>
-    lookup frac02 {<br>
-    	#change numerators to denominators contextually<br>
-    	sub zero.numr' @SLASH' zero.numr' zero.numr' by perthousand;<br>
-    	sub zero.numr' @SLASH' zero.numr' by percent;<br>
-    	sub one.numr' slash' two.numr' by onehalf;<br>
-    	sub one.numr' slash' three.numr' by onethird;<br>
-    	sub one.numr' slash' four.numr' by onequarter;<br>
-    	sub two.numr' slash' three.numr' by twothirds;<br>
-    	sub three.numr' slash' four.numr' by threequarters;<br>
-    	sub three.numr' slash' eight.numr' by threeeighths;<br>
-    	sub seven.numr' slash' eight.numr' by seveneighths;<br>
-    	sub @frac4fracsdnom @frac2numr' by @frac3dnom;<br>
-    } frac02;<br>
-    lookup frac03 {<br>
-    	#change the slash<br>
-    	sub slash by fraction;<br>
-    } frac03;<br>
-    } frac;</code></p>
 comments:
   - id: 494795
     user: 17101
@@ -98,17 +78,12 @@ comments:
     date_raw: 12 Feb 2012 — 10:40pm
     votes: null
     html: <p>…</p>
-    html_clean: <p>…</p>
   - id: 494809
     user: 5890
     date: 2012-02-13T02:05:00
     date_raw: 13 Feb 2012 — 2:05am
     votes: null
     html: |-
-      <p>I don't think you should put single quote at all. Single quote identifies the glyph in the contextual chain, that needs to be substituted in that context. The other glyphs without single quote in that context remain intact. If you don't put anything, the substitution will apply to all glyphs in the context.<br>
-      In this case, since all two or three or four or whatever number of glyphs in the contextual chain will be removed and replaced by a single glyph, you don't need to use the single quote. I'm actually surprised that it did work for you. But it should be more work for CPU I guess.<br>
-      I'm interested to know more from experts on this too.</p>
-    html_clean: |-
       <p>I don't think you should put single quote at all. Single quote identifies the glyph in the contextual chain, that needs to be substituted in that context. The other glyphs without single quote in that context remain intact. If you don't put anything, the substitution will apply to all glyphs in the context.<br>
       In this case, since all two or three or four or whatever number of glyphs in the contextual chain will be removed and replaced by a single glyph, you don't need to use the single quote. I'm actually surprised that it did work for you. But it should be more work for CPU I guess.<br>
       I'm interested to know more from experts on this too.</p>
@@ -122,23 +97,12 @@ comments:
       <p><code> sub @frac4fracsdnom @frac2numr' by @frac3dnom;</code></p>
       <p>If he removes the other single quotes the code will likely not compile since then you will have a single lookup containing two different types of rules. He would need to split <code> frac02 </code> into two separate lookups.</p>
       <p>André</p>
-    html_clean: |-
-      <p>Well, he definitely needs the single quote in the line</p>
-      <p><code> sub @frac4fracsdnom @frac2numr' by @frac3dnom;</code></p>
-      <p>If he removes the other single quotes the code will likely not compile since then you will have a single lookup containing two different types of rules. He would need to split <code> frac02 </code> into two separate lookups.</p>
-      <p>André</p>
   - id: 494843
     user: 17947
     date: 2012-02-13T07:46:00
     date_raw: 13 Feb 2012 — 7:46am
     votes: null
     html: |-
-      <p>Ah-ha! I thought that was how it worked. The glyphs (or classes) that have the single quote will be substituted. Right?</p>
-      <p>And yes, Adnre is right, that line needs to leave the @frac4fracsdnom  alone. The other lines all have it to remain within the same lookup. I assumed for efficency?</p>
-      <p>Any other info will be more than welcomed.</p>
-      <p>Thanks a bunch guys!</p>
-      <p>Ken</p>
-    html_clean: |-
       <p>Ah-ha! I thought that was how it worked. The glyphs (or classes) that have the single quote will be substituted. Right?</p>
       <p>And yes, Adnre is right, that line needs to leave the @frac4fracsdnom  alone. The other lines all have it to remain within the same lookup. I assumed for efficency?</p>
       <p>Any other info will be more than welcomed.</p>
@@ -163,32 +127,12 @@ comments:
       <code>} frac1B; </code></p>
       <p>In this case, the apostrophes can be omitted in the first lookup. They are only needed when the final line is included since you can't include both ligature and contextual substitutions in the same lookup. The apostrphes force the ligature rules to be interpreted as contextual substitutions which happen to have the same effect as ligature substitutions.</p>
       <p>André</p>
-    html_clean: |-
-      <p>Yes, when you have something <code> sub @A @B' @C by @D </code>, the apostrophe is needed to distinguish the substitution target from the substitution context.</p>
-      <p>In the example you give, I can see no reason why it would have to be a single lookup. You could break it up into</p>
-      <p><code>lookup frac1A { </code><br>
-      <code>&nbsp;&nbsp;sub zero.numr slash zero.numr zero.numr by perthousand; </code><br>
-      <code>&nbsp;&nbsp;sub zero.numr slash zero.numr by percent; </code><br>
-      <code>&nbsp;&nbsp;sub one.numr slash two.numr by onehalf; </code><br>
-      <code>&nbsp;&nbsp;# etc. </code><br>
-      <code>} frac1A; </code></p>
-      <p><code>lookup frac1B { </code><br>
-      <code>&nbsp;&nbsp;sub @frac4fracsdnom @frac2numr' by @frac3dnom; </code><br>
-      <code>} frac1B; </code></p>
-      <p>In this case, the apostrophes can be omitted in the first lookup. They are only needed when the final line is included since you can't include both ligature and contextual substitutions in the same lookup. The apostrphes force the ligature rules to be interpreted as contextual substitutions which happen to have the same effect as ligature substitutions.</p>
-      <p>André</p>
   - id: 494870
     user: 17947
     date: 2012-02-13T10:02:00
     date_raw: 13 Feb 2012 — 10:02am
     votes: null
     html: |-
-      <p>André, while I have your "ear."</p>
-      <p>Regarding the line sub @frac4fracsdnom @frac2numr' by @frac3dnom;: The first line of the feature changes everything to numerators, it then does the fractions that are built as glyphs. However, there is nothing in the line I mentioned above to indicate which side of the slash the numerators (class @frac2numr) are being "searched." I was assuming that because there is a dnom feature (as describded here: <a href="http://www.microsoft.com/typography/otspec/features_fj.htm" title="http://www.microsoft.com/typography/otspec/features_fj.htm">http://www.microsoft.com/typography/otspec/features_fj.htm</a>) the frac feature is matching the glyphs in the @frac3dnom to the denom feature and knows to substitute only to the right of the slash. Am I correct?</p>
-      <p>Font work like this isn't my main function here, so commenting this code with what is happening will be immensly helpful when I come back into it later. Not sure where I'd be without this forum!</p>
-      <p>Thanks very much again for your time,<br>
-      Ken</p>
-    html_clean: |-
       <p>André, while I have your "ear."</p>
       <p>Regarding the line sub @frac4fracsdnom @frac2numr' by @frac3dnom;: The first line of the feature changes everything to numerators, it then does the fractions that are built as glyphs. However, there is nothing in the line I mentioned above to indicate which side of the slash the numerators (class @frac2numr) are being "searched." I was assuming that because there is a dnom feature (as describded here: <a href="http://www.microsoft.com/typography/otspec/features_fj.htm" title="http://www.microsoft.com/typography/otspec/features_fj.htm">http://www.microsoft.com/typography/otspec/features_fj.htm</a>) the frac feature is matching the glyphs in the @frac3dnom to the denom feature and knows to substitute only to the right of the slash. Am I correct?</p>
       <p>Font work like this isn't my main function here, so commenting this code with what is happening will be immensly helpful when I come back into it later. Not sure where I'd be without this forum!</p>
@@ -202,33 +146,24 @@ comments:
     html: |-
       <p>I’ve been using this technique for several years (although without quite so many lookups):</p>
       <p><a href="http://talleming.com/2008/04/16/fraction-fever/" title="http://talleming.com/2008/04/16/fraction-fever/">http://talleming.com/2008/04/16/fraction-fever/</a></p>
-    html_clean: |-
-      <p>I’ve been using this technique for several years (although without quite so many lookups):</p>
-      <p><a href="http://talleming.com/2008/04/16/fraction-fever/" title="http://talleming.com/2008/04/16/fraction-fever/">http://talleming.com/2008/04/16/fraction-fever/</a></p>
   - id: 494900
     user: 9108
     date: 2012-02-13T11:44:00
     date_raw: 13 Feb 2012 — 11:44am
     votes: null
     html: <p>why not this one? <a href="http://talleming.com/2009/10/01/fraction-fever-2/" title="http://talleming.com/2009/10/01/fraction-fever-2/">http://talleming.com/2009/10/01/fraction-fever-2/</a></p>
-    html_clean: <p>why not this one? <a href="http://talleming.com/2009/10/01/fraction-fever-2/" title="http://talleming.com/2009/10/01/fraction-fever-2/">http://talleming.com/2009/10/01/fraction-fever-2/</a></p>
   - id: 494910
     user: 2021
     date: 2012-02-13T12:33:00
     date_raw: 13 Feb 2012 — 12:33pm
     votes: null
     html: <p>Sorry, I posted the first one I Googled, without looking at it.</p>
-    html_clean: <p>Sorry, I posted the first one I Googled, without looking at it.</p>
   - id: 494944
     user: 31798
     date: 2012-02-13T16:01:00
     date_raw: 13 Feb 2012 — 4:01pm
     votes: null
     html: |-
-      <p>Ken,</p>
-      <p>The line <code> sub @frac4fracsdnom @frac2numr' by @frac3dnom; </code> specifies that your fraction numerators will be replaced by denominators *only* when they follow elements in the class @frac4fracsdnom. Since this class includes the slash along with 'slash-containing' glyphs, that's what determines that numerators will only be changed to a denominator following the slash. The dnom feature, whether implemented or not, doesn't play a role in this.</p>
-      <p>André</p>
-    html_clean: |-
       <p>Ken,</p>
       <p>The line <code> sub @frac4fracsdnom @frac2numr' by @frac3dnom; </code> specifies that your fraction numerators will be replaced by denominators *only* when they follow elements in the class @frac4fracsdnom. Since this class includes the slash along with 'slash-containing' glyphs, that's what determines that numerators will only be changed to a denominator following the slash. The dnom feature, whether implemented or not, doesn't play a role in this.</p>
       <p>André</p>

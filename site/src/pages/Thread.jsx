@@ -44,10 +44,18 @@ export function ThreadPage({ doc, users = {} }) {
         <h1>{doc.title || `node ${doc.node}`}</h1>
       </div>
 
+      {doc.pages && !doc.pages.complete ? (
+        <p className="note">
+          This thread ran to {doc.pages.total} pages of replies and{" "}
+          {doc.pages.recovered === 1 ? "only one was" : `only ${doc.pages.recovered} were`}{" "}
+          recovered, so replies are missing.
+        </p>
+      ) : null}
+
       {doc.source?.truncated ? (
         <p className="note">
-          This copy was truncated by the archive that captured it, so the thread
-          may be incomplete.
+          The capture this came from was cut short by the archive that made it,
+          so the text may be incomplete.
         </p>
       ) : null}
 

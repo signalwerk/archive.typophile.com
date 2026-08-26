@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/42294.html
-  fingerprint: 2a0a6e17099c5f92
-  parser: 34efae9498635f11
+  fingerprint: 1816b71a2743bea6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419000119"
+      digest: MB6QUM4A4UHTH2KKCSKGXS62LM4URA7R
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/42294.html
 post:
   id: 42294
   user: 537
@@ -26,18 +40,6 @@ post:
   html: |-
     <p>Hey Everyone,</p>
     <p>I'm following <a href="http://www.adobe.com/devnet/opentype/archives/glyph.html" rel="nofollow">Adobe's glyph naming convention</a> and I'm comparing a few things to the way glyphs are named in Adobe's Arno Pro and I have a few questions that I hope someone can assist with. I've also followed along with the "<a href="http://www.typophile.com/node/20508" rel="nofollow">Why not Cyrillic Glyph Names instead of afi00xx?</a>" thread but I'm still left with a few really specific questions.</p>
-    <p>I understand that glyphs that aren't in the AGLFN are best suited to have a name that reflects their Unicode value with the "uni" prefix for glyphs that are in the Basic Multilingual Plane, and the "u" prefix for those that are in the Unicode supplemental planes. </p>
-    <p>However, it also looks like this is interchangeable, as if I can pretty much use either "uni" or "u" for any glyph name that has a Unicode value no matter which plane it's in, but only "uni" for Unicode values are only four digits. Is this correct? For instance, I see in Arno Pro that the Tcedilla is named "uni0162", but the Tcedilla_h ligature is named "u0162_u0068" instead of "uni0162_uni0068".</p>
-    <p>When using "uni" and "u" names for glyphs with components is there any difference between using "uni0162_uni0068" or "uni01620068"? It makes sense to use an underscore as a convention for ligatures and not using underscores for glyphs that use components for accents like in the example "LATIN CAPITAL LETTER EZH WITH CIRCUMFLEX AND GRAVE, which is not in Unicode, should be named 'uni01B703020300'" but would there be any problem with "uni01b7_uni0302_uni0300"?</p>
-    <p>Are there any disadvantages to using "uni" or "u" names with glyphs that already have a valid name in the AGLFN, like using "uni0391" instead of "Alpha"? I see that it's advisable to use Unicode names for Delta, Omega and mu, so I wonder if there would be any problem doing this for the rest of the Greek alphabet.</p>
-    <p>And also, while I was picking around in Arno Pro looking for answers I saw:<br>
-    <code>sub uni0164 h by Tcaron_h;</code><br>
-    ...I figure it might be a bug that a glyph name would use "Tcaron" when the Tcaron in that font is named uni0164, but is it still possible to use more readable glyph names in some situations, like this Tcaron_h ligature?</p>
-    <p>Many thanks in advance, I appreciate it!<br>
-    Andy</p>
-  html_clean: |-
-    <p>Hey Everyone,</p>
-    <p>I'm following <a href="http://www.adobe.com/devnet/opentype/archives/glyph.html" rel="nofollow">Adobe's glyph naming convention</a> and I'm comparing a few things to the way glyphs are named in Adobe's Arno Pro and I have a few questions that I hope someone can assist with. I've also followed along with the "<a href="/node/20508/" rel="nofollow">Why not Cyrillic Glyph Names instead of afi00xx?</a>" thread but I'm still left with a few really specific questions.</p>
     <p>I understand that glyphs that aren't in the AGLFN are best suited to have a name that reflects their Unicode value with the "uni" prefix for glyphs that are in the Basic Multilingual Plane, and the "u" prefix for those that are in the Unicode supplemental planes. </p>
     <p>However, it also looks like this is interchangeable, as if I can pretty much use either "uni" or "u" for any glyph name that has a Unicode value no matter which plane it's in, but only "uni" for Unicode values are only four digits. Is this correct? For instance, I see in Arno Pro that the Tcedilla is named "uni0162", but the Tcedilla_h ligature is named "u0162_u0068" instead of "uni0162_uni0068".</p>
     <p>When using "uni" and "u" names for glyphs with components is there any difference between using "uni0162_uni0068" or "uni01620068"? It makes sense to use an underscore as a convention for ligatures and not using underscores for glyphs that use components for accents like in the example "LATIN CAPITAL LETTER EZH WITH CIRCUMFLEX AND GRAVE, which is not in Unicode, should be named 'uni01B703020300'" but would there be any problem with "uni01b7_uni0302_uni0300"?</p>
@@ -58,18 +60,12 @@ comments:
       <p>The following is a list of glyphnames for the same glyph but given in order from "oldest" (which has the widest recognition) to "youngest": </p>
       <p>"c_k", "uni0063_uni006B", "uni0063006B", "u0063_u006B"</p>
       <p>A.</p>
-    html_clean: |-
-      <p>Different parsers for glyphnames use different logic, and there is a chronology in those names. The AGLFN names are the oldest, so the largest number of applications will recognize them. The "uniXXXX" names are newer, and then the "uXXXX"/"uXXXXX" convention is newest. For non-BMP Unicodes "uXXXXX" is the only option but a BMP glyph named "u0391" might not be recognized in some older versions of Acrobat, for example. The other limitation is glyphname length, which should be less than 32 characters. </p>
-      <p>The following is a list of glyphnames for the same glyph but given in order from "oldest" (which has the widest recognition) to "youngest": </p>
-      <p>"c_k", "uni0063_uni006B", "uni0063006B", "u0063_u006B"</p>
-      <p>A.</p>
   - id: 260674
     user: 7006
     date: 2008-02-21T17:20:00
     date_raw: 21 Feb 2008 — 5:20pm
     votes: null
     html: <p>i believe (and Miguel can correct me if I'm wrong), that some of the ambiguity between the unixxxx and the uxxxx names in Arno has to do with <a href="http://www.typophile.com/node/36619#comment-223873" rel="nofollow">an OSX bug</a> that requires the truncation of glyph names in larger fonts so that the string INDEX does not result in system crashing.</p>
-    html_clean: <p>i believe (and Miguel can correct me if I'm wrong), that some of the ambiguity between the unixxxx and the uxxxx names in Arno has to do with <a href="/node/36619/#comment-223873" rel="nofollow">an OSX bug</a> that requires the truncation of glyph names in larger fonts so that the string INDEX does not result in system crashing.</p>
   - id: 260723
     user: 1844
     date: 2008-02-22T00:19:00
@@ -82,23 +78,12 @@ comments:
       <p>The glyph suffixes were also reduced to the bare minimum, again, to reduce the glyph name's length. That's why you'll find the suffix '.a' being used on small cap glyphs instead of the usual '.sc' (e.g. a.sc --&gt; a.a). (BTW, applications are not supposed or expected to interpret the suffix, so it's safe to do this). We wrote a script that analyzed the frequency of all the suffixes used on the font's glyph names, and then based on that we replaced the original suffixes by something shorter. 'a' through 'z' was not enough so we needed this frequency analysis for deciding which suffixes would be replaced by two character alternatives (e.g. 'aa', 'ab', 'ac').</p>
       <p>So, you should just keep using the usual and standard glyph names, unless you're working on a project with a large glyphset which is going to be generated into OT-CFF fonts, and you suspect that the fonts will be over the limit and therefore trigger the bug. But before you start compressing glyph names check -- manually or with the <a href="/wiki/AFDKO" class="freelinking" rel="nofollow">AFDKO</a> tools -- to see if you need to do so.</p>
       <p>Note: The uXXXX format is standard, but was devised some time after the uniXXXX format, so not all the apps have updated their ability to parse the shorter version. This might be also due to the fact that the 'u' format is used for specifying characters beyond the Basic Multilingual Plane, a.k.a. BMP, in which case the number of digits in a u-like name is bigger than 4.</p>
-    html_clean: |-
-      <p>Andy, you need to be careful in case you want to use Arno Pro's glyph names as a guidance. As Paul said, we had to compress *some* of the glyph names from uniXXXX to uXXXX in order to avoid a bug in OS X 10.4.8 and earlier. Here's more about it <a href="/node/36619/" title="http://www.typophile.com/node/36619">http://www.typophile.com/node/36619</a><br>
-      We also used uniXXXX/uXXXX names in some cases where the usual standard name was longer (e.g. estimated --&gt; uni212E)</p>
-      <p>At first we considered using uXXXX throughout, instead of uniXXXX, for glyphs outside the Latin-1 block. This would make the glyph names more consistent and have the fonts further away from the limit that triggers the bug, as that would shorten each glyph name by 2 characters. But later we found out that not all apps can parse uXXXX-style names, so we had to go back to using the uniXXXX format on some of the glyphs. The logic behind it is that, the default form of the glyph (i.e. the one that has a Unicode mapping in the 'cmap' table) received the 'uni' format, whereas its alternates received the 'u' format (e.g. Idotaccent --&gt; uni0130, Idotaccent.swash --&gt; u0130.b). </p>
-      <p>The glyph suffixes were also reduced to the bare minimum, again, to reduce the glyph name's length. That's why you'll find the suffix '.a' being used on small cap glyphs instead of the usual '.sc' (e.g. a.sc --&gt; a.a). (BTW, applications are not supposed or expected to interpret the suffix, so it's safe to do this). We wrote a script that analyzed the frequency of all the suffixes used on the font's glyph names, and then based on that we replaced the original suffixes by something shorter. 'a' through 'z' was not enough so we needed this frequency analysis for deciding which suffixes would be replaced by two character alternatives (e.g. 'aa', 'ab', 'ac').</p>
-      <p>So, you should just keep using the usual and standard glyph names, unless you're working on a project with a large glyphset which is going to be generated into OT-CFF fonts, and you suspect that the fonts will be over the limit and therefore trigger the bug. But before you start compressing glyph names check -- manually or with the <a href="/wiki/AFDKO" class="freelinking" rel="nofollow">AFDKO</a> tools -- to see if you need to do so.</p>
-      <p>Note: The uXXXX format is standard, but was devised some time after the uniXXXX format, so not all the apps have updated their ability to parse the shorter version. This might be also due to the fact that the 'u' format is used for specifying characters beyond the Basic Multilingual Plane, a.k.a. BMP, in which case the number of digits in a u-like name is bigger than 4.</p>
   - id: 260792
     user: 537
     date: 2008-02-22T08:18:00
     date_raw: 22 Feb 2008 — 8:18am
     votes: null
     html: |-
-      <p>Adam, Paul and Miguel,</p>
-      <p>This is extremely valuable advice! Thank you very much for helping set things straight. I wasn't aware of this bug, but we'll be very careful to avoid it.</p>
-      <p>Andy</p>
-    html_clean: |-
       <p>Adam, Paul and Miguel,</p>
       <p>This is extremely valuable advice! Thank you very much for helping set things straight. I wasn't aware of this bug, but we'll be very careful to avoid it.</p>
       <p>Andy</p>

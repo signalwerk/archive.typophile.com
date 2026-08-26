@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/33087.html
-  fingerprint: ad450e2eec07c2dc
-  parser: 34efae9498635f11
+  fingerprint: 0486ae3abe413dae
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419044249"
+      digest: 7ZRBTFDP7DK4OE2WSP4WU3GUYJTGGVFF
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/33087.html
 post:
   id: 33087
   user: 3135
@@ -26,9 +40,6 @@ post:
   html: |-
     <p>When creating dialect-specific alternates in an opentype font, is the locl feature the only one that needs to be addressed? I have 5 serbian alternates to Cyrillic glyphs. I thought they might also be part of aalt or salt as well. I made a couple of small classes and made subs by class. Is there a “better” way to do this?</p>
     <p>ChrisL</p>
-  html_clean: |-
-    <p>When creating dialect-specific alternates in an opentype font, is the locl feature the only one that needs to be addressed? I have 5 serbian alternates to Cyrillic glyphs. I thought they might also be part of aalt or salt as well. I made a couple of small classes and made subs by class. Is there a “better” way to do this?</p>
-    <p>ChrisL</p>
 comments:
   - id: 197207
     user: 2021
@@ -36,10 +47,6 @@ comments:
     date_raw: 16 Apr 2007 — 1:19pm
     votes: null
     html: |-
-      <p>Strictly speaking, they are language-specific substitutions, which are activated by the language tag. Here's how I'm doing it.</p>
-      <p>language SRB exclude_dflt; # Serbian<br>
-      sub afii10066 by be.serb;</p>
-    html_clean: |-
       <p>Strictly speaking, they are language-specific substitutions, which are activated by the language tag. Here's how I'm doing it.</p>
       <p>language SRB exclude_dflt; # Serbian<br>
       sub afii10066 by be.serb;</p>
@@ -60,35 +67,18 @@ comments:
        language SER  exclude_dflt; # Serbian<br>
       	sub @ru2serb by @serbalt;<br>
       } locl;</p>
-    html_clean: |-
-      <p>Thanks Nick!<br>
-      It seems not much different than what I did:</p>
-      <p>feature locl { # Localized Forms<br>
-       # Latin<br>
-       language MOL  exclude_dflt; # Moldavian<br>
-          sub [Scedilla scedilla Scedilla.smcp] by [Scommaaccent scommaaccent Scommaaccent.smcp];<br>
-       language ROM  exclude_dflt; # Romanian<br>
-          sub [Scedilla scedilla Scedilla.smcp] by [Scommaaccent scommaaccent Scommaaccent.smcp];<br>
-       language SER  exclude_dflt; # Serbian<br>
-      	sub @ru2serb by @serbalt;<br>
-      } locl;</p>
   - id: 197238
     user: 1262
     date: 2007-04-16T16:38:00
     date_raw: 16 Apr 2007 — 4:38pm
     votes: null
     html: <p>Chris, some of the preferred Serbian forms may also be accepted as stylistic variants for non-Serbian language, including Russian. The Serbian be and italic de are both forms that are found in some Russian typefaces, and could be made available via 'salt' or one of the stylistic set features.</p>
-    html_clean: <p>Chris, some of the preferred Serbian forms may also be accepted as stylistic variants for non-Serbian language, including Russian. The Serbian be and italic de are both forms that are found in some Russian typefaces, and could be made available via 'salt' or one of the stylistic set features.</p>
   - id: 197282
     user: 3135
     date: 2007-04-16T19:10:00
     date_raw: 16 Apr 2007 — 7:10pm
     votes: null
     html: |-
-      <p>Thanks John! Then having them in both 'locl' and 'salt' would be OK?</p>
-      <p>Great! I'll do it.</p>
-      <p>ChrisL</p>
-    html_clean: |-
       <p>Thanks John! Then having them in both 'locl' and 'salt' would be OK?</p>
       <p>Great! I'll do it.</p>
       <p>ChrisL</p>
@@ -101,10 +91,6 @@ comments:
       <p>Chris, I believe the language tag is SRB, not SER.<br>
       At least that's what was in the online resource I checked; but I didn't keep a record of where it was, and haven't checked back.</p>
       <p>AFAIK, in Serbia they would be using a keyboard driver that specified "SRB", and that would activate the features tagged thusly in a font.</p>
-    html_clean: |-
-      <p>Chris, I believe the language tag is SRB, not SER.<br>
-      At least that's what was in the online resource I checked; but I didn't keep a record of where it was, and haven't checked back.</p>
-      <p>AFAIK, in Serbia they would be using a keyboard driver that specified "SRB", and that would activate the features tagged thusly in a font.</p>
   - id: 197456
     user: 3135
     date: 2007-04-17T12:23:00
@@ -113,22 +99,12 @@ comments:
     html: |-
       <p>Thanks Nick! Glad you caught that! It was a screwup, not a position :-) SER might be an entirely different language.</p>
       <p>ChrisL</p>
-    html_clean: |-
-      <p>Thanks Nick! Glad you caught that! It was a screwup, not a position :-) SER might be an entirely different language.</p>
-      <p>ChrisL</p>
   - id: 197457
     user: 909
     date: 2007-04-17T12:26:00
     date_raw: 17 Apr 2007 — 12:26pm
     votes: null
     html: |-
-      <p>The keyboard driver is usually unrelated to activating features and does not need to know anything about OT language tags. All it does is pass codepoints in to the OS. The OS or application needs to tag the text with the appopriate language. The OS or app could derive the language from the keyboard selection, but what then about cases where a single keyboard can be used for multiple languages? Or text is imported or copied and pasted from some other source?</p>
-      <p>Some applications may try to derive the script and/or language from the particular codepoints being used. This is obviously prone to error, particularly if it's language rather than script that is driving the processing.</p>
-      <p>So the most reliable method is to have the end user needs specify the language. InDesign CS3 relies on this; when the end user specifies the language for spelling and hyphenation purposes, that also serves to tell InDesign what language tag applies.</p>
-      <p>The downside of InDesign CS3's approach is that currently users can't specify a language they don't have a dictionary for. I hope to see this limitation removed in a future version of InDesign. But for now I'm pretty glad to have language-specific OT feature processing.</p>
-      <p>Regards,</p>
-      <p>T</p>
-    html_clean: |-
       <p>The keyboard driver is usually unrelated to activating features and does not need to know anything about OT language tags. All it does is pass codepoints in to the OS. The OS or application needs to tag the text with the appopriate language. The OS or app could derive the language from the keyboard selection, but what then about cases where a single keyboard can be used for multiple languages? Or text is imported or copied and pasted from some other source?</p>
       <p>Some applications may try to derive the script and/or language from the particular codepoints being used. This is obviously prone to error, particularly if it's language rather than script that is driving the processing.</p>
       <p>So the most reliable method is to have the end user needs specify the language. InDesign CS3 relies on this; when the end user specifies the language for spelling and hyphenation purposes, that also serves to tell InDesign what language tag applies.</p>
@@ -144,19 +120,12 @@ comments:
       <p>"The downside of InDesign CS3’s approach is that currently users can’t specify a language they don’t have a dictionary for. "</p>
       <p>Is a stop-gap measure possible where more dictionairies could be produced? I don't know if it would be quicker to add more dictionaries than to wait for CS4?</p>
       <p>ChrisL</p>
-    html_clean: |-
-      <p>"The downside of InDesign CS3’s approach is that currently users can’t specify a language they don’t have a dictionary for. "</p>
-      <p>Is a stop-gap measure possible where more dictionairies could be produced? I don't know if it would be quicker to add more dictionaries than to wait for CS4?</p>
-      <p>ChrisL</p>
   - id: 197460
     user: 2021
     date: 2007-04-17T12:34:00
     date_raw: 17 Apr 2007 — 12:34pm
     votes: null
     html: |-
-      <p>So is it a good idea to also produce a "plain" language-specific version of fonts for Serbia or Bulgaria, for users there who aren't using CS3? Such fonts would have the "alternate" glyphs at the standard code points.</p>
-      <p>Thomas, does CS3 have a Bulgarian dictionary?</p>
-    html_clean: |-
       <p>So is it a good idea to also produce a "plain" language-specific version of fonts for Serbia or Bulgaria, for users there who aren't using CS3? Such fonts would have the "alternate" glyphs at the standard code points.</p>
       <p>Thomas, does CS3 have a Bulgarian dictionary?</p>
   - id: 197504
@@ -168,19 +137,12 @@ comments:
       <p><a href="/wiki/language%20system%20tag" class="freelinking" rel="nofollow">language system tag</a></p>
       <p><em>does CS3 have a Bulgarian dictionary?</em></p>
       <p>or, a better question: can we find a list of what dictionaries DO ship with InD CS3?</p>
-    html_clean: |-
-      <p><a href="/wiki/language%20system%20tag" class="freelinking" rel="nofollow">language system tag</a></p>
-      <p><em>does CS3 have a Bulgarian dictionary?</em></p>
-      <p>or, a better question: can we find a list of what dictionaries DO ship with InD CS3?</p>
   - id: 197547
     user: 1844
     date: 2007-04-17T16:53:00
     date_raw: 17 Apr 2007 — 4:53pm
     votes: null
     html: |-
-      <p>My [InDesign CS3] installation lists these. I think that's all.<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/IDCS3_dict_6036.png"></div><p></p>
-    html_clean: |-
       <p>My [InDesign CS3] installation lists these. I think that's all.<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/IDCS3_dict_6036.png"></div><p></p>
   - id: 197550
@@ -191,25 +153,18 @@ comments:
     html: |-
       <p>Is making a dictionary difficult and once made, is it easy to install without recoding InD?<br>
       ChrisL</p>
-    html_clean: |-
-      <p>Is making a dictionary difficult and once made, is it easy to install without recoding InD?<br>
-      ChrisL</p>
   - id: 197551
     user: 7006
     date: 2007-04-17T16:59:00
     date_raw: 17 Apr 2007 — 4:59pm
     votes: null
     html: <p><a href="http://www.typophile.com/node/17681" rel="nofollow">Adding language/hyphenation dictionaries to InDesign</a></p>
-    html_clean: <p><a href="http://www.typophile.com/node/17681" rel="nofollow">Adding language/hyphenation dictionaries to InDesign</a></p>
   - id: 197558
     user: 1844
     date: 2007-04-17T17:18:00
     date_raw: 17 Apr 2007 — 5:18pm
     votes: null
     html: |-
-      <p>And here's the list for InDesign CS2.<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/IDCS2_dict_4934.png"></div><p></p>
-    html_clean: |-
       <p>And here's the list for InDesign CS2.<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/IDCS2_dict_4934.png"></div><p></p>
   - id: 197568
@@ -220,19 +175,12 @@ comments:
     html: |-
       <p>There was a bug in CS2 that made adding the exception dictionary to a document unworkable -- we did send in a bug report, but Adobe doesn't acknowledge them as policy, so we have no way of knowing what the final disposition was. Has this been fixed in CS3? If not, then you can only have an "application" exception dictionary. This means if there are variables for a particular job, you have to change the dictionary, write it off, save it with the job, &amp; reinstall it in the system for each job when proof comes back.</p>
       <p>Since the bug occurred with differences in word endings following an apostrophe (OK with one letter following the apostrophe, not OK with more than one letter), this may or may not affect some of these languages.</p>
-    html_clean: |-
-      <p>There was a bug in CS2 that made adding the exception dictionary to a document unworkable -- we did send in a bug report, but Adobe doesn't acknowledge them as policy, so we have no way of knowing what the final disposition was. Has this been fixed in CS3? If not, then you can only have an "application" exception dictionary. This means if there are variables for a particular job, you have to change the dictionary, write it off, save it with the job, &amp; reinstall it in the system for each job when proof comes back.</p>
-      <p>Since the bug occurred with differences in word endings following an apostrophe (OK with one letter following the apostrophe, not OK with more than one letter), this may or may not affect some of these languages.</p>
   - id: 197600
     user: 2021
     date: 2007-04-17T21:14:00
     date_raw: 17 Apr 2007 — 9:14pm
     votes: null
     html: |-
-      <p>Thanks Miguel, that's very impressive.</p>
-      <p>Are there font ramifications for the variants in English, French, Norwegian, German and Portuguese?</p>
-      <p>I note there is no Moldavian dictionary, despite the Moldavian tags in Adobe Pro fonts.</p>
-    html_clean: |-
       <p>Thanks Miguel, that's very impressive.</p>
       <p>Are there font ramifications for the variants in English, French, Norwegian, German and Portuguese?</p>
       <p>I note there is no Moldavian dictionary, despite the Moldavian tags in Adobe Pro fonts.</p>

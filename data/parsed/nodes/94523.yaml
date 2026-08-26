@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/94523.html
-  fingerprint: eca04d7002f64612
-  parser: 34efae9498635f11
+  fingerprint: 87cbe39e32da8a08
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419175932"
+      digest: JGKNXZOAH5IEGVC7HKX7K6736NP66MZF
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/94523.html
 post:
   id: 94523
   user: 99297
@@ -24,11 +38,6 @@ post:
   date_raw: 7 Jul 2012 — 10:10am
   votes: null
   html: |-
-    <p>In the Open Type spec one can read :</p>
-    <p>"If bit 8 is set in OS/2 table v. 4, then ‘name’ strings for family and subfamily are provided that are consistent with a weight/width/slope family model without requiring the use of ‘name’ IDs 21 or 22."</p>
-    <p>The 'name' table for the "Gabriola" doesn't have the name ID's 21 and 22. The font "Arial" also doesn't have these name ID's, but it doesn't have the bit WWS set, in the OS/2 table. What's the difference between "Gabriola" and "Arial", regarding this bit ?</p>
-    <p>As a matter of fact, I just found out that, among the ~190 fonts used by MS Word, the font "Gabriola" is the only one that has this bit (WWS) set.</p>
-  html_clean: |-
     <p>In the Open Type spec one can read :</p>
     <p>"If bit 8 is set in OS/2 table v. 4, then ‘name’ strings for family and subfamily are provided that are consistent with a weight/width/slope family model without requiring the use of ‘name’ IDs 21 or 22."</p>
     <p>The 'name' table for the "Gabriola" doesn't have the name ID's 21 and 22. The font "Arial" also doesn't have these name ID's, but it doesn't have the bit WWS set, in the OS/2 table. What's the difference between "Gabriola" and "Arial", regarding this bit ?</p>
@@ -43,21 +52,12 @@ comments:
       <p>Arial is an old font, whose OS/2 and name table settings predate the bit 8 and IDs 21 and 22 settings. Since it is an MS core font, there may be compatibility concerns in updating such settings in the font, and MS also have the option of providing special handling for it in their apps if necessary to make it behave correctly in DWrite environments. Remember, the WWS settings in the OS/2 and name tables are designed to improve processing times by giving the DWrite (previously WPF) system explicit information that it otherwise has to produce via heuristics.</p>
       <p>When I was building Gabriola, which is a single style display type, I had to ask MS where in the DWrite font environment such a font should be classified. After some thought, they determined that a single-font 'family' fitted within the weight/width/slope family model, hence the bit 8 setting in Gabriola.</p>
       <p>The bit 8 setting indicates to DWrite that a font is a member of a family that conforms to <a href="http://blogs.msdn.com/b/text/archive/2009/04/15/introducing-the-directwrite-font-system.aspx" rel="nofollow">the weight/width/slope model</a>, i.e. that each member of the family is differentiated from others only with regard to these three properties.</p>
-    html_clean: |-
-      <p>Arial is an old font, whose OS/2 and name table settings predate the bit 8 and IDs 21 and 22 settings. Since it is an MS core font, there may be compatibility concerns in updating such settings in the font, and MS also have the option of providing special handling for it in their apps if necessary to make it behave correctly in DWrite environments. Remember, the WWS settings in the OS/2 and name tables are designed to improve processing times by giving the DWrite (previously WPF) system explicit information that it otherwise has to produce via heuristics.</p>
-      <p>When I was building Gabriola, which is a single style display type, I had to ask MS where in the DWrite font environment such a font should be classified. After some thought, they determined that a single-font 'family' fitted within the weight/width/slope family model, hence the bit 8 setting in Gabriola.</p>
-      <p>The bit 8 setting indicates to DWrite that a font is a member of a family that conforms to <a href="http://blogs.msdn.com/b/text/archive/2009/04/15/introducing-the-directwrite-font-system.aspx" rel="nofollow">the weight/width/slope model</a>, i.e. that each member of the family is differentiated from others only with regard to these three properties.</p>
   - id: 514941
     user: 99297
     date: 2012-07-07T11:28:00
     date_raw: 7 Jul 2012 — 11:28am
     votes: null
     html: |-
-      <p>John,</p>
-      <p>I have realized in the 'name' table that you were the font designer for Gabriola. Now reading what you wrote above I can see what WWS stands for (weight/width/slope). Could you elaborate a little bit more on this : "Remember, the WWS settings in the OS/2 and name tables are designed to improve processing times by giving the WWS system explicit information that it otherwise has to produce via heuristics."</p>
-      <p>I have just observed you edited your post. Let me read the link you provided, and I'll come back if necessary.</p>
-      <p>Thanks.</p>
-    html_clean: |-
       <p>John,</p>
       <p>I have realized in the 'name' table that you were the font designer for Gabriola. Now reading what you wrote above I can see what WWS stands for (weight/width/slope). Could you elaborate a little bit more on this : "Remember, the WWS settings in the OS/2 and name tables are designed to improve processing times by giving the WWS system explicit information that it otherwise has to produce via heuristics."</p>
       <p>I have just observed you edited your post. Let me read the link you provided, and I'll come back if necessary.</p>
@@ -70,9 +70,6 @@ comments:
     html: |-
       <p>John,</p>
       <p>Thanks again for the link. I had never heard about DirectWire, but it seems to be something to delve into.</p>
-    html_clean: |-
-      <p>John,</p>
-      <p>Thanks again for the link. I had never heard about DirectWire, but it seems to be something to delve into.</p>
   - id: 514992
     user: 99297
     date: 2012-07-08T06:12:00
@@ -81,24 +78,17 @@ comments:
     html: |-
       <p>John,</p>
       <p>Is there any special reason for the field <cite>usFirstCharIndex</cite> be null, for the Gabriola, Cambria and Cambria Math fonts, in the OS/2 table, instead of 0x0020 ?</p>
-    html_clean: |-
-      <p>John,</p>
-      <p>Is there any special reason for the field <cite>usFirstCharIndex</cite> be null, for the Gabriola, Cambria and Cambria Math fonts, in the OS/2 table, instead of 0x0020 ?</p>
   - id: 515007
     user: 1262
     date: 2012-07-08T11:29:00
     date_raw: 8 Jul 2012 — 11:29am
     votes: null
     html: <p>0x0020 is the word space character. In many fonts, esp CFF OpenType fonts following Adobe's practice, this will be the lowest character code in the font, and hence will be the entry for the OS/2 usFirstCharIndex field. In fonts that follow Microsoft's <a href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">recommendations</a>, the second glyph in the font will be /NULL/ which will be encoded at 0x0000, which is then the lowest character code in the font. I make all my fonts following the MS recommendations for the first four glyphs (which in turn is based on Apple's original TrueType spec), even CSS fonts, since that means I can maintain a single source independent of output format; obviously I make an exception to this practice when I am making fonts for Adobe.</p>
-    html_clean: <p>0x0020 is the word space character. In many fonts, esp CFF OpenType fonts following Adobe's practice, this will be the lowest character code in the font, and hence will be the entry for the OS/2 usFirstCharIndex field. In fonts that follow Microsoft's <a href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">recommendations</a>, the second glyph in the font will be /NULL/ which will be encoded at 0x0000, which is then the lowest character code in the font. I make all my fonts following the MS recommendations for the first four glyphs (which in turn is based on Apple's original TrueType spec), even CSS fonts, since that means I can maintain a single source independent of output format; obviously I make an exception to this practice when I am making fonts for Adobe.</p>
   - id: 515022
     user: 99297
     date: 2012-07-08T13:56:00
     date_raw: 8 Jul 2012 — 1:56pm
     votes: null
     html: |-
-      <p>Perfect !</p>
-      <p>Tks</p>
-    html_clean: |-
       <p>Perfect !</p>
       <p>Tks</p>

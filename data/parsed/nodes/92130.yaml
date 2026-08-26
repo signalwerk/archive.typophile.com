@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/92130.html
-  fingerprint: 5247521c9d8d2fea
-  parser: 34efae9498635f11
+  fingerprint: 06034e42f9702b8e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150427142905"
+      digest: KHEFHDIQJK624ELI5ULTNG24FNQ63JAL
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/92130.html
 post:
   id: 92130
   user: 189381
@@ -32,15 +46,6 @@ post:
      <tr class="odd"><td><a href="http://typophile.com/files/bn_ka_aaaa.PNG">bn_ka_aaaa.PNG</a></td><td>22.09 KB</td> </tr>
     </tbody>
     </table>
-  html_clean: |-
-    <p>I need help for the image below to make this work in volt. Please any body help me on that. Thanks in advance..</p>
-    <p>This type I use it in my book to show there is prolongation in the letter.</p>
-    <table id="attachments" class="sticky-enabled">
-     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
-    <tbody>
-     <tr class="odd"><td><a href="http://typophile.com/files/bn_ka_aaaa.PNG">bn_ka_aaaa.PNG</a></td><td>22.09 KB</td> </tr>
-    </tbody>
-    </table>
 comments:
   - id: 505519
     user: 46071
@@ -48,7 +53,6 @@ comments:
     date_raw: 15 Apr 2012 — 3:26am
     votes: null
     html: <p>I think the Build section is a better place for this kind of inquiry.</p>
-    html_clean: <p>I think the Build section is a better place for this kind of inquiry.</p>
   - id: 505706
     user: 1262
     date: 2012-04-15T21:10:00
@@ -57,22 +61,12 @@ comments:
     html: |-
       <p>The sequence you show involves two dependent vowel signs being applied to a single letter. In normal Bangla text, surely this is considered invalid, as only one dependent vowel sign can be applied per letter. So what you probably see, at least in Windows applications, is a dotted ring between the two vowel signs. This is inserted by the script shaping engine in Uniscribe, and is independent of the font lookup tables.</p>
       <p>It is possible to trick the shaping engine into hiding the dotted circle, but this generally isn't advised unless you really, really need to do something contrary to normal Bangla layout. If you have evidence of more than one vowel sign being applied to a single letter, then you should contact Microsoft and present it to them so that they can change the shaping engine.</p>
-    html_clean: |-
-      <p>The sequence you show involves two dependent vowel signs being applied to a single letter. In normal Bangla text, surely this is considered invalid, as only one dependent vowel sign can be applied per letter. So what you probably see, at least in Windows applications, is a dotted ring between the two vowel signs. This is inserted by the script shaping engine in Uniscribe, and is independent of the font lookup tables.</p>
-      <p>It is possible to trick the shaping engine into hiding the dotted circle, but this generally isn't advised unless you really, really need to do something contrary to normal Bangla layout. If you have evidence of more than one vowel sign being applied to a single letter, then you should contact Microsoft and present it to them so that they can change the shaping engine.</p>
   - id: 505720
     user: 189381
     date: 2012-04-16T00:28:00
     date_raw: 16 Apr 2012 — 12:28am
     votes: null
     html: |-
-      <p><cite>"In normal Bangla text, surely this is considered invalid, as only one dependent vowel sign can be applied per letter."</cite></p>
-      <p>Grammatically it is wrong but phonetically, it is not wrong at all. I don't understand why we need to follow grammar in typing. I want to make transliteration of Arabic to present there is prolongation in that letter. that's why I need it. I can type in English the way I want. I can do aaa dddks;afslj;eee  but I can't do  in my own language and others. Why?</p>
-      <p><cite> "It is possible to trick the shaping engine into hiding the dotted circle, but this generally isn't advised unless you really, really need to do something contrary to normal Bangla layout." </cite></p>
-      <p>I really need. Can you please tell me how do I do that in ms volt? It will be great help thank you.</p>
-      <p><cite> "If you have evidence of more than one vowel sign being applied to a single letter, then you should contact Microsoft and present it to them so that they can change the shaping engine." </cite></p>
-      <p>I have told Microsoft long time ago about 6 years ago but those people they don't listen. Even in Arabic there is many issues are wrongly applied to the font.</p>
-    html_clean: |-
       <p><cite>"In normal Bangla text, surely this is considered invalid, as only one dependent vowel sign can be applied per letter."</cite></p>
       <p>Grammatically it is wrong but phonetically, it is not wrong at all. I don't understand why we need to follow grammar in typing. I want to make transliteration of Arabic to present there is prolongation in that letter. that's why I need it. I can type in English the way I want. I can do aaa dddks;afslj;eee  but I can't do  in my own language and others. Why?</p>
       <p><cite> "It is possible to trick the shaping engine into hiding the dotted circle, but this generally isn't advised unless you really, really need to do something contrary to normal Bangla layout." </cite></p>
@@ -93,34 +87,18 @@ comments:
       <p>i.e. changed dotted circle + aa to just aa when preceded by aa.</p>
       <p>____</p>
       <p>By the way, the Bangla font you show looks a lot like the classic Linotype Bengali. I know there are a lot of versions of this design now in use in India and Bangladesh, as well as in immigrant communities elsewhere. Which version is this?</p>
-    html_clean: |-
-      <p>I am entirely in agreement with you that the shaping engine should not prevent unorthodox character sequences. I have argued with folk at Microsoft for years that this is, in effect, spellchecking, and belongs at the language level in applications not at the script level in shaping engines. I think most of them are now in agreement, but getting longstanding behaviour of a core .dll changed seems difficult for them.</p>
-      <p>This is how you can trick the shaping engine. Note that the dotted circle (Unicode 25CC) is inserted in a buffered character state, before OTL glyph processing. So what you can do is use GSUB ligation to remove the dotted circle <em>glyph</em> from the string. You can either do this globally for the font, or you can do it contextually, targeting only the specific sequences in which you wish it to disappear. So, for example, you could specifically target the double-aa situation you illustrate with a VOLT lookup like this (I've used the naming I employ in my own Bengali fonts):</p>
-      <p><code>uni25CC bSignAa -&gt; bSignAa</code><br>
-      in context<br>
-      <code>bSignAa |</code></p>
-      <p>i.e. changed dotted circle + aa to just aa when preceded by aa.</p>
-      <p>____</p>
-      <p>By the way, the Bangla font you show looks a lot like the classic Linotype Bengali. I know there are a lot of versions of this design now in use in India and Bangladesh, as well as in immigrant communities elsewhere. Which version is this?</p>
   - id: 505837
     user: 189381
     date: 2012-04-16T13:35:00
     date_raw: 16 Apr 2012 — 1:35pm
     votes: null
     html: <p>if you google it you will find it. "SolaimanLipi" I didn't take it from Linotype.</p>
-    html_clean: <p>if you google it you will find it. "SolaimanLipi" I didn't take it from Linotype.</p>
   - id: 505838
     user: 189381
     date: 2012-04-16T13:50:00
     date_raw: 16 Apr 2012 — 1:50pm
     votes: null
     html: |-
-      <p><cite>So what you can do is use GSUB ligation to remove the dotted circle glyph from the string. You can either do this globally for the font</cite></p>
-      <p>Can you give me some example I am struggling and it doesn't work for me. Thank you. </p>
-      <p>I used pstf</p>
-      <p>dottedcircle bn_aakaar -&gt; bn_aakaar</p>
-      <p>it doesn't work</p>
-    html_clean: |-
       <p><cite>So what you can do is use GSUB ligation to remove the dotted circle glyph from the string. You can either do this globally for the font</cite></p>
       <p>Can you give me some example I am struggling and it doesn't work for me. Thank you. </p>
       <p>I used pstf</p>
@@ -134,20 +112,12 @@ comments:
     html: |-
       <p>In other scripts I have put this looking in the 'ccmp' feature. Because ideally one wants to get the dotted circle out of the way before doing and text shaping. However, I don't think 'ccmp' is processed by Indic shaping engines (although you could try it). You could also try using the 'akhn' feature, which processes ligations before other shaping. But it might be that the Indic shaping engines prevent this kind of trick if the dotted circle is simply not passed to the shaping engine for OTL processing on the grounds that it isn't an Indian character.</p>
       <p>As a last resort, you could replace the dotted circle glyph in the font with a zero-width no-outline glyph, still encoded as U+25CC. This should get inserted by Uniscribe instead of a visible dotted circle, solving your problem. Of course, the presence of such an invisible glyph in the string will still prevent complex interactions between glyphs on either side of it, but it should work for your aa-aa case.</p>
-    html_clean: |-
-      <p>In other scripts I have put this looking in the 'ccmp' feature. Because ideally one wants to get the dotted circle out of the way before doing and text shaping. However, I don't think 'ccmp' is processed by Indic shaping engines (although you could try it). You could also try using the 'akhn' feature, which processes ligations before other shaping. But it might be that the Indic shaping engines prevent this kind of trick if the dotted circle is simply not passed to the shaping engine for OTL processing on the grounds that it isn't an Indian character.</p>
-      <p>As a last resort, you could replace the dotted circle glyph in the font with a zero-width no-outline glyph, still encoded as U+25CC. This should get inserted by Uniscribe instead of a visible dotted circle, solving your problem. Of course, the presence of such an invisible glyph in the string will still prevent complex interactions between glyphs on either side of it, but it should work for your aa-aa case.</p>
   - id: 505895
     user: 189381
     date: 2012-04-16T20:30:00
     date_raw: 16 Apr 2012 — 8:30pm
     votes: null
     html: |-
-      <p>thanks </p>
-      <p>I used akhn it works thank you.</p>
-      <p>I have the next problem that I am facing. Here is below a image what I want to do. </p>
-      <p>I want to change the semicolon and others for Bengali letter when it has been used by Bengali letter. What I do to make that happen?</p><div class="imageWrap"><img src="http://typophile.com/files/semicolon_4157.PNG"></div><p></p>
-    html_clean: |-
       <p>thanks </p>
       <p>I used akhn it works thank you.</p>
       <p>I have the next problem that I am facing. Here is below a image what I want to do. </p>
@@ -160,30 +130,24 @@ comments:
     html: |-
       <p>This is what the 'locl' feature is for, but I've not tried it in this situation. One of the concerns will be whether the European punctuation characters are rolled into the glyph run with the adjacent Indian characters. They should be, but operating systems and app have been flaky in supporting this. So it may not work, or not everywhere.</p>
       <p>Try making a 'locl' feature for the Bengali script and 'dflt' language system, and substitute the punctuation glyphs you want.</p>
-    html_clean: |-
-      <p>This is what the 'locl' feature is for, but I've not tried it in this situation. One of the concerns will be whether the European punctuation characters are rolled into the glyph run with the adjacent Indian characters. They should be, but operating systems and app have been flaky in supporting this. So it may not work, or not everywhere.</p>
-      <p>Try making a 'locl' feature for the Bengali script and 'dflt' language system, and substitute the punctuation glyphs you want.</p>
   - id: 505951
     user: 189381
     date: 2012-04-17T08:21:00
     date_raw: 17 Apr 2012 — 8:21am
     votes: null
     html: <p>I did that long time ago it doesn't work and still tried it it doesn't work</p>
-    html_clean: <p>I did that long time ago it doesn't work and still tried it it doesn't work</p>
   - id: 505990
     user: 1262
     date: 2012-04-17T10:31:00
     date_raw: 17 Apr 2012 — 10:31am
     votes: null
     html: <p>In what software and on what platforms have you tested this? Please include software and OS version numbers.</p>
-    html_clean: <p>In what software and on what platforms have you tested this? Please include software and OS version numbers.</p>
   - id: 505994
     user: 189381
     date: 2012-04-17T11:04:00
     date_raw: 17 Apr 2012 — 11:04am
     votes: null
     html: <p>windows 7 in word 2010</p>
-    html_clean: <p>windows 7 in word 2010</p>
   - id: 506076
     user: 1262
     date: 2012-04-17T22:04:00
@@ -192,109 +156,90 @@ comments:
     html: |-
       <p>Alas, that is one of the places in which I would hope it might work.</p>
       <p>Have you tried doing it backwards: make the Bengali raised punctuation forms the default encoded glyphs, and then use a 'locl' substitution to change to the European forms for the 'latn' script languages?</p>
-    html_clean: |-
-      <p>Alas, that is one of the places in which I would hope it might work.</p>
-      <p>Have you tried doing it backwards: make the Bengali raised punctuation forms the default encoded glyphs, and then use a 'locl' substitution to change to the European forms for the 'latn' script languages?</p>
   - id: 506077
     user: 189381
     date: 2012-04-17T22:25:00
     date_raw: 17 Apr 2012 — 10:25pm
     votes: null
     html: <p>I use the dflt and Bengali as locl but it doesn't work i tried with akhn and others one by one. Also I tested with notepad it seems like it worked but I am not sure completely as I am sure about word 2010. In word 2010 is messed-up. I did what you told me I am still getting same problem.</p>
-    html_clean: <p>I use the dflt and Bengali as locl but it doesn't work i tried with akhn and others one by one. Also I tested with notepad it seems like it worked but I am not sure completely as I am sure about word 2010. In word 2010 is messed-up. I did what you told me I am still getting same problem.</p>
   - id: 506268
     user: 189381
     date: 2012-04-19T04:17:00
     date_raw: 19 Apr 2012 — 4:17am
     votes: null
     html: <p>any solution for that?</p>
-    html_clean: <p>any solution for that?</p>
   - id: 506389
     user: 1262
     date: 2012-04-19T20:15:00
     date_raw: 19 Apr 2012 — 8:15pm
     votes: null
     html: <p>Sorry, I'm out of ideas for now.</p>
-    html_clean: <p>Sorry, I'm out of ideas for now.</p>
   - id: 507122
     user: 189381
     date: 2012-04-25T20:51:00
     date_raw: 25 Apr 2012 — 8:51pm
     votes: null
     html: <p>here is another example.. I want to remove the circle how do I do that. Kindly let me know</p><div class="imageWrap"><img src="http://typophile.com/files/surah_5462.PNG"></div><p></p>
-    html_clean: <p>here is another example.. I want to remove the circle how do I do that. Kindly let me know</p><div class="imageWrap"><img src="http://typophile.com/files/surah_5462.PNG"></div><p></p>
   - id: 507254
     user: 189381
     date: 2012-04-26T16:24:00
     date_raw: 26 Apr 2012 — 4:24pm
     votes: null
     html: <p>no help</p>
-    html_clean: <p>no help</p>
   - id: 508024
     user: 1262
     date: 2012-04-30T14:07:00
     date_raw: 30 Apr 2012 — 2:07pm
     votes: null
     html: <p>Only the suggestions I made above to remove the dotted circle glyph from the string using 'ccmp' lookups. I've done that successfully in Hebrew fonts. If it doesn't work for Bengali, I don't know what else to suggest. Sorry.</p>
-    html_clean: <p>Only the suggestions I made above to remove the dotted circle glyph from the string using 'ccmp' lookups. I've done that successfully in Hebrew fonts. If it doesn't work for Bengali, I don't know what else to suggest. Sorry.</p>
   - id: 508051
     user: 189381
     date: 2012-04-30T19:31:00
     date_raw: 30 Apr 2012 — 7:31pm
     votes: null
     html: <p>I think that's what I will do to see if it works or not. thanks for your help.</p>
-    html_clean: <p>I think that's what I will do to see if it works or not. thanks for your help.</p>
   - id: 508059
     user: 189381
     date: 2012-04-30T22:02:00
     date_raw: 30 Apr 2012 — 10:02pm
     votes: null
     html: <p>here what I did but how i am going to fix the spacing between them. Please can you tell me?</p><div class="imageWrap"><img src="http://typophile.com/files/withoutcircle_3800.PNG"></div><p></p>
-    html_clean: <p>here what I did but how i am going to fix the spacing between them. Please can you tell me?</p><div class="imageWrap"><img src="http://typophile.com/files/withoutcircle_3800.PNG"></div><p></p>
   - id: 508131
     user: 1262
     date: 2012-05-01T12:16:00
     date_raw: 1 May 2012 — 12:16pm
     votes: null
     html: <p>How did you get it to display like this? Please describe the steps you took.</p>
-    html_clean: <p>How did you get it to display like this? Please describe the steps you took.</p>
   - id: 508748
     user: 189381
     date: 2012-05-05T18:35:00
     date_raw: 5 May 2012 — 6:35pm
     votes: null
     html: <p>well i didn't assign the dotted circle any unicode that's why it is like that.</p>
-    html_clean: <p>well i didn't assign the dotted circle any unicode that's why it is like that.</p>
   - id: 508751
     user: 1262
     date: 2012-05-05T20:40:00
     date_raw: 5 May 2012 — 8:40pm
     votes: null
     html: <p>Why not delete the dots from the dotted circle glyph, set the advance width of the glyph to zero, and then encode it, as normal, as U+25CC? In other words, assign a non-spacing and invisible glyph to U+25CC.</p>
-    html_clean: <p>Why not delete the dots from the dotted circle glyph, set the advance width of the glyph to zero, and then encode it, as normal, as U+25CC? In other words, assign a non-spacing and invisible glyph to U+25CC.</p>
   - id: 508821
     user: 189381
     date: 2012-05-06T17:04:00
     date_raw: 6 May 2012 — 5:04pm
     votes: null
     html: <p>I want also microsoft to solve this issue so all the font out there they follow the this type of structure. What do you say about?</p>
-    html_clean: <p>I want also microsoft to solve this issue so all the font out there they follow the this type of structure. What do you say about?</p>
   - id: 508828
     user: 1262
     date: 2012-05-06T20:25:00
     date_raw: 6 May 2012 — 8:25pm
     votes: null
     html: <p>The case for transliterating e.g. Arabic using Bengali letters seems to me serious and should not be something that is prevented by the shaping engine, any more than a Latin shaping engine should prevent a sequence of diacritics to transliterate non-European scripts and languages. So I agree that this is something that Microsoft should change. But then I also think they should completely stop performing what amounts to spelling or grammar checking at the shaping engine level, and have told them so many times.</p>
-    html_clean: <p>The case for transliterating e.g. Arabic using Bengali letters seems to me serious and should not be something that is prevented by the shaping engine, any more than a Latin shaping engine should prevent a sequence of diacritics to transliterate non-European scripts and languages. So I agree that this is something that Microsoft should change. But then I also think they should completely stop performing what amounts to spelling or grammar checking at the shaping engine level, and have told them so many times.</p>
   - id: 509217
     user: 189381
     date: 2012-05-09T18:48:00
     date_raw: 9 May 2012 — 6:48pm
     votes: null
     html: |-
-      <p>i will give you my transliteration. check it.</p>
-      <p>That's what exactly I told MS 6 years ago but they don't listen. </p><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_001_5280.png"></div><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_002_6727.png"></div><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_003_4452.png"></div><p></p>
-    html_clean: |-
       <p>i will give you my transliteration. check it.</p>
       <p>That's what exactly I told MS 6 years ago but they don't listen. </p><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_001_5280.png"></div><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_002_6727.png"></div><div class="imageWrap"><img src="http://typophile.com/files/Arabic Translitration and Alphabet - Bangla Draft5_003_4452.png"></div><p></p>
   - id: 536035
@@ -309,37 +254,24 @@ comments:
       <div class="imageWrap"><img src="http://typophile.com/files/correct_5410.PNG"></div><br>
       correct<p></p>
       <p>or on top of bn.Aumark</p>
-    html_clean: |-
-      <p>how do i do this john?</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/incorrect_5117.PNG"></div><br>
-      incorrect<br>
-      <div class="imageWrap"><img src="http://typophile.com/files/correct_5410.PNG"></div><br>
-      correct<p></p>
-      <p>or on top of bn.Aumark</p>
   - id: 536102
     user: 1262
     date: 2013-01-02T14:15:00
     date_raw: 2 Jan 2013 — 2:15pm
     votes: null
     html: <p>To confirm, do you want the candrabindu to be on top of the vowel sign as in the top example, or to the left as in the larger example?</p>
-    html_clean: <p>To confirm, do you want the candrabindu to be on top of the vowel sign as in the top example, or to the left as in the larger example?</p>
   - id: 536110
     user: 189381
     date: 2013-01-02T15:03:00
     date_raw: 2 Jan 2013 — 3:03pm
     votes: null
     html: <p>on top it is better.</p>
-    html_clean: <p>on top it is better.</p>
   - id: 536116
     user: 1262
     date: 2013-01-02T16:32:00
     date_raw: 2 Jan 2013 — 4:32pm
     votes: null
     html: |-
-      <p>There are a couple of ways in which this can be done. First, it is important to note that normal character input order for this should be Consonant + Vowel + Candrabindu, i.e. the candrabindu should be typed after the vowel, not before it.</p>
-      <p>One method is simply to use an 'abvm' feature GPOS mark positioning anchor attachment to position the candrabindu mark where you want it on the vowel sign. If you want to adjust the size or weight of the candrabindi in this situation, you can do this GPOS operation after first applying a contextual GSUB substitution to replace the normal candrabindu glyph with a variant form.</p>
-      <p>The other method is to build a precomposed ligature of the vowel sign + candrabindu, and use an 'abvs' feature GSUB ligature subsitution to form this from the vowel sign + mark sequence.</p>
-    html_clean: |-
       <p>There are a couple of ways in which this can be done. First, it is important to note that normal character input order for this should be Consonant + Vowel + Candrabindu, i.e. the candrabindu should be typed after the vowel, not before it.</p>
       <p>One method is simply to use an 'abvm' feature GPOS mark positioning anchor attachment to position the candrabindu mark where you want it on the vowel sign. If you want to adjust the size or weight of the candrabindi in this situation, you can do this GPOS operation after first applying a contextual GSUB substitution to replace the normal candrabindu glyph with a variant form.</p>
       <p>The other method is to build a precomposed ligature of the vowel sign + candrabindu, and use an 'abvs' feature GSUB ligature subsitution to form this from the vowel sign + mark sequence.</p>

@@ -1,0 +1,92 @@
+node: 99829
+title: Problems for Indic Typography...
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150331004041"
+  captured_at: 2015-03-31T00:40:41Z
+  url: http://www.typophile.com/node/99829
+  digest: 7ZE55F4GMPFTDUUIIFG7UBHFCO36Z6LL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/99829.html
+  fingerprint: 2439020d62139a79
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150331004041"
+      digest: 7ZE55F4GMPFTDUUIIFG7UBHFCO36Z6LL
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/99829.html
+post:
+  id: 99829
+  user: 1262
+  date: 2013-01-18T14:05:00
+  date_raw: 18 Jan 2013 — 2:05pm
+  votes: null
+  html: |-
+    <p>Back in August, there was a discussion on the OpenType developer list (subject: ' and  in Indic scripts?') regarding Indic shaping engines limiting layout input and context to individual clusters, preventing contextual interaction across syllable boundaries. Although some concerns were raised about possible impact on existing fonts if this behaviour were to change, I believe this is a minor an unproven concern vs. the clear problems raised for Indic typography by this limitation.</p>
+    <p>I have prepared a discussion paper -- i.e. a paper to prompt discussion -- illustrating some of the problems that occur in Indian typography that cannot be resolved without cross-cluster layout interaction. This paper is available here:</p>
+    <p><a href="http://www.tiro.com/John/Problems_for_Indic_Typography.pdf" title="http://www.tiro.com/John/Problems_for_Indic_Typography.pdf">http://www.tiro.com/John/Problems_for_Indic_Typography.pdf</a></p>
+    <p>Although I will likely draw attention to this paper in other forums, it would be helpful if discussion were conducted on the OpenType developer list (on the grounds that most of the relevant software implementors will see it there). Subscription information here:</p>
+    <p><a href="http://www.microsoft.com/typography/otspec/otlist.htm" title="http://www.microsoft.com/typography/otspec/otlist.htm">http://www.microsoft.com/typography/otspec/otlist.htm</a></p>
+comments:
+  - id: 538808
+    user: 1262
+    date: 2013-01-18T14:07:00
+    date_raw: 18 Jan 2013 — 2:07pm
+    votes: null
+    html: |-
+      <p>Erratum:<br>
+      (subject: ' and in Indic scripts?')<br>
+      should read<br>
+      (subject: 'init and fina in Indic scripts?')</p>
+  - id: 539005
+    user: 2969
+    date: 2013-01-20T05:03:00
+    date_raw: 20 Jan 2013 — 5:03am
+    votes: null
+    html: <p>You mean ISO/IEC 14496-22:2009 has to be changed?</p>
+  - id: 539040
+    user: 1262
+    date: 2013-01-20T11:59:00
+    date_raw: 20 Jan 2013 — 11:59am
+    votes: null
+    html: |-
+      <p>Currently, ISO/IEC 14496-22:2009 (the OFF standard within the MPEG standard) makes no implementation recommendations for Indic script layout. The Microsoft Indic font specifications are not part of the ISO standard; indeed, the OFF/OTF specifications notoriously are <em>not</em> OTL implementation specifications, but only font format specifications.</p>
+      <p>The Microsoft Indic font specifications, which do specify layout behaviour for the scripts, probably do need to be changed to explicitly account for cross-cluster lookup interaction. My reading of the current specifications is that they don't explicitly prohibit it, and implementors have simply presumed that because the cluster is the basic unit of script shaping anything beyond the cluster can be ignored, whereas, I am arguing, this is clearly not the case after basic shaping has been done. Yesterday, I spent some time testing a new build of the open source Harfbuzz layout engine, and am pleased to report that it does not impose this limitation. So I think a change to the Indic specs would involve adding some specific wording regarding this behaviour, rather than changing existing wording.</p>
+      <p>Changing existing layout engines is a tougher nut to crack, especially if the makers are concerned about the affect on existing fonts and documents. I suppose we could do the classic sfnt data compatibility manoeuvre and define an OS/2 bit as a flag for new fonts and engines meaning 'Allow cross-cluster lookup interaction in Indic script layout'.</p>
+  - id: 540134
+    user: 25436
+    date: 2013-01-24T19:01:00
+    date_raw: 24 Jan 2013 — 7:01pm
+    votes: null
+    html: "<p>Tangential point: Nice use of Brill in your paper.</p>"
+  - id: 540168
+    user: 2969
+    date: 2013-01-25T03:04:00
+    date_raw: 25 Jan 2013 — 3:04am
+    votes: null
+    html: <p>This is a really cool issue for us, and I'll feel  sorry for you if you only ever have a "classic" way to deal with it John.</p>
+  - id: 540230
+    user: 1262
+    date: 2013-01-25T11:13:00
+    date_raw: 25 Jan 2013 — 11:13am
+    votes: null
+    html: |-
+      <p>Update:</p>
+      <p>I've been testing a new build of the Harfbuzz layout engine, which works perfectly with cross-cluster lookup interaction. Harfbuzz is not as widely deployed as the MS and Adobe layout engines, and not as critical for my clients, but it is a good demonstration that what I am asking for is possible and, so far as I can tell, not difficult to implement.</p>
+      <p>Adobe have test fonts, and are looking at this issue.</p>

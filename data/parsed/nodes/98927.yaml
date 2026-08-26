@@ -1,0 +1,170 @@
+node: 98927
+title: Checking .woff and .eof-fonts
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150327001714"
+  captured_at: 2015-03-27T00:17:14Z
+  url: http://www.typophile.com/node/98927
+  digest: TI6YG46JS5X33USCNUCIA2KYWJGGK3R3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/98927.html
+  fingerprint: 9f7964bb8744e58b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150327001714"
+      digest: TI6YG46JS5X33USCNUCIA2KYWJGGK3R3
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/98927.html
+post:
+  id: 98927
+  user: 2642
+  date: 2012-12-14T07:28:00
+  date_raw: 14 Dec 2012 — 7:28am
+  votes: null
+  html: |-
+    <p>Hello,<br>
+    For my very first time, I have created a webfont in two formats via FontSquirrel (hurraa!), but how do I check them? When I open the .ttf web-version in e.g. InDesign, everything is OK, but how do I install .woff/.eof, so I can watch it/write with it in my browser (Safari)?<br>
+    I have no web-applications at all, and no experiance with webdesign.</p>
+comments:
+  - id: 534175
+    user: 1794
+    date: 2012-12-14T07:36:00
+    date_raw: 14 Dec 2012 — 7:36am
+    votes: null
+    html: <p>It's the whole point of WOFF/EOT that they can't be installed in a regular operating system.  You just link them in your HTML/CSS files and the browser will use them. So to test it, you need to prepare a HTML page. The FontSquirrel Generator download package should have such test documents already in it.</p>
+  - id: 534176
+    user: 2642
+    date: 2012-12-14T08:29:00
+    date_raw: 14 Dec 2012 — 8:29am
+    votes: null
+    html: |-
+      <p>Thanks Ralf. My problem is, that a customer seems to have a few problems with some kerning/spacing-issue in a font I have convertet. And I can't see this in the test-docu from FontSquirrel! But mayby I have made some bad 'choices' in FontSquirrel? Here's my settings:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/17_3986.23.47.jpg"></div><p></p>
+  - id: 534189
+    user: 1794
+    date: 2012-12-14T10:45:00
+    date_raw: 14 Dec 2012 — 10:45am
+    votes: null
+    html: <p>Looks fine. None of these choices should affect the original spacing/kerning of the font.</p>
+  - id: 534190
+    user: 103753
+    date: 2012-12-14T11:09:00
+    date_raw: 14 Dec 2012 — 11:09am
+    votes: null
+    html: |-
+      <p>Web browsers normally won’t use the kerning information in fonts. This might be the source of the spacing issue. To force modern browsers to use pair kerning, add the following line to your CSS text declarations that are using the custom font:</p>
+      <p><code>text-rendering: optimizeLegibility;</code></p>
+  - id: 534965
+    user: 54527
+    date: 2012-12-24T08:21:00
+    date_raw: 24 Dec 2012 — 8:21am
+    votes: null
+    html: |-
+      <p>Instead of:<br>
+      text-rendering: optimizeLegibility;</p>
+      <p>I will recommend:<br>
+      font-feature-settings: "kern" on, "liga" on<br>
+      -moz-font-feature-settings: "kern" on, "liga" on<br>
+      -webkit-font-feature-settings: "kern" on, "liga" on<br>
+      -ms-font-feature-settings: "kern" on, "liga" on<br>
+      -o-font-feature-settings: "kern" on, "liga" on</p>
+      <p>In the future, hopefully, only:<br>
+      font-feature-settings: "kern" on, "liga" on</p>
+  - id: 535086
+    user: 9636
+    date: 2012-12-25T21:30:00
+    date_raw: 25 Dec 2012 — 9:30pm
+    votes: null
+    html: |-
+      <p>Yeah, text-rendering: optimizeLegibility is a tricky one. I still recommend it's use, but it's not because it's ideal, and I look forward to when I won't need to anymore. It was always a kludge. You can get some more info here:<br>
+      <a class="freelinking external" href="http://www.typotheque.com/articles/opentype_features_in_web_browsers" rel="nofollow">http://www.typotheque.com/articles/opentype_features_in_web_browsers</a></p>
+      <p>You've really just got to keep an eye on the browser updates at this point, unfortunately.</p>
+  - id: 536002
+    user: 909
+    date: 2013-01-01T20:35:00
+    date_raw: 1 Jan 2013 — 8:35pm
+    votes: null
+    html: |-
+      <p>&gt; Instead of:<br>
+      &gt; text-rendering: optimizeLegibility;<br>
+      &gt; I will recommend:</p>
+      <p>I strongly recommend combining BOTH approaches rather than taking either by itself—unless you prefer one version or another with some kind of ideological passion that takes precedence over, say, actually wanting the kerning to work for as many users as possible.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 536040
+    user: 83217
+    date: 2013-01-02T05:37:00
+    date_raw: 2 Jan 2013 — 5:37am
+    votes: null
+    html: <p>Besides, web browsers based on Firefox 3.<em>x</em> will not understand any font-feature-settings, if I remember correctly.</p>
+  - id: 536074
+    user: 1794
+    date: 2013-01-02T09:47:00
+    date_raw: 2 Jan 2013 — 9:47am
+    votes: null
+    html: |-
+      <p>Check this page for updates …<br>
+      <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers" title="https://www.typotheque.com/articles/opentype_features_in_web_browsers">https://www.typotheque.com/articles/opentype_features_in_web_browsers</a></p>
+  - id: 536265
+    user: 909
+    date: 2013-01-03T11:29:00
+    date_raw: 3 Jan 2013 — 11:29am
+    votes: null
+    html: |-
+      <p>That's a good article. A bit behind on some details, though. Notably Firefox switched suddenly to using the "new" syntax recently. So you need two lines for Firefox, one "old" and one "new" if you want to catch all browsers....</p>
+      <p>Turning on the common features that ought to be on by default currently looks like this:<br>
+        -moz-font-feature-settings:"calt=1, liga=1, clig=1, kern=1";<br>
+        -moz-font-feature-settings:"calt" 1, "liga" 1, "clig" 1, "kern" 1;<br>
+        -ms-font-feature-settings:"calt", "liga", "clig", "kern";<br>
+        -o-font-feature-settings:"calt", "liga", "clig", "kern";<br>
+        -webkit-font-feature-settings:"calt", "liga", "clig", "kern";<br>
+        font-feature-settings:"calt", "liga", "clig", "kern";<br>
+        text-rendering:optimizeLegibility;</p>
+  - id: 536300
+    user: 17101
+    date: 2013-01-03T14:57:00
+    date_raw: 3 Jan 2013 — 2:57pm
+    votes: null
+    html: <p>All of that stuff breaks Postscript based WOFF’s on Windows Vista/Google Chrome. Just so you know.</p>
+  - id: 536547
+    user: 1794
+    date: 2013-01-05T09:28:00
+    date_raw: 5 Jan 2013 — 9:28am
+    votes: null
+    html: <p>You mean they won't show up?</p>
+  - id: 537685
+    user: 909
+    date: 2013-01-13T00:55:00
+    date_raw: 13 Jan 2013 — 12:55am
+    votes: null
+    html: <p>Yes, I'm curious as to the meaning of "breaks" in this context.</p>
+  - id: 537976
+    user: 1133
+    date: 2013-01-14T20:57:00
+    date_raw: 14 Jan 2013 — 8:57pm
+    votes: null
+    html: |-
+      <p>This is a bit of an advertising cross-post, yet hopefully interesting: </p>
+      <p>I'm excited to let you know that we at Fontlab Ltd. have just released the 2nd beta of TransType 4 for Mac OS X. With this build, you can convert any font (OTF, TTF, plus a number of other formats) into WOFF and EOT webfonts. </p>
+      <p>TransType 4 beta 2 is available free of charge at <a href="http://bit.ly/trt4macbeta2" title="http://bit.ly/trt4macbeta2">http://bit.ly/trt4macbeta2</a> </p>
+      <p>The current build 4762 will expire on February 28th, 2013. However, by the time that build expires, we will post another build with more features and bugfixes. </p>
+      <p>Enjoy! </p>
+      <p>Best regards,<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>

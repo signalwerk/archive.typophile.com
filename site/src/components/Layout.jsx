@@ -9,7 +9,6 @@ export function Layout({ children, wide = false }) {
         <nav className="masthead__nav">
           <a href="/">threads</a>
           <a href="/#forums">forums</a>
-          <a href="/users/">members</a>
         </nav>
       </header>
       {children}

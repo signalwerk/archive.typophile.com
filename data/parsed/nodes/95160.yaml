@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/95160.html
-  fingerprint: d0f83856579bf565
-  parser: 34efae9498635f11
+  fingerprint: babd69cdf0778053
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419154236"
+      digest: E2KU56H6KZOYZGARIJGOXJ4GNUX5UCYW
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/95160.html
 post:
   id: 95160
   user: 1137
@@ -24,16 +38,6 @@ post:
   date_raw: 30 Jul 2012 — 1:30am
   votes: null
   html: |-
-    <p>Hi there,</p>
-    <p>I am trying to solve some triplets kerning problems in a script font without designing more characters.<br>
-    I thought I could use contextual kerning (LookupType 8, chaining contextual positioning) but when I try to set something like </p>
-    <p>feature kern {<br>
-    position d space' 20 D ;<br>
-    } kern;</p>
-    <p>I get the message "Cannot mark positioning glyphs". What is the problem? Is 'kern' not the proper feature to place such substitution? In this case, which should be the proper feature to set my contextual positioning?</p>
-    <p>Thanks in advance.</p>
-    <p>R.</p>
-  html_clean: |-
     <p>Hi there,</p>
     <p>I am trying to solve some triplets kerning problems in a script font without designing more characters.<br>
     I thought I could use contextual kerning (LookupType 8, chaining contextual positioning) but when I try to set something like </p>
@@ -60,27 +64,12 @@ comments:
       <p>if I understand it correctly...</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/Kern1_6465.jpg"></div><br>
       <div class="imageWrap"><img src="http://typophile.com/files/Kern2_5351.jpg"></div><p></p>
-    html_clean: |-
-      <p>You need "Single Positioning" used in your kerninglookup:</p>
-      <p>lookup kernHorizontalKerninglookup2 {<br>
-            pos \f  \space' \T  ;<br>
-      } kernHorizontalKerninglookup2;</p>
-      <p>lookup SinglePositioninglookup3 {<br>
-           pos \space &lt;0 0 300 0    &gt;;<br>
-      } SinglePositioninglookup3;</p>
-      <p>if I understand it correctly...</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Kern1_6465.jpg"></div><br>
-      <div class="imageWrap"><img src="http://typophile.com/files/Kern2_5351.jpg"></div><p></p>
   - id: 517421
     user: 1137
     date: 2012-07-30T04:28:00
     date_raw: 30 Jul 2012 — 4:28am
     votes: null
     html: |-
-      <p>In Fontlab your code gives:</p>
-      <p>syntax error at ";"</p>
-      <p>:S</p>
-    html_clean: |-
       <p>In Fontlab your code gives:</p>
       <p>syntax error at ";"</p>
       <p>:S</p>
@@ -97,23 +86,12 @@ comments:
       (Contextual positioning), 8 (Chaining contextual positioning)"<br>
       Manual, p. 835<br>
       So VOLT or FontForge...</p>
-    html_clean: |-
-      <p>"FontLab Studio currently does not support:<br>
-      GSUB lookup type 2 (Multiple substitution, e.g. a b -&gt; c d)<br>
-      GPOS lookup types 3 (Cursive attachment positioning), 4 (Mark-to-Base attachment positioning), 5 (Mark-to-Ligature attachment<br>
-      positioning), 6 (Mark-to-Mark attachment positioning), 7<br>
-      (Contextual positioning), 8 (Chaining contextual positioning)"<br>
-      Manual, p. 835<br>
-      So VOLT or FontForge...</p>
   - id: 517433
     user: 1137
     date: 2012-07-30T05:41:00
     date_raw: 30 Jul 2012 — 5:41am
     votes: null
     html: |-
-      <p>OK, understood. Now I am trying to import my FL features into VOLT without success :S<br>
-      When I import my OT font to VOLT the features are lost. Any idea on how to keep FL features in Volt?</p>
-    html_clean: |-
       <p>OK, understood. Now I am trying to import my FL features into VOLT without success :S<br>
       When I import my OT font to VOLT the features are lost. Any idea on how to keep FL features in Volt?</p>
   - id: 517438
@@ -124,24 +102,12 @@ comments:
     html: |-
       <p>Ramiro,</p>
       <p>I <em>think</em> your code should work if you have FontLab Studio 5.1 because it uses a newer version of the Adobe FDK thank FLS 5.0.</p>
-    html_clean: |-
-      <p>Ramiro,</p>
-      <p>I <em>think</em> your code should work if you have FontLab Studio 5.1 because it uses a newer version of the Adobe FDK thank FLS 5.0.</p>
   - id: 517443
     user: 1137
     date: 2012-07-30T06:34:00
     date_raw: 30 Jul 2012 — 6:34am
     votes: null
     html: |-
-      <p>Hi Jens,<br>
-      I tried running in FL 5.1 the following code</p>
-      <p>feature kern {<br>
-      lookup one {<br>
-      position d space' &lt;0 0 3000 0&gt; D ;<br>
-      } one;<br>
-      } kern;</p>
-      <p>and now it does not give error message BUT there is not effect on the addressed glyphs (either in the preview window or generating and testing the font).</p>
-    html_clean: |-
       <p>Hi Jens,<br>
       I tried running in FL 5.1 the following code</p>
       <p>feature kern {<br>
@@ -159,19 +125,12 @@ comments:
       <p>my code in ttx syntax:<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/55_3898.jpg"></div><br>
       works in ID for sure!<p></p>
-    html_clean: |-
-      <p>my code in ttx syntax:<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/55_3898.jpg"></div><br>
-      works in ID for sure!<p></p>
   - id: 517450
     user: 1137
     date: 2012-07-30T07:46:00
     date_raw: 30 Jul 2012 — 7:46am
     votes: null
     html: |-
-      <p>Hereby I invoque the powers and wisdom of the omnipresent Adam Twardoch!<br>
-      Please materialize and help us! :)</p>
-    html_clean: |-
       <p>Hereby I invoque the powers and wisdom of the omnipresent Adam Twardoch!<br>
       Please materialize and help us! :)</p>
   - id: 517487
@@ -182,19 +141,12 @@ comments:
     html: |-
       <p>VOLT does not decompile OTL tables, so the data needs to be either in the plain text formats used to store and transfer VOLT projects, lookups, groups or glyph set data (.vtp, .vtl, .vtg, .vtd) or in the private table binary format in which VOLT projects are stored within a source TTF). FontLab offers an option to 'Export VOLT data' when generating a TTF, which I think means it will try to write the private table, but I don't think it is very reliable. You would probably need to rebuild your features and lookups in VOLT.</p>
       <p>Alternatively, you should be able to use the AFDKO v.2 outside of FontLab to compile your feature code. Or you could use DTL OTMaster.</p>
-    html_clean: |-
-      <p>VOLT does not decompile OTL tables, so the data needs to be either in the plain text formats used to store and transfer VOLT projects, lookups, groups or glyph set data (.vtp, .vtl, .vtg, .vtd) or in the private table binary format in which VOLT projects are stored within a source TTF). FontLab offers an option to 'Export VOLT data' when generating a TTF, which I think means it will try to write the private table, but I don't think it is very reliable. You would probably need to rebuild your features and lookups in VOLT.</p>
-      <p>Alternatively, you should be able to use the AFDKO v.2 outside of FontLab to compile your feature code. Or you could use DTL OTMaster.</p>
   - id: 517561
     user: 1137
     date: 2012-07-30T22:54:00
     date_raw: 30 Jul 2012 — 10:54pm
     votes: null
     html: |-
-      <p>Thanks for the help. I finally was able to run the code in Fontlab 5.1<br>
-      The preview does not show the results but testing a generated font, the effects can be seen.<br>
-      Great! Now I can set kerning for difficult triplets :)</p>
-    html_clean: |-
       <p>Thanks for the help. I finally was able to run the code in Fontlab 5.1<br>
       The preview does not show the results but testing a generated font, the effects can be seen.<br>
       Great! Now I can set kerning for difficult triplets :)</p>
@@ -207,14 +159,9 @@ comments:
       <p>Ramiro, </p>
       <p>sorry, I was on vacation :)</p>
       <p>Adam</p>
-    html_clean: |-
-      <p>Ramiro, </p>
-      <p>sorry, I was on vacation :)</p>
-      <p>Adam</p>
   - id: 519050
     user: 1137
     date: 2012-08-14T01:42:00
     date_raw: 14 Aug 2012 — 1:42am
     votes: null
     html: <p>No problem Adam, I don't expect the Fontlab genie to materialize every time I invoke it :)</p>
-    html_clean: <p>No problem Adam, I don't expect the Fontlab genie to materialize every time I invoke it :)</p>

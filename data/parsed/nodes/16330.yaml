@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/16330.html
-  fingerprint: 8c3f1f84183869eb
-  parser: 34efae9498635f11
+  fingerprint: 329c168bfe1dc990
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150421021923"
+      digest: AKEIW5BUYJHKYKK4W7ODGSN4MJJO2UIB
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/16330.html
 post:
   id: 16330
   user: 537
@@ -24,17 +38,6 @@ post:
   date_raw: 18 Nov 2005 — 8:32am
   votes: null
   html: |-
-    <p>Greetings,</p>
-    <p>I'm currently developing an OpenType font that contains two sets of figures -- Lining Proportional figures as the default and Lining Tabular figures activated with the "tnum" feature. </p>
-    <p>The Lining Tabular glyphs are named in Adam Twardoch's suggested form of "number.lnum_tnum" and are in the class "@FIG_TAB_LINING", the Lining Proportional figures are in the class "@FIG_FIT_LINING" but the problem also occurs without using classes.</p>
-    <p>The problem is that InDesign labels the glyphs in the tnum feature as being both tnum and onum even though there is no onum feature in this font. This is to say that in the Glyph palette rolling over the Tabular glyphs shows that they are "Tabular Figures (tnum) + Oldstyle Figures (onum)", and the OpenType submenu of the character palette gives the option to select "Tabular Oldstyle".</p>
-    <p>I understand that the pnum and tnum features are modifiers for lnum and onum (applying tnum could change lnum_pnum and onum_pnum to their tabular counterparts), so I'm not sure if there's a way that I can or should specify that the glyphs in the tnum feature are *only* lining, and never oldstyle.</p>
-    <p>To fix this problem I've tried adding an onum feature with a different set of glyphs in from font with the idea that it might draw InDesign's attention away from thinking the tnum group could contain oldstyle figures. I've also switched to using the tabular figures as the default and creating a pnum feature instead, but this ends in the same result of InDesign thinking that the glyphs are both proportional lining and oldstyle.</p>
-    <p>I've been able  to reproduce this in more than one font and I'm using FontLab 4.6 on the Macintosh.</p>
-    <p>Has anyone else see this? Any thoughts would be much appreciated!</p>
-    <p>Thanks,<br>
-    Andy Clymer</p>
-  html_clean: |-
     <p>Greetings,</p>
     <p>I'm currently developing an OpenType font that contains two sets of figures -- Lining Proportional figures as the default and Lining Tabular figures activated with the "tnum" feature. </p>
     <p>The Lining Tabular glyphs are named in Adam Twardoch's suggested form of "number.lnum_tnum" and are in the class "@FIG_TAB_LINING", the Lining Proportional figures are in the class "@FIG_FIT_LINING" but the problem also occurs without using classes.</p>
@@ -62,26 +65,12 @@ comments:
       <p>And this should be in your classes:</p>
       <p>@classDF = [zero one two three four five six seven eight nine];<br>
       @classLT = [zero.LT one.LT two.LT three.LT four.LT five.LT six.LT seven.LT eight.LT nine.LT];</p>
-    html_clean: |-
-      <p>Well, I just wrote a whole lot, which got eaten by the site. :-(</p>
-      <p>Your Default Figures (DF) being Lining Proportional (LP) might be confusing InDesign, as most fonts have Lining Tabular (LT) as default.</p>
-      <p>Here's what you need to have as your feature:</p>
-      <p>feature tnum { # Tabular Figures<br>
-       # Latin<br>
-          sub @classDF by @classLT;<br>
-      } tnum;</p>
-      <p>And this should be in your classes:</p>
-      <p>@classDF = [zero one two three four five six seven eight nine];<br>
-      @classLT = [zero.LT one.LT two.LT three.LT four.LT five.LT six.LT seven.LT eight.LT nine.LT];</p>
   - id: 96051
     user: 1336
     date: 2005-11-18T11:20:00
     date_raw: 18 Nov 2005 — 11:20am
     votes: null
     html: |-
-      <p>Okay. This is crazy. My reply got cut off. Sigh...</p>
-      <p>What I had written after the above was that you should name your LT glyphs as above: zero.LT one.LT etc. This scheme allows the Glyph Panel to see the "children" glyphs and offer them under the pulldowns for the "parent" glyphs.</p>
-    html_clean: |-
       <p>Okay. This is crazy. My reply got cut off. Sigh...</p>
       <p>What I had written after the above was that you should name your LT glyphs as above: zero.LT one.LT etc. This scheme allows the Glyph Panel to see the "children" glyphs and offer them under the pulldowns for the "parent" glyphs.</p>
   - id: 96053
@@ -95,19 +84,12 @@ comments:
       	sub @FIG_FIT_LINING by @FIG_TAB_LINING;<br>
       } tnum;</p>
       <p>The problem also occurs when I'm not using classes ("sub one by one.lnum_tnum;", etc through the entire set)</p>
-    html_clean: |-
-      <p>Chester, thanks for the response. Looks like I'm doing the same thing (just the basic substitution of one class for another):</p>
-      <p>feature tnum {<br>
-      	sub @FIG_FIT_LINING by @FIG_TAB_LINING;<br>
-      } tnum;</p>
-      <p>The problem also occurs when I'm not using classes ("sub one by one.lnum_tnum;", etc through the entire set)</p>
   - id: 96054
     user: 537
     date: 2005-11-18T11:24:00
     date_raw: 18 Nov 2005 — 11:24am
     votes: null
     html: <p>Chester, I'll give the ".LT" naming a try right now, thanks.</p>
-    html_clean: <p>Chester, I'll give the ".LT" naming a try right now, thanks.</p>
   - id: 96060
     user: 1336
     date: 2005-11-18T11:37:00
@@ -131,37 +113,12 @@ comments:
           sub @class1XDF by @class1XLP;<br>
           sub @class1XOT by @class1XOP;<br>
       } pnum;</p>
-    html_clean: |-
-      <p>Yeah, that .lnum_tnum gives me the willies...</p>
-      <p>In the interest of full disclosure, here's what my full set of numeral subs looks like, with DF being Scotch (M. Carter's "Georgia") -style 3/4-height numerals...</p>
-      <p>feature onum { # Old Style Numerals<br>
-       # Latin<br>
-          sub @class1XDF by @class1XOP;<br>
-          sub @class4XXL by @class4XXO;<br>
-      } onum;</p>
-      <p>feature lnum { # Lining Figures<br>
-       # Latin<br>
-          sub @class1XDF by @class1XLT;<br>
-          sub @class1XOP by @class1XLT;<br>
-      } lnum;</p>
-      <p>feature pnum { # Proportional Figures<br>
-       # Latin<br>
-          sub @class1XDF by @class1XLP;<br>
-          sub @class1XOT by @class1XOP;<br>
-      } pnum;</p>
   - id: 96061
     user: 1336
     date: 2005-11-18T11:37:00
     date_raw: 18 Nov 2005 — 11:37am
     votes: null
     html: |-
-      <p>feature tnum { # Tabular Figures<br>
-       # Latin<br>
-          sub @class1XDF by @class1XLT;<br>
-          sub @class1XLP by @class1XLT;<br>
-          sub @class1XOP by @class1XOT;<br>
-      } tnum;</p>
-    html_clean: |-
       <p>feature tnum { # Tabular Figures<br>
        # Latin<br>
           sub @class1XDF by @class1XLT;<br>
@@ -207,49 +164,12 @@ comments:
       @class1Xnum = [uni2070 uni00B9 uni00B2 uni00B3 uni2074 uni2075 uni2076 uni2077 uni2078 uni2079];<br>
       @class1Xdnom = [uni2080 uni2081 uni2082 uni2083 uni2084 uni2085 uni2086 uni2087 uni2088 uni2089];<br>
       @class1Xinf = [zero.inf one.inf two.inf three.inf four.inf five.inf six.inf seven.inf eight.inf nine.inf];</p>
-    html_clean: |-
-      <p>feature numr { # Numerators<br>
-       # Latin<br>
-          sub @class1XDF by @class1Xnum;<br>
-          sub @class1XOP by @class1Xnum;<br>
-          sub @class1XLP by @class1Xnum;<br>
-          sub @class1XLT by @class1Xnum;<br>
-          sub @class1XOT by @class1Xnum;<br>
-      } numr;</p>
-      <p>feature dnom { # Denominators<br>
-       # Latin<br>
-          sub @class1XDF by @class1Xdnom;<br>
-          sub @class1XOP by @class1Xdnom;<br>
-          sub @class1XLP by @class1Xdnom;<br>
-          sub @class1XLT by @class1Xdnom;<br>
-          sub @class1XOT by @class1Xdnom;<br>
-      } dnom;</p>
-      <p>feature sinf { # Scientific Inferiors<br>
-       # Latin<br>
-          sub @class1XDF by @class1Xinf;<br>
-          sub @class1XOP by @class1Xinf;<br>
-          sub @class1XLP by @class1Xinf;<br>
-          sub @class1XLT by @class1Xinf;<br>
-          sub @class1XOT by @class1Xinf;<br>
-      } sinf;</p>
-      <p>And in the classes pane:</p>
-      <p>@class1XDF = [zero one two three four five six seven eight nine];<br>
-      @class1XLT = [zero.LT one.LT two.LT three.LT four.LT five.LT six.LT seven.LT eight.LT nine.LT];<br>
-      @class1XOP = [zero.OP one.OP two.OP three.OP four.OP five.OP six.OP seven.OP eight.OP nine.OP];<br>
-      @class1XOT = [zero.OT one.OT two.OT three.OT four.OT five.OT six.OT seven.OT eight.OT nine.OT];<br>
-      @class1XLP = [zero.LP one.LP two.LP three.LP four.LP five.LP six.LP seven.LP eight.LP nine.LP];<br>
-      @class1Xnum = [uni2070 uni00B9 uni00B2 uni00B3 uni2074 uni2075 uni2076 uni2077 uni2078 uni2079];<br>
-      @class1Xdnom = [uni2080 uni2081 uni2082 uni2083 uni2084 uni2085 uni2086 uni2087 uni2088 uni2089];<br>
-      @class1Xinf = [zero.inf one.inf two.inf three.inf four.inf five.inf six.inf seven.inf eight.inf nine.inf];</p>
   - id: 96063
     user: 1336
     date: 2005-11-18T11:39:00
     date_raw: 18 Nov 2005 — 11:39am
     votes: null
     html: |-
-      <p>This works for me. And yes, the order of the features IS important.</p>
-      <p>[Hey moderators! I had to break my post into chunks, for some reason.]</p>
-    html_clean: |-
       <p>This works for me. And yes, the order of the features IS important.</p>
       <p>[Hey moderators! I had to break my post into chunks, for some reason.]</p>
   - id: 96064
@@ -261,19 +181,12 @@ comments:
       <p>Ooops! Forgot these:</p>
       <p>@class4XXL = [Euro dollar cent sterling florin yen uni20A1 uni20A2 uni20A3 uni20A4 uni20A6 uni20A7 uni20A8 uni20A9 uni20AA uni20AE uni20B1 numbersign percent perthousand];<br>
       @class4XXO = [Euro.OP dollar.OP cent.OP sterling.OP florin.OP yen.OP uni20A1.OP uni20A2.OP uni20A3.OP uni20A4.OP uni20A6.OP uni20A7.OP uni20A8.OP uni20A9.OP uni20AA.OP uni20AE.OP uni20B1.OP numbersign.OP percent.OP perthousand.OP];</p>
-    html_clean: |-
-      <p>Ooops! Forgot these:</p>
-      <p>@class4XXL = [Euro dollar cent sterling florin yen uni20A1 uni20A2 uni20A3 uni20A4 uni20A6 uni20A7 uni20A8 uni20A9 uni20AA uni20AE uni20B1 numbersign percent perthousand];<br>
-      @class4XXO = [Euro.OP dollar.OP cent.OP sterling.OP florin.OP yen.OP uni20A1.OP uni20A2.OP uni20A3.OP uni20A4.OP uni20A6.OP uni20A7.OP uni20A8.OP uni20A9.OP uni20AA.OP uni20AE.OP uni20B1.OP numbersign.OP percent.OP perthousand.OP];</p>
   - id: 96065
     user: 3135
     date: 2005-11-18T11:42:00
     date_raw: 18 Nov 2005 — 11:42am
     votes: null
     html: |-
-      <p>Thanks Chester! One more item for my OpenType feature code notebook!</p>
-      <p>ChrisL</p>
-    html_clean: |-
       <p>Thanks Chester! One more item for my OpenType feature code notebook!</p>
       <p>ChrisL</p>
   - id: 96069
@@ -285,17 +198,12 @@ comments:
       <p>The ".LT" naming didn't change anything, InDesign still thinks that the glyphs in the "tnum" feature are also in a "onum" feature even though there isn't one in the font -- when I open the OTF back into FontLab the feature set decompiles without any onum feature.</p>
       <p>As far as I can tell I'm writing the feature code the same way that you are, for testing I've stripped the font down to just the "tnum" feature that I posted above.</p>
       <p>InDesign switches from the default Proportional Lining figures to the Tabular Lining figures without any problems with this code, it's just that it also still thinks that the glyphs that are in the tnum feature are also in an onum feature.</p>
-    html_clean: |-
-      <p>The ".LT" naming didn't change anything, InDesign still thinks that the glyphs in the "tnum" feature are also in a "onum" feature even though there isn't one in the font -- when I open the OTF back into FontLab the feature set decompiles without any onum feature.</p>
-      <p>As far as I can tell I'm writing the feature code the same way that you are, for testing I've stripped the font down to just the "tnum" feature that I posted above.</p>
-      <p>InDesign switches from the default Proportional Lining figures to the Tabular Lining figures without any problems with this code, it's just that it also still thinks that the glyphs that are in the tnum feature are also in an onum feature.</p>
   - id: 96070
     user: 1336
     date: 2005-11-18T11:50:00
     date_raw: 18 Nov 2005 — 11:50am
     votes: null
     html: <p>Or several items, thanks to the engine of this site. (Shakes fist in mock anger.)</p>
-    html_clean: <p>Or several items, thanks to the engine of this site. (Shakes fist in mock anger.)</p>
   - id: 96072
     user: 1336
     date: 2005-11-18T11:55:00
@@ -311,23 +219,12 @@ comments:
       Click and hold the little "Tool" cog icon button in the bottom left corner of the Font Palette.<br>
       Select Typography...<br>
       A new palette will pop up which gives you access to your font's features. (Even SSes!)</p>
-    html_clean: |-
-      <p>That's whack, Andy. What does Text Edit see?<br>
-      Did you know that you can access OT features using Text Edit. Here's how:<br>
-      Type some text.<br>
-      Select it.<br>
-      Hit Command-T for the Font Palette.<br>
-      Change the font to your OT font.<br>
-      Click and hold the little "Tool" cog icon button in the bottom left corner of the Font Palette.<br>
-      Select Typography...<br>
-      A new palette will pop up which gives you access to your font's features. (Even SSes!)</p>
   - id: 96074
     user: 537
     date: 2005-11-18T12:02:00
     date_raw: 18 Nov 2005 — 12:02pm
     votes: null
     html: <p>Maybe the problems are a bit deeper because when I do that the Typography window says "No typographic features in this font." It's an OpenType CFF and FontLab doesn't register any errors when compiling the features...</p>
-    html_clean: <p>Maybe the problems are a bit deeper because when I do that the Typography window says "No typographic features in this font." It's an OpenType CFF and FontLab doesn't register any errors when compiling the features...</p>
   - id: 96076
     user: 537
     date: 2005-11-18T12:10:00
@@ -339,19 +236,12 @@ comments:
       <p>I'm wondering if anyone else has tried to build an OTF with Prop and Tab Lining figures and see what comes up?</p>
       <p>Here's what InDesign shows for a glyph that is only in the tnum class and feature:<br>
       <a href="http://www.andyclymer.com/temp/featurepopup.gif" rel="nofollow">indesign feature popup image</a></p>
-    html_clean: |-
-      <p>About the ".lnum_tnum" naming, I was following Adam Twardoch's suggestions from <a href="http://groups.msn.com/fontlab/general.msnw?action=get_message&amp;mview=0&amp;ID_Message=4966&amp;LastModified=4675540745632224845" rel="nofollow">this Fontlab Forum thread</a>, he breaks things down pretty well for building a font that's going to take advantage of all four figure substitution possibilities, but that's not a concern with this font.</p>
-      <p>His explanation is good (and I'll respond to that thread with this question when I've been approved to be added to the FontlabForum) in explaining that "tnum" isn't Lining or Oldstyle specific. I'm sure that InDesign just sees that a class can be switched from any kind of proportional to any kind of tabular and just assumes that the glyphs within could belong to either or both.</p>
-      <p>I'm wondering if anyone else has tried to build an OTF with Prop and Tab Lining figures and see what comes up?</p>
-      <p>Here's what InDesign shows for a glyph that is only in the tnum class and feature:<br>
-      <a href="http://www.andyclymer.com/temp/featurepopup.gif" rel="nofollow">indesign feature popup image</a></p>
   - id: 96079
     user: 1336
     date: 2005-11-18T12:22:00
     date_raw: 18 Nov 2005 — 12:22pm
     votes: null
     html: "<p>All I can say is that fonts built with the code I included above work correctly in CS1 and CS2 apps. If there is one thing I have learned about OT feature coding, it is this: \"If it works, don't touch it even a little. Don't try to improve it. Move away fromt he keyboard...\"</p>"
-    html_clean: "<p>All I can say is that fonts built with the code I included above work correctly in CS1 and CS2 apps. If there is one thing I have learned about OT feature coding, it is this: \"If it works, don't touch it even a little. Don't try to improve it. Move away fromt he keyboard...\"</p>"
   - id: 96082
     user: 1043
     date: 2005-11-18T12:47:00
@@ -360,25 +250,12 @@ comments:
     html: |-
       <p>Andy, have you built a kern feature yet for the font? I seem to recall that the absence of a kern feature can cause the font's other features not to be recognized. Or maybe I'm thinking of something else. Just a hunch. <strong>Edit:</strong> Never mind. I <em>must</em> be thinking of something else.</p>
       <p>FWIW, I built Proxima Nova with proportional lining figures as the default without a problem. I did not give them any special names, just one, two, three, etc. For the other three variants, I used .tnum for tabular lining, .onum for proportional old style and .tonum for tabular old style. I don't thing the naming of the variants matters, but the naming of the default figures probably does.</p>
-    html_clean: |-
-      <p>Andy, have you built a kern feature yet for the font? I seem to recall that the absence of a kern feature can cause the font's other features not to be recognized. Or maybe I'm thinking of something else. Just a hunch. <strong>Edit:</strong> Never mind. I <em>must</em> be thinking of something else.</p>
-      <p>FWIW, I built Proxima Nova with proportional lining figures as the default without a problem. I did not give them any special names, just one, two, three, etc. For the other three variants, I used .tnum for tabular lining, .onum for proportional old style and .tonum for tabular old style. I don't thing the naming of the variants matters, but the naming of the default figures probably does.</p>
   - id: 96083
     user: 1133
     date: 2005-11-18T12:47:00
     date_raw: 18 Nov 2005 — 12:47pm
     votes: null
     html: |-
-      <p>Chester, </p>
-      <p>As for the glyph name suffixes, they are fully arbitrary. You can call your lining tabular one "one.LT", "one.lftf", "one.ltf, "one.lnum_tnum", "one.liningtabular", "one.mylefteyebrow" etc. What is important is the use of the period and the suffixes. </p>
-      <p>At Fontlab Ltd., we recommend using four-letter suffix parts that are derived from OpenType feature names due to consistency. The glyph name suffixes are not standardized in any way but the OpenType Layout feature tags are (lnum, onum, smcp). The only way you can have industry-wide consistency is to use consistent suffixes, and the only way to do it is to use suffixes based on standardized strings -- that being the OpenType Layout feature tags. So a small-caps A should be "A.smcp", but it can also be "A.sc" or "A.small" or whatever, but not "Asmall" (since there is no period and no suffix). </p>
-      <p>Whenever there is a suffix where a glyph is accessed through a combination of features (like onum+tnum), we recommend sorting the suffix parts alphabetically and concatenating the suffix parts using underscore (e.g. "one.pnum_smcp" and "one.smcp_tnum"). </p>
-      <p>But really, the only advantage of this approach is that it's systematic. If you don't care for being systematic, you can use any glyph suffixes you want. </p>
-      <p>Andy, </p>
-      <p>something is probably wrong with your OpenType Layout feature code. The glyph naming doesn't really matter so much. Contact Fontlab Ltd. support at <a href="http://www.fontlab.com/problem/" title="http://www.fontlab.com/problem/">http://www.fontlab.com/problem/</a> for that and we'll take a look. </p>
-      <p>Regards,<br>
-      Adam</p>
-    html_clean: |-
       <p>Chester, </p>
       <p>As for the glyph name suffixes, they are fully arbitrary. You can call your lining tabular one "one.LT", "one.lftf", "one.ltf, "one.lnum_tnum", "one.liningtabular", "one.mylefteyebrow" etc. What is important is the use of the period and the suffixes. </p>
       <p>At Fontlab Ltd., we recommend using four-letter suffix parts that are derived from OpenType feature names due to consistency. The glyph name suffixes are not standardized in any way but the OpenType Layout feature tags are (lnum, onum, smcp). The only way you can have industry-wide consistency is to use consistent suffixes, and the only way to do it is to use suffixes based on standardized strings -- that being the OpenType Layout feature tags. So a small-caps A should be "A.smcp", but it can also be "A.sc" or "A.small" or whatever, but not "Asmall" (since there is no period and no suffix). </p>
@@ -402,15 +279,6 @@ comments:
       I'll contact FontLab support as you suggest.</p>
       <p>Thanks<br>
       -- Andy</p>
-    html_clean: |-
-      <p>Mark,<br>
-      The OpenType export options are set to generate a kern feature, I've noticed the same feature funnyness if the OTF is built without the kern feature.</p>
-      <p>Chester,<br>
-      The help is much appreciated, thanks for the time and suggestions</p>
-      <p>Adam,<br>
-      I'll contact FontLab support as you suggest.</p>
-      <p>Thanks<br>
-      -- Andy</p>
   - id: 96106
     user: 1336
     date: 2005-11-18T14:11:00
@@ -419,21 +287,12 @@ comments:
     html: |-
       <p>I defer to Adam in many matters, and am glad to hear that his comments pretty much mesh with my workflow.</p>
       <p>Andy, I would be happy to poke through your file for wonkiness, if that is something you're interested in. (I spend half of my life in other people's files, getting them ready for publication, etc.) chester [at] vllg.com</p>
-    html_clean: |-
-      <p>I defer to Adam in many matters, and am glad to hear that his comments pretty much mesh with my workflow.</p>
-      <p>Andy, I would be happy to poke through your file for wonkiness, if that is something you're interested in. (I spend half of my life in other people's files, getting them ready for publication, etc.) chester [at] vllg.com</p>
   - id: 96145
     user: 909
     date: 2005-11-18T16:18:00
     date_raw: 18 Nov 2005 — 4:18pm
     votes: null
     html: |-
-      <p>On the TextEdit thing, note that OS X OpenType feature support requires OS X 10.4 or later. I'll bet Andy is using an older version of OS X.</p>
-      <p>As for InDesign and the features, this is essentially a limitation of the way InDesign's UI is set up to access the figure styles in pairs: one of [lining, oldstyle] and one of [tabular, proportional]. If you have even one of the two features in the pair, InDesign will give people the option of turning on both features. The reasons for this have to do with InDesign not knowing what your default figure type is, and the fact that you might have one but not both features of one of the pairs, even though you are in fact supporting the desired result.</p>
-      <p>One option would be for InDesign to go to a model where you set oldstyle vs. lining with one toggle and tabular vs. proportional with another. But for most cases that would mean two trips to the menu where today one gets by with one. So it's not an attractive option with the current UI. If some day InDesign gets a palette approach like Illustrator, it might be a little easier to go down that path.</p>
-      <p>Regards,</p>
-      <p>T</p>
-    html_clean: |-
       <p>On the TextEdit thing, note that OS X OpenType feature support requires OS X 10.4 or later. I'll bet Andy is using an older version of OS X.</p>
       <p>As for InDesign and the features, this is essentially a limitation of the way InDesign's UI is set up to access the figure styles in pairs: one of [lining, oldstyle] and one of [tabular, proportional]. If you have even one of the two features in the pair, InDesign will give people the option of turning on both features. The reasons for this have to do with InDesign not knowing what your default figure type is, and the fact that you might have one but not both features of one of the pairs, even though you are in fact supporting the desired result.</p>
       <p>One option would be for InDesign to go to a model where you set oldstyle vs. lining with one toggle and tabular vs. proportional with another. But for most cases that would mean two trips to the menu where today one gets by with one. So it's not an attractive option with the current UI. If some day InDesign gets a palette approach like Illustrator, it might be a little easier to go down that path.</p>
@@ -448,54 +307,12 @@ comments:
       <p>"If some day InDesign gets a palette approach like Illustrator, it might be a little easier to go down that path."</p>
       <p>A series of check boxes would do the trick.</p>
       <p>ChrisL</p>
-    html_clean: |-
-      <p>"If some day InDesign gets a palette approach like Illustrator, it might be a little easier to go down that path."</p>
-      <p>A series of check boxes would do the trick.</p>
-      <p>ChrisL</p>
   - id: 96177
     user: 8664
     date: 2005-11-18T19:48:00
     date_raw: 18 Nov 2005 — 7:48pm
     votes: null
     html: |-
-      <p>Mr Clymer,</p>
-      <p>&gt; I’m currently developing an OpenType font that<br>
-      &gt; contains two sets of figures — Lining Proportional<br>
-      &gt; figures as the default and Lining Tabular figures<br>
-      &gt; activated with the “tnum” feature.</p>
-      <p>So, your figures are all lining, and the distinction<br>
-      is tabular vs proportional only.<br>
-      Which means, you decide which set of figures shall<br>
-      be the standard figures (say, tabular ones) and name<br>
-      them zero one two three ... plus according class.<br>
-      The other ones will be proportional, with appendix<br>
-      .pnum (or whatever else, I confess my appendices<br>
-      are quite arbitrary too) plus according class.</p>
-      <p>The tnum feature now substitutes zero.pnum one.pnum<br>
-      two.pnum three.pnum ... by zero one two three ...<br>
-      The pnum feature replaces zero one two three ... by<br>
-      zero.pnum one.pnum two.pnum three.pnum ... </p>
-      <p>As long as you would not add oldstyle figures, you<br>
-      don't need lnum (lining) and onum (oldstlye) features<br>
-      at all.</p>
-      <p>Chester -- DF/scotch as default is a VERY nice<br>
-      solution!<br>
-      (And the I-hate-doing-figures me says, oh dear, one<br>
-      more set of figures ...)</p>
-      <p>Mr Phinney --</p>
-      <p>&gt; One option would be for InDesign to go to a model<br>
-      &gt; where you set oldstyle vs. lining with one toggle<br>
-      &gt; and tabular vs. proportional with another.</p>
-      <p>... which would closer resemble how the features work ...</p>
-      <p>&gt; But for most cases that would mean two trips to the<br>
-      &gt; menu where today one gets by with one. So it’s not<br>
-      &gt; an attractive option with the current UI.</p>
-      <p>... which is true. And now I am curious:<br>
-      (1) In which way are figure styles offered in TextEdit/10.4?<br>
-      (2) And, even more interesting, in what about Windows<br>
-      Vista applications?</p>
-      <p>Karsten</p>
-    html_clean: |-
       <p>Mr Clymer,</p>
       <p>&gt; I’m currently developing an OpenType font that<br>
       &gt; contains two sets of figures — Lining Proportional<br>
@@ -549,33 +366,12 @@ comments:
       &gt; Windows Vista applications?</p>
       <p>That depends on how you write your XAML file. </p>
       <p>A.</p>
-    html_clean: |-
-      <p>Chris L writes:<br>
-      &gt; A series of check boxes would do the trick.</p>
-      <p>No, it would not. If you have a selection between two options (proportional vs. tabular, old-style vs. lining) or even a selection between four different versions (proportional old-style, proportional lining, tabular old-style, tabular lining), checkboxes are the worst UI implementation you could choose. </p>
-      <p>Karsten writes:<br>
-      &gt; (1) In which way are figure styles offered in TextEdit/10.4?</p>
-      <p>Two groups of radio buttons, one for the proportion (tabular vs. proportional), and the other for alignment (lining vs. old-style).  </p>
-      <p>&gt; (2) And, even more interesting, in what about<br>
-      &gt; Windows Vista applications?</p>
-      <p>That depends on how you write your XAML file. </p>
-      <p>A.</p>
   - id: 96256
     user: 537
     date: 2005-11-19T15:16:00
     date_raw: 19 Nov 2005 — 3:16pm
     votes: null
     html: |-
-      <p>Thomas,</p>
-      <p>&gt; If you have even one of the two features in the pair, InDesign will give people the option<br>
-      &gt; of turning on both features. The reasons for this have to do with InDesign not knowing<br>
-      &gt; what your default figure type is, and the fact that you might have one but not both<br>
-      &gt; features of one of the pairs, even though you are in fact supporting the desired result.</p>
-      <p>So there probably isn't a problem with the way I'm building the features for this font, it's just because there's no way to describe to InDesign that in this font the tabular figures are always lining and never oldstyle?</p>
-      <p>I'm curious though, the only figure related feature in this font is tnum but in the glyph palette when I mouse over a glyph from the tnum feature it says that the glyph is <a href="http://www.andyclymer.com/temp/featurepopup.gif" rel="nofollow">"Tabular Figures (tnum) + Oldstyle Figures (onum)"</a>, but why wouldn't it also assume that the glyph could be Tabular and Lining? If there isn't even an onum feature in the font I don't think we should be seeing "Oldstyle Figures (onum)" here, do you agree?</p>
-      <p>Much appreciated,<br>
-      -- Andy</p>
-    html_clean: |-
       <p>Thomas,</p>
       <p>&gt; If you have even one of the two features in the pair, InDesign will give people the option<br>
       &gt; of turning on both features. The reasons for this have to do with InDesign not knowing<br>
@@ -596,22 +392,12 @@ comments:
       <p>I think Adam is right about radio buttons being the theoretical ideal approach, as well.</p>
       <p>Cheers,</p>
       <p>T</p>
-    html_clean: |-
-      <p>Andy,</p>
-      <p>Yes, agreed on all counts.</p>
-      <p>I think Adam is right about radio buttons being the theoretical ideal approach, as well.</p>
-      <p>Cheers,</p>
-      <p>T</p>
   - id: 96419
     user: 7783
     date: 2005-11-21T02:49:00
     date_raw: 21 Nov 2005 — 2:49am
     votes: null
     html: |-
-      <p>Side Note:</p>
-      <p>Andy, we met at typecon in San Francisco before you left to start the KABK program. I recently checked out your thesis project and thought it was great. It is unique to see such an American effort. Nice work and congratulations!</p>
-      <p>Randy</p>
-    html_clean: |-
       <p>Side Note:</p>
       <p>Andy, we met at typecon in San Francisco before you left to start the KABK program. I recently checked out your thesis project and thought it was great. It is unique to see such an American effort. Nice work and congratulations!</p>
       <p>Randy</p>
@@ -635,31 +421,12 @@ comments:
       <p>if I choose Tabular Oldstyle in InDesign I get it, even if I have Proportional Lining Figure.<br>
       When I mouse over the glyph palette I see possible actions between existing glyphs with names similar to my features and after adding Old Style figures the choise tab onum is no longer listed by the Lining Fig as you have it. But now I see pnum by proportional oldstyle though its actually in tnum feature and lnum by Lining Figures though its actually in the onum feature. So its the same naming, but not the feature on and off, it's the action.<br>
       And then until you have defined that default is lining you can get tabular figures by both tab Oldstyle and tab lining</p>
-    html_clean: |-
-      <p>Hi Andy;<br>
-      What you see in the glyph palette in InDesign is the possible features the glyph could be a part of. I just generated Tabular Lining, Proportional Lining, Proportional Onum and Tab Onum.<br>
-      I wrote the features:<br>
-      feature tnum {<br>
-        sub @linfig by @tablinfig;<br>
-        sub @onum by @tabonum;<br>
-      } tnum;</p>
-      <p>&amp;<br>
-      feature onum {<br>
-        sub @linfig by @onum;<br>
-      } onum;</p>
-      <p>if I choose Tabular Oldstyle in InDesign I get it, even if I have Proportional Lining Figure.<br>
-      When I mouse over the glyph palette I see possible actions between existing glyphs with names similar to my features and after adding Old Style figures the choise tab onum is no longer listed by the Lining Fig as you have it. But now I see pnum by proportional oldstyle though its actually in tnum feature and lnum by Lining Figures though its actually in the onum feature. So its the same naming, but not the feature on and off, it's the action.<br>
-      And then until you have defined that default is lining you can get tabular figures by both tab Oldstyle and tab lining</p>
   - id: 96437
     user: 3135
     date: 2005-11-21T05:29:00
     date_raw: 21 Nov 2005 — 5:29am
     votes: null
     html: |-
-      <p>&gt; A series of check boxes would do the trick.</p>
-      <p>Dumb arse me meant radio buttons to begin with.</p>
-      <p>ChrisL</p>
-    html_clean: |-
       <p>&gt; A series of check boxes would do the trick.</p>
       <p>Dumb arse me meant radio buttons to begin with.</p>
       <p>ChrisL</p>
@@ -672,20 +439,12 @@ comments:
       <p>Randy, good to talk to you again! I really appreciate the comments. I was made very aware of my Americanness while working at the KABK.</p>
       <p>Trine, I think what you've described is the pretty much what I saw when I was testing several different possibilities, but it looks like that's just the way InDesign operates.</p>
       <p>Thanks!</p>
-    html_clean: |-
-      <p>Randy, good to talk to you again! I really appreciate the comments. I was made very aware of my Americanness while working at the KABK.</p>
-      <p>Trine, I think what you've described is the pretty much what I saw when I was testing several different possibilities, but it looks like that's just the way InDesign operates.</p>
-      <p>Thanks!</p>
   - id: 97468
     user: 1250
     date: 2005-11-28T13:06:00
     date_raw: 28 Nov 2005 — 1:06pm
     votes: null
     html: |-
-      <p>&gt; I was made very aware of my Americanness while working at the KABK.</p>
-      <p>Elaborate!  :-)</p>
-      <p>hhp</p>
-    html_clean: |-
       <p>&gt; I was made very aware of my Americanness while working at the KABK.</p>
       <p>Elaborate!  :-)</p>
       <p>hhp</p>

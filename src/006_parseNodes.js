@@ -17,6 +17,7 @@ import YAML from "yaml";
 import { DATA } from "./lib/config.js";
 import { detectGeneration } from "./lib/generations.js";
 import { userIdFor } from "./lib/users.js";
+import { totalPagesFrom } from "./lib/pager.js";
 import { ensureDir, ensureDirCached, readJsonl, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
 const args = parseArgs();
@@ -104,6 +105,7 @@ function main() {
   const counts = {
     total: 0, parsed: 0, skipped: 0, failed: 0,
     warnings: 0, errors: 0, truncatedSource: 0, reparsedAfterParserChange: 0,
+    multiPageThreads: 0, incompleteThreads: 0,
   };
   const byGeneration = {};
   const unknownSamples = [];
@@ -143,48 +145,109 @@ function main() {
       }
 
       const issues = [];
-
-      let html;
-      try {
-        html = fs.readFileSync(pick.file, "utf8");
-      } catch (err) {
-        emit(pick.node, [{ level: "error", message: `cannot read ${pick.file}: ${err.message}` }]);
+      const parts = pick.pages ?? [];
+      if (parts.length === 0) {
+        emit(pick.node, [{ level: "error", message: "no pages selected for this thread" }]);
         counts.failed++;
         continue;
       }
 
-      const $ = cheerio.load(html);
-      const generation = detectGeneration($);
-      if (!generation) {
-        emit(pick.node, [{ level: "error", message: `unknown page generation (no parser matches) -- ${pick.archive} ${pick.ts}` }]);
+      // A long thread was split across pages of 50 comments, and the opening
+      // post repeats on every one. Take the post from the first page we can
+      // read and concatenate the comments in page order.
+      let generation = null;
+      let result = null;
+      let primary = null;
+      let totalPages = null;
+      const comments = [];
+      const seenComments = new Set();
+      const pagesRead = [];
+
+      for (const part of parts) {
+        let html;
+        try {
+          html = fs.readFileSync(part.file, "utf8");
+        } catch (err) {
+          issues.push({ level: "error", message: `page ${part.page}: cannot read ${part.file}: ${err.message}` });
+          continue;
+        }
+
+        const $ = cheerio.load(html);
+        const gen = detectGeneration($);
+        if (!gen) {
+          issues.push({ level: "error", message: `page ${part.page}: unknown page generation -- ${part.archive} ${part.ts}` });
+          if (unknownSamples.length < 20) {
+            unknownSamples.push({ node: pick.node, page: part.page, archive: part.archive, ts: part.ts, file: part.file });
+          }
+          continue;
+        }
+
+        const reported = totalPagesFrom($);
+        if (reported !== null) totalPages = Math.max(totalPages ?? 0, reported);
+
+        let parsed;
+        try {
+          parsed = gen.parse($, { nodeId: pick.node });
+        } catch (err) {
+          issues.push({ level: "error", message: `page ${part.page}: ${gen.id} parser threw: ${err.message}` });
+          continue;
+        }
+
+        const isFirstUsable = result === null;
+        if (isFirstUsable) {
+          result = parsed;
+          generation = gen;
+          primary = part;
+        }
+
+        for (const c of parsed.comments ?? []) {
+          const key = c.id ?? `p${part.page}:${comments.length}`;
+          if (seenComments.has(key)) continue;
+          seenComments.add(key);
+          comments.push(c);
+        }
+
+        for (const issue of parsed.issues) {
+          // The post is repeated on every page; only report its problems once.
+          if (!isFirstUsable && issue.field?.startsWith("post")) continue;
+          const where = parts.length > 1 ? ` [page ${part.page}]` : "";
+          issues.push({
+            level: issue.level,
+            message: `${issue.field}${issue.ref ? ` (${issue.ref})` : ""}: ${issue.message}${where}`,
+          });
+        }
+
+        if (part.truncated) {
+          issues.push({
+            level: "warn",
+            message: `page ${part.page} capture is truncated (${part.archive} ${part.ts}) -- content may be incomplete`,
+          });
+        }
+        pagesRead.push(part.page);
+      }
+
+      if (!result) {
+        emit(pick.node, issues.length ? issues : [{ level: "error", message: "no page could be parsed" }]);
         counts.failed++;
-        if (unknownSamples.length < 20) unknownSamples.push({ node: pick.node, archive: pick.archive, ts: pick.ts, file: pick.file });
         continue;
       }
+
       byGeneration[generation.id] = (byGeneration[generation.id] || 0) + 1;
+      result.comments = comments;
 
-      if (pick.truncated) {
+      // Say plainly when a thread is only partly recovered.
+      const pageCount = totalPages ?? (pagesRead.length ? Math.max(...pagesRead) + 1 : 1);
+      const missingPages = [];
+      for (let i = 0; i < pageCount; i++) if (!pagesRead.includes(i)) missingPages.push(i);
+      if (missingPages.length) {
+        counts.incompleteThreads++;
         issues.push({
           level: "warn",
-          message: `source capture is truncated (${pick.archive} ${pick.ts}) -- content may be incomplete`,
+          message: `thread has ${pageCount} page(s), ${pagesRead.length} recovered -- missing page(s) ${missingPages.slice(0, 12).join(", ")}${missingPages.length > 12 ? ` and ${missingPages.length - 12} more` : ""}`,
         });
       }
+      if (parts.length > 1) counts.multiPageThreads++;
 
-      let result;
-      try {
-        result = generation.parse($, { nodeId: pick.node });
-      } catch (err) {
-        emit(pick.node, [...issues, { level: "error", message: `${generation.id} parser threw: ${err.message}` }]);
-        counts.failed++;
-        continue;
-      }
-
-      for (const issue of result.issues) {
-        issues.push({
-          level: issue.level,
-          message: `${issue.field}${issue.ref ? ` (${issue.ref})` : ""}: ${issue.message}`,
-        });
-      }
       emit(pick.node, issues);
 
       const ctx = { node: pick.node, title: result.title, forum: result.forum?.id ?? null };
@@ -202,19 +265,37 @@ function main() {
         title: result.title,
         forum: result.forum,
         source: {
-          archive: pick.archive,
-          timestamp: pick.ts,
-          captured_at: captureIso(pick.ts),
-          url: pick.url,
-          digest: pick.digest,
-          verified: pick.verified,
-          truncated: pick.truncated,
-          sound: pick.sound ?? null,
-          content: pick.source,
+          archive: primary.archive,
+          timestamp: primary.ts,
+          captured_at: captureIso(primary.ts),
+          url: primary.url,
+          digest: primary.digest,
+          verified: primary.verified,
+          // True when ANY page we used was cut short.
+          truncated: parts.some((p) => p.truncated),
+          sound: parts.every((p) => p.sound !== false),
+          content: primary.source,
           generation: generation.id,
-          file: pick.file,
+          file: primary.file,
           fingerprint: pick.fp,
           parser,
+        },
+        // How much of a paginated thread we actually hold.
+        pages: {
+          total: pageCount,
+          recovered: pagesRead.length,
+          complete: missingPages.length === 0,
+          have: pagesRead,
+          ...(missingPages.length ? { missing: missingPages } : {}),
+          parts: parts.map((p) => ({
+            page: p.page,
+            archive: p.archive,
+            timestamp: p.ts,
+            digest: p.digest,
+            verified: p.verified,
+            truncated: p.truncated,
+            file: p.file,
+          })),
         },
         post: toEntry(result.post),
         comments: (result.comments ?? []).map(toEntry),
@@ -266,6 +347,8 @@ function main() {
     console.log(`parsed .............. ${formatCount(counts.parsed)}`);
     console.log(`unchanged (skipped) . ${formatCount(counts.skipped)}`);
     console.log(`failed .............. ${formatCount(counts.failed)}`);
+    console.log(`multi-page threads .. ${formatCount(counts.multiPageThreads)}`);
+    console.log(`partly recovered .... ${formatCount(counts.incompleteThreads)} thread(s) are missing page(s)`);
     if (counts.reparsedAfterParserChange) {
       console.log(`re-parsed because the parser changed: ${formatCount(counts.reparsedAfterParserChange)}`);
     }

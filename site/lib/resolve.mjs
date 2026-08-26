@@ -39,10 +39,6 @@ export function resolve(route, index) {
       }
       return { doc, users };
     }
-    case "users": {
-      const { users } = buildUserIndex();
-      return { page: paginate(users, route.page), total: users.length };
-    }
     case "user": {
       const doc = loadUser(route.user);
       return doc ? { doc } : null;

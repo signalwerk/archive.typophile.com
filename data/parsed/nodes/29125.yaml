@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/29125.html
-  fingerprint: 3df892a2f4fcc8fd
-  parser: 34efae9498635f11
+  fingerprint: 3e01d9edbadb28b0
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150425004553"
+      digest: WXNRJF5F2NREMGWK4ONMPGWTIRBTO5JO
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/29125.html
 post:
   id: 29125
   user: 7006
@@ -24,7 +38,6 @@ post:
   date_raw: 27 Oct 2006 — 12:33pm
   votes: null
   html: <p>I'm sure this has been covered somewhere before, but is it possible to include "flat" and class-based kerning in the same OT font file? Are there any ill effects of doing this? Any help is appreicated. Thnx.</p>
-  html_clean: <p>I'm sure this has been covered somewhere before, but is it possible to include "flat" and class-based kerning in the same OT font file? Are there any ill effects of doing this? Any help is appreicated. Thnx.</p>
 comments:
   - id: 165375
     user: 909
@@ -37,45 +50,30 @@ comments:
       <p>If you are asking about having both GPOS kern feature and 'kern' table in the same font, that's another question. The results of doing so are undefined in the spec, and there's no guarantee what will happen. But a number of folks have done it, without obvious disasters occurring.</p>
       <p>Regards,</p>
       <p>T</p>
-    html_clean: |-
-      <p>GPOS based kerning can handle pairs and classes equally well. Kerning in the 'kern' table can only do pairs (ignoring Apple's extensions for AAT for the moment).</p>
-      <p>Most Adobe fonts have both pairs and class-based kerning in the GPOS table 'kern' feature. This works just fine.</p>
-      <p>If you are asking about having both GPOS kern feature and 'kern' table in the same font, that's another question. The results of doing so are undefined in the spec, and there's no guarantee what will happen. But a number of folks have done it, without obvious disasters occurring.</p>
-      <p>Regards,</p>
-      <p>T</p>
   - id: 168656
     user: 7006
     date: 2006-11-15T10:13:00
     date_raw: 15 Nov 2006 — 10:13am
     votes: null
     html: <p>i guess i should clarify my question a bit. is there any reason why one should duplicate what's handled by class-based kerning with pairs in the GPOS kern feature? maybe i'm overthinking this...</p>
-    html_clean: <p>i guess i should clarify my question a bit. is there any reason why one should duplicate what's handled by class-based kerning with pairs in the GPOS kern feature? maybe i'm overthinking this...</p>
   - id: 168707
     user: 1844
     date: 2006-11-15T12:31:00
     date_raw: 15 Nov 2006 — 12:31pm
     votes: null
     html: <p>If I understood your question, the answer is "No". To include kerning data in OpenType CFF fonts all you need to do is to provide a 'kern' feature with all the positioning rules (and necessary classes, obviously). That's how it's done in Adobe's fonts.</p>
-    html_clean: <p>If I understood your question, the answer is "No". To include kerning data in OpenType CFF fonts all you need to do is to provide a 'kern' feature with all the positioning rules (and necessary classes, obviously). That's how it's done in Adobe's fonts.</p>
   - id: 168734
     user: 7006
     date: 2006-11-15T13:44:00
     date_raw: 15 Nov 2006 — 1:44pm
     votes: null
     html: <p>thnx for your answer, Miguel. I was wondering, is it possible to get notes for your <a href="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf" rel="nofollow">Adventures in Class Kerning</a>? I can follow the PDF untill i get to the code optimization portion, and then i get lost.</p>
-    html_clean: <p>thnx for your answer, Miguel. I was wondering, is it possible to get notes for your <a href="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf" rel="nofollow">Adventures in Class Kerning</a>? I can follow the PDF untill i get to the code optimization portion, and then i get lost.</p>
   - id: 168805
     user: 1844
     date: 2006-11-15T21:50:00
     date_raw: 15 Nov 2006 — 9:50pm
     votes: null
     html: |-
-      <p>I don't have any notes, unfortunately. I demoed a macro with a few fonts, and that's where the code comes from. Yes, the slides are not very useful by themselves. Is there something specific you'd like to know?</p>
-      <p>Essentially, I demonstrated that in big fonts (2500+ glyphs, 3 scripts, 15000+ kerning pairs, for example) it is necessary to optimize the code of the 'kern' feature. FontLab 5.x does a great job, but unfortunately it's not enough. And in some situations, the order in which the kerning classes are arranged in the Classes panel (yes, the Classes panel), might mean the difference between one 'kern' feature that compiles, and one that doesn't.*</p>
-      <p>* this has to do with the fact that when FontLab generates the 'kern' feature, the class-class kern commands are ordered in the same way as the kerning classes appear on the Classes panel. And this order might not be the ideal if subtable breaks are also added.<br>
-      In a font containing kerning classes for Latin, Greek, Cyrillic and punctuation, for example, one of the ways to avoid overflow errors upon trying to compile a 'kern' feature, is by arranging the same kind of classes next to each other (i.e. all Latin classes, then all Greek classes, and so on).</p>
-      <p>Also, in a big font project, FontLab generates a 'kern' feature with too many subtable breaks. In my example, FL was adding about 11 subtable breaks, when only 3 were effectively necessary, as I showed.</p>
-    html_clean: |-
       <p>I don't have any notes, unfortunately. I demoed a macro with a few fonts, and that's where the code comes from. Yes, the slides are not very useful by themselves. Is there something specific you'd like to know?</p>
       <p>Essentially, I demonstrated that in big fonts (2500+ glyphs, 3 scripts, 15000+ kerning pairs, for example) it is necessary to optimize the code of the 'kern' feature. FontLab 5.x does a great job, but unfortunately it's not enough. And in some situations, the order in which the kerning classes are arranged in the Classes panel (yes, the Classes panel), might mean the difference between one 'kern' feature that compiles, and one that doesn't.*</p>
       <p>* this has to do with the fact that when FontLab generates the 'kern' feature, the class-class kern commands are ordered in the same way as the kerning classes appear on the Classes panel. And this order might not be the ideal if subtable breaks are also added.<br>
@@ -90,21 +88,12 @@ comments:
       <p>&gt; Essentially, I demonstrated...</p>
       <p>And I kept interrupting Miguel all the time ;&gt; I must admit that Miguel’s talk was a very good summary of the topic even though in a few details he was not entirely correct. His talk inspired Sergey Malkin (who maintains Microsoft VOLT) and Yuri Yarmola (our chief Fontlab Ltd. programmer) to think about some automatic optimization of kerning so that the user will not have to worry so much about this. I hope that the guys will come to some conclusion! </p>
       <p>A.</p>
-    html_clean: |-
-      <p>&gt; Essentially, I demonstrated...</p>
-      <p>And I kept interrupting Miguel all the time ;&gt; I must admit that Miguel’s talk was a very good summary of the topic even though in a few details he was not entirely correct. His talk inspired Sergey Malkin (who maintains Microsoft VOLT) and Yuri Yarmola (our chief Fontlab Ltd. programmer) to think about some automatic optimization of kerning so that the user will not have to worry so much about this. I hope that the guys will come to some conclusion! </p>
-      <p>A.</p>
   - id: 168886
     user: 3135
     date: 2006-11-16T07:47:00
     date_raw: 16 Nov 2006 — 7:47am
     votes: null
     html: |-
-      <p>"I hope that the guys will come to some conclusion! "<br>
-      And that it will soon be available in FontLab Stidio 5.03 :-P</p>
-      <p>"Ready when it is ready" :-)</p>
-      <p>ChrisL</p>
-    html_clean: |-
       <p>"I hope that the guys will come to some conclusion! "<br>
       And that it will soon be available in FontLab Stidio 5.03 :-P</p>
       <p>"Ready when it is ready" :-)</p>
@@ -120,22 +109,12 @@ comments:
       -- In "Class kerning with exceptions" mode, allow exceptions of key-glyph/key-glyph pairs, or abandon the concept of key-glyph (this might sound strange at first, but class kerning is about kerning classes and glyphs; the key-glyph is in a grey area, because it can act as glyph or as a class)<br>
       -- Compile kerning data on the fly, and report kerning problems (class overlapping, inaccessible kern pairs downstream, etc.)</p>
       <p>This will keep you guys busy for a while... :^)</p>
-    html_clean: |-
-      <p>Adam, here are some ideas, regarding kerning handling, for a future iteration of FontLab Studio:<br>
-      -- Allow the creation of class supersets/class groups (classes that contain classes or classes+glyphs)<br>
-      -- In "Class kerning with exceptions" mode, allow exceptions of key-glyph/key-glyph pairs, or abandon the concept of key-glyph (this might sound strange at first, but class kerning is about kerning classes and glyphs; the key-glyph is in a grey area, because it can act as glyph or as a class)<br>
-      -- Compile kerning data on the fly, and report kerning problems (class overlapping, inaccessible kern pairs downstream, etc.)</p>
-      <p>This will keep you guys busy for a while... :^)</p>
   - id: 169035
     user: 8664
     date: 2006-11-17T02:50:00
     date_raw: 17 Nov 2006 — 2:50am
     votes: null
     html: |-
-      <p><cite>-- In "Class kerning with exceptions" mode, allow exceptions of key-glyph/key-glyph pairs, or abandon the concept of key-glyph (this might sound strange at first, but class kerning is about kerning classes and glyphs; the key-glyph is in a grey area, because it can act as glyph or as a class)</cite></p>
-      <p>Oh yes!<br>
-      But it seems this would require to think of kerning and the interface differently. (My assumption is that when FL started using class kerning, the key-glyph approach was a convenient way to remain compatible with the way kerning is handled in FL files.)</p>
-    html_clean: |-
       <p><cite>-- In "Class kerning with exceptions" mode, allow exceptions of key-glyph/key-glyph pairs, or abandon the concept of key-glyph (this might sound strange at first, but class kerning is about kerning classes and glyphs; the key-glyph is in a grey area, because it can act as glyph or as a class)</cite></p>
       <p>Oh yes!<br>
       But it seems this would require to think of kerning and the interface differently. (My assumption is that when FL started using class kerning, the key-glyph approach was a convenient way to remain compatible with the way kerning is handled in FL files.)</p>
@@ -158,29 +137,12 @@ comments:
       <p>We will keep the UI access and the programmatic access to the OpenType Layout feature definition source code (in AFDKO syntax). This means that people are free to develop their own Python code to transform the "visual" kerning information (Classes panel and Metrics window) into the AFDKO code -- just the way you did it Miguel. </p>
       <p>Best regards,<br>
       Adam</p>
-    html_clean: |-
-      <p>&gt; Allow the creation of class supersets/class groups</p>
-      <p>I don’t think so. I cannot imagine how this could be represented in the user interface. </p>
-      <p>&gt; In “Class kerning with exceptions” mode,<br>
-      &gt; allow exceptions of key-glyph/key-glyph pairs,<br>
-      &gt; or abandon the concept of key-glyph </p>
-      <p>Again, we could run into UI problems. But perhaps we can do something about it. </p>
-      <p>&gt; Compile kerning data on the fly, and<br>
-      &gt; report kerning problems (class overlapping</p>
-      <p>I think that the kerning problem should be solved in a completely different manner. The final classes embedded in the font do not, conceptually, have anything in common with the classes used in the design process. The classes in an OpenType font are a mechanism for technical compression. The classes used in the design are for the designer. I hope that we can find a solution that will separate those two entirely: the designer will be free to set up classes in the FontLab Studio interface in any possible way (such as, mix Cyrillic A with Latin A in one class), but in the process of the actual kerning compilation, the kerning will be composed in a different, optimal way, including both pairpos pairs and class pairs depending on the outcome of an automatic optimization algorithm. </p>
-      <p>Unlike a handful of experts at Adobe, regular type designers do not have to, and should not be bothered with things like subtable breaks, class overlapping etc. </p>
-      <p>We will keep the UI access and the programmatic access to the OpenType Layout feature definition source code (in AFDKO syntax). This means that people are free to develop their own Python code to transform the "visual" kerning information (Classes panel and Metrics window) into the AFDKO code -- just the way you did it Miguel. </p>
-      <p>Best regards,<br>
-      Adam</p>
   - id: 291766
     user: 8664
     date: 2008-07-26T16:39:00
     date_raw: 26 Jul 2008 — 4:39pm
     votes: null
     html: |-
-      <p>Stumbling across this old thread again ...<br>
-      I did some quick experiments in this respect recently. To my surprise I found that though "tidying up" classes helps AFDKO a bit when generating a kern feature (replacing left class and right class that have same glyph coverage by a single class will create a more economic GPOS), it does <em>not</em> necessarily help to completely rearrange kerning and classes. So providing AFDKO with a kern feature as VOLT's kern2volt would create it rather troubles AFDKO. This maybe because AFDKO and VOLT generate GPOS differently, and AFDKO works better with a kern feature more or less following the designer's logic of setting up classes.</p>
-    html_clean: |-
       <p>Stumbling across this old thread again ...<br>
       I did some quick experiments in this respect recently. To my surprise I found that though "tidying up" classes helps AFDKO a bit when generating a kern feature (replacing left class and right class that have same glyph coverage by a single class will create a more economic GPOS), it does <em>not</em> necessarily help to completely rearrange kerning and classes. So providing AFDKO with a kern feature as VOLT's kern2volt would create it rather troubles AFDKO. This maybe because AFDKO and VOLT generate GPOS differently, and AFDKO works better with a kern feature more or less following the designer's logic of setting up classes.</p>
   - id: 421847
@@ -191,20 +153,12 @@ comments:
     html: |-
       <p>Some years and tests later: Said "tidying up" does <em>not</em> make a difference.</p>
       <p>[Not meant to revive old threads. I just want to withdraw a former false claim.]</p>
-    html_clean: |-
-      <p>Some years and tests later: Said "tidying up" does <em>not</em> make a difference.</p>
-      <p>[Not meant to revive old threads. I just want to withdraw a former false claim.]</p>
   - id: 456324
     user: 84836
     date: 2011-03-19T02:21:00
     date_raw: 19 Mar 2011 — 2:21am
     votes: null
     html: |-
-      <p>What is "flat kerning"? Is it the same thing as plain kerning?</p>
-      <p>I am just now learning about the Glyph Positioning table (GPOS based kerning). All I know about it is that it's a table that microsoft will read to interpret the kerning values for my opentype-flavored opentype font. I know that in fontlab I can export it if I have the box checked next to "Generate "kern" feature if it is not defined" under the opentype export in the preferences, along with "export opentype tables", but where can I edit the GPOS kerning feature/table?</p>
-      <p>Mr. Sousa - What is code optimization (for kerning)? How do you do it? Do you use the opentype panel and change the code in it? If so, why do that instead of use the metrics window, as I have been doing for all of my kerning adjustments? All you need to do is to click the button "Apply and Save" in Kerning Assistance to make adjustments made in the metrics window show up in the opentype panel, -- even if you have defined no classes at all, this will generate a "kern" feature, I believe. Or am I wrong about this? I'm getting confused about some of these things!</p>
-      <p>BTW I am working on OTF-flavored OpenType fonts.</p>
-    html_clean: |-
       <p>What is "flat kerning"? Is it the same thing as plain kerning?</p>
       <p>I am just now learning about the Glyph Positioning table (GPOS based kerning). All I know about it is that it's a table that microsoft will read to interpret the kerning values for my opentype-flavored opentype font. I know that in fontlab I can export it if I have the box checked next to "Generate "kern" feature if it is not defined" under the opentype export in the preferences, along with "export opentype tables", but where can I edit the GPOS kerning feature/table?</p>
       <p>Mr. Sousa - What is code optimization (for kerning)? How do you do it? Do you use the opentype panel and change the code in it? If so, why do that instead of use the metrics window, as I have been doing for all of my kerning adjustments? All you need to do is to click the button "Apply and Save" in Kerning Assistance to make adjustments made in the metrics window show up in the opentype panel, -- even if you have defined no classes at all, this will generate a "kern" feature, I believe. Or am I wrong about this? I'm getting confused about some of these things!</p>
@@ -220,21 +174,12 @@ comments:
       <p>You can edit the "kern" feature in the OpenType panel. You can explicitly convert your class-based FontLab kerning into the "kern" feature in the OpenType panel flyout menu, "Generate kern feature". If you don't do that and the option "Generate "kern" feature if it is not defined" is enabled, then FLS will generate the "kern" feature when generating the font. </p>
       <p>But if you do it explicitly in the OpenType panel, you'll see exactly what goes into the font. </p>
       <p>A.</p>
-    html_clean: |-
-      <p>&gt; What is "flat kerning"? Is it the same thing as plain kerning?</p>
-      <p>Yes.</p>
-      <p>You can edit the "kern" feature in the OpenType panel. You can explicitly convert your class-based FontLab kerning into the "kern" feature in the OpenType panel flyout menu, "Generate kern feature". If you don't do that and the option "Generate "kern" feature if it is not defined" is enabled, then FLS will generate the "kern" feature when generating the font. </p>
-      <p>But if you do it explicitly in the OpenType panel, you'll see exactly what goes into the font. </p>
-      <p>A.</p>
   - id: 456799
     user: 84836
     date: 2011-03-22T23:59:00
     date_raw: 22 Mar 2011 — 11:59pm
     votes: null
     html: |-
-      <p>Thanks twardoch! I'll use this Opentype Panel method from now on.</p>
-      <p>I'm doing it right now and it's asking me if I want to rebuild it. I'm clicking yes. This is cool. I've never done it this way before.</p>
-    html_clean: |-
       <p>Thanks twardoch! I'll use this Opentype Panel method from now on.</p>
       <p>I'm doing it right now and it's asking me if I want to rebuild it. I'm clicking yes. This is cool. I've never done it this way before.</p>
   - id: 456814
@@ -248,23 +193,12 @@ comments:
       <p>Today I upgraded from fontlab 4.5 to 5, but I hadn't really done any more testing to my font yet. Then I did what you said. "...edit the "kern" feature in the OpenType panel. You can explicitly convert your class-based FontLab kerning into the "kern" feature in the OpenType panel flyout menu, "Generate kern feature". If you don't do that and the option "Generate "kern" feature if it is not defined" is enabled, then FLS will generate the "kern" feature when generating the font." It asked me if I wanted to rebuild it, and I clicked yes. That fixed all my kerning problems. It looks perfect in textedit now. I haven't tested it in Word yet but my version of word is old anyway and may not be opentype savvy. But hopefully that's fine too. I'll report back on that soon.</p>
       <p>I'm very excited as I am now almost finished with this font!</p>
       <p>THANX AGAIN TWARDOCH!</p>
-    html_clean: |-
-      <p>twardoch I love you!</p>
-      <p>That totally worked.</p>
-      <p>Today I upgraded from fontlab 4.5 to 5, but I hadn't really done any more testing to my font yet. Then I did what you said. "...edit the "kern" feature in the OpenType panel. You can explicitly convert your class-based FontLab kerning into the "kern" feature in the OpenType panel flyout menu, "Generate kern feature". If you don't do that and the option "Generate "kern" feature if it is not defined" is enabled, then FLS will generate the "kern" feature when generating the font." It asked me if I wanted to rebuild it, and I clicked yes. That fixed all my kerning problems. It looks perfect in textedit now. I haven't tested it in Word yet but my version of word is old anyway and may not be opentype savvy. But hopefully that's fine too. I'll report back on that soon.</p>
-      <p>I'm very excited as I am now almost finished with this font!</p>
-      <p>THANX AGAIN TWARDOCH!</p>
   - id: 549299
     user: 163060
     date: 2013-04-02T04:41:00
     date_raw: 2 Apr 2013 — 4:41am
     votes: null
     html: |-
-      <p>Hello Mr Twardoch, </p>
-      <p>I am wondering, is there a way to create a class-based kerning table from a group of kerning pairs. Reason I ask is I have an AFM file that contains 6k kern pairs that I would like to convert.</p>
-      <p>Thanks<br>
-      Pete</p>
-    html_clean: |-
       <p>Hello Mr Twardoch, </p>
       <p>I am wondering, is there a way to create a class-based kerning table from a group of kerning pairs. Reason I ask is I have an AFM file that contains 6k kern pairs that I would like to convert.</p>
       <p>Thanks<br>

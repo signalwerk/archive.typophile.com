@@ -56,7 +56,7 @@ export function UserPage({ doc }) {
   return (
     <Layout wide>
       <div className="crumbs">
-        <a href="/">Typophile</a> &rsaquo; <a href="/users/">members</a>
+        <a href="/">Typophile</a> &rsaquo; member
       </div>
 
       <header className="profile">

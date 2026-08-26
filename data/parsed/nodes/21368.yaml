@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/21368.html
-  fingerprint: 26678c0cafbb2d2d
-  parser: 34efae9498635f11
+  fingerprint: 7a6eb816f16b72f4
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419185543"
+      digest: SOQRAZXFPQE63DJFYR76AI22EH3MWJPW
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/21368.html
 post:
   id: 21368
   user: 5546
@@ -53,36 +67,6 @@ post:
     <p>Anybody any thoughts on this one?</p>
     <p>Best regards<br>
     Paul</p>
-  html_clean: |-
-    <p>Some time ago I made a Open Type font family, regular, italic, bold and bold italic. When I export a pdf from InDesign CS2 everything looks ok on screen, but when I print the pdf with Acrobat 7.08 to our Canon C2620 color printer I get a strange mix-up of italic and regular glyphs. It’s not in a random way, the scheme is as follows:</p>
-    <p>For Regular I get this:<br>
-    ABCDEFGHIJK<em>LM</em>NOPQ<em>R</em>STUVWXYZ<br>
-    <em>abcde</em>fghij<em>klmno</em>pq<em>r</em>s<em>tu</em>vwxy<em>z</em><br>
-    1234567890</p>
-    <p>Same result with italic:<br>
-    ABCDEFGHIJK<em>LM</em>NOPQ<em>R</em>STUVWXYZ<br>
-    <em>abcde</em>fghij<em>klmno</em>pq<em>r</em>s<em>tu</em>vwxy<em>z</em><br>
-    1234567890</p>
-    <p>Bold behaves as it should:<br>
-    <strong>ABCDEFGHIJKLMNOPQRSTUVWXYZ</strong><br>
-    <strong>abcdefghijklmnopqrstuvwxyz</strong><br>
-    <strong>1234567890</strong></p>
-    <p>Bold Italic behaves like regular and italic:<br>
-    ABCDEFGHIJK<em>LM</em>NOPQ<em>R</em>STUVWXYZ<br>
-    <em>abcde</em>fghij<em>klmno</em>pq<em>r</em>s<em>tu</em>vwxy<em>z</em><br>
-    1234567890</p>
-    <p>One of our printshops had similar results, that’s the reason I jumped in and started to do some testing. I observed the following:<br>
-    Printing the doc straight from Indesign CS2: OK, results as you should expect.<br>
-    Exporting the doc from InDesign CS2 to pdf, and print that with Acrobat 7.08 to our Canon Color printer: NOT OK, see above.<br>
-    Exporting the doc from InDesign CS2 to pdf, and print that with Acrobat 7.08 to our Canon B/W non PS-printer: OK<br>
-    Exporting a similar testdoc with InDesign CS and print that with Acrobat: OK<br>
-    Distilling the InDesing CS2 doc and print that with Acrobat: OK<br>
-    Printing to pdf with Ghostscript: OK</p>
-    <p>I changed the font subsetting from 100% to 0%, no effect. All four styles have unencoded glyphs in the private use area, but I can’t see the relation with this strange behaviour. If I print to file with the canon printer and open the postscript dump, I can’t see anything strange (I am not a PostScript expert however). This postscript file will distill perfectly.<br>
-    It all hints at an encoding issue but I can’t see why yet: the characters are in place, it’s the glyphs that are mixed up. Maybe an internal naming issue? The fonts were originally created with Fontlab 4.6, generating again with Studio 5 gave the same results.</p>
-    <p>Anybody any thoughts on this one?</p>
-    <p>Best regards<br>
-    Paul</p>
 comments:
   - id: 134764
     user: 13582
@@ -90,7 +74,6 @@ comments:
     date_raw: 19 Jul 2006 — 5:30am
     votes: null
     html: <p>Paul, the issue sounds like one of encoding and Unicode indexing. First off, make sure that all of your glyphs have the correct Unicode index, and that all PUA-codepoint glyphs have the same index across all 4 fonts. Then, before generating, switch all fonts to Codepages view, and choose the MS Windows 1252 Western (ANSI) codepage. (After much trial-and-error, selecting this codepage results in correct behaviour on both Macs and Windows computers.)</p>
-    html_clean: <p>Paul, the issue sounds like one of encoding and Unicode indexing. First off, make sure that all of your glyphs have the correct Unicode index, and that all PUA-codepoint glyphs have the same index across all 4 fonts. Then, before generating, switch all fonts to Codepages view, and choose the MS Windows 1252 Western (ANSI) codepage. (After much trial-and-error, selecting this codepage results in correct behaviour on both Macs and Windows computers.)</p>
   - id: 134872
     user: 5546
     date: 2006-07-19T13:27:00
@@ -101,23 +84,12 @@ comments:
       I usually apply Fontlab's default encoding, switching to ANSI doesn't change the erratic behaviour. regarding the use of PUA glyphs I believe there is some debate whether or not to apply them. In the original fonts, generated with FL 4.6 all PUA glyphs had PUA unicode entries, stripping them in Fontlab Studio 5 made no difference. Anyway, like I said, the characters are in place, there seems to be some strange interaction between the fontstyles. If there would be a real problem regarding encoding, it doesn't explain why all pdf files I create will print OK, <strong><em>except</em></strong> for the one I export with InDesign CS2. To add to the confusion, some further tests showed that point size also makes a difference in the kind of behaviour!<br>
       To be continued<br>
       Paul</p>
-    html_clean: |-
-      <p>Village:<br>
-      I usually apply Fontlab's default encoding, switching to ANSI doesn't change the erratic behaviour. regarding the use of PUA glyphs I believe there is some debate whether or not to apply them. In the original fonts, generated with FL 4.6 all PUA glyphs had PUA unicode entries, stripping them in Fontlab Studio 5 made no difference. Anyway, like I said, the characters are in place, there seems to be some strange interaction between the fontstyles. If there would be a real problem regarding encoding, it doesn't explain why all pdf files I create will print OK, <strong><em>except</em></strong> for the one I export with InDesign CS2. To add to the confusion, some further tests showed that point size also makes a difference in the kind of behaviour!<br>
-      To be continued<br>
-      Paul</p>
   - id: 150567
     user: 5546
     date: 2006-07-28T00:59:00
     date_raw: 28 Jul 2006 — 12:59am
     votes: null
     html: |-
-      <p>Problem solved:<br>
-      It appeared some of the fonts shared the same "Type 1 Unique ID number". Those id's (remnants of the original Type 1 fonts) were originally unique for each font, but somehow they must have gotten mixed up in Fontlab, but how, I truly don't know. A slip of the (Wacom) pen I guess.<br>
-      Anyway, this is easy to fix, I just removed them (Adobe doesn't seem to use them as well). But why the described problem shows up under the given circumstances (exported CS2 pdf), that's what I'd like to know.</p>
-      <p>Thanks<br>
-      Paul</p>
-    html_clean: |-
       <p>Problem solved:<br>
       It appeared some of the fonts shared the same "Type 1 Unique ID number". Those id's (remnants of the original Type 1 fonts) were originally unique for each font, but somehow they must have gotten mixed up in Fontlab, but how, I truly don't know. A slip of the (Wacom) pen I guess.<br>
       Anyway, this is easy to fix, I just removed them (Adobe doesn't seem to use them as well). But why the described problem shows up under the given circumstances (exported CS2 pdf), that's what I'd like to know.</p>

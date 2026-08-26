@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/17787.html
-  fingerprint: cecfb0d05557d45a
-  parser: 34efae9498635f11
+  fingerprint: 001ff92376dc2565
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150421104333"
+      digest: AWMRR4XVDK2DCMBSUSMM3I6NSEEOSNWX
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/17787.html
 post:
   id: 17787
   user: 7006
@@ -28,69 +42,6 @@ post:
     <p><a href="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm" title="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm">http://www.microsoft.com/OpenType/OTSpec/scripttags.htm</a></p>
     <p><strong>Discussion:</strong><br>
     <a href="http://typophile.com/node/21243" rel="nofollow">What is the proper Eng shape?</a><br>
-    <a href="http://typophile.com/node/28277#comment-160533" rel="nofollow">AFDKO 2.0: Post your feedback here</a><br>
-    <a href="http://typophile.com/node/29469" rel="nofollow">OpenType features take a vacation with one font using FL5 Mac</a></p>
-    <p><strong><a href="/wiki/Indices" class="freelinking" rel="nofollow">Indices</a> : <a href="/wiki/OT_How-To" class="freelinking" rel="nofollow">OpenType How-To</a> : Script Tags</strong></p>
-    <p>In the lower-right part of the OpenType panel, declare *all* the languagesystems that your OT code uses.</p>
-    <p>You should at any case declare these two:</p>
-    <p>languagesystem DFLT dflt;<br>
-    languagesystem latn dflt;</p>
-    <p>Then, you should declare all the languages that use the Latin script for which you have some special handling. For the Scedilla-&gt;Scommaaccent “locl” behavior, declare Moldavian (MOL) and Romanian (ROM). For the special “i” casing and ligature treatment, declare Azeri (AZE), Crimean Tatar (CRT) and Turkish (TRK, *not* TUR!):</p>
-    <p>languagesystem latn AZE;<br>
-    languagesystem latn CRT;<br>
-    languagesystem latn MOL;<br>
-    languagesystem latn ROM;<br>
-    languagesystem latn TRK;</p>
-    <p>If your font includes any Cyrillic glyphs, you should also declare the Cyrillic script:</p>
-    <p>languagesystem cyrl dflt;</p>
-    <p>If you want to include special Serbian glyphs in locl, declare Serbian as well:</p>
-    <p>languagesystem cyrl SRB;</p>
-    <p>If your font includes any Greek language glyphs (i.e. not mathematical Greek), you should also declare the Greek script:</p>
-    <p>languagesystem grek dflt;</p>
-    <p>So your lower-right part of the OpenType panel may look like this:</p>
-    <p>languagesystem DFLT dflt;<br>
-    languagesystem latn dflt;<br>
-    languagesystem latn AZE;<br>
-    languagesystem latn CRT;<br>
-    languagesystem latn MOL;<br>
-    languagesystem latn ROM;<br>
-    languagesystem latn TRK;<br>
-    languagesystem cyrl dflt;<br>
-    languagesystem cyrl SRB;<br>
-    languagesystem grek dflt;</p>
-    <p>This provides a map for all the languagesystems that will be included in your font. If a feature definition does not use any exceptions, it will be automatically assigned to all the languagesystems defined there.</p>
-    <p>If a feature definition defines any exceptional handling for any of the languagesystems, you must enumerate all of these languagesystems once again, inside of the feature definition, and you must specify for each of them the appropriate action (i.e. “exclude_dflt” or “include_dflt” plus some lookups if necessary).</p>
-    <p>As for “smcp”, “c2sc” and “liga” handling of Turkish “i”, I recommend using the new Adobe approach. That is,</p>
-    <p>feature locl { # Localized Forms<br>
-    script latn;<br>
-    # Handling of Turkish i<br>
-    language TRK exclude_dflt;<br>
-    lookup locl_TRK {<br>
-    sub [i I.smcp] by [i.TRK Idotaccent.smcp];<br>
-    # The “i.TRK” glyph should be an identical copy of “i”<br>
-    } locl_TRK;<br>
-    language AZE exclude_dflt;<br>
-    lookup locl_TRK;<br>
-    language CRT exclude_dflt;<br>
-    lookup locl_TRK;<br>
-    # Handling of Romanian Scommaaccent<br>
-    language ROM exclude_dflt;<br>
-    lookup locl_ROM {<br>
-    sub [Scedilla scedilla] by [Scommaaccent scommaaccent];<br>
-    sub Scedilla.smcp by Scommaaccent.smcp;<br>
-    } locl_ROM;<br>
-    language MOL exclude_dflt;<br>
-    lookup locl_ROM;<br>
-    } locl;</p>
-    <p>(You may also want to include the Serbian glyph handling there).</p>
-    <p>This way, you will avoid the need to deal with “script” and “language” in ANY other OpenType feature definition.</p>
-    <p>Simply make sure that in the feature definition of “smcp” (or in the appropriate classes), “i” gets replaced by “I.smcp” and “i.TRK” by “Idotaccent.smcp”. Of course “dotlessi” should be replaced by “I.smcp” as well.</p>
-    <p><em>Written by <a href="/wiki/Adam%20Twardoch" class="freelinking" rel="nofollow">Adam Twardoch</a> in <a href="http://typophile.com/node/29469/168548" rel="nofollow">OpenType Features Take a Vacation...</a></em></p>
-  html_clean: |-
-    <p><strong><a href="/wiki/Indices" class="freelinking" rel="nofollow">Indices</a> : <a href="/wiki/Technical%20Info" class="freelinking" rel="nofollow">Technical Info</a> : Script Tag</strong></p>
-    <p><a href="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm" title="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm">http://www.microsoft.com/OpenType/OTSpec/scripttags.htm</a></p>
-    <p><strong>Discussion:</strong><br>
-    <a href="/node/21243/" rel="nofollow">What is the proper Eng shape?</a><br>
     <a href="http://typophile.com/node/28277#comment-160533" rel="nofollow">AFDKO 2.0: Post your feedback here</a><br>
     <a href="http://typophile.com/node/29469" rel="nofollow">OpenType features take a vacation with one font using FL5 Mac</a></p>
     <p><strong><a href="/wiki/Indices" class="freelinking" rel="nofollow">Indices</a> : <a href="/wiki/OT_How-To" class="freelinking" rel="nofollow">OpenType How-To</a> : Script Tags</strong></p>

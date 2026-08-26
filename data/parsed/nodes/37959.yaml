@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/37959.html
-  fingerprint: cd23a6a4d3c5e797
-  parser: 34efae9498635f11
+  fingerprint: 14e74abb8b0e10ac
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150426201802"
+      digest: SZ4VKXLVQMZQUEUSCK3XQ7Z7ITMURLYV
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/37959.html
 post:
   id: 37959
   user: 20890
@@ -29,12 +43,6 @@ post:
     <p>I read some threads trying to find out about this and someone suggested inserting a "subtable;" line every 100 lines or so in the kern feature. I did this also but when I export my PS flavoured OT font, once more there's the message! (grrr!)</p>
     <p>Anyone knows why this is? I know this might be quite a basic thing for most of you but I'm really going nuts trying to find out what it was that I did wrong, or else I'll have to stick to my very dated way: manual kerning and simple TT and PS formats and shame for the great ligatures, alternates and so on...</p>
     <p>I'd really appreciate your help here, I hope this is something simple and I'm only drowning in a glass of water... Thanks!</p>
-  html_clean: |-
-    <p>I'm new to class kerning, I read the Cabarga book step by step, read the confusing FL5 manual as well, made some classes, made the kern feature as indicated (which I put after the liga feature) updated it, and apparently everything was going fine, but after some more pairs, on compiling and/or generating, I get this annoying (and worrying) message:</p>
-    <p>"Start of new pair positioning subtable; some pairs may never be accessed: etc etc"</p>
-    <p>I read some threads trying to find out about this and someone suggested inserting a "subtable;" line every 100 lines or so in the kern feature. I did this also but when I export my PS flavoured OT font, once more there's the message! (grrr!)</p>
-    <p>Anyone knows why this is? I know this might be quite a basic thing for most of you but I'm really going nuts trying to find out what it was that I did wrong, or else I'll have to stick to my very dated way: manual kerning and simple TT and PS formats and shame for the great ligatures, alternates and so on...</p>
-    <p>I'd really appreciate your help here, I hope this is something simple and I'm only drowning in a glass of water... Thanks!</p>
 comments:
   - id: 232737
     user: 11526
@@ -42,10 +50,6 @@ comments:
     date_raw: 10 Oct 2007 — 11:52am
     votes: null
     html: |-
-      <p>I think there is something wrong with your classes. Maybe some glyph are represented two times in a conflicting way or something like that, making it impossible to access some pairs, if you perhaps have two "commands" for this glyph.</p>
-      <p>My suggestion is that you triple-check that all classes are flagged (right/left) correctly in the class-panel. That is, make sure the classes are logical when it comes to deciding which is the first glyph in a pair, and which is the second.</p>
-      <p>Did that make sense?</p>
-    html_clean: |-
       <p>I think there is something wrong with your classes. Maybe some glyph are represented two times in a conflicting way or something like that, making it impossible to access some pairs, if you perhaps have two "commands" for this glyph.</p>
       <p>My suggestion is that you triple-check that all classes are flagged (right/left) correctly in the class-panel. That is, make sure the classes are logical when it comes to deciding which is the first glyph in a pair, and which is the second.</p>
       <p>Did that make sense?</p>
@@ -79,38 +83,12 @@ comments:
       <br>
       where it becomes clear that there are conflicting/repeated 'pos' commands. (BTW, pairs defined upstream take precedence).</p>
       <p>All this to say that, as a rule of thumb, each glyph should only be included in one left kern class, and one right kern class, maximum. (This is by no means a strict rule, but you'll save yourself a few headaches if you follow it)</p>
-    html_clean: |-
-      <p>&gt; <em>“Start of new pair positioning subtable; some pairs may never be accessed: ...”</em></p>
-      <p>This message usually appears when a given glyph is contained in more than one kern class. What triggers the message is when these classes — that have a glyph in common — are used on the same side of two or more class kern pairs (within the same subtable). E.g.:<br>
-      <code><br>
-      feature kern {<br>
-      @_B_LC = [b];<br>
-      @_O_LC = [o oacute];<br>
-      @_ROUND_LC_LEFT = [o b];</code></p>
-      <p>pos @_B_LC @_O_LC -20;<br>
-      pos @_ROUND_LC_LEFT @_O_LC -30;<br>
-      } kern;<br>
-      </p>
-      <p>The example above generates the following message:<br>
-      <code>[WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [b o] [o oacute]</code></p>
-      <p>The warning means that some pairs downstream (second 'pos') are being masked by pairs defined upstream (first 'pos'). Effectively, these two class kern pairs are equivalent to the following singleton pairs,<br>
-      <code><br>
-      pos b o -20;<br>
-      pos b oacute -20;</code></p>
-      <p>pos o o -30;<br>
-      pos o oacute -30;<br>
-      pos b o -30;<br>
-      pos b oacute -30;<br>
-      <br>
-      where it becomes clear that there are conflicting/repeated 'pos' commands. (BTW, pairs defined upstream take precedence).</p>
-      <p>All this to say that, as a rule of thumb, each glyph should only be included in one left kern class, and one right kern class, maximum. (This is by no means a strict rule, but you'll save yourself a few headaches if you follow it)</p>
   - id: 233349
     user: 20890
     date: 2007-10-13T22:30:00
     date_raw: 13 Oct 2007 — 10:30pm
     votes: null
     html: "<p>Goran and Miguel: Thanks a lot for your tips, everything glided goldenly following them! Thing is I get too stressed out, and for no reason.</p>"
-    html_clean: "<p>Goran and Miguel: Thanks a lot for your tips, everything glided goldenly following them! Thing is I get too stressed out, and for no reason.</p>"
   - id: 394988
     user: 31859
     date: 2010-02-09T23:44:00
@@ -119,20 +97,15 @@ comments:
     html: |-
       <p>I had the same problem on FL 5.0.4 (Win). It made me sick, because all classes were well prepared. Then I discovered, that Assistance reported a glyph duplicated in two classes, and one of them was removed previous day. So I understood that the bug may come from file "memory".<br>
       I saved my classes, deleted them (and the kern feature), closed the program, launched again and imported the saved classes. Voila! No bad report!</p>
-    html_clean: |-
-      <p>I had the same problem on FL 5.0.4 (Win). It made me sick, because all classes were well prepared. Then I discovered, that Assistance reported a glyph duplicated in two classes, and one of them was removed previous day. So I understood that the bug may come from file "memory".<br>
-      I saved my classes, deleted them (and the kern feature), closed the program, launched again and imported the saved classes. Voila! No bad report!</p>
   - id: 459084
     user: 47015
     date: 2011-04-06T22:11:00
     date_raw: 6 Apr 2011 — 10:11pm
     votes: null
     html: <p>Try 'Clean Up Classes' under the disk icon in your classes window. This worked for me.</p>
-    html_clean: <p>Try 'Clean Up Classes' under the disk icon in your classes window. This worked for me.</p>
   - id: 459465
     user: 13076
     date: 2011-04-09T18:05:00
     date_raw: 9 Apr 2011 — 6:05pm
     votes: null
     html: <p>thanks from me too... I was about the ask the same question.</p>
-    html_clean: <p>thanks from me too... I was about the ask the same question.</p>

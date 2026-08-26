@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/78644.html
-  fingerprint: b2be5e40c1d72e7d
-  parser: 34efae9498635f11
+  fingerprint: 523d5a9278e7bb67
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150421085016"
+      digest: E5QLST6WJXGRXA2RIBWWELCWPYJJGCXG
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/78644.html
 post:
   id: 78644
   user: 58205
@@ -24,15 +38,6 @@ post:
   date_raw: 2 Feb 2011 — 7:20am
   votes: null
   html: |-
-    <p>Hi all,<br>
-    First off, I have zero experience with coding and syntax for proper output.</p>
-    <p>I have just finished a typeface with the usual ligatures (fl, fi, ffl, ffi, even st &amp; ct) and I want to make the ligatures automatic instead of being forced to navigate to the glyphs palette and manually apply ligatures.</p>
-    <p>I know the answer is in Robofab or Python but I do not have any experience with them and can't find a decent walk-through in the context of type design, specifically ligatures (since Python does all sorts of applications, type design being one).</p>
-    <p>Is there not a standard snippet of code that applies to all typefaces that automates the ligatures? "when U+0066 &amp; U+0066 appear consecutively with U+FB00"?<br>
-    I presume not.</p>
-    <p>Also, I use Fontographer 5.</p>
-    <p>Thanks in advance.</p>
-  html_clean: |-
     <p>Hi all,<br>
     First off, I have zero experience with coding and syntax for proper output.</p>
     <p>I have just finished a typeface with the usual ligatures (fl, fi, ffl, ffi, even st &amp; ct) and I want to make the ligatures automatic instead of being forced to navigate to the glyphs palette and manually apply ligatures.</p>
@@ -61,29 +66,12 @@ comments:
           etc.<br>
       } liga;</code></p>
       <p>Then, SAVE AS your_file_name.fea. In FOG5, navigate to Element &gt; Font Info &gt; Encoding, then select the radio button for an external feature file, and browse for and select your feature file.</p>
-    html_clean: |-
-      <p>In a simple text editor, declare the liga feature in aalt:</p>
-      <p><code>feature aalt{<br>
-        feature liga;<br>
-      } aalt;</code></p>
-      <p>Then program the ligatures thus:</p>
-      <p><code>feature liga {<br>
-      # Latin<br>
-          sub f i by fi;<br>
-          sub f l by fl;<br>
-          sub X X by XX;<br>
-          etc.<br>
-      } liga;</code></p>
-      <p>Then, SAVE AS your_file_name.fea. In FOG5, navigate to Element &gt; Font Info &gt; Encoding, then select the radio button for an external feature file, and browse for and select your feature file.</p>
   - id: 450230
     user: 14722
     date: 2011-02-02T08:59:00
     date_raw: 2 Feb 2011 — 8:59am
     votes: null
     html: |-
-      <p><cite>I know the answer is in Robofab or Python…</cite></p>
-      <p>Nick’s answer is correct, but just to elaborate, character substitution is done with OpenType features. Robofab and Python are used to automate font design tasks; they don’t actually introduce any code into a font.</p>
-    html_clean: |-
       <p><cite>I know the answer is in Robofab or Python…</cite></p>
       <p>Nick’s answer is correct, but just to elaborate, character substitution is done with OpenType features. Robofab and Python are used to automate font design tasks; they don’t actually introduce any code into a font.</p>
   - id: 450233
@@ -104,39 +92,18 @@ comments:
       } liga;</code></p>
       <p>(after "sub" you type in sequences of glyph names that should be replaced, after "by" you type in the glyph name that is inserted).</p>
       <p>A.</p>
-    html_clean: |-
-      <p>Also, I'll mention that recommended glyph names for ligatures are "f_l", "f_i", "f_f", "s_t", "f_adieresis" etc. </p>
-      <p>So your code would look like</p>
-      <p><code>feature liga {<br>
-      # Latin<br>
-      sub f i by f_i;<br>
-      sub f l by f_l;<br>
-      sub f f by f_f;<br>
-      sub s t by s_t;<br>
-      # etc.<br>
-      } liga;</code></p>
-      <p>(after "sub" you type in sequences of glyph names that should be replaced, after "by" you type in the glyph name that is inserted).</p>
-      <p>A.</p>
   - id: 450235
     user: 14722
     date: 2011-02-02T09:24:00
     date_raw: 2 Feb 2011 — 9:24am
     votes: null
     html: <p>Adam, can Freefont pro be opened in Fog?</p>
-    html_clean: <p>Adam, can Freefont pro be opened in Fog?</p>
   - id: 450244
     user: 1133
     date: 2011-02-02T10:12:00
     date_raw: 2 Feb 2011 — 10:12am
     votes: null
     html: |-
-      <p>Dunwich/James, </p>
-      <p>it's VFB, so it can — but since FOG doesn't have any UI for displaying the font features, the code won't be visible/accessible. </p>
-      <p>I do recommend installing the demo version of FontLab Studio along Fontographer 5. The demo version of FL Studio is free, and serves as an excellent in-depth font viewer. If you open an OpenType font in the FontLab Studio demo, you can export the font feature definitions from the OpenType panel into a .fea text file, edit it in a text editor and then use it in FOG 5 when generating the font. </p>
-      <p>FontLab Studio 5 can only export font feature definitions in the older AFDKO 1.6 syntax. If you want to export font feature definitions including things like mark attachment, ie. in the AFDKO 2.5 syntax, you need to use a different tool, such as DTL OTMaster, which is also available from fontlab.com. </p>
-      <p>Best,<br>
-      Adam</p>
-    html_clean: |-
       <p>Dunwich/James, </p>
       <p>it's VFB, so it can — but since FOG doesn't have any UI for displaying the font features, the code won't be visible/accessible. </p>
       <p>I do recommend installing the demo version of FontLab Studio along Fontographer 5. The demo version of FL Studio is free, and serves as an excellent in-depth font viewer. If you open an OpenType font in the FontLab Studio demo, you can export the font feature definitions from the OpenType panel into a .fea text file, edit it in a text editor and then use it in FOG 5 when generating the font. </p>
@@ -152,19 +119,12 @@ comments:
       <p>I knew the answer would be as simple as this.<br>
       Let me apply this text and see what my output is, etc and get back with more questions.</p>
       <p>Thanks so much all</p>
-    html_clean: |-
-      <p>I knew the answer would be as simple as this.<br>
-      Let me apply this text and see what my output is, etc and get back with more questions.</p>
-      <p>Thanks so much all</p>
   - id: 450269
     user: 58205
     date: 2011-02-02T12:17:00
     date_raw: 2 Feb 2011 — 12:17pm
     votes: null
     html: |-
-      <p>ok, a basic problem I'm running into now. I have TextEdit, Adobe Reader &amp; MSWord and none of them Save As... .fea<br>
-      What program or application can save a file as such?</p>
-    html_clean: |-
       <p>ok, a basic problem I'm running into now. I have TextEdit, Adobe Reader &amp; MSWord and none of them Save As... .fea<br>
       What program or application can save a file as such?</p>
   - id: 450275
@@ -175,16 +135,12 @@ comments:
     html: |-
       <p><cite>What program or application can save a file as [.fea]?</cite></p>
       <p>Use TextEdit, save as text, then change the extension from .txt to .fea in the name of the file.</p>
-    html_clean: |-
-      <p><cite>What program or application can save a file as [.fea]?</cite></p>
-      <p>Use TextEdit, save as text, then change the extension from .txt to .fea in the name of the file.</p>
   - id: 450281
     user: 83217
     date: 2011-02-02T12:43:00
     date_raw: 2 Feb 2011 — 12:43pm
     votes: null
     html: <p>On a Windows system, you will likely have to set the directory display to show file endings. M$Vim defaults to hiding them.</p>
-    html_clean: <p>On a Windows system, you will likely have to set the directory display to show file endings. M$Vim defaults to hiding them.</p>
   - id: 450282
     user: 1133
     date: 2011-02-02T12:48:00
@@ -193,18 +149,12 @@ comments:
     html: |-
       <p>Matt, </p>
       <p>in TextEdit, you need to choose Format / Make Plain Text before saving.</p>
-    html_clean: |-
-      <p>Matt, </p>
-      <p>in TextEdit, you need to choose Format / Make Plain Text before saving.</p>
   - id: 450283
     user: 29994
     date: 2011-02-02T12:48:00
     date_raw: 2 Feb 2011 — 12:48pm
     votes: null
     html: |-
-      <p>Té, "TextEdit" is a dead giveaway :-)</p>
-      <p>Matt, when using TextEdit, make sure to select menu "Format", then choose "Make Plain Text". Otherwise, you'll be looking in vain for the "Save as plain text" option ... (You'll get to choose what character encoding you want to use, but I'm guessing the default "UTF-8" is just fine for the plain text file that a .fea is.)</p>
-    html_clean: |-
       <p>Té, "TextEdit" is a dead giveaway :-)</p>
       <p>Matt, when using TextEdit, make sure to select menu "Format", then choose "Make Plain Text". Otherwise, you'll be looking in vain for the "Save as plain text" option ... (You'll get to choose what character encoding you want to use, but I'm guessing the default "UTF-8" is just fine for the plain text file that a .fea is.)</p>
   - id: 450285
@@ -232,40 +182,18 @@ comments:
       "cannon generate open type file due to an error in feature definition file."<br>
       are the underscores necessary or will spaces clear the issue? (sub f i by fi;)</p>
       <p>I'll try copy/pasting the code from an established typeface with the ligature features until I know more.</p>
-    html_clean: |-
-      <p>thanks riccard0,<br>
-      I saved it as a .fea, then applied to the encoding section.</p>
-      <p>my text is exactly:</p>
-      <p>feature aalt{<br>
-      feature liga;<br>
-      } aalt;</p>
-      <p>feature liga {<br>
-      # Latin</p>
-      <p>sub f i by f_i;<br>
-      sub f l by f_l;<br>
-      sub f f l by f_f_l;<br>
-      sub f f i by f_f_i;<br>
-      sub s t by s_t;</p>
-      <p># etc.</p>
-      <p>} liga;</p>
-      <p>and upon trying to Generate Font File,<br>
-      "cannon generate open type file due to an error in feature definition file."<br>
-      are the underscores necessary or will spaces clear the issue? (sub f i by fi;)</p>
-      <p>I'll try copy/pasting the code from an established typeface with the ligature features until I know more.</p>
   - id: 450293
     user: 46055
     date: 2011-02-02T13:52:00
     date_raw: 2 Feb 2011 — 1:52pm
     votes: null
     html: '<p>more detailed explanation: <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a></p>'
-    html_clean: '<p>more detailed explanation: <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a></p>'
   - id: 450294
     user: 6470
     date: 2011-02-02T13:53:00
     date_raw: 2 Feb 2011 — 1:53pm
     votes: null
     html: "<p>#etc. should NOT be in your code: it was included in the examples only to show that the same format should be followed for any other ligatures you wished to include. The glyphnames for the ligatures should be EXACTLY the same as those entered in your feature file.</p>"
-    html_clean: "<p>#etc. should NOT be in your code: it was included in the examples only to show that the same format should be followed for any other ligatures you wished to include. The glyphnames for the ligatures should be EXACTLY the same as those entered in your feature file.</p>"
   - id: 450303
     user: 5094
     date: 2011-02-02T15:01:00
@@ -275,18 +203,11 @@ comments:
       <p><cite>The glyphnames for the ligatures should be EXACTLY the same as those entered in your feature file.</cite></p>
       <p>Exactly. So, if your glyph in the font is named fi, it will have to be so named in the feature file.</p>
       <p>Better to change the name to f_i in the font -- and of course, use f_i in the feature file (as Adam suggested). The "fi" glyph hangs around in some fonts, and is in Unicode, to accommodate legacy issues. Sort of like corsets . . .</p>
-    html_clean: |-
-      <p><cite>The glyphnames for the ligatures should be EXACTLY the same as those entered in your feature file.</cite></p>
-      <p>Exactly. So, if your glyph in the font is named fi, it will have to be so named in the feature file.</p>
-      <p>Better to change the name to f_i in the font -- and of course, use f_i in the feature file (as Adam suggested). The "fi" glyph hangs around in some fonts, and is in Unicode, to accommodate legacy issues. Sort of like corsets . . .</p>
   - id: 450379
     user: 83217
     date: 2011-02-03T03:51:00
     date_raw: 3 Feb 2011 — 3:51am
     votes: null
     html: |-
-      <p>@theunis - I suspected a Windows box when I saw MSWord in the list, but TextEdit could just as well be a Mac program, as far as I'm concerned. Now, Notepad or Wordpad...</p>
-      <p>Aside: I generally use only two editors: mewin (though it's not eight-bit clean) and mcedit. Meaning? Count me out of any editor jihad.</p>
-    html_clean: |-
       <p>@theunis - I suspected a Windows box when I saw MSWord in the list, but TextEdit could just as well be a Mac program, as far as I'm concerned. Now, Notepad or Wordpad...</p>
       <p>Aside: I generally use only two editors: mewin (though it's not eight-bit clean) and mcedit. Meaning? Count me out of any editor jihad.</p>

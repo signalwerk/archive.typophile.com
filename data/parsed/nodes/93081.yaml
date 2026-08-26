@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/93081.html
-  fingerprint: 6ccf23bd6696a981
-  parser: 34efae9498635f11
+  fingerprint: 504166a4917d8b80
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150421090107"
+      digest: C7ZC3TL2LGCSTUPJ7T6CBOFLJNIACWYH
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/93081.html
 post:
   id: 93081
   user: 17101
@@ -38,21 +52,6 @@ post:
     <p>}</p>
     <p>The WOFF is the only Postscript based font in the stack. Unfortunately this doesn’t seem to work in Chrome on Windows. </p>
     <p>Am I doing something wrong?</p>
-  html_clean: |-
-    <p>I’m preparing some fonts for web use, and I wonder if anyone can shed some light on the current browser support for Postscript based WOFF files, and how one should ideally set up the CSS.</p>
-    <p>I have until now done the following:</p>
-    <p><code>@font-face {<br>
-        font-family: 'MyWebfont';<br>
-        src: url('webfont.eot');<br>
-        src: url('webfont.eot?#iefix') format('embedded-opentype'),<br>
-             url('webfont.woff') format('woff'),<br>
-             url('webfont.ttf') format('truetype'),<br>
-             url('webfont.svg#MyWebFont') format('svg');<br>
-        font-weight: normal;<br>
-        font-style: normal;</code></p>
-    <p>}</p>
-    <p>The WOFF is the only Postscript based font in the stack. Unfortunately this doesn’t seem to work in Chrome on Windows. </p>
-    <p>Am I doing something wrong?</p>
 comments:
   - id: 509988
     user: 17101
@@ -60,14 +59,12 @@ comments:
     date_raw: 16 May 2012 — 6:39am
     votes: null
     html: <p>Another thing. How does this downloading work in the browser? Will it look for the first font, and if that is not present move on to the next? Or will it download all of them?</p>
-    html_clean: <p>Another thing. How does this downloading work in the browser? Will it look for the first font, and if that is not present move on to the next? Or will it download all of them?</p>
   - id: 510053
     user: 1794
     date: 2012-05-16T13:11:00
     date_raw: 16 May 2012 — 1:11pm
     votes: null
     html: "<p>I am just curious: why do you want to set it up this way? If you provide TrueType-flavoured fonts (TTF/EOT), why do you want to send just the WOFF version as PostScript-flavoured?</p>"
-    html_clean: "<p>I am just curious: why do you want to set it up this way? If you provide TrueType-flavoured fonts (TTF/EOT), why do you want to send just the WOFF version as PostScript-flavoured?</p>"
   - id: 510062
     user: 17101
     date: 2012-05-16T14:47:00
@@ -76,33 +73,18 @@ comments:
     html: |-
       <p>Because, as far as I know, the only up-to-date browser that does not support WOFF is Internet Explorer, and it needs EOT files. TTF is fallback for older browsers (Fontsquirrel provides a layer of security with its Web-only setting, and I don’t know any similar solution for OTF files), and SVG is for older mobile browsers. </p>
       <p>How would you set it up?</p>
-    html_clean: |-
-      <p>Because, as far as I know, the only up-to-date browser that does not support WOFF is Internet Explorer, and it needs EOT files. TTF is fallback for older browsers (Fontsquirrel provides a layer of security with its Web-only setting, and I don’t know any similar solution for OTF files), and SVG is for older mobile browsers. </p>
-      <p>How would you set it up?</p>
   - id: 510063
     user: 17101
     date: 2012-05-16T14:49:00
     date_raw: 16 May 2012 — 2:49pm
     votes: null
     html: <p>If you wonder why I want to serve Postscript based fonts, it is because they force Windows to use the Standard GDI rendering. If you wonder why I want to do that, take a look at any headline sized font rendered with Cleartype GDI!</p>
-    html_clean: <p>If you wonder why I want to serve Postscript based fonts, it is because they force Windows to use the Standard GDI rendering. If you wonder why I want to do that, take a look at any headline sized font rendered with Cleartype GDI!</p>
   - id: 510076
     user: 44873
     date: 2012-05-16T16:08:00
     date_raw: 16 May 2012 — 4:08pm
     votes: null
     html: |-
-      <p>I don't think what you're trying to do is a good idea. (Or even necessary. So the font looks scratchy in some environments, so what?)<br>
-      In web design, everything is relative to the viewport of the device. There is no such thing as a "headline sized font". </p>
-      <p>But, since you're trying to do it:<br>
-      If you are sure Chrome is NOT rendering the WOFF, have you figured out which font file Chrome IS rendering?<br>
-      According the spec, Chrome should be rendering the first format it finds that it supports - in this case WOFF. But you say it isn't doing that so I'm intrigued.<br>
-      First, how do you know for sure that it's skipping the WOFF? And what's the test environment or environments?  (Diagnosing stuff like this isn't simple.) Chrome version what, running on what?<br>
-      And if Chrome is not rendering the WOFF, is it rendering the TTF or is it rendering the SVG?</p>
-      <p>I am assuming you think it's the TTF, because the SVG would render the font similarly to the OTF, I would imagine. (I stopped bothering with SVG fonts a long time ago so I haven't seen any to compare lately.)</p>
-      <p>If you're stumped, I'll test the files independently for you. Let me know.</p>
-      <p>Rich</p>
-    html_clean: |-
       <p>I don't think what you're trying to do is a good idea. (Or even necessary. So the font looks scratchy in some environments, so what?)<br>
       In web design, everything is relative to the viewport of the device. There is no such thing as a "headline sized font". </p>
       <p>But, since you're trying to do it:<br>
@@ -124,22 +106,12 @@ comments:
       I don't agree with that. Don't go blind over hacks! Postscript has to be the future if you want a detail rich, Opentype savvy web. Truetype is too bloated in file size for large character sets and organic lettershapes. And off course it matters if the font looks scratchy! If you don't think so, you're surely come to the wrong corner of the web. And btw: There is such a thing as a "headline sized font". It’s fracking BIG.</p>
       <p>But, to pull us back on topic (sort of), I'm still looking for answers to my two other questions:<br>
       How does the downloading of font files work in web browser -- do they pull all or only one file? And how should one ideally set up the CSS for Postscript-based webfonts?</p>
-    html_clean: |-
-      <p>Hmm. I think it was in fact a cache issue, and nothing else. I've tested it since, and it works fine.</p>
-      <p><em>I don't think what you're trying to do is a good idea. (Or even necessary. So the font looks scratchy in some environments, so what?) In web design, everything is relative to the viewport of the device. There is no such thing as a "headline sized font". </em><br>
-      I don't agree with that. Don't go blind over hacks! Postscript has to be the future if you want a detail rich, Opentype savvy web. Truetype is too bloated in file size for large character sets and organic lettershapes. And off course it matters if the font looks scratchy! If you don't think so, you're surely come to the wrong corner of the web. And btw: There is such a thing as a "headline sized font". It’s fracking BIG.</p>
-      <p>But, to pull us back on topic (sort of), I'm still looking for answers to my two other questions:<br>
-      How does the downloading of font files work in web browser -- do they pull all or only one file? And how should one ideally set up the CSS for Postscript-based webfonts?</p>
   - id: 510096
     user: 1794
     date: 2012-05-16T22:04:00
     date_raw: 16 May 2012 — 10:04pm
     votes: null
     html: |-
-      <p>That syntax you are using is already set up in a way, so unnecessary fonts are not downloaded.<br>
-      The details of how the browsers should process the declaration can be found here: <a href="http://www.w3.org/TR/css3-fonts/#font-face-rule" title="http://www.w3.org/TR/css3-fonts/#font-face-rule">http://www.w3.org/TR/css3-fonts/#font-face-rule</a></p>
-      <p>The syntax should also be fine for delivering the WOFF font as PostScript-flavoured.</p>
-    html_clean: |-
       <p>That syntax you are using is already set up in a way, so unnecessary fonts are not downloaded.<br>
       The details of how the browsers should process the declaration can be found here: <a href="http://www.w3.org/TR/css3-fonts/#font-face-rule" title="http://www.w3.org/TR/css3-fonts/#font-face-rule">http://www.w3.org/TR/css3-fonts/#font-face-rule</a></p>
       <p>The syntax should also be fine for delivering the WOFF font as PostScript-flavoured.</p>
@@ -159,17 +131,6 @@ comments:
       If you can't predict (or detect) the size of the viewport, you can't control the size of the type. And even if you do predict (or detect) the size of the viewport, your decision is easily overriden.</p>
       <p>So, good luck with setting the "size" of your web fonts. </p>
       <p>BTW - I don't understand what you mean by "going blind over hacks".</p>
-    html_clean: |-
-      <p>&gt;There is such a thing as a "headline sized font". It’s fracking BIG.</p>
-      <p>In web design, you don't get to decide what's fracking BIG. The bigness and smallness of type is not under your control.  This is difficult to accept, I understand.</p>
-      <p>You can fight against this lack of control using elaborate server-side user agent "sniffing" if that is available to you.<br>
-      For example, if you detect that the user agent is Safari running on an iPad, you will know the physical size of the viewport and you can "feed" a set of default sizes accordingly.<br>
-      But those settings are only a starting point. Your "design" is a recommendation that may have very, very limited influence.</p>
-      <p>In web design, you've got a lot of partners. The user is one of them. And the user can effortlessly enlarge or reduce your carefully chosen "sizes" to suit their tastes. </p>
-      <p>Using CSS and HTML alone, the idea of being able to specify big type or small type has become so vague and unpredictable if not totally meaningless, it's counterproductive.<br>
-      If you can't predict (or detect) the size of the viewport, you can't control the size of the type. And even if you do predict (or detect) the size of the viewport, your decision is easily overriden.</p>
-      <p>So, good luck with setting the "size" of your web fonts. </p>
-      <p>BTW - I don't understand what you mean by "going blind over hacks".</p>
   - id: 510550
     user: 1250
     date: 2012-05-21T11:27:00
@@ -178,16 +139,12 @@ comments:
     html: |-
       <p>Although things are certainly malleable, it's not so totally uncontrollable; just because some people (although not Frode) are control freaks doesn't mean anybody should strive to be a berserker hippie. For example, if you want a certain piece of text to end up very large, make it a large number of steps away from the smallest that has to be read: in the process of making the critical text large enough the user can't avoiding making the biggest size very large.</p>
       <p>hhp</p>
-    html_clean: |-
-      <p>Although things are certainly malleable, it's not so totally uncontrollable; just because some people (although not Frode) are control freaks doesn't mean anybody should strive to be a berserker hippie. For example, if you want a certain piece of text to end up very large, make it a large number of steps away from the smallest that has to be read: in the process of making the critical text large enough the user can't avoiding making the biggest size very large.</p>
-      <p>hhp</p>
   - id: 510561
     user: 17101
     date: 2012-05-21T14:01:00
     date_raw: 21 May 2012 — 2:01pm
     votes: null
     html: <p>I’m not here to argue with you, Richard. I understand very well the nature of the web.</p>
-    html_clean: <p>I’m not here to argue with you, Richard. I understand very well the nature of the web.</p>
   - id: 510649
     user: 44873
     date: 2012-05-22T10:17:00
@@ -207,30 +164,12 @@ comments:
       <p>I don't think anyone's yet done decent research on size ranges. What the limits are. How big should text within an h1 tag be in relation to the text in the p tag, that kind of thing. And if the user goes large on the body text, will the h1 text become useless because you are only seeing a fragment of it?<br>
       That kind of thing.  </p>
       <p>Later.....</p>
-    html_clean: |-
-      <p>@hrant who said:<br>
-      &gt;it's not so totally uncontrollable</p>
-      <p>@frodefrank who said:<br>
-      &gt;I’m not here to argue with you, Richard. I understand very well the nature of the web.</p>
-      <p>I don't know if there's anything to argue.  There's no right or wrong here.<br>
-      It's more of a perceptual thing. Understanding and accepting are two different things.</p>
-      <p>The way I see it, until the rise of small screens on smart phones and tablets, web design wasn't regarded as all that different from print design. It was print design that accomodated a few different paper sizes and made some allowances for low res.<br>
-      Today, there are way too many canvas sizes for that thinking to continue.</p>
-      <p>This is interesting:<br>
-      <em>For example, if you want a certain piece of text to end up very large, make it a large number of steps away from the smallest that has to be read: in the process of making the critical text large enough the user can't avoiding making the biggest size very large.</em></p>
-      <p>I don't think anyone's yet done decent research on size ranges. What the limits are. How big should text within an h1 tag be in relation to the text in the p tag, that kind of thing. And if the user goes large on the body text, will the h1 text become useless because you are only seeing a fragment of it?<br>
-      That kind of thing.  </p>
-      <p>Later.....</p>
   - id: 510793
     user: 44873
     date: 2012-05-23T14:38:00
     date_raw: 23 May 2012 — 2:38pm
     votes: null
     html: |-
-      <p>If you want a lot of specifics, Zoe Mickley Gillenwater is an expert on - call it what you will - fluid, liquid, responsive - design and just gave a talk on it. There's a slide presentation that sums up the madness nicely.</p>
-      <p><a href="http://zomigi.com/blog/responsive-web-design-presentation/" title="http://zomigi.com/blog/responsive-web-design-presentation/">http://zomigi.com/blog/responsive-web-design-presentation/</a></p>
-      <p><a href="http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Summit_120523.pdf" title="http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Summit_120523.pdf">http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Sum...</a></p>
-    html_clean: |-
       <p>If you want a lot of specifics, Zoe Mickley Gillenwater is an expert on - call it what you will - fluid, liquid, responsive - design and just gave a talk on it. There's a slide presentation that sums up the madness nicely.</p>
       <p><a href="http://zomigi.com/blog/responsive-web-design-presentation/" title="http://zomigi.com/blog/responsive-web-design-presentation/">http://zomigi.com/blog/responsive-web-design-presentation/</a></p>
       <p><a href="http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Summit_120523.pdf" title="http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Summit_120523.pdf">http://zomigi.com/downloads/CSS3-Media-Queries-Responsive-Design_STC-Sum...</a></p>

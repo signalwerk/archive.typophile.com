@@ -15,8 +15,22 @@ source:
   content: original
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/28426.html
-  fingerprint: 53a945dfbb51229c
-  parser: 34efae9498635f11
+  fingerprint: a9cc1e2aeea1c211
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: commoncrawl.org
+      timestamp: "20150419002410"
+      digest: P6OWIWF5BIZG7OKA2L2YTFMHTUFMLLMY
+      verified: true
+      truncated: false
+      file: data/archives/commoncrawl.org/files/typophile.com/node/28426.html
 post:
   id: 28426
   user: 3408
@@ -24,21 +38,6 @@ post:
   date_raw: 26 Sep 2006 — 4:22am
   votes: null
   html: |-
-    <p>Hi </p>
-    <p>I cant't seem to make my opentype features work within this script font.</p>
-    <p>They are supposed to substitute a connecting letter with a nonconnecting letter whenever it is typed as a single letter.<br>
-    So typing 'Banana' would result in a fully connected word. But typing 'B anana' would give you a nonconnecting 'B' followed by connecting letters 'anana'.</p>
-    <p>I have been pulling my hair out trying to work out somethin with the opentype tags 'init', 'isol' and 'fina' but obviously something is wrong since it doesn't work.</p>
-    <p>Heres a copy of the 'isol' tag</p>
-    <p>----<br>
-    EDIT (something whent wrong in this post also :)</p>
-    <table id="attachments" class="sticky-enabled">
-     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
-    <tbody>
-     <tr class="odd"><td><a href="http://typophile.com/files/banana.gif">banana.gif</a></td><td>7.68 KB</td> </tr>
-    </tbody>
-    </table>
-  html_clean: |-
     <p>Hi </p>
     <p>I cant't seem to make my opentype features work within this script font.</p>
     <p>They are supposed to substitute a connecting letter with a nonconnecting letter whenever it is typed as a single letter.<br>
@@ -64,27 +63,18 @@ comments:
       <p>sub @LETTERS_UC by @LETTERS_UC_ISOL;<br>
       sub @LETTERS_UC_INIT by @LETTERS_UC_ISOL;<br>
       sub @LETTERS_LC by @LETTERS_LC_FINA;</p>
-    html_clean: |-
-      <p>Here's the 'isol' feature</p>
-      <p>sub @LETTERS_UC by @LETTERS_UC_ISOL;<br>
-      sub @LETTERS_UC_INIT by @LETTERS_UC_ISOL;<br>
-      sub @LETTERS_LC by @LETTERS_LC_FINA;</p>
   - id: 159495
     user: 3408
     date: 2006-09-26T04:33:00
     date_raw: 26 Sep 2006 — 4:33am
     votes: null
     html: <p>I might just add that this actually works within Fontlab in the preview panel but not in any other programs.</p>
-    html_clean: <p>I might just add that this actually works within Fontlab in the preview panel but not in any other programs.</p>
   - id: 159505
     user: 711
     date: 2006-09-26T04:58:00
     date_raw: 26 Sep 2006 — 4:58am
     votes: null
     html: |-
-      <p>I'm not sure what programs support "init’, ‘isol’ and ‘fina’, but I don't think most Adobe programs do, if that's what you're using to test. </p>
-      <p>In addition to those features, you should probably add a "calt" feature, which the current InDesign does support. I've never done it, but I think the "calt" feature can be made to do this sort of thing. See the rather daunting "calt" definition in Adobe's <a href="http://www.adobeforums.com/cgi-bin/webx?233@@.3bb7c828!enclosure=.3bb7c829" rel="nofollow">example feature file</a> for Bickham script.</p>
-    html_clean: |-
       <p>I'm not sure what programs support "init’, ‘isol’ and ‘fina’, but I don't think most Adobe programs do, if that's what you're using to test. </p>
       <p>In addition to those features, you should probably add a "calt" feature, which the current InDesign does support. I've never done it, but I think the "calt" feature can be made to do this sort of thing. See the rather daunting "calt" definition in Adobe's <a href="http://www.adobeforums.com/cgi-bin/webx?233@@.3bb7c828!enclosure=.3bb7c829" rel="nofollow">example feature file</a> for Bickham script.</p>
   - id: 159510
@@ -97,30 +87,12 @@ comments:
       <p>So I guess the solution would be to make a hell of a long 'calt' feature.</p>
       <p>Damn! I might just be too lazy for that ;)</p>
       <p>Thanks for the tip though</p>
-    html_clean: |-
-      <p>Oh I see</p>
-      <p>So I guess the solution would be to make a hell of a long 'calt' feature.</p>
-      <p>Damn! I might just be too lazy for that ;)</p>
-      <p>Thanks for the tip though</p>
   - id: 159519
     user: 3408
     date: 2006-09-26T06:13:00
     date_raw: 26 Sep 2006 — 6:13am
     votes: null
     html: |-
-      <p>Well I didn't have to write a very long feature file to get it to work. I guess you were right about the fact that indesign and other programs do not yet support isol init medi and fina. </p>
-      <p>I got the thing working by making a calt feature looking like this:</p>
-      <p>----<br>
-        ###replaces the uppercase letter followed by punctuation or numeral with the isolated formof the uppercase letter.<br>
-        sub @LETTERS_UC' @PUNCTU by @LETTERS_UC_ISOL;<br>
-        sub @LETTERS_UC' @FIGURES_LINING by @LETTERS_UC_ISOL;<br>
-        sub @LETTERS_UC' @FIGURES_OSF by @LETTERS_UC_ISOL;</p>
-      <p>  sub @LETTERS_LC' @PUNCTU by @LETTERS_LC_FINA;<br>
-        sub @LETTERS_LC' @FIGURES_LINING by @LETTERS_LC_FINA;<br>
-        sub @LETTERS_LC' @FIGURES_OSF by @LETTERS_LC_FINA;<br>
-      ---- </p>
-      <p>Thx man you saved my day</p>
-    html_clean: |-
       <p>Well I didn't have to write a very long feature file to get it to work. I guess you were right about the fact that indesign and other programs do not yet support isol init medi and fina. </p>
       <p>I got the thing working by making a calt feature looking like this:</p>
       <p>----<br>
