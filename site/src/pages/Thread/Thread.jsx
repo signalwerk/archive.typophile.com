@@ -1,4 +1,5 @@
 import { Layout } from "../../components/Layout/Layout.jsx";
+import { Crumbs } from "../../components/Crumbs/Crumbs.jsx";
 import { formatDate } from "../../components/DateTime/DateTime.jsx";
 import { MetaLine } from "../../components/MetaLine/MetaLine.jsx";
 import { Avatar } from "../../components/Avatar/Avatar.jsx";
@@ -39,12 +40,14 @@ export function ThreadPage({ doc, users = {} }) {
   return (
     <Layout>
       <div className="thread-head">
-        <div className="crumbs">
-          <a href="/">Typophile</a>
-          {doc.forum?.id ? (
-            <> &rsaquo; <a href={`/forum/${doc.forum.id}/`}>{doc.forum.title || `forum ${doc.forum.id}`}</a></>
-          ) : null}
-        </div>
+        <Crumbs
+          trail={[
+            { label: "Typophile", href: "/" },
+            doc.forum?.id
+              ? { label: doc.forum.title || `forum ${doc.forum.id}`, href: `/forum/${doc.forum.id}/` }
+              : null,
+          ]}
+        />
         <h1>{doc.title || `node ${doc.node}`}</h1>
       </div>
 

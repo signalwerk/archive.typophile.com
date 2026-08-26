@@ -1,4 +1,5 @@
 import { Layout } from "../../components/Layout/Layout.jsx";
+import { Crumbs } from "../../components/Crumbs/Crumbs.jsx";
 import { Fragment } from "react";
 import { DateTime } from "../../components/DateTime/DateTime.jsx";
 import { Avatar } from "../../components/Avatar/Avatar.jsx";
@@ -76,9 +77,7 @@ export function UserPage({ doc }) {
 
   return (
     <Layout wide>
-      <div className="crumbs">
-        <a href="/">Typophile</a> &rsaquo; member
-      </div>
+      <Crumbs trail={[{ label: "Typophile", href: "/" }, { label: "member" }]} />
 
       <header className="profile">
         <Avatar user={doc} size={72} />
