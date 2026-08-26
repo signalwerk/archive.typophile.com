@@ -26,6 +26,17 @@ function forumDevServer() {
 
           // Avatars live with the parsed data, not in the site tree; the static
           // build copies them into dist/pictures, so dev serves them from here.
+          // Files posts embed or link to; the build copies these into dist.
+          if (url.startsWith("/files/")) {
+            const { FILES_DIR } = await server.ssrLoadModule("/lib/data.mjs");
+            const file = path.join(FILES_DIR, decodeURIComponent(url.slice("/files/".length)));
+            if (file.startsWith(path.resolve(FILES_DIR)) && fs.existsSync(file)) {
+              return res.end(fs.readFileSync(file));
+            }
+            res.statusCode = 404;
+            return res.end("no such file");
+          }
+
           if (url.startsWith("/pictures/")) {
             const { PICTURES_DIR } = await server.ssrLoadModule("/lib/data.mjs");
             const name = path.basename(decodeURIComponent(url));
