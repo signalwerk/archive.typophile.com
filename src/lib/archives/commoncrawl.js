@@ -4,6 +4,7 @@ import { fetchRaw, HttpError } from "../http.js";
 import {
   readLines, writeFileAtomic, writeJson, readJson, ensureDir, formatCount, sleep,
 } from "../util.js";
+import { cached } from "../cache.js";
 
 const COLLINFO = "https://index.commoncrawl.org/collinfo.json";
 const DATA_HOST = "https://data.commoncrawl.org";
@@ -73,8 +74,17 @@ export default {
   async fetchIndex({ dirs, args, log }) {
     ensureDir(dirs.raw);
 
-    const listRes = await fetchRaw(COLLINFO);
-    let crawls = JSON.parse(listRes.body.toString("utf8")).map((c) => c.id);
+    // The list of crawls changes about once a month; there is no reason to
+    // ask for it on every run.
+    let crawls = await cached(`${dirs.raw}/_collinfo.json`, {
+      refresh: Boolean(args.refresh || args.force),
+      label: "crawl list",
+      log,
+      load: async () => {
+        const res = await fetchRaw(COLLINFO);
+        return JSON.parse(res.body.toString("utf8")).map((c) => c.id);
+      },
+    });
     const all = crawls.length;
 
     if (args.crawls) {
@@ -160,8 +170,9 @@ export default {
       }
 
       const complete = missing === 0;
+      const onDisk = fs.readdirSync(crawlDir(dirs, crawlId)).filter((f) => f.endsWith(".jsonl")).length;
       writeJson(crawlMetaFile(dirs, crawlId), {
-        crawlId, pages, pageSize: PAGE_SIZE, pagesOnDisk: got, captures, complete,
+        crawlId, pages, pageSize: PAGE_SIZE, pagesOnDisk: onDisk, captures, complete,
         fetchedAt: new Date().toISOString(),
       });
 

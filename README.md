@@ -41,6 +41,31 @@ Steps can also be run on their own — all of them take `--archive=`:
 | 3 | `npm run list` | turn those into download jobs with local target paths |
 | 4 | `npm run download` | download whatever is missing or outdated |
 
+## What step 0 re-fetches
+
+Nothing it already has. Index pages, per-crawl page files and arquivo.pt's
+whole response are kept on disk and skipped on later runs, and the two lookups
+that used to happen every time — the Wayback page count and Common Crawl's
+crawl list — are cached beside them:
+
+```
+   page count: from cache (1m old) -- pass --refresh to re-check
+160 index pages
+pages fetched: 0, already on disk: 160
+```
+
+A re-run with everything present makes **no network request at all** (0.05s,
+against 2.3s before the cache).
+
+| flag | effect |
+| --- | --- |
+| *(none)* | use everything already on disk |
+| `--refresh` | re-check the page count and crawl list for new captures; still keeps downloaded pages |
+| `--force` | re-fetch everything |
+
+Only one index fetch or download per archive can run at a time; a second one
+says so and exits rather than corrupting the first's state.
+
 ## How "already downloaded" is decided
 
 All three archives publish a `digest` for every capture: the SHA-1 of the

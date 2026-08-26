@@ -2,6 +2,7 @@ import fs from "fs";
 import { DOMAIN } from "../config.js";
 import { fetchRaw } from "../http.js";
 import { readLines, writeFileAtomic, writeJson, ensureDir, formatCount, formatBytes } from "../util.js";
+import { cached } from "../cache.js";
 
 const FIELDS = "urlkey,timestamp,original,mimetype,statuscode,digest,length";
 const BASE = "https://web.archive.org/cdx/search/cdx";
@@ -36,12 +37,22 @@ export default {
     if (args.pages) {
       total = parseInt(args.pages, 10);
     } else {
-      const res = await fetchRaw(countQuery());
-      const text = res.body.toString("utf8").trim();
-      total = parseInt(text, 10);
-      if (!Number.isInteger(total) || total <= 0) {
-        throw new Error(`unexpected page count from the CDX server: ${JSON.stringify(text.slice(0, 120))}`);
-      }
+      // One request that would otherwise repeat on every run, including runs
+      // where all 160 pages are already on disk.
+      total = await cached(`${dirs.raw}/_pagecount.json`, {
+        refresh: Boolean(args.refresh || args.force),
+        label: "page count",
+        log,
+        load: async () => {
+          const res = await fetchRaw(countQuery());
+          const text = res.body.toString("utf8").trim();
+          const n = parseInt(text, 10);
+          if (!Number.isInteger(n) || n <= 0) {
+            throw new Error(`unexpected page count from the CDX server: ${JSON.stringify(text.slice(0, 120))}`);
+          }
+          return n;
+        },
+      });
     }
     log(`${total} index pages`);
 

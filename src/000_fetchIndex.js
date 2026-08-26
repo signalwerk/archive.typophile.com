@@ -9,7 +9,8 @@
 //   node src/000_fetchIndex.js                       all archives
 //   node src/000_fetchIndex.js --archive=arquivo.pt
 //   node src/000_fetchIndex.js --archive=commoncrawl.org --crawls=2013,2014,2015
-//   node src/000_fetchIndex.js --force               refetch even if present
+//   node src/000_fetchIndex.js --refresh             re-check for new captures
+//   node src/000_fetchIndex.js --force               refetch everything
 
 import { archiveDirs } from "./lib/config.js";
 import { selectArchives } from "./lib/archives/index.js";
