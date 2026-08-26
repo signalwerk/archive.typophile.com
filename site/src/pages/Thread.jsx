@@ -1,4 +1,5 @@
-import { Layout, formatDate, formatDateTime } from "../components/Layout.jsx";
+import { Layout } from "../components/Layout.jsx";
+import { DateTime, formatDate } from "../components/DateTime/DateTime.jsx";
 import { sanitize } from "../../lib/sanitize.mjs";
 import { Avatar } from "../components/Avatar.jsx";
 
@@ -17,10 +18,10 @@ function Entry({ entry, op = false, anchor, user }) {
             {entry.date ? (
               anchor ? (
                 <a href={`#${anchor}`}>
-                  <time dateTime={entry.date}>{formatDateTime(entry.date)}</time>
+                  <DateTime value={entry.date} />
                 </a>
               ) : (
-                <time dateTime={entry.date}>{formatDateTime(entry.date)}</time>
+                <DateTime value={entry.date} />
               )
             ) : null}
             {entry.votes != null ? <span>{entry.votes} votes</span> : null}

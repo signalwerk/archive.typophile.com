@@ -1,5 +1,7 @@
-import { Layout, formatDate } from "../components/Layout.jsx";
+import { Layout } from "../components/Layout.jsx";
+import { formatDate } from "../components/DateTime/DateTime.jsx";
 import { Avatar } from "../components/Avatar.jsx";
+import { NodePreview } from "../components/NodePreview/NodePreview.jsx";
 
 function Activity({ title, items, empty }) {
   if (!items.length) return null;
@@ -10,12 +12,13 @@ function Activity({ title, items, empty }) {
       </h2>
       <ul className="threads">
         {items.map((it, i) => (
-          <li key={`${it.node}-${it.comment ?? i}`}>
-            <a className="thread__title" href={`/node/${it.node}/${it.comment ? `#comment-${it.comment}` : ""}`}>
-              {it.title || `node ${it.node}`}
-            </a>
-            <div className="thread__meta">{it.date ? <span>{formatDate(it.date)}</span> : null}</div>
-          </li>
+          <NodePreview
+            key={`${it.node}-${it.comment ?? i}`}
+            id={it.node}
+            title={it.title}
+            href={`/node/${it.node}/${it.comment ? `#comment-${it.comment}` : ""}`}
+            date={it.date}
+          />
         ))}
       </ul>
     </section>
