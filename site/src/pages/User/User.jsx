@@ -1,4 +1,4 @@
-import { Layout } from "../../components/Layout.jsx";
+import { Layout } from "../../components/Layout/Layout.jsx";
 import { Fragment } from "react";
 import { DateTime } from "../../components/DateTime/DateTime.jsx";
 import { Avatar } from "../../components/Avatar/Avatar.jsx";

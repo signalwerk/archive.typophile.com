@@ -1,4 +1,4 @@
-import { Layout } from "../../components/Layout.jsx";
+import { Layout } from "../../components/Layout/Layout.jsx";
 
 const REPO = "https://github.com/signalwerk/archive.typophile.com";
 

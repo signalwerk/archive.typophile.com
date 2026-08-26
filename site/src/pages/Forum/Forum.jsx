@@ -1,6 +1,6 @@
-import { Layout } from "../../components/Layout.jsx";
+import { Layout } from "../../components/Layout/Layout.jsx";
 import { Pager } from "../../components/Pager/Pager.jsx";
-import { ThreadList } from "../../components/ThreadList.jsx";
+import { ThreadList } from "../../components/ThreadList/ThreadList.jsx";
 
 export function ForumPage({ forum, threads, page, pages, total }) {
   return (

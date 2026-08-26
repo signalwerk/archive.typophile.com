@@ -1,4 +1,4 @@
-import { Layout } from "../../components/Layout.jsx";
+import { Layout } from "../../components/Layout/Layout.jsx";
 import { formatDate } from "../../components/DateTime/DateTime.jsx";
 import { MetaLine } from "../../components/MetaLine/MetaLine.jsx";
 import { Avatar } from "../../components/Avatar/Avatar.jsx";

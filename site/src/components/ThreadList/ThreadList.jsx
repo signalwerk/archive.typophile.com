@@ -1,4 +1,4 @@
-import { NodePreview } from "./NodePreview/NodePreview.jsx";
+import { NodePreview } from "../NodePreview/NodePreview.jsx";
 
 export function ThreadList({ threads }) {
   return (
