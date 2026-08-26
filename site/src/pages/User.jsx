@@ -86,12 +86,6 @@ export function UserPage({ doc }) {
               </Fragment>
             ))}
           </p>
-          {doc.profile?.city || doc.profile?.country ? (
-            <p className="profile__meta">
-              {[doc.profile.city, doc.profile.state, doc.profile.country].filter(Boolean).join(", ")}
-              {doc.profile.member_since ? <> · member since {doc.profile.member_since}</> : null}
-            </p>
-          ) : null}
           {doc.also_known_as?.length ? (
             <p className="profile__meta">also posted as {doc.also_known_as.join(", ")}</p>
           ) : null}
