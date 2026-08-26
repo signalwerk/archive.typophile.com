@@ -13,10 +13,13 @@
 
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
+import { fileURLToPath } from "url";
 import YAML from "yaml";
 import { archiveDirs, DATA } from "./lib/config.js";
 import { ARCHIVES } from "./lib/archives/index.js";
 import { ensureDir, readJsonl, writeJson, parseArgs, formatCount } from "./lib/util.js";
+import { parseUserProfile } from "./lib/userProfile.js";
 
 const args = parseArgs();
 const force = Boolean(args.force);
@@ -25,6 +28,18 @@ const USERS_DIR = `${DATA}/parsed/users`;
 const PICTURES_DIR = `${USERS_DIR}/pictures`;
 const OBSERVATIONS_FILE = `${USERS_DIR}/_observations.jsonl`;
 const INDEX_FILE = `${USERS_DIR}/_index.jsonl`;
+const PROFILE_CACHE = `${USERS_DIR}/_profiles.json`;
+
+// Changing how a profile is read has to invalidate what was read with the old
+// version, or corrected fields quietly survive in the cache.
+function profileParserVersion() {
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  try {
+    return crypto.createHash("sha1").update(fs.readFileSync(`${here}/lib/userProfile.js`)).digest("hex").slice(0, 16);
+  } catch {
+    return "unknown";
+  }
+}
 const LOG_FILE = `${DATA}/parsed/users.log`;
 
 // Where a picture URL can be found on disk, best copy first.
@@ -52,6 +67,41 @@ function buildPictureLookup() {
 }
 
 const urlkeyForPicture = (p) => `com,typophile)${p.toLowerCase()}`;
+
+// "20150426213756" -> "2015-04-26T21:37:56Z"
+function captureIso(ts) {
+  const v = String(ts ?? "");
+  if (v.length < 14) return null;
+  return `${v.slice(0,4)}-${v.slice(4,6)}-${v.slice(6,8)}T${v.slice(8,10)}:${v.slice(10,12)}:${v.slice(12,14)}Z`;
+}
+
+// Downloaded /user/<id> pages, best copy per member.
+function buildProfileLookup() {
+  const best = new Map();
+  const KEY = /^com,typophile\)\/user\/(\d+)$/;
+  for (const archive of ARCHIVES) {
+    const dirs = archiveDirs(archive.id);
+    if (!fs.existsSync(dirs.downloadState)) continue;
+    for (const line of fs.readFileSync(dirs.downloadState, "utf8").split("\n")) {
+      if (!line || !line.includes(")/user/")) continue;
+      let r;
+      try { r = JSON.parse(line); } catch { continue; }
+      const m = KEY.exec(r.k || "");
+      if (!m || !r.f) continue;
+      const file = path.join(dirs.files, r.f);
+      if (!fs.existsSync(file)) continue;
+      const id = Number(m[1]);
+      const current = best.get(id);
+      // Prefer a verified copy, then the most recent.
+      const better =
+        !current ||
+        (r.ok === true && !current.verified) ||
+        ((r.ok === true) === current.verified && String(r.ts) > current.ts);
+      if (better) best.set(id, { file, ts: String(r.ts), verified: r.ok === true, archive: archive.id });
+    }
+  }
+  return best;
+}
 
 function copyPicture(lookup, imagePath, userId) {
   const found = lookup.get(urlkeyForPicture(imagePath));
@@ -91,6 +141,39 @@ async function main() {
   const lookup = buildPictureLookup();
   console.log(`picture files available on disk: ${formatCount(lookup.size)}`);
 
+  const profileFiles = buildProfileLookup();
+  console.log(`profile pages available on disk: ${formatCount(profileFiles.size)}`);
+
+  // Parsing thousands of HTML pages is the slow part, so results are cached
+  // against the file they came from and only re-read when that file changes.
+  const parserVersion = profileParserVersion();
+  let profileCache = {};
+  try { profileCache = JSON.parse(fs.readFileSync(PROFILE_CACHE, "utf8")); } catch { /* first run */ }
+  const nextProfileCache = {};
+  let profilesParsed = 0;
+  let profilesCached = 0;
+
+  function profileFor(id) {
+    const found = profileFiles.get(typeof id === "number" ? id : NaN);
+    if (!found) return null;
+    let stat;
+    try { stat = fs.statSync(found.file); } catch { return null; }
+    const stamp = `${stat.size}:${Math.round(stat.mtimeMs)}`;
+    const known = profileCache[id];
+    if (!force && known && known.stamp === stamp && known.parser === parserVersion) {
+      nextProfileCache[id] = known;
+      profilesCached++;
+      return known.fields ?? null;
+    }
+    let fields = null;
+    try {
+      fields = parseUserProfile(fs.readFileSync(found.file, "utf8"), { capturedAt: captureIso(found.ts) });
+    } catch { fields = null; }
+    nextProfileCache[id] = { stamp, parser: parserVersion, archive: found.archive, ts: found.ts, fields };
+    profilesParsed++;
+    return fields;
+  }
+
   const users = new Map();
   let seen = 0;
 
@@ -123,8 +206,22 @@ async function main() {
     else u.comments.push({ node: ob.node, title: ob.title, comment: ob.comment ?? null, date: ob.date ?? null });
   }
 
+  // Somebody can have a profile page but never have posted; they are still a
+  // member, so give them a record too.
+  for (const id of profileFiles.keys()) {
+    if (users.has(id)) continue;
+    users.set(id, {
+      id, name: null, names: new Set(), path: null, image: null, imageAt: null,
+      nameAt: null, posts: [], comments: [], first: null, last: null,
+    });
+  }
+
   const log = fs.createWriteStream(`${LOG_FILE}.part`);
-  const counts = { observations: seen, users: 0, written: 0, unchanged: 0, withImage: 0, copied: 0, imageMissing: 0, slugIds: 0 };
+  const counts = {
+    observations: seen, users: 0, written: 0, unchanged: 0,
+    withImage: 0, copied: 0, imageMissing: 0, slugIds: 0,
+    withProfile: 0, withMemberSince: 0, postlessMembers: 0,
+  };
   const indexLines = [];
 
   for (const id of [...users.keys()].sort(compareIds)) {
@@ -148,13 +245,27 @@ async function main() {
     u.posts.sort((a, b) => String(a.date ?? "").localeCompare(String(b.date ?? "")));
     u.comments.sort((a, b) => String(a.date ?? "").localeCompare(String(b.date ?? "")));
 
+    const profile = profileFor(id);
+    if (profile) {
+      counts.withProfile++;
+      if (profile.member_since) counts.withMemberSince++;
+    }
+    if (u.posts.length === 0 && u.comments.length === 0) counts.postlessMembers++;
+
     const doc = {
       user: id,
-      name: u.name ?? [...u.names][0] ?? null,
+      name: u.name ?? [...u.names][0] ?? profile?.name ?? null,
       also_known_as: [...u.names].filter((n) => n !== u.name).sort(),
       path: u.path,
       image: u.image,
       picture,
+      ...(profile ? {
+        profile,
+        profile_source: {
+          archive: nextProfileCache[id]?.archive ?? null,
+          timestamp: nextProfileCache[id]?.ts ?? null,
+        },
+      } : {}),
       first_seen: u.first,
       last_seen: u.last,
       counts: { posts: u.posts.length, comments: u.comments.length },
@@ -177,11 +288,19 @@ async function main() {
       id, name: doc.name, picture,
       posts: u.posts.length, comments: u.comments.length,
       first: u.first, last: u.last,
+      ...(profile ? {
+        city: profile.city ?? null,
+        country: profile.country ?? null,
+        member_since: profile.member_since ?? null,
+      } : {}),
     }));
   }
 
   fs.writeFileSync(`${INDEX_FILE}.part`, indexLines.join("\n") + "\n");
   fs.renameSync(`${INDEX_FILE}.part`, INDEX_FILE);
+
+  fs.writeFileSync(`${PROFILE_CACHE}.part`, JSON.stringify(nextProfileCache));
+  fs.renameSync(`${PROFILE_CACHE}.part`, PROFILE_CACHE);
 
   await new Promise((resolve) => log.end(resolve));
   fs.renameSync(`${LOG_FILE}.part`, LOG_FILE);
@@ -194,6 +313,9 @@ async function main() {
   console.log(`members ............. ${formatCount(counts.users)}  (${formatCount(counts.slugIds)} without a numeric id)`);
   console.log(`  written ........... ${formatCount(counts.written)}`);
   console.log(`  unchanged ......... ${formatCount(counts.unchanged)}`);
+  console.log(`profiles parsed ..... ${formatCount(counts.withProfile)}  (${formatCount(profilesParsed)} read, ${formatCount(profilesCached)} cached)`);
+  console.log(`  with a join date .. ${formatCount(counts.withMemberSince)}`);
+  console.log(`  no posts or replies ${formatCount(counts.postlessMembers)}`);
   console.log(`avatars referenced .. ${formatCount(counts.withImage)}`);
   console.log(`  copied ............ ${formatCount(counts.copied)}`);
   console.log(`  not downloaded .... ${formatCount(counts.imageMissing)}`);
