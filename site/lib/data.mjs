@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import { fileURLToPath } from "url";
 import YAML from "yaml";
 
@@ -90,6 +91,24 @@ function summarise(doc) {
   };
 }
 
+// Changing what a summary holds has to invalidate the summaries already
+// cached, or a field added here would silently never appear for threads whose
+// files have not been touched since.
+let summaryVersionCache = null;
+function summaryVersion() {
+  if (summaryVersionCache) return summaryVersionCache;
+  try {
+    summaryVersionCache = crypto
+      .createHash("sha1")
+      .update(fs.readFileSync(fileURLToPath(import.meta.url)))
+      .digest("hex")
+      .slice(0, 12);
+  } catch {
+    summaryVersionCache = "unknown";
+  }
+  return summaryVersionCache;
+}
+
 export function buildIndex({ quiet = false } = {}) {
   if (!fs.existsSync(NODES_DIR)) {
     throw new Error(
@@ -104,6 +123,7 @@ export function buildIndex({ quiet = false } = {}) {
     cache = JSON.parse(fs.readFileSync(CACHE_FILE, "utf8"));
   } catch { /* first run */ }
 
+  const version = summaryVersion();
   const files = fs.readdirSync(NODES_DIR).filter((f) => f.endsWith(".yaml"));
   const entries = {};
   let reread = 0;
@@ -114,12 +134,12 @@ export function buildIndex({ quiet = false } = {}) {
     const known = cache.entries?.[name];
     const stamp = `${stat.size}:${Math.round(stat.mtimeMs)}`;
 
-    if (known && known.stamp === stamp) {
+    if (known && known.stamp === stamp && known.v === version) {
       entries[name] = known;
       continue;
     }
     const doc = YAML.parse(fs.readFileSync(full, "utf8"));
-    entries[name] = { stamp, summary: summarise(doc) };
+    entries[name] = { stamp, v: version, summary: summarise(doc) };
     reread++;
   }
 
@@ -134,7 +154,9 @@ export function buildIndex({ quiet = false } = {}) {
   }
 
   const threads = Object.values(entries).map((e) => e.summary);
-  threads.sort((a, b) => String(b.lastDate ?? "").localeCompare(String(a.lastDate ?? "")));
+  // Newest thread first, by when it was started -- not by last reply, so the
+  // order does not shuffle when an old thread happens to get a late comment.
+  threads.sort((a, b) => String(b.date ?? "").localeCompare(String(a.date ?? "")));
 
   const forums = new Map();
   for (const t of threads) {
