@@ -82,7 +82,7 @@ export function UserPage({ doc }) {
       <header className="profile">
         <Avatar user={doc} size={72} />
         <div>
-          <h1>{doc.name || `user ${doc.user}`}</h1>
+          <h1 className="h1">{doc.name || `user ${doc.user}`}</h1>
           <p className="profile__meta">
             {facts.map((fact, i) => (
               <Fragment key={i}>

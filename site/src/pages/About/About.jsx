@@ -5,7 +5,7 @@ const REPO = "https://github.com/signalwerk/archive.typophile.com";
 export function AboutPage({ totals, forums, archives }) {
   return (
     <Layout>
-      <h1 className="page-title">About this archive</h1>
+      <h1 className="h1">About this archive</h1>
 
       <p>
         Typophile was a discussion board about typography and type design. It

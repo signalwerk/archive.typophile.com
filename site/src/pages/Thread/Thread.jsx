@@ -48,7 +48,7 @@ export function ThreadPage({ doc, users = {} }) {
               : null,
           ]}
         />
-        <h1>{doc.title || `node ${doc.node}`}</h1>
+        <h1 className="h1">{doc.title || `node ${doc.node}`}</h1>
       </div>
 
       {doc.pages && !doc.pages.complete ? (

@@ -8,7 +8,7 @@ export function ForumPage({ forum, threads, page, pages, total }) {
     <Layout wide>
       <div className="forum-head">
         <Crumbs trail={[{ label: "Typophile", href: "/" }, { label: "forum" }]} />
-        <h1>{forum.title || `Forum ${forum.id}`}</h1>
+        <h1 className="h1">{forum.title || `Forum ${forum.id}`}</h1>
         <p className="lede">{total.toLocaleString("en-US")} threads</p>
       </div>
       <ThreadList threads={threads} />
