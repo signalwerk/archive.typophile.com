@@ -1,6 +1,7 @@
 // Styles for NodePreview only. The list it sits in owns its own reset.
 
 .node-preview {
+  position: relative;
   padding: 0.7rem 0;
   border-bottom: 1px solid var(--rule);
 
@@ -9,13 +10,29 @@
     font-size: 1rem;
     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+    // The whole row opens the thread. Stretching the title's own
+    // pseudo-element over the row does that without nesting anchors, which is
+    // invalid markup and would swallow the author and forum links below.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
     }
   }
 
-  // MetaLine styles itself; the row only places it.
+  // Hovering anywhere on the row should show that the row is the link.
+  &:hover &__title {
+    text-decoration: underline;
+  }
+
+  // MetaLine styles itself; the row only places it -- and lifts its links
+  // above the stretched overlay so they stay separately clickable.
   .meta-line {
     margin-top: 0.15rem;
+
+    a {
+      position: relative;
+      z-index: 1;
+    }
   }
 }
