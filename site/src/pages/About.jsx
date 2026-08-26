@@ -61,9 +61,6 @@ export function AboutPage({ totals, forums, archives }) {
         <a href={REPO} rel="noreferrer">GitHub</a> — including the parts that
         record what is missing.
       </p>
-      <p className="lede">
-        <a href={REPO} rel="noreferrer">{REPO.replace("https://", "")}</a>
-      </p>
     </Layout>
   );
 }
