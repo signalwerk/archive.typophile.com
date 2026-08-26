@@ -265,3 +265,56 @@ export function formatBytes(n) {
 }
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// --- run locks -------------------------------------------------------------
+// Two downloaders working on the same archive corrupt each other's state: the
+// append stream of one still points at the old inode after the other compacts
+// and renames the file, so its writes vanish. Nothing is lost permanently --
+// the digest check rebuilds state from the files on disk -- but it wastes an
+// enormous amount of time, so runs are serialised per archive.
+
+export function acquireLock(file, label = "run") {
+  ensureDirCached(path.dirname(file));
+
+  if (fs.existsSync(file)) {
+    let holder = null;
+    try {
+      holder = JSON.parse(fs.readFileSync(file, "utf8"));
+    } catch { /* unreadable lock -- treat as stale */ }
+
+    if (holder?.pid && isAlive(holder.pid)) {
+      const err = new Error(
+        `another ${label} is already running (pid ${holder.pid}, started ${holder.startedAt}).\n` +
+        `   Wait for it to finish, or stop it first. Nothing is lost either way --\n` +
+        `   every step resumes where it left off.`
+      );
+      err.code = "ELOCKED";
+      throw err;
+    }
+    // Stale lock from a killed process.
+    try { fs.unlinkSync(file); } catch {}
+  }
+
+  fs.writeFileSync(file, JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() }) + "\n");
+
+  let released = false;
+  const release = () => {
+    if (released) return;
+    released = true;
+    try {
+      const held = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (held.pid === process.pid) fs.unlinkSync(file);
+    } catch { /* already gone */ }
+  };
+  process.on("exit", release);
+  return release;
+}
+
+function isAlive(pid) {
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (err) {
+    return err.code === "EPERM";
+  }
+}

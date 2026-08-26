@@ -1,0 +1,179 @@
+node: 92534
+title: Correcting a glyph's hinting
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150428191619"
+  captured_at: 2015-04-28T19:16:19Z
+  url: http://www.typophile.com/node/92534
+  digest: 3TPN62MLB4TOMH4GN22PXAJCUR25DXTY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/92534.html
+  fingerprint: 10f1654839e227f4
+  parser: 4e04979c9499b509
+post:
+  id: 92534
+  user_id: 187505
+  user_name: caffeinemood
+  user_path: null
+  date_raw: 27 Apr 2012 — 12:23am
+  date: 2012-04-27T00:23:00
+  votes: null
+  html: |-
+    <p>I have recently purchased Quadraat Sans for use on a website and noticed it has some buggy hinting in Cyrillic glyphs at 17 px size. And I am just not going to use a different size.<br>
+    That is, horizontal stems of letters "э", "з", "є", "н" are pixel lower than they should be — a really crucial detail in a Cyrillic font. And it ruins this font.</p>
+    <p>So I want to correct TrueType hinting of those letters. I know it's kinda illegal to do that, but that's not stealing a font or making a copycat and selling it. Just want to fix the bugs.</p>
+    <p>I have never dealt with hinting. So I had googled a lot, found some tutorials, but most of them are soo difficult to understand. TrueType hinting seems to be a mysterious process even for some of the authors of those tutorials.</p>
+    <p>As you can see from the image, I managed to correct the "н" with delta-hinting. It was a pain for me to figure it out how (and why) to hint that "н" without distorting the glyph at other ppems, though the letter has such an easy shape.</p>
+    <p>Now that I know, that to do delta hints I have to set other hints, I struggle to do it with "э", "з", "є"</p>
+    <p>I would appreciate any help, any single word of advice a whole lot.<br>
+    All I want is to bring that stem one pixel up at 17 ppem without distorting glyphs' shapes at other ppems.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/hinting_6057.png"></div><p></p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/92683" class="topic-previous" title="Go to previous forum topic">‹ Point v Point</a>
+                  <a href="/node/92471" class="topic-next" title="Go to next forum topic">FontLab Proofing ›</a>
+          </div>
+comments:
+  - id: 507405
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 27 Apr 2012 — 1:54am
+    date: 2012-04-27T01:54:00
+    votes: null
+    html: <p>While it's certainly educating to fix stuff like this yourself, your best option may be to write to <a href="mailto:info@fontfont.de">info@fontfont.de</a> with your problem so the foundry can fix it in the original data and other users can benefit from it too :)</p>
+  - id: 507424
+    user_id: 187505
+    user_name: caffeinemood
+    user_path: null
+    date_raw: 27 Apr 2012 — 6:49am
+    date: 2012-04-27T06:49:00
+    votes: null
+    html: |-
+      <p>Thanks Jens, that's a nice idea, I will contact them right now.<br>
+      However, I highly doubt they'll fix it immediately, so I still want to fix it myself</p>
+  - id: 507425
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 27 Apr 2012 — 6:53am
+    date: 2012-04-27T06:53:00
+    votes: null
+    html: |-
+      <p>What "them"? Jens <em>is</em> the fixer.  :-)</p>
+      <p>hhp</p>
+  - id: 507426
+    user_id: 187505
+    user_name: caffeinemood
+    user_path: null
+    date_raw: 27 Apr 2012 — 6:57am
+    date: 2012-04-27T06:57:00
+    votes: null
+    html: |-
+      <p>Oh<br>
+      Now I know :-)</p>
+  - id: 507428
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 27 Apr 2012 — 7:22am
+    date: 2012-04-27T07:22:00
+    votes: null
+    html: <p>Actually my colleague Chr. has done the hinting on Quadraat, but we'll see who gets to fix it ;)</p>
+  - id: 507430
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 27 Apr 2012 — 7:28am
+    date: 2012-04-27T07:28:00
+    votes: null
+    html: |-
+      <p>Regarding fixing it youself: I think delta instructions are the least intrusive way to fix this if you don't have access to the source files.</p>
+      <p>If you use other instructions, the Control Value Table in the font has to be rewritten. I'm not sure how well FontLab handles that case, if something goes wrong then all kinds of bad things may happen.</p>
+  - id: 507435
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 27 Apr 2012 — 8:03am
+    date: 2012-04-27T08:03:00
+    votes: null
+    html: |-
+      <p>Sooner or later, you have to accept the fact that there are some limitations you cannot overcome.</p>
+      <p>Although your targeted example says “17ppem,” the glyph itself is probably 14ppem high, or perhaps 12ppem. If the actual glyph height is an even number, you will <strong>never</strong> be able to center the midline: it will <strong>always</strong> appear either above or below true center. At larger sizes, the shift will be less apparent, but it won't go away entirely.</p>
+      <p>Given that the 17ppem problem is insuperable, the solution to your problem is really quite simple: don't use the font at that size.</p>
+  - id: 507442
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 27 Apr 2012 — 9:28am
+    date: 2012-04-27T09:28:00
+    votes: null
+    html: |-
+      <blockquote><p>it will <strong>always</strong> appear either above or below true center.</p></blockquote>
+      <p>Well yeah, but above is almost always better.</p>
+      <p>hhp</p>
+  - id: 507464
+    user_id: 187505
+    user_name: caffeinemood
+    user_path: null
+    date_raw: 27 Apr 2012 — 11:09am
+    date: 2012-04-27T11:09:00
+    votes: null
+    html: |-
+      <p>It is 8 ppem there. And yes I know that it's not possible to center a midline.<br>
+      It's completely natural for Cyrillic letters if these horizontal stems are higher, than the letters' center. I recon there are some fonts, which have these stems quite high. And never lower than midline, even in Cyrillic handwriting.</p>
+      <p>So as I said, they should be exactly a pixel higher.</p>
+      <p>Jens, just curious, what software do you use for hinting?</p>
+  - id: 507901
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 29 Apr 2012 — 3:23am
+    date: 2012-04-29T03:23:00
+    votes: null
+    html: |-
+      <p>"...the solution to your problem is really quite simple: don't use the font at that size."</p>
+      <p>Wouldn't that be nice!? Redesign your pages, or switch types for font sizes that work. . . if one is not crude media savvy, sometimes listening is best.</p>
+      <p>Also,<br>
+      "...the glyph itself is probably 14ppem high..."</p>
+      <p>...ppm refers exclusively to pixels per em. Once you start talking pixels per cap ht, e.g. it's no longer ppm, but simple pixels. </p>
+      <p>"If you use other instructions, the Control Value Table in the font has to be rewritten"</p>
+      <p>Deltas will work if placed correctly. The cvt might be used, but because there is often slight variety in the optical centering of middle strokes, one can alternatively interpolate the top of the mid stroke between the glyph's y min and y max, set rounding to sround 73 and mdap it, avoiding the cvt, while never having the mid stroke too low...</p>
+  - id: 507925
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 29 Apr 2012 — 10:10am
+    date: 2012-04-29T10:10:00
+    votes: null
+    html: |-
+      <p>Dennis,</p>
+      <p>Yes, it would be nice if folks accepted the fact that one size does not always fit all. Not every problem is a nail.</p>
+  - id: 508075
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 1 May 2012 — 5:44am
+    date: 2012-05-01T05:44:00
+    votes: null
+    html: |-
+      <p>And by the way:</p>
+      <p>"If the actual glyph height is an even number, you will never be able to center the midline: it will always appear either above or below true center."</p>
+      <p>...is untrue. If the glyph pictured above were 16 pixels tall, the stems would each be 2 pixels, which subtracted from 16 leaves 10 — a number that evenly divides by two, enabling a centered mid-line. At 17, an odd-numbered pixel height, the mid-line would not center.</p>
+      <p>I believe mid-line centering is about white pixels, not height pixels.</p>
+  - id: 508340
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 2 May 2012 — 6:50am
+    date: 2012-05-02T06:50:00
+    votes: null
+    html: |-
+      <blockquote><p>Jens, just curious, what software do you use for hinting?</p></blockquote>
+      <p>We are using FontLab Studio. The problem, or rather just the way it works, is that FontLab cannot open a TTF and reconstruct the hinting "source code". For the most effective way to edit the TT hinting you need the source FontLab file. In your example screenshots, the alignment zones and stem width values are something that FontLab made up by guessing when it opened the TTF.</p>

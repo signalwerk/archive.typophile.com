@@ -1,2 +1,12 @@
-/data
+# Raw archive material and intermediates stay out of git -- they are large and
+# reproducible from the pipeline. The parsed YAML is committed so the GitHub
+# Action can build the site without re-downloading anything.
+/data/*
+!/data/parsed
+/data/parsed/*
+!/data/parsed/nodes
+!/data/parsed/parse.log
+!/data/parsed/parse.meta.json
+
 /node_modules
+**/__*

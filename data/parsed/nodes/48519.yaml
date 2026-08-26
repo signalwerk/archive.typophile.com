@@ -1,0 +1,124 @@
+node: 48519
+title: How to increase zoom factor in Fontlab
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426201905"
+  captured_at: 2015-04-26T20:19:05Z
+  url: http://www.typophile.com/node/48519
+  digest: FWP5UESERQWGKD6XQICXIZEAAUTCVVE7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/48519.html
+  fingerprint: eda5b314afaf4264
+  parser: 4e04979c9499b509
+post:
+  id: 48519
+  user_id: 4019
+  user_name: billtroop
+  user_path: null
+  date_raw: 18 Aug 2008 — 10:38am
+  date: 2008-08-18T10:38:00
+  votes: null
+  html: |-
+    <p>As well known, my complaint that Fontlab doesn't provide adequate zoom is longstanding. Fog 5 beta, available since 1996, 12 years ago, provides 3200% which is just about adequate for fine work. </p>
+    <p>Some time ago, Adam Twardoch published, on the type design list, a technique for tricking Fontlab into zooming to 3200%:</p>
+    <p>'In FontLab Studio, 100% means that the area between the "visual ascender" and the "visual descender" fits within the current window. In Preferences / Glyph Window / Dimensions, you can set up the visual ascender and descender. By default, itâ€™s 100 and -40 % of the UPM size. If your glyph window is 700 pixels high, and the UPM size is 1000 units, then by default, the visual area that fits within the glyph window will be 1400 units (100% + 40% of the UPM size). So in the 100% view, each pixel represents 2 font units. In the 400% view, one font unit is represented by 2 pixels. In the 1600%, one font unit is represented by 16 pixels. If you change the visual ascender and the visual descender to 5 and -2, then the 400% view will show each font unit on 30 pixels. I believe this would correspond to Fontographerâ€™s 3000% zoom. You can change the visual ascender and descender forth and back in Preference without any influence on your font data -- itâ€™s just a screen scaling factor.'</p>
+    <p>I am not finding this working in Fontlab 5.04 under Vista. What am I doing wrong?</p>
+comments:
+  - id: 296683
+    user_id: 1133
+    user_name: twardoch
+    user_path: null
+    date_raw: 19 Aug 2008 — 4:08pm
+    date: 2008-08-19T16:08:00
+    votes: null
+    html: |-
+      <p>Works perfectly fine here. Go to Tools / Options / Glyph window / Dimensions, set Visual ascender and descender to 5 and -2, click OK and and then choose View / Zoom / 400%. </p>
+      <p>A.</p>
+  - id: 297449
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 24 Aug 2008 — 4:55pm
+    date: 2008-08-24T16:55:00
+    votes: null
+    html: |-
+      <p>Adam, it's working. One may have to restart the program if a font was open at the time the change was made. Closing the font and re-opening it won't do it. Now that we've done that, is there any way to get the font window to look normal? </p>
+      <p>In addition, though I understand this to be a program reference only, I have heard -- not entirely verifiably -- of the settings being stored somehow in the font file and causing havoc when the font is opened on another machine.</p>
+  - id: 297456
+    user_id: 1133
+    user_name: twardoch
+    user_path: null
+    date_raw: 24 Aug 2008 — 6:31pm
+    date: 2008-08-24T18:31:00
+    votes: null
+    html: |-
+      <p>&gt; Now that we’ve done that, is there any way<br>
+      &gt; to get the font window to look normal? </p>
+      <p>No, unfortunately not. It is more less of a workaround. Also, you don't necessarily have to be as extreme as to use 5 and -2, maybe something like 20 and -8 would be acceptable for you. </p>
+      <p>&gt; the settings being stored somehow in the font file</p>
+      <p>The settings from Preferences (Options) are stored per user on the local machine. The settings in Font Info are stored in the font file. So no problem here. </p>
+      <p>A.</p>
+  - id: 298586
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 29 Aug 2008 — 2:07pm
+    date: 2008-08-29T14:07:00
+    votes: null
+    html: |-
+      <p>Adam, I still think there may be some way that font databases store some of this information. For example, I have FLS 5.02 and 5.04 on my system. 5.04 has the 5,-2 setting you originally suggested to me, while 5.02 has the default 100,-40 setting. </p>
+      <p>I am now editing in 5.02. If I open a font that was previously edited at 5,-2 in 5.04, it opens with the font window appearance and zoomability of the 5,-2 setting. But if I open another font file that wasn't edited and saved with this setting, I get the default appearance and zoomability. In other words, I have one program running, and am experiencing both behaviours.</p>
+      <p>What gives?</p>
+  - id: 303361
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 26 Sep 2008 — 3:42am
+    date: 2008-09-26T03:42:00
+    votes: null
+    html: |-
+      <p>Further evidence of inconsistent behaviour:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontlab snip_3609.gif"></div><p></p>
+      <p>This is with settings of 5, -2</p>
+      <p>Let's just have zoom to 6400 (at least), OK? We'll especially need that if Fl6 goes floating point . . . .</p>
+  - id: 303503
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 26 Sep 2008 — 4:53pm
+    date: 2008-09-26T16:53:00
+    votes: null
+    html: <p>How the heck did you manage to do that? I've never seen glyphs in the Font Window cells anything other than universally scaled.</p>
+  - id: 303863
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 29 Sep 2008 — 12:30pm
+    date: 2008-09-29T12:30:00
+    votes: null
+    html: <p>John, in that session, there were probably four open fonts. Some were scaled big, some small, and that one mixed. Next time I opened the four fonts, they were all scaled big. Probably interesting things would begin to happen if I opened some new fonts. Adam says that the font DB cannot carry any of the relevant information, that it is a preference-only setting. So far the program <em>seems</em> to be behaving as if this is not true. (Try working in a scaled-up environment and then sending font DBs to users with default settings.) We must hope that the issue will be moot in a new release by expanded zoom, though I can't imagine why this can't be incorporated into a dot release sooner than that.</p>
+  - id: 304620
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 3 Oct 2008 — 11:50am
+    date: 2008-10-03T11:50:00
+    votes: null
+    html: <p>I've had more confirmation that if you scale up, the font DB will carry the settings to other users' systems, potentially screwing up their preferences. <em>Somehow</em> this information is getting carried over into the font DB. Might there be a way of removing it?</p>
+  - id: 314528
+    user_id: 4019
+    user_name: billtroop
+    user_path: null
+    date_raw: 24 Nov 2008 — 4:18pm
+    date: 2008-11-24T16:18:00
+    votes: null
+    html: |-
+      <p>It's happened again!!!</p>
+      <p>I've made another user's life miserable by sending him a font that has carried over these settings. Come on Yuri &amp; Adam - - spill!</p>

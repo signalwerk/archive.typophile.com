@@ -1,0 +1,43 @@
+node: 107474
+title: How to build fontforge with other libraries (ie. libpng)?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427211945"
+  captured_at: 2015-04-27T21:19:45Z
+  url: http://typophile.com/node/107474
+  digest: YZNLP4GAARDF3X2AQBZLEWLBWJF5JJ3H
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/107474.html
+  fingerprint: fe4abda8be70348c
+  parser: 4e04979c9499b509
+post:
+  id: 107474
+  user_id: 215173
+  user_name: logotripping
+  user_path: null
+  date_raw: 1 Dec 2013 — 5:11am
+  date: 2013-12-01T05:11:00
+  votes: null
+  html: |-
+    <p>I am trying to build fontforge from source on Mac OS X Snow Leopard. I got the latest source from here: <a href="http://sourceforge.net/projects/fontforge/files/fontforge-source/" title="http://sourceforge.net/projects/fontforge/files/fontforge-source/">http://sourceforge.net/projects/fontforge/files/fontforge-source/</a> I DO NOT want to use homebrew! I repeat DO NOT! cuz I want to have fontforge install to a different location than /usr/local/Cellar/fontforge/20120731/ i want it to install to /fontforge/ and I can do this when I compile like this:</p>
+    <p>In Terminal under the fontforge src directory "fontforge-20120731-b" I type:</p>
+    <p>./configure --prefix=/fontforge --with-freetype-src=/freetype</p>
+    <p>followed by:</p>
+    <p>make</p>
+    <p>and finally:</p>
+    <p>make install</p>
+    <p>AND THAT ALL WORKS! BUT HERE'S MY PROBLEM!</p>
+    <p>when I run fontforge and try to open a woff file, it says<br>
+    "This version of fontforge cannot handle WOFF files. You need to recompile it with libpng and zlib"</p>
+    <p>now what the heck does that mean EXACTLY?? like I downloaded the sources for libpng-1.6.7 and zlib-1.2.8, unzipped them and placed the folders in the fontforge source folder and tried to recompile fontforge using the same commands above but it didnt create the necessary libraries (libpng.dylib, etc) so im guessing I have to add something to the configure command to tell it where the libpng and zlib sources are located? am i right? something like this (except this doesnt work, it was just a guess):</p>
+    <p>./configure --prefix=/fontforge --with-freetype-src=/freetype --with-libpng-src=/libpng</p>
+    <p>so how exactly am i supposed to do this?</p>
+    <p>your help is much appreciated thank you!</p>
+comments: []

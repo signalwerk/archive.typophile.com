@@ -1,0 +1,74 @@
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/parsed/**"
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+# Allow the workflow to publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; let a running build finish rather than cancelling it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      # The thread index is expensive to build from scratch and depends only on
+      # the parsed YAML, so it is cached against that content.
+      - name: Restore index cache
+        uses: actions/cache@v4
+        with:
+          path: site/.cache
+          key: thread-index-${{ hashFiles('data/parsed/nodes/**') }}
+          restore-keys: thread-index-
+
+      - name: Generate static site
+        working-directory: site
+        run: npm run build
+
+      - name: Check output
+        working-directory: site
+        run: |
+          pages=$(find dist -name index.html | wc -l)
+          echo "generated $pages pages"
+          test "$pages" -gt 1 || { echo "::error::suspiciously few pages generated"; exit 1; }
+          test -f dist/CNAME || { echo "::error::CNAME missing"; exit 1; }
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

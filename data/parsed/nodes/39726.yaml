@@ -1,0 +1,236 @@
+node: 39726
+title: Difference between character set and codepage?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150425042148"
+  captured_at: 2015-04-25T04:21:48Z
+  url: http://www.typophile.com/node/39726
+  digest: YD7AKIZO7DK7GDCQEDG3E6DBIZEJ5UV6
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/39726.html
+  fingerprint: f4b7258394b2ea75
+  parser: 4e04979c9499b509
+post:
+  id: 39726
+  user_id: 3788
+  user_name: cursusductus
+  user_path: null
+  date_raw: 4 Dec 2007 — 3:34am
+  date: 2007-12-04T03:34:00
+  votes: null
+  html: |-
+    <p>Hi everybody, I'm trying to translate these two terms to spanish; They are often used interchangeably. As I can understand, character set is a collection of characters, "suerte" in spanish, and a codepage is a coded character set (or multiple sets) used by an operative system.<br>
+    So, UNICODE is a codepage or an encoding? I'm getting crazy!<br>
+    thanks</p>
+comments:
+  - id: 244151
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 4 Dec 2007 — 5:30am
+    date: 2007-12-04T05:30:00
+    votes: null
+    html: |-
+      <p>A character set is all the characters in a font. It might be a few hundred or many thousands.</p>
+      <p>A codepage is the set of characters (or a subset in a large font) that can be typed directly from the keyboard for a particular keyboard layout.</p>
+      <p>A codepage and "an encoding" are essentially the same thing. Most codepages correspond to character sets in older 8-bit (256-character) font encoding schemes, such as ASCII.</p>
+      <p>Unicode is a standard system for assigning unique codes to semantically distinct characters in most of the world's languages.</p>
+      <p>In modern OpenType Unicode-based fonts: Unicode &gt; character sets &gt;= codepages</p>
+      <p>(This is a bit of a simplification, and I have not even talked about glyphs vs. characters...)</p>
+  - id: 244167
+    user_id: 4763
+    user_name: Tim Ahrens
+    user_path: null
+    date_raw: 4 Dec 2007 — 6:23am
+    date: 2007-12-04T06:23:00
+    votes: null
+    html: "<p>Jukka Korpela's <cite>Tutorial on character code issues</cite> is quite an extensive explanation of the subject: <a href=\"http://www.cs.tut.fi/~jkorpela/chars.html\" title=\"http://www.cs.tut.fi/~jkorpela/chars.html\">http://www.cs.tut.fi/~jkorpela/chars.html</a></p>"
+  - id: 244339
+    user_id: 19560
+    user_name: j.hadley
+    user_path: null
+    date_raw: 4 Dec 2007 — 2:57pm
+    date: 2007-12-04T14:57:00
+    votes: null
+    html: <p>As to Unicode in particular I'd recommend The Unicode Consortium FAQ at <a href="http://www.unicode.org/faq/" title="http://www.unicode.org/faq/">http://www.unicode.org/faq/</a> as well as the "What is Unicode" discussion at <a href="http://www.unicode.org/standard/WhatIsUnicode.html" title="http://www.unicode.org/standard/WhatIsUnicode.html">http://www.unicode.org/standard/WhatIsUnicode.html</a>.</p>
+  - id: 244543
+    user_id: 3788
+    user_name: cursusductus
+    user_path: null
+    date_raw: 5 Dec 2007 — 9:28am
+    date: 2007-12-05T09:28:00
+    votes: null
+    html: <p>Thank you, I'm reading all this material (I knew Unicode, but somethings are not very well explained). I apreciate specially the simplification of Mark's answer, it helps to clarify. I'll go on studing.</p>
+  - id: 245026
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 6 Dec 2007 — 8:36pm
+    date: 2007-12-06T20:36:00
+    votes: null
+    html: |-
+      <p>All codepages are character sets, but not all character sets are codepages.</p>
+      <p>A character set is any specific collection of characters. You could consider any given font to have its own character set, which may or may not be the same as some externally-defined one.</p>
+      <p>A codepage is a character set used by a computer, usually OS specific, usually to support a specific language or set of languages. For example, MacRoman is a codepage. Windows codepage 1250 (Eastern European) is a codepage. Many codepages are single-byte character sets - that is, they contain no more than 256 characters.</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 246059
+    user_id: 3788
+    user_name: cursusductus
+    user_path: null
+    date_raw: 12 Dec 2007 — 1:33am
+    date: 2007-12-12T01:33:00
+    votes: null
+    html: <p>Thanks, Thomas, so UNICODE is a codepage? or a meta-codepage?</p>
+  - id: 246135
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 12 Dec 2007 — 8:57am
+    date: 2007-12-12T08:57:00
+    votes: null
+    html: |-
+      <p>Unicode is not a codepage, and I'm not sure if "meta-codepage" would be a useful description, either. </p>
+      <p>Think of Unicode as a set of all possible character codes. A codepage is a subset of character codes in a particular order, usually limited to 256 characters.</p>
+      <p>A little background: A "page" is a block or section of computer memory. In early personal computer systems, a page of memory was 256 bytes, the largest number that can be represented with 8 bits. Before Unicode, most standard character code systems used 8-bit encoding, so it was not possible to have more than 256 characters. So, an 8-bit character set could be thought of as a "page", and a codepage usually refers to any standard pre-Unicode 8-bit character set.</p>
+  - id: 246138
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 12 Dec 2007 — 9:01am
+    date: 2007-12-12T09:01:00
+    votes: null
+    html: <p>On second thought, maybe "meta-codepage" works, if you take it to mean "beyond codepage".</p>
+  - id: 246147
+    user_id: 7887
+    user_name: Artur Schmal
+    user_path: null
+    date_raw: 12 Dec 2007 — 9:42am
+    date: 2007-12-12T09:42:00
+    votes: null
+    html: |-
+      <p>Maybe it helps understanding how codepages  work if you are aware that a single character can be represented in various codepages. So for example, the lowercase 'a' is represented the MacRoman codepage as well as in the Windows 1252 codepage (and in many more).</p>
+      <p>Think of Unicode as a label attached to the character via which the character can be accessed by app's and OS's. Some apps and OS's address characters through their name, some through their unicode.</p>
+      <p>Hope this helps,</p>
+      <p>Artur</p>
+  - id: 247685
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 19 Dec 2007 — 11:50pm
+    date: 2007-12-19T23:50:00
+    votes: null
+    html: |-
+      <p>Unicode is a single very large (and still growing) character set and encoding, which encompasses essentially all the standard computer character sets that predated it.</p>
+      <p>Most any computer codepage can be mapped to Unicode and back. However, in computer systems Unicode is largely replacing codepage based approaches, and for good reasons. Instead of having dozens of codepages each using (and re-using) the same numbered slots for different characters, each character gets its own unique numbered slot in Unicode. </p>
+      <p>T</p>
+  - id: 311474
+    user_id: 1316
+    user_name: piccic
+    user_path: null
+    date_raw: 11 Nov 2008 — 7:42am
+    date: 2008-11-11T07:42:00
+    votes: null
+    html: |-
+      <p>So, basically, as we get more support from applications, Unicode will replace the limited access of 8-bit codepages?</p>
+      <p>A thing which is always difficult for me to get is related to the Keyboard: as long as we have a keyboard won't we always have the need to access the glyphs via a limited "codepage"? if I have to type (mostly) Arabic or Greek, a Latin-based keyboard is of little use, isn't it?<br>
+      I mean, after all, I will always need to have more direct access to the glyphs pertinent to the language I am typing, isn't it?</p>
+      <p>Thanks for explaining such things in a simple way…</p>
+  - id: 311486
+    user_id: 5890
+    user_name: behnam
+    user_path: null
+    date_raw: 11 Nov 2008 — 8:31am
+    date: 2008-11-11T08:31:00
+    votes: null
+    html: |-
+      <p>Keyboards are not always encoded in 8-bit, relative to a specific codepage. Not on the Mac anyway. But you are right. This keyboard issue is a source of a lot of confusion and incompatibility amongst programs and platforms, particularly for non Roman languages.<br>
+      I'm guessing keyboards on Windows are always 8-bit encoded, then 'translated' to Unicode based on language setting along the way. This causes many cases of 'lost in translation' issues, for example for mirroring characters in rtl settings.</p>
+  - id: 311893
+    user_id: 36432
+    user_name: Dr jack
+    user_path: null
+    date_raw: 12 Nov 2008 — 9:19pm
+    date: 2008-11-12T21:19:00
+    votes: null
+    html: |-
+      <p>That's a great line Artur...<br>
+      <em>"Think of Unicode as a label attached to the character via which the character can be accessed by app’s and OS’s"</em></p>
+      <p>The more things are explained simply, the easier it becomes for newbies.</p>
+      <p>Cheers</p>
+  - id: 312174
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 13 Nov 2008 — 10:42pm
+    date: 2008-11-13T22:42:00
+    votes: null
+    html: |-
+      <p>"I’m guessing keyboards on Windows are always 8-bit encoded...."</p>
+      <p>If that were true, Chinese and Japanese keyboards would be impossible, no? And whether or not it is true, there's be no reason for that to cause problems with mirroring characters in RTL settings.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 312398
+    user_id: 5890
+    user_name: behnam
+    user_path: null
+    date_raw: 14 Nov 2008 — 4:47pm
+    date: 2008-11-14T16:47:00
+    votes: null
+    html: |-
+      <p>I see your point Thomas. But somehow it does. RTL imported form Windows to Mac is OK. RTL imported from Mac to Windows is not. I'm guessing it's because 'opening parenthesis' is directly encoded on the Mac RTL keyboards, but on Windows keyboards, it is always left parenthesis, subject to interpretation based on the language setting. But it may well be done with Unicode encoding as well I suppose. But isn't language setting related to codepages?<br>
+      What is the role of codepage in Unicode era? Backward compatibility? Or just smaller codes?<br>
+      This subject was always very confusing and beyond my comprehension. But apparently many applications agree with me!</p>
+  - id: 312515
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 15 Nov 2008 — 1:54pm
+    date: 2008-11-15T13:54:00
+    votes: null
+    html: |-
+      <p>Keyboards have no effect at all on imported text in any application I've ever worked with.</p>
+      <p>&gt; But isn’t language setting related to codepages?</p>
+      <p>What do you mean by "language setting," *precisely*? On which OS or in which app is this setting?</p>
+      <p>Codepages have little role at all these days in Unicode apps, and that's a good thing. Mostly any role they do have, has to do with supporting pre-existing legacy fonts and text.</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 312534
+    user_id: 5890
+    user_name: behnam
+    user_path: null
+    date_raw: 15 Nov 2008 — 4:24pm
+    date: 2008-11-15T16:24:00
+    votes: null
+    html: |-
+      <p>I have to get back to you on this when I get a chance to test it extensively. But here is what I gather now:<br>
+      In Windows, you can produce an rtf Arabic (or Persian whatever) text, send it to a Mac, and reproduce the text in the Mac. No problem. When you do the same in the Mac, whether it is Persian or Arabic, there is no 'codepage' per se, only the appropriate keyboard. And when it is imported to Windows, it defaults the content to 'Arabic' if it does at all, and also it looses its mirroring effect. I know a lot of Mac users have trouble keeping their page layout intact when imported to Windows. I'll give you more detail when I get a chance.<br>
+      Unicode doesn't identify a text as 'Arabic' (I wish it did!) only rtl. The rest is within the encoding. But it doesn't seem to work that way. If you look at the keyboard layout of an rtl Mac keyboard, the opening parenthesis is encoded as left parenthesis (which will mirror in rtl and become right parenthesis). If you look at a Windows rtl keyboard layout, the parenthesis are exactly the same as for ltr. The encoding has to be modified first, then mirrored in the process when the rtl content is recognized by the application. When it imports directly from a Mac for example, one of these two, modifying or mirroring is not happening.</p>
+  - id: 312548
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 15 Nov 2008 — 6:20pm
+    date: 2008-11-15T18:20:00
+    votes: null
+    html: |-
+      <p>&gt; If you look at the keyboard layout of an rtl Mac keyboard</p>
+      <p>Totally irrelevant to most anything that happens with text when you're not actually typing.</p>
+      <p>&gt; If you look at the keyboard layout of an rtl Mac keyboard,<br>
+      &gt; the opening parenthesis is encoded as left parenthesis</p>
+      <p>From a Unicode perspective, there's no such thing as left parenthesis, just opening and closing parentheses. What they look like depends on whether you're in RTL or LTR.</p>
+      <p>Now, it's possible that the Windows Arabic keyboard takes the thing that looks like a "left" paren on the keyboard and treats that input as an opening paren in the English keyboard and as a closing paren when you're using the Arabic keyboard. But whether or not it does so, this is unrelated to what happens with Arabic text moving between Mac and Windows....</p>
+      <p>Somebody who is really familiar with Arabic typesetting might be able to help decode the particular problems you're seeing, but you'll need to be a lot more specific about two things:</p>
+      <p>1) How are you producing the RTF Arabic text on the Mac? (Application, font, font format)</p>
+      <p>2) In what Windows application are you opening that Mac-created RTF text file? </p>
+      <p>It's in one of those steps that the problem likely lies.</p>
+      <p>I'll just note on the side that Mac Word doesn't support Arabic last I heard.</p>
+      <p>Regards,</p>
+      <p>T</p>

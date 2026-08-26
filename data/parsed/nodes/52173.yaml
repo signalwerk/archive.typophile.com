@@ -1,0 +1,103 @@
+node: 52173
+title: mkmk broken in InDesign?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426082211"
+  captured_at: 2015-04-26T08:22:11Z
+  url: http://typophile.com/node/52173
+  digest: 4PEXTELJPGHKAFCN7KFVYA5IO3ZHB467
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/52173.html
+  fingerprint: 93639f5190708790
+  parser: 4e04979c9499b509
+post:
+  id: 52173
+  user_id: 19667
+  user_name: anagnost
+  user_path: null
+  date_raw: 28 Nov 2008 — 11:32am
+  date: 2008-11-28T11:32:00
+  votes: null
+  html: |-
+    <p>I have just installed InDesign CS4 trial for Windows (normally I don't use this program, but I needed it to test my OpenType layouts) and was very surprised with the following odd effect: when I am attempting to stack several combining marks over a base character, they are lined up diagonally, each subsequent mark higher and further to right than the previous one. Thus the vertical positioning is correct but the horizontal is completely wrong. I have an impression there was just a typo somewhere in the source code, so that marks are shifted by the same amount of space both vertically and horizontally.</p>
+    <p>The problem can be reproduced with any font (e. g. SIL Doulos) and any combining marks for which proper mark to mark attachment points are specified.</p>
+    <p>Now I am wondering, if anybody else has experienced this problem, and if so, if it is known to Adobe developers?</p>
+comments:
+  - id: 315324
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 28 Nov 2008 — 1:52pm
+    date: 2008-11-28T13:52:00
+    votes: null
+    html: |-
+      <p>I reported failings of mkmk about 3 months ago (for CS3). Admittedly, they've never <em>advertised</em> it was working. I tested with <a class="freelinking external" href="http://home.kabelfoon.nl/~slam/fonts/fonts.html" rel="nofollow">Rogier van Dalen's Legendum</a>, which has (AFAICT) proper mark and mkmk support. Just not for InDesign!</p>
+      <p>Since you are testing, can you do this: type a base character, then a mark (which should go over the preceding character), then another character <strong>in another font</strong>? That fails just miserably in CS3 -- the mark feature loses all its magic properties, and the mark gets set as a spacing diacritic.</p>
+  - id: 315336
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 28 Nov 2008 — 2:58pm
+    date: 2008-11-28T14:58:00
+    votes: null
+    html: "<p>Try this too: enter a word in which the last character is a combining mark shifted vertically from its default height, e.g. stacked above another combining mark; then type a word space; then change to another font and start typing. In InDesign CS3 ME, the text in the new word will be shifted off the baseline to a height corresponding to the height of the shifted combining mark in the previous font. This only happens when the last character in the preceding word is a combining mark.</p>"
+  - id: 315339
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 28 Nov 2008 — 3:20pm
+    date: 2008-11-28T15:20:00
+    votes: null
+    html: |-
+      <p>While we're at it. Is there <em>any</em> text editor that gets this right?</p>
+      <p>Preferably on Windows; preferably free as well... It's just for testing my fonts, pending Adobe's repairing their broken implementation. I tried FontForge, but my system doesn't like the Windows runtime for *nix proggies at all.</p>
+  - id: 315412
+    user_id: 1133
+    user_name: twardoch
+    user_path: null
+    date_raw: 29 Nov 2008 — 10:05am
+    date: 2008-11-29T10:05:00
+    votes: null
+    html: |-
+      <p>Theunis,<br>
+      I believe Word 2007 for Windows does it just fine.<br>
+      A.</p>
+  - id: 315427
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 29 Nov 2008 — 11:43am
+    date: 2008-11-29T11:43:00
+    votes: null
+    html: |-
+      <p><em>Preferably on Windows; preferably free as well</em></p>
+      <p><a href="http://www.openoffice.org" title="www.openoffice.org">www.openoffice.org</a></p>
+      <p>On Windows, you can also test mark and mkmk positioning in Wordpad and NotePad. The latter is particularly useful sometimes because it gives raw exposure of Uniscribe behaviour, without intervening layers of application or other text engine code such as RichEdit.</p>
+  - id: 315491
+    user_id: 19667
+    user_name: anagnost
+    user_path: null
+    date_raw: 30 Nov 2008 — 5:41am
+    date: 2008-11-30T05:41:00
+    votes: null
+    html: |-
+      <p>Theunis, John,</p>
+      <p>I could not reproduce the bugs you have described in InDesign CS4. Apparently there are some improvements in comparison with the previous version. However the problem with 'mkmk' is quite annoying, especially because everything else seems to work as expected.</p>
+      <p>BTW I have also noticed that marks are stacked properly if the base character is formatted with a different font (of course this usually means the first mark is positioned improperly).</p>
+  - id: 316886
+    user_id: 1844
+    user_name: Miguel Sousa
+    user_path: null
+    date_raw: 8 Dec 2008 — 12:40pm
+    date: 2008-12-08T12:40:00
+    votes: null
+    html: |-
+      <p>&gt; <em>when I am attempting to stack several combining marks over a base character, they are lined up diagonally, each subsequent mark higher and further to right than the previous one.</em></p>
+      <p>FWIW, this was working correctly in InDesign CS3. ID CS3 had a nasty bug involving combining marks (described <a class="freelinking external" href="http://typophile.com/node/46665" rel="nofollow">here</a>) that got fixed. Perhaps that work triggered this new bug. I've logged it in our bug database and it's being analyzed. Thanks for reporting it.</p>

@@ -1,0 +1,126 @@
+node: 39149
+title: Classes Issue
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426060817"
+  captured_at: 2015-04-26T06:08:17Z
+  url: http://typophile.com/node/39149
+  digest: FY56M23NM34HLOTLWDSETVV3JX4KOK3I
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/39149.html
+  fingerprint: d37c53cbad701263
+  parser: 4e04979c9499b509
+post:
+  id: 39149
+  user_id: 17099
+  user_name: msmiths
+  user_path: null
+  date_raw: 15 Nov 2007 — 5:18pm
+  date: 2007-11-15T17:18:00
+  votes: null
+  html: |-
+    <p>Im working in Fontlab 5 and as a test setup a simple Kerning Class</p>
+    <p>_G: G' g</p>
+    <p>In the Metrics Window with Kerning Mode on I have three of the same words</p>
+    <p>ANALOG<br>
+    Analog<br>
+    analog</p>
+    <p>In the first all caps ANALOG above I kern the 'G' at -10 and expect to see the lower case 'g's below move in accordance and nothing happens.</p>
+    <p>Why isnt this class working and affecting the lowercase g as it should?</p>
+    <p>Thanks</p>
+    <p>Mike</p>
+comments:
+  - id: 239892
+    user_id: 17099
+    user_name: msmiths
+    user_path: null
+    date_raw: 15 Nov 2007 — 7:32pm
+    date: 2007-11-15T19:32:00
+    votes: null
+    html: |-
+      <p>What I'm trying to do is since the font uses the same glyphs for both upper and lowercase is to have any kerning that is done to all characters at the same time, all of these below included in one class</p>
+      <p>_A: A' Aacute Acircumflex Adieresis Agrave Aring Atilde</p>
+      <p>_a: a' agrave aacute acircumflex atilde adieresis aring</p>
+      <p>Can I combine the two and have it work so I dont have to seperately kern upper and lowercase since they are the same glyphs basically it is an uppercase only font.</p>
+  - id: 239893
+    user_id: 17099
+    user_name: msmiths
+    user_path: null
+    date_raw: 15 Nov 2007 — 7:34pm
+    date: 2007-11-15T19:34:00
+    votes: null
+    html: |-
+      <p>Of course I would have another case for that would cover all 'A' characters the above is right and here is left:</p>
+      <p>_A_left: A' AE Aacute Acircumflex Adieresis Agrave Aring Atilde</p>
+      <p>_a_left: a' ae aacute acircumflex adieresis agrave aring atilde</p>
+  - id: 239894
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 15 Nov 2007 — 7:39pm
+    date: 2007-11-15T19:39:00
+    votes: null
+    html: <p>Yes, you can combine them. The FontLab metrics window gives you the options of (flat) pairs kerning, class kerning, and class kerning with exceptions. You probably don't have one of the "class" options selected. There is a PDF manual that comes with the program. Read the kerning section.</p>
+  - id: 240006
+    user_id: 17099
+    user_name: msmiths
+    user_path: null
+    date_raw: 16 Nov 2007 — 10:36am
+    date: 2007-11-16T10:36:00
+    votes: null
+    html: <p>I've sent a ticket into fontlab, I've tried everything, with class options selected, read the manual numerous times no matter what I cant get the most simplest classes to work and react in the preview window, my kerning actions only affect the main glyph and when I click the icon the submenu is greyed out when it should show the class and glyph associations…</p>
+  - id: 240017
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 16 Nov 2007 — 7:45pm
+    date: 2007-11-16T19:45:00
+    votes: null
+    html: |-
+      <p>To tell you a little secret, I too have trouble with FontLab. How I work is to write my features, then "save" them from the OT panel.</p>
+      <p><em>(Edit: actually, to be truthful, I don't even "write" the features in Fontlab, but with a text editor that allows a column mode. But the easiest way, the first time, is to write them in FontLab.)</em></p>
+      <p>I then open up that file with a text editor -- I use VEDIT, but EditPad Pro is likely a better, more modern choice. At the head of the features file, I write my classes, such as:</p>
+      <p>@_exclam=[exclam   bracketright c d e g i j k l p r s t v w x y question quoteright quotedblright uni02BE uni02BF];<br>
+      @_zerosuperior=[zerosuperior   onesuperior twosuperior threesuperior foursuperior fivesuperior sixsuperior sevensuperior eightsuperior ninesuperior];</p>
+      <p>then, make a kern feature, e.g.,</p>
+      <p>feature kern {</p>
+      <p>and add the positioning commands, e.g.</p>
+      <p>   pos @_exclam @_zerosuperior 50;<br>
+         pos @_comma @_zerosuperior -50;</p>
+      <p>etc.</p>
+      <p>Some creativity with this technique is possible; you can do you kerning as pairs in FontLab, build a kern featrure in FontLab, export it, then (as above) define your classes in the feature file (NOT the classes file, that should have nothing in it with my technique), change your existing entries in the kern feature in accordance with the classes you write, and re-import the modified (new) features file.</p>
+      <p>i.e. in the file, you change</p>
+      <p>   pos A C -36; </p>
+      <p>to</p>
+      <p>   pos @_A2 @_C1 -36;</p>
+      <p>and since you have now written classes for @_A2 and @_C1, it should compile just fine.</p>
+      <p>Just remember that when FontLab alerts you that the kerning values are different from the kern values in the features, and asks if it should rebuild the kern feature, you say NO. Not only NO but HELL NO.</p>
+      <p>This is a tough way to go, but I've found it bullet proof when, as always happens, I have to go back into the font and change/add kerning. I save the .VFB, and try to never work from the .OTF. In point of fact, I keep the separate (importable) features file current as well.</p>
+      <p>Just remember that the kerning in the compiled feature file is what is used when you generate a font.</p>
+      <p>Good luck</p>
+  - id: 240071
+    user_id: 1844
+    user_name: Miguel Sousa
+    user_path: null
+    date_raw: 16 Nov 2007 — 4:14pm
+    date: 2007-11-16T16:14:00
+    votes: null
+    html: |-
+      <p>&gt; <em>Why isnt this class working and affecting the lowercase g as it should?</em></p>
+      <p>To me it sounds like you haven't ticked the checkboxes on the Classes panel.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Classes_panel_4991.png"></div><p></p>
+  - id: 240213
+    user_id: 17099
+    user_name: msmiths
+    user_path: null
+    date_raw: 17 Nov 2007 — 3:20pm
+    date: 2007-11-17T15:20:00
+    votes: null
+    html: <p>I figured it out thanks for the feedback!</p>

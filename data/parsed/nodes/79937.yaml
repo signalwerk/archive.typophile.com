@@ -1,0 +1,63 @@
+node: 79937
+title: Greek encoding trouble
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419234107"
+  captured_at: 2015-04-19T23:41:07Z
+  url: http://www.typophile.com/node/79937
+  digest: J7XOYCY4OG4JFUQVZNFRYJKEUUOZY7JL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/79937.html
+  fingerprint: 858489063b6005b7
+  parser: 4e04979c9499b509
+post:
+  id: 79937
+  user_id: 5081
+  user_name: gabrielhl
+  user_path: null
+  date_raw: 11 Mar 2011 — 10:33am
+  date: 2011-03-11T10:33:00
+  votes: null
+  html: |-
+    <p>Hello dear typophiles,</p>
+    <p>I'm working on typesetting a document with mixed latin and greek text. My problem is not being able to find out what font was used for the greek, or even a suitable replacement.</p>
+    <p>The "manuscript" that I received is an XML file, so I have no information on what font was used for the typesetting of the previous edition, and I'm having a hard time finding out what font was used.</p>
+    <p>The main problem, rather than knowing the exact typeface used (it could be changed for the new edition) is that the encoding is very strange: for all regular greek letters, the actual text is in latin letters, following the encoding of the old "WinGreek" font - a for alpha, b for beta, etc. However there are also accented characters which are indicated in the xml by an entity, i.e. &amp;iacugr; for small iota with acute; these can be easily converted to their actual unicode points or even a private area one, etc. </p>
+    <p>I've already searched trough a lot of sites to try to find something that matches this encoding - let's call it "WinGreek Extended", but so far I haven't been successful. Does anyone know of such a font? </p>
+    <p>Contact with the previous typesetter is very very hard (previous problems took literally a year to be answered) so any help is appreciated. </p>
+    <p>Thanks!</p>
+comments:
+  - id: 455388
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 11 Mar 2011 — 11:22am
+    date: 2011-03-11T11:22:00
+    votes: null
+    html: |-
+      <p>This is probably a custom encoding, and most likely the old<a href="http://socrates.berkeley.edu/~pinax/greekkeys/" rel="nofollow">GreekKeys</a> encoding, as this was the most popular for Polytonic Greek among scholars. Ideally, you would want to identify the custom encoding and then convert the Greek text to Unicode.</p>
+      <p>You may find this paper useful:<br>
+      <a href="http://ucbclassics.dreamhosters.com/djm/unicodeTalk/unicodeMontrealAPA.html" title="http://ucbclassics.dreamhosters.com/djm/unicodeTalk/unicodeMontrealAPA.html">http://ucbclassics.dreamhosters.com/djm/unicodeTalk/unicodeMontrealAPA.html</a></p>
+  - id: 455393
+    user_id: 5081
+    user_name: gabrielhl
+    user_path: null
+    date_raw: 11 Mar 2011 — 12:37pm
+    date: 2011-03-11T12:37:00
+    votes: null
+    html: <p>Thank you for the link John, I will read it.</p>
+  - id: 455431
+    user_id: 12518
+    user_name: DTY
+    user_path: null
+    date_raw: 12 Mar 2011 — 1:58am
+    date: 2011-03-12T01:58:00
+    votes: null
+    html: <p>This sounds like a mixture of TEI XML and one of the old 8-bit encodings (GreekKeys, WinGreek, or one of the others). If they're intermingled within the same passages, this may be some sort of strange hack by the previous typesetter. It would be more work to convert it automatically into Unicode if it mixes two systems; if you can't get the information from the previous typesetter, you may need to put together a conversion table yourself.</p>

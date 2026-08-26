@@ -1,0 +1,333 @@
+node: 75698
+title: Subsetting a TTF font - How to do efficiently.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150418122132"
+  captured_at: 2015-04-18T12:21:32Z
+  url: http://www.typophile.com/node/75698
+  digest: PKS2MK5XFRTTAFBXGHCRZVO5RWXTEKCV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/75698.html
+  fingerprint: b2b3ffbb78319a23
+  parser: 4e04979c9499b509
+post:
+  id: 75698
+  user_id: 44873
+  user_name: Richard Fink
+  user_path: null
+  date_raw: 27 Oct 2010 — 8:44am
+  date: 2010-10-27T08:44:00
+  votes: null
+  html: |-
+    <p>How do I subset a font down to a custom codepage of glyphs? In other words, if I've got a font with 393 gylphs, and I want to bring it down to a particular subset of 228, how do I delete the glyphs I don't want efficiently? (Without saving to a new vfb file, and manually deleting them. Very laborious and prone to error.)</p>
+    <p>Doesn’t seem to be anything in the FontLab manual about it and I've searched here on this site, too.<br>
+    I have FontLab, FOG, TTX, OTMaster, FontForge. (Anything else I should acquire for this purpose?)</p>
+    <p>Is there some kind of export/import procedure that will get me there?</p>
+    <p>Thanks.</p>
+    <p>Rich</p>
+comments:
+  - id: 436572
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 27 Oct 2010 — 8:59am
+    date: 2010-10-27T08:59:00
+    votes: null
+    html: |-
+      <p>FontLab doesn't provide a means to do this, other than as you describe (manual deletion). To avoid possible errors in the deletion, you can define a custom encoding, sort glyphs by encoding, and delete any glyph that falls outside the encoding.</p>
+      <p>Ideally, you want a dedicated subsetting function, that will not only subset the glyph set but will also recompile GSUB and GPOS and other tables.</p>
+  - id: 436598
+    user_id: 38168
+    user_name: Mitternacht
+    user_path: null
+    date_raw: 27 Oct 2010 — 12:02pm
+    date: 2010-10-27T12:02:00
+    votes: null
+    html: |-
+      <p>I'm not sure this is exactly what you're looking for, but FontSquirell's @font-face kit generator lets you create subsets from font files.<br>
+      FontSquirrel Generator : <a href="http://www.fontsquirrel.com/fontface/generator" title="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a></p>
+      <p>The tool is designed to create full @font-face kits but you can upload your TTF, choose TTF only as output format and use the “Expert” subset creation tool (which is very handy). It only takes 2 minutes so it won't be a huge waste of time if it's not what you're looking for :) Please note you have to tick the “Yes, the fonts I'm uploading are legally eligible for web embedding” check box even if it's not the case and you don't intend to use it on the Web. Otherwise it won't let you do what you want to do.</p>
+      <p>Good luck!</p>
+  - id: 436672
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 28 Oct 2010 — 4:30am
+    date: 2010-10-28T04:30:00
+    votes: null
+    html: |-
+      <p>@jh</p>
+      <p><em>To avoid possible errors in the deletion, you can define a custom encoding, sort glyphs by encoding, and delete any glyph that falls outside the encoding.</em></p>
+      <p>This would not be so bad and had occured to me. But newbie me seems to be missing a way to spot what lies outside the encoding.<br>
+      Yes, the glyphs line up with the encoding, but where exactly does it end?<br>
+      Plus, there are usually some glyphs - spacing chars and such - that I want to preserve.<br>
+      Not straightforward, unfortunately. But I'll take a second and third look at it.</p>
+      <p>@mitternacht</p>
+      <p>Yes. Overall, the Generator does a quite excellent job. And you can customize it with a glyph list, too.<br>
+      However, in some cases it doesn't reconcile the other tables - like those that John Hudson mentioned - in exactly the way I want. That's why I'm looking for an alternate solution. And just to have it handy, offline, too.</p>
+      <p>Clearly, fonts as a technology are designed with a bias towards growing larger, not scaling down!</p>
+      <p>A friend of mine sent me a FontForge script that I'm going to play with today and will probably get working.</p>
+      <p>If anybody else has any ideas, or scripts, or anything, I'm all ears.</p>
+  - id: 436677
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 28 Oct 2010 — 5:35am
+    date: 2010-10-28T05:35:00
+    votes: null
+    html: |-
+      <p>&gt;...I'm all ears</p>
+      <p>Subsetting is why I wanted to burn the former Appendix B &amp; C of the WOFF spec. </p>
+      <p>Under what used to be best practices for WOFF producers, Appendix B said, WOFF makers must make WOFFs that are 100% compatible with the original font, or be outside of the W3C specification. (I'm not sure how this has changed since it was absorbed into other parts of this and other documentation). </p>
+      <p>Then, under the best practices for WOOF-using user agents, Appendix C said these agents could subset the font, leaving out whatever might not be needed. (and I'm not sure how this has changed since it was absorbed into other parts of this and other documentation). </p>
+      <p>The sad thing is, that UA's doing the subsetting on the user's machine is like refining petroleum in each homeowner's boiler. Even stranger, is that the W3C does not seem to appreciate, and RF, you obviously don't, that automatically subsetting a font, with its compressed kerning, glyphs and hints, will require a complete TT interpreter. </p>
+      <p>I know I'm a complete TT interpreter and can subset any font accurately, but I wonder how many others there are out there.</p>
+  - id: 436749
+    user_id: 16849
+    user_name: abattis
+    user_path: null
+    date_raw: 28 Oct 2010 — 2:42pm
+    date: 2010-10-28T14:42:00
+    votes: null
+    html: |-
+      <p>FontForge scripting does this in a snap:</p>
+      <p><a href="http://code.google.com/p/googlefontdirectory/source/browse/hanuman/menusubset.ff" title="http://code.google.com/p/googlefontdirectory/source/browse/hanuman/menusubset.ff">http://code.google.com/p/googlefontdirectory/source/browse/hanuman/menus...</a></p>
+  - id: 436785
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 28 Oct 2010 — 11:26pm
+    date: 2010-10-28T23:26:00
+    votes: null
+    html: |-
+      <p>David: <em>Under what used to be best practices for WOFF producers, Appendix B said, WOFF makers must make WOFFs that are 100% compatible with the original font, or be outside of the W3C specification.</em></p>
+      <p>That's an understandable misinterpretation, and the text has been clarified. In this context, 'original font' meant the font that is placed into the WOFF wrapper, which must be losslessly wrappable and unwrappable. A tool that produces WOFF files might perform other functions to a font file, such as subsetting, before wrapping the resulting font data, but for WOFF purposes it is the font that goes into the wrapper that matters, not the font at the beginning of the process. This, as I say, has been clarified, and I believe the term 'original font' is avoided.</p>
+  - id: 436821
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 29 Oct 2010 — 6:04am
+    date: 2010-10-29T06:04:00
+    votes: null
+    html: |-
+      <p>@db<br>
+      <em>and RF, you obviously don't, that automatically subsetting a font, with its compressed kerning, glyphs and hints, will require a complete TT interpreter.</em></p>
+      <p>No, actually I *do* know. Surprise!<br>
+      There's no way in hell that user agents will be able to sub-set TTF files on the fly.<br>
+      They could do it badly, I suppose, and break them.</p>
+      <p>But I don't think that's the intention of the WOFF spec. And I can't see anything like that being implemented or even entertained in the near term.<br>
+      The browser will process whatever is in the wrapper, and that's that.</p>
+      <p>Keeping track of @font-face bug reports, browser makers seem to be having enough trouble as it is.</p>
+      <p>rich</p>
+  - id: 436856
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 29 Oct 2010 — 9:06am
+    date: 2010-10-29T09:06:00
+    votes: null
+    html: |-
+      <p>a&gt;FontForge scripting does this in a snap:</p>
+      <p>Cool! (who knew it'd be so simple!) It says in the notes is that it's updated to grab the glyphs used by features, which means it's doing or getting an interpretation of those. In  previous developments, did subsetting of hinting and kerning get proven in proofs?</p>
+      <p>J&gt; ...the text has been clarified...</p>
+      <p>Much to my delight. Now, is the dsig "in-scope", and if so how?</p>
+      <p>J&gt;...but for WOFF purposes it is the font that goes into the wrapper that matters...</p>
+      <p>I can see that point of view, as far as the wrapper-lover should be concerned the feather has landed, mission accomplished! </p>
+      <p>All that remains now is the actual functioning of multi-dimensional industrial-strength typography amongst this herd of boons.</p>
+  - id: 436870
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 29 Oct 2010 — 10:49am
+    date: 2010-10-29T10:49:00
+    votes: null
+    html: |-
+      <p>David: <em>Now, is the dsig "in-scope", and if so how?</em></p>
+      <p>The dsig table is preserved in the WOFF-wrapped font data just like all the other tables.</p>
+      <p>This does mean that if you want a valid dsig in your WOFF'd fonts, then you need to sign or re-sign the font that goes into the wrapper after you have performed any other operations, e.g. subsetting or adding custom data such as serialisation, permissions, etc.</p>
+      <p>The workflow would be:</p>
+      <p>1. Input font, i.e. the TTF master from which the specific WOFF'd font file will be derived.</p>
+      <p>2. Font data processing, manipulation, augmentation, e.g. subsetting, serialisation, etc.</p>
+      <p>3. Digital (re)signing.</p>
+      <p>4. WOFF</p>
+      <p><em>All that remains now is the actual functioning of multi-dimensional industrial-strength typography amongst this herd of boons.</em></p>
+      <p>Indeed.</p>
+  - id: 436875
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 29 Oct 2010 — 11:38am
+    date: 2010-10-29T11:38:00
+    votes: null
+    html: |-
+      <p>&gt;did subsetting of hinting and kerning get proven in proofs?<br>
+      Proven in proofs. Sounds like something my Dad would have said.</p>
+      <p>Is there anything further, father? - No, that can't be right...<br>
+      Is there anything father, further?</p>
+      <p>As DSigmund Freud said, "Never judge a cigar by its wrapper."</p>
+  - id: 437073
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 31 Oct 2010 — 1:54pm
+    date: 2010-10-31T13:54:00
+    votes: null
+    html: |-
+      <p>Kerning and (other) OT layout features are the tough parts for subsetting.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 437170
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 1 Nov 2010 — 5:51am
+    date: 2010-11-01T05:51:00
+    votes: null
+    html: |-
+      <p>TP&gt;Kerning and (other) OT layout features are the tough parts for subsetting.</p>
+      <p>Isn't there a biblical story where two mothers are trying to cut a baby in half, and the king comes along and shows them how to write "accredited" dsigs instead, or something?</p>
+      <p>RF&gt;Sounds like something my Dad would have said.</p>
+      <p>Mine too. Coincidentally, he worked in the baby-saving business.</p>
+      <p>&gt;The workflow would be:</p>
+      <p><em>A work-flow</em>, maybe — but I think you are taking a tiny bit of an industrial strength work-flow out of context to unintentionally misunderstand the issue.</p>
+      <p>I think, WOFF needs its own dsig, or to <strong>shut up</strong> about those of another format.</p>
+  - id: 437178
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 1 Nov 2010 — 6:15am
+    date: 2010-11-01T06:15:00
+    votes: null
+    html: |-
+      <p>&gt;Kerning and (other) OT layout features are the tough parts for subsetting.</p>
+      <p>Yup.</p>
+  - id: 437186
+    user_id: 1688
+    user_name: blokland
+    user_path: null
+    date_raw: 1 Nov 2010 — 7:21am
+    date: 2010-11-01T07:21:00
+    votes: null
+    html: |-
+      <p>Thomas: <em>Kerning and (other) OT layout features are the tough parts for subsetting.</em></p>
+      <p>We have put subsetting on the list of planned functionality for (one of) the next release(s) of OTM.</p>
+      <p>In an FM-based workflow, subsetting is not very complex because the exported characters are defined by a .cha file and –as everybody knows by now– the character set does not have to cover the stuff listed in the linked OT features file (because the rewritten HOT tool removes the obsolete features from the font during generation). Of course, everything can be done in batch via command files.</p>
+      <p>FEB</p>
+  - id: 437259
+    user_id: 1688
+    user_name: blokland
+    user_path: null
+    date_raw: 1 Nov 2010 — 12:43pm
+    date: 2010-11-01T12:43:00
+    votes: null
+    html: |-
+      <p>FYI, the FM-based workflow I built over time for DTL looks as follows:</p>
+      <p><a href="http://www.fonttools.org/downloads/DTL_workflow.pdf" title="http://www.fonttools.org/downloads/DTL_workflow.pdf">http://www.fonttools.org/downloads/DTL_workflow.pdf</a></p>
+      <p>This is the result of building, i.e., stacking elements over time and it is quite possible that it could be made more compact if re-built from scratch, but it works fine and reliable for us.</p>
+      <p>FEB</p>
+  - id: 437349
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 2 Nov 2010 — 3:37am
+    date: 2010-11-02T03:37:00
+    votes: null
+    html: <p>Type design tools can do all the subletting. Why didn't I think of that.</p>
+  - id: 437358
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 2 Nov 2010 — 7:12am
+    date: 2010-11-02T07:12:00
+    votes: null
+    html: |-
+      <p>@blokland<br>
+      thanks for the info. Will look it over.</p>
+  - id: 437798
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 4 Nov 2010 — 2:14am
+    date: 2010-11-04T02:14:00
+    votes: null
+    html: |-
+      <p>David: <em>I think, WOFF needs its own dsig</em></p>
+      <p>Can you explain why?</p>
+  - id: 437829
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 4 Nov 2010 — 6:30am
+    date: 2010-11-04T06:30:00
+    votes: null
+    html: |-
+      <p>JH&gt; Can you explain why (you think, WOFF needs its own dsig)?</p>
+      <p>I finally got to read posts beyond September on the pertinent W3C lists. Whew! </p>
+      <p>(Lol...What made you all hate so much the TrueType upon which the web was launched and rides today: Bad Acid?;))</p>
+      <p>To explain why WOFF needs a dsig? I rewrote its FAQ instead. I will say this, the "division" between "web fonts" and "print fonts", is really a W3C &amp; UA construed faux-tech solution to get the foundries on board. The solution goes against the font behavior required by many of the coolest needs of modern publishing.</p>
+      <p>This is Håkon's apparent, and repeatedly implied direction, and I agree completely. So if you have the time, talk to him about his vision and then what's the big deal!? put a damn dsig in and try to make the WOFF spec ignore the payload's dsig entirely, please. Pretty please :)</p>
+  - id: 437846
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 4 Nov 2010 — 8:20am
+    date: 2010-11-04T08:20:00
+    votes: null
+    html: <p>David, isn’t the WOFF private data block a possible replacement for a dsig?</p>
+  - id: 437862
+    user_id: 44873
+    user_name: Richard Fink
+    user_path: null
+    date_raw: 4 Nov 2010 — 10:10am
+    date: 2010-11-04T10:10:00
+    votes: null
+    html: |-
+      <p>Curious, 'cause I don't know: What's the benefit of a DSIG?<br>
+      I know that a lot of fonts have them. I know they add some bloat to the font.<br>
+      If you're looking to cut down on download size, getting rid of the the DSIG, if there is one, is step #1.<br>
+      What is or was its intended purpose?</p>
+  - id: 437890
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 4 Nov 2010 — 12:16pm
+    date: 2010-11-04T12:16:00
+    votes: null
+    html: |-
+      <p>JK&gt;David, isn’t the WOFF private data block a possible replacement for a dsig?</p>
+      <p>That is an excellent point, the WOFF private data block is a possible functional replacement for a dsig. But every founder would then need to write an app to expose it to the user, or write what would amount to a standard dsig in the pdb. A WOFF-specific dsig, however, would open up all sorts of possibilities for expressions of information.</p>
+  - id: 437907
+    user_id: 21217
+    user_name: Khaled Hosny
+    user_path: null
+    date_raw: 4 Nov 2010 — 1:30pm
+    date: 2010-11-04T13:30:00
+    votes: null
+    html: |-
+      <p><cite>Curious, 'cause I don't know: What's the benefit of a DSIG?</cite></p>
+      <p>The only use that I've for DSIG is to force Windows to use OpenType icon for my TTF flavoured OpenType fonts, and I have been told some other dumb MS app checks for DSIG to decide wether the font is OpenType capable or not. Of course I just add a dummy DSIG table 9using FontForge).</p>
+  - id: 437916
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 4 Nov 2010 — 2:35pm
+    date: 2010-11-04T14:35:00
+    votes: null
+    html: |-
+      <p><em>A WOFF-specific dsig, however, would open up all sorts of possibilities for expressions of information.</em></p>
+      <p>David, what do you imagine that a digital signature is or does?</p>
+  - id: 437976
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 5 Nov 2010 — 3:02am
+    date: 2010-11-05T03:02:00
+    votes: null
+    html: <p>Lol, I'll take that as a "No!"  a digital signature Is to WOFF as Mini-Me is to Dr. Evil? What it does is a smaller version of nothing?</p>

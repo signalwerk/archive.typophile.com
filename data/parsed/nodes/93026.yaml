@@ -1,0 +1,260 @@
+node: 93026
+title: Ligatures in "arab" script for the arial.ttf font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426103748"
+  captured_at: 2015-04-26T10:37:48Z
+  url: http://www.typophile.com/node/93026
+  digest: BCGS63NMOLSMFRYHHC5LFMIRZD4H2FCE
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/93026.html
+  fingerprint: f68b1ccee61b9974
+  parser: 4e04979c9499b509
+post:
+  id: 93026
+  user_id: 99297
+  user_name: Belloc
+  user_path: null
+  date_raw: 14 May 2012 — 3:39pm
+  date: 2012-05-14T15:39:00
+  votes: null
+  html: |-
+    <p>It's been more than a year since I introduced myself to this forum, so I must say again that I'm not a font designer, but a programmer that is interested in fonts, more specifically in open type fonts. I've been playing with the  arial.ttf font in the last few days, and by parsing the file I was surprised with some apparent inconsistencies, as I summarized in the attached file.</p>
+    <p>The figure on this file is very simple. They represent just a small number (3) of the  ligatures substitutions extant in the "ccmp" feature, for default language system, for the "arab" script, on the font arial.ttf .</p>
+    <p>The hexadecimal numbers on the right are glyph ID's associated with the Unicode numbers for each glyph on the left. The leftmost glyph is the one that should replace the two on the right.</p>
+    <p>The problem that I see with these ligatures is that, when I type them in MS Word, nothing happens, i.e., no replacement can be seen for the two glyphs, with the one on the left.</p>
+    <p>I also would appreciate to learn how to insert a figure in this box, for I tried hard to no avail.</p>
+    <p>Thanks for your patience.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Belloc_0.png">Belloc.png</a></td><td>17.32 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 509749
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 14 May 2012 — 6:23pm
+    date: 2012-05-14T18:23:00
+    votes: null
+    html: |-
+      <p>Let's start by asking what platform (Mac or PC), what operating system version, what version of Arial, and what version of MS Word, which didn't support ligatures at all until Word 2010.</p>
+      <p>Given Microsoft's typographic history, and the history of Arial itself, nothing you've said surprises me. If you encountered similar situations with an Adobe Pro font using InDesign, I WOULD be surpised.</p>
+      <p>To answer your insertion question,  right under the comment box is a small link labeled 'insert image'. The image you select will appear at the current cursor position in the comment box. I'm annoyed </p>
+      <p> - Herb</p>
+  - id: 509758
+    user_id: 64594
+    user_name: ahyangyi
+    user_path: null
+    date_raw: 14 May 2012 — 8:06pm
+    date: 2012-05-14T20:06:00
+    votes: null
+    html: |-
+      <p>HVB:</p>
+      <p>Oops!! I realized that I didn't notice the "Insert image" link either! Thanks for (being annoyed and) telling about this!</p>
+  - id: 509760
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 14 May 2012 — 8:20pm
+    date: 2012-05-14T20:20:00
+    votes: null
+    html: |-
+      <p>I just tested this in Wordpad under Windows Vista, and these mark ligature substitutions appears to work fine. Belloc, what is your test environment?</p>
+      <p>[HVB, ligature support for Arabic script in Windows apps is entirely independent of the kind of ligature support you refer to in Word 2010, which was the first version of Word to support ligatures for Latin script. Arabic ligatures support is provided directly by the Uniscribe Arabic shaping engine, and has been available to Windows apps for many, many years.]</p>
+  - id: 509778
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 3:10am
+    date: 2012-05-15T03:10:00
+    votes: null
+    html: |-
+      <p>Herb</p>
+      <p>Thanks for your reply. I'm using Word 2010 with a Windows 7 platform. One thing I can tell. I've inserted other Arabic characters at random in Word and I could see the substitutions taking place, but not for the ligatures I mentioned. Thanks also for the tip on the figure insertion.</p>
+  - id: 509779
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 3:24am
+    date: 2012-05-15T03:24:00
+    votes: null
+    html: |-
+      <p>John Hudson</p>
+      <p>Maybe I'm missing something stupid, but I've just tried with Wordpad and nothing happened. Thanks for your reply.</p>
+  - id: 509805
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 4:06am
+    date: 2012-05-15T04:06:00
+    votes: null
+    html: <p>Just for clarification. I had tested Word with the 'latn' script, default language system , feature 'ccmp' and the ligature substitution U02e5 U02e5 U02e6 worked fine, i.e., those characters (space modifying letters) were replaced, as expected, by a glyph that doesn't have a Unicode char point (0x07B6).</p>
+  - id: 509863
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 10:13am
+    date: 2012-05-15T10:13:00
+    votes: null
+    html: |-
+      <p>I've just noticed that the flag (0001) RightToLeft is "on" on the lookup table for the substitution explained in my first post. The MS <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/chapter2.htm" rel="nofollow">documentation</a> regarding this flag says : </p>
+      <p>"This bit relates only to the correct processing of the cursive attachment lookup type (GPOS lookup type 3). When this bit is set, the last glyph in a given sequence to which the cursive attachment lookup is applied, will be positioned on the baseline.<br>
+      Note: Setting of this bit is not intended to be used by operating systems or applications to determine text direction."</p>
+      <p>I don't know if that has anything to do, or not, with the problem described above.</p>
+  - id: 509865
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 May 2012 — 9:55am
+    date: 2012-05-15T09:55:00
+    votes: null
+    html: |-
+      <p>I just tested in Word 2010 under Windows 7, and find no problem with the mark ligation. Belloc, please copy and paste the text below into Word, select and set the font to Arial, and post a screenshot of the result.</p>
+      <blockquote><p>حِّبٍّ</p></blockquote>
+      <p>[The direction flag in the lookup table isn't relevant here. It is set RTL because that enables right-to-left layout of glyphs in the VOLT user interface, which is typical when working on Arabic or Hebrew fonts. It only has an impact on the result of lookups for cursive attachment positioning.]</p>
+  - id: 509869
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 10:48am
+    date: 2012-05-15T10:48:00
+    votes: null
+    html: |-
+      <p>That's what I've got</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Belloc2_5915.png"></div><p></p>
+      <p>I'm totally illiterate on Arabic characters. Could you then explain how is this related to my question ?</p>
+  - id: 509883
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 May 2012 — 11:41am
+    date: 2012-05-15T11:41:00
+    votes: null
+    html: |-
+      <p>This demonstrates the correct formation of the ligatures for the combination of shadda (the above, w-like sign) and the below vowels that, when in sequence with shadda form ligatures above the letter. They are the best illustration of ligature formation, because when not ligated with shadda the vowels sit underneath the letters, so the difference between ligation and non-ligation is really obvious. The second, left-most example illustrates the middle of the three mark ligations in your original illustration: U+0651 U+064D (the marks can be entered in either order).</p>
+      <p>I believe the reason you were not seeing the ligatures forming in your own test is that you had failed to enter a letter before the marks. What you are seeing as a result is a sequence with dotted circle inserted, which the Uniscribe shaping engine is applying because it detects what it considers a script-level error, i.e. an Arabic mark without a preceding letter.</p>
+  - id: 509887
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 12:23pm
+    date: 2012-05-15T12:23:00
+    votes: null
+    html: |-
+      <p>John Hudson</p>
+      <p>First of all, I'd like to thank you very much for your insight. It's been a great help for me, since I'm just a beginner in this matter.</p>
+      <p>If I understood you correctly, the marks U0651 U064C didn't work as they should because another letter was missing before them. I went back to Word and insert the 3 characters in this order (logical) :<br>
+      U064C U0651 U062D, and again no ligature was processed as shown below :</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Belloc3_5118.png"></div><p></p>
+      <p>However I must point out that all Ligature Substitutions in the arial.ttf font file, for the 'ccmp' feature in the 'arab' script replace 2 mark glyphs, by another glyph (which also seems to be a mark glyph, as shown on the attached file).</p>
+  - id: 509888
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 12:38pm
+    date: 2012-05-15T12:38:00
+    votes: null
+    html: |-
+      <p>Just to give you a better idea of what's happening, I inserted the character U062D twice in sequence, and you can see that a substitution was done automatically by Word :</p>
+      <p> </p><div class="imageWrap"><img src="http://typophile.com/files/Belloc4_5886.png"></div><p></p>
+      <p>It seems to me that Word is just not applying the mark glyphs substitutions.</p>
+  - id: 509892
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 May 2012 — 1:21pm
+    date: 2012-05-15T13:21:00
+    votes: null
+    html: |-
+      <p><em>U064C U0651 U062D</em></p>
+      <p>That's not logical order. U+062D is the letter; it must be encoded before the marks -- U062D U064C U0651 -- even though it is displayed to the right.</p>
+  - id: 509895
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 2:01pm
+    date: 2012-05-15T14:01:00
+    votes: null
+    html: |-
+      <p>Much better now with the logical order U062D U064C and U0651.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Belloc5_4935.png"></div><p></p>
+  - id: 509898
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 May 2012 — 2:08pm
+    date: 2012-05-15T14:08:00
+    votes: null
+    html: <p>Hurrah!</p>
+  - id: 509938
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 15 May 2012 — 5:57pm
+    date: 2012-05-15T17:57:00
+    votes: null
+    html: |-
+      <p>After reading about the <cite>Lookup Flag bit enumeration</cite> at this MS <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/chapter2.htm" rel="nofollow">document</a> the flag <strong>0008 Ignore Marks - If set skips all combining marks</strong> called my attention.</p>
+      <p>How do I know, or better yet, how does the computer know, whether a glyph is a combining mark ?</p>
+  - id: 509952
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 May 2012 — 8:08pm
+    date: 2012-05-15T20:08:00
+    votes: null
+    html: <p>Glyphs are categorised in the font GDEF table. Glyphs need to be classified as marks in order to be positioned with GPOS anchor attachments, and can then be processed or skipped in other lookups. So, for example, marks may be skipped in letter ligation lookups. [It is possible to skip all marks, or to skip a particular collection of marks, although for compatibility with current software this requires the collections to be mutually exclusive.] Ligatures are also classified as such in the GDEF table, and are assigned a number of 'components' equal to the number of underlying characters. GPOS mark attachment can then be assigned per component so one can associate combining marks with letters within a ligature and position them correctly. [This runs into problems if a single ligature may represent variable numbers of underlying characters, but that doesn't occur in real world situations very often.]</p>
+  - id: 509982
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 16 May 2012 — 6:03am
+    date: 2012-05-16T06:03:00
+    votes: null
+    html: |-
+      <p>John Hudson</p>
+      <p>This was great. A lot of information in just one paragraph. I'm really thankful for your help.</p>
+      <p>But I'm still pondering about my original question. There's no doubt in my mind (you just proved it) that my Word is working correctly. Why then, the substitutions shown on the figure attached are not taking place, specially after we consider the fact that these substitutions are prescribed by the <strong>very first lookup</strong> in the font Lookup List Table ?</p>
+      <p>I have one hypothesis and I ask for your judgement on this :</p>
+      <p>1) As I said before, all the substitutions we're talking about come from the 'ccmp' feature which refers to a lookup table, which is the first one, to be applied, on the font.</p>
+      <p>2) The OpenType client, in this case MS Word, has the option of not using a specific feature, as stated <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/chapter2.htm" rel="nofollow">here</a> under <strong>Features and Lookups</strong> : <cite>Features define the functionality of an OpenType Layout font and they are named to convey meaning to the text-processing client. Consider a feature named “liga” to create ligatures. Because of its name, the client knows what the feature does and can decide whether to apply it.</cite></p>
+      <p>3) So my hypothesis is that MS Word is not applying the feature 'ccmp' for the 'arab' script with its default language, for some unknown reason. Maybe they had to change the order of the lookups in a new version of the font, and had to abandon this feature. But they had to keep it in the font file, in order to maintain its validation for old users, which I believe is the unique purpose of the 'sfnt' file format.</p>
+      <p>4) To test this hypothesis I'll have to study all the other features in the font and see how they behave. The problem is that I'm doing this "by hand", which means, I'm parsing the file manually, by looking at its contents with a binary editor. And this is very time consuming and boring, as you can imagine. </p>
+      <p>5)Do you know of any software that could show me these OpenType font tables in a straightforward manner ?</p>
+      <p>Again, I thank you in advance, for your priceless help.</p>
+  - id: 510028
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 16 May 2012 — 11:26am
+    date: 2012-05-16T11:26:00
+    votes: null
+    html: |-
+      <p>What is happening in your original test is that the Uniscribe shaping engine is intervening in a way that breaks the glyph input string for the ccmp lookups because it considers the text string to be invalid because the marks are not preceded by a letter.</p>
+      <p>The dotted circle that you see is not part of the mark glyph in the font, it is dynamically inserted by Uniscribe as a generic base for combining marks that do not have a valid base before them. In this case Uniscribe is treating each mark in a sequence not preceded by a letter as invalid, not just the first mark in the sequence. So what you end up with in the glyph string (logical order) is</p>
+      <p><code>| dotted circle | mark 1 | dotted circle | mark 2 |</code></p>
+      <p>So the ccmp ligation of the two marks is not occurring because there is a dotted circle glyph between them in the glyph string.</p>
+      <p>In effect, Uniscribe is performing a kind of spellchecking, and inserting the dotted circle to provide visual indication that it thinks there is something wrong with the text. Don't get me started on how stupid it is to perform spellchecking operations at a script shaping level, but that's what Microsoft do.</p>
+      <p><em>5)Do you know of any software that could show me these OpenType font tables in a straightforward manner ?</em></p>
+      <p>DTL OTMaster would be my tool of choice. I'm not sure whether the free, 'Light' version has this capability though.</p>
+  - id: 510043
+    user_id: 99297
+    user_name: Belloc
+    user_path: null
+    date_raw: 16 May 2012 — 12:23pm
+    date: 2012-05-16T12:23:00
+    votes: null
+    html: |-
+      <p>John Hudson</p>
+      <p>It seems like you've got a brilliant explanation, to say the least. I'm convinced now.</p>
+      <p>I really appreciated  your patience and courtesy. Many thanks.</p>

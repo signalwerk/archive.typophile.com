@@ -1,0 +1,85 @@
+node: 33933
+title: OT error in Photoshop CS2, MAC and PC
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150418210234"
+  captured_at: 2015-04-18T21:02:34Z
+  url: http://www.typophile.com/node/33933
+  digest: NHJIX6NGPUY5EF6TGQRWCPD2NBIDIOXB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/33933.html
+  fingerprint: 11adda13802ef1c7
+  parser: 4e04979c9499b509
+post:
+  id: 33933
+  user_id: 2079
+  user_name: haag
+  user_path: null
+  date_raw: 21 May 2007 — 6:01am
+  date: 2007-05-21T06:01:00
+  votes: null
+  html: |-
+    <p>Hi there!!</p>
+    <p>I'd like some help on an opentype error that a customer found in my fonts After.</p>
+    <p>The fonts have special ligatures and alternate caps. The problem is happening in the CALT (Capital Alternatives) feature, only in Photoshop CS2 for Mac.</p>
+    <p>The standard version of the characters can't be accessed. By default, the feature is turned ON, and is gray shaded (disabled for access/change).</p>
+    <p>When testing this on Photoshop CS2 in PC, a nasty surprise: the fonts don't even appear. They became invisible. The fonts that don't have OT substitution features (Text version) of my family appear normally. So it could be something OT related.</p>
+    <p>The sintax of this feature is this:</p>
+    <p>feature calt { #Alternate Caps<br>
+      sub A by capaalt;<br>
+      sub Agrave by capaaltgrave;<br>
+      sub Aacute by capaaltacute;<br>
+      sub Acircumflex by capaaltcircumflex;<br>
+      sub Atilde by capaalttilde;<br>
+      sub Adieresis by capaaltdieresis;<br>
+      sub Aring by capaaltring;<br>
+      sub R by capralt;<br>
+      sub T by captalt;<br>
+    } calt;</p>
+    <p>I simply have no idea of why is it happening. Is this a Photoshop issue that I can't resolve? Or is there a way to fix it?</p>
+comments:
+  - id: 203849
+    user_id: 1344
+    user_name: filip blazek
+    user_path: null
+    date_raw: 21 May 2007 — 10:12am
+    date: 2007-05-21T10:12:00
+    votes: null
+    html: |-
+      <p>I think Photoshop behaves correctly. Feature 'calt' is intended for CONTEXTUAL substitutions. You don't specify the context, therefore the substitutions are applied immediately. The alternative forms of capital letters should be placed in different feature, probably 'titl'. Special ligatures in 'liga' or 'dlig' depending on your preferences.</p>
+      <p>Btw. you use VERY nonstandard glyph names. You should definitely use the dot convention specified here <a href="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3065" title="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3065">http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mvie...</a>. Instead of <strong>capalt</strong> you should rather use <strong>t.calt</strong>, resp. <strong>t.titl</strong>.</p>
+  - id: 203855
+    user_id: 1844
+    user_name: Miguel Sousa
+    user_path: null
+    date_raw: 21 May 2007 — 10:28am
+    date: 2007-05-21T10:28:00
+    votes: null
+    html: |-
+      <p>Fabio,</p>
+      <p>1. The feature 'calt' does NOT stand for "Capital Alternatives", it stands for "Contextual Alternates".</p>
+      <p>2. I believe 'titl' (Titling) is the feature you're looking for.</p>
+      <p>3. The glyph names of your alternates are quite odd; you should use 'A.capalt' instead of 'capaalt', 'Agrave.capalt' instead of 'capaaltgrave', and so on.</p>
+      <p>4. There are known issues regarding the 'calt' feature and Photoshop CS2, but I never heard of fonts not showing up because of that. Your use of the 'calt' feature is definitely incorrect*, and that might be the reason why Photoshop doesn't recognize your fonts.</p>
+      <p>I gather your fonts will start working as expected as soon as you make the changes suggested above.</p>
+      <p>* The substitutions have no context, like <code>sub A' V by A.capalt;</code></p>
+      <p>(Filip, sorry for the overlap; your post wasn't there when I started writing.)</p>
+  - id: 203861
+    user_id: 2079
+    user_name: haag
+    user_path: null
+    date_raw: 21 May 2007 — 10:35am
+    date: 2007-05-21T10:35:00
+    votes: null
+    html: |-
+      <p>Dear Filip and Miguel,</p>
+      <p>Thanks for your help... yes, I've made a mess with the gliph and feature names.<br>
+      I'll correct it all and see what happens ;)</p>
+      <p>Fabio</p>

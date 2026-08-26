@@ -1,0 +1,146 @@
+node: 90623
+title: Class based kerning 101
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427071609"
+  captured_at: 2015-04-27T07:16:09Z
+  url: http://www.typophile.com/node/90623
+  digest: 7MVCNFCVFLIFAYEH5GXE57HF3564OGLO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/90623.html
+  fingerprint: 3366362d6816d824
+  parser: 4e04979c9499b509
+post:
+  id: 90623
+  user_id: 951
+  user_name: spiral
+  user_path: null
+  date_raw: 2 Mar 2012 — 1:11am
+  date: 2012-03-02T01:11:00
+  votes: null
+  html: |-
+    <p>I'm a complete newbie at opentype features. Trying to learn as much as I can, but there doesn't seem to be that much information on the web for beginners. </p>
+    <p>I'm looking for an explanation of the logic and basic syntax of class-based kerning. Something in the style of this wonderful <a class="freelinking external" href="http://ilovetypography.com/OpenType/opentype-features.html" rel="nofollow">article about substitution features</a>, but for kerning. I would also love any resources on specifically doing this with fontforge, but I can figure out this easier if I understand what's going on in the background (tables? subtables? what?)</p>
+    <p>Any pointers will be very much appreciated</p>
+comments:
+  - id: 497582
+    user_id: 1844
+    user_name: Miguel Sousa
+    user_path: null
+    date_raw: 4 Mar 2012 — 12:36am
+    date: 2012-03-04T00:36:00
+    votes: null
+    html: <p><a href="/wiki/Kerning" class="freelinking" rel="nofollow">Kerning</a></p>
+  - id: 497594
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 4 Mar 2012 — 5:20am
+    date: 2012-03-04T05:20:00
+    votes: null
+    html: |-
+      <p>Make a new font.<br>
+      Go to Element/Font info<br>
+      Choose Lookups/GPOS<br>
+      and Add Lookup<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/111_4879.jpg"></div><br>
+      Choose Pair position (kerning)<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/222_5032.jpg"></div><br>
+      In window Kerning format choose Use a matrix of kerning classes<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/333_3417.jpg"></div><br>
+      In fields First character I put D and O, and in Second character C G O Q. FontForge set the kerning to -110, I changed it to 10.<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/444_4720.jpg"></div><br>
+      In Kerning Metrics window I wrote OQ<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/555_5269.jpg"></div><br>
+      You can change the kern value moving the green line between chosen letters<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/666_3440.jpg"></div><br>
+      In window Kerning by classes you can see the result<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/777_6261.jpg"></div><br>
+      In window Font information/Lookups/GPOS you can right-click the lookup and choose Save Feature File (or only choosen lookup)<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/888_6113.jpg"></div><br>
+      Saved<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/999_6371.jpg"></div><br>
+      The important part of this file looks like this:<p></p>
+      <pre>lookup kernHorizontalKerninginLatinloo {
+        lookupflag 0;
+          @kc0_first_1 = [\D \O ];
+          @kc0_second_1 = [\C \G \O \Q ];
+          pos @kc0_first_1 @kc0_second_1 22;
+      } kernHorizontalKerninginLatinloo;
+
+      feature kern {
+
+        script DFLT;
+           language dflt ;
+            lookup kernHorizontalKerninginLatinloo;
+
+        script latn;
+           language dflt ;
+            lookup kernHorizontalKerninginLatinloo;
+      } kern;</pre><p>
+      As you can see there is one class -left=first- with /D/O and one class -right=second- with /C/G/O/Q and the kern value between them is set to 22.</p>
+  - id: 497598
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 4 Mar 2012 — 5:30am
+    date: 2012-03-04T05:30:00
+    votes: null
+    html: <p>Wow, Janek, is that FontForge!? (Scratching head -- perhaps I should check it again. The interface looks more than a bit improved over the butt-ugly version I tried a couple of years ago.)</p>
+  - id: 497603
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 4 Mar 2012 — 6:08am
+    date: 2012-03-04T06:08:00
+    votes: null
+    html: |-
+      <p>It is :) Most powerful tho little buggy<br>
+      don't know how it looks under mac, here for win: <a href="http://typophile.com/node/84219" title="http://typophile.com/node/84219">http://typophile.com/node/84219</a></p>
+  - id: 497604
+    user_id: 83217
+    user_name: Té Rowan
+    user_path: null
+    date_raw: 4 Mar 2012 — 6:10am
+    date: 2012-03-04T06:10:00
+    votes: null
+    html: <p>Could be the FontForge for Windows they were talking about a while back with how XP-like the chrome is.</p>
+  - id: 497804
+    user_id: 951
+    user_name: spiral
+    user_path: null
+    date_raw: 5 Mar 2012 — 1:04pm
+    date: 2012-03-05T13:04:00
+    votes: null
+    html: <p>thank you thank you thank you thank you!</p>
+  - id: 499098
+    user_id: 951
+    user_name: spiral
+    user_path: null
+    date_raw: 11 Mar 2012 — 12:25pm
+    date: 2012-03-11T12:25:00
+    votes: null
+    html: "<p>Some maybe basic questions: Do I create a new subtable for each class combination? or can I just add to the same one?</p>"
+  - id: 499149
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 12 Mar 2012 — 3:10am
+    date: 2012-03-12T03:10:00
+    votes: null
+    html: <p>One lookup for all classes you want to kern. You can create the second lookup for Greek script and the third for Cyryllic script. See Brill font by John Hudson as the recent and elaborated example.</p>
+  - id: 499174
+    user_id: 65982
+    user_name: raphaelb
+    user_path: null
+    date_raw: 12 Mar 2012 — 6:55am
+    date: 2012-03-12T06:55:00
+    votes: null
+    html: <p><a href="http://www.youtube.com/watch?v=SGWNPluj54E&amp;feature=youtu.be" rel="nofollow">Here</a> is a video memo I made for myself, maybe it can be useful!</p>

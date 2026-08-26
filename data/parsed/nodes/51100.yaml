@@ -1,0 +1,333 @@
+node: 51100
+title: Accents in Font Names
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427045750"
+  captured_at: 2015-04-27T04:57:50Z
+  url: http://www.typophile.com/node/51100
+  digest: JG5SZPCVH73FBFJJPOW5ZEF43UYNKC2P
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/51100.html
+  fingerprint: 8bb51aa366c8374e
+  parser: 4e04979c9499b509
+post:
+  id: 51100
+  user_id: 1043
+  user_name: Mark Simonson
+  user_path: null
+  date_raw: 30 Oct 2008 — 6:49am
+  date: 2008-10-30T06:49:00
+  votes: null
+  html: |-
+    <p>I thought this might have come up here before, but I can't find any discussions about it...</p>
+    <p>Is it possible to include an accented character in a font name? FontLab allows it in some name fields, but not others. This leads me to wonder if such a discrepancy (some name fields with the accented character, some without) would lead to technical problems for users. </p>
+    <p>I've found at least one font with an accent in the name: ITC Odyssée. It appears that the accent is used only in the "trade name" as it appears in specimen books and such, not in the actual font name. I'm not sure if anything usefull can be deduced from this.</p>
+comments:
+  - id: 309101
+    user_id: 10971
+    user_name: J Weltin
+    user_path: null
+    date_raw: 30 Oct 2008 — 7:51am
+    date: 2008-10-30T07:51:00
+    votes: null
+    html: <p>I believe at least Microsoft doesn’t support accented characters. Whenever i put my surname Jürgen into the entry field the u-dieresis doesn’t show up in the Microsoft related entries. And i remember once having crashed the OS when i loaded a generated font with an accented character. But that was years ago in Fontographer era. Haven’t tried it again since then ;-)</p>
+  - id: 309111
+    user_id: 19831
+    user_name: Christoph
+    user_path: null
+    date_raw: 30 Oct 2008 — 8:27am
+    date: 2008-10-30T08:27:00
+    votes: null
+    html: |-
+      <p>Mark,</p>
+      <p>every OT name record contains information about platform and encoding.<br>
+      E.g. 16,3,1,1033 stands for</p>
+      <p>16 = name ID Preferred Family<br>
+      3 = platform ID Microsoft<br>
+      1 = encoding ID Unicode<br>
+      1033 = language ID English</p>
+      <p>So theoretically it is possible to add separate name records for each possible combination of platform, encoding and language. But if it works like you suppose ... You'll have to test!</p>
+      <p>Best,</p>
+      <p>Christoph</p>
+  - id: 309114
+    user_id: 1133
+    user_name: twardoch
+    user_path: null
+    date_raw: 30 Oct 2008 — 8:32am
+    date: 2008-10-30T08:32:00
+    votes: null
+    html: |-
+      <p>Adobe tried using them in Künstler Script but they reverted to Kuenstler Script due to compatibility problems with older apps. </p>
+      <p>I strongly recommend for family and style names (both regular and OpenType variants) as well as in the full name to stick to uppercase and lowercase plain English letters, spaces, and possibly numbers — but nothing else. No dashes, underscores, slashes, ampersands or accented letters. </p>
+      <p>In PS Font Name, only plain English letters, no spaces or even numbers, and exactly one dash between the family name part and the style name part. </p>
+      <p>Adam</p>
+  - id: 309120
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 30 Oct 2008 — 8:42am
+    date: 2008-10-30T08:42:00
+    votes: null
+    html: |-
+      <p>ASCII-7 still lives at the deepest levels.</p>
+      <p>hhp</p>
+  - id: 309122
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 30 Oct 2008 — 8:54am
+    date: 2008-10-30T08:54:00
+    votes: null
+    html: <p>I was afraid that was the case, since I don't recall noticing any fonts with accented characters in my font menus. Too bad.</p>
+  - id: 309141
+    user_id: 1049
+    user_name: Si_Daniels
+    user_path: null
+    date_raw: 30 Oct 2008 — 10:40am
+    date: 2008-10-30T10:40:00
+    votes: null
+    html: <p>We include localized font names in some of our East Asian fonts (eg Meiryo メイリオ ) however these do tend to cause problems in legacy apps.</p>
+  - id: 309161
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 30 Oct 2008 — 12:07pm
+    date: 2008-10-30T12:07:00
+    votes: null
+    html: <p>What I have in mind wouldn't be a localization. An example would be if I want to use a French word/name as a font name or part of a font name and preserve the French spelling (with proper accents) regardless of the host system's language.</p>
+  - id: 309175
+    user_id: 15425
+    user_name: rcc
+    user_path: null
+    date_raw: 30 Oct 2008 — 1:00pm
+    date: 2008-10-30T13:00:00
+    votes: null
+    html: |-
+      <p>Given Adam's remarks above, I hesitate to even advance this suggestion: in the AFDKO MakeOTFUserGuide.pdf see the "Note on accented/extended characters" (pages 8-9).</p>
+      <p>Like far too many things with OpenType at present (despite how many years since initial rollout?), the caveat seems to stand: Access to features/functions is dependent on a given user's operating system and application support.</p>
+      <p>In short, Mark, seems like it's a crapshoot at best. Good luck.</p>
+  - id: 309194
+    user_id: 1043
+    user_name: Mark Simonson
+    user_path: null
+    date_raw: 30 Oct 2008 — 2:14pm
+    date: 2008-10-30T14:14:00
+    votes: null
+    html: <p>So, possible, but maybe not a good idea. Thanks, everyone.</p>
+  - id: 309262
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 31 Oct 2008 — 2:54am
+    date: 2008-10-31T02:54:00
+    votes: null
+    html: |-
+      <p>Adam wrote: <em>In PS Font Name, only plain English letters, no spaces or even numbers, and exactly one dash between the family name part and the style name part.</em></p>
+      <p>Where would you see problems when using numbers (or a period) in the PS Font Name of OT fonts? I did some tests on this recently and didn't notice any.</p>
+      <p>Jens</p>
+  - id: 309278
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 31 Oct 2008 — 5:12am
+    date: 2008-10-31T05:12:00
+    votes: null
+    html: |-
+      <p>"...and possibly numbers."</p>
+      <p>I've found that numerals don't work, and must be spelled.</p>
+      <p>Cheers!</p>
+  - id: 309410
+    user_id: 18185
+    user_name: solfeggio
+    user_path: null
+    date_raw: 31 Oct 2008 — 2:44pm
+    date: 2008-10-31T14:44:00
+    votes: null
+    html: |-
+      <p><em>"... numerals don't work, and must be spelled."</em></p>
+      <p>Hold the phone, David. Mightn't that be a bug in FontLab?</p>
+      <p>Howzat? See this: "Numbers in Font Names" (<a href="http://www.typophile.com/node/44515" title="http://www.typophile.com/node/44515">http://www.typophile.com/node/44515</a>) wherein R. Roberts essentially says numbers are legit.</p>
+      <p>Which (or who) is right? Beats me ... as usual.</p>
+      <p>Thread Drift Dep't.: &nbsp;Oh, and while we're at it, how about an apostrophe in a font name? Is <em>that</em> a legal character? FontLab balks and pukes out an error alert. But how else to generate a proper handwriting font called, say, "Satan's Scrawl"? (It is Halloween after all.)</p>
+  - id: 309461
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 1 Nov 2008 — 4:41am
+    date: 2008-11-01T04:41:00
+    votes: null
+    html: |-
+      <p>"Mightn’t that be a bug in FontLab?"</p>
+      <p>Fontlab makes them fine, but they don't appear up in all application menus, is what I could have said.</p>
+      <p>Cheers!</p>
+  - id: 309466
+    user_id: 16986
+    user_name: RachelR
+    user_path: null
+    date_raw: 1 Nov 2008 — 6:34am
+    date: 2008-11-01T06:34:00
+    votes: null
+    html: <p>dberlow - which applications ?</p>
+  - id: 309609
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 2 Nov 2008 — 5:30am
+    date: 2008-11-02T05:30:00
+    votes: null
+    html: |-
+      <p>The last time I tried this, a year and half ago, was for a series where there was a font for each size from 8 to 16 point, and those numbers did not work with either InDesign or Text edit menus, I cannot remember which, and had to be changed to words. Before that around 2 years ago, I tried with Juliana, and ended up with words like "Opal" and "Pearl", instead of 8 or 9.</p>
+      <p>Cheers!</p>
+  - id: 309640
+    user_id: 14722
+    user_name: blank
+    user_path: null
+    date_raw: 2 Nov 2008 — 10:23am
+    date: 2008-11-02T10:23:00
+    votes: null
+    html: <p>Exlibris and Linotype are both shipping fonts that work fine with numbers in the names. Maybe Jos or a Linotyper can shed some light…</p>
+  - id: 309648
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 2 Nov 2008 — 11:12am
+    date: 2008-11-02T11:12:00
+    votes: null
+    html: |-
+      <p>My Mana pixelfonts have numbers in the names, and I haven't had any complaints from users. I have tested them in InDesign (on Windows) but haven't tried them in Text.</p>
+      <p>David, and I was thinking that your spelling-out of numbers was an aspiration towards classiness.  :-)</p>
+      <p>hhp</p>
+  - id: 309651
+    user_id: 1316
+    user_name: piccic
+    user_path: null
+    date_raw: 2 Nov 2008 — 11:44am
+    date: 2008-11-02T11:44:00
+    votes: null
+    html: |-
+      <p>I guess this puts out of question my ideas for the possible naming strategy of an Italian typeface (with planned point size masters using numerals) that has an accented letter in its name. In fact I was almost sure it was a risk, since a trial I did of the face showed fine in some applications (InDesign), with the unaccented letter substituted in others, and with a "blank square" in some word processor.</p>
+      <p>Anyone knows how John Downer named the variants of his Paperback typeface (released by House Industries)?</p>
+      <p><cite>ASCII-7 still lives at the deepest levels.</cite><br>
+      At least this sounds like good science fiction… :)</p>
+  - id: 310980
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 8 Nov 2008 — 8:39pm
+    date: 2008-11-08T20:39:00
+    votes: null
+    html: |-
+      <p>The problem we (Adobe) found with accents in menu names was in very early 2003. From my records, it affected two classes of apps:</p>
+      <p>- The then-current version of Microsoft Word for Mac (2001?). Because of differences in the menu name handling between Mac and Windows, Word files using these fonts failed to be cross-platform, ever.</p>
+      <p>- Adobe's *Japanese* applications using our core font library. AFAICT, this was fixed in the CS2 generation of our Japanese applications, shipped in late 2004. The "problem" fonts did not appear in the font menu of these applications.</p>
+      <p>Special thanks to Google Desktop for digging up this info.  :)</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 311005
+    user_id: 1316
+    user_name: piccic
+    user_path: null
+    date_raw: 9 Nov 2008 — 3:53am
+    date: 2008-11-09T03:53:00
+    votes: null
+    html: |-
+      <p>So now (theoretically) the issue should not be a problem, Thomas?</p>
+      <p>BTW many thanks for the glyph coverage articles on your page…</p>
+  - id: 311132
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 9 Nov 2008 — 8:32pm
+    date: 2008-11-09T20:32:00
+    votes: null
+    html: |-
+      <p>I don't know if the MS Word for Mac problems were resolved, or when. I think one would want to test that....</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 517815
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 2 Aug 2012 — 5:33am
+    date: 2012-08-02T05:33:00
+    votes: null
+    html: <p>FYI, Word for Mac 2011 shows the correct name and font in the font menu, but reverts to the default sans serif on the page.</p>
+  - id: 519421
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 18 Aug 2012 — 5:23pm
+    date: 2012-08-18T17:23:00
+    votes: null
+    html: |-
+      <p>Ouch! Okay, so accents in menu names are still a problem.</p>
+      <p>They might be a problem in some other apps as well—that is just the one we know about.</p>
+      <p>T</p>
+  - id: 519447
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 19 Aug 2012 — 9:56am
+    date: 2012-08-19T09:56:00
+    votes: null
+    html: |-
+      <p>I think that there's a NON-technical usability reason for avoiding accents in font names and file names.<br>
+      Many people (particularly in the US ) have no idea how to enter an accented character (even if they know what they are), and if they're trying to search for anything with such characters, they're dependent upon whatever search tool they're using.  Google's Search does a good job of equating e and é and è, but many tools only look for exactly what's entered; they won't find Egalité if the user looks for Egalite</p>
+  - id: 519494
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 20 Aug 2012 — 4:20am
+    date: 2012-08-20T04:20:00
+    votes: null
+    html: <p>Is this how url usability should work too?</p>
+  - id: 519512
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 20 Aug 2012 — 9:57am
+    date: 2012-08-20T09:57:00
+    votes: null
+    html: <p>[should this apply to URL usability?].  Probably much less so. I imagine that most web access is either through links or bookmarks, rather than via manual URL entry. And those that DO enter web addresses are more likely to know what they're doing.  One might not know exactly what to search for, but if copying, the original can be seen.</p>
+  - id: 519518
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 20 Aug 2012 — 10:38am
+    date: 2012-08-20T10:38:00
+    votes: null
+    html: |-
+      <p>H, most design software provide a list of fonts to choose from, so you don't <em>have</em> to type the name.<br>
+      Even if so, it would be a nice feature if the software ignored accents when typing a font name.</p>
+      <p>Catering for older software ... I don't know. Of course people are going to hate you when they "just can<em>not</em> use" your font, but then again there was a time when leadsetters said the same about digital fonts.</p>
+      <p>My own font creation flimsy doesn't mind about accents, I leave it up to the user :-) (Then again, for compatibility sake it <em>does</em> issue a warning when the accent is out of ISO-Latin-1 range as, per OTF specs, a font name must be recognizable in both Windows -- Unicode! -- and Boring Old Mac Roman text strings...)</p>
+      <p>(Edit) I see that Adam Twardoch addresses the Win/Mac Name Discrepancy issue in <a href="http://typophile.com/node/95677" rel="nofollow">Recommendations for [..] Word</a>. Fortunately, my own tool is targeted mainly at InDesign users. Who needs Word anyway ;-)</p>
+  - id: 520124
+    user_id: 2969
+    user_name: dberlow
+    user_path: null
+    date_raw: 27 Aug 2012 — 4:22am
+    date: 2012-08-27T04:22:00
+    votes: null
+    html: |-
+      <p>"Is this how url usability shou</p>
+      <p>Lol.<br>
+      I'll try again, because I don't think the issue of accents in font names is neither an American, nor a typing issue.:)</p>
+      <p>Font names may have to carry the family, weight, width, posture, kind-o-terminal, size mastered, glyph repertoire, and foundry before anything specific to a device, client or rendering.</p>
+      <p>MSAlmostAdriansUltraCompressedItalicCrenulatedHeadlinePro.ttf, eg, even if I don't show it to you. </p>
+      <p>You don't think that font names need Unicode enablement? Even if less information's needed to be carried in the names through mutually agreed on UI standards, a seriously farfetched notion in 2012, the font family names alone should not be so limited, should they?</p>
+  - id: 521416
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 6 Sep 2012 — 2:04pm
+    date: 2012-09-06T14:04:00
+    votes: null
+    html: <p>I agree that font names need Unicode enablement, and that apps and OSes ought to support it. I am sad that not all apps do.  :/</p>

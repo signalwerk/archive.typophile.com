@@ -1,0 +1,58 @@
+node: 107819
+title: Why can't I have my OpenType fonts work in Microsoft Office Word and some other softwares?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426090539"
+  captured_at: 2015-04-26T09:05:39Z
+  url: http://typophile.com/node/107819
+  digest: BFL3JTOLFT45SNDORJ72V2XP4JYFSM2I
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/107819.html
+  fingerprint: e3e27e7ff844370e
+  parser: 4e04979c9499b509
+post:
+  id: 107819
+  user_id: 216456
+  user_name: aki3k
+  user_path: null
+  date_raw: 24 Dec 2013 — 10:33am
+  date: 2013-12-24T10:33:00
+  votes: null
+  html: <p>I've been using Fontlab Studio 5.2 for compiling OpenType features. But my generated fonts only work in Notepad and some Adobe softwares such as Photoshop, InDesign, Illustrator,... I can't have it work in Microsoft Office or Manga Studio. For example, I can't have the Katakana prolonged sound mark turn vertical in a vertical text line. Only original fonts such as Arial, Times New Roman, MS Mincho, MS Gothic,... and other commercial fonts can work well. Do you have any idea what's the thing I have to deal with? Thanks in advance.</p>
+comments:
+  - id: 568276
+    user_id: 32723
+    user_name: Igor Freiberger
+    user_path: null
+    date_raw: 27 Dec 2013 — 7:26pm
+    date: 2013-12-27T19:26:00
+    votes: null
+    html: |-
+      <p>Your question may get an answer if you include the OpenType code you are using. Please also note that most people are unfamiliar with Katakana, so further information about the issues you faced would also help.</p>
+      <p>A general remark: many applications still do not support OpenType, while others include just partial support. Full access to OT resources seem limited to InDesign, Illustrator and Quark, ALAIK. Anyway, if this feature works in other fonts, this shouldn't be the problem.</p>
+      <p>Another point is that FL Studio 5.2 is still a beta, so it is expected not to work perfectly. Have you tried to generate the font with FLS 5.0.x?</p>
+  - id: 568975
+    user_id: 14650
+    user_name: Stephen Rapp
+    user_path: null
+    date_raw: 9 Jan 2014 — 5:45pm
+    date: 2014-01-09T17:45:00
+    votes: null
+    html: <p>There are some features of OpenType that MS Word can handle, but you have to jump through hoops to make it happen. I think with Word you even have to tell it if you want kerning to come in.</p>
+  - id: 569013
+    user_id: 14653
+    user_name: lunde
+    user_path: null
+    date_raw: 10 Jan 2014 — 6:27am
+    date: 2014-01-10T06:27:00
+    votes: null
+    html: |-
+      <p>I have been down this path, with regard to vertical writing in MS Word.</p>
+      <p>For reasons unknown, at least to me, MS Word requires that an OpenType/CFF font include the 'vrt2' GSUB feature. MS Word is simply checking for its presence. If the font does not include this GSUB feature, I suggest that you clone the 'vert' GSUB feature to create the 'vrt2' GSUB feature.</p>

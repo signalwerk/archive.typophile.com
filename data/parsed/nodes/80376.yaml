@@ -1,0 +1,117 @@
+node: 80376
+title: Help! FontLab changes kern classes when generating a font.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150425043217"
+  captured_at: 2015-04-25T04:32:17Z
+  url: http://typophile.com/node/80376
+  digest: XFPAQIE2ZVBQ2HNWMACMQBGIBT2ZAADX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/80376.html
+  fingerprint: 4ff75a80868ad92e
+  parser: 4e04979c9499b509
+post:
+  id: 80376
+  user_id: 910
+  user_name: delve
+  user_path: null
+  date_raw: 22 Mar 2011 — 1:58pm
+  date: 2011-03-22T13:58:00
+  votes: null
+  html: <p>Has anyone experienced FontLab generating a font where the kern classes differ from the source VFB? I'm completely stumped as to why this is happening or how to get around it. I suppose I could use TTX or FontForge to replace the kern classes but I can't help wondering if this is a known bug, maybe FL needs a reinstall or perhaps I've overlooked something. Any insight would be appreciated.</p>
+comments:
+  - id: 456778
+    user_id: 8664
+    user_name: k.l.
+    user_path: null
+    date_raw: 22 Mar 2011 — 5:00pm
+    date: 2011-03-22T17:00:00
+    votes: null
+    html: <p>Do you have some more details? (You should not expect that generating a font and then importing it will produce you exactly the same VFB with which you started. Some things will change because of different data structures, especially when it comes to AFDKO-syntax features and FLS5-syntax classes.)</p>
+  - id: 456886
+    user_id: 910
+    user_name: delve
+    user_path: null
+    date_raw: 23 Mar 2011 — 12:40pm
+    date: 2011-03-23T12:40:00
+    votes: null
+    html: |-
+      <p>Here are a couple of screen grabs that illustrate the problem.</p>
+      <p>The source VFB:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Original_VFB_5995.png"></div><p></p>
+      <p>and</p>
+      <p>The generated TTF:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Generated_TTF_4641.png"></div><p></p>
+      <p>Notice the difference in the classes has adversely affected the kern pairs available in the font.</p>
+  - id: 456902
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 23 Mar 2011 — 2:19pm
+    date: 2011-03-23T14:19:00
+    votes: null
+    html: |-
+      <p><em>Notice the difference in the classes has adversely affected the kern pairs available in the font.</em></p>
+      <p>No. Notice that the LEFT checkbox for class kerning of the A is unchecked in the generated TTF: that's what's causing the problem...</p>
+  - id: 456915
+    user_id: 910
+    user_name: delve
+    user_path: null
+    date_raw: 23 Mar 2011 — 4:18pm
+    date: 2011-03-23T16:18:00
+    votes: null
+    html: <p>Hey Nick, Yes, that is the problem but I'm not the one doing that. When the font is generated from FontLab that is the result.</p>
+  - id: 457016
+    user_id: 39733
+    user_name: frankrolf
+    user_path: null
+    date_raw: 24 Mar 2011 — 10:50am
+    date: 2011-03-24T10:50:00
+    votes: null
+    html: |-
+      <p>Delve,<br>
+      check if the kerning is really lost in the generated font (basically, that’s what you care about).<br>
+      Probably, it is only happening during the re-import to FL.</p>
+  - id: 457035
+    user_id: 8664
+    user_name: k.l.
+    user_path: null
+    date_raw: 24 Mar 2011 — 1:00pm
+    date: 2011-03-24T13:00:00
+    votes: null
+    html: <p>Could you please check the relevant pair in InDesign?</p>
+  - id: 457164
+    user_id: 910
+    user_name: delve
+    user_path: null
+    date_raw: 25 Mar 2011 — 11:25am
+    date: 2011-03-25T11:25:00
+    votes: null
+    html: <p>Thanks Frank and Karsten. Yes, the kern pair is missing in InDesign. I have V in the Y class and one of the changes in the generated font is that it no longer has a class for Y, which in turn effectively deletes the A/V pair as well. Weird.</p>
+  - id: 457705
+    user_id: 910
+    user_name: delve
+    user_path: null
+    date_raw: 29 Mar 2011 — 3:15pm
+    date: 2011-03-29T15:15:00
+    votes: null
+    html: |-
+      <p>Update: </p>
+      <p>When I tried generating the font using the same VFB with FontLab on a PC, I got the Warning reported here: <a href="http://www.typophile.com/node/27336" title="http://www.typophile.com/node/27336">http://www.typophile.com/node/27336</a></p>
+      <p>Note: the Mac version of FontLab did not give that warning.</p>
+      <p>So it seems there may be a duplicate class or some similar error in the classes. Now it's just a matter of finding it...</p>
+  - id: 457713
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 29 Mar 2011 — 3:57pm
+    date: 2011-03-29T15:57:00
+    votes: null
+    html: <p>You might try using the "Clean Up Classes" function in the Classes Panel...</p>

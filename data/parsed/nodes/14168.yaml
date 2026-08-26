@@ -1,0 +1,101 @@
+node: 14168
+title: Unicode Support
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419193604"
+  captured_at: 2015-04-19T19:36:04Z
+  url: http://typophile.com/node/14168
+  digest: 7O4BKFKBXP3SJRZR2OR4ZQM4XW2WNBEM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/14168.html
+  fingerprint: fe83d08373b9cb56
+  parser: 4e04979c9499b509
+post:
+  id: 14168
+  user_id: 8474
+  user_name: WurdBendur
+  user_path: null
+  date_raw: 26 Jul 2005 — 9:34pm
+  date: 2005-07-26T21:34:00
+  votes: null
+  html: |-
+    <p>I regularly create fonts for scripts encoded outside of Plane 0 of Unicode.  I haven't been able to properly encode these in FontLab (which is all I have), so I have to continue using a legacy encoding which places these characters in the Latin-1 range.</p>
+    <p>Specifically, I'm talking about my fonts for the <a href="http://www.omniglot.com/writing/shavian.htm" rel="nofollow">Shavian</a> alphabet, but I use others as well.  After searching the forum history, I've found nothing that looks like a solution to this problem, so I appeal to you for assistance.  I considered simply creating a new codepage (something with which I'm not really very familiar), but FontLab doesn't seem to recognize the correct Unicode code points anyway.  I suppose I could go ahead and try it, but failing that, does anybody have any suggestions?</p>
+comments:
+  - id: 80458
+    user_id: 1572
+    user_name: magister
+    user_path: null
+    date_raw: 27 Jul 2005 — 6:00pm
+    date: 2005-07-27T18:00:00
+    votes: null
+    html: |-
+      <p>The current version of FontLab does not support characters outside the BMP directly, but there is a workaround.  Give your character the appropriate uXXXXX name, such as u10500 (depending on its value); leave the Unicode value blank, since FL won't let you enter a five-digit value.  When you generate the font, FL will assign any character with a uXXXXX name to corresponding Unicode value.</p>
+      <p>But there is a bug; FL usually creates a faulty cmap table.  Instead of Format 12, you get something like 12.125 (the exact value varies).  You have to manually edit the cmap to fix this; I do it in VOLT (Tools/Options), but I know there are other cmap editors around.  If you don't take this second step, the font will appear to install correctly but your word processor will crash abruptly when you attempt to access one of your supplementary characters.</p>
+      <p>This is a bit of a pain, but it works; I have been making fonts with Plane 1 characters this way for some time now.</p>
+      <p>David</p>
+  - id: 80485
+    user_id: 8474
+    user_name: WurdBendur
+    user_path: null
+    date_raw: 27 Jul 2005 — 10:52pm
+    date: 2005-07-27T22:52:00
+    votes: null
+    html: <p>Thanks.  I'm using Mac OS, so I'll have to find another editor for that.  Any suggestions?</p>
+  - id: 80498
+    user_id: 1572
+    user_name: magister
+    user_path: null
+    date_raw: 28 Jul 2005 — 3:26am
+    date: 2005-07-28T03:26:00
+    votes: null
+    html: |-
+      <p>Apple makes available some free tools to edit the tables in TT fonts.  See <a href="http://developer.apple.com/fonts/" title="http://developer.apple.com/fonts/">http://developer.apple.com/fonts/</a> ; they look pretty non-user-friendly (at least to a non-programmer like me) but they would probably do what you need.  For the record, I should say that all my experience has been on Windows, so I can't say for sure that FL on the Mac will behave the same way.</p>
+      <p>David</p>
+  - id: 80511
+    user_id: 1572
+    user_name: magister
+    user_path: null
+    date_raw: 28 Jul 2005 — 6:09am
+    date: 2005-07-28T06:09:00
+    votes: null
+    html: |-
+      <p>Also, I should add this.  We are told that FL Studio 5 will offer direct entry of five-digit Unicode values and will fix the buggy cmap generation.  So if FL will be able to do everything, if you can wait a bit.  (Please don't ask me just when Studio 5 will be out . . . )</p>
+      <p>David</p>
+  - id: 80641
+    user_id: 8474
+    user_name: WurdBendur
+    user_path: null
+    date_raw: 28 Jul 2005 — 6:31pm
+    date: 2005-07-28T18:31:00
+    votes: null
+    html: |-
+      <p>I've had a look at Apple's font tools, but I don't know enough about Unix to use them effectively.  I could learn, I guess.  It'll just take some time.</p>
+      <p>Anyway, I tried the workaround just to see what would happen.  The font generated just fine (I only tried name mode), and it was useable without crashing my text editor, though I didn't try Word.  The added Unicode characters, however, were not available as such.</p>
+      <p>The first time I tried it (a test to make sure I had the right code points), the font worked, except it behaved as though the extended characters were in the wrong place (probably a cmap problem).  I tried again with more characters, and it did basically the same thing.  However, the second time none of the characters could be inserted from the Character Palette, since every character was labeled as an alternate.</p>
+      <p>So the summary of my experience with this workaround for Mac FontLab: Characters in the supported BMP range will be useable, generally, but others probably won't.  Though there wasn't a crash, it's probably just the same cmap problems.  I guess I'll just have to try Studio 5.</p>
+  - id: 80660
+    user_id: 1049
+    user_name: Si_Daniels
+    user_path: null
+    date_raw: 28 Jul 2005 — 8:50pm
+    date: 2005-07-28T20:50:00
+    votes: null
+    html: |-
+      <p>If you have access to a Windows machine you can use our free VOLT tool as a cmap editor.</p>
+      <p>Si</p>
+  - id: 80783
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 29 Jul 2005 — 11:33am
+    date: 2005-07-29T11:33:00
+    votes: null
+    html: <p>You can also edit cmaps directly using TTX, which is free and available for both Windows and Mac. TTX dumps fonts or individual tables to a human-readable and editable XML document, which can then be fused back into a font. I generally find it best to dump individual tables rather than whole fonts.</p>

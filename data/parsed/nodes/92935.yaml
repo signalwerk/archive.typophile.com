@@ -1,0 +1,277 @@
+node: 92935
+title: Problem with font when printing Office (PowerPoint/Word) to PDF
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426205826"
+  captured_at: 2015-04-26T20:58:26Z
+  url: http://www.typophile.com/node/92935
+  digest: HBPZWTQHFG6MXSYTJFNMC3IV5RPVOVAH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/92935.html
+  fingerprint: 65a69b497d9e5b03
+  parser: 4e04979c9499b509
+post:
+  id: 92935
+  user_id: 8008
+  user_name: Nick Job
+  user_path: null
+  date_raw: 11 May 2012 — 5:50am
+  date: 2012-05-11T05:50:00
+  votes: null
+  html: |-
+    <p>I have a technical problem. I am working on Windows 7. I am designing a font in FontLab Studio 5.</p>
+    <p>I have generated a font and installed the latest version of it (an *.otf file) into my Fonts folder. All good so far.</p>
+    <p>The font is there and works in every package. Still all good.</p>
+    <p>The only problem I have is that when I come to print to PDF a Word document (or PowerPoint presentation) with the font in it, the output shows a PREVIOUS version of the font, not the current version in the Fonts folder (even though the documents themselves show the correct fonts and also print correctly to hard printers).</p>
+    <p>Corruptness somewhere...</p>
+    <p>Is there such a thing as a Microsoft Office font cache and how do I clear it?</p>
+    <p>Cheers,<br>
+    Nick.</p>
+comments:
+  - id: 509405
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 11 May 2012 — 7:46am
+    date: 2012-05-11T07:46:00
+    votes: null
+    html: |-
+      <p>The font cache file  is located here: C:\Windows\System32\FNTCACHE.DAT<br>
+      Delete the file and restart your system.<br>
+      THEN delete the installed font.<br>
+      For general testing purposes, you don't have to install the font in order to use it. Just open it (by double clicking). It will then be available to any application that you start AFTER opening the font.</p>
+  - id: 509413
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 11 May 2012 — 9:51am
+    date: 2012-05-11T09:51:00
+    votes: null
+    html: |-
+      <p>Thanks HVB but I have tried that already (deleting FNTCACHE.dat and restarting) and the problem is persisting. It's like the wrong font gets used in the PDF output.</p>
+      <p>When I print to PDF, the font used in the output is not the most up-to-date version that is installed.</p>
+      <p>Any other ideas..?</p>
+  - id: 509425
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 11 May 2012 — 11:07am
+    date: 2012-05-11T11:07:00
+    votes: null
+    html: <p>A basic one - is the embedding flag correct and are you embedding the font properly?</p>
+  - id: 509432
+    user_id: 48632
+    user_name: J. Tillman
+    user_path: null
+    date_raw: 11 May 2012 — 12:09pm
+    date: 2012-05-11T12:09:00
+    votes: null
+    html: <p>Are you saving the PDF file as a different name to avoid any weird PDF-cache?</p>
+  - id: 509549
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 12 May 2012 — 11:56pm
+    date: 2012-05-12T23:56:00
+    votes: null
+    html: |-
+      <p>@HVB<br>
+      Not doing anything different from six other weights. It is just the one weight that is misbehaving and substituting a rogue earlier version but only when I print from Office applications to PDF.</p>
+      <p>@J. Tillman<br>
+      Is there a place where any PDF cache is saved as far as fonts are concerned. I'm thinking of reinstalling Acrobat to see if that fixes the problem.</p>
+      <p>Any thoughts?</p>
+  - id: 509551
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 13 May 2012 — 12:12am
+    date: 2012-05-13T00:12:00
+    votes: null
+    html: |-
+      <p>Nick - this is the first time that you mentioned that more than one font file is involved. A very common problem with a group of fonts in the same family is their names.  In Windows and Microsoft applications in particular, multiple font files with the same family name can be problematic. Such products can consistently recognize only four members of any given font family - regular, bold, italic, and bold-italic.  Other varieties, whether Heavy, Outline, or anything else, require separate font family names.  Otherwise, what you see and what gets used can vary, and can depend on which font is opened first.</p>
+      <p>Adam Twardoch (in the fontlab forum) and Tom Phinney (I'm pretty sure) have posted specific font naming methods that ae said to allow different style names to be properly recognized. The one time I tried it I probably did something wrong.</p>
+      <p> - Herb</p>
+  - id: 509719
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 14 May 2012 — 2:16pm
+    date: 2012-05-14T14:16:00
+    votes: null
+    html: |-
+      <p>Sorry Herb, I should have explained.</p>
+      <p>All 7 font weights are named differently (for the time being at least!), i.e. not with family naming conventions.</p>
+      <p>They are called NameThin, NameLight, NameRegular, NameMedium, NameBold, NameHeavy, NameBlack.</p>
+      <p>They are all saved as regulars (in spite of being different weights); there is no linking within them whatsoever. I figured that way nothing would go wrong...for now!</p>
+      <p>It is only the Regular that is causing me the problem and only from Office to PDF.</p>
+      <p>I have renamed it and the problem has gone away. It's like there is a NameRegular ghost in the machine from a previous version that was installed a while ago and no amount of reinstalling the font into my Fonts folder is making it go away.</p>
+      <p>Boohoo :(</p>
+  - id: 509721
+    user_id: 3254
+    user_name: eliason
+    user_path: null
+    date_raw: 14 May 2012 — 2:36pm
+    date: 2012-05-14T14:36:00
+    votes: null
+    html: <p>How long is the name (I assume "n a m e" in your post is actually a different font name in the font settings)? I've run into problems if the name is too long, and I notice that "regular" has more letters than any of the other style names. Just a thought.</p>
+  - id: 509975
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 16 May 2012 — 3:45am
+    date: 2012-05-16T03:45:00
+    votes: null
+    html: |-
+      <p>That's intriguing, Craig. It is 7 letters long so the whole name is 14 characters... too long? Surely not.</p>
+      <p>Plus, the problem isn't the name but the fact that there is this ghost from a previous version that is refusing to be shifted from the PDF output, even when the latest version (with 14 characters) is installed.</p>
+      <p>Cheers,<br>
+      Nick.</p>
+  - id: 509980
+    user_id: 3254
+    user_name: eliason
+    user_path: null
+    date_raw: 16 May 2012 — 4:57am
+    date: 2012-05-16T04:57:00
+    votes: null
+    html: <p>No, that's definitely not too long.</p>
+  - id: 510205
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 18 May 2012 — 5:30am
+    date: 2012-05-18T05:30:00
+    votes: null
+    html: |-
+      <p>So, anyone else got any ideas?</p>
+      <p>I'm about to uninstall Acrobat and reinstall it.</p>
+  - id: 510209
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 18 May 2012 — 5:30am
+    date: 2012-05-18T05:30:00
+    votes: null
+    html: |-
+      <p>So uninstalling and reinstalling Acrobat made no difference, the old font is still showing up when I print from Word to Acrobat, which suggests the problem is with Microsoft Office.</p>
+      <p>So I ask the question, does Office have a Fonts cache somewhere that can be deleted?</p>
+      <p>Please don't say C:\Windows\System32\FNTCACHE.DAT   ...I've tried that already and it did nothing.</p>
+  - id: 510267
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 18 May 2012 — 2:51pm
+    date: 2012-05-18T14:51:00
+    votes: null
+    html: |-
+      <p>No, neither Word nor Office has anything like a font cache.</p>
+      <p>Now clutching at straws, but ...</p>
+      <p> What Windows and Office do have, though, are font substitution tables.  These usually say to use font B if font A isn't available, which doesn't seem to be your case, but one never knows.  You've never said what the font name itself is. There is one hidden truetype font, Marlett, as well as over 150 hidden .fon (bitmap screen display) files in the windows folder. As unlikely as a name conflict would be, who knows!</p>
+      <p>Run Start/Run/Regedit and look in<br>
+      HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts<br>
+      and<br>
+      HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes</p>
+      <p>to see if there's anything there that resembles your problem font or file name.</p>
+      <p>If not, you could search (edit/find) for some recognizable portion of  your font name and/or its file name to see if it's already in there somewhere </p>
+      <p>And, of course, DOUBLE-CHECK your font and file names - it's possible that somewhere along the line you've named the 'old' and 'new' versions slightly differently. Something almost invisible like two spaces instead of one, or a zero instead of an oh.</p>
+      <p>As I said, clutching at straws! At some point someone (probably you) will find the problem and its solution and will be something extremely simple and obvious!</p>
+  - id: 510327
+    user_id: 1215
+    user_name: kentlew
+    user_path: null
+    date_raw: 19 May 2012 — 5:22am
+    date: 2012-05-19T05:22:00
+    votes: null
+    html: |-
+      <p>Nick — This is also clutching at straws, but . . . As a diagnostic step, have you taken the resulting PDF and moved it to another machine to see if it still displays the old version of the font? </p>
+      <p>My thought is to determine whether the old font is embedded in and travels with the PDF, or whether perhaps it’s an issue just within your specific system displaying the old font. </p>
+      <p>This might help sort out whether it’s Office that is accessing the old font and putting it into the PDF, or whether it’s something about the system and Acrobat that is calling the old font for display. </p>
+      <p>Does that make sense?</p>
+  - id: 510510
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 21 May 2012 — 5:33am
+    date: 2012-05-21T05:33:00
+    votes: null
+    html: |-
+      <p>Kent, the pdf travels to other machines with the glitch file embedded in it. Thanks for the suggestion though.</p>
+      <p>Herb, I have looked in the registry as you suggest and it turns out that every re-install of the font results in the font file having a new name...</p>
+      <p>It does it on the basis of hexidecimal numbers (FontnamRegular.otf, FontnamRegular_1.otf, FontnamRegular_2.otf ... FontnamRegular_F.otf, FontnamRegular_10.otf... etc.) so I reckon when I got to FontnamRegular_F.otf is was fine but I think the minute I went for a sixteenth version install, it took the name above 16 characters (i.e. FontnamRegular_10.otf) and maybe 17 characters is just too many for it to manage?</p>
+      <p>All my other names were shorter than Regular (Thin, Light, Medium, Bold, Heavy, Black) and so maybe the others were not affected.</p>
+      <p>Anyway, somewhere in the registry must be a place where the computer knows it has had a font with the same name installed before and therefore makes a new name for it in the registry. The question is, where is this information stored? Must be a simple text file I would have thought.</p>
+      <p>Intriguing. Any thoughts on where the computer stores the previous font names that have been installed in the past?</p>
+      <p>I feel like I may be making some progress.</p>
+      <p>Cheers,<br>
+      Nick.</p>
+  - id: 510512
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 21 May 2012 — 5:46am
+    date: 2012-05-21T05:46:00
+    votes: null
+    html: <p>Having said that about 16 characters, there are loads of fonts in my fonts folder whose filenames are bigger than 16 characters. The plot thickens.</p>
+  - id: 510516
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 21 May 2012 — 6:07am
+    date: 2012-05-21T06:07:00
+    votes: null
+    html: |-
+      <p>Turns out that the additional hexidecimal number that the system adds to the font name is only activated if you are replacing a font that is already installed. If you delete the old font first, the name remains unaffected. However, if you delete subsequent versions and install again, the system adds the hexidecimal number whatever happens. It cannot seem to cope with going back to the original name once a replacement version has been installed without deleting the previous version.</p>
+      <p>New question then, where does the computer store the names of fonts that have been previous installed? It must store the names somewhere or how would it know to add '1' to the last name used in the registry.</p>
+  - id: 510517
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 21 May 2012 — 6:08am
+    date: 2012-05-21T06:08:00
+    votes: null
+    html: <p>I'm thinking the moral here is to delete the font prior to reinstalling another version of it. Don't ever replace the existing font as it will change the name of the font in the registry by adding a version number of sorts.</p>
+  - id: 510524
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 21 May 2012 — 7:22am
+    date: 2012-05-21T07:22:00
+    votes: null
+    html: |-
+      <p>You cannot install a font that's already installed. You must first uninstall. But there's still something peculiar going on - if you try to install a font that's already installed, you would ordinarily get a diagnostic message saying exactly that.  I have never heard of multiple registry entries such as you've found.  </p>
+      <p>How are you installing the font, and how are you installing new versions of your other font variants?</p>
+  - id: 510527
+    user_id: 8008
+    user_name: Nick Job
+    user_path: null
+    date_raw: 21 May 2012 — 8:02am
+    date: 2012-05-21T08:02:00
+    votes: null
+    html: |-
+      <p>So in Windows 7, in Windows Explorer, I go to the font I want to explore and right click. In the dialog box there is an option to Install (because it's an .otf file). I click install and it tells me that there is already a font installed with that name, do I want to replace it? I hit 'Yes' and it overwrites the old font with the new one (but also changes the name in the registry by adding a hexadecimal version number after an underscore). My Fonts folder does not show this additional version number in the name. I have to go to the registry to see that the name of the latest version installed also has a version number in hex.</p>
+      <p>Either way there is still an old version of the font knocking about whenever I print to pdf/Acrobat from Office.</p>
+  - id: 510529
+    user_id: 1049
+    user_name: Si_Daniels
+    user_path: null
+    date_raw: 21 May 2012 — 8:52am
+    date: 2012-05-21T08:52:00
+    votes: null
+    html: |-
+      <p>Nick can you contact me off-thread... simonda@... </p>
+      <p>Office is interested in repro steps.</p>
+      <p>Cheers, Si</p>
+  - id: 510541
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 21 May 2012 — 10:19am
+    date: 2012-05-21T10:19:00
+    votes: null
+    html: <p>In XP and Vista, if a font is in use (which means that it has been opened during the current boot session) you can neither replace it nor delete it. You get an error diagnostic message saying something to that effect.</p>

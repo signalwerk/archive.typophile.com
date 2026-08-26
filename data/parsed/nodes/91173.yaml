@@ -1,0 +1,122 @@
+node: 91173
+title: "CSS and @font-face usage: is licensing required?"
+forum:
+  id: 7
+  title: Release
+source:
+  archive: commoncrawl.org
+  timestamp: "20150428105538"
+  captured_at: 2015-04-28T10:55:38Z
+  url: http://www.typophile.com/node/91173
+  digest: QLKKEUJEGH6L33XB62USN3PIFJ7PMXRA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/91173.html
+  fingerprint: a3cb8babb6d8f1e5
+  parser: 4e04979c9499b509
+post:
+  id: 91173
+  user_id: 187615
+  user_name: Uncle GroOve
+  user_path: null
+  date_raw: 18 Mar 2012 — 3:18am
+  date: 2012-03-18T03:18:00
+  votes: null
+  html: |-
+    <p>Hello everybody and regards from Switzerland.<br>
+    I am in the process of rewriting some websites for friends, personal business and family, and would like to integrate some of the new @font-face techniques in my CSS.<br>
+    Being that I am not a typographer by trade or schooling I had really never thought much about usage rights, licensing, etc.<br>
+    As of yesterday, let's say that I wanted to use, say, Century Gothic - I'd just code it in my CSS, and specify the fallback alternatives and that was it.<br>
+    So if I'm coding my CSS to instruct the browsers to call up that specific font which is installed on the users' machines, there is no problem because the licensing fees have been paid by the OS manufacturer (and/or the computer manufacturer as well?).<br>
+    On the other hand if I'm using the @font-face declaration, and have a copy of the font stored locally on my server space I would need to pay licensing rights, (except if it's a free-font). Would this apply even in the case that the @font-face url is on a third-party server (e.g. the font designer's own site)?</p>
+    <p>Thank you for your kind help!</p>
+    <p>Ciao, tschüss, a bientôt</p>
+    <p>Paul</p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/93907" class="topic-previous" title="Go to previous forum topic">‹ LOGOMOTION #19 Hot New Font (and rising :)</a>
+                  <a href="/node/93701" class="topic-next" title="Go to next forum topic">two new releases form astype ›</a>
+          </div>
+comments:
+  - id: 500022
+    user_id: 1794
+    user_name: Typography.Guru
+    user_path: null
+    date_raw: 18 Mar 2012 — 3:43am
+    date: 2012-03-18T03:43:00
+    votes: null
+    html: |-
+      <p><cite>if I'm using the @font-face declaration, and have a copy of the font stored locally on my server space I would need to pay licensing rights, (except if it's a free-font).<br>
+      </cite></p>
+      <p>Correct!<br>
+      (And it must be a webfont license. A normal “print font license” usually won't suffice)</p>
+      <p><cite><br>
+      Would this apply even in the case that the @font-face url is on a third-party server (e.g. the font designer's own site)?<br>
+      </cite></p>
+      <p>Of course!<br>
+      Keep in mind that some browsers even have a same-origin rule for @font-face linking, so the font file must be on your server (or delivered from a webfont service provider) to even work on your site. Hot-linking is not a way to go.</p>
+  - id: 500023
+    user_id: 187615
+    user_name: Uncle GroOve
+    user_path: null
+    date_raw: 18 Mar 2012 — 4:01am
+    date: 2012-03-18T04:01:00
+    votes: null
+    html: |-
+      <p>Thank you Ralf  - I hadn't thought about the "print font license" vs. webfont aspect. One more thing to worry about.<br>
+      :-/<br>
+      (by the way are emoticons allowed on a typography webforum? ) </p>
+      <p>Looking at the CSS of this site (e.g. font:14px "Georgia",Verdana,Helvetica,Arial,sans-serif; etc): does this mean that the webfont usage rights are being paid for all those single typefaces, even though I may be using my own browser-specific stylesheet to display a totally different font?<br>
+      To me this is where it gets really confusing.</p>
+      <p>Thank you for your patience and help,</p>
+      <p>Paul</p>
+  - id: 500024
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 18 Mar 2012 — 4:16am
+    date: 2012-03-18T04:16:00
+    votes: null
+    html: |-
+      <p><em>Looking at the CSS of this site (e.g. font:14px "Georgia",Verdana,Helvetica,Arial,sans-serif; etc): does this mean that the webfont usage rights are being paid for all those single typefaces, even though I may be using my own browser-specific stylesheet to display a totally different font?</em></p>
+      <p>No. These are fonts that <a href="http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html" rel="nofollow">ship with common operating systems</a>.  If one doesn’t have the first installed, the browser uses the next, or in the end if none are present uses the standard “sans-serif” defined in your system. No font files are served, it just use the fonts that are already on your computer.</p>
+  - id: 500025
+    user_id: 85443
+    user_name: Synthview
+    user_path: null
+    date_raw: 18 Mar 2012 — 4:26am
+    date: 2012-03-18T04:26:00
+    votes: null
+    html: |-
+      <p>Paul,<br>
+      font:14px "Georgia",Verdana,Helvetica,Arial,sans-serif; </p>
+      <p>these fonts are pre-installed on almost each computer of the world and no webfont is loaded, but the font installed on your <strong>local</strong> Operating System.<br>
+      the above declaration just says : “use Georgia, if installed on the local computer; if there is no Georgia, look for Verdana instead; if no Verdana, look for Helvetica then […], if no font found, use de default sans-serif/serif”.<br>
+      With this logic, you can set a font, hoping people has installed it (for instance Myriad / Myriad Pro, installed with every Adobe product). </p>
+      <p>font-family: Myriad, "Myriad Pro", Trebuchet, sans-serif;</p>
+      <p>this means :  “look for Myriad, if not present for Myriad Pro, if not present Trebuchet, if not present a generic sans-serif”.</p>
+      <p>If you want to be sure people see your website in Myriad, you should embed it as a webfont. Only browsers unable to read webfonts will use the fallback fonts in the list.</p>
+      <p>3 obvious consequences :<br>
+      1. there is no sense paying for 2 webfonts where the 2nd is the 1st fallback.<br>
+      2. the fallback font should be a <em>standard font</em>, installed by default on Win, Mac, and possibly Linux. You can find many web pages listing them. Here one of them : <code class="freelink freelink-error freelink-Array freelink-error-Array">[Bad link]</code><br>
+      3. you, as the publisher, pay a licence to have the right to display your website with an X webfont. Probably, if you use a service like typekit (based on pageviews), if the internet user applies his own style sheet and disables javascript, he wouldn't be counted in the total page views of your font. But I guess it’s the 0,01% of cases.</p>
+  - id: 510647
+    user_id: 192006
+    user_name: hunter912
+    user_path: null
+    date_raw: 22 May 2012 — 10:00am
+    date: 2012-05-22T10:00:00
+    votes: null
+    html: <p>sdsdsd</p>
+  - id: 512857
+    user_id: 16849
+    user_name: abattis
+    user_path: null
+    date_raw: 13 Jun 2012 — 1:25pm
+    date: 2012-06-13T13:25:00
+    votes: null
+    html: |-
+      <p><em>websites for friends, personal business and family</em></p>
+      <p><a href="http://www.google.com/webfonts" title="www.google.com/webfonts">www.google.com/webfonts</a> is probably your best bet :)</p>

@@ -1,0 +1,73 @@
+node: 90706
+title: Command line/batch processing of UFO to OTF when UFO is not complete and created by NoneLab?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150425162232"
+  captured_at: 2015-04-25T16:22:32Z
+  url: http://www.typophile.com/node/90706
+  digest: UE45FJXHQ4WF4VRT2GOXM4CUL7JYM5LR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/90706.html
+  fingerprint: 986ab120a6610492
+  parser: 4e04979c9499b509
+post:
+  id: 90706
+  user_id: 186783
+  user_name: Nagar
+  user_path: null
+  date_raw: 4 Mar 2012 — 8:22am
+  date: 2012-03-04T08:22:00
+  votes: null
+  html: |-
+    <p>Hi everybody,</p>
+    <p>I'm working on a project which allows to create an .otf font from a uncomplete UFO.</p>
+    <p>I found this topic (<a href="http://typophile.com/node/55559" title="http://typophile.com/node/55559">http://typophile.com/node/55559</a>) and I proceeded as written but I have the following error:</p>
+    <p><cite><br>
+    $ python2.5 ufo2otf.py<br>
+    03python/*.ufo<br>
+    Compiling: TestFont1 (UFO2).ufo...<br>
+    /Library/Python/2.5/site-packages/FontTools/sstruct.py:74: DeprecationWarning: struct integer overflow masking is deprecated<br>
+      data = apply(struct.pack, (formatstring,) + tuple(elements))<br>
+    /Library/Python/2.5/site-packages/FontTools/sstruct.py:74: DeprecationWarning: 'H' format requires 0 &lt;= number &lt;= 65535<br>
+      data = apply(struct.pack, (formatstring,) + tuple(elements))<br>
+    /Library/Python/2.5/site-packages/FontTools/fontTools/ttLib/sfnt.py:175: DeprecationWarning: struct integer overflow masking is deprecated<br>
+      self.file.write(struct.pack("&gt;L", checksumadjustment))<br>
+    makeotf [Note] Converting source font '/font.otf' to temporary Unix Type1 font file '/font.otf.tmp'.<br>
+    makeotf [Note] setting the DONT_USE_WIN_LINE_METRICS OS/2 fsSelection bit 7 from fontinfo keyword.<br>
+    makeotf [Note] setting the WEIGHT_WIDTH_SLOPE_ONLY OS/2 fsSelection bit 8 from fontinfo keyword.<br>
+    makeotf [Note] setting the OBLIQUE OS/2 fsSelection bit 9 from fontinfo keyword.<br>
+    makeotf [Note] Writing options file /current.fpr<br>
+    makeotf [NOTE] Running makeotfexe with commands:<br>
+       cd ""<br>
+       makeotfexe "-f" "font.otf.tmp" "-o" "TestFont1 (UFO2).otf" -ff "features" -gf "glyphOrder" -mf "menuname"<br>
+    makeotf [Error] Failed to build output font file  TestFont1 (UFO2).otf.<br>
+    makeotfexe [WARNING] syntax error [glyphOrder:1] (record skipped)<br>
+    makeotfexe [WARNING] syntax error [menuname:1] (record skipped)<br>
+    makeotfexe [WARNING] not in Font Menu Name database [SomeFont-Regular]<br>
+    makeotfexe [WARNING]  [internal] Feature block seen before any language system statement.  You should place languagesystem statements before any feature definition [features 3]<br>
+    <strong>makeotfexe [ERROR]  Glyph "b" not in font [features 4]</strong><br>
+    makeotfexe [FATAL]  aborting because of errors<br>
+    Done!</cite></p>
+    <p></p>
+    <p>Does anybody have a suggestion / idea (which file to modify in the library, other library to use, code example,…)</p>
+    <p>Thank you very much for your help.</p>
+    <p>Nagar.</p>
+comments:
+  - id: 497668
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 4 Mar 2012 — 12:52pm
+    date: 2012-03-04T12:52:00
+    votes: null
+    html: |-
+      <p>The error message is self-explanatory. In the features block the Opentype features are defined, and of course they refer to the characters that are going to be used. For that it does not need the "character code", but its glyph index instead (this is so you can have different glyphs that all represent the character 'b', for example; as well as glyphs that do not have a regular character code, such as a non-standard ligature).<br>
+      So what the error message means is that one of the features refers to a "glyph b", which is not in your font, or so it appears.</p>
+      <p>Note that this error also may have happened because five errors earlier creating the font file itself failed.</p>

@@ -1,0 +1,183 @@
+node: 76529
+title: Volt Compilation Failed
+forum:
+  id: 366
+  title: Arabic Typography & Type Design
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419185135"
+  captured_at: 2015-04-19T18:51:35Z
+  url: http://typophile.com/node/76529
+  digest: Z455UE6QHJKTYHNTR75C5GVW5K3L2OOT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/76529.html
+  fingerprint: a3334c41b39c47bc
+  parser: 4e04979c9499b509
+post:
+  id: 76529
+  user_id: 83336
+  user_name: jnbaluch
+  user_path: null
+  date_raw: 20 Nov 2010 — 1:41pm
+  date: 2010-11-20T13:41:00
+  votes: null
+  html: |-
+    <p>Dear All<br>
+    I am making a Nastaleeq urdu fully ligature based font and I have dont almost half of ligatues in GSUB lookups and compiled and test are working fine but know I am adding some more ligatures lookups and when I am compiling it it gives message that COMPILATION FAILED and I have check my lookup every thing is look fine and correct tome<br>
+    what can be the possible reason becuse the volt does not give the full details that why compilation is faild what is the reason?<br>
+    Thanks<br>
+    Best Regards<br>
+    JNBALUCH</p>
+comments:
+  - id: 440821
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 22 Nov 2010 — 12:07pm
+    date: 2010-11-22T12:07:00
+    votes: null
+    html: |-
+      <p>Go to VOLT Options (Tools menu) and turn on the option 'Use extension lookups'. When lookups exceed a certain size, you need to turn on extension lookups.</p>
+      <p>If this doesn't solve the problem, that would indicate a problem within your lookups, but VOLT normally identifies most common problems.</p>
+  - id: 440852
+    user_id: 5890
+    user_name: behnam
+    user_path: null
+    date_raw: 22 Nov 2010 — 3:37pm
+    date: 2010-11-22T15:37:00
+    votes: null
+    html: |-
+      <p>I have a question. Sorry it's off topic but I didn't want to create a new topic for this.<br>
+      Can VOLT be installed on Windows 7 without any problem? The material I found in Microsoft site was somewhat outdated.</p>
+  - id: 440870
+    user_id: 8867
+    user_name: david h
+    user_path: null
+    date_raw: 22 Nov 2010 — 5:16pm
+    date: 2010-11-22T17:16:00
+    votes: null
+    html: |-
+      <p>&gt; Can VOLT be installed on Windows 7 without any problem?</p>
+      <p>No problem at all.</p>
+  - id: 441028
+    user_id: 5890
+    user_name: behnam
+    user_path: null
+    date_raw: 23 Nov 2010 — 5:16pm
+    date: 2010-11-23T17:16:00
+    votes: null
+    html: <p>Thanks David. And sorry again.</p>
+  - id: 441228
+    user_id: 83336
+    user_name: jnbaluch
+    user_path: null
+    date_raw: 25 Nov 2010 — 2:46am
+    date: 2010-11-25T02:46:00
+    votes: null
+    html: |-
+      <p>Thank John for your valuable comments<br>
+      Dear John I have one more question do we have any limitation that how many GSUB lookup tables can be use in each font or we can make as much GSUB lookup tables as much we need to build our font<br>
+      and 2nd question is in each GSUB Lookup table how many ligatures entries we can put do we have any limitation or we can add as much as we need<br>
+      this answer will really sort out my problem<br>
+      I am still confused whether the errors I am getting this is becuase I have more GSUB Tables in my font<br>
+      or this error is becasue I have more entries in each GSUB Lookup<br>
+      your early reply will be highly appreciated<br>
+      Thanks<br>
+      jnbaluch</p>
+  - id: 441374
+    user_id: 83336
+    user_name: jnbaluch
+    user_path: null
+    date_raw: 25 Nov 2010 — 10:51pm
+    date: 2010-11-25T22:51:00
+    votes: null
+    html: |-
+      <p>John<br>
+      Thanks very much when I have turn on the extension lookup and know there is no compilation error message and the work is going on fine. great May god bless you<br>
+      Thanks once agains for this great help</p>
+      <p>I have one more question as I told you before I am making a Urdu Nastaleeq font where I am using approx 25000 ligatues<br>
+      I have done Init, medi and fina lookup and ligatues lookups are also there but when I compile the font and test it all initial medial and final letters work fine wherever the ligatures are there they dont appear as ligature, but when I remove the init, medi and fina feature and keep only liga feature and test only ligaturs are comes fine<br>
+      I want in font the ligature should have first priority to appears and when for the particular word the ligature is not availabe then only the init medi and fina should work<br>
+      how to do this<br>
+      do I am doing a wrong positioning of lookup and I know the order of look in lookup list is very important<br>
+      but I tried to keep init on top and medi and fina after liga lookups and viseversa but both the way ligatures dont come if init medi final are there<br>
+      waiting for your kind reply<br>
+      Thanks<br>
+      Best Regards<br>
+      jnbaluch</p>
+  - id: 441549
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 27 Nov 2010 — 9:48am
+    date: 2010-11-27T09:48:00
+    votes: null
+    html: |-
+      <p>OpenType Arabic script layout engines will apply the init, medi and fina (and isol, if present in the font) before they apply the ligature features. This means that the input glyph sequences in your ligature lookups need to be the init, medi etc. forms. So e.g. (using the glyph name convention I use in my Arabic projects):</p>
+      <p>aLam.init aAlif.fina -&gt; aLam_aAlif<br>
+      aLam.medi aAlif.fina -&gt; aLam_aAlif.fina</p>
+      <p>rather than</p>
+      <p>aLam aAlif -&gt; aLam_aAlif</p>
+      <p>aLam_aAlif -&gt; aLam_aAlif.fina</p>
+  - id: 441550
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 27 Nov 2010 — 9:50am
+    date: 2010-11-27T09:50:00
+    votes: null
+    html: |-
+      <p>Regarding your other question, on the number of ligatures per lookup, I'm afraid I don't know the answer. There certainly would be a limit, but I'm not sure whether simply invoking the extension mechanism resolves this.</p>
+      <p>Have you considered splitting your ligatures into a small set of contextual variant glyphs and strokes and combining them dynamically using the curs (cursive attachment) feature? This seems to me much more efficient and flexible than creating 25,000 ligatures.</p>
+  - id: 442325
+    user_id: 83336
+    user_name: jnbaluch
+    user_path: null
+    date_raw: 3 Dec 2010 — 11:27am
+    date: 2010-12-03T11:27:00
+    votes: null
+    html: |-
+      <p>Thank John for your valuable comments and reply<br>
+      as you said the arabic script layout engine read the init, medi and final first and then ligatures, I also want it should read the init, medi and fina firt to create the word but once that word match the ligature it should jump and show the ligatue instead of init, medi and fina word,<br>
+      and normally all arabic and urdu font do so,<br>
+      what should I do in glyph naming or GSUB naming or their sequences fo get the desire rusult<br>
+      and the way which you explain in your reply I did not understand<br>
+      is it possible please explain it little more details<br>
+      thanks<br>
+      Best Regards</p>
+  - id: 443159
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 10 Dec 2010 — 8:03pm
+    date: 2010-12-10T20:03:00
+    votes: null
+    html: |-
+      <p>The input sequences for the ligature substitutions, that is the list of letter form glyphs that become the ligature, must be the init, medi and fina forms, because these are the forms that will exist in the glyph string after the processing of those features and before the processing of the ligature feature. Whatever you have called the init form of letters, the medi form of letters and the fina form of letters, these are the names that you need to use, in the appropriate order, as input for your ligature substitutions. So, for example, you might have called your init glyphs *.init, where * is the name of the default letter glyph, e.g. lam, so: lam.init, lam.medi and lam.fina. So the input sequence for an isolated lam+yeh ligature would be lam.init yeh.fina, while the sequence for a lam+yeh ligature in a final posision would be lam.medi yeh.fina. </p>
+      <p>If you name your ligature glyphs so that they represent the input glyph sequence, e.g. calling a ligature glyph lam.init_yeh.fina, then it is very easy to create the lookups.</p>
+  - id: 450982
+    user_id: 55924
+    user_name: saleem Ali
+    user_path: null
+    date_raw: 6 Feb 2011 — 11:30pm
+    date: 2011-02-06T23:30:00
+    votes: null
+    html: <p>good information for nastaleeq font by John Hudson</p>
+  - id: 598124
+    user_id: 55924
+    user_name: saleem Ali
+    user_path: null
+    date_raw: 26 Jan 2015 — 12:16pm
+    date: 2015-01-26T12:16:00
+    votes: null
+    html: |-
+      <p>@John,<br>
+      Go to VOLT Options (Tools menu) and turn on the option 'Use extension lookups'. When lookups exceed a certain size, you need to turn on extension lookups.</p>
+      <p>If this doesn't solve the problem, that would indicate a problem within your lookups, but VOLT normally identifies most common problems.</p>
+      <p>But My font have different situation all above mention (Tools menu) and turn on the option 'Use extension lookups'. use that my font compiler issue. any other reason you have.</p>
+      <p>My Volt file is not Compile when insert new ligatures for nuqta placing i use add positioning in anchor attachment this file, put on My Group name is R_Liga-1, R_Liga-2,R_Liga-3,R_Liga-4,R_Liga-5 and R_Liga-6 every group contain 250 and above glyph problem is when i insert R_liga6 file is not compile message i am very afraid lot of work in volt file weight 3mb i several time change anchor name i try tool option use extension look up and other way but file is not compile message. Nuqtas_All_Ligatures up and down but its not compile.</p>
+      <p>If you are willing my fonts for investigation, John or Sergey thats solve these problems i thankful you whole life. I am waiting your kindness and humbleness.</p><div class="imageWrap"><img src="http://typophile.com/files/Compilation failed_6197.png"></div><p></p>

@@ -1,0 +1,151 @@
+node: 78356
+title: Opentype glyphs, unicode and encoding
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427161419"
+  captured_at: 2015-04-27T16:14:19Z
+  url: http://typophile.com/node/78356
+  digest: GH5VN52WM2KZCZCLQF5BJ3LECKJFJ5JW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/78356.html
+  fingerprint: 1f384dc2b6324d2e
+  parser: 4e04979c9499b509
+post:
+  id: 78356
+  user_id: 25151
+  user_name: telex
+  user_path: null
+  date_raw: 24 Jan 2011 — 2:30pm
+  date: 2011-01-24T14:30:00
+  votes: null
+  html: |-
+    <p>Hello everyone.</p>
+    <p>I'm making a PHP application to generate text labels. The PHP libraries seem to don't support OpenType features.<br>
+    Now I have no problem working with unicode index to display the standard characters.<br>
+    But, as far as I know, the OpenType features are name based.<br>
+    For example: if I want to display a ligature «my» I have to replace «m» and «y» unicodes indexes by «my» unicode index.<br>
+    The problem now is I don't have unicode indexes on this characters and I can't reffer to them by their names.</p>
+    <p>The questions are:</p>
+    <p>Is there any existing unicode for these glyphs and I am missing them?<br>
+    Do I need to reencode all the glyphs?<br>
+    Which is the best way to reencode a font and/or generate unicode names for this purposes?<br>
+    Is there any standard?</p>
+    <p>I also noted, when I reencode an existing font with many glyphs and generate a new version the file size increases almost ten times.</p>
+    <p>Your help and contributions will be appreciated.</p>
+    <p>Thanks in advance.</p>
+comments:
+  - id: 448991
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 25 Jan 2011 — 9:17am
+    date: 2011-01-25T09:17:00
+    votes: null
+    html: |-
+      <p>OK, I'm going to go out on a limb, since no one else has bothered to answer.</p>
+      <p>AFIK, you can assign unicode numbers to your special characters in the Private Use area. However, you should be aware that some folks have already staked out niches in that territory...</p>
+      <p><a href="http://scripts.sil.org/cms/scripts/page.php?item_id=VendorUseOfPUA" title="http://scripts.sil.org/cms/scripts/page.php?item_id=VendorUseOfPUA">http://scripts.sil.org/cms/scripts/page.php?item_id=VendorUseOfPUA</a></p>
+      <p>but you ought to be able to find some unclaimed slots to code your characters so your script will work.</p>
+  - id: 448996
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 25 Jan 2011 — 9:34am
+    date: 2011-01-25T09:34:00
+    votes: null
+    html: <p>If you generate images, Nick's suggestion is good. If you want to create selectable, searchable, degradeable text you might want to do some javascript thing similar to what I'm working on at the moment. PM me if you're interested.</p>
+  - id: 449025
+    user_id: 25151
+    user_name: telex
+    user_path: null
+    date_raw: 25 Jan 2011 — 12:08pm
+    date: 2011-01-25T12:08:00
+    votes: null
+    html: |-
+      <p>Nick: </p>
+      <p>Actually what i'm trying to do is to get the special characters unicode for any font. Because it depends on the encoding of the font I'm trying to figure out the more quick and simple method to do it.<br>
+      For example, I want to use a font with ligatures and stylistic alternates for image generation. I'm not sure if there is a way to reffer to the unicode from scratch, i think it strictly depends on how the unicodes were asigned to this font. If there is no unicode for the special characters (ligatures, alternates, small caps, etc), how should I reencode / reassign the unicode numbers in Fontlab avoiding doing it one by one? Is there any way to assign them in one movement?</p>
+      <p>I tried to generate Unicode for a few fonts with many special characters. I realized if I use a standard table it seems to work, but many special characters are missing and it repeats one of the characters many times in a weird way.</p>
+      <p>Last week I could reencode one of this fonts and it worked ok, with unicodes for every glyph and it worked ok. For some reason I have no idea what I did then and I can't repeat the same process. I thought I generated unicode with a Standard Table, but now i'm trying to do it again and it doesn't work.</p>
+      <p>Also, and for now, i really don't care which unicodes I have in each special character, because it is for personal and private use and I don't need to distribute the font. I'm only worried to make it work in my image generator.</p>
+      <p>Frank: </p>
+      <p>For now, what i'm trying to do is to generate images. Are you working on something similar to Cufon or SIFR?</p>
+      <p>Thanks.</p>
+  - id: 449033
+    user_id: 25151
+    user_name: telex
+    user_path: null
+    date_raw: 25 Jan 2011 — 1:03pm
+    date: 2011-01-25T13:03:00
+    votes: null
+    html: |-
+      <p>I think the answer I need is:</p>
+      <p>How to assign Private User Area unicodes to all the swashes, alternates and ligatures?</p>
+  - id: 449039
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 25 Jan 2011 — 1:45pm
+    date: 2011-01-25T13:45:00
+    votes: null
+    html: |-
+      <p><em>How to assign Private User Area unicodes to all the swashes, alternates and ligatures?</em></p>
+      <p>Here's what I did; I'm not sure that it's the approved method, but it has worked for me so far.</p>
+      <p>In <strong>Program Files &gt; Common Files &gt; FontLab &gt; Mapping</strong>, I opened the file <strong>standard.nam</strong> in NotePad+ and saved it as <strong>standard_old.nam</strong>. I then made a few changes to the file, following this format...</p>
+      <p><code>0xF### glyphname</code></p>
+      <p>then saved the file as <strong>standard.nam</strong>.</p>
+      <p>Then, in FontLab, I made sure that under <strong>Tools &gt; Options &gt; Unicode and OpenType &gt; Default Unicode-Name mapping table</strong>, I selected <strong>Standard Table</strong>.</p>
+      <p>Finally, in order to generate my new "standard" Unicode, after I have composed all my glyphs and named them according to MY standard, I select <strong> Glyph &gt; Glyph Names &gt; Generate Unicode</strong>. Finally, just for good housekeeping, I select Index Mode, Select All glyphs, sort them by Unicode, then select Charmap View.</p>
+      <p>As I said, I don't know if this method is kosher/halal, but it works for me,</p>
+  - id: 449040
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 25 Jan 2011 — 1:47pm
+    date: 2011-01-25T13:47:00
+    votes: null
+    html: <p>No, @font-face.</p>
+  - id: 449052
+    user_id: 25151
+    user_name: telex
+    user_path: null
+    date_raw: 25 Jan 2011 — 2:46pm
+    date: 2011-01-25T14:46:00
+    votes: null
+    html: |-
+      <p>I made an experiment:</p>
+      <p>I created a Robofab script that assign an unicode to every character without unicode index.<br>
+      It checks every glyph, if it doesn't have unicode the script will assign a new PUA value, starting from E000 (57344) and increasing by one for every glyph.<br>
+      I generated an Opentype/PS version and it works with my image generator.<br>
+      I'm not sure if this is extremely unortodox or if it will take me to new problems.<br>
+      I tried it and it works. I assume there is no problem with these unicodes until I try to use it in other systems.</p>
+      <p>Nick: Thank you for your solution for the Standard Table edition. I didn't try it yet.<br>
+      Also, if you want the script I made, just let me know.</p>
+  - id: 449058
+    user_id: 25151
+    user_name: telex
+    user_path: null
+    date_raw: 25 Jan 2011 — 3:20pm
+    date: 2011-01-25T15:20:00
+    votes: null
+    html: |-
+      <p>A different way to do it:</p>
+      <p>In font window select "Names mode" and "OpenType Standard"<br>
+      Glyph &gt; Glyph Names &gt; Generate Unicode<br>
+      And then "Standard Table" + "Try to keep Unicode indexes" + "Assign PUA indexes to unencoded Glyphs"</p>
+      <p>I was missing to change to «Names mode» in the Font Window. Once I do it it seems to work when I reencode and generate unicode, it adds PUA indexes.</p>
+  - id: 449061
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 25 Jan 2011 — 4:05pm
+    date: 2011-01-25T16:05:00
+    votes: null
+    html: <p>One unmentioned advantage to the Standard Table workaround is that the PUA Unicode values for each special character or ligature will be consistent across the fonts you generate using it...</p>

@@ -19,7 +19,7 @@ import { fetchRaw, fetchRange } from "./lib/http.js";
 import { parseWarcRecord } from "./lib/warc.js";
 import {
   ensureDir, ensureDirCached, readJsonl, digestOfBuffer, digestOfFile,
-  parseArgs, formatCount, formatBytes,
+  parseArgs, formatCount, formatBytes, acquireLock,
 } from "./lib/util.js";
 
 const args = parseArgs();
@@ -79,6 +79,9 @@ async function runArchive(archive) {
   ensureDir(dirs.files);
   ensureDir(dirs.state);
 
+  // Refuse to run alongside another downloader for this archive.
+  const releaseLock = acquireLock(`${dirs.state}/download.lock`, `download of ${archive.id}`);
+
   // --- state: append-only log, compacted at the end -------------------------
   const state = new Map();
   if (fs.existsSync(dirs.downloadState)) {
@@ -95,7 +98,7 @@ async function runArchive(archive) {
   }
 
   const stats = { total: jobs.length, cached: 0, verified: 0, downloaded: 0,
-                  mismatched: 0, failed: 0, truncated: 0, bytes: 0 };
+                  mismatched: 0, recovered: 0, failed: 0, truncated: 0, bytes: 0 };
 
   console.log(`   ${formatCount(jobs.length)} captures -> ${dirs.files}/${dryRun ? "  [dry run]" : ""}`);
   console.log(`   ${state.size ? formatCount(state.size) + " known files" : "no previous state"}, concurrency ${concurrency}`);
@@ -150,8 +153,27 @@ async function runArchive(archive) {
       return;
     }
 
-    const digest = digestOfBuffer(got.body);
+    let digest = digestOfBuffer(got.body);
     const matches = digest === job.d;
+
+    // A mismatch usually means the stored original is damaged or the exact
+    // snapshot cannot be replayed. If the archive offers a second route to
+    // the page, take whichever gives us more of it.
+    if (!matches && archive.buildFallback) {
+      const fallback = archive.buildFallback(job);
+      if (fallback) {
+        try {
+          const alt = await fetchRaw(fallback.u);
+          if (alt.body.length > got.body.length) {
+            got = { body: alt.body, meta: { ...got.meta, source: "rewritten" } };
+            digest = digestOfBuffer(got.body);
+            stats.recovered++;
+          }
+        } catch {
+          // keep whatever the original endpoint gave us
+        }
+      }
+    }
 
     ensureDirCached(path.dirname(target));
     const tmp = `${target}.part`;
@@ -173,7 +195,7 @@ async function runArchive(archive) {
       mtime: stat ? Math.round(stat.mtimeMs) : Date.now(),
       ok: matches,
       ...got.meta,
-      ...(matches ? {} : { actual: digest }),
+      ...(matches ? {} : { verified: false, actual: digest }),
     });
 
     stats.bytes += got.body.length;
@@ -220,13 +242,23 @@ async function runArchive(archive) {
   fs.writeFileSync(`${dirs.downloadState}.part`, compacted + (compacted ? "\n" : ""));
   fs.renameSync(`${dirs.downloadState}.part`, dirs.downloadState);
 
+  releaseLock();
   return { stats, done, jobs: jobs.length };
 }
 
 async function main() {
   for (const archive of selectArchives(args.archive)) {
     console.log(`\n=== ${archive.label} ===`);
-    const result = await runArchive(archive);
+    let result;
+    try {
+      result = await runArchive(archive);
+    } catch (err) {
+      if (err.code === "ELOCKED") {
+        console.log(`   skipped: ${err.message}`);
+        continue;
+      }
+      throw err;
+    }
     if (!result) continue;
     const { stats } = result;
     const have = stats.cached + stats.verified;
@@ -235,6 +267,7 @@ async function main() {
       `   downloaded ....... ${formatCount(stats.downloaded)}\n` +
       `   digest mismatch .. ${formatCount(stats.mismatched)}\n` +
       `   failed ........... ${formatCount(stats.failed)}\n` +
+      (stats.recovered ? `   recovered whole .. ${formatCount(stats.recovered)} (via rewritten replay, not byte-verified)\n` : "") +
       (stats.truncated ? `   truncated by CC .. ${formatCount(stats.truncated)}\n` : "") +
       `   transferred ...... ${formatBytes(stats.bytes)}`
     );

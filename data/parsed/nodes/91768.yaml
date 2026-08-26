@@ -1,0 +1,125 @@
+node: 91768
+title: "Font fallback mechanism: how to extend OFL font with symbols (Unicode)"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427103823"
+  captured_at: 2015-04-27T10:38:23Z
+  url: http://www.typophile.com/node/91768
+  digest: 4JCB7V6TJKKYMNR5A7AR7P7HHOU7XXF2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/91768.html
+  fingerprint: 7958fbd936d9a050
+  parser: 4e04979c9499b509
+post:
+  id: 91768
+  user_id: 188741
+  user_name: ChrisGr
+  user_path: null
+  date_raw: 4 Apr 2012 — 3:49am
+  date: 2012-04-04T03:49:00
+  votes: null
+  html: |-
+    <p>I'm a beginner in Typography (Inkscape and FontForge on Win7x32).  </p>
+    <p>I try to explain my answer with an example:<br>
+    <strong>I like to use the existing OFL font family "PT Sans"</strong> with different styles/weights and also Condensed/Extended variants <strong>for charts and drawings in a project</strong>. But this font-family (like any other good text font) <strong>misses some Unicode symbol chars</strong> (from Unicode-Block Dingbats, Miscellaneous Symbols, etc.) that I need.<br>
+    Windows seems to automatically use sometimes weird fallback chars, coming from the installed fonts with extended Unicode support (Segoe UI Symbol, Arial Unicode MS, DejaVu Sans, etc.). Office/Word (Uniscribe?), MS IE (first Uniscribe, now DirectWrite), Firefox (first Uniscribe, now DirectWrite), Chrome (Uniscribe) seem to have sometimes different implementations of this "<strong>font fallback mechanism</strong>". I was unable to find enough information to understand this OS and software behaviour. I'm especially interested if it is possible to edit this mechanism, for example to prescribe the usage of the preferred Unicode font. This would be generally interesting also by using fonts like Linux Liberation/Biolinum. Here some links:<br>
+    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Fallback_font" class="freelinking" rel="nofollow">Wikipedia: Fallback font</a><br>
+    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Uniscribe" class="freelinking" rel="nofollow">Wikipedia: Uniscribe</a><br>
+    <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374105%28v=vs.85%29.aspx" rel="nofollow">MS Win UI Dev: Using Font Fallback</a><br>
+    <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317788(v=vs.85).aspx" rel="nofollow">MS DirectWrite</a><br>
+    <a class="freelinking external" href="http://blog.mozilla.com/nattokirai/2009/10/05/making-font-initialization-lazier/" rel="nofollow">Mozilla: Making font initialization lazier</a><br>
+    <a class="freelinking external" href="http://maxradi.us/documents/uniscribe/" rel="nofollow">Brett Wilson (Google Chrome Dev) / Uniscribe: The Missing Documentation &amp; Examples</a></p>
+    <p>I think I have two options:<br>
+    A) use the PT Sans fonts and modify/extend them with the risk to have to integrate future releases and to make errors as a beginner<br>
+    B) create a new font with the PT Sans metrics and only the desired Unicode symbols. But the technical background and the fluid usage in texting/graphical software is not clear to me (without the need to change font family for certain characters in the text). </p>
+    <p><strong>Is there more information about the Font fallback mechanism with rare Unicode characters in Windows, especially whether this behavior can be influenced?</strong> </p>
+    <p>I hope my question is clear enough and someone here can extend my knowledge about this complex behaviour. Thank you.</p>
+comments:
+  - id: 503396
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 4 Apr 2012 — 8:38am
+    date: 2012-04-04T08:38:00
+    votes: null
+    html: <p>No single font can be all things to all people. If the EULA for PT Sans allows you to make modifications for your own use, fine; if not, you'll just to have to live with the limitations and change fonts as needed.</p>
+  - id: 503400
+    user_id: 188741
+    user_name: ChrisGr
+    user_path: null
+    date_raw: 4 Apr 2012 — 9:11am
+    date: 2012-04-04T09:11:00
+    votes: null
+    html: |-
+      <p><cite>No single font can be all things to all people.</cite><br>
+      That is the reason why I try to add the characters I need to a free quality font. I'm asking how  (way A or B). </p>
+      <p><cite>If the EULA for PT Sans allows you to make modifications for your own use, fine; if not, you'll just to have to live with the limitations and change fonts as needed.</cite><br>
+      <a class="freelinking external" href="http://en.wikipedia.org/wiki/PT_Sans" rel="nofollow">PT Sans</a> is licenced under the SIL Open Font License 1.1 (OFL) and modifications can be made and also distributed.</p>
+  - id: 503409
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 4 Apr 2012 — 9:25am
+    date: 2012-04-04T09:25:00
+    votes: null
+    html: <p>{To Follow}</p>
+  - id: 503418
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 4 Apr 2012 — 10:03am
+    date: 2012-04-04T10:03:00
+    votes: null
+    html: |-
+      <p>If you're really a beginner, neither option is a guarantee of success: Experience is the best teacher.</p>
+      <p>However, if you pursue option A, you won't have to re-do kerning and feature building from scratch.</p>
+  - id: 503431
+    user_id: 188741
+    user_name: ChrisGr
+    user_path: null
+    date_raw: 4 Apr 2012 — 12:30pm
+    date: 2012-04-04T12:30:00
+    votes: null
+    html: |-
+      <p>I have found some more info about <a class="freelinking external" href="http://blog.mozilla.com/nattokirai/2011/08/11/directwrite-text-rendering-in-firefox-6/" rel="nofollow">DirectWrite Text Rendering in Firefox 6</a> (interesting, but no info on font fallback)<br>
+      Rereading <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd371554%28v=vs.85%29.aspx" rel="nofollow">MSDN &gt; Introducing DirectWrite &gt; Support for International Text</a> I found a maybe better describing of the crucial behaviours:<br>
+      <cite>Unicode features such as <strong>surrogates</strong>, BIDI, line breaking, and UVS are supported. </cite> In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd941771%28v=vs.85%29.aspx" rel="nofollow">this CCP-script</a> (to complex for me) there are some comments about surrogates. In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374069%28v=vs.85%29.aspx" rel="nofollow">MSDN Surrogates and Supplementary Characters</a> there is some interesting info: <cite>Applications automatically support supplementary characters if they support Unicode and use system controls and standard API functions, such as ExtTextOut and DrawText.</cite>  and there are some registry settings about surrogates. Still I don't understand enough. </p>
+      <p>@oldnick: Option B is not a re-creation of the standard characters: only some of the desired characters mainly in Symbol Unicode blocks should be created and integrated. <strong>The core of my question is about the Windows Font fallback mechanism with Unicode characters. I have rewritten my question in the first post. </strong> If I don't get enough information about that, I don't feel to decide what to do. Maybe I have to ask in some programmers/Windows GUI Forum?</p>
+  - id: 503448
+    user_id: 188741
+    user_name: ChrisGr
+    user_path: null
+    date_raw: 4 Apr 2012 — 1:43pm
+    date: 2012-04-04T13:43:00
+    votes: null
+    html: |-
+      <p>Some useful:<br>
+      <a class="freelinking external" href="http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm" rel="nofollow">The Surrogate Pair Calculator etc.</a></p>
+      <p>I think I have found the crucal infos:<br>
+      <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/dd374069" rel="nofollow">MSDN Surrogates and Supplementary Characters</a><br>
+      <a class="freelinking external" href="http://winvnkey.sourceforge.net/webhelp/winvnkey4.0-english-help.htm#surrogate_fonts.htm" rel="nofollow">WinVNKey: How To Set Up Surrogate fonts</a><br>
+      <a class="freelinking external" href="http://technet.microsoft.com/en-us/library/cc939627.aspx" rel="nofollow">TechNet FontSubstitutes</a></p>
+      <p>I think I go to test editing the registry settings:<br>
+      <code>     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\LanguagePack\SurrogateFallback]<br>
+      Plane1=(Name for fallback font for characters in Plane 1)<br>
+      Plane2=(Name for fallback font for characters in Plane 2)</code><br>
+      and also "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes"<br>
+      If this works well, probably I choose option B). Will report news about my experience here.</p>
+  - id: 504587
+    user_id: 29351
+    user_name: jdaggett
+    user_path: null
+    date_raw: 9 Apr 2012 — 6:51pm
+    date: 2012-04-09T18:51:00
+    votes: null
+    html: |-
+      <p>I'm not quite sure what you're looking for here.  All browsers implement the same basic algorithm for fallback within fonts in a given fontlist.  If you specify <code>font-family: FontA, FontB, sans-serif;</code>, then all browsers will first test FontA for a given character, then FontB, etc.  If <strong>system</strong> fallback occurs (i.e. none of the fonts in your specified fontlist contain a glyph for a given character), then the behavior will vary across browsers.  Chrome used a hard-coded fallback list, IE uses an OS-level fallback routine and Firefox uses a hybrid approach.  But if your goal is to always see a given set of symbols, make a font containing those symbols and include it in your font list.  In that case, fallback will be consistent across browsers.</p>
+      <p>John Daggett<br>
+      Mozilla Japan</p>

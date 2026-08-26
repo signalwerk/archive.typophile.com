@@ -1,0 +1,75 @@
+node: 17944
+title: How does ZapfDingbats.dfont work?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427195602"
+  captured_at: 2015-04-27T19:56:02Z
+  url: http://typophile.com/node/17944
+  digest: 2LHHYBTQNPZOUQ5ZYBSG4ZGM6BRWNLYI
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/17944.html
+  fingerprint: 8c4bd32ae47c3d00
+  parser: 4e04979c9499b509
+post:
+  id: 17944
+  user_id: 9913
+  user_name: canderson
+  user_path: null
+  date_raw: 15 Feb 2006 — 9:51am
+  date: 2006-02-15T09:51:00
+  votes: null
+  html: |-
+    <p>I'm curious about how the Mac OS X (10.4) provided ZapfDingbats works. It seems that it only has glyphs mapped into the Unicode range intended for dingbats. However, in Word, Quark 6.5 or InDesign CS2, if I type "a b c" on my keyboard, dingbats appear. In TextEdit, letters appear, but they are in a fallback font. This is with a US keyboard setting. Do some applications make an exception for Zapf, or is this expected behavior?<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/ZapfABC.jpg"></div><p></p>
+comments:
+  - id: 108697
+    user_id: 7006
+    user_name: paul d hunt
+    user_path: null
+    date_raw: 15 Feb 2006 — 12:41pm
+    date: 2006-02-15T12:41:00
+    votes: null
+    html: <p>i'm not brushed up on my <a href="/wiki/codepage" class="freelinking" rel="nofollow">codepages</a>, but i'm suspecting that this has something to do with that...</p>
+  - id: 108777
+    user_id: 9913
+    user_name: canderson
+    user_path: null
+    date_raw: 15 Feb 2006 — 9:19pm
+    date: 2006-02-15T21:19:00
+    votes: null
+    html: |-
+      <p>The reason I asked is because ZapfDingbats is inconsistant with my understanding of a Unicode font. For example, if the dingbats were glyphs from some other language range, I didn't think they could show up when typing with a US keyboard setting.<br>
+      This may reveal a big misunderstaning on my part regarding encodings. Do codepages provide a mechanism for this substitution? Is there some key documentation that I should read before posting questions like this?</p>
+  - id: 108778
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 15 Feb 2006 — 9:39pm
+    date: 2006-02-15T21:39:00
+    votes: null
+    html: <p>The Zapf Dingbats font is a special case, in that it has its own 8-bit codepage. Because it is unique, it is fairly easy for an application to invoke special handling when this font is selected, which explains why you don't need to switch keyboard layouts in order to access the characters.</p>
+  - id: 108811
+    user_id: 9913
+    user_name: canderson
+    user_path: null
+    date_raw: 16 Feb 2006 — 9:35am
+    date: 2006-02-16T09:35:00
+    votes: null
+    html: <p>Thanks for the help. John, did you just know this or did you use a tool to examine the font? Is TTX the best tool to examine the contents of a font file? If it couldn't dump info from a dfont, that would be understandable.</p>
+  - id: 108879
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 16 Feb 2006 — 2:50pm
+    date: 2006-02-16T14:50:00
+    votes: null
+    html: |-
+      <p>I knew about Zapf Dingbats having its own 8-bit codepage, and the rest is guesswork based on this fact and the sometimes strange behaviour of applications when encountering fonts with 'ding' in the name, e.g. <a href="http://typophile.com/node/17883" title="http://typophile.com/node/17883">http://typophile.com/node/17883</a></p>
+      <p>There is a tendency in programming to hard code special cases. So if you have a font that has unique properties, you stick in some lines of code that say 'if this font is used, perform this operation'. Often, the assumptions involved end up causing problems at a later date.</p>

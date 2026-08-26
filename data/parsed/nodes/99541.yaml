@@ -1,0 +1,106 @@
+node: 99541
+title: Font overlaps are visible when rendering
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150421123613"
+  captured_at: 2015-04-21T12:36:13Z
+  url: http://www.typophile.com/node/99541
+  digest: RXMT2GA2BLL3HBAML2GUJJ2T5RDUR2LL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/99541.html
+  fingerprint: 2fe13f44cb4bdc6f
+  parser: 4e04979c9499b509
+post:
+  id: 99541
+  user_id: 202944
+  user_name: Onrepeat
+  user_path: null
+  date_raw: 10 Jan 2013 — 5:23am
+  date: 2013-01-10T05:23:00
+  votes: null
+  html: |-
+    <p>I've just finished my latest font but noticed that some characters that overlap with eachother are not rendering correctly, here's what's happening:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/5456346_5992.jpg"></div><p></p>
+    <p>As you can see the overlapping sections are visible but this only happens on some characters, this didn't happen on Fontlab, everything renders correctly there.</p>
+    <p>Thanks.</p>
+comments:
+  - id: 537311
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 10 Jan 2013 — 5:30am
+    date: 2013-01-10T05:30:00
+    votes: null
+    html: <p>Your contour directions are wrong.</p>
+  - id: 537314
+    user_id: 202944
+    user_name: Onrepeat
+    user_path: null
+    date_raw: 10 Jan 2013 — 5:47am
+    date: 2013-01-10T05:47:00
+    votes: null
+    html: <p>Thanks Frode, I've thought about that too, tried using an action to set the contour direction to PostScript on the whole font but the problem seems to persist, am I missing something? How can I check the direction of each glyph to make sure they're all on the same boat?</p>
+  - id: 537331
+    user_id: 202944
+    user_name: Onrepeat
+    user_path: null
+    date_raw: 10 Jan 2013 — 6:59am
+    date: 2013-01-10T06:59:00
+    votes: null
+    html: |-
+      <p>Something weird is also happening, when I change the values of the tracking manually on the software (in this case, Illustrator), let's say, changing the 'O' tracking from 0 to -1, making the 'M' move, the overlap problem is gone, even if I change the tracking back to 0 again.</p>
+      <p>But if I delete the text and type it again with the default tracking the overlap renders visible.</p>
+  - id: 537534
+    user_id: 3834
+    user_name: Nick Cooke
+    user_path: null
+    date_raw: 12 Jan 2013 — 12:47am
+    date: 2013-01-12T00:47:00
+    votes: null
+    html: <p>You shouldn't really have any overlaps , so remove them before generating.</p>
+  - id: 537553
+    user_id: 2438
+    user_name: gargoyle
+    user_path: null
+    date_raw: 12 Jan 2013 — 7:27am
+    date: 2013-01-12T07:27:00
+    votes: null
+    html: |-
+      <p>While overlaps should be avoided within a single glyph, two separate glyphs overlapping shouldn't cause an issue like this. But if there are any overlaps within the affected glyphs, make sure to remove them before generating.</p>
+      <blockquote><p>How can I check the direction of each glyph</p></blockquote>
+      <p>In the FontLab's Preferences under <code>Glyph Window &gt; Outline drawing</code>, make sure <code>Show contour direction</code> is checked. A small blue arrow at the first point of each contour indicates path direction.</p>
+  - id: 537556
+    user_id: 749
+    user_name: alan
+    user_path: null
+    date_raw: 12 Jan 2013 — 7:41am
+    date: 2013-01-12T07:41:00
+    votes: null
+    html: |-
+      <p>Have you tried adding more contrast? Just kidding.</p>
+      <p>In addition to turning on the path direction indicators, perhaps also make sure that you're not running an automatic path direction action as a last step before exporting the OT font. It looks like you have a pretty complex set of outlines, and I've seen rare cases where FontLab gets the path direction wrong. Admittedly, this is usually (always?) before removing overlaps, but it wouldn't hurt to manually check it and then make sure it stays that way.</p>
+  - id: 537583
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 12 Jan 2013 — 10:41am
+    date: 2013-01-12T10:41:00
+    votes: null
+    html: <p>If changing the tracking and then reversing the change fixes the problem, that suggests it is an application issue. Does the problem appear when you print?</p>
+  - id: 538031
+    user_id: 202944
+    user_name: Onrepeat
+    user_path: null
+    date_raw: 15 Jan 2013 — 4:50am
+    date: 2013-01-15T04:50:00
+    votes: null
+    html: |-
+      <p>Nope, when printed everything was fine indeed.</p>
+      <p>Eventually I fixed this issue by copying the glyphs from Fontlab to Illustrator, deleting the original ones and pasting them again from Illustrator to Fontlab, it's weird but it fixed the problem.</p>

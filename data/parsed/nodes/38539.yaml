@@ -1,0 +1,255 @@
+node: 38539
+title: Automatic Text
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150421033044"
+  captured_at: 2015-04-21T03:30:44Z
+  url: http://typophile.com/node/38539
+  digest: O5YGII3AAJRNRYKRQC2IEHQCVZNOI4RH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/38539.html
+  fingerprint: 3be481142d0c55ca
+  parser: 4e04979c9499b509
+post:
+  id: 38539
+  user_id: 8976
+  user_name: Antonio Cavedoni
+  user_path: null
+  date_raw: 28 Oct 2007 — 12:49pm
+  date: 2007-10-28T12:49:00
+  votes: null
+  html: |-
+    <p>Hello everybody, a couple of weeks ago I was chatting with <a href="http://www.tht.it/" rel="nofollow">Claudio Piccinini</a> and he showed me a (working!) copy of <a href="/wiki/FontStudio" class="freelinking" rel="nofollow">FontStudio</a>, the mythical Letraset font editor from the early nineties. He was taking me through the features he used to love the most and at some point he showed me <a href="/wiki/Automatic%20Text" class="freelinking" rel="nofollow">Automatic Text</a>, which was basically a generator of preview text sequences of characters, useful for checking and editing your font spacing/kerning. </p>
+    <p>This was the original window:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/automatic-original_5593.png"></div><p></p>
+    <p>I then set out to reproduce the same behavior, which I found very useful, in FontLab Studio via Python. It took a while to find a way to write to the metrics window (FontLab’s Python documentation is terrible) but eventually:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/automatic-text_4818.png"></div><p></p>
+    <p>This is the end result, using the command “Generate h beside all characters”:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/automatic-text-result_3785.png"></div><p></p>
+    <p>I think it’s very useful, but I’ll let you be the judge on that. </p>
+    <p><strong>Get Automatic Text:</strong> You can get the code, with installation instructions, over here: <a href="http://code.unicoders.org/hacks/trunk/automatic_text.py" rel="nofollow">automatic_text.py</a> (or you can <a href="http://unicoders.org/code/hacks/trunk/automatic_text.py" rel="nofollow">read the source code online</a>).</p>
+    <p>Comments and ideas are welcome. I developed and tested it on my copy of FontLab Studio 5.0.4 on Mac OS X 10.4.9, if anyone could test it under Windows that would be awesome. I couldn’t find a way to produce radio buttons via the FontLab Python API, so I had to fake them with checkbox controls, which is suboptimal because it’s not their default behavior. </p>
+    <p><strong>Known issues:</strong> </p>
+    <ul>
+    <li>At the moment you can only enter either glyphs in the range <code>[a-zA-Z0-9]</code> in the text boxes, or the glyph names with the <code>/name</code> notation;</li>
+    </ul>
+    <p>That’s it, I hope this helps people with their metrics/kerning development. Cheers.</p>
+comments:
+  - id: 235954
+    user_id: 18185
+    user_name: solfeggio
+    user_path: null
+    date_raw: 28 Oct 2007 — 2:24pm
+    date: 2007-10-28T14:24:00
+    votes: null
+    html: |-
+      <p>Thanks, first of all, as this indeed appears to be a handy item. Too bad I can't seem to coax it into working properly under Windows (with FLS5). All it spits out is error messages ("invalid syntax") which, sad to say, I'm not wise enough to puzzle out. Hope someone else has better luck and can prescribe a solution. (<em>"Paging Adam Twardoch! Paging Tim Ahrens!"</em>)</p>
+      <p>Regards,<br>
+      Ernie</p>
+  - id: 235966
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 28 Oct 2007 — 3:28pm
+    date: 2007-10-28T15:28:00
+    votes: null
+    html: |-
+      <p>I worked around the first issue (the script was reordering your glyphs by Unicode name by default) by implementing an idea by Karsten Luecke: generate a temporary disposable copy of the font, sort <em>that</em> by Unicode name, and then delete it. This slows things down a bit, but it’ll do for now. I’m still curious as to why the glyph index is considered important, thought. As far as I know it’s a record of the order in which glyphs were entered into the font, maybe people are using to keep track of something more interesting? Also, is there a better way to get all the glyph names in a font, sorted by Unicode name? Now that I think of it, I could avoid the issue altogether and just use the default index order, but it didn’t seem significant enough to me.</p>
+      <p>Anyway: thanks, Karsten!</p>
+  - id: 235976
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 28 Oct 2007 — 3:05pm
+    date: 2007-10-28T15:05:00
+    votes: null
+    html: "<p>Ernie: the link to automatic_text.py used to take you to an HTML page where you could see the source code pretty printed with syntax highlighting, for comfortablle reading in your browser. I fixed it so it now points to the raw Python file; that might have been the cause of your “invalid syntax” errors, I’m afraid.</p>"
+  - id: 235993
+    user_id: 18185
+    user_name: solfeggio
+    user_path: null
+    date_raw: 28 Oct 2007 — 3:34pm
+    date: 2007-10-28T15:34:00
+    votes: null
+    html: |-
+      <p>Antonio, thank you. The script works as advertized &amp; without a hitch.</p>
+      <p>You were correct to suppose that the copy I'd snagged contained HTML code as well. I supposed much of that could have been commented out (or stripped out), but I didn't know what legitimate Python stuff might have been nearby and possibly whacked out by accident. (Someday I really have to read up on this stuff.) </p>
+      <p>Thanks for the follow up as this will clearly be a time saver. </p>
+      <p>Best,<br>
+      Ernie</p>
+  - id: 236035
+    user_id: 8183
+    user_name: schriftgestalt
+    user_path: null
+    date_raw: 29 Oct 2007 — 12:51am
+    date: 2007-10-29T00:51:00
+    votes: null
+    html: |-
+      <p>Thanks for the script. it looks really helpful. I will dive into it a bit more as I have to do the kerning for several fonts just now.</p>
+      <p>To answer your question why someone would care about the order of the glyphs (at least why I care): In Opentype fonts with hundreds of glyphs you need some order to find you way and to help the user to find the glyphs in the InDesign glyph pallet.</p>
+      <p>and now I have a question myself: Why in the first place you need to order the glyphs? If you (like me) have you glyphs in a nice order (with the help of a custom encoding file) I would like to keep it like this.</p>
+      <p>regards<br>
+      Georg</p>
+  - id: 236045
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 29 Oct 2007 — 3:39am
+    date: 2007-10-29T03:39:00
+    votes: null
+    html: |-
+      <p>Hi Georg, thanks for the explanation, I hadn’t paid attention to the InDesign glyph palette issue but it does sound like something significant for font developers. As for the glyph sorting, when I first developed the script I tested it with several of my (in progress) fonts, where the glyph index wasn’t really significant. That meant that when I was generating the sequences they weren’t making any sense. I could have sorted them alphabetically by glyph name, but that would have meant having more random sequences like having the infinity glyph near the lowercase i just because both started with the same letter. Sorting via the Unicode ordering seemed to make the most sense to me.</p>
+      <p>Does this explain the need for sorting or do people still think it would be best to leave the glyph order untouched? I can remove the sorting step if needed, but I would like to do it only if it’s regarded as the best option by people who use the script.</p>
+  - id: 236055
+    user_id: 8183
+    user_name: schriftgestalt
+    user_path: null
+    date_raw: 29 Oct 2007 — 4:55am
+    date: 2007-10-29T04:55:00
+    votes: null
+    html: |-
+      <p>and to keep you busy ;) (I would do it myself if i had time)</p>
+      <p>I would like to have some more options:<br>
+      1) Not only show a-z but also all accents<br>
+      2) use smallcaps. it schould work similar to [a-z] but with ".sc", "small", or ".smcp" added to the glyphname.<br>
+      3) check all figures. there may be tabular, oldstyle ... in the font.<br>
+      4) punctuation.</p>
+      <p>a hints for implementation:<br>
+      a) try to get the glyphname extension (for smallcaps and figures) from the font. I would try to test if "a.sc", "asmall", "a.smcp" are in the font. You there are no standards for naming glyphs so you have to support several.</p>
+      <p>Regards<br>
+      g</p>
+  - id: 236059
+    user_id: 11526
+    user_name: Goran Soderstrom
+    user_path: null
+    date_raw: 29 Oct 2007 — 5:14am
+    date: 2007-10-29T05:14:00
+    votes: null
+    html: |-
+      <p><cite>That’s it, I hope this helps people with their metrics/kerning development. Cheers.</cite></p>
+      <p>It really does, thanks a lot for making this great tool available.<br>
+      Cheers<br>
+      Göran</p>
+  - id: 236100
+    user_id: 1316
+    user_name: piccic
+    user_path: null
+    date_raw: 29 Oct 2007 — 8:39am
+    date: 2007-10-29T08:39:00
+    votes: null
+    html: |-
+      <p>Having already used it (and it's great: thanks Antonio!), I try to answer Reetsde's remarks:</p>
+      <p>1) You have not so much need for this, since as you select a glyph, when you open Automatic Text, the glyph name is already typed in the box. Additionally, you can just copy-paste the name of any glyph cell (so you can use the "selected glyphs in font window" feature).</p>
+      <p>2-3) Same as above. Since we still have not a glyph naming convention being thorough and univocal, I think this would be more a hindrance than a useful feature.</p>
+      <p>4) I leave this to Antonio's discretion, but I think it's not so essential.</p>
+  - id: 236156
+    user_id: 7730
+    user_name: scruggsdesign
+    user_path: null
+    date_raw: 29 Oct 2007 — 12:25pm
+    date: 2007-10-29T12:25:00
+    votes: null
+    html: |-
+      <p>Wow, this is really cool. Thanks! I do a similar thing using the @ symbol in the preview panel. The @ is replaced by the currently selected glyph.</p>
+      <p>How did you learn the Python language and how to program FontLab with it. I'd really like to be able to do stuff like this but like you said FontLab’s Python documentation is terrible. Do you have any book or website suggestions?</p>
+      <p>Thanks again,<br>
+      Josh</p>
+  - id: 236178
+    user_id: 619
+    user_name: degregorio
+    user_path: null
+    date_raw: 29 Oct 2007 — 1:51pm
+    date: 2007-10-29T13:51:00
+    votes: null
+    html: |-
+      <p>This is very cool.<br>
+      I can't hope arrive to my home to train with this, it seems interesting</p>
+  - id: 236184
+    user_id: 19133
+    user_name: emenninga
+    user_path: null
+    date_raw: 29 Oct 2007 — 2:34pm
+    date: 2007-10-29T14:34:00
+    votes: null
+    html: <p>I successfully used "Python Programming Patterns" by Thomas W. Christopher (Prentice Hall) but I don't remember why I chose that book.  I was already familiar with programming and LISP, so your mileage may vary...</p>
+  - id: 236231
+    user_id: 8183
+    user_name: schriftgestalt
+    user_path: null
+    date_raw: 29 Oct 2007 — 5:23pm
+    date: 2007-10-29T17:23:00
+    votes: null
+    html: |-
+      <p>Hi piccic!<br>
+      You did not understand me. I ment that I could lets say select a "T" and have it displayed with all available accented glyphs (TäTáTà ...) or with all punctuation (T.T,T;T:T"T"T«T»T‹T›T-T—T...) </p>
+      <p>I could use "all glyphs" but my fonts sometimes have 1000 glyphs ...</p>
+      <p>this could allso be a workaround for accessing OpenType glyphs (smallcaps, figures ...) in the metrics window so that I do not need to tipe "/h.sc" thousand times a day.</p>
+  - id: 236321
+    user_id: 1316
+    user_name: piccic
+    user_path: null
+    date_raw: 30 Oct 2007 — 8:48am
+    date: 2007-10-30T08:48:00
+    votes: null
+    html: |-
+      <p>Hi Reetsde.<br>
+      But you already have that feature: select the cell of the desired glyph and hit "copy".<br>
+      Then, select the range of glyphs you desire in the window.<br>
+      As you open Automatic Text's window, hit "paste", and you will have the single glyph name pasted in the cell (in your case, the "T", but it could be a "/sigma" or whatever). Then, as you choose "Selected glyphs in font window", you'll have all the pairs you need generated.</p>
+  - id: 237170
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 2 Nov 2007 — 3:10pm
+    date: 2007-11-02T15:10:00
+    votes: null
+    html: |-
+      <p>Hello everyone. I worked a bit more on Automatic Text and on another script dealing with kerning stuff, and I have now changed idea regarding the sorting of glyphs. Yeah, at first it might be unexpected to have glyphs in random order when generated by Automatic Text, but fixing it just means putting order in your “messy” glyph index, which sounds like a good thing to me. So, in order to encourage people (and I’ll put myself first) to actually organize their glyphs in a sensible manner, I think Automatic Text shouldn’t do any re-ordering for you, which is what it will do starting from version 0.3 which should be out in a few days.</p>
+      <p>Georg: regarding your requests about having more ranges available, I understand they’ll be helpful but I fear having too many options might make the dialog window more messy than it already is. As Claudio suggested, a good ordering of your glyph index plus the “generate behind selected glyphs in font window” should help you with accented letters, punctuation and figures. For small caps I have another script in the pipeline which basicaly converts all the caps in the current metrics window with their small caps counterpart.</p>
+      <p>I also fixed the issue with being able to only enter glyphs in the <code>[a-zA-Z0-9]</code> range in Automatic Text, but before releasing it I’d like to make up my mind about a dependency issue I just introduced. Stay tuned.</p>
+  - id: 237172
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 2 Nov 2007 — 3:22pm
+    date: 2007-11-02T15:22:00
+    votes: null
+    html: |-
+      <p>Hey Josh: I started coding in Python because I was sick of using PHP for my Web development work, then I started using it for general automation. I was delighted to find out it was the de-facto standard in the tyographic world. Python per se is not hard at all to learn (it’s a pleasure compared to other languages), but you might find it easier if you already know concepts of generic programming. In any case, Python is considered very good even as a first programming language, so don’t be scared. There are some good, free guides on the Web about programming, and some use Python as the teaching language like <cite><a href="http://www.ibiblio.org/obp/thinkCSpy/" rel="nofollow">How to Think Like a Computer Scientist</a></cite>. </p>
+      <p>Most of all, what helped me while I was beginning (and still helps me, since I can’t really consider myself as a great programmer) is reading other people’s source code, figuring out why it worked and why it was written in a certain way. Then I could modify it for my needs and maybe add some of my own ideas. After that you gain confidence because you already know how to solve a certain set of problems, and then you can move on to more interesting ones. My advice is to pick a project that would be helpful to you right now, like building a photo gallery for your Web site, and automate its production. Sure, you’ll hit roadblocks along the way like “how do I install new libraries?” “where do I find the libraries I need?” “how do I get a list of file names from a directory?”, but all these will be chances to dig deeper and learn more.</p>
+  - id: 478341
+    user_id: 53927
+    user_name: jakob_runge
+    user_path: null
+    date_raw: 23 Sep 2011 — 12:30am
+    date: 2011-09-23T00:30:00
+    votes: null
+    html: |-
+      <p>I'm a student from Germany starting getting into touch with font production.<br>
+      Sadly both links to the amazing script are broken.</p>
+      <p>Is there any possibility to get this Python-file?</p>
+      <p>Thanks a lot and best regards,<br>
+         Jakob</p>
+  - id: 478352
+    user_id: 766
+    user_name: gferreira
+    user_path: null
+    date_raw: 23 Sep 2011 — 3:48am
+    date: 2011-09-23T03:48:00
+    votes: null
+    html: <p><a class="freelinking external" href="http://wayback.archive.org/web/*/http://code.unicoders.org/hacks/trunk/automatic_text.py" rel="nofollow">here</a></p>
+  - id: 478407
+    user_id: 8976
+    user_name: Antonio Cavedoni
+    user_path: null
+    date_raw: 23 Sep 2011 — 3:25pm
+    date: 2011-09-23T15:25:00
+    votes: null
+    html: <p>Sorry everybody, the unicoders.org repository has been broken for a while. I’ll upload the source to this script somewhere else more stable soon.</p>

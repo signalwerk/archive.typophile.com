@@ -13,7 +13,7 @@
 
 import { archiveDirs } from "./lib/config.js";
 import { selectArchives } from "./lib/archives/index.js";
-import { ensureDir, parseArgs } from "./lib/util.js";
+import { ensureDir, parseArgs, acquireLock } from "./lib/util.js";
 
 const args = parseArgs();
 
@@ -25,11 +25,16 @@ async function main() {
     ensureDir(dirs.raw);
     console.log(`\n=== ${archive.label} (${archive.id}) ===`);
     const log = (msg) => console.log(msg);
+    let release;
     try {
+      // Two index fetches for one archive would fight over the same files.
+      release = acquireLock(`${dirs.raw}/fetch.lock`, `index fetch of ${archive.id}`);
       await archive.fetchIndex({ dirs, args, log });
     } catch (err) {
-      console.error(`   failed: ${err.message}`);
-      if (archives.length === 1) process.exitCode = 1;
+      console.error(err.code === "ELOCKED" ? `   skipped: ${err.message}` : `   failed: ${err.message}`);
+      if (archives.length === 1 && err.code !== "ELOCKED") process.exitCode = 1;
+    } finally {
+      release?.();
     }
   }
 }

@@ -138,6 +138,15 @@ comparable.
   bodies that are not actually gzipped, so anything that auto-decompresses
   fails. It also substitutes a neighbouring capture when the exact timestamp
   cannot be replayed — only the digest check catches that.
+  Its `showNumPages=true` must not be combined with `fl=`, or it answers with a
+  row of dashes instead of the page count.
+  Some stored records are damaged: the original was gzip-encoded and `id_`
+  serves decompressed bytes cut off at the *compressed* `Content-Length`, so the
+  HTML stops mid-tag and can never match its digest. For those the downloader
+  falls back to the ordinary rewritten replay, which returns the whole page, and
+  records `verified: false, source: "rewritten"` — complete, but URL-rewritten
+  and not byte-verifiable, so the merge step should prefer a verified capture
+  from another archive when one exists.
 - **arquivo.pt** only verifies through `/wayback/<ts>id_/`. Its
   `/noFrame/replay/` and plain `/wayback/<ts>/` endpoints return rewritten
   pages. Its useful coverage is small (~157 pre-cutoff URLs, mostly images).
@@ -150,9 +159,139 @@ comparable.
   capture from another archive. The index server also 504s on broad queries,
   so crawls are fetched one at a time and retried.
 
+## Parsing the forum threads
+
+Steps 5 and 6 turn the downloaded `/node/<id>` pages into one YAML file each.
+
+```sh
+npm run select   # pick which archived copy of each node to parse
+npm run parse    # parse those into data/parsed/nodes/<id>.yaml
+```
+
+### Which copy gets parsed
+
+Step 5 looks at all three archives and takes the **latest** capture of each
+node — with one exception. A capture Common Crawl marked `WARC-Truncated` is
+cut off mid-document, so a complete older copy beats a truncated newer one.
+Every such swap is counted, and `--prefer-latest` turns the exception off.
+
+### Generations
+
+The content survived Typophile's redesigns but the HTML around it did not, so
+each page is matched to a parser for its era. Detection is by structure, not by
+date:
+
+| generation | markers | byline | comments | date format |
+| --- | --- | --- | --- | --- |
+| `sidebars` | `body.sidebars`, `div#node-<id>` | `.content-head .submitted` | `#comments` → `a#comment-<id>` + `div.comment` | `20 Oct 2003 — 11:32am` |
+| `classic` | `#content-frame`, `div.node > .info` | `.info` | `a#comment-<id>` + `div.comment` | `24.Jan.2004 6.23pm` |
+
+A page matching **no** generation is never guessed at — it is reported as an
+error in the log and left unparsed. New generations go in
+[src/lib/generations.js](src/lib/generations.js): add a `detect` and a `parse`,
+and the rest of the pipeline picks it up.
+
+### Output
+
+One file per node, with the HTML of the post and of every comment kept exactly
+as it appeared — nothing rewritten or stripped:
+
+```yaml
+node: 109
+title: Bertrand
+forum: { id: 27, title: Serif }
+source:
+  archive: commoncrawl.org
+  timestamp: "20150426213756"
+  captured_at: "2015-04-26T21:37:56Z"
+  url: http://typophile.com/node/109
+  digest: 45MBTOIXTI2W5Q2M3F4MXBTHZTERMLIA
+  verified: true
+  truncated: false
+  generation: sidebars
+post:
+  id: 109
+  user_id: 1275
+  user_name: jfp
+  date: "2003-05-12T07:47:00"
+  date_raw: 12 May 2003 — 7:47am
+  votes: null
+  html: |
+    <p>…</p>
+comments:
+  - id: 351
+    user_id: 1250
+    …
+```
+
+`date` is deliberately naive: no timezone appears anywhere on the page, so
+inventing one would be a lie. `date_raw` keeps the original string.
+
+`votes` is `null` throughout — neither surviving generation renders a score.
+The extraction hook is in place should a generation that does turn up.
+
+`user_path` appears when a member had a vanity profile URL (`/readthetype`)
+instead of a numeric one: there is no id to recover, but the name and path are.
+
+### Re-running after new material arrives
+
+Steps 5 and 6 are incremental. Step 5 re-examines every archive and prints what
+moved since last time:
+
+```
+since the last run:
+   new nodes ........ 1,204
+   changed copy ..... 37
+   unchanged ........ 11,190
+```
+
+Step 6 then re-parses only the new and changed ones. The decision is made on a
+**fingerprint** covering everything that could change the result — archive,
+timestamp, digest, local file, size, and whether the capture is a whole
+document. Comparing the timestamp alone is not enough: the same capture can be
+re-downloaded and yield different bytes (a damaged Wayback record replaced by
+the complete rewritten replay keeps its original timestamp), and that has to
+count as changed.
+
+`data/parsed/state.json` records, per node, that fingerprint, the parser
+version, and any findings. It is the authority for skipping — a node can only
+be skipped if its findings can be replayed, so **the log always describes the
+whole corpus rather than just the last increment**. Deleting the state file is
+safe; it just forces a full re-parse. Each YAML also carries its own
+`fingerprint:` and `parser:` in the `source:` block, for inspection.
+
+Editing the parsers invalidates the output automatically: step 6 hashes
+`generations.js` together with its own source, and re-parses anything built by
+a different version. No `--force` needed after a parser fix — that flag is only
+for re-parsing something that has not changed.
+
+### Which captures count as whole
+
+A later capture of a thread carries more replies, so **latest wins** among
+captures that are whole documents. A capture is *not* whole when:
+
+- the archive recorded it as truncated (Common Crawl's `WARC-Truncated`), or
+- its bytes did not match the digest and no better copy was found — on the
+  Wayback Machine that usually means a damaged record whose HTML stops mid-tag.
+
+A capture recovered through the rewritten replay **is** whole — it just cannot
+be byte-verified — so it stays eligible. `--prefer-latest` ignores all of this
+and takes the newest capture regardless.
+
+### The parse log
+
+`data/parsed/parse.log` holds **only** warnings and errors — a clean run leaves
+it empty:
+
+```
+WARN  node 94      source capture is truncated (commoncrawl.org 20150418114616) -- content may be incomplete
+WARN  node 16534   comment.user_id (comment 333616): no user id (author "Chris Dean")
+ERROR node 13987   post.html: empty post body
+```
+
+Counts land in `data/parsed/parse.meta.json`.
+
 ## Still to do
 
-- **Combine the archives** into one merged set, preferring complete captures
-  over truncated ones and the newest pre-cutoff capture across archives.
-- `src/005_parse.js` still expects the old single-archive paths and the old
-  download-list shape, so it needs updating before it will run.
+- **Combine the archives** for everything other than `/node/` pages.
+- Post-process the stored HTML (the pipeline keeps it verbatim on purpose).

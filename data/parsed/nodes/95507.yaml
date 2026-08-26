@@ -1,0 +1,164 @@
+node: 95507
+title: How do copy metric/kerning from uppercase letters to lowercase in Fontlab?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150425143247"
+  captured_at: 2015-04-25T14:32:47Z
+  url: http://www.typophile.com/node/95507
+  digest: M5QRQFXKAV5FZ6ZLQEYCITSHEMATJL3K
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/95507.html
+  fingerprint: 6b67682ae3bddf28
+  parser: 4e04979c9499b509
+post:
+  id: 95507
+  user_id: 197436
+  user_name: willryan42
+  user_path: null
+  date_raw: 11 Aug 2012 — 4:17pm
+  date: 2012-08-11T16:17:00
+  votes: null
+  html: |-
+    <p>I'm designing a display face in Fontlab, and I'm only creating uppercase letters. I planned on finishing the uppercase letters (metric and kerning included) and then just copy them to the lowercase letter spots so the same A shows up whether you type a or A.</p>
+    <p>However, it doesn't seem like metric and kerning data gets included when I copy and paste letters. I don't know much about Fontlab, but I would've thought I could somehow copy this data. Any ideas?</p>
+comments:
+  - id: 518800
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 11 Aug 2012 — 4:44pm
+    date: 2012-08-11T16:44:00
+    votes: null
+    html: |-
+      <p>I've got the same question; and to add to it, once you've done that, you still have to consider the upper/lower combinations. It would be nice if<br>
+      AV could be copied to all combinations of those glyphs: AV, av, aV, and Av.</p>
+  - id: 518801
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 11 Aug 2012 — 5:02pm
+    date: 2012-08-11T17:02:00
+    votes: null
+    html: |-
+      <p>Save the metrics out as a text file, manually* duplicate/modify the kerning part, then re-import.</p>
+      <p>* Or recruit a word processor's find/replace function.</p>
+      <p>hhp</p>
+  - id: 518804
+    user_id: 11578
+    user_name: HVB
+    user_path: null
+    date_raw: 11 Aug 2012 — 5:07pm
+    date: 2012-08-11T17:07:00
+    votes: null
+    html: <p>Too simple. Thank you :)</p>
+  - id: 518809
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 11 Aug 2012 — 5:34pm
+    date: 2012-08-11T17:34:00
+    votes: null
+    html: <p>Use the 'Paste Special' function from the Edit menu.</p>
+  - id: 518810
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 11 Aug 2012 — 5:39pm
+    date: 2012-08-11T17:39:00
+    votes: null
+    html: |-
+      <p>I feel like an old dog who needs to learn new tricks.</p>
+      <p>hhp</p>
+  - id: 518812
+    user_id: 103753
+    user_name: David Vereschagin
+    user_path: null
+    date_raw: 11 Aug 2012 — 5:42pm
+    date: 2012-08-11T17:42:00
+    votes: null
+    html: |-
+      <p>Why not create an OpenType feature to substitute the uppercase characters when their lowercase counterparts are typed?</p>
+      <p>David</p>
+  - id: 518832
+    user_id: 29994
+    user_name: Theunis de Jong
+    user_path: null
+    date_raw: 12 Aug 2012 — 4:28am
+    date: 2012-08-12T04:28:00
+    votes: null
+    html: <p>Or assign the same glyph to different Unicode values.</p>
+  - id: 518862
+    user_id: 197436
+    user_name: willryan42
+    user_path: null
+    date_raw: 12 Aug 2012 — 11:01am
+    date: 2012-08-12T11:01:00
+    votes: null
+    html: |-
+      <p>@HVB: I didn't even think about aV, av, and Av... that introduces a whole new problem...</p>
+      <p>@John Hudson: Thanks, this worked! Using paste special and selecting left and right kerning option works beautifully.</p>
+      <p>@Quadrat: I've never messed with OT features, and regardless I think this font is ultimately going to be a TTF. For some reason when I generate the font it looks very wrong when I export as an OpenType font, but fine when I choose TrueType. The characters are very complex so I'm sure I could just be doing something incorrect when generating the font, but for now it looks like I'll have to stick with TTF.</p>
+      <p>@Theunis: Didn't even know you could do that! Seems a little complicated for me, but I'll look into it.</p>
+  - id: 518868
+    user_id: 3254
+    user_name: eliason
+    user_path: null
+    date_raw: 12 Aug 2012 — 11:54am
+    date: 2012-08-12T11:54:00
+    votes: null
+    html: |-
+      <blockquote><p>Or assign the same glyph to different Unicode values</p></blockquote>
+      <p>That's what I did with the Ambicase fonts.</p>
+  - id: 518879
+    user_id: 2438
+    user_name: gargoyle
+    user_path: null
+    date_raw: 12 Aug 2012 — 12:45pm
+    date: 2012-08-12T12:45:00
+    votes: null
+    html: <p>For all-caps fonts, I find double-encoding the glyphs to be more convenient during development, even if I end up expanding them at the end. Since the "lowercase" is literally the same as the uppercase, it doesn't matter which one you edit/kern/etc., and there's no need to worry about case when navigating or typing out test strings. Then if I'm feeling especially standards-compliant, before generating I can run a macro that creates properly-encoded lowercase copies and adds them to appropriate kerning classes.</p>
+  - id: 518891
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 12 Aug 2012 — 2:33pm
+    date: 2012-08-12T14:33:00
+    votes: null
+    html: <p>A TTF can still have OT features.</p>
+  - id: 518993
+    user_id: 83217
+    user_name: Té Rowan
+    user_path: null
+    date_raw: 13 Aug 2012 — 10:44am
+    date: 2012-08-13T10:44:00
+    votes: null
+    html: <p>Especially since nowadays TTF is took to mean TT-flavoured OTF.</p>
+  - id: 602545
+    user_id: 41363
+    user_name: FabulousRice
+    user_path: null
+    date_raw: 8 Apr 2015 — 11:02pm
+    date: 2015-04-08T23:02:00
+    votes: null
+    html: |-
+      <p>I'm in the same situation... I've tried the solutions that are on here, but I couldn't get a single one to work.<br>
+      Would someone be kind enough to write a short step-by-step tutorial of the solution they're using? Thank you very much :)</p>
+  - id: 602553
+    user_id: 21309
+    user_name: erwindenissen
+    user_path: null
+    date_raw: 9 Apr 2015 — 2:19am
+    date: 2015-04-09T02:19:00
+    votes: null
+    html: |-
+      <p>1) Ensure all lowercase letters are deleted<br>
+      2) Select uppercase A<br>
+      3) In the Glyph Properties panel change the Unicode value "0041" into "0041 0061" and press the Apply button<br>
+      4) Repeat step 2 and 3 for the other uppercase letters (0042 -&gt; 0042 0062, etc)</p>

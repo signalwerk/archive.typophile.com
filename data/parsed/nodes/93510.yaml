@@ -1,0 +1,180 @@
+node: 93510
+title: Alternative letters in the same Open Type font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427091258"
+  captured_at: 2015-04-27T09:12:58Z
+  url: http://typophile.com/node/93510
+  digest: GBRI4O23GTEVWHOCQUSGPXHESEMWYSQG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/93510.html
+  fingerprint: d4343feec657b564
+  parser: 4e04979c9499b509
+post:
+  id: 93510
+  user_id: 96745
+  user_name: Turoturom
+  user_path: null
+  date_raw: 30 May 2012 — 2:38pm
+  date: 2012-05-30T14:38:00
+  votes: null
+  html: |-
+    <p>Hello experts on the field</p>
+    <p>I created a font that has 2 variations of the capital letters and 3 variations of the lower cases. It is a serif font traced from a popular children's book from the end of the 19th century so it was done by hand. I consulted the 2006 post by steff_en and got some answers. </p>
+    <p><a href="http://typophile.com/node/17887#comment-511377" title="http://typophile.com/node/17887#comment-511377">http://typophile.com/node/17887#comment-511377</a></p>
+    <p>I set my classes and followed twardoch instructions and I got no errors, I generated the font but it does not do what I intended. That is: everytime I type a particular letter for the second or third time I want them different. As I mentioned, I made 3 versions of every small cap letters and 2 versions of the capital letters. Ex: in the word "tomorrow", I would like the three "o"s and the two "r"s to be diferent in the same word.</p>
+    <p>Please help!<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_4059.jpg"></div><p></p>
+comments:
+  - id: 511556
+    user_id: 96745
+    user_name: Turoturom
+    user_path: null
+    date_raw: 31 May 2012 — 5:13am
+    date: 2012-05-31T05:13:00
+    votes: null
+    html: <p>UPDATE, I no longer get the WARNING thanks to frode frank, but I do need help with the programming mentioned above. Regards</p>
+  - id: 511565
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 31 May 2012 — 6:37am
+    date: 2012-05-31T06:37:00
+    votes: null
+    html: '<p>See here: <a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>'
+  - id: 511570
+    user_id: 96745
+    user_name: Turoturom
+    user_path: null
+    date_raw: 31 May 2012 — 7:39am
+    date: 2012-05-31T07:39:00
+    votes: null
+    html: |-
+      <p>Thanks frode frank!</p>
+      <p>Pieter van Rosmalen's proposal (pasted right below) seems the simplest to me, for I can barely program. </p>
+      <p>feature salt {<br>
+      lookup rotate {<br>
+      sub @set_1 @set_1' by @set_2;<br>
+      sub @set_2 @set_1' by @set_3;<br>
+      sub @set_3 @set_1' by @set_4;<br>
+      sub @set_4 @set_1' by @set_5;<br>
+      sub @set_5 @set_1' by @set_1;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } salt;</p>
+      <p>----------------<br>
+      MY QUESTION IS THIS:<br>
+      Should I rename my classes to set_1, set_2 and set_3 to make this coding work??? You can see the image that contains my classes.</p>
+  - id: 511575
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 31 May 2012 — 8:08am
+    date: 2012-05-31T08:08:00
+    votes: null
+    html: |-
+      <p>Hmm. Assuming the swashes is a feature on its own, your code would look like this:</p>
+      <p>feature salt {<br>
+      lookup rotate {<br>
+      sub @class1 @class1' by @alt1;<br>
+      sub @alt1 @class1' by @alt2;<br>
+      sub @alt2 @class1' by @class1;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } salt;</p>
+  - id: 511577
+    user_id: 96745
+    user_name: Turoturom
+    user_path: null
+    date_raw: 31 May 2012 — 8:02am
+    date: 2012-05-31T08:02:00
+    votes: null
+    html: <p>Yes the swash is a feature on its own. I will give it a shot and let you know. THANX!</p>
+  - id: 511611
+    user_id: 96745
+    user_name: Turoturom
+    user_path: null
+    date_raw: 31 May 2012 — 1:49pm
+    date: 2012-05-31T13:49:00
+    votes: null
+    html: |-
+      <p>This is what I did: on the OPENTYPE window under salt, I erased what I had for the text you sugest. I got this error:</p>
+      <p>[ERROR]  Target glyph class in sub-rule doesn't have the same number of elements as the replacement class; the target has 1, the replacement, 56117856 [/Users/Arturete/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 8]<br>
+      [FATAL]  aborting because of errors</p>
+      <p>What did I do wrong?</p>
+      <p>Thanks in advance</p>
+  - id: 511614
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 31 May 2012 — 2:08pm
+    date: 2012-05-31T14:08:00
+    votes: null
+    html: |-
+      <p>You get this error because the classes doesn’t have the same number of elements.</p>
+      <p><code>lc: a b c d<br>
+      smcp: a.smcp b.smcp c.smcp d.smcp</code></p>
+      <p>In the example above, each class has four elements. I can now call the classes in my OpenType code, like this:</p>
+      <p><code>feature smcp {<br>
+      sub @lc by @smcp;<br>
+      } smcp;</code></p>
+      <p>If the small cap feature is activated, a /d/ (which is in the @lc class, remember) will be subsituted for the glyph occupying the same “slot” in the @smcp class. In this case /d.smcp/. If the @smcp class only has three letters there’s no way for the OT engine to know what to do.</p>
+  - id: 511616
+    user_id: 2438
+    user_name: gargoyle
+    user_path: null
+    date_raw: 31 May 2012 — 2:29pm
+    date: 2012-05-31T14:29:00
+    votes: null
+    html: |-
+      <p>It shouldn't affect the compilation, but wouldn't the rotation code be better placed in the <code>calt</code> feature? Your original <code>salt</code> code looked appropriate for defining alternate glyphs, which is really what that feature is for.</p>
+      <p>(Edit: this was also <a class="freelinking external" href="http://typophile.com/node/19625#comment-278274" rel="nofollow">discussed in the older thread</a>.)</p>
+  - id: 511769
+    user_id: 96745
+    user_name: Turoturom
+    user_path: null
+    date_raw: 1 Jun 2012 — 11:36pm
+    date: 2012-06-01T23:36:00
+    votes: null
+    html: |-
+      <p>I am sorry Frank, I don't understand what I should do on CLASSES in order to keep your coding:</p>
+      <p>feature salt {<br>
+      lookup rotate {<br>
+      sub @class1 @class1' by @alt1;<br>
+      sub @alt1 @class1' by @alt2;<br>
+      sub @alt2 @class1' by @class1;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } salt;</p>
+      <p>Thanks</p>
+  - id: 511775
+    user_id: 17101
+    user_name: Frode Bo Helland
+    user_path: null
+    date_raw: 2 Jun 2012 — 2:02am
+    date: 2012-06-02T02:02:00
+    votes: null
+    html: <p>If you want, I can look at your files. You can PM me.</p>
+  - id: 511781
+    user_id: 2438
+    user_name: gargoyle
+    user_path: null
+    date_raw: 2 Jun 2012 — 7:45am
+    date: 2012-06-02T07:45:00
+    votes: null
+    html: |-
+      <p>The bottom of the Classes panel shows the total number of glyphs in the selected class (110 in your screenshot). In order to substitute a class by another class, each class must contain the same number of glyphs, sorted in the same order relative to the other. If <code>@class1</code> contains 110 glyphs <code>[A B C ...]</code>, then <code>@alt1</code> must contain 110 alternates <code>[A.alt1 B.alt1 C.alt1 ...]</code>, and <code>@alt2</code> as well <code>[A.alt2 B.alt2 C.alt2 ...]</code>.</p>
+      <blockquote><p>I created a font that has 2 variations of the capital letters and 3 variations of the lower cases.</p></blockquote>
+      <p>This could be the source of the problem. If <code>@alt2</code> contains only lowercase alternates, it can't be substituted for a class that also contains capitals. A solution would be to separate up the upper- and lowercase glyphs into different sets of classes (with related classes containing the same number of glyphs), and "rotate" each set independently.</p>
+      <p>Also, see <a class="freelinking external" href="http://typophile.com/node/19625#comment-269297" rel="nofollow">Miguel Sousa's explanation</a> of the code, including why certain parts may be unnecessary. Even after separating by case, the whole thing should work with only one rule for the uppercase and two for the lowercase.</p>
+      <pre>sub @uppercase @uppercase' by @uppercase_alt1;
+      sub @lowercase @lowercase' by @lowercase_alt1;
+      sub @lowercase_alt1 @lowercase' by @lowercase_alt2;
+      </pre>

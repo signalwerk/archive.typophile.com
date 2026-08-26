@@ -1,0 +1,227 @@
+node: 76089
+title: Unicode ligatures
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427095628"
+  captured_at: 2015-04-27T09:56:28Z
+  url: http://typophile.com/node/76089
+  digest: JGXPYHXW6WYDRKR3OHMTKYLSSW65KEYH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/76089.html
+  fingerprint: 2e4cc55b2dc9b903
+  parser: 4e04979c9499b509
+post:
+  id: 76089
+  user_id: 16579
+  user_name: Eli
+  user_path: null
+  date_raw: 8 Nov 2010 — 9:40am
+  date: 2010-11-08T09:40:00
+  votes: null
+  html: |-
+    <p>Hello typophiles:<br>
+    I'm writing the opentype code of a font, starting with ligatures I have some doubts about encoded ligatures and not encoded ones. In a previous thread <a href="http://typophile.com/node/35174" title="http://typophile.com/node/35174">http://typophile.com/node/35174</a> Miguel Sousa suggested to duplicate the encoded characters fi (FB01) and fl (FB02) for the liga feature and rename the duplicates as f_i, f_l. Then in small caps generate the glyphs fi.sc and fl.sc to replace fi and fl. And the OT code should look like this:</p>
+    <p>feature smcp {<br>
+    sub fi by fi.sc;<br>
+    sub fl by fl.sc;<br>
+    } smcp;</p>
+    <p>feature liga {<br>
+    sub f i by f_i;<br>
+    sub f l by f_l;<br>
+    } liga;</p>
+    <p>My question is what about the other encoded ligatures? I dont know what is better, unencode them or keep the encoding and duplicate them as suggested. I also have these characters: ff (FB00), ffi (FB03), ffl (FB04), s_t (FB06) and longs_t (FB05). I have decided to duplicated them but i don't know if it is the right decision, here are my glyphs and my code. Could you advice me?</p>
+    <p>Encoded: fi(FB01), fl (FB02), ff (FB00), ffi (FB03), ffl (FB04), st (FB06) and longs_t (FB05)<br>
+    Duplicated: f_f, f_f_i, f_f_l, s_t, longs_t.hlig<br>
+    Generated for smcp: fi. sc, fl.sc, ff.sc, ffi.sc, ffl.sc, st.sc</p>
+    <p>feature smcp {<br>
+    sub ffi by ffi.sc;<br>
+    sub ffl by ffl.sc<br>
+    sub ff by ff.sc;<br>
+    sub fi by fi.sc;<br>
+    sub fl by fl.sc;<br>
+    sub st by st.sc;<br>
+    } smcp;</p>
+    <p>feature liga {<br>
+    sub f f i by f_f_i;<br>
+    sub f i by f_i;<br>
+    sub f l by f_l;<br>
+    } liga;</p>
+    <p>feature dlig {<br>
+    sub s t by s_t;<br>
+    } dlig;</p>
+    <p>hlig {<br>
+    sub ſ t by longs_t.hlig;<br>
+    } hlig;</p>
+    <p>As for the uppercase forms, should I generate especial glyphs to substitute the enconded ligatures when the user changes the text from lowercase to all caps? Thanks in advance.</p>
+comments:
+  - id: 438705
+    user_id: 31798
+    user_name: agisaak
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:04am
+    date: 2010-11-08T10:04:00
+    votes: null
+    html: |-
+      <p>I'm a bit unclear on why you think you need to create duplicates of your ligatures.</p>
+      <p>You can encode (e.g.) your <code>f_i</code> ligature as UFB01, include a rule <code>sub f i by f_i</code>, and omit the duplicate <code>fi</code> character altogether. Note that either name (<code>fi </code> or <code> f_i</code>) is consistent with proper naming conventions (though personally I'd use the latter).</p>
+      <p>Including capital versions of the ligatures is only necessary if you want to accommodate users who employ hard-coded ligatures in their text (something which I view as a bad practice).</p>
+      <p>André</p>
+  - id: 438712
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:35am
+    date: 2010-11-08T10:35:00
+    votes: null
+    html: |-
+      <p>In theory, Unicode should not exist for ligatures, because they confound the distinction between character and glyph.</p>
+      <p>However, Unicode accommodates many "legacy" typographic characters that were part of exisiting encodings -- and so, because "fi" was part of, for instance, the Mac OS Roman encoding, it is given its own Unicode.</p>
+  - id: 438713
+    user_id: 21217
+    user_name: Khaled Hosny
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:35am
+    date: 2010-11-08T10:35:00
+    votes: null
+    html: |-
+      <p>Are your fi.sc a real ligature or a mere aggregation of f.sc and i.sc, if the later is the case, then I see no point in having an fi.sc glyph at all, it is just redundant. you can instead say:<br>
+      <code><br>
+      sub fi by f.sc i.sc;<br>
+      </code></p>
+      <p>and the same goes for other similar ligatures.</p>
+  - id: 438715
+    user_id: 6470
+    user_name: oldnick
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:52am
+    date: 2010-11-08T10:52:00
+    votes: null
+    html: <p>Is there such a thing as an uppercase long s?</p>
+  - id: 438716
+    user_id: 31798
+    user_name: agisaak
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:56am
+    date: 2010-11-08T10:56:00
+    votes: null
+    html: |-
+      <p><code>sub fi by f.sc i.sc</code> requires an application to support one to many substitutions which many currently do not.</p>
+      <p>The issue of small capital f_i, however, only arises where the user actually enters uFBO1 instead of simply entering the sequence f i. I'd hope that with the advent of opentype, few users are choosing to do this. Given a legacy text which includes hard-coded ligatures, I'd think the user would be better off doing a search-and-replace to fix so that spell-checking, hyphenation, etc. actually work properly anyway, so supporting smallcap (or all cap) versions of ligatures doesn't seem like it should be a priority when coding features.</p>
+      <p>André</p>
+  - id: 438717
+    user_id: 31798
+    user_name: agisaak
+    user_path: null
+    date_raw: 8 Nov 2010 — 10:57am
+    date: 2010-11-08T10:57:00
+    votes: null
+    html: |-
+      <p>@Oldnick.</p>
+      <p>Yes. You can find it at u0053.</p>
+      <p>André</p>
+  - id: 438720
+    user_id: 16579
+    user_name: Eli
+    user_path: null
+    date_raw: 8 Nov 2010 — 11:07am
+    date: 2010-11-08T11:07:00
+    votes: null
+    html: |-
+      <p>Hi André, this is what M.Sousa says about  duplicating ligatures:<br>
+      "The only reason why there's the need for smallcap versions of fi and fl is because they are characters, i.e. they have their own Unicode codepoints. In addition, these two characters are included in the MacRoman encoding and can be easily accessed from the keyboard, so there's a high chance to find them in texts."<br>
+      Thansk Nick, that's why I'm thinking about removing the encodings of my ligatures.<br>
+      Khaled, good point, thanks.<br>
+      Mr. Oldnick, I also would like to know about that, I think there isn't an uppercase form of long s.</p>
+  - id: 438730
+    user_id: 31798
+    user_name: agisaak
+    user_path: null
+    date_raw: 8 Nov 2010 — 11:35am
+    date: 2010-11-08T11:35:00
+    votes: null
+    html: |-
+      <p>Eli,</p>
+      <p>Sousa's comments provide a reason for providing a f_i.sc glyph, but not a reason for providing both f_i and fi glyphs. That's the part I'm not getting.</p>
+      <p>André</p>
+  - id: 438739
+    user_id: 7508
+    user_name: Cristobal Henestrosa
+    user_path: null
+    date_raw: 8 Nov 2010 — 11:56am
+    date: 2010-11-08T11:56:00
+    votes: null
+    html: |-
+      <p>Hi Eli!</p>
+      <p>I’d say the only encoded ligatures you should include are fi and fl, because there is a fair chance that in some texts they were set as one single character:</p>
+      <p>(US keyboard)<br>
+      <code>alt shift 5 = ﬁ<br>
+      alt shift 6 = ﬂ</code></p>
+      <p>(Spanish ISO keyboard)<br>
+      <code>alt shift f = ﬁ<br>
+      alt shift g = ﬂ</code></p>
+      <p>Duplicate them as f_i and f_l is not mandatory, but doesn’t hurt anyway, since this way you are not depending on the Mac OS Roman encoding.</p>
+      <p>At least, that is what I did for <a class="freelinking external" href="http://new.myfonts.com/fonts/estudio-ch/espinosa-nova/regular/characters.html" rel="nofollow">Espinosa Nova</a> (check out slots 386, 387, 390 and 391).</p>
+      <p>———</p>
+      <p>About the uppercase long s:<br>
+      <a href="http://en.wikipedia.org/wiki/Capital_%C3%9F" title="http://en.wikipedia.org/wiki/Capital_%C3%9F">http://en.wikipedia.org/wiki/Capital_%C3%9F</a><br>
+      (Included in Espinosa Nova as well, see slots 88 and 195.)</p>
+      <p>———</p>
+      <p>And please Eli, let me see your typeface when it is done. I am intrigued about the long s. Are you working on an oldstyle typeface?</p>
+  - id: 438765
+    user_id: 21217
+    user_name: Khaled Hosny
+    user_path: null
+    date_raw: 8 Nov 2010 — 2:07pm
+    date: 2010-11-08T14:07:00
+    votes: null
+    html: <p>I'm curious what applications don't support one to many substitutions? looks so 80s to me.</p>
+  - id: 438773
+    user_id: 16579
+    user_name: Eli
+    user_path: null
+    date_raw: 8 Nov 2010 — 2:31pm
+    date: 2010-11-08T14:31:00
+    votes: null
+    html: |-
+      <p>André, I think the problem with encoded ligatures is that when you use them and make the feature liga with them you are not changing the glyph but the character itself and I think it can cause problems with your GSUB table, but I'm not sure about that.</p>
+      <p>Cristobal thank you for your clarification, I think I'm going to do what you did with your beautiful Espinosa Nova. Correct me if I'm wrong, the eszet is a ligature between long s and s, I don't know if there is a capital form of long s alone. You may want to have a look at these links for more comments about the capital eszet: <a href="http://www.flickr.com/photos/elibaal/5039507654/" title="http://www.flickr.com/photos/elibaal/5039507654/">http://www.flickr.com/photos/elibaal/5039507654/</a> <a href="http://www.flickr.com/photos/hardwig/5087231570/" title="http://www.flickr.com/photos/hardwig/5087231570/">http://www.flickr.com/photos/hardwig/5087231570/</a><br>
+      And finally, I'm currently working on a humanist sans, I'll send you a sneak preview.</p>
+  - id: 438774
+    user_id: 7508
+    user_name: Cristobal Henestrosa
+    user_path: null
+    date_raw: 8 Nov 2010 — 2:41pm
+    date: 2010-11-08T14:41:00
+    votes: null
+    html: |-
+      <p>I stand corrected: yes, I was talking about an uppercase ß, not an uppercase long s alone. Sorry about that. :P</p>
+      <p>Looking forward to see your sans serif long s!</p>
+  - id: 438788
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 9 Nov 2010 — 2:40am
+    date: 2010-11-09T02:40:00
+    votes: null
+    html: |-
+      <p>My take is you grudgingly support legacy characters, you never encourage their use.</p>
+      <p>We don't sell fonts, we work them over only to set type. Maybe my views shouldn't count, then. But when I run into a font with a fi or fl character, (and a Unicode codepoint), I take them out. At some point, the fi character should be *deprecated.* Far as I'm concerned, that was as soon as we could employ a character-glyph distinction.</p>
+      <p>As for F_I ligatures, whether small or full cap, why? How many texts come to people who use type where that's been an issue? I've never seen one -- can somebody remember one, or is this just a theoretical exercise? </p>
+      <p>What to do when small or full caps are both ligatures and letterspaced, esp. just below the point where any ligatures break into component characters? They're going to look dreadful. And both are commonly letterspaced.</p>
+      <p>Etc.</p>
+      <p>I say let a text show .notdef and salmon for any fi/fl etc. characters. Fix that text then &amp; there, and we've gotten rid of one more bum situation.</p>
+  - id: 438838
+    user_id: 21217
+    user_name: Khaled Hosny
+    user_path: null
+    date_raw: 9 Nov 2010 — 5:47am
+    date: 2010-11-09T05:47:00
+    votes: null
+    html: <p>I'm not a German, but small eszet always looked like an upper letter to me, I like the one in this sign <a href="http://www.flickr.com/photos/hardwig/5087231570/" title="http://www.flickr.com/photos/hardwig/5087231570/">http://www.flickr.com/photos/hardwig/5087231570/</a> as it looks like a real small letter (and does not look like a B or small beta either).</p>

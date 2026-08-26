@@ -1,0 +1,229 @@
+// Step 6 -- parse the chosen node pages into one YAML file each.
+//
+// The HTML is preserved exactly as it appeared in the post and in each
+// comment; nothing is rewritten or stripped here. Anything that cannot be
+// extracted is written to the parse log rather than silently dropped.
+//
+//   node src/006_parseNodes.js
+//   node src/006_parseNodes.js --force        re-parse everything
+//   node src/006_parseNodes.js --limit=50
+
+import fs from "fs";
+import path from "path";
+import crypto from "crypto";
+import { fileURLToPath } from "url";
+import * as cheerio from "cheerio";
+import YAML from "yaml";
+import { DATA } from "./lib/config.js";
+import { detectGeneration } from "./lib/generations.js";
+import { ensureDir, ensureDirCached, readJsonl, writeJson, parseArgs, formatCount } from "./lib/util.js";
+
+const args = parseArgs();
+const force = Boolean(args.force);
+const limit = args.limit ? parseInt(args.limit, 10) : Infinity;
+
+const IN_FILE = `${DATA}/combined/nodes.jsonl`;
+const OUT = `${DATA}/parsed`;
+const NODES_OUT = `${OUT}/nodes`;
+const LOG_FILE = `${OUT}/parse.log`;
+const STATE_FILE = `${OUT}/state.json`;
+
+// A change to the parsers must invalidate everything they produced, otherwise
+// a fixed bug quietly leaves stale YAML behind. Hashing the source that does
+// the work makes that automatic instead of something to remember.
+function parserVersion() {
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const hash = crypto.createHash("sha1");
+  for (const f of [`${here}/lib/generations.js`, `${here}/006_parseNodes.js`]) {
+    try { hash.update(fs.readFileSync(f)); } catch { /* ignore */ }
+  }
+  return hash.digest("hex").slice(0, 16);
+}
+
+// `data/parsed/state.json` records, per node, what its YAML was built from and
+// what was wrong with it. It is the authority for skipping: the log is rebuilt
+// in full on every run, and a node can only be skipped if its findings can be
+// carried forward. A node missing from the state is re-parsed, which costs
+// time but never leaves the log under-reporting.
+
+// "20150418213620" -> "2015-04-18T21:36:20Z"
+function captureIso(ts) {
+  const s = String(ts);
+  if (s.length < 14) return null;
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(8, 10)}:${s.slice(10, 12)}:${s.slice(12, 14)}Z`;
+}
+
+function main() {
+  if (!fs.existsSync(IN_FILE)) throw new Error(`missing ${IN_FILE} -- run step 005 first`);
+  ensureDir(NODES_OUT);
+
+  const parser = parserVersion();
+
+  let state = {};
+  if (fs.existsSync(STATE_FILE)) {
+    try { state = JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); } catch { state = {}; }
+  }
+  const nextState = {};
+
+  const log = fs.createWriteStream(`${LOG_FILE}.part`);
+  const counts = {
+    total: 0, parsed: 0, skipped: 0, failed: 0,
+    warnings: 0, errors: 0, truncatedSource: 0, reparsedAfterParserChange: 0,
+  };
+  const byGeneration = {};
+  const unknownSamples = [];
+
+  // The log describes the whole corpus, not just this run's increment, so
+  // findings for skipped nodes are replayed from the state file.
+  const emit = (node, issues) => {
+    for (const issue of issues) {
+      if (issue.level === "error") counts.errors++;
+      else counts.warnings++;
+      if (issue.message.startsWith("source capture is truncated")) counts.truncatedSource++;
+      log.write(`${issue.level.toUpperCase().padEnd(5)} node ${String(node).padEnd(7)} ${issue.message}\n`);
+    }
+  };
+
+  return (async () => {
+    for await (const pick of readJsonl(IN_FILE)) {
+      counts.total++;
+      if (counts.total > limit) { counts.total--; break; }
+
+      const outFile = `${NODES_OUT}/${pick.node}.yaml`;
+
+      // Re-runs only redo what actually changed. The fingerprint covers the
+      // archive, timestamp, digest, file, size and soundness of the chosen
+      // capture, so a re-download of the SAME timestamp that produced
+      // different bytes is caught too.
+      const known = state[pick.node];
+      if (!force && known && fs.existsSync(outFile) && known.fp === pick.fp) {
+        if (known.parser === parser) {
+          counts.skipped++;
+          nextState[pick.node] = known;
+          if (known.generation) byGeneration[known.generation] = (byGeneration[known.generation] || 0) + 1;
+          emit(pick.node, known.issues ?? []);
+          continue;
+        }
+        counts.reparsedAfterParserChange++;
+      }
+
+      const issues = [];
+
+      let html;
+      try {
+        html = fs.readFileSync(pick.file, "utf8");
+      } catch (err) {
+        emit(pick.node, [{ level: "error", message: `cannot read ${pick.file}: ${err.message}` }]);
+        counts.failed++;
+        continue;
+      }
+
+      const $ = cheerio.load(html);
+      const generation = detectGeneration($);
+      if (!generation) {
+        emit(pick.node, [{ level: "error", message: `unknown page generation (no parser matches) -- ${pick.archive} ${pick.ts}` }]);
+        counts.failed++;
+        if (unknownSamples.length < 20) unknownSamples.push({ node: pick.node, archive: pick.archive, ts: pick.ts, file: pick.file });
+        continue;
+      }
+      byGeneration[generation.id] = (byGeneration[generation.id] || 0) + 1;
+
+      if (pick.truncated) {
+        issues.push({
+          level: "warn",
+          message: `source capture is truncated (${pick.archive} ${pick.ts}) -- content may be incomplete`,
+        });
+      }
+
+      let result;
+      try {
+        result = generation.parse($, { nodeId: pick.node });
+      } catch (err) {
+        emit(pick.node, [...issues, { level: "error", message: `${generation.id} parser threw: ${err.message}` }]);
+        counts.failed++;
+        continue;
+      }
+
+      for (const issue of result.issues) {
+        issues.push({
+          level: issue.level,
+          message: `${issue.field}${issue.ref ? ` (${issue.ref})` : ""}: ${issue.message}`,
+        });
+      }
+      emit(pick.node, issues);
+
+      const doc = {
+        node: pick.node,
+        title: result.title,
+        forum: result.forum,
+        source: {
+          archive: pick.archive,
+          timestamp: pick.ts,
+          captured_at: captureIso(pick.ts),
+          url: pick.url,
+          digest: pick.digest,
+          verified: pick.verified,
+          truncated: pick.truncated,
+          sound: pick.sound ?? null,
+          content: pick.source,
+          generation: generation.id,
+          file: pick.file,
+          fingerprint: pick.fp,
+          parser,
+        },
+        post: result.post,
+        comments: result.comments,
+      };
+
+      ensureDirCached(path.dirname(outFile));
+      const tmp = `${outFile}.part`;
+      fs.writeFileSync(tmp, YAML.stringify(doc, { lineWidth: 0, blockQuote: "literal" }));
+      fs.renameSync(tmp, outFile);
+      nextState[pick.node] = {
+        fp: pick.fp, parser, generation: generation.id,
+        ...(issues.length ? { issues } : {}),
+      };
+      counts.parsed++;
+
+      if (counts.parsed % 1000 === 0) {
+        process.stdout.write(`\r   parsed ${formatCount(counts.parsed)} ...`);
+      }
+    }
+
+    await new Promise((r) => log.end(r));
+    fs.renameSync(`${LOG_FILE}.part`, LOG_FILE);
+
+    fs.writeFileSync(`${STATE_FILE}.part`, JSON.stringify(nextState));
+    fs.renameSync(`${STATE_FILE}.part`, STATE_FILE);
+
+    writeJson(`${OUT}/parse.meta.json`, {
+      ...counts, parser, byGeneration, unknownSamples, generatedAt: new Date().toISOString(),
+    });
+
+    process.stdout.write("\r");
+    console.log(`nodes considered .... ${formatCount(counts.total)}`);
+    console.log(`parsed .............. ${formatCount(counts.parsed)}`);
+    console.log(`unchanged (skipped) . ${formatCount(counts.skipped)}`);
+    console.log(`failed .............. ${formatCount(counts.failed)}`);
+    if (counts.reparsedAfterParserChange) {
+      console.log(`re-parsed because the parser changed: ${formatCount(counts.reparsedAfterParserChange)}`);
+    }
+    if (counts.parsed === 0 && counts.failed === 0) {
+      console.log(`\neverything already up to date`);
+    }
+    console.log(`\nby generation:`);
+    for (const [id, n] of Object.entries(byGeneration).sort((a, b) => b[1] - a[1])) {
+      console.log(`   ${id.padEnd(12)} ${formatCount(n)}`);
+    }
+    console.log(`\nlog: ${formatCount(counts.errors)} error(s), ${formatCount(counts.warnings)} warning(s) -> ${LOG_FILE}`);
+    if (counts.truncatedSource) {
+      console.log(`   of which ${formatCount(counts.truncatedSource)} are truncated source captures`);
+    }
+    console.log(`yaml: ${NODES_OUT}/<node>.yaml`);
+  })();
+}
+
+main().catch((err) => {
+  console.error(`\nfailed: ${err.message}`);
+  process.exit(1);
+});

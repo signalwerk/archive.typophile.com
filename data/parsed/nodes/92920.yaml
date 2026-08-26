@@ -1,0 +1,92 @@
+node: 92920
+title: Robofab script stop working?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419211357"
+  captured_at: 2015-04-19T21:13:57Z
+  url: http://www.typophile.com/node/92920
+  digest: 3SSFENFOEFQX3PGLZQ7ACRDLSZLZTCKU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/92920.html
+  fingerprint: 2109a907faa4078f
+  parser: 4e04979c9499b509
+post:
+  id: 92920
+  user_id: 48056
+  user_name: ttmt
+  user_path: null
+  date_raw: 10 May 2012 — 12:33pm
+  date: 2012-05-10T12:33:00
+  votes: null
+  html: |-
+    <p>Hi all</p>
+    <p>I have this simple Robofab script here I wrote to shift the vertical position<br>
+    of subscript glyphs.</p>
+    <p>I haven't used it for a while but it has stopped working now.</p>
+    <p>I get an error message saying - NotImplementedError</p>
+    <p>Is there a reason why this has started to happen? can I fix it?</p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    from robofab.interface.all.dialogs import AskString<br>
+    #<br>
+    f = CurrentFont()<br>
+    #<br>
+    glyph = [</code></p>
+    <p>	'a.subs',<br>
+      'b.subs',<br>
+      'c.subs',<br>
+      'd.subs',<br>
+      'e.subs',<br>
+      'f.subs',<br>
+      'g.subs',<br>
+      'h.subs',<br>
+      'i.subs',<br>
+      'j.subs',</p>
+    <p>]<br>
+    #<br>
+    down = int(AskString('Move Down'))<br>
+    #<br>
+    for g in glyph:<br>
+    	f[g].move((0,down))<br>
+    	f[g].mark = 140</p>
+    <p>f.update()<br>
+    </p>
+comments:
+  - id: 509325
+    user_id: 39733
+    user_name: frankrolf
+    user_path: null
+    date_raw: 10 May 2012 — 1:14pm
+    date: 2012-05-10T13:14:00
+    votes: null
+    html: |-
+      <p>'AskString' has some issues in the latest versions of FL – an easy fix would be removing that call, and assigning an integer to the 'down' variable.<br>
+      Makes the script less universal, but works for the moment.</p>
+  - id: 510041
+    user_id: 7730
+    user_name: scruggsdesign
+    user_path: null
+    date_raw: 16 May 2012 — 12:12pm
+    date: 2012-05-16T12:12:00
+    votes: null
+    html: |-
+      <p>Try<br>
+      <code>from robofab.interface.all.dialogs_legacy</code><br>
+      instead of<br>
+      <code>from robofab.interface.all.dialogs</code></p>
+      <p>I was having the same problem and found this: <a class="freelinking external" href="http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0" rel="nofollow">http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0</a></p>
+  - id: 510223
+    user_id: 48056
+    user_name: ttmt
+    user_path: null
+    date_raw: 18 May 2012 — 7:26am
+    date: 2012-05-18T07:26:00
+    votes: null
+    html: <p>Thanks for that scruggsdesign, it worked. Saved me  a load of time.</p>

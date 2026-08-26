@@ -1,0 +1,174 @@
+node: 77573
+title: Draw paths in FontLab’s glyph window canvas?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419112740"
+  captured_at: 2015-04-19T11:27:40Z
+  url: http://www.typophile.com/node/77573
+  digest: LTLAFQI6E2EWP7HKHVZEKZ5BHPRRJVJU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/77573.html
+  fingerprint: 30763c4f94b6a7b3
+  parser: 4e04979c9499b509
+post:
+  id: 77573
+  user_id: 24931
+  user_name: yanone
+  user_path: null
+  date_raw: 29 Dec 2010 — 2:46am
+  date: 2010-12-29T02:46:00
+  votes: null
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I’m trying to put FontLab’s super weak implementation of drawing things onto the glyph window canvas to some use. Y’now, the one that disappears once you move a toolbar over it or switch to another window or app.</p>
+    <p>More specifically, I want to draw a path using a couple of LineTo-commands, but there seems to be no ClosePath implemented, or at least it’s not documented anywhere. So how do I close such a path to get a solid shape?</p>
+    <p>And once we’re at it: Can one set drawing colors other than using the seven constants? They return integer values between 0 (black) and 16M (white), so could one set anything in between?<br>
+    Edit: I tried: yes one can.</p>
+    <p>Thank you,<br>
+    Yanone</p>
+    <p><code><br>
+    canvas = fl.GetCanvas()<br>
+    canvas.MoveTo(here)<br>
+    canvas.LineTo(there)<br>
+    canvas.LineTo(over there)<br>
+    # now what??<br>
+    </code></p>
+comments:
+  - id: 445322
+    user_id: 14455
+    user_name: eigi
+    user_path: null
+    date_raw: 29 Dec 2010 — 3:39am
+    date: 2010-12-29T03:39:00
+    votes: null
+    html: |-
+      <p>Hello Yanone,</p>
+      <p>You can build a temporary glyph and use this glyph with the canvas.OutlineGlyph() or canvas.FillGlyph() method to draw on the canvas.</p>
+      <p>Does this help?</p>
+      <p>Regards</p>
+      <p>Eigi</p>
+  - id: 445323
+    user_id: 14455
+    user_name: eigi
+    user_path: null
+    date_raw: 29 Dec 2010 — 3:58am
+    date: 2010-12-29T03:58:00
+    votes: null
+    html: |-
+      <p>Hello Yanone,</p>
+      <p>Regarding the colors:</p>
+      <p>You can use the FontLab build-in function RGB() to calculate the color values.<br>
+      It is defined in Studio5/Macros/System/init.py and looks like this:</p>
+      <p><code><br>
+      def RGB(r, g, b):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return long(r) | (long(g) &lt;&lt; 8) | (b &lt;&lt; 16)<br>
+      </code></p>
+  - id: 445325
+    user_id: 24931
+    user_name: yanone
+    user_path: null
+    date_raw: 29 Dec 2010 — 4:45am
+    date: 2010-12-29T04:45:00
+    votes: null
+    html: |-
+      <p><code><br>
+      def RGB(r, g, b):<br>
+          return long(r) | (long(g) &lt;&lt; 8) | (b &lt;&lt; 16)<br>
+      </code><br>
+      Nice. I’ve been looking for this for a while on the net, but only found the reverse Integer to RGB conversion. Thank you.<br>
+      But the b requires another long(), right?</p>
+      <p><cite>You can build a temporary glyph and use this glyph with the canvas.OutlineGlyph() or canvas.FillGlyph() method to draw on the canvas.</cite></p>
+      <p>I just tested that successfully with existing glyphs. I guess that constructing a glyph with my wanted path would work. But I couldn’t get to apply a color as opposed to the previously used single lines. Neither pen_color nor brush_color changed the fill color away from black. If it’s not possible to change the color, I might want to stick with the lines.</p>
+  - id: 445604
+    user_id: 63902
+    user_name: Anton_TF
+    user_path: null
+    date_raw: 31 Dec 2010 — 3:07am
+    date: 2010-12-31T03:07:00
+    votes: null
+    html: |-
+      <p>hi Yanone,<br>
+      if i would start messing with canvas i would look into these 2 Tool scripts.<br>
+      Probably you know both.<br>
+      Erik's "measure glyph" has supernice colors and neat curves.<br>
+      <a href="http://groups.google.com/group/robofab/browse_thread/thread/9f1e292498d5c929/c85f485b0f463f6e?lnk=gst&amp;q=measureglyph#c85f485b0f463f6e" title="http://groups.google.com/group/robofab/browse_thread/thread/9f1e292498d5c929/c85f485b0f463f6e?lnk=gst&amp;q=measureglyph#c85f485b0f463f6e">http://groups.google.com/group/robofab/browse_thread/thread/9f1e292498d5...</a></p>
+      <p>Gustavo's Pixelbrush draws filled shapes.<br>
+      <a href="https://github.com/gferreira/PixelBrush" title="https://github.com/gferreira/PixelBrush">https://github.com/gferreira/PixelBrush</a></p>
+      <p>Theres one modification of that one by F.Berlaen, with stiches instead of boxes. Unfortunately on FL canvas it draws still rectangles (once i tried to make triangles, as well didnt work out to change the preview).<br>
+      Please update us. Post your tipps if you have any success with canvas.</p>
+      <p>cheers,<br>
+      Anton</p>
+  - id: 445919
+    user_id: 63902
+    user_name: Anton_TF
+    user_path: null
+    date_raw: 3 Jan 2011 — 5:17am
+    date: 2011-01-03T05:17:00
+    votes: null
+    html: |-
+      <p>Hi, oh i found it!</p>
+      <p>I wrote this script to draw simple straight segment on FL canvas. For segments, curves and such... need to add few more lines. Basically FL canvas has no line thickness and no propper fill. So my solution: lets plot the image with geometric shapes that Fontlab supports. Rect and Ellipse. It runs instantly, thus: why not?</p>
+      <p><a href="http://anton.korkork.com/tech_work/scripts/Draw_Thick_line.py" title="http://anton.korkork.com/tech_work/scripts/Draw_Thick_line.py">http://anton.korkork.com/tech_work/scripts/Draw_Thick_line.py</a></p>
+      <p>Hope this helps.</p>
+      <p>Anton<br>
+      *Comments to improve are welcome. For example if i click on cavas my image disapears, in some other scripts it doesnt disappear so fast. I think it has to do with the code structure.</p>
+  - id: 445921
+    user_id: 24931
+    user_name: yanone
+    user_path: null
+    date_raw: 3 Jan 2011 — 5:29am
+    date: 2011-01-03T05:29:00
+    votes: null
+    html: |-
+      <p>Hi Anton,</p>
+      <p>thanks for hinting to the two tools, both of which I didn't know yet, and yours.<br>
+      But neither helps. Yours and Gustavo's draw rectangles, Erik's draws curves. I need a way to draw an arbitrary path, a polygon (I don't have curves for now).<br>
+      So the way I see it the only way to draw that is to iterate through the whole canvas using a Point In Polygon function or RoboFab's PointInside and draw one-pixel big Rectangles.<br>
+      But I tried. It drew one shape in several minutes, so that's kind of beyond reason.<br>
+      Looks like I might have to stick with the unfilled lines.</p>
+  - id: 445923
+    user_id: 24931
+    user_name: yanone
+    user_path: null
+    date_raw: 3 Jan 2011 — 5:38am
+    date: 2011-01-03T05:38:00
+    votes: null
+    html: "<p>Come on, guys. I just cannot believe that you implemented moveTo, lineTo and curveTo, but forgot the closePath. I'm not even asking for smooth outlines, just for the closePath. #fail</p>"
+  - id: 445925
+    user_id: 24931
+    user_name: yanone
+    user_path: null
+    date_raw: 3 Jan 2011 — 5:45am
+    date: 2011-01-03T05:45:00
+    votes: null
+    html: |-
+      <p>Just in case somebody needs it, I found this on the web:<br>
+      <a href="http://www.ariel.com.au/a/python-point-int-poly.html" title="http://www.ariel.com.au/a/python-point-int-poly.html">http://www.ariel.com.au/a/python-point-int-poly.html</a></p>
+      <p>I cannot post the code here, the indentation get's screwed.</p>
+  - id: 445929
+    user_id: 24931
+    user_name: yanone
+    user_path: null
+    date_raw: 3 Jan 2011 — 6:14am
+    date: 2011-01-03T06:14:00
+    votes: null
+    html: <p>Using a function to calculate the bounding box of a polygon prior to iterting through the canvas, I was able to speed up the process to an extent where I can now sit in front of the screen and watch the pixels draw (e.g. Blinkenlights). It now takes only 427 seconds (more than 7 minutes) to draw my outlines. The result is a piece of computer art that seems to come straight out of a time machine. Almost performance art!</p>
+  - id: 446431
+    user_id: 14455
+    user_name: eigi
+    user_path: null
+    date_raw: 6 Jan 2011 — 8:40am
+    date: 2011-01-06T08:40:00
+    votes: null
+    html: |-
+      <p>Hi Yanone,</p>
+      <p>This is "von hinten durch die Brust ins Auge" but it may work.</p>
+      <p>You can draw with a 'ReportLabPen' from FontTools (works also with robofab) to create a reportlab.graphics.shapes.Group. Then render this vector graphic with reportlab.graphics.renderPM.drawToPIL() to an image. Finaly paste this image with the FontLab Canvas.PutImage() method into your canvas.</p>
+      <p>Eigi</p>

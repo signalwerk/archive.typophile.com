@@ -1,0 +1,60 @@
+node: 3970
+title: Romanian T comma Vs. T cedilla
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150427045530"
+  captured_at: 2015-04-27T04:55:30Z
+  url: http://www.typophile.com/node/3970
+  digest: IJNQ4Y4SLBJCLWB4Q642MNNPNGFPIC6B
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/3970.html
+  fingerprint: 2cfbe1b8f19ea038
+  parser: 4e04979c9499b509
+post:
+  id: 3970
+  user_id: 1087
+  user_name: eolson
+  user_path: null
+  date_raw: 26 Mar 2004 — 2:45pm
+  date: 2004-03-26T14:45:00
+  votes: null
+  html: |-
+    <p>What is the status of the <a href="/wiki/tcommaaccent" class="freelinking" rel="nofollow">T and t comma</a> (021A &amp; 021B)<br>
+    versus the T and t cedilla (0162 and 0163) for Romanian?</p>
+    <p>In the Latin Extended A Unicode Doc it mentions the comma<br>
+    being "preferred" over the cedilla. Adobe seems to be going<br>
+    with the comma. Has the cedilla version fallen out of use and<br>
+    or been replaced?</p>
+    <p>Any help is greatly appreciated.</p>
+comments:
+  - id: 29637
+    user_id: 1133
+    user_name: twardoch
+    user_path: null
+    date_raw: 26 Mar 2004 — 3:31pm
+    date: 2004-03-26T15:31:00
+    votes: null
+    html: <p>The form "t with comma" is strongly recommended in all cases.  <br> <br>You can include one lowercase glyph "tcommaaccent" with the Unicode codepoints U+0163 and U+021B, and one uppercase glyph "Tcommaaccent" with the Unicode codepoints U+016A and U+021A.  <br> <br>Alternatively, you might include one lowercase glyph "tcommaaccent" (U+0163), one identical glyph "uni021B" (U+021B), one uppercase glyph "Tcommaaccent" (U+0162) and one identical uppercase glyph "uni021A" (U+021A). The latter is practical if you don't principally want to include double-mappings of Unicode characters. Otherwise, the first described approach is the way to go.  <br> <br>For get about the variant "t with cedilla".  <br> <br>Regards,  <br>Adam <br></p>
+  - id: 29638
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 26 Mar 2004 — 4:47pm
+    date: 2004-03-26T16:47:00
+    votes: null
+    html: "<p>I'll second what Adam has written: to date I have not found a single language that uses T/t with cedilla. The only likely candidate was Gagauzi, which is a Turkic language spoken in Romania, and which uses the S/s with cedilla following Turkish orthography, but the T/t with 'comma accent' following the Romanian orthography. <br> <br>Note, however, this important issue: the S/s and T/t with cedilla and comma accent were only disunified in Unicode and ISO 10646 after the need to distinguish in plain text for bilingual documents became clear. The older Windows codepage for Romanian (CP 1250) uses the Unicode codepoints for the cedilla diacritics, not the newer comma diacritics. This means that the vast majority of Romanian documents are encoded using the cedilla diacritics, not the preferred comma forms. This needs to be addressed at the glyph level in OpenType fonts, using the Romanian language system tag ROM and the Localised Forms &lt;locl&gt; feature to map the S/s cedilla diacritic character codes to the comma diacritic glyphs. <br> <br>I'm afraid I don't know how Gagauzi is typically encoded, so can't advise on what manner of OpenType gymnastics might be required.</p>"
+  - id: 29639
+    user_id: 1087
+    user_name: eolson
+    user_path: null
+    date_raw: 27 Mar 2004 — 7:12am
+    date: 2004-03-27T07:12:00
+    votes: null
+    html: <p>Thanks guys. <br>My hunch has been confirmed. I'll stick with the  t + comma but  <br>take your advice and double up with codepoints for safe keeping.</p>

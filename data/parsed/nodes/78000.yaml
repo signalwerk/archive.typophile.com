@@ -1,0 +1,139 @@
+node: 78000
+title: Ligatures in Style Sets?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150428071526"
+  captured_at: 2015-04-28T07:15:26Z
+  url: http://www.typophile.com/node/78000
+  digest: 7ORQNGCVA33S57Z2G52PDYQZYCXH72QV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/78000.html
+  fingerprint: ecd2f44bd7272352
+  parser: 4e04979c9499b509
+post:
+  id: 78000
+  user_id: 3834
+  user_name: Nick Cooke
+  user_path: null
+  date_raw: 13 Jan 2011 — 3:15am
+  date: 2011-01-13T03:15:00
+  votes: null
+  html: |-
+    <p>Is it possible to have ligatures that work only in selected style sets?</p>
+    <p>I have a script font that has a style set with an alternate r, but certain combinations need to be ligated - wr and cr in the example below. I only want the alternate style ligatures to appear in the style set. Can this be done?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Ssligs_6659.jpg"></div><p></p>
+    <p>The way wr and cr should appear is the bottom image.</p>
+    <p>Thanks.</p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/78162" class="topic-previous" title="Go to previous forum topic">‹ Display problems with Opentype font in MS Word</a>
+                  <a href="/node/77601" class="topic-next" title="Go to next forum topic">Which Opentype Feature for contextual substitutions? ›</a>
+          </div>
+comments:
+  - id: 447273
+    user_id: 21687
+    user_name: Jens Kutilek
+    user_path: null
+    date_raw: 13 Jan 2011 — 4:29am
+    date: 2011-01-13T04:29:00
+    votes: null
+    html: |-
+      <p>Sure it can be done.</p>
+      <p>in ss01:</p>
+      <p>sub r by r.ss01;</p>
+      <p>in liga:</p>
+      <p>sub c r.ss01 by c_r.ss01;</p>
+      <p>The order of features is important. This only works if ss01 comes before liga, as it is in your screenshot.</p>
+  - id: 447295
+    user_id: 3834
+    user_name: Nick Cooke
+    user_path: null
+    date_raw: 13 Jan 2011 — 7:36am
+    date: 2011-01-13T07:36:00
+    votes: null
+    html: |-
+      <p>That's done the trick!</p>
+      <p>Vielen dank für ihre hilfe Jens.</p>
+  - id: 447773
+    user_id: 3834
+    user_name: Nick Cooke
+    user_path: null
+    date_raw: 17 Jan 2011 — 2:07am
+    date: 2011-01-17T02:07:00
+    votes: null
+    html: <p>Now all ligatures work except rr. Could it be because it is two r's? It follows the same method as all the other ligs.</p>
+  - id: 447787
+    user_id: 8664
+    user_name: k.l.
+    user_path: null
+    date_raw: 17 Jan 2011 — 4:31am
+    date: 2011-01-17T04:31:00
+    votes: null
+    html: |-
+      <p>If you followed Jens' logic, then your <em>ss01</em> feature already has replaced <em>all</em> "r"s by "r.ss01"s. This means that<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>sub r r.ss01 by r_r.ss01;</em><br>
+      would not work because there is no "r" left in the glyph string handed over to the <em>ss01</em> feature. Instead you need to replace two consecutive "r.ss01"s<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>sub r.ss01 r.ss01 by r_r.ss01;</em></p>
+  - id: 447791
+    user_id: 3834
+    user_name: Nick Cooke
+    user_path: null
+    date_raw: 17 Jan 2011 — 4:58am
+    date: 2011-01-17T04:58:00
+    votes: null
+    html: <p>Thanks Karsten, that fixed it.</p>
+  - id: 447947
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 18 Jan 2011 — 9:08am
+    date: 2011-01-18T09:08:00
+    votes: null
+    html: |-
+      <p>Now that Nick's problem is resolved, I have a question: What is the argument against just putting the whole thing in a stylistic set? Ordering within the set would be important, but after substituting the individual glyphs, why not just go ahead and substitute the ligatures right there?</p>
+      <p>If you remember Wilson Greek, it came with an extensive set of ligatures -- I suppose you would call them historical ligatures. I built several stylistic sets, beginning with the most commonly seen ligatures (in, say, ss05), and making new sets with an ever-increasing number included. The thinking was that most authors wouldn't want all the ligatures; some are pretty obtuse.</p>
+      <p>It worked fine. I'll allow this is only for our in-house composition &amp; not a for-sale font that has to work on numerous applications programs. Was that the only reason to involve the liga feature?</p>
+      <p>* * *</p>
+      <p>Example from the Wilson Greek</p>
+      <p>feature ss10 {<br>
+      sub alpha' iota' @ENDS by alpha_iota.terminal;<br>
+      sub alpha' uni1F77' @ENDS by alpha_uni1F77.terminal;<br>
+      sub alpha' sigma' @ENDS by alpha_sigmafinal;<br>
+      sub uni1F70' sigma' @ENDS by uni1F70_sigmafinal;<br>
+      sub alpha iota by alpha_iota;<br>
+      sub alpha sigmafinal by alpha_sigmafinal;<br>
+      sub uni1F70 sigmafinal by uni1F70_sigmafinal;<br>
+      sub alpha uni1F30 by alpha_uni1F30;<br>
+      sub alpha uni1F31 by alpha_uni1F31;<br>
+      sub alpha uni1F32 by alpha_uni1F32;<br>
+      sub alpha uni1F33 by alpha_uni1F33;<br>
+      sub alpha uni1F34 by alpha_uni1F34;<br>
+      sub alpha uni1F35 by alpha_uni1F35;<br>
+      sub alpha uni1F36 by alpha_uni1F36;<br>
+      sub alpha uni1F37 by alpha_uni1F37;<br>
+      sub alpha uni1F76 by alpha_uni1F76;<br>
+      sub alpha uni1F77 by alpha_uni1F77;<br>
+      sub alpha uni1FD3 by alpha_uni1FD3;<br>
+      sub alpha uni1FD6 by alpha_uni1FD6;<br>
+      sub alpha upsilon by alpha_upsilon;<br>
+      sub alpha uni1F7B by alpha_uni1F7B;<br>
+      sub alpha uni1FE6 by alpha_uni1FE6;<br>
+      sub alpha uni1F50 by alpha_uni1F50;<br>
+      sub alpha uni1F51 by alpha_uni1F51;<br>
+      sub alpha uni1F54 by alpha_uni1F54;<br>
+      sub alpha uni1F56 by alpha_uni1F56;<br>
+      } ss10;</p>
+  - id: 447952
+    user_id: 8664
+    user_name: k.l.
+    user_path: null
+    date_raw: 18 Jan 2011 — 10:15am
+    date: 2011-01-18T10:15:00
+    votes: null
+    html: <p>Hello Charles, there is no argument against this. It depends on which kind of behavior you intend to achieve. So if you, as designer of a typeface, think that certain ligatures are essential part of a specific Stylistic Set, then you should include them there. If you consider the stylistic alternates as being independent of ligatures that involve these alternates, and want typographers to choose alternates and ligatures (whichever default or alternate shapes they may have) separatedly, you should deal with alternates in a Stylistic Set feature and with ligatures in the Ligatures feature.</p>

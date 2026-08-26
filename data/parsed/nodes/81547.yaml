@@ -1,0 +1,106 @@
+node: 81547
+title: Referring to specific comments
+forum:
+  id: 1343
+  title: Bug Reports and Feature Requests
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419211556"
+  captured_at: 2015-04-19T21:15:56Z
+  url: http://www.typophile.com/node/81547
+  digest: 4PZJ6AKRTRJUBQPK2FHK5ZC46TXAEWSL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/81547.html
+  fingerprint: 1695c145bc7a9680
+  parser: 4e04979c9499b509
+post:
+  id: 81547
+  user_id: 3254
+  user_name: eliason
+  user_path: null
+  date_raw: 25 Apr 2011 — 6:31am
+  date: 2011-04-25T06:31:00
+  votes: null
+  html: |-
+    <p>Not too long ago Typophile added the useful ability to link to specific comments within threads. Clicking on the timestamp of any comment will produce the link.</p>
+    <p>I have noticed that this doesn't seem to work when the comment to be linked appears on a page beyond the first in a multi-page thread. The link doesn't insert the required "page=n&amp;" into the address, so following the link just goes to the top of the first page of the thread.</p>
+comments:
+  - id: 461793
+    user_id: 16911
+    user_name: Florian Hardwig
+    user_path: null
+    date_raw: 25 Apr 2011 — 9:53am
+    date: 2011-04-25T09:53:00
+    votes: null
+    html: |-
+      <p>You can (manually) add this bit to the URL, right after the node number, before the #:<br>
+      <code>?from=0&amp;comments_per_page=5000</code><br>
+      This is just a workaround, not a solution to the bug.</p>
+  - id: 461798
+    user_id: 18942
+    user_name: Michel Boyer
+    user_path: null
+    date_raw: 25 Apr 2011 — 11:23am
+    date: 2011-04-25T11:23:00
+    votes: null
+    html: |-
+      <p>Or you can add manually the appropriate page number, as in  <a href="http://www.typophile.com/node/81129?page=1#comment-461794" title="http://www.typophile.com/node/81129?page=1#comment-461794">http://www.typophile.com/node/81129?page=1#comment-461794</a> ; notice that it is "page=1" and it is page 2 (it is always one less). The timestamp should indeed contain the page number (I added a blank before the semicolon for the link to work).</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/oneless_6051.jpg"></div><p></p>
+  - id: 461799
+    user_id: 3254
+    user_name: eliason
+    user_path: null
+    date_raw: 25 Apr 2011 — 11:27am
+    date: 2011-04-25T11:27:00
+    votes: null
+    html: <p>Yes, I successfully added the page number manually as Michel suggests when I tried it, but seeing Florian's workaround I wonder if Michel's would break based on having a different setting for comments per page. Is that a user-adjustable setting, by the way?</p>
+  - id: 461812
+    user_id: 16911
+    user_name: Florian Hardwig
+    user_path: null
+    date_raw: 25 Apr 2011 — 12:59pm
+    date: 2011-04-25T12:59:00
+    votes: null
+    html: |-
+      <p><cite>Is that a user-adjustable setting?</cite><br>
+      No, at the moment not. But it has been adjusted globally in the past</p>
+      <p>Also, there is the (unlikely) possibility that you want to link to comment no. n+1 (n = maximum number of comments per page), and later on, an older comment gets deleted, making the one in question the n-th.</p>
+  - id: 461815
+    user_id: 18942
+    user_name: Michel Boyer
+    user_path: null
+    date_raw: 25 Apr 2011 — 1:29pm
+    date: 2011-04-25T13:29:00
+    votes: null
+    html: <p>I just counted (in fact, I wrote a script to count) the number of comments for each page of <a href="http://www.typophile.com/node/123" title="http://www.typophile.com/node/123">http://www.typophile.com/node/123</a> and I get 90 comments per page for page 1 to 7, and then less than 90 comments on page 8. What does the number 5000 then represent in <code>comments_per_page=5000</code> ?</p>
+  - id: 461820
+    user_id: 16911
+    user_name: Florian Hardwig
+    user_path: null
+    date_raw: 25 Apr 2011 — 1:35pm
+    date: 2011-04-25T13:35:00
+    votes: null
+    html: <p>This number overrides the default maximum number of comments per page (yes, 90 – <em>at the moment</em>) . You can also enter a different value. But with a value as large as 5000, you practically request a thread with all its comments, as a single page.</p>
+  - id: 461822
+    user_id: 18942
+    user_name: Michel Boyer
+    user_path: null
+    date_raw: 25 Apr 2011 — 1:48pm
+    date: 2011-04-25T13:48:00
+    votes: null
+    html: <p>And with <a href="http://www.typophile.com/node/123?from=0&amp;comments_per_page=5000" title="http://www.typophile.com/node/123?from=0&amp;comments_per_page=5000">http://www.typophile.com/node/123?from=0&amp;comments_per_page=5000</a> I indeed get a single page! Thanks.</p>
+  - id: 461844
+    user_id: 18942
+    user_name: Michel Boyer
+    user_path: null
+    date_raw: 25 Apr 2011 — 3:04pm
+    date: 2011-04-25T15:04:00
+    votes: null
+    html: |-
+      <p>And I think the clean solution is a link like this:</p>
+      <p><a href="http://www.typophile.com/node/123?page=5&amp;from=0&amp;comments_per_page=90#comment-348557" title="http://www.typophile.com/node/123?page=5&amp;from=0&amp;comments_per_page=90#comment-348557">http://www.typophile.com/node/123?page=5&amp;from=0&amp;comments_per_page=90#com...</a></p>
+      <p>that specifies the page number but also the current number of comments per page, namely 90. You are then linked to the right page (and not to a single page thread) and even if the number of comments per page ever changes, the link will still be valid.</p>

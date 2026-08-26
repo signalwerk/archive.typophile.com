@@ -1,0 +1,67 @@
+node: 47777
+title: How to copy anchor data in volt?
+forum:
+  id: 366
+  title: Arabic Typography & Type Design
+source:
+  archive: commoncrawl.org
+  timestamp: "20150418214533"
+  captured_at: 2015-04-18T21:45:33Z
+  url: http://www.typophile.com/node/47777
+  digest: 5JCQ2ZSPYDUC46HTZSS5EIOKPJEKFTK4
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/47777.html
+  fingerprint: 957b71c250a93298
+  parser: 4e04979c9499b509
+post:
+  id: 47777
+  user_id: 30220
+  user_name: arifkarim
+  user_path: null
+  date_raw: 26 Jul 2008 — 11:02am
+  date: 2008-07-26T11:02:00
+  votes: null
+  html: |-
+    <p>Hi, all<br>
+    I was making a qurani font.... and here i have put all marks in only one position. How ever for some marks like, superscript alef are placed slightly differently, so they cannot be put at the same point as fatha and dammatan.....</p>
+    <p>Thats wht i want to copy anchor; attach1 to a new anchor; attach3 and I want to preserve all its anchor data.</p>
+    <p>See the attachments.....</p>
+    <p>Can some one help me plz............... specially Hudson and Surgey :)</p>
+    <p>Thnx</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/a181.gif">a181.gif</a></td><td>15.35 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/a182.gif">a182.gif</a></td><td>15.59 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 293412
+    user_id: 1262
+    user_name: John Hudson
+    user_path: null
+    date_raw: 4 Aug 2008 — 3:18pm
+    date: 2008-08-04T15:18:00
+    votes: null
+    html: |-
+      <p>1. Make a GPOS mark attachment lookup in which the alifcomb glyph is positioned using the attach1 anchor. Only include in this lookup any glyphs that you eventually want to be positioned with the attach3 anchor.</p>
+      <p>2. Export this lookup to a .vtl text file.</p>
+      <p>3. Open the .vtl file in a text editor. Search for</p>
+      <p> attach1"</p>
+      <p>and replace with</p>
+      <p> attach3"</p>
+      <p>i.e. rename the anchors without changing the attachment offsets. Save.</p>
+      <p>4. Import the edited .vtl back into VOLT. If asked if you want to replace existing attach3 anchors, say YES.</p>
+      <p>This will create attach3 anchors with the same positions as attach1 anchors, and these can now be edited for specific base glyphs. Note that anchors are stored internally in VOLT, so if you have existing lookups that reference both attach1 and attach3 the latter will inherit your new positioning. In this case, you can delete the working lookups used to export and import .vtl files.</p>
+  - id: 295949
+    user_id: 30220
+    user_name: arifkarim
+    user_path: null
+    date_raw: 15 Aug 2008 — 5:22pm
+    date: 2008-08-15T17:22:00
+    votes: null
+    html: <p>hopp la, thnx it works!</p>

@@ -1,0 +1,554 @@
+node: 90561
+title: Adobe Opentype Univers Roman set to metrics…
+forum:
+  id: 5
+  title: Design
+source:
+  archive: commoncrawl.org
+  timestamp: "20150421053113"
+  captured_at: 2015-04-21T05:31:13Z
+  url: http://www.typophile.com/node/90561
+  digest: ZCOYKM4TDYXNXBQEHLWVMQRMAKWLNQHD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/90561.html
+  fingerprint: b00f47930fa7f157
+  parser: 4e04979c9499b509
+post:
+  id: 90561
+  user_id: 4510
+  user_name: stephen_k
+  user_path: null
+  date_raw: 29 Feb 2012 — 9:35am
+  date: 2012-02-29T09:35:00
+  votes: null
+  html: |-
+    <p>Adobe Opentype Univers has some dodgy Ligatures when set to metrics – see the "f T"</p>
+    <p><a href="http://store2.adobe.com/cfusion/store/html/index.cfm?pid=930349&amp;code=1272&amp;store=OLS-UK&amp;nr=0&amp;event=displayFontPackage&amp;newsample=of+Tex&amp;view=View" title="http://store2.adobe.com/cfusion/store/html/index.cfm?pid=930349&amp;code=1272&amp;store=OLS-UK&amp;nr=0&amp;event=displayFontPackage&amp;newsample=of+Tex&amp;view=View">http://store2.adobe.com/cfusion/store/html/index.cfm?pid=930349&amp;code=127...</a></p>
+    <p>The inverted quote marks seem to be off too. They look fine set to Optical kerning, but I wouldn't want to use that setting for text?</p>
+    <p>Any ideas what's going on? Think it has something to do with opentype?</p>
+    <p>Help greatly appreciated.</p>
+    <p>Stephen</p>
+comments:
+  - id: 497003
+    user_id: 3834
+    user_name: Nick Cooke
+    user_path: null
+    date_raw: 29 Feb 2012 — 10:37am
+    date: 2012-02-29T10:37:00
+    votes: null
+    html: <p>f T isn't a ligature - it's simply a small word space. Perhaps the space is kerned towards the f and the T towards the space, maybe it's just an unfortunate character combination.</p>
+  - id: 497012
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 29 Feb 2012 — 11:04am
+    date: 2012-02-29T11:04:00
+    votes: null
+    html: <p>Also, worth noting that this sort of thing has nothing to do with OpenType per se. Adobe's OpenType version of Univers simply inherited its kerning from the PostScript Type 1 version (though possibly extended to cover more accented characters).</p>
+  - id: 497017
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 29 Feb 2012 — 11:23am
+    date: 2012-02-29T11:23:00
+    votes: null
+    html: |-
+      <p>A Tale of Two Cities (classic problematic kerning setting).</p>
+      <p>Until three-character kerning is implemented in fonts, and supported in layout apps, you will have to manually apply “Optical” kerning.<br>
+      Perhaps there is some way to code specific exceptions?</p>
+      <p>Actually, now that I think about it, it would be possible to solve this instance in an OpenType font:<br>
+      sub f space T by fTspecial;</p>
+      <p>…where fTspecial is one glyph.</p>
+  - id: 497019
+    user_id: 3135
+    user_name: dezcom
+    user_path: null
+    date_raw: 29 Feb 2012 — 11:28am
+    date: 2012-02-29T11:28:00
+    votes: null
+    html: <p>Or perhaps use a {calt} sub for the "f"?  The "f.alt" may be the same one used to make a {calt} variation on the "fl, fh, fb,..." lig?</p>
+  - id: 497028
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 29 Feb 2012 — 11:49am
+    date: 2012-02-29T11:49:00
+    votes: null
+    html: <p>Done:</p><div class="imageWrap"><img src="http://typophile.com/files/57_4559.jpg"></div><p></p>
+  - id: 497065
+    user_id: 1215
+    user_name: kentlew
+    user_path: null
+    date_raw: 29 Feb 2012 — 2:38pm
+    date: 2012-02-29T14:38:00
+    votes: null
+    html: <p>f_space_T ligature is a bad idea. In justified text, this ‘word space’ would remain inflexible. Not a good thing. Maybe you were just being facetious, Nick.</p>
+  - id: 497075
+    user_id: 13487
+    user_name: nina
+    user_path: null
+    date_raw: 29 Feb 2012 — 3:14pm
+    date: 2012-02-29T15:14:00
+    votes: null
+    html: <p>I might not be getting something here, but this doesn't need a fancy three-letter super kern if the 2 pairs are present... This kind of thing is precisely why I'd argue it's a Good Idea™ to kern things like f/space and space/T. And maybe Q/space and space/J, depending on the design. Overhanging glyph parts that optically diminish the space. Even if an f/space combination isn't met with yet another overhanging thing on the other side of the space (a not-too-unlikely worst-case scenario), it can still optically make the space appear smaller than it should be.</p>
+  - id: 497077
+    user_id: 3135
+    user_name: dezcom
+    user_path: null
+    date_raw: 29 Feb 2012 — 3:18pm
+    date: 2012-02-29T15:18:00
+    votes: null
+    html: <p>I usually kern space to overhanging glyphs like space T and f space</p>
+  - id: 497118
+    user_id: 4510
+    user_name: stephen_k
+    user_path: null
+    date_raw: 1 Mar 2012 — 1:17am
+    date: 2012-03-01T01:17:00
+    votes: null
+    html: <p>Thanks for the replies… I have found a post-script version of Adobe Univers and it doesn't have any of these problems so I'm switching. It seems odd that the more up-to-date open type version has these problems?</p>
+  - id: 497224
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 1 Mar 2012 — 1:16pm
+    date: 2012-03-01T13:16:00
+    votes: null
+    html: |-
+      <p>&gt; I might not be getting something here, but this doesn't need a fancy three-letter super kern if the 2 pairs are present... </p>
+      <p>In many Adobe fonts, the two pairs are present, but the kerning pulls things closer together, not further apart. So three-letter kern combos are one solution. Or just not kerning against the space in the first place.</p>
+  - id: 497266
+    user_id: 13487
+    user_name: nina
+    user_path: null
+    date_raw: 1 Mar 2012 — 3:42pm
+    date: 2012-03-01T15:42:00
+    votes: null
+    html: <p>What, they have <em>negative</em> kerning in pairs like f/space and space/T? <em>Why?</em></p>
+  - id: 497336
+    user_id: 3135
+    user_name: dezcom
+    user_path: null
+    date_raw: 2 Mar 2012 — 5:33am
+    date: 2012-03-02T05:33:00
+    votes: null
+    html: |-
+      <p>"What, they have negative kerning in pairs like f/space and space/T? Why?"</p>
+      <p>The same reason you have any other kerning pairs,to adjust the optical space to "appear to be" more even.</p>
+  - id: 497343
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 2 Mar 2012 — 6:11am
+    date: 2012-03-02T06:11:00
+    votes: null
+    html: |-
+      <p>Univers has space/T kerning -180, about 2/3 of a space (278), hence the problem. -20 or -30 is quite good.<br>
+      BTW in John Hudson's Brill: f/space +25 and space/T -20, and looks like the best solution.</p>
+  - id: 497352
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 2 Mar 2012 — 7:16am
+    date: 2012-03-02T07:16:00
+    votes: null
+    html: <p>In Williams Caslon Text I used 'calt', as Chris notes. In general f before a space is substituted by a shorter-nosed f, and in combinations 'f space T' a still shorter nose. The right extension of the crossbar is also adjusted. And these are also used in various situations with f and a following letter.</p>
+  - id: 497367
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 2 Mar 2012 — 8:57am
+    date: 2012-03-02T08:57:00
+    votes: null
+    html: |-
+      <p>William, I understand the practical issues, but<br>
+      <em>shortening</em> the beak of the "f" before a space is<br>
+      pretty much opposite of what <em>should</em> be done!</p>
+      <p>hhp</p>
+  - id: 497378
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 2 Mar 2012 — 10:10am
+    date: 2012-03-02T10:10:00
+    votes: null
+    html: |-
+      <p>I don't agree, Hrant. I think it is preferable to keep the word spaces uniform looking, and I'm supposing you agree. Violation of that was what disturbed Stephen K, who started this thread. </p>
+      <p>The original of Caslon does have a very long-nosed f, and I preserved that as the default, as I liked it. I tested all of the options, and it looked to me best to slightly shorten the nose before a space; I also extended the crossbar a bit to the right, so there is less of a 'hole' before the space. </p>
+      <p>The hole under the T is why it is preferable to kern it with a space before. But then you really get into trouble with an 'f' before. So that has a still shorter nose substituted. If I have time I'll put up a picture later...</p>
+  - id: 497380
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 2 Mar 2012 — 10:15am
+    date: 2012-03-02T10:15:00
+    votes: null
+    html: |-
+      <p>I think a <em>minimum</em> (apparent) wordspace is important,<br>
+      but if wordspace variance were that bad justified setting<br>
+      would have far fewer proponents. I think boumas are<br>
+      more important.</p>
+      <p>hhp</p>
+  - id: 497381
+    user_id: 3135
+    user_name: dezcom
+    user_path: null
+    date_raw: 2 Mar 2012 — 10:21am
+    date: 2012-03-02T10:21:00
+    votes: null
+    html: |-
+      <p>You can also create  an alternate space glyph (kinda like the old metal days)<br>
+      sub f space' T by space.4m;</p>
+  - id: 497478
+    user_id: 13487
+    user_name: nina
+    user_path: null
+    date_raw: 3 Mar 2012 — 2:51am
+    date: 2012-03-03T02:51:00
+    votes: null
+    html: |-
+      <p>Maybe this depends [too] much on spacing (and design) to formulate a general rule.<br>
+      If the "f" already has a negative sidebearing, I can't really imagine it would need a negative kern on top of that.</p>
+      <p>FWIW, I personally don't see things like "T"s as having "a hole under" them. The x-ht region isn't the only thing one needs to consider when kerning, is it?</p>
+  - id: 497511
+    user_id: 7006
+    user_name: paul d hunt
+    user_path: null
+    date_raw: 3 Mar 2012 — 9:33am
+    date: 2012-03-03T09:33:00
+    votes: null
+    html: <p>InDesign supports contextual kerning triplets.</p>
+  - id: 497530
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 3 Mar 2012 — 1:46pm
+    date: 2012-03-03T13:46:00
+    votes: null
+    html: |-
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fs_word_spacing_5352.gif"></div><p></p>
+      <p>Here's the illustration. Top is what CALT gives you. Middle is with the default long-nosed f, and the negative kerning of the space and the left side of the T. Bottom the negative kerning of the left side of the T to the space is removed. The other kerning (Ta, Tw) is retained. </p>
+      <p>To me the top looks better. In the middle the closeness of the f T is distracting. In the bottom, without the negative kerning of the space and T, the relevant word spaces seem a bit wide.</p>
+  - id: 497533
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 3 Mar 2012 — 1:51pm
+    date: 2012-03-03T13:51:00
+    votes: null
+    html: |-
+      <p>To me #3 is best.<br>
+      You might be seeing the space as too large<br>
+      because you're fixating on the hole, which<br>
+      however doesn't happen in reading.</p>
+      <p>hhp</p>
+  - id: 497540
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 3 Mar 2012 — 2:24pm
+    date: 2012-03-03T14:24:00
+    votes: null
+    html: |-
+      <p>@Kent: <em>Maybe you were just being facetious, Nick.</em></p>
+      <p>No, before I posted I considered that this “ligature” would default to multiple glyphs once beyond a certain tracking value.</p>
+      <p>I also like the suggestions made by Chris and Bill, to substitute alternate “f” or “space” glyphs.</p>
+      <p>**</p>
+      <p>Paul, how does one implement contextual kerning triplets in a font?</p>
+  - id: 497545
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 3 Mar 2012 — 2:41pm
+    date: 2012-03-03T14:41:00
+    votes: null
+    html: |-
+      <p>In #3, the f T is not bad, but you have to turn off the left kerning only, which I don't think you can do, or at least without using CALT and an alternatively kerned T. The A T in #3 is a little too wide—there the negative kerning of the space T in the top line shows to advantage. So to me the top is still the best of these. </p>
+      <p>There may be a still better way to do this, but my main point is that #2 is a problem. And you are going to get that with a long-nosed f and if you do negative kerning of space T and do no CALT tricks. I think there is a minor word image or 'bouma' problem when you get something like the middle situation. That's because you might have to look twice—your eyes have to regress—to distinguish the two words.</p>
+      <p>I don't think any of this is a big problem, but I think there is a slight gain in readability if you avoid the middle situation.</p>
+  - id: 497596
+    user_id: 1215
+    user_name: kentlew
+    user_path: null
+    date_raw: 4 Mar 2012 — 5:23am
+    date: 2012-03-04T05:23:00
+    votes: null
+    html: |-
+      <p>Nick: <cite>No, before I posted I considered that this “ligature” would default to multiple glyphs once beyond a certain tracking value.</cite></p>
+      <p>Hmm. Interesting assumption. I’m not sure that the adjustment of word spaces by the justification engine would trigger the same mechanism that tracking does, such that an f_space_T {liga} substitution would be disassembled in a looser line. But maybe you’re right. One would have to test this.</p>
+  - id: 497625
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 4 Mar 2012 — 9:30am
+    date: 2012-03-04T09:30:00
+    votes: null
+    html: |-
+      <p>Bill, you didn’t show the setting with no kerning.<br>
+      My preference for historic designs is with historic kerning (if not set with “original” instruments!)<br>
+      For instance, I see no reason to kern T-a quite so much as you have — there is plenty of space between A and T, and T and w, so that a larger space between T and a would not look out of place, and those letters would not suffer the forced proximity caused by the prominent serif of T, the design of which mitigates gappiness in the first place.</p>
+      <p>By the same token, I prefer h&amp;js with no adjustment to letterspacing.</p>
+      <p>This wasn’t always my preference, no doubt it is an acquired taste.</p>
+  - id: 497626
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 4 Mar 2012 — 9:33am
+    date: 2012-03-04T09:33:00
+    votes: null
+    html: |-
+      <p>@Kent:<em> I’m not sure that the adjustment of word spaces by the justification engine would trigger the same mechanism that tracking does … One would have to test this.</em></p>
+      <p>Good point, I didn’t think of that.</p>
+  - id: 497639
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 4 Mar 2012 — 10:49am
+    date: 2012-03-04T10:49:00
+    votes: null
+    html: <p>Nick, I think no kerning—which is historic for text as opposed to titles—would look odd or antiquarian. But I think you're right that my Ta is bit tight.</p>
+  - id: 497640
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 4 Mar 2012 — 10:50am
+    date: 2012-03-04T10:50:00
+    votes: null
+    html: |-
+      <p>How much is "maa" compared to "a hair"?</p>
+      <p>hhp</p>
+  - id: 497642
+    user_id: 1551
+    user_name: William Berkson
+    user_path: null
+    date_raw: 4 Mar 2012 — 10:54am
+    date: 2012-03-04T10:54:00
+    votes: null
+    html: <p>Hrant, I suppose it would be better if it were a great new measurement, but it was a typo that I accidentally posted and then corrected.</p>
+  - id: 497644
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 4 Mar 2012 — 10:58am
+    date: 2012-03-04T10:58:00
+    votes: null
+    html: |-
+      <p>Urban Dictionary is inconclusive.<br>
+      I therefore propose that "maa" is between "a hair" and "slightly".</p>
+      <p>hhp</p>
+  - id: 497829
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 30 Jul 2012 — 9:06am
+    date: 2012-07-30T09:06:00
+    votes: null
+    html: |-
+      <p>@Kent [ <a href="http://typophile.com/node/90561#comment-497596" title="http://typophile.com/node/90561#comment-497596">http://typophile.com/node/90561#comment-497596</a> ]<br>
+      unluckily not. So probably CALT will win.</p>
+  - id: 497832
+    user_id: 2021
+    user_name: Nick Shinn
+    user_path: null
+    date_raw: 5 Mar 2012 — 3:28pm
+    date: 2012-03-05T15:28:00
+    votes: null
+    html: |-
+      <p>@Bill: <em>… odd or antiquarian. </em></p>
+      <p>That’s me alright, I’m afraid I much prefer the originals to Linotype’s makeovers—but good for Frutiger and Zapf to be making a buck off them.</p>
+  - id: 497867
+    user_id: 909
+    user_name: Thomas Phinney
+    user_path: null
+    date_raw: 5 Mar 2012 — 11:49pm
+    date: 2012-03-05T23:49:00
+    votes: null
+    html: |-
+      <p>I like Bill's solution.</p>
+      <p>I also note that there are some OpenType engines that break the glyph run (the unit of OpenType feature processing) at the space. In these engines, layout that requires something like 'calt' to work across spaces won't work.  :(  Presumably kerning triplets across spaces won't work in these either.</p>
+      <p>Two environments I know have this limitation are Adobe Flash and Mozilla Firefox.</p>
+  - id: 500396
+    user_id: 7006
+    user_name: paul d hunt
+    user_path: null
+    date_raw: 20 Mar 2012 — 11:27am
+    date: 2012-03-20T11:27:00
+    votes: null
+    html: |-
+      <p>Nick, there is no mechanism to add kerning triplets (or quadruplets, or... I’ll just call it contextual kerning) when exporting from FontLab, but if you’re compiling your fonts with AFDKO, then the syntax would look something like this:</p>
+      <p>pos glyph1' 22 glyph2 glyph3;</p>
+  - id: 500398
+    user_id: 7006
+    user_name: paul d hunt
+    user_path: null
+    date_raw: 20 Mar 2012 — 11:31am
+    date: 2012-03-20T11:31:00
+    votes: null
+    html: <p>Also, I should note that if you you already have a kern pair for glyph1, glyph 2, the contextual value (22 in my example above) is added to the default kern pair, so your kerning information is additive.</p>
+  - id: 500519
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 20 Mar 2012 — 7:23pm
+    date: 2012-03-20T19:23:00
+    votes: null
+    html: |-
+      <p><cite>I might not be getting something here, but this doesn't need a fancy three-letter super kern if the 2 pairs are present... This kind of thing is precisely why I'd argue it's a Good Idea™ to kern things like f/space and space/T. </cite></p>
+      <p>It's a bad idea. If you're going to use kerns with spaces, as Nick says, you need three letters. You can never anticipate what will fall together. One of my test words in my test-text checks "f_space_J" as with "of Jewish" You use a pull-back kerning with the f, and the space can disappear.</p>
+      <p>Or look at Adobe Jenson, with the f_space _quotedblleft. Again, the space disappears -- really, it usually looks like it falls after the qutedblleft...</p>
+      <p>Better to use an alternate f when followed by a space. Take part of the space out of terminal of the f, and add a little to the sidebearing.</p>
+      <p>A lot also depends on how tightly you set type. If it's set as tightly as Kinross's books, you'll find all sorts of oddities with the spaceband. In Hochuli's book, <cite>Detail in Typography</cite>, he argues for a certain generosity with the sidebearing space around parenthesis, quote marks, brackets, etc. (p.  37) . Good point. But with tight setting, you'll find that space sometimes greater than the wordspace. There isn't an example in the text of <cite>DT</cite>, but you can find plenty in Dowding's <cite>Finer points</cite>.</p>
+      <p>Remember, back in the days of foundry type, the comp just didn't add space -- or as much space, when optical considerations were made, when driving out the line to justify. To get a computer do have the same effect is a lot of work. If it's ever published, I spent a good bit of time on this in my chapter of Rich Hendel's new book. Everyone is encouraged to buy a copy (Shameles plug) (Hey, Kent has a chapter in it, too)  (if it's ever published). (Except Hrant, who insists he'll get it from the library.) (And no, I get no royalties -- it's Rich's book).</p>
+  - id: 500521
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 20 Mar 2012 — 7:15pm
+    date: 2012-03-20T19:15:00
+    votes: null
+    html: |-
+      <p>I used to buy a lot of books for myself; I have<br>
+      a decent library. These days I prefer to spend<br>
+      the money on books for my kids. Shoot me.</p>
+      <p>hhp</p>
+  - id: 500522
+    user_id: 5094
+    user_name: charles ellertson
+    user_path: null
+    date_raw: 20 Mar 2012 — 7:24pm
+    date: 2012-03-20T19:24:00
+    votes: null
+    html: <p>Ah. You remember my hobby.</p>
+  - id: 500532
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 20 Mar 2012 — 8:50pm
+    date: 2012-03-20T20:50:00
+    votes: null
+    html: |-
+      <p>:-)<br>
+      Good luck. I grew up dodging Lebanese snipers.</p>
+      <p>hhp</p>
+  - id: 517482
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 30 Jul 2012 — 3:24pm
+    date: 2012-07-30T15:24:00
+    votes: null
+    html: |-
+      <p>"InDesign supports contextual kerning triplets" <a class="freelinking external" href="http://typophile.com/node/90561#comment-497511" rel="nofollow">Paul</a><br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/kern_triplets_3545.jpg"></div><br>
+      A-space-T and f-space-T are triplets, first -100, second +300 (/2000)<br>
+      Lower row - kerning is set to zero<p></p>
+  - id: 517519
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 30 Jul 2012 — 3:29pm
+    date: 2012-07-30T15:29:00
+    votes: null
+    html: |-
+      <p>In a triplet, is the value applied between the last two? And what happens to regular (double) kern values that might also be specified?</p>
+      <p>hhp</p>
+  - id: 517580
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 31 Jul 2012 — 3:40am
+    date: 2012-07-31T03:40:00
+    votes: null
+    html: |-
+      <p>Hrant: 'what happens to regular (double) kern values that might also be specified?'</p>
+      <p>"Contextual positioning rules must be in a different lookup than pair positioning rules, since the rules are of different lookup types. Because each lookup is applied independently of the other lookup(s) over the entire text stream, the positioning change specified in a pair kerning rule will be added to the positioning change specified in a contextual kerning rule, whenever the two rules match the same glyph pair in the text stream."<br>
+      [ <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a> ]</p>
+      <p>Hrant: 'In a triplet, is the value applied between the last two?'<br>
+      examples from cited site:<br>
+      <code>position quoteleft T' &lt;0 0 20 0 &gt; quoteright;</code><br>
+      This form shows a full value record which allows you to alter both the (x,y) coordinates of the origin and the (x,y) coordinates of the advance width. So in this example the advance width of "T" will increase by 20 (the origin remain unaltered).</p>
+      <p><code>position quoteleft T' 20 quoteright;</code><br>
+      The simple form of the value record which specifies a value for only a change to the (x) value of the advance width."<br>
+      So it is your choice: you can shift the glyph and/or change its advance width.</p>
+      <p>And the Contextual Kerning is not limited to two or three glyphs:<br>
+      <code>position s f' 10 t period;</code></p>
+  - id: 517593
+    user_id: 1250
+    user_name: hrant
+    user_path: null
+    date_raw: 31 Jul 2012 — 7:04am
+    date: 2012-07-31T07:04:00
+    votes: null
+    html: |-
+      <p>Wow, fancy stuff. Thanks for explaining.</p>
+      <p>Out of curiosity, is there a limit to how many characters can be contextually positioned?</p>
+      <p>hhp</p>
+  - id: 517680
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 20 Sep 2014 — 6:34am
+    date: 2014-09-20T06:34:00
+    votes: null
+    html: |-
+      <p>HaHa! Got it! You can do it with probably many glyphs/classes, as far as you keep them in three groups and one glyph/class (middle) is affected:<br>
+      <code>pos o f space' T w o 300;</code><br>
+      or even more than one glyph/class:<br>
+      <code>position s f'10 t' -5 period;</code><br>
+      where in sequence s-f-t-. the x-advance of f is increased by 10, and the x-advance of t is decreased by 5.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/kern19_4762.jpg"></div><br>
+      The upper text matches the rule, the lower not, so only first space is wider.<br>
+      [support in AFDKO added Jan 2009]<p></p>
+      <p>[edit]<br>
+      "pos o f space' T w o 300;" is not correct, at least now. It ought to be:<br>
+      position f o space' 300 T w o;</p>
+  - id: 517724
+    user_id: 3135
+    user_name: dezcom
+    user_path: null
+    date_raw: 1 Aug 2012 — 10:42am
+    date: 2012-08-01T10:42:00
+    votes: null
+    html: <p>Thanks!</p>
+  - id: 519391
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 19 Aug 2012 — 6:47am
+    date: 2012-08-19T06:47:00
+    votes: null
+    html: |-
+      <p>POC:<br>
+      lookup kern1 {<br>
+          pos \s  \f' 200 \t' 100 \period ;<br>
+      } kern1;<br>
+      feature kern {<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup kern1;<br>
+      } kern;<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Font_3424.jpg"></div><br>
+      Update: "start" and "end" groups aren't mandatory. You can do something like this:<br>
+      pos \a' &lt;100 0 200 0&gt; \b' &lt;100 0 200 0&gt; \c' &lt;100 0 200 0&gt; \d' &lt;100 0 200 0&gt;;<br>
+      at every occurrence of the string "abcd" the letters "a b c d" are extra spaced (in this example no matter what is before and after).<br>
+      (tested in FireFox 14.0.1; pair kerning is still additive)<p></p>
+  - id: 519414
+    user_id: null
+    user_name: Chris Dean
+    user_path: /readthetype
+    date_raw: 18 Aug 2012 — 1:25pm
+    date: 2012-08-18T13:25:00
+    votes: null
+    html: <p>.</p>
+  - id: 588782
+    user_id: 9108
+    user_name: JanekZ
+    user_path: null
+    date_raw: 20 Sep 2014 — 6:37am
+    date: 2014-09-20T06:37:00
+    votes: null
+    html: <p><a class="freelinking external" href="http://typophile.com/node/90561#comment-517680" rel="nofollow">bug fix</a></p>

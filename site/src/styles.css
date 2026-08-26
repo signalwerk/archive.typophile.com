@@ -1,0 +1,126 @@
+/* Monochrome and quiet: the pages are here to be read, not decorated. */
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  --muted: rgba(0, 0, 0, 0.55);
+  --faint: rgba(0, 0, 0, 0.34);
+  --rule: rgba(0, 0, 0, 0.14);
+  --wash: rgba(0, 0, 0, 0.035);
+  --measure: 44rem;
+  --wide: 60rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e8e8;
+    --paper: #111;
+    --muted: rgba(232, 232, 232, 0.6);
+    --faint: rgba(232, 232, 232, 0.38);
+    --rule: rgba(232, 232, 232, 0.16);
+    --wash: rgba(232, 232, 232, 0.05);
+  }
+}
+
+html {
+  color: var(--ink);
+  background: var(--paper);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+::selection { color: var(--paper); background: var(--ink); }
+
+a { color: inherit; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* --- shell --------------------------------------------------------------- */
+
+.page { max-width: var(--wide); margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+.page--reading { max-width: var(--measure); }
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead__title { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+.masthead__title a { text-decoration: none; }
+.masthead__nav { margin-left: auto; display: flex; gap: 1rem; font-size: 0.8125rem; color: var(--muted); }
+
+.lede { color: var(--muted); font-size: 0.875rem; margin: 0 0 2rem; }
+
+.foot {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+/* --- listings ------------------------------------------------------------ */
+
+.threads { list-style: none; margin: 0; padding: 0; }
+.threads li { padding: 0.7rem 0; border-bottom: 1px solid var(--rule); }
+.thread__title { display: block; font-size: 1rem; text-decoration: none; }
+.thread__title:hover { text-decoration: underline; }
+.thread__meta { margin-top: 0.15rem; font-size: 0.75rem; color: var(--faint); display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.forums { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; gap: 0.15rem 1.5rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
+.forums a { font-size: 0.875rem; text-decoration: none; }
+.forums a:hover { text-decoration: underline; }
+.forums .count { color: var(--faint); font-size: 0.75rem; }
+
+/* --- a thread ------------------------------------------------------------ */
+
+.thread-head { margin-bottom: 2rem; }
+.thread-head h1 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 0.4rem; }
+.crumbs { font-size: 0.75rem; color: var(--faint); }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+
+.post { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+.post--op { border-top: 0; padding-top: 0; }
+.byline { font-size: 0.75rem; color: var(--faint); margin-bottom: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.byline strong { font-weight: 600; color: var(--muted); }
+
+/* Archived markup: keep it readable and stop it breaking the layout. */
+.body { overflow-wrap: break-word; }
+.body :is(img, video, iframe, table) { max-width: 100%; }
+.body img { height: auto; }
+.body :is(pre, table) { overflow-x: auto; display: block; }
+.body blockquote { margin: 0.8rem 0; padding-left: 0.9rem; border-left: 2px solid var(--rule); color: var(--muted); }
+.body pre { background: var(--wash); padding: 0.7rem; font-size: 0.8125rem; }
+.body p:first-child { margin-top: 0; }
+.body p:last-child { margin-bottom: 0; }
+
+/* --- pagination ---------------------------------------------------------- */
+
+.pager { display: flex; gap: 1rem; align-items: baseline; margin-top: 2rem; font-size: 0.8125rem; }
+.pager__spacer { margin-left: auto; color: var(--faint); }
+
+.note {
+  margin: 1rem 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--rule);
+  background: var(--wash);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}

@@ -1,0 +1,57 @@
+node: 47814
+title: FontLab's measurement line in Python
+forum:
+  id: 6
+  title: Build
+source:
+  archive: commoncrawl.org
+  timestamp: "20150419094025"
+  captured_at: 2015-04-19T09:40:25Z
+  url: http://typophile.com/node/47814
+  digest: CITLTZUG5LO5TXYA67SWRPSJTDJZUWVU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/commoncrawl.org/files/typophile.com/node/47814.html
+  fingerprint: c1844e49af7dd743
+  parser: 4e04979c9499b509
+post:
+  id: 47814
+  user_id: 12938
+  user_name: David Jonathan Ross
+  user_path: null
+  date_raw: 28 Jul 2008 — 6:12am
+  date: 2008-07-28T06:12:00
+  votes: null
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I'm looking for a way to calculate "sidebearings" in a Python script by using (or approximating) FontLab's measurement line. I put "sidebearings" in quotes because I actually want the distance between the edge of the glyph and where the measurement line first crosses a contour. I know that I'm able to run a macro like <code>fl.font.measurement = 0</code> to set the height of the measurement line, but what I don't know is how to get the values of the modified sidebearings that are shown in the Metrics window when the measurement line is on.</p>
+    <p>Is there a similar attribute in FontLab's glyph object that isn't documented? Or is there another easy way to calculate this using the contour?</p>
+    <p>As a temporary solution, I have been able to use RoboFab's <code>contour.pointInside()</code> to get these values by periodically testing points within the bounding box. However, I want to be able to easily get these values for hundreds of glyphs at a time, and this method is quite taxing. There must be an easier way!</p>
+    <p>Thank you in advance for your help, and my apologies if the answer is already out there. I couldn't find anything with a quick search.</p>
+    <p>Cheers,<br>
+    David</p>
+comments:
+  - id: 291919
+    user_id: 8664
+    user_name: k.l.
+    user_path: null
+    date_raw: 28 Jul 2008 — 6:41am
+    date: 2008-07-28T06:41:00
+    votes: null
+    html: |-
+      <p>Not in the FLS Python API. But Erik van Blokland has added such a function to RoboFab, as a new marginPen object:<br>
+      <a href="http://code.robofab.com/browser/trunk/Lib/robofab/pens/marginPen.py" title="http://code.robofab.com/browser/trunk/Lib/robofab/pens/marginPen.py">http://code.robofab.com/browser/trunk/Lib/robofab/pens/marginPen.py</a><br>
+      and even an angledMarginPen:<br>
+      <a href="http://code.robofab.com/browser/trunk/Lib/robofab/pens/angledMarginPen.py" title="http://code.robofab.com/browser/trunk/Lib/robofab/pens/angledMarginPen.py">http://code.robofab.com/browser/trunk/Lib/robofab/pens/angledMarginPen.py</a></p>
+      <p>Karsten</p>
+  - id: 291921
+    user_id: 12938
+    user_name: David Jonathan Ross
+    user_path: null
+    date_raw: 28 Jul 2008 — 7:11am
+    date: 2008-07-28T07:11:00
+    votes: null
+    html: <p>Thank you, Karsten...this is exactly what I was looking for!</p>
