@@ -28,12 +28,10 @@ function Activity({ title, items, empty }) {
 
 function Profile({ profile }) {
   if (!profile) return null;
-  const place = [profile.city, profile.state, profile.country].filter(Boolean).join(", ");
+  // Location and the join date are already in the header, above this list.
   const rows = [
     ["Full name", profile.name],
-    ["Location", place || null],
     ["Occupation", profile.occupation],
-    ["Member since", profile.member_since],
     ["Home page", profile.home_page],
   ].filter(([, v]) => v);
   if (!rows.length) return null;
