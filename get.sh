@@ -43,3 +43,10 @@ node src/005_selectNodes.js
 # 6. Parse those into one YAML per node. Warnings/errors go to
 #    data/parsed/parse.log.
 node src/006_parseNodes.js
+
+# 7. Build one file per member from the bylines step 6 recorded, and copy
+#    their avatars out of the archives into the parsed data.
+node src/007_users.js
+
+# 8. Clean up the stored HTML: repoint links at the copies we hold.
+node src/008_cleanHtml.js

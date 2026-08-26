@@ -16,36 +16,45 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/3788.html
   fingerprint: c5b4cb67eee0cf1e
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 3788
-  user_id: 3290
-  user_name: elena
-  user_path: null
-  user_image: /files/pictures/picture-3290.jpg
-  date_raw: 25 Mar 2004 — 8:03am
+  user: 3290
   date: 2004-03-25T08:03:00
+  date_raw: 25 Mar 2004 — 8:03am
   votes: null
   html: "<p>Bonjour, <br> <br>I'm working on an experimental font for titling, using Fontlab with the calt feature (ot). <br>Please have a look to the attached files to see how i'm trying to do... \"Abracadabra\" version is less important, it will be the result of a random feature. <br>To obtain the effect of deformation that you can see in the \"colonel\" exemple, I've created 5 sizes in the same font. First I digit my word with lowercases, then I choose one letter (in the middle of the word) and I change it in capitals (the biggest size). <br>I've created five classes for each sizes (from the very small to the biggest : minuscules, petites, moyennes, grandes, capitales), and I've tried to apply calt feature to make contextual substitutions. <br>The code : <br> <br>feature calt { <br>  sub @minuscules' @capitales by @grandes;   #first level of sub. <br>  sub @capitales @minuscules' by @grandes; <br>  sub @minuscules' @grandes by @moyennes;   #second level of sub. <br>  sub @grandes @minuscules' by @moyennes; <br>  sub @minuscules' @moyennes by @petites; <br>  sub @moyennes @minuscules' by @petites; <br>} calt; <br> <br>The problem is that the program consider only the first substitution. The second and the third substitution refer to the first substitution, but it doesn't works because everything is in the same feature. I don't know if it's quite clear for you, it's so difficult to explain in my bad english... My question is : do I need to put some lookups to make that the first level of substitution takes effect, so the second will may refers to...  <br> <br>Thank you so much for your patient attention <br> <br>E.A.<img src=\"http://www.typophile.com/forums/messages/4101/29230.jpg\" alt=\"colonel\"><img src=\"http://www.typophile.com/forums/messages/4101/29231.jpg\" alt=\"abracadabra\"></p>"
+  html_clean: "<p>Bonjour, <br> <br>I'm working on an experimental font for titling, using Fontlab with the calt feature (ot). <br>Please have a look to the attached files to see how i'm trying to do... \"Abracadabra\" version is less important, it will be the result of a random feature. <br>To obtain the effect of deformation that you can see in the \"colonel\" exemple, I've created 5 sizes in the same font. First I digit my word with lowercases, then I choose one letter (in the middle of the word) and I change it in capitals (the biggest size). <br>I've created five classes for each sizes (from the very small to the biggest : minuscules, petites, moyennes, grandes, capitales), and I've tried to apply calt feature to make contextual substitutions. <br>The code : <br> <br>feature calt { <br>  sub @minuscules' @capitales by @grandes;   #first level of sub. <br>  sub @capitales @minuscules' by @grandes; <br>  sub @minuscules' @grandes by @moyennes;   #second level of sub. <br>  sub @grandes @minuscules' by @moyennes; <br>  sub @minuscules' @moyennes by @petites; <br>  sub @moyennes @minuscules' by @petites; <br>} calt; <br> <br>The problem is that the program consider only the first substitution. The second and the third substitution refer to the first substitution, but it doesn't works because everything is in the same feature. I don't know if it's quite clear for you, it's so difficult to explain in my bad english... My question is : do I need to put some lookups to make that the first level of substitution takes effect, so the second will may refers to...  <br> <br>Thank you so much for your patient attention <br> <br>E.A.<img src=\"http://www.typophile.com/forums/messages/4101/29230.jpg\" alt=\"colonel\"><img src=\"http://www.typophile.com/forums/messages/4101/29231.jpg\" alt=\"abracadabra\"></p>"
 comments:
   - id: 232803
-    user_id: 2942
-    user_name: ebensorkin
-    user_path: null
-    user_image: /files/pictures/picture-2942.jpg
-    date_raw: 10 Oct 2007 — 3:41pm
+    user: 2942
     date: 2007-10-10T15:41:00
+    date_raw: 10 Oct 2007 — 3:41pm
     votes: null
     html: <p>I just found this. Apparently everybody else missed it too. As it happens I am looking for similar info today.</p>
+    html_clean: <p>I just found this. Apparently everybody else missed it too. As it happens I am looking for similar info today.</p>
   - id: 232850
-    user_id: 9584
-    user_name: Henyk
-    user_path: null
-    user_image: /files/pictures/picture-9584.jpg
-    date_raw: 11 Oct 2007 — 12:30am
+    user: 9584
     date: 2007-10-11T00:30:00
+    date_raw: 11 Oct 2007 — 12:30am
     votes: null
     html: |-
+      <p>Try this:</p>
+      <p>feature calt {</p>
+      <p>lookup calt1 {<br>
+      sub @minuscules' @capitales by @grandes; #first level of sub.<br>
+      sub @capitales @minuscules' by @grandes;<br>
+      } calt1;</p>
+      <p>lookup calt2 {<br>
+      sub @minuscules' @grandes by @moyennes; #second level of sub.<br>
+      sub @grandes @minuscules' by @moyennes;<br>
+      } calt2;</p>
+      <p>lookup calt3 {<br>
+      sub @minuscules' @moyennes by @petites;<br>
+      sub @moyennes @minuscules' by @petites;<br>
+      } calt3;</p>
+      <p>} calt;</p>
+    html_clean: |-
       <p>Try this:</p>
       <p>feature calt {</p>
       <p>lookup calt1 {<br>

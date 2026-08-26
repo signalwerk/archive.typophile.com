@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/53143.html
   fingerprint: 6b5c47a126118afb
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 53143
-  user_id: 17208
-  user_name: pvanderlaan
-  user_path: null
-  user_image: /files/pictures/picture-17208.gif
-  date_raw: 5 Jan 2009 — 6:13am
+  user: 17208
   date: 2009-01-05T06:13:00
+  date_raw: 5 Jan 2009 — 6:13am
   votes: null
   html: |-
     <p>Hi,</p>
@@ -33,14 +30,18 @@ post:
     <p>Thanks,</p>
     <p>-Paul van der Laan</p>
     <p><a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I know the classes in FontLab can be accessed by using the "fl.classes" property in Python, but how do I set the right/left checkboxes in the classes window?</p>
+    <p>...Any chance that the unofficial Python API reference might be updated some time?</p>
+    <p>Thanks,</p>
+    <p>-Paul van der Laan</p>
+    <p><a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
 comments:
   - id: 320741
-    user_id: 8664
-    user_name: k.l.
-    user_path: null
-    user_image: /files/pictures/picture-8664.jpg
-    date_raw: 5 Jan 2009 — 8:12am
+    user: 8664
     date: 2009-01-05T08:12:00
+    date_raw: 5 Jan 2009 — 8:12am
     votes: null
     html: |-
       <p>It's a font-object related function:<br>
@@ -61,14 +62,33 @@ comments:
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.SetClassFlags(cIdx, 1, 1)<br>
       </code></p>
       <p>Then update font.</p>
+    html_clean: |-
+      <p>It's a font-object related function:<br>
+      <code>SetClassFlags(classIndex,isFirst,isSecond)</code><br>
+      You need to iterate through classes, and depending on whether the class is 1st/left or 2nd/right (e.g. check if a tag is found in class names), set the according flag(s):</p>
+      <p><code>isFIRST_TAG = "_1ST"<br>
+      isSECOND_TAG = "_2ND"<br>
+      f = fl.font<br>
+      classes = f.classes<br>
+      for cIdx in range(len(classes)):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cName = classes[cIdx].split(":",1)[0]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if cName.startswith("_"):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if isFIRST_TAG in cName:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.SetClassFlags(cIdx, 1, 0)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif isSECOND_TAG in cName:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.SetClassFlags(cIdx, 0, 1)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.SetClassFlags(cIdx, 1, 1)<br>
+      </code></p>
+      <p>Then update font.</p>
   - id: 320797
-    user_id: 17208
-    user_name: pvanderlaan
-    user_path: null
-    user_image: /files/pictures/picture-17208.gif
-    date_raw: 5 Jan 2009 — 1:23pm
+    user: 17208
     date: 2009-01-05T13:23:00
+    date_raw: 5 Jan 2009 — 1:23pm
     votes: null
     html: |-
+      <p>Helpful as ever - thank you, Karsten!</p>
+      <p>-Paul</p>
+    html_clean: |-
       <p>Helpful as ever - thank you, Karsten!</p>
       <p>-Paul</p>

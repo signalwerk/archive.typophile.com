@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/43575.html
   fingerprint: 44e65278f94756f5
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 43575
-  user_id: 28793
-  user_name: fontforge
-  user_path: null
-  user_image: /files/pictures/picture-28793.png
-  date_raw: 26 Mar 2008 — 10:12am
+  user: 28793
   date: 2008-03-26T10:12:00
+  date_raw: 26 Mar 2008 — 10:12am
   votes: null
   html: |-
     <p>Someone asked me what the appropriate MIME type was for a FontForge sfd file.</p>
@@ -41,14 +38,26 @@ post:
     </li><li>application/vnd.pstype1
     </li></ol>
     <p>seem reasonable MIME types to try and register?</p>
+  html_clean: |-
+    <p>Someone asked me what the appropriate MIME type was for a FontForge sfd file.</p>
+    <p>I can't find any MIME types for any font formats. The IANA registry list does not include any<br>
+       <a href="http://www.iana.org/assignments/media-types/" title="http://www.iana.org/assignments/media-types/">http://www.iana.org/assignments/media-types/</a></p>
+    <p>I see at one point there were discussions about getting a top-level MIME type for fonts<br>
+       <a href="http://www.w3c.org/Printing/chase.html" title="http://www.w3c.org/Printing/chase.html">http://www.w3c.org/Printing/chase.html</a><br>
+    but I presume that has since foundered as nothing seems to have come of it.</p>
+    <p>So are there any existing standards I can't find?<br>
+    If not, would</p>
+    <ol>
+    <li>application/vnd.opentype
+    </li><li>application/vnd.truetype
+    </li><li>application/vnd.pstype1
+    </li></ol>
+    <p>seem reasonable MIME types to try and register?</p>
 comments:
   - id: 268579
-    user_id: 16708
-    user_name: guifa
-    user_path: null
-    user_image: /files/pictures/picture-16708.jpg
-    date_raw: 26 Mar 2008 — 10:58am
+    user: 16708
     date: 2008-03-26T10:58:00
+    date_raw: 26 Mar 2008 — 10:58am
     votes: null
     html: |-
       <p>Are you talking about the SFD (FontForge internal file format) or for the fonts generated (or both?)</p>
@@ -59,13 +68,19 @@ comments:
       application/vnd.fontforge.sfd</p>
       <p>Although I think one of the latter two would be prefered in modern day coding.</p>
       <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+    html_clean: |-
+      <p>Are you talking about the SFD (FontForge internal file format) or for the fonts generated (or both?)</p>
+      <p>Since FontForge's file format is cleartext, the MIME type could any of the following I think</p>
+      <p>text/x-fontforge<br>
+      application/x-fontforge<br>
+      application/vnd.fontforge-sfd<br>
+      application/vnd.fontforge.sfd</p>
+      <p>Although I think one of the latter two would be prefered in modern day coding.</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
   - id: 268594
-    user_id: 28793
-    user_name: fontforge
-    user_path: null
-    user_image: /files/pictures/picture-28793.png
-    date_raw: 26 Mar 2008 — 1:25pm
+    user: 28793
     date: 2008-03-26T13:25:00
+    date_raw: 26 Mar 2008 — 1:25pm
     votes: null
     html: |-
       <p>Well the thing which started me looking into this was someone involved with freedesktop asking about fontforge's sfd. That seemed pretty simple, something like application/vnd.fontforge-sfd.</p>
@@ -77,13 +92,20 @@ comments:
       ...</p>
       <p>or should things be just</p>
       <p>application/vnd.truetype</p>
+    html_clean: |-
+      <p>Well the thing which started me looking into this was someone involved with freedesktop asking about fontforge's sfd. That seemed pretty simple, something like application/vnd.fontforge-sfd.</p>
+      <p>But if there were a convention for font types, then I should follow that. And if there is no convention for font types there should be.</p>
+      <p>And that is really my question:<br>
+      No one seems to have registered MIME types for the standard font formats with IANA. I think that should happen, otherwise there will be a proliferation of "x-" types with no consistency. Given that no one has done this, should there be a standard format like</p>
+      <p>application/vnd.font-truetype<br>
+      application/vnd.font-opentype<br>
+      ...</p>
+      <p>or should things be just</p>
+      <p>application/vnd.truetype</p>
   - id: 268717
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 27 Mar 2008 — 7:34am
+    user: 1133
     date: 2008-03-27T07:34:00
+    date_raw: 27 Mar 2008 — 7:34am
     votes: null
     html: |-
       <p>George, </p>
@@ -91,26 +113,31 @@ comments:
       <p>On the other hand, PostScript Type 1 is by no way a standardized data structure. You have the Mac FFIL and LWFN resource fork structures, you have the .pfb and .pfa data fork structures along with the auxiliary files .pfm, .inf and .afm. </p>
       <p>I think it would do good to just forget any attempt to clean the old Type 1 mess up and just proposed one MIME type for the one font format that is currently of interest, that is ISO/IEC 14496-22 (Open Font Format), also known as OpenType. </p>
       <p>Adam</p>
+    html_clean: |-
+      <p>George, </p>
+      <p>I think application/vnd.font-truetype is somewhat superflous. application/vnd.font-opentype obviously applies to both .otf and .ttf, and I can't think of a font that would need to have the MIME type application/vnd.font-truetype without it just being application/vnd.font-opentype. </p>
+      <p>On the other hand, PostScript Type 1 is by no way a standardized data structure. You have the Mac FFIL and LWFN resource fork structures, you have the .pfb and .pfa data fork structures along with the auxiliary files .pfm, .inf and .afm. </p>
+      <p>I think it would do good to just forget any attempt to clean the old Type 1 mess up and just proposed one MIME type for the one font format that is currently of interest, that is ISO/IEC 14496-22 (Open Font Format), also known as OpenType. </p>
+      <p>Adam</p>
   - id: 268730
-    user_id: 28793
-    user_name: fontforge
-    user_path: null
-    user_image: /files/pictures/picture-28793.png
-    date_raw: 27 Mar 2008 — 8:22am
+    user: 28793
     date: 2008-03-27T08:22:00
+    date_raw: 27 Mar 2008 — 8:22am
     votes: null
     html: |-
       <p>Thanks Adam, that's a good point. </p>
       <p>Apple might disagree, since their TrueType 2.0 extentions are not part of OpenType, but for most purposes an 'sfnt' is an 'sfnt'. Best to avoid proliforation of MIME types. </p>
       <p>I still think there is a use to having a MIME type for type1 pf[ab], because there are still a lot around and the distinction between ASCII and Binary doesn't affect most font consumers (and the less common formats are ignorable).</p>
       <p>But you are right that an OpenType MIME is the most important.</p>
+    html_clean: |-
+      <p>Thanks Adam, that's a good point. </p>
+      <p>Apple might disagree, since their TrueType 2.0 extentions are not part of OpenType, but for most purposes an 'sfnt' is an 'sfnt'. Best to avoid proliforation of MIME types. </p>
+      <p>I still think there is a use to having a MIME type for type1 pf[ab], because there are still a lot around and the distinction between ASCII and Binary doesn't affect most font consumers (and the less common formats are ignorable).</p>
+      <p>But you are right that an OpenType MIME is the most important.</p>
   - id: 268830
-    user_id: 16708
-    user_name: guifa
-    user_path: null
-    user_image: /files/pictures/picture-16708.jpg
-    date_raw: 27 Mar 2008 — 1:06pm
+    user: 16708
     date: 2008-03-27T13:06:00
+    date_raw: 27 Mar 2008 — 1:06pm
     votes: null
     html: |-
       <p>If OpenType is vendor inspecific (which AFAIK is correct), then it shouldn't be vnd- rather:</p>
@@ -121,40 +148,57 @@ comments:
       application/vnd-adobe.fubar</p>
       <p>etc etc</p>
       <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+    html_clean: |-
+      <p>If OpenType is vendor inspecific (which AFAIK is correct), then it shouldn't be vnd- rather:</p>
+      <p>application/x-opentype</p>
+      <p>Whereas with the truetypes you would have</p>
+      <p>application/vnd-apple.fubar<br>
+      application/vnd-microsoft.fubar<br>
+      application/vnd-adobe.fubar</p>
+      <p>etc etc</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
   - id: 268944
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 27 Mar 2008 — 10:01pm
+    user: 1133
     date: 2008-03-27T22:01:00
+    date_raw: 27 Mar 2008 — 10:01pm
     votes: null
     html: |-
       <p>Guifa, </p>
       <p>OpenType is a Microsoft registered trademark but the OpenType format has been standardized as Open Font Format (ISO/IEC 14496-22). </p>
       <p>A.</p>
+    html_clean: |-
+      <p>Guifa, </p>
+      <p>OpenType is a Microsoft registered trademark but the OpenType format has been standardized as Open Font Format (ISO/IEC 14496-22). </p>
+      <p>A.</p>
   - id: 268989
-    user_id: 3972
-    user_name: Bert Vanderveen
-    user_path: null
-    user_image: /files/pictures/picture-3972.png
-    date_raw: 28 Mar 2008 — 5:51am
+    user: 3972
     date: 2008-03-28T05:51:00
+    date_raw: 28 Mar 2008 — 5:51am
     votes: null
     html: |-
       <p>There's an ongoing discussion on the OpenType List adressing this. </p>
       <p>subscribe: <a href="mailto:opentype-migration-sub@indx.co.uk">opentype-migration-sub@indx.co.uk</a></p>
       <p>. . .<br>
       Bert Vanderveen BNO</p>
+    html_clean: |-
+      <p>There's an ongoing discussion on the OpenType List adressing this. </p>
+      <p>subscribe: <a href="mailto:opentype-migration-sub@indx.co.uk">opentype-migration-sub@indx.co.uk</a></p>
+      <p>. . .<br>
+      Bert Vanderveen BNO</p>
   - id: 269091
-    user_id: 28793
-    user_name: fontforge
-    user_path: null
-    user_image: /files/pictures/picture-28793.png
-    date_raw: 28 Mar 2008 — 12:32pm
+    user: 28793
     date: 2008-03-28T12:32:00
+    date_raw: 28 Mar 2008 — 12:32pm
     votes: null
     html: |-
+      <p>The "x-" namespace is inappropriate for opentype. It is for experimental stuff. And OpenType does not qualify as experimental.</p>
+      <p>Yes, a better approach would be to get someone from the ISO opentype group to register<br>
+         application/font-opentype.<br>
+      And even better approach would be for someone from the ISO group to register a top-level MIME type for fonts and then register<br>
+         font/opentype<br>
+      Both of these require someone in an established standards group to spearhead the effort. The IANA will not accept requests from random people for such things.</p>
+      <p>Which is why I suggested "vnd." -- because it is something which I could do without depending on others.</p>
+    html_clean: |-
       <p>The "x-" namespace is inappropriate for opentype. It is for experimental stuff. And OpenType does not qualify as experimental.</p>
       <p>Yes, a better approach would be to get someone from the ISO opentype group to register<br>
          application/font-opentype.<br>

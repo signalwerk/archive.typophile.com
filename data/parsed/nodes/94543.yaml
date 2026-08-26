@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/94543.html
   fingerprint: 772a2804d250913d
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 94543
-  user_id: 1262
-  user_name: John Hudson
-  user_path: null
-  user_image: /files/pictures/picture-1262.gif
-  date_raw: 8 Jul 2012 — 8:36pm
+  user: 1262
   date: 2012-07-08T20:36:00
+  date_raw: 8 Jul 2012 — 8:36pm
   votes: null
   html: |-
     <p>Following the recent discovery that the Gurmukhi writing system is supported in InDesign CS6 using only the legacy 'guru' script tag instead of the preferred 'gur2' tag, I set out today to determine  which script tags are used for each of the Indic scripts supported in InDesign CS6, and hence what will need to be implemented in fonts in order to get them to work in this environment. My method was first to test each script using a font that supports only the newer '---2' script tags (Nirmala UI) and if this failed to then test with a font that supports the legacy tags (mostly old MS fonts). The PDF results of the tests are attached.</p>
@@ -49,54 +46,70 @@ post:
      <tr class="odd"><td><a href="http://typophile.com/files/CS6IndicTagTest.pdf">CS6IndicTagTest.pdf</a></td><td>282.92 KB</td> </tr>
     </tbody>
     </table>
+  html_clean: |-
+    <p>Following the recent discovery that the Gurmukhi writing system is supported in InDesign CS6 using only the legacy 'guru' script tag instead of the preferred 'gur2' tag, I set out today to determine  which script tags are used for each of the Indic scripts supported in InDesign CS6, and hence what will need to be implemented in fonts in order to get them to work in this environment. My method was first to test each script using a font that supports only the newer '---2' script tags (Nirmala UI) and if this failed to then test with a font that supports the legacy tags (mostly old MS fonts). The PDF results of the tests are attached.</p>
+    <p>Some background on the two sets of script tags:<br>
+    Microsoft originally defined OTL script level tags for each of the Indic scripts in Unicode, and then proceeded to implement shaping engines for many (but not all) of these. Some time after Windows XP shipped with these shaping engines and corresponding fonts, Microsoft decided that certain bugs in the shaping engines would require fixes to those engines and corresponding changes to fonts, and that these changes would make the fonts non-backwards compatible with the Windows XP shaping engines. This was put forward for discussion on the <a href="http://www.microsoft.com/typography/otspec/otlist.htm" rel="nofollow">OT developer mailing list</a>, and I suggested that it would be possible to make fonts that worked with both shaping engine behaviours if Microsoft, instead of changing the behaviour associated with the existing script tags, registered a new set of script tags for each script. This is what they did, and as a result it is possible to create e.g. a Devanagari font that is backwards compatible with the 'deva' tag shaping in WinXP and with the 'dev2' shaping in Windows Vista and later. [I won't go into details here of the problems with the old shaping that prompted this change, or what needs to be done differently for each script tag in fonts.]</p>
+    <p>When Adobe announced that InDesign CS6 would officially support a significant number of Indian writing systems (some unofficial support was provided in CS5 and 5.5 if one activated the World Ready Composer), I was thrilled. I also presumed that this support would utilise the newer '---2' script tags, since these have been around for almost a decade now, and I don't think I'm alone in considering the older tags 'legacy' software, i.e. not something for which I expected anyone to be rolling out new support in 2012! Indeed, Microsoft list the old Indic font specs on their website as '<a href="http://www.microsoft.com/typography/SpecificationsOverview.mspx" rel="nofollow">deprecated</a>'. I was also encouraged in this expectation by initial testing of Hindi fonts that revealed solid IS CS6 support for the 'dev2' script tag.</p>
+    <p>So I was somewhat perplexed this past week, trying to figure out why my Gurmukhi 'gur2' font wasn't working in ID CS6, to discover that Gurmukhi support in the app seems to be via the old 'guru' script tag only. It was relatively easy to build a font supporting both script tags, and to confirm that this then worked in ID CS6, but I was left wondering which of the other supported scripts used which tags. Hence today's testing.</p>
+    <p>This is the summary of my findings: three of the scripts use the newer '---2' tags, but the six others use the old, legacy, deprecated tags and corresponding shaping behaviour. One of the scripts, Malayalam, seems to use the newer tag, but has a bug affecting correct shaping of <em>chillu</em> forms.</p>
+    <p>'dev2' Devanagari<br>
+    'mlm2' Malayalam *buggy*<br>
+    'ory2' Odia (Oriya)</p>
+    <p>'beng' Bengali<br>
+    'gujr' Gujurati<br>
+    'guru' Gurmukhi<br>
+    'knda' Kannada<br>
+    'taml' Tamil<br>
+    'telu' Telugu</p>
+    <p>I find this use of the old tags very disappointing. In recent years I have made a number of Indic fonts, and in no cases was the client concerned about backwards compatibility with Windows XP shaping. The only fonts in which I was requested to include support for both script tags for a script are the Adobe Devanagari fonts; ironically, Devanagari is one of the scripts for which Adobe use the newer tag in ID Cs6. I doubt if I am alone in presuming that the legacy tags would only be used for legacy purposes, and could be omitted from newer fonts targeting post-Vista environments. Now it looks like my clients and other users who have been waiting eagerly for many years for Adobe to officially support Indian writing systems will need to 'downdate' fonts in order to enjoy that support.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/CS6IndicTagTest.pdf">CS6IndicTagTest.pdf</a></td><td>282.92 KB</td> </tr>
+    </tbody>
+    </table>
 comments:
   - id: 515045
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 8 Jul 2012 — 8:45pm
+    user: 1262
     date: 2012-07-08T20:45:00
+    date_raw: 8 Jul 2012 — 8:45pm
     votes: null
     html: <p>PS. Sorry about any typos and infelicities in the above post; it's been a long hot day, and I forgot to proofread. I may go back and tidy it up in the morning.</p>
+    html_clean: <p>PS. Sorry about any typos and infelicities in the above post; it's been a long hot day, and I forgot to proofread. I may go back and tidy it up in the morning.</p>
   - id: 515107
-    user_id: 48268
-    user_name: Karl Stange
-    user_path: null
-    user_image: /files/pictures/picture-48268.jpg
-    date_raw: 9 Jul 2012 — 10:43am
+    user: 48268
     date: 2012-07-09T10:43:00
+    date_raw: 9 Jul 2012 — 10:43am
     votes: null
     html: |-
       <blockquote><p>it's been a long hot day</p></blockquote>
       <p>I'm glad someone is getting those : ) Thanks for taking the trouble to do this research and post it!</p>
+    html_clean: |-
+      <blockquote><p>it's been a long hot day</p></blockquote>
+      <p>I'm glad someone is getting those : ) Thanks for taking the trouble to do this research and post it!</p>
   - id: 515112
-    user_id: 20652
-    user_name: Bendy
-    user_path: null
-    user_image: /files/pictures/picture-20652.png
-    date_raw: 9 Jul 2012 — 10:53am
+    user: 20652
     date: 2012-07-09T10:53:00
+    date_raw: 9 Jul 2012 — 10:53am
     votes: null
     html: <p>I'd been wondering about this. Were you able to test mymr/mym2? There's no OT spec at present, so I suspect neither works.</p>
+    html_clean: <p>I'd been wondering about this. Were you able to test mymr/mym2? There's no OT spec at present, so I suspect neither works.</p>
   - id: 515116
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 9 Jul 2012 — 11:32am
+    user: 1262
     date: 2012-07-09T11:32:00
+    date_raw: 9 Jul 2012 — 11:32am
     votes: null
     html: |-
       <p>I tested the full list of Indic scripts for which support is claimed. I suspect there might be some other, unofficial support for additional scripts, as was the case for most of these Indic scripts in CS5 and 5.5, but have not done tests and I strongly suspect that Burmese is not among these.</p>
       <p>I have tested Thai shaping, and this does appear to work correctly in InDesign CS6, even though it is not officially supported.</p>
+    html_clean: |-
+      <p>I tested the full list of Indic scripts for which support is claimed. I suspect there might be some other, unofficial support for additional scripts, as was the case for most of these Indic scripts in CS5 and 5.5, but have not done tests and I strongly suspect that Burmese is not among these.</p>
+      <p>I have tested Thai shaping, and this does appear to work correctly in InDesign CS6, even though it is not officially supported.</p>
   - id: 515120
-    user_id: 18942
-    user_name: Michel Boyer
-    user_path: null
-    user_image: /files/pictures/picture-18942.gif
-    date_raw: 9 Jul 2012 — 12:34pm
+    user: 18942
     date: 2012-07-09T12:34:00
+    date_raw: 9 Jul 2012 — 12:34pm
     votes: null
     html: |-
       <blockquote><p>
@@ -113,49 +126,53 @@ comments:
         \newfontscript{Tamil}{taml}
         \newfontscript{Telugu}{telu}
       </pre><p>Michel</p>
+    html_clean: |-
+      <blockquote><p>
+      I don't think I'm alone in considering the older tags 'legacy' software, i.e. not something for which I expected anyone to be rolling out new support in 2012!
+      </p></blockquote>
+      <p>I just installed on my Mac the very last version of <a href="http://www.tug.org/mactex/2012/" rel="nofollow">MacTeX</a> (1 July 2012)  (TeX Live 2012) and the files <code>fontspec-xetex.sty</code> as well as <code>fontspec-luatex.sty</code> appear to know nothing of the new <a href="http://www.microsoft.com/typography/otspec/scripttags.htm" rel="nofollow"><code>---2</code></a> script tags. Here is what they contain:</p>
+      <pre>  \newfontscript{Bengali}{beng}
+        \newfontscript{Devanagari}{deva}
+        \newfontscript{Gujarati}{gujr}
+        \newfontscript{Gurmukhi}{guru}
+        \newfontscript{Kannada}{knda}
+        \newfontscript{Malayalam}{mlym}
+        \newfontscript{Oriya}{orya}
+        \newfontscript{Tamil}{taml}
+        \newfontscript{Telugu}{telu}
+      </pre><p>Michel</p>
   - id: 515130
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 9 Jul 2012 — 2:40pm
+    user: 1262
     date: 2012-07-09T14:40:00
+    date_raw: 9 Jul 2012 — 2:40pm
     votes: null
     html: <p>Sigh. I guess I've been fortunate in making Indic fonts almost exclusively for Microsoft environments for the past several years.</p>
+    html_clean: <p>Sigh. I guess I've been fortunate in making Indic fonts almost exclusively for Microsoft environments for the past several years.</p>
   - id: 518743
-    user_id: 7019
-    user_name: David Brezina
-    user_path: null
-    user_image: /files/pictures/picture-7019.jpg
-    date_raw: 11 Aug 2012 — 1:04am
+    user: 7019
     date: 2012-08-11T01:04:00
+    date_raw: 11 Aug 2012 — 1:04am
     votes: null
     html: <p>John, thanks for this. I found it about Gujarati some weeks ago (in CS 5). And you are certainly not alone who is sad about this. From our testing using IndicPlus plug-in (on CS3) for Devanagari it also relies on the older layout (deva). I am not sure about the version of the plug-ins, maybe there are some more recent which support dev2 (?). So I would say that Indic fonts need to be downdated if they are to be used in DTP.</p>
+    html_clean: <p>John, thanks for this. I found it about Gujarati some weeks ago (in CS 5). And you are certainly not alone who is sad about this. From our testing using IndicPlus plug-in (on CS3) for Devanagari it also relies on the older layout (deva). I am not sure about the version of the plug-ins, maybe there are some more recent which support dev2 (?). So I would say that Indic fonts need to be downdated if they are to be used in DTP.</p>
   - id: 518772
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 11 Aug 2012 — 10:05am
+    user: 1262
     date: 2012-08-11T10:05:00
+    date_raw: 11 Aug 2012 — 10:05am
     votes: null
     html: <p>Yesterday I learned, via the OT list, that Apple have added Indic support to CoreText in Lion and Mountain Lion. I've not tested this yet, but apparently it too uses the old script tag shaping.</p>
+    html_clean: <p>Yesterday I learned, via the OT list, that Apple have added Indic support to CoreText in Lion and Mountain Lion. I've not tested this yet, but apparently it too uses the old script tag shaping.</p>
   - id: 521568
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 7 Sep 2012 — 7:43pm
+    user: 1262
     date: 2012-09-07T19:43:00
+    date_raw: 7 Sep 2012 — 7:43pm
     votes: null
     html: "<p>Adobe InCopy CS6 also offers the same Indic text processing support as InDesign. It isn't available by default when you first start InCopy: you have to turn on the World Ready Composer from the dropdown Justification menu.</p>"
+    html_clean: "<p>Adobe InCopy CS6 also offers the same Indic text processing support as InDesign. It isn't available by default when you first start InCopy: you have to turn on the World Ready Composer from the dropdown Justification menu.</p>"
   - id: 521968
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 12 Sep 2012 — 3:49am
+    user: 1133
     date: 2012-09-12T03:49:00
+    date_raw: 12 Sep 2012 — 3:49am
     votes: null
     html: |-
       <p>David, </p>
@@ -166,73 +183,77 @@ comments:
       <p>Perhaps Tiro Typeworks should just comission MetaDesign Solutions to do one of the options above, and market the plugins as Tiro. You could get some custom features in, then. You might even get them to port the XeTeX "MATH" engine to an InDesign plugin, effectively enabling OpenType MATH support in InDesign. (Oh, you could also get them to support JSTF, and a few other things... :) ). </p>
       <p>Best,<br>
       Adam</p>
+    html_clean: |-
+      <p>David, </p>
+      <p>MetaDesign Solutions who developed Indic Plus say that from version CS4 onwards, that plugin exposes InDesign's built-in World-Ready composer rather than relying on MetaDesign's own composer. MetaDesign's own composer which was used in CS2 and CS3 was built upon ICU Layout, so it only used the old script tags. The World-Ready composer seems to do the same. </p>
+      <p>Other solutions such as InTools' World Tools Pro or Winsoft's ScribeDoor also "only" expose the World-Ready composer (World Tools Pro in addition exposes the Japanese composer). To my knowledge, no custom composer exists for the most recent versions of InDesign. </p>
+      <p>However, given that MetaDesign Solutions had developed their own composer in the past, I think they'd be the right place to send your concerns. You might convince them that it'd make sense for them to continue developing their own composer. They might consider switching from ICU Layout to HarfBuzz, though. Then, they'd get the most current support. Alternatively, they might also consider developing a composer for InDesign for Windows only, which would use the system Uniscribe library. </p>
+      <p>Whether such development could gather sufficient critical mass of potential customers so that it'd make business sense for somebody like MetaDesign Solutions to actually do it -- is another matter. </p>
+      <p>Perhaps Tiro Typeworks should just comission MetaDesign Solutions to do one of the options above, and market the plugins as Tiro. You could get some custom features in, then. You might even get them to port the XeTeX "MATH" engine to an InDesign plugin, effectively enabling OpenType MATH support in InDesign. (Oh, you could also get them to support JSTF, and a few other things... :) ). </p>
+      <p>Best,<br>
+      Adam</p>
   - id: 521969
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 12 Sep 2012 — 3:51am
+    user: 1133
     date: 2012-09-12T03:51:00
+    date_raw: 12 Sep 2012 — 3:51am
     votes: null
     html: <p>BTW, XeTeX is currently using ICU Layout, which, I believe, does not support the new Indic tags. HarfBuzz does support them, and there is reportedly some effort under way to replace ICU Layout with HarfBuzz in XeTeX. As I'm told, ICU Layout is basically "dead", which HarfBuzz is very much alive, under dynamic development and is said to already be quite mature.</p>
+    html_clean: <p>BTW, XeTeX is currently using ICU Layout, which, I believe, does not support the new Indic tags. HarfBuzz does support them, and there is reportedly some effort under way to replace ICU Layout with HarfBuzz in XeTeX. As I'm told, ICU Layout is basically "dead", which HarfBuzz is very much alive, under dynamic development and is said to already be quite mature.</p>
   - id: 532434
-    user_id: 7006
-    user_name: paul d hunt
-    user_path: null
-    user_image: /files/pictures/picture-7006.gif
-    date_raw: 30 Nov 2012 — 12:45pm
+    user: 7006
     date: 2012-11-30T12:45:00
+    date_raw: 30 Nov 2012 — 12:45pm
     votes: null
     html: <p>Just listening for now...</p>
+    html_clean: <p>Just listening for now...</p>
   - id: 532547
-    user_id: 200825
-    user_name: Typogruffer
-    user_path: null
-    user_image: /files/pictures/picture-200825.jpg
-    date_raw: 1 Dec 2012 — 7:15pm
+    user: 200825
     date: 2012-12-01T19:15:00
+    date_raw: 1 Dec 2012 — 7:15pm
     votes: null
     html: <p>tel2 needs some serious improvement. All the vowel markers seem to overlap the default tick mark. Telu doesn't suffer from the above problems, but even it needs a lot of fine tuning. Both the fonts will make me blind if I read text created using them</p>
+    html_clean: <p>tel2 needs some serious improvement. All the vowel markers seem to overlap the default tick mark. Telu doesn't suffer from the above problems, but even it needs a lot of fine tuning. Both the fonts will make me blind if I read text created using them</p>
   - id: 532602
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 2 Dec 2012 — 10:46am
+    user: 1262
     date: 2012-12-02T10:46:00
+    date_raw: 2 Dec 2012 — 10:46am
     votes: null
     html: "<p>Chaitanya, yes, this is what the PDF illustrates: that 'tel2' layout is <em>not</em> supported in InDesign CS6. 'telu' layout is supported, but I agree that the font used in the illustration is not very good. The point was to demonstrate which layout model is used in CS6 for each script, so I needed to select fonts that employ differential layout tags, regardless of whether the fonts were any good.</p>"
+    html_clean: "<p>Chaitanya, yes, this is what the PDF illustrates: that 'tel2' layout is <em>not</em> supported in InDesign CS6. 'telu' layout is supported, but I agree that the font used in the illustration is not very good. The point was to demonstrate which layout model is used in CS6 for each script, so I needed to select fonts that employ differential layout tags, regardless of whether the fonts were any good.</p>"
   - id: 532617
-    user_id: 200825
-    user_name: Typogruffer
-    user_path: null
-    user_image: /files/pictures/picture-200825.jpg
-    date_raw: 2 Dec 2012 — 12:22pm
+    user: 200825
     date: 2012-12-02T12:22:00
+    date_raw: 2 Dec 2012 — 12:22pm
     votes: null
     html: |-
       <p>John, I was wondering if can you speak/read/understand Telugu?<br>
       Also, did you find out the reason why Indesign can't support the ---2 tag for some languages (I see that Hindi dev2 is supported fairly well)? You have mentioned that ---2 tag is old and it shouldn't be implemented if it is superior?</p>
+    html_clean: |-
+      <p>John, I was wondering if can you speak/read/understand Telugu?<br>
+      Also, did you find out the reason why Indesign can't support the ---2 tag for some languages (I see that Hindi dev2 is supported fairly well)? You have mentioned that ---2 tag is old and it shouldn't be implemented if it is superior?</p>
   - id: 532635
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 2 Dec 2012 — 1:13pm
+    user: 1262
     date: 2012-12-02T13:13:00
+    date_raw: 2 Dec 2012 — 1:13pm
     votes: null
     html: |-
       <p>No, I do not speak Telugu. I understand how the writing system works, and can tell from examining what happens as a result of particular layout engines and fonts what is being done technically, which was the point of this analysis. I didn't design either of the Telugu types shown, although I built the one that implements 'tel2' shaping that fails in CS6 (that font looks very much better in Win8, for which it was designed and in which the correct shaping is applied; it is a UI font, though, subject to a large number of technical restrictions that forced design compromises; a good text face would not be subject to the same constraints).</p>
       <p>The '---2' are not the old ones; they're the new ones. I don't know why CS6 uses the old shaping tags for most scripts. I believe the new '---2' tags is used for Devanagari because Adobe had their own 'dev2' Devanagari font, developed several years ago, and the ---2' tags for Odia and Malayalam are presumably used because, to my knowledge, no one ever shipped a shaping engine that used the old tags for those scripts. In other words, the old Odia and Malayalam shaping was defined by Microsoft but superseded by the new shaping before it was implemented anywhere.</p>
+    html_clean: |-
+      <p>No, I do not speak Telugu. I understand how the writing system works, and can tell from examining what happens as a result of particular layout engines and fonts what is being done technically, which was the point of this analysis. I didn't design either of the Telugu types shown, although I built the one that implements 'tel2' shaping that fails in CS6 (that font looks very much better in Win8, for which it was designed and in which the correct shaping is applied; it is a UI font, though, subject to a large number of technical restrictions that forced design compromises; a good text face would not be subject to the same constraints).</p>
+      <p>The '---2' are not the old ones; they're the new ones. I don't know why CS6 uses the old shaping tags for most scripts. I believe the new '---2' tags is used for Devanagari because Adobe had their own 'dev2' Devanagari font, developed several years ago, and the ---2' tags for Odia and Malayalam are presumably used because, to my knowledge, no one ever shipped a shaping engine that used the old tags for those scripts. In other words, the old Odia and Malayalam shaping was defined by Microsoft but superseded by the new shaping before it was implemented anywhere.</p>
   - id: 542590
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 7 Feb 2013 — 9:48am
+    user: 1262
     date: 2013-02-07T09:48:00
+    date_raw: 7 Feb 2013 — 9:48am
     votes: null
     html: |-
+      <p>Good, if odd, news:</p>
+      <p>Paul Hunt reported today that Malayalam chillu formation using the 'mlm2' script tag does work in InDesign CS6 <em>if the Malayalam language setting is applied to the text from the dropdown dictionary list</em>. I am able to confirm that this is true, so Malayalam support in ID CS6 seems to be complete with that caveat.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/mlm2cs6_6112.png"></div><p></p>
+      <p>It's odd because chillu formation would seem to me to be a script shaping issue, not language-specific, and in any case the test font contains only 'dflt' language system tag. I don't understand why all aspects of Malayalam shaping other than chillus happen correctly without the language needing to be set.</p>
+      <p>But hoorary that it works.</p>
+    html_clean: |-
       <p>Good, if odd, news:</p>
       <p>Paul Hunt reported today that Malayalam chillu formation using the 'mlm2' script tag does work in InDesign CS6 <em>if the Malayalam language setting is applied to the text from the dropdown dictionary list</em>. I am able to confirm that this is true, so Malayalam support in ID CS6 seems to be complete with that caveat.</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/mlm2cs6_6112.png"></div><p></p>

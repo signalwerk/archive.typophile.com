@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/94982.html
   fingerprint: 8cfda9a5e0912706
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 94982
-  user_id: 54527
-  user_name: PabloImpallari
-  user_path: null
-  user_image: /files/pictures/picture-54527.png
-  date_raw: 23 Jul 2012 — 11:11pm
+  user: 54527
   date: 2012-07-23T23:11:00
+  date_raw: 23 Jul 2012 — 11:11pm
   votes: null
   html: |-
     <p>I'm cant find a solution to this little problem:<br>
@@ -35,45 +32,49 @@ post:
     However, the problem remains.<br>
     I spend all day experimenting, hinting, un-hinting, tweaking blue values, looking at pixels, etc... and wasn't able to find a solution. Nothing seems to make any difference.</p>
     <p>The greyscale pixels below the /o are OK, but not the ones below the /n, /i, /l, etc...</p>
+  html_clean: |-
+    <p>I'm cant find a solution to this little problem:<br>
+    <img src="http://f.cl.ly/items/353d3y230w0o0S2F3k14/Screen%20shot%202012-07-24%20at%2002.29.58.png"></p>
+    <p>If you look closely, will see that at 14 and 16pts there seems to be grayscale pixels under the /n serifs. How can I remove it, so it looks like the ones at 15, 17 and 18pts? (Firefox/Mac)</p>
+    <p>The blue lines are already in place, like this:<br>
+    <img src="http://f.cl.ly/items/0m2x2E23243w0J1p3A1y/Screen%20shot%202012-07-24%20at%2002.43.46.png"><br>
+    However, the problem remains.<br>
+    I spend all day experimenting, hinting, un-hinting, tweaking blue values, looking at pixels, etc... and wasn't able to find a solution. Nothing seems to make any difference.</p>
+    <p>The greyscale pixels below the /o are OK, but not the ones below the /n, /i, /l, etc...</p>
 comments:
   - id: 516684
-    user_id: 1250
-    user_name: hrant
-    user_path: null
-    user_image: /files/pictures/picture-1250.gif
-    date_raw: 24 Jul 2012 — 7:48am
+    user: 1250
     date: 2012-07-24T07:48:00
+    date_raw: 24 Jul 2012 — 7:48am
     votes: null
     html: |-
       <p>You <em>did</em> say Mac.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>You <em>did</em> say Mac.</p>
+      <p>hhp</p>
   - id: 516704
-    user_id: 17101
-    user_name: Frode Bo Helland
-    user_path: null
-    user_image: /files/pictures/picture-17101.jpg
-    date_raw: 24 Jul 2012 — 10:49am
+    user: 17101
     date: 2012-07-24T10:49:00
+    date_raw: 24 Jul 2012 — 10:49am
     votes: null
     html: |-
       <p>You cannot control this on a Mac. The (TT) hinting instructions are largely ignored. The only thing I can think of that might help<br>
        is hovering your outlines slightly -above- the baseline. Even outlines exactly on pixel edges get these haloes.</p>
+    html_clean: |-
+      <p>You cannot control this on a Mac. The (TT) hinting instructions are largely ignored. The only thing I can think of that might help<br>
+       is hovering your outlines slightly -above- the baseline. Even outlines exactly on pixel edges get these haloes.</p>
   - id: 516729
-    user_id: 54527
-    user_name: PabloImpallari
-    user_path: null
-    user_image: /files/pictures/picture-54527.png
-    date_raw: 24 Jul 2012 — 1:30pm
+    user: 54527
     date: 2012-07-24T13:30:00
+    date_raw: 24 Jul 2012 — 1:30pm
     votes: null
     html: "<p>@Frode: Thanks, will try and report back.</p>"
+    html_clean: "<p>@Frode: Thanks, will try and report back.</p>"
   - id: 516807
-    user_id: 54527
-    user_name: PabloImpallari
-    user_path: null
-    user_image: /files/pictures/picture-54527.png
-    date_raw: 25 Jul 2012 — 5:34am
+    user: 54527
     date: 2012-07-25T05:34:00
+    date_raw: 25 Jul 2012 — 5:34am
     votes: null
     html: |-
       <p>Two days, a lot of cigarettes and coffee later... finally found a solution!</p>
@@ -87,12 +88,22 @@ comments:
       <img src="http://f.cl.ly/items/3g213L202f1V423W2I03/sampletext.png"><br>
       Now it renders as good as the Webtype RE series, or the new H&amp;FJ SmartScreen new fonts.<br>
       And maybe even better at 10px (Keep in mind that I only fixed the vertical metrics, there are still room to tweak the horizontal metrics and stem widths).</p>
+    html_clean: |-
+      <p>Two days, a lot of cigarettes and coffee later... finally found a solution!</p>
+      <p>@Fore:<br>
+      Mac may ignore the hinting, but renders quality can still be controlled!<br>
+      The fussiness/sharpness of the text, seems to be related to the Vertical Metrics, as Mekkablue suggested, and the vertical BBox.</p>
+      <p>Playing around with the vertical metrics was the solution! Also, a little bit of blue values tweaking, as Mekkablue suggested in the TypeDrawers forum</p>
+      <p>This is how awesome it looks now (compare to the image in the first post):<br>
+      <img src="http://f.cl.ly/items/0U2z3t152F1b3z0r1b30/zoomed%20overshoots.png"></p>
+      <p>It makes all the difference in text sizes.<br>
+      <img src="http://f.cl.ly/items/3g213L202f1V423W2I03/sampletext.png"><br>
+      Now it renders as good as the Webtype RE series, or the new H&amp;FJ SmartScreen new fonts.<br>
+      And maybe even better at 10px (Keep in mind that I only fixed the vertical metrics, there are still room to tweak the horizontal metrics and stem widths).</p>
   - id: 516818
-    user_id: 17101
-    user_name: Frode Bo Helland
-    user_path: null
-    user_image: /files/pictures/picture-17101.jpg
-    date_raw: 25 Jul 2012 — 7:27am
+    user: 17101
     date: 2012-07-25T07:27:00
+    date_raw: 25 Jul 2012 — 7:27am
     votes: null
     html: <p>Very interesting. What on earth did you do? I assume this is Postscript (bluevalues), which will look like crap on Windows.</p>
+    html_clean: <p>Very interesting. What on earth did you do? I assume this is Postscript (bluevalues), which will look like crap on Windows.</p>

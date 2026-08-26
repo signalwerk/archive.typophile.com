@@ -16,38 +16,35 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/80083.html
   fingerprint: fbff6e0278aa63bd
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 80083
-  user_id: 31798
-  user_name: agisaak
-  user_path: null
-  user_image: /files/pictures/picture-31798.jpg
-  date_raw: 16 Mar 2011 — 5:14am
+  user: 31798
   date: 2011-03-16T05:14:00
+  date_raw: 16 Mar 2011 — 5:14am
   votes: null
   html: |-
     <p>I've discovered that FontLab appears to ignore whatever code I put into my 'aalt' feature and simply generates its own code for this. There are some features which I would like to exclude from 'aalt' but which FLS seems determined to add back in. Is there some preference that I am missing in FLS, or is there simply no way to control the 'aalt' feature from within FontLab?</p>
     <p>André</p>
+  html_clean: |-
+    <p>I've discovered that FontLab appears to ignore whatever code I put into my 'aalt' feature and simply generates its own code for this. There are some features which I would like to exclude from 'aalt' but which FLS seems determined to add back in. Is there some preference that I am missing in FLS, or is there simply no way to control the 'aalt' feature from within FontLab?</p>
+    <p>André</p>
 comments:
   - id: 455950
-    user_id: 8664
-    user_name: k.l.
-    user_path: null
-    user_image: /files/pictures/picture-8664.jpg
-    date_raw: 16 Mar 2011 — 8:34am
+    user: 8664
     date: 2011-03-16T08:34:00
+    date_raw: 16 Mar 2011 — 8:34am
     votes: null
     html: |-
       <p>Have you verified this e.g. with TTX, OTM, or another tool?</p>
       <p>I could be wrong, but vaguely remember that 'aalt' is exported correctly when generating OTFs/TTFs with FLS5, but FLS5 creates a new aalt when importing OTFs/TTFs. So that what you see after importing to FLS5 is not what FLS5 exported ... (Curious for results of your check.)</p>
+    html_clean: |-
+      <p>Have you verified this e.g. with TTX, OTM, or another tool?</p>
+      <p>I could be wrong, but vaguely remember that 'aalt' is exported correctly when generating OTFs/TTFs with FLS5, but FLS5 creates a new aalt when importing OTFs/TTFs. So that what you see after importing to FLS5 is not what FLS5 exported ... (Curious for results of your check.)</p>
   - id: 455959
-    user_id: 31798
-    user_name: agisaak
-    user_path: null
-    user_image: /files/pictures/picture-31798.jpg
-    date_raw: 16 Mar 2011 — 9:17am
+    user: 31798
     date: 2011-03-16T09:17:00
+    date_raw: 16 Mar 2011 — 9:17am
     votes: null
     html: |-
       <p>Thanks for your response, Karsten.</p>
@@ -55,24 +52,33 @@ comments:
       <p>I've now tried opening them in both ttx and OTM, and in neither of these can I find *any* evidence of an 'aalt' feature at all, though I admit that I'm not very comfortable with interpreting the output of either of these tools.</p>
       <p>André</p>
       <p>UPDATE: While I can't find my 'aalt' feature in either ttx or OTM Lite, I am getting little triangles showing up in InDesign's glyph palette, and they seem to be what I'd expect from my aalt feature rather than the one FLS5 is displaying, so it appears that your assessment was correct.</p>
+    html_clean: |-
+      <p>Thanks for your response, Karsten.</p>
+      <p>My original suspicion was due to opening the generated font files in FontLab.</p>
+      <p>I've now tried opening them in both ttx and OTM, and in neither of these can I find *any* evidence of an 'aalt' feature at all, though I admit that I'm not very comfortable with interpreting the output of either of these tools.</p>
+      <p>André</p>
+      <p>UPDATE: While I can't find my 'aalt' feature in either ttx or OTM Lite, I am getting little triangles showing up in InDesign's glyph palette, and they seem to be what I'd expect from my aalt feature rather than the one FLS5 is displaying, so it appears that your assessment was correct.</p>
   - id: 455975
-    user_id: 8664
-    user_name: k.l.
-    user_path: null
-    user_image: /files/pictures/picture-8664.jpg
-    date_raw: 16 Mar 2011 — 10:28am
+    user: 8664
     date: 2011-03-16T10:28:00
+    date_raw: 16 Mar 2011 — 10:28am
     votes: null
     html: <p>Hello André, I made a quick test too and export seems to work fine – subtables referenced by lookups referenced by 'aalt' have the expected content.</p>
+    html_clean: <p>Hello André, I made a quick test too and export seems to work fine – subtables referenced by lookups referenced by 'aalt' have the expected content.</p>
   - id: 455992
-    user_id: 31798
-    user_name: agisaak
-    user_path: null
-    user_image: /files/pictures/picture-31798.jpg
-    date_raw: 16 Mar 2011 — 12:45pm
+    user: 31798
     date: 2011-03-16T12:45:00
+    date_raw: 16 Mar 2011 — 12:45pm
     votes: null
     html: |-
+      <p>Karsten (<em>Vielen Dank!</em>) was able to determine that my 'aalt' feature was indeed not being generated and that the problem was with my code rather than with FontLab Studio.</p>
+      <p>Now I have a followup question:</p>
+      <p>How many users would be terribly annoyed by a font which lacked an 'aalt' feature altogether?</p>
+      <p>I ask this because the face I'm working on has a rather large glyph complement and some fairly complex code. I've spent a lot of time trying to optimize the code because earlier versions were getting coverage offset overflow errors when compiling. I'd finally managed to pare things down so that it would compile, but that was while I was under the mistaken impression that my 'aalt' feature was in fact being generated. Once I restore it,  the GSUB table again becomes too large.</p>
+      <p>To me, 'aalt' seems less critical than the other features in the font, but I don't know what problems (if any) might result from omitting it.</p>
+      <p>Opinions?</p>
+      <p>André</p>
+    html_clean: |-
       <p>Karsten (<em>Vielen Dank!</em>) was able to determine that my 'aalt' feature was indeed not being generated and that the problem was with my code rather than with FontLab Studio.</p>
       <p>Now I have a followup question:</p>
       <p>How many users would be terribly annoyed by a font which lacked an 'aalt' feature altogether?</p>

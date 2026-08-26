@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/46716.html
   fingerprint: cb3ac57438a7a8cf
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 46716
-  user_id: 29224
-  user_name: ReginaldV
-  user_path: null
-  user_image: /files/pictures/picture-29224.gif
-  date_raw: 23 Jun 2008 — 1:04pm
+  user: 29224
   date: 2008-06-23T13:04:00
+  date_raw: 23 Jun 2008 — 1:04pm
   votes: null
   html: |-
     <p>Hi all,</p>
@@ -60,14 +57,45 @@ post:
     (('A', 'V'), -85)<br>
     (('A', 'U'), -10)<br>
     </code></p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>I want to get a list of the Kerning pairs for certain glyphs.</p>
+    <p>I using this code to get a list of the kerning pairs for 'A'</p>
+    <p><code><br>
+    #<br>
+    #GetPairs---------------<br>
+    #<br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()<br>
+    #<br>
+    kerning = f.kerning<br>
+    #<br>
+    print kerning.getLeft('A')<br>
+    print kerning.getRight('A')</code></p>
+    <p> </p>
+    <p>This works fine, but the output window shows the results in a array format like :</p>
+    <p><code><br>
+    [(('A', 'w'), -40), (('A', 'W'), -50), (('A', 'G'), -20), (('A', 'quoteright'), -20), (('A', 'Q'), -20), (('A', 'backslash'), -90), (('A', 'v'), -55), (('A', 'asciicircum'), -30), (('A', 'V'), -85), (('A', 'U'), -10), (('A', 'at'), -10), (('A', 'question'), -20), (('A', 'O'), -20), (('A', 'slash'), 20), (('A', 't'), -25), (('A', 'OE'), -20), (('A', 'T'), -65), (('A', 'Y'), -65), (('A', 'trademark'), -70), (('A', 'C'), -20)]<br>
+    [(('quoteright', 'A'), -20), (('J', 'A'), -15), (('backslash', 'A'), 20), (('D', 'A'), -20), (('P', 'A'), -40), (('slash', 'A'), -90), (('U', 'A'), -10), (('Q', 'A'), -20), (('F', 'A'), -45), (('Y', 'A'), -65), (('O', 'A'), -20), (('B', 'A'), -5), (('T', 'A'), -65), (('W', 'A'), -50), (('V', 'A'), -85), (('at', 'A'), -10)]<br>
+    </code></p>
+    <p>Is it possible to the results in amore readable list format like :</p>
+    <p><code><br>
+    ('A', 'w'), -40)<br>
+    (('A', 'W'), -50)<br>
+    (('A', 'G'), -20)<br>
+    (('A', 'quoteright'), -20)<br>
+    (('A', 'Q'), -20)<br>
+    (('A', 'backslash'), -90)<br>
+    (('A', 'v'), -55)<br>
+    (('A', 'asciicircum'), -30)<br>
+    (('A', 'V'), -85)<br>
+    (('A', 'U'), -10)<br>
+    </code></p>
 comments:
   - id: 285446
-    user_id: 17208
-    user_name: pvanderlaan
-    user_path: null
-    user_image: /files/pictures/picture-17208.gif
-    date_raw: 23 Jun 2008 — 1:48pm
+    user: 17208
     date: 2008-06-23T13:48:00
+    date_raw: 23 Jun 2008 — 1:48pm
     votes: null
     html: |-
       <p>Sure:</p>
@@ -78,14 +106,23 @@ comments:
       for ((c1, c2), x) in l:<br>
       --&gt;print c1, c2, x</p>
       <p>Replace '--&gt;'  by a tab. Hope this helps. :)</p>
+    html_clean: |-
+      <p>Sure:</p>
+      <p><code>from robofab.world import CurrentFont</code></p>
+      <p>f = CurrentFont()<br>
+      k = f.kerning</p>
+      <p>l = k.getLeft('A')<br>
+      for ((c1, c2), x) in l:<br>
+      --&gt;print c1, c2, x</p>
+      <p>Replace '--&gt;'  by a tab. Hope this helps. :)</p>
   - id: 285588
-    user_id: 29224
-    user_name: ReginaldV
-    user_path: null
-    user_image: /files/pictures/picture-29224.gif
-    date_raw: 24 Jun 2008 — 8:17am
+    user: 29224
     date: 2008-06-24T08:17:00
+    date_raw: 24 Jun 2008 — 8:17am
     votes: null
     html: |-
+      <p>PvdL,</p>
+      <p>Thanks, thats a great help.</p>
+    html_clean: |-
       <p>PvdL,</p>
       <p>Thanks, thats a great help.</p>

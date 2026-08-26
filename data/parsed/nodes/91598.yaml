@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/91598.html
   fingerprint: 6a2cf25b0ec212fb
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 91598
-  user_id: 59672
-  user_name: Eimantas Paškonis
-  user_path: null
-  user_image: /files/pictures/picture-59672.png
-  date_raw: 30 Mar 2012 — 4:18am
+  user: 59672
   date: 2012-03-30T04:18:00
+  date_raw: 30 Mar 2012 — 4:18am
   votes: null
   html: |-
     <p>The font has class-based OT small caps and swashes.<br>
@@ -35,14 +32,20 @@ post:
     sub I to Dotlessi_swsh;<br>
     </code><br>
     etc.</p>
+  html_clean: |-
+    <p>The font has class-based OT small caps and swashes.<br>
+    But Turkish /I letters are messing it up.<br>
+    I need an example on how to make language specific exceptions in the feature. FL manual doesn't provide one.<br>
+    <code><br>
+    sub I to Dotlessi_smcp;<br>
+    sub I to Dotlessi_swsh;<br>
+    </code><br>
+    etc.</p>
 comments:
   - id: 502781
-    user_id: 6470
-    user_name: oldnick
-    user_path: null
-    user_image: /files/pictures/picture-6470.gif
-    date_raw: 31 Mar 2012 — 2:46pm
+    user: 6470
     date: 2012-03-31T14:46:00
+    date_raw: 31 Mar 2012 — 2:46pm
     votes: null
     html: |-
       <p>I don't know if this answers your particular question, but this is how I handle fi ligatures for Turkish:</p>
@@ -57,13 +60,23 @@ comments:
         lookup NOFI;<br>
       } liga;<br>
       </code></p>
+    html_clean: |-
+      <p>I don't know if this answers your particular question, but this is how I handle fi ligatures for Turkish:</p>
+      <p><code>feature liga {<br>
+      # Latin<br>
+          sub f i by fi;<br>
+          sub f l by fl;<br>
+        lookup NOFI {<br>
+          sub f l by fl;<br>
+        } NOFI;<br>
+        language TUR exclude_dflt;<br>
+        lookup NOFI;<br>
+      } liga;<br>
+      </code></p>
   - id: 502806
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 31 Mar 2012 — 7:55pm
+    user: 5094
     date: 2012-03-31T19:55:00
+    date_raw: 31 Mar 2012 — 7:55pm
     votes: null
     html: |-
       <p>You need to make up another glyph -- a small cap I with a dot. BTW, in naming it, you shouldn't use the underline. That is by convention reserved for ligatures. Use a period. For example:</p>
@@ -75,50 +88,61 @@ comments:
       <p>BTW Nick, your treatment of ligatures makes no sense unless you also have the other characters needed for Turkish -- The dotted capital I (&amp; small cap, if you want; the G,g breve; etc.If you don't have these, why worry about the ligaturing?</p>
       <p>&amp; if there is room between x-heigth and ascender height, you can use ligatures. I made up a dotted "i" for a f_i ligature in Bembo once -- it worked just fine. The standard lig was used in Turkish with an undotted i.</p>
       <p>FWIW</p>
+    html_clean: |-
+      <p>You need to make up another glyph -- a small cap I with a dot. BTW, in naming it, you shouldn't use the underline. That is by convention reserved for ligatures. Use a period. For example:</p>
+      <p>Idotted.sc, or even I.dotted.sc,</p>
+      <p>Then, with c2sc, for the dotted capital I, substitute your new glyph. For the standard Capital I, substitute I.sc That works whether you have Turkish or not.</p>
+      <p>Lower case (generally the smcp feature) is trickier -- the normal Latin dotted i has to be substituted with the new glyph,  Idotted.sc. The dottless i gets the regular I.sc</p>
+      <p>Problem is, when &amp; how to do it? Most anything will be a hack. I'd be tempted to use a stylistic set before the smcp feature, to be switched on when setting Turkish. Then the smcp feature gets the normal substitution, Latin lowercase "i" to "I.sc". As the stylistic set occurs before smcp, and is "on," it just won't be found in smcp, so won't cause a problem.</p>
+      <p>Whether to make up a language-specific substitution depends -- most users won't put in language tags. And it could muck up your smcp feature for setting any other language. Remember that even though you write the code, the application program has to support it...</p>
+      <p>BTW Nick, your treatment of ligatures makes no sense unless you also have the other characters needed for Turkish -- The dotted capital I (&amp; small cap, if you want; the G,g breve; etc.If you don't have these, why worry about the ligaturing?</p>
+      <p>&amp; if there is room between x-heigth and ascender height, you can use ligatures. I made up a dotted "i" for a f_i ligature in Bembo once -- it worked just fine. The standard lig was used in Turkish with an undotted i.</p>
+      <p>FWIW</p>
   - id: 502822
-    user_id: 59672
-    user_name: Eimantas Paškonis
-    user_path: null
-    user_image: /files/pictures/picture-59672.png
-    date_raw: 1 Apr 2012 — 2:31am
+    user: 59672
     date: 2012-04-01T02:31:00
+    date_raw: 1 Apr 2012 — 2:31am
     votes: null
     html: |-
       <p><cite>I'd be tempted to use a stylistic set before the smcp feature, to be switched on when setting Turkish.</cite></p>
       <p><cite>...most users won't put in language tags.<br>
       </cite></p>
       <p>So there is no clean solution then? I thought that programs detect language by chosen system input or selected spellcheck language.</p>
+    html_clean: |-
+      <p><cite>I'd be tempted to use a stylistic set before the smcp feature, to be switched on when setting Turkish.</cite></p>
+      <p><cite>...most users won't put in language tags.<br>
+      </cite></p>
+      <p>So there is no clean solution then? I thought that programs detect language by chosen system input or selected spellcheck language.</p>
   - id: 502837
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 1 Apr 2012 — 6:13am
+    user: 5094
     date: 2012-04-01T06:13:00
+    date_raw: 1 Apr 2012 — 6:13am
     votes: null
     html: |-
       <p>I'm no expert on this. Here's the reason I'm no expert: for over 30 yeas, our company has set books published by university presses. Even with OpenType, I have *never* seen language tags in a file. Moreover, there is often more than one language used, or more than one dialect of a language, or the text might be in English, with an occasional word or phrase in other languages.</p>
       <p>If you're an author creating a a final product -- web or print -- I guess language tags would work. If the document is going through an editor or designer or typesetter, you'd have a lot of talking to do with each. Esp. the designer, who's apt to choose a typeface that doesn't support the languages involved. Happens every damn day.</p>
       <p>If you use a stylistic set (above the scmp feature), all you need is a readme in the distributed font files. Then, as Dr. House would say, only idiots &amp; morons would get it wrong...</p>
+    html_clean: |-
+      <p>I'm no expert on this. Here's the reason I'm no expert: for over 30 yeas, our company has set books published by university presses. Even with OpenType, I have *never* seen language tags in a file. Moreover, there is often more than one language used, or more than one dialect of a language, or the text might be in English, with an occasional word or phrase in other languages.</p>
+      <p>If you're an author creating a a final product -- web or print -- I guess language tags would work. If the document is going through an editor or designer or typesetter, you'd have a lot of talking to do with each. Esp. the designer, who's apt to choose a typeface that doesn't support the languages involved. Happens every damn day.</p>
+      <p>If you use a stylistic set (above the scmp feature), all you need is a readme in the distributed font files. Then, as Dr. House would say, only idiots &amp; morons would get it wrong...</p>
   - id: 502844
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 1 Apr 2012 — 7:04am
+    user: 29994
     date: 2012-04-01T07:04:00
+    date_raw: 1 Apr 2012 — 7:04am
     votes: null
     html: |-
       <p>I always take care to set the correct language to texts of more than a single word long -- well, or at least to entire <em>paragraphs</em>. (If there are lots of single long foreign words in a text I just check the ones that get hyphenated.)<br>
       InDesign supports "applied language" for Opentype features; and it behaves correctly with capitalized Turkish text as well as the dreaded "fi" ligature (of course only when the font designer did it right!).</p>
       <p>I'm curious, though, why designers think a clashing "fi" is bad in general but okay for Turkish! In the one single font I made, I created a short-topped "f" character specifically to use in this case.</p>
+    html_clean: |-
+      <p>I always take care to set the correct language to texts of more than a single word long -- well, or at least to entire <em>paragraphs</em>. (If there are lots of single long foreign words in a text I just check the ones that get hyphenated.)<br>
+      InDesign supports "applied language" for Opentype features; and it behaves correctly with capitalized Turkish text as well as the dreaded "fi" ligature (of course only when the font designer did it right!).</p>
+      <p>I'm curious, though, why designers think a clashing "fi" is bad in general but okay for Turkish! In the one single font I made, I created a short-topped "f" character specifically to use in this case.</p>
   - id: 502856
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 1 Apr 2012 — 9:28am
+    user: 5094
     date: 2012-04-01T09:28:00
+    date_raw: 1 Apr 2012 — 9:28am
     votes: null
     html: |-
       <p>On the ligatures -- no one's ever satisfied.<br>
@@ -126,73 +150,81 @@ comments:
       <p>So, Minerva, following that assumption, you can create a separate lookup for small caps in the smcp feature that is turned on only when the Turkish language tag has been applied.</p>
       <p>Theunis -- congratulation, by the way, for taking the time &amp; having the knowledge to tag all the words in a long file with the correct language. Time is part of it -- we may have a book with 1,000 or more Spanish words --  all untagged coming in, and usually single words or short phrases. I just create an exception dictionary for the job which blocks hyphenation on words like barrio. We always create an exception dictionary that contains every word over five letters. Sadly, InDesign allows hyphenation before a single vowel in English, and that's a not allowed in our world, which is based on the Chicago <cite>Manual of Style<cite>. There are other reasons for the custom dictionary, of course.</cite></cite></p>
       <p>And I have to admit, as an American,  I'm not always sure, say,  what's Swiss &amp; what's German; what's Danish or Norwegian, etc., unless an author's directly given the language.  The latter is esp. shameful for me, as my father's first language was Norwegian...</p>
+    html_clean: |-
+      <p>On the ligatures -- no one's ever satisfied.<br>
+      <a href="http://typophile.com/node/34200" title="http://typophile.com/node/34200">http://typophile.com/node/34200</a></p>
+      <p>So, Minerva, following that assumption, you can create a separate lookup for small caps in the smcp feature that is turned on only when the Turkish language tag has been applied.</p>
+      <p>Theunis -- congratulation, by the way, for taking the time &amp; having the knowledge to tag all the words in a long file with the correct language. Time is part of it -- we may have a book with 1,000 or more Spanish words --  all untagged coming in, and usually single words or short phrases. I just create an exception dictionary for the job which blocks hyphenation on words like barrio. We always create an exception dictionary that contains every word over five letters. Sadly, InDesign allows hyphenation before a single vowel in English, and that's a not allowed in our world, which is based on the Chicago <cite>Manual of Style<cite>. There are other reasons for the custom dictionary, of course.</cite></cite></p>
+      <p>And I have to admit, as an American,  I'm not always sure, say,  what's Swiss &amp; what's German; what's Danish or Norwegian, etc., unless an author's directly given the language.  The latter is esp. shameful for me, as my father's first language was Norwegian...</p>
   - id: 502866
-    user_id: 1250
-    user_name: hrant
-    user_path: null
-    user_image: /files/pictures/picture-1250.gif
-    date_raw: 1 Apr 2012 — 10:31am
+    user: 1250
     date: 2012-04-01T10:31:00
+    date_raw: 1 Apr 2012 — 10:31am
     votes: null
     html: |-
       <p>Are are always sure what's French and what's English?<br>
       Like how do you decide to tag "œuvre"?</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Are are always sure what's French and what's English?<br>
+      Like how do you decide to tag "œuvre"?</p>
+      <p>hhp</p>
   - id: 502867
-    user_id: 31033
-    user_name: David W. Goodrich
-    user_path: null
-    user_image: null
-    date_raw: 1 Apr 2012 — 10:34am
+    user: 31033
     date: 2012-04-01T10:34:00
+    date_raw: 1 Apr 2012 — 10:34am
     votes: null
     html: |-
       <p>I set scholarly material, and I get a lot of manuscripts in *.doc or *.docx format with various language attributes set.  Sometimes this is useful, often not, but enough are useful that I preserve attributes when pulling the files into InDesign.  Early on, these seemed to be files from East Asian versions of MS Word, with "Japanese" or some variant of "Chinese" applied to text that was mostly alphabetic.  The most noticeable effect, of course, is to turn off ID's hyphenation; more subtle, ID picks up (and can re-use) language attributes that were not part of the original installation -- so far as I know, that's the simplest way to get the CJK attributes into English-language ID.</p>
       <p>More recently, as authors pull stuff in from all over the web, files show up with all kinds of attributes.  And it seems that if they continue typing from the insertion point without changing the language back to that of their main text, the typed additions pick up the insertion's language attribute.  Neither authors nor editors notice, of course.  For me, the the most noticeable effect is again on hyphenation.</p>
       <p>The trouble is, ID's search routine only works for specific language attributes.  The simplest way to find out which are used in an InDesign story must be Rorohiko's <a class="freelinking external" href="http://www.rorohiko.com/wordpress/indesign-downloads/framereporter/" rel="nofollow">Frame Reporter</a>.  (I confess I haven't tried this yet -- I keep thinking I'll move to IDCS5.5 as soon as Adobe fixes the pagination/indexing bugs).  Jongware was kind enough to note (over at InDesign Secrets) that scripting this task say to run quickly on entire ID files was "<a class="freelinking external" href="http://indesignsecrets.com/forum/indesign-add-ons-scripts-scripting-and-plug-ins/script-to-change-the-language-of-all-text-on-document?value=3291&amp;type=8&amp;include=0&amp;search=1&amp;ret=all#7657" rel="nofollow">tricky</a>."  But he'd earlier provided a simple script over on the Adobe Forums <a class="freelinking external" href="http://forums.adobe.com/message/3279054#3279054" rel="nofollow">that can do it</a>, albeit slowly --  I go warm up my coffee in the microwave.</p>
       <p>David</p>
+    html_clean: |-
+      <p>I set scholarly material, and I get a lot of manuscripts in *.doc or *.docx format with various language attributes set.  Sometimes this is useful, often not, but enough are useful that I preserve attributes when pulling the files into InDesign.  Early on, these seemed to be files from East Asian versions of MS Word, with "Japanese" or some variant of "Chinese" applied to text that was mostly alphabetic.  The most noticeable effect, of course, is to turn off ID's hyphenation; more subtle, ID picks up (and can re-use) language attributes that were not part of the original installation -- so far as I know, that's the simplest way to get the CJK attributes into English-language ID.</p>
+      <p>More recently, as authors pull stuff in from all over the web, files show up with all kinds of attributes.  And it seems that if they continue typing from the insertion point without changing the language back to that of their main text, the typed additions pick up the insertion's language attribute.  Neither authors nor editors notice, of course.  For me, the the most noticeable effect is again on hyphenation.</p>
+      <p>The trouble is, ID's search routine only works for specific language attributes.  The simplest way to find out which are used in an InDesign story must be Rorohiko's <a class="freelinking external" href="http://www.rorohiko.com/wordpress/indesign-downloads/framereporter/" rel="nofollow">Frame Reporter</a>.  (I confess I haven't tried this yet -- I keep thinking I'll move to IDCS5.5 as soon as Adobe fixes the pagination/indexing bugs).  Jongware was kind enough to note (over at InDesign Secrets) that scripting this task say to run quickly on entire ID files was "<a class="freelinking external" href="http://indesignsecrets.com/forum/indesign-add-ons-scripts-scripting-and-plug-ins/script-to-change-the-language-of-all-text-on-document?value=3291&amp;type=8&amp;include=0&amp;search=1&amp;ret=all#7657" rel="nofollow">tricky</a>."  But he'd earlier provided a simple script over on the Adobe Forums <a class="freelinking external" href="http://forums.adobe.com/message/3279054#3279054" rel="nofollow">that can do it</a>, albeit slowly --  I go warm up my coffee in the microwave.</p>
+      <p>David</p>
   - id: 502874
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 1 Apr 2012 — 11:05am
+    user: 29994
     date: 2012-04-01T11:05:00
+    date_raw: 1 Apr 2012 — 11:05am
     votes: null
     html: |-
       <p>In my line of work -- linguistics and philosophy --, most authors have the decency to help me with determining the correct language ;-)</p>
       <blockquote><p>.. as the Danish philosopher Julius Bestårnavn said,<br>
       "bare en lang sætning at illustrere dette er en lang og ærlig talt ret kedeligt citat.."</p></blockquote>
+    html_clean: |-
+      <p>In my line of work -- linguistics and philosophy --, most authors have the decency to help me with determining the correct language ;-)</p>
+      <blockquote><p>.. as the Danish philosopher Julius Bestårnavn said,<br>
+      "bare en lang sætning at illustrere dette er en lang og ærlig talt ret kedeligt citat.."</p></blockquote>
   - id: 502892
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 1 Apr 2012 — 1:23pm
+    user: 5094
     date: 2012-04-01T13:23:00
+    date_raw: 1 Apr 2012 — 1:23pm
     votes: null
     html: |-
       <p>Mea Culpa. I just mentioned this thread to my business partner, who has to deal with manuscripts. He reports a situation similar to what David reports. The reason I've never seen a language tag in a file is they're all stripped out with our conversion scripts &amp; never make it to comp. </p>
       <p>He also mentioned that InDesign itself sometimes seems to throw in a spurious tag now &amp; then -- for example (but probably not this one), it sees an egrave &amp; decides we're in Japanese...</p>
       <p>Back in the days of PageMaker, we used TeX and were spared all the bugs. But InDesign 4, 5, etc. feel like what PageMaker 6 must have been like. There are bugs we reported with InDesign  2 that are still there. And more discovered every day...</p>
+    html_clean: |-
+      <p>Mea Culpa. I just mentioned this thread to my business partner, who has to deal with manuscripts. He reports a situation similar to what David reports. The reason I've never seen a language tag in a file is they're all stripped out with our conversion scripts &amp; never make it to comp. </p>
+      <p>He also mentioned that InDesign itself sometimes seems to throw in a spurious tag now &amp; then -- for example (but probably not this one), it sees an egrave &amp; decides we're in Japanese...</p>
+      <p>Back in the days of PageMaker, we used TeX and were spared all the bugs. But InDesign 4, 5, etc. feel like what PageMaker 6 must have been like. There are bugs we reported with InDesign  2 that are still there. And more discovered every day...</p>
   - id: 502960
-    user_id: 59672
-    user_name: Eimantas Paškonis
-    user_path: null
-    user_image: /files/pictures/picture-59672.png
-    date_raw: 2 Apr 2012 — 1:15am
+    user: 59672
     date: 2012-04-02T01:15:00
+    date_raw: 2 Apr 2012 — 1:15am
     votes: null
     html: |-
       <p>Thanks for elaborate help, but I still need a real-life code example.<br>
       Stylistic set method I can do, but features-within-features are still level too high for me.</p>
+    html_clean: |-
+      <p>Thanks for elaborate help, but I still need a real-life code example.<br>
+      Stylistic set method I can do, but features-within-features are still level too high for me.</p>
   - id: 502961
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 2 Apr 2012 — 1:34am
+    user: 29994
     date: 2012-04-02T01:34:00
+    date_raw: 2 Apr 2012 — 1:34am
     votes: null
     html: |-
       <p>The only feature-within-feature you have to use is an override for Turkish -- that is, if this indeed is the only language-specific feature you want to add!</p>
@@ -200,15 +232,22 @@ comments:
       <p>Note that Chris (dezcom) initially used the now deprecated tag "TUR" -- as Adam remarks lower in that thread,</p>
       <blockquote><p>TRK, *not* TUR!</p></blockquote>
       <p>.</p>
+    html_clean: |-
+      <p>The only feature-within-feature you have to use is an override for Turkish -- that is, if this indeed is the only language-specific feature you want to add!</p>
+      <p>See <a href="/node/33330/" rel="nofollow">http://typophile.com/node/33330</a> for a real-world discussion, and references therein, such as <a href="http://typophile.com/node/29469" rel="nofollow">http://typophile.com/node/29469</a>.</p>
+      <p>Note that Chris (dezcom) initially used the now deprecated tag "TUR" -- as Adam remarks lower in that thread,</p>
+      <blockquote><p>TRK, *not* TUR!</p></blockquote>
+      <p>.</p>
   - id: 502984
-    user_id: 1688
-    user_name: blokland
-    user_path: null
-    user_image: /files/pictures/picture-1688.jpg
-    date_raw: 2 Apr 2012 — 5:49am
+    user: 1688
     date: 2012-04-02T05:49:00
+    date_raw: 2 Apr 2012 — 5:49am
     votes: null
     html: |-
+      <p>Eimantas: ‘<em>[…] I still need a real-life code example.</em>’</p>
+      <p>Maybe <a href="http://www.fonttools.org/downloads/Typophile/features_2.1_New.txt" rel="nofollow">this ﬁle</a> is of some use to you. As I wrote before on <em>Typophile</em>, in DTL Bezier-, Ikarus-, and DataMaster (batch) the generation of OT Layout features can be done using a features ﬁle that contains as much info as possible. Features that are not covered by the character set of a font are removed during compiling. The same subsetting can be done with existing OpenType fonts in DTL OTMaster, but currently not in batch.</p>
+      <p>FEB</p>
+    html_clean: |-
       <p>Eimantas: ‘<em>[…] I still need a real-life code example.</em>’</p>
       <p>Maybe <a href="http://www.fonttools.org/downloads/Typophile/features_2.1_New.txt" rel="nofollow">this ﬁle</a> is of some use to you. As I wrote before on <em>Typophile</em>, in DTL Bezier-, Ikarus-, and DataMaster (batch) the generation of OT Layout features can be done using a features ﬁle that contains as much info as possible. Features that are not covered by the character set of a font are removed during compiling. The same subsetting can be done with existing OpenType fonts in DTL OTMaster, but currently not in batch.</p>
       <p>FEB</p>

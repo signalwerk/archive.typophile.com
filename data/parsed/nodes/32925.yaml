@@ -16,27 +16,24 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/32925.html
   fingerprint: 9c7be75eac30f1ac
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 32925
-  user_id: 10127
-  user_name: lherrou
-  user_path: null
-  user_image: /files/pictures/picture-10127.gif
-  date_raw: 10 Apr 2007 — 7:00am
+  user: 10127
   date: 2007-04-10T07:00:00
+  date_raw: 10 Apr 2007 — 7:00am
   votes: null
   html: |-
     <p>In another forum where I deal regularly with font questions, I am starting to get questions about Vista's [lack of] support for Type 1 (commonly and incorrectly called PostScript) fonts. Anyone else starting to face this issue? </p>
     <p>I know Fonts.com has posted that they will try to create PFM files (which are required for Vista to use a Type 1 font) for users of their fonts who run into problems.</p>
+  html_clean: |-
+    <p>In another forum where I deal regularly with font questions, I am starting to get questions about Vista's [lack of] support for Type 1 (commonly and incorrectly called PostScript) fonts. Anyone else starting to face this issue? </p>
+    <p>I know Fonts.com has posted that they will try to create PFM files (which are required for Vista to use a Type 1 font) for users of their fonts who run into problems.</p>
 comments:
   - id: 196135
-    user_id: 909
-    user_name: Thomas Phinney
-    user_path: null
-    user_image: /files/pictures/picture-909.png
-    date_raw: 10 Apr 2007 — 5:04pm
+    user: 909
     date: 2007-04-10T17:04:00
+    date_raw: 10 Apr 2007 — 5:04pm
     votes: null
     html: |-
       <p>What lack of support? You need PFB and PFM files, as you do on all versions of WIndows. (On older versions of Windows you could install ATM, which would create PFM files from PFB+AFM+INF. But starting with Windows 2000 ATM was not required to use Type 1 fonts on Windows.)</p>
@@ -44,26 +41,31 @@ comments:
       <p>Now, there also is the fact that Windows Presentation Foundation doesn't support Type 1 (nor did its predecessor, GDI+). But that's not really a Vista-specific issue.</p>
       <p>Regards,</p>
       <p>T</p>
+    html_clean: |-
+      <p>What lack of support? You need PFB and PFM files, as you do on all versions of WIndows. (On older versions of Windows you could install ATM, which would create PFM files from PFB+AFM+INF. But starting with Windows 2000 ATM was not required to use Type 1 fonts on Windows.)</p>
+      <p>If somebody has been shipping Windows Type 1 fonts without PFMs, well, that would be a mistake.</p>
+      <p>Now, there also is the fact that Windows Presentation Foundation doesn't support Type 1 (nor did its predecessor, GDI+). But that's not really a Vista-specific issue.</p>
+      <p>Regards,</p>
+      <p>T</p>
   - id: 196251
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 11 Apr 2007 — 9:06am
+    user: 1133
     date: 2007-04-11T09:06:00
+    date_raw: 11 Apr 2007 — 9:06am
     votes: null
     html: |-
       <p>Thomas, </p>
       <p>well, I would call it Vista-specific in so far that Windows Vista is the first operating system that bundles WPF. Essentially, WPF is the new (alternative) graphic subsystem that is pre-installed on Vista, but can also be retroactively installed on Windows XP and probably Windows 2000. </p>
       <p>It is, surely enough, a good reason why font developers should be phasing out Type 1 fonts and offer modern font formats (OpenType PS, OpenType TT) at least as an alternative. </p>
       <p>A.</p>
+    html_clean: |-
+      <p>Thomas, </p>
+      <p>well, I would call it Vista-specific in so far that Windows Vista is the first operating system that bundles WPF. Essentially, WPF is the new (alternative) graphic subsystem that is pre-installed on Vista, but can also be retroactively installed on Windows XP and probably Windows 2000. </p>
+      <p>It is, surely enough, a good reason why font developers should be phasing out Type 1 fonts and offer modern font formats (OpenType PS, OpenType TT) at least as an alternative. </p>
+      <p>A.</p>
   - id: 196577
-    user_id: 18017
-    user_name: Mikhail Leonov
-    user_path: null
-    user_image: null
-    date_raw: 12 Apr 2007 — 4:40pm
+    user: 18017
     date: 2007-04-12T16:40:00
+    date_raw: 12 Apr 2007 — 4:40pm
     votes: null
     html: |-
       <p>Hi,<br>
@@ -75,26 +77,35 @@ comments:
       <p>Thanks in advance, and best regards,<br>
       Mikhail Leonov<br>
       WPF Text Team, Microsoft Corporation</p>
+    html_clean: |-
+      <p>Hi,<br>
+      I'd like to clarify this a little bit. As of Windows Vista, Windows includes three different components with their own text rendering engines:</p>
+      <p>1. GDI (used in most Win32 applications). GDI supports TrueType (.TTF/.TTC/.OTF), Type 1 (*.PFM/*.PFB, plus some multiple master font support if one types the complete face name correctly), OpenType CFF (OpenType fonts with CFF outlines, .OTF), bitmap fonts (.FON) and very old vector font format fonts (also typically .FON).</p>
+      <p>2. GDI+ (used either directly through public GDI+ API or through .Net Windows Forms component.) GDI+ supports TrueType fonts (.TTF/.TTC/.OTF).</p>
+      <p>3. WPF (used through the new WPF APIs shipping with .Net 3.0.) WPF supports TrueType (.TTF/.TTC/.OTF), OpenType CFF (OpenType fonts with CFF outlines, .OTF), and the new composite font file format that is used to describe international font linking and fallback logic (.CompositeFont).</p>
+      <p>Please let me know if you have specific customer feedback (assuming it's OK to share, of course) on the lack of Type 1 support in WPF.</p>
+      <p>Thanks in advance, and best regards,<br>
+      Mikhail Leonov<br>
+      WPF Text Team, Microsoft Corporation</p>
   - id: 196611
-    user_id: 909
-    user_name: Thomas Phinney
-    user_path: null
-    user_image: /files/pictures/picture-909.png
-    date_raw: 12 Apr 2007 — 11:36pm
+    user: 909
     date: 2007-04-12T23:36:00
+    date_raw: 12 Apr 2007 — 11:36pm
     votes: null
     html: |-
       <p>Unless I've missed something, WPF is *not* pre-installed on Vista. It's an optional component. It is also an optional add-on for XP, with the only difference being that it doesn't come on the CD for XP.</p>
       <p>That being said, I'll be the first to agree that Type 1 has had its day and for most people making fonts, it doesn't make sense to make Type 1 fonts today unless they have a specific customer need.</p>
       <p>Cheers,</p>
       <p>T</p>
+    html_clean: |-
+      <p>Unless I've missed something, WPF is *not* pre-installed on Vista. It's an optional component. It is also an optional add-on for XP, with the only difference being that it doesn't come on the CD for XP.</p>
+      <p>That being said, I'll be the first to agree that Type 1 has had its day and for most people making fonts, it doesn't make sense to make Type 1 fonts today unless they have a specific customer need.</p>
+      <p>Cheers,</p>
+      <p>T</p>
   - id: 196698
-    user_id: 18017
-    user_name: Mikhail Leonov
-    user_path: null
-    user_image: null
-    date_raw: 13 Apr 2007 — 10:33am
+    user: 18017
     date: 2007-04-13T10:33:00
+    date_raw: 13 Apr 2007 — 10:33am
     votes: null
     html: |-
       <p>Hi Thomas,<br>
@@ -103,39 +114,47 @@ comments:
       <p>I agree with your opinion regarding Type 1 fonts, however I'm still interested in learning how much existing customer scenarios and workflows rely on those fonts today. [We've had some customer concerns in the past regarding lack of Type 1 support in WPF.]</p>
       <p>Best regards,<br>
       Mikhail</p>
+    html_clean: |-
+      <p>Hi Thomas,<br>
+      WPF *is* pre-installed on Vista. :)<br>
+      While it's true that one can uninstall it manually from the "Turn Windows features on or off" Control Panel applet, it is there, on by default. The assemblies are in %windir%\Microsoft.NET\Framework\v3.0\WPF\ directory. From my personal experience, OEMs like Dell also leave it on. I got a new home laptop recently from Dell, and I was able to install the gorgeous Seattle PI Newsreader app (<a href="http://seattlepi.nwsource.com/newsreader/" title="http://seattlepi.nwsource.com/newsreader/">http://seattlepi.nwsource.com/newsreader/</a>) on it very quickly thanks to that. It's so much easier on eyes than the web version.</p>
+      <p>I agree with your opinion regarding Type 1 fonts, however I'm still interested in learning how much existing customer scenarios and workflows rely on those fonts today. [We've had some customer concerns in the past regarding lack of Type 1 support in WPF.]</p>
+      <p>Best regards,<br>
+      Mikhail</p>
   - id: 196702
-    user_id: 909
-    user_name: Thomas Phinney
-    user_path: null
-    user_image: /files/pictures/picture-909.png
-    date_raw: 13 Apr 2007 — 10:44am
+    user: 909
     date: 2007-04-13T10:44:00
+    date_raw: 13 Apr 2007 — 10:44am
     votes: null
     html: |-
       <p>Oh, wow, that's a key change from some pre-release builds of Vista, which is where I got the idea from. I think I need to go revise one of my old blog posts from a year or two ago, now. Thanks for correcting me on that.</p>
       <p>There are a ton of existing customers who rely on Type 1 fonts, and don't want to be forced to replace them all at once. Type 1 is still the overwhelming majority of the installed base of fonts used in publishing, printing and professional graphics.</p>
       <p>Regards,</p>
       <p>T</p>
+    html_clean: |-
+      <p>Oh, wow, that's a key change from some pre-release builds of Vista, which is where I got the idea from. I think I need to go revise one of my old blog posts from a year or two ago, now. Thanks for correcting me on that.</p>
+      <p>There are a ton of existing customers who rely on Type 1 fonts, and don't want to be forced to replace them all at once. Type 1 is still the overwhelming majority of the installed base of fonts used in publishing, printing and professional graphics.</p>
+      <p>Regards,</p>
+      <p>T</p>
   - id: 196706
-    user_id: 18017
-    user_name: Mikhail Leonov
-    user_path: null
-    user_image: null
-    date_raw: 13 Apr 2007 — 11:07am
+    user: 18017
     date: 2007-04-13T11:07:00
+    date_raw: 13 Apr 2007 — 11:07am
     votes: null
     html: |-
       <p>Thomas, thanks for the background on Type 1 usage, it's very helpful.</p>
       <p>You are correct, some pre-release builds of Vista had WPF off by default. The change was made pretty late in the project schedule.</p>
       <p>Best regards,<br>
       Mikhail</p>
+    html_clean: |-
+      <p>Thomas, thanks for the background on Type 1 usage, it's very helpful.</p>
+      <p>You are correct, some pre-release builds of Vista had WPF off by default. The change was made pretty late in the project schedule.</p>
+      <p>Best regards,<br>
+      Mikhail</p>
   - id: 196712
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 13 Apr 2007 — 11:33am
+    user: 5094
     date: 2007-04-13T11:33:00
+    date_raw: 13 Apr 2007 — 11:33am
     votes: null
     html: |-
       <p>Following up on Thomas' points:</p>
@@ -143,36 +162,40 @@ comments:
       <p>There is an AAUP Production Manager's meeting in May, and one of the topics of discussion is (essentially) "What are OpenType fonts?"</p>
       <p>Secondly, most UP publisher's don't have the budgets to repurchase their font libraries in the OT formats.</p>
       <p>This is a small market, I know. But I imagine there are a significant number of other "small markets" in a similar position -- just like the oddity that a large number of people employed in U.S. work in small businesses.</p>
+    html_clean: |-
+      <p>Following up on Thomas' points:</p>
+      <p>In the world I inhabit (book &amp; journals publishing by university presses), Type 1 fonts are indeed the <cite> overwhelming</cite> majority of fonts used.</p>
+      <p>There is an AAUP Production Manager's meeting in May, and one of the topics of discussion is (essentially) "What are OpenType fonts?"</p>
+      <p>Secondly, most UP publisher's don't have the budgets to repurchase their font libraries in the OT formats.</p>
+      <p>This is a small market, I know. But I imagine there are a significant number of other "small markets" in a similar position -- just like the oddity that a large number of people employed in U.S. work in small businesses.</p>
   - id: 196777
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 13 Apr 2007 — 3:46pm
+    user: 1844
     date: 2007-04-13T15:46:00
+    date_raw: 13 Apr 2007 — 3:46pm
     votes: null
     html: |-
       <p>&gt; <em>There is an AAUP Production Manager’s meeting in May</em></p>
       <p>Is this the one? <a href="http://aaupnet.org/programs/2007production/Program.html" title="http://aaupnet.org/programs/2007production/Program.html">http://aaupnet.org/programs/2007production/Program.html</a></p>
+    html_clean: |-
+      <p>&gt; <em>There is an AAUP Production Manager’s meeting in May</em></p>
+      <p>Is this the one? <a href="http://aaupnet.org/programs/2007production/Program.html" title="http://aaupnet.org/programs/2007production/Program.html">http://aaupnet.org/programs/2007production/Program.html</a></p>
   - id: 196800
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 13 Apr 2007 — 5:59pm
+    user: 5094
     date: 2007-04-13T17:59:00
+    date_raw: 13 Apr 2007 — 5:59pm
     votes: null
     html: |-
       <p>Yup. And just yesterday someone posted on the AAUP designers list lamenting the lack of italic small capitals in Garamond Premier Pro, &amp; why weren't they there, don't all OpenType fonts have Italic small caps . . . but they really liked OpenType fonts because now they could set macrons other than by hand . . . So a couple of us told here they <cite>were</cite> there, &amp; tried to indicate some of the ways one can get at them.</p>
       <p>While it might sound like it, I'm not putting anyone down -- that's about the point this community has reached. And of course, their job is to design books (to use type), not explore font technology.</p>
       <p>We're all hoping Lynn Grillo knows the print world as well as GoLive.</p>
+    html_clean: |-
+      <p>Yup. And just yesterday someone posted on the AAUP designers list lamenting the lack of italic small capitals in Garamond Premier Pro, &amp; why weren't they there, don't all OpenType fonts have Italic small caps . . . but they really liked OpenType fonts because now they could set macrons other than by hand . . . So a couple of us told here they <cite>were</cite> there, &amp; tried to indicate some of the ways one can get at them.</p>
+      <p>While it might sound like it, I'm not putting anyone down -- that's about the point this community has reached. And of course, their job is to design books (to use type), not explore font technology.</p>
+      <p>We're all hoping Lynn Grillo knows the print world as well as GoLive.</p>
   - id: 196846
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 14 Apr 2007 — 12:00am
+    user: 1844
     date: 2007-04-14T00:00:00
+    date_raw: 14 Apr 2007 — 12:00am
     votes: null
     html: |-
       <p>&gt; <em>just yesterday someone posted on the AAUP designers list lamenting the lack of italic small capitals in Garamond Premier Pro, &amp; why weren’t they there</em></p>
@@ -180,89 +203,93 @@ comments:
       <p>That person must be confusing Garamond Premier Pro with Adobe Garamond Pro, two different type families. Yes, the italic fonts of the latter do not have small capitals. This must be due to historical reasons; I believe slopped small caps don't exist in the source material. Also, some purists think that slopped (bold or regular) small capitals and capitals, and the bold italic style overall are mere aberrations, because they are later developments and kind of "overkill" (like underlining something that is already set in bold). Bringhurst has a short section somehow related with this, <em>3.4 Tribal Alliances &amp; Families</em>.</p>
       <p>&gt; <em>don’t all OpenType fonts have Italic small caps</em></p>
       <p>That's one of the misconceptions about OpenType. Some users think that just because a font is in OpenType format, it contains small caps, old style figures, alternate glyphs, broad language support and all the other niceties, when in fact it might not be the case. Differentiating between 'Std' and 'Pro' helps a bit, but even the designation 'Pro' doesn't guarantee that two font families have the same feature richness.</p>
+    html_clean: |-
+      <p>&gt; <em>just yesterday someone posted on the AAUP designers list lamenting the lack of italic small capitals in Garamond Premier Pro, &amp; why weren’t they there</em></p>
+      <p>What?! Garamond Premier Pro (roman &amp; italic) not only has small caps for Latin, it has them for extended Latin, Greek and Cyrillic. <a href="http://www.adobe.com/type/browser/pdfs/GRPP/GaramondPremrPro-It.pdf" rel="nofollow">Here's the complete glyphset.</a> (PDF file)</p>
+      <p>That person must be confusing Garamond Premier Pro with Adobe Garamond Pro, two different type families. Yes, the italic fonts of the latter do not have small capitals. This must be due to historical reasons; I believe slopped small caps don't exist in the source material. Also, some purists think that slopped (bold or regular) small capitals and capitals, and the bold italic style overall are mere aberrations, because they are later developments and kind of "overkill" (like underlining something that is already set in bold). Bringhurst has a short section somehow related with this, <em>3.4 Tribal Alliances &amp; Families</em>.</p>
+      <p>&gt; <em>don’t all OpenType fonts have Italic small caps</em></p>
+      <p>That's one of the misconceptions about OpenType. Some users think that just because a font is in OpenType format, it contains small caps, old style figures, alternate glyphs, broad language support and all the other niceties, when in fact it might not be the case. Differentiating between 'Std' and 'Pro' helps a bit, but even the designation 'Pro' doesn't guarantee that two font families have the same feature richness.</p>
   - id: 196858
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 14 Apr 2007 — 5:16am
+    user: 5094
     date: 2007-04-14T05:16:00
+    date_raw: 14 Apr 2007 — 5:16am
     votes: null
     html: |-
       <p>I know, Miguel but that's the state of things. And it isn't just the AAUP -- Remember the poster on this board who was grousing that there were a bunch of Adobe fonts in OpenType that didn't have any more characters than the old Type 1 fonts? </p>
       <p>And no, she wasn't confusing Premier Pro with AG, just "Couldn't find them on the Glyph Pallet." Well, it <cite>is</cite> a "full pallet." There are better ways to "find" them, once you know they really are there.</p>
       <p>As to using "slopped" roman or bold small caps for the italic, no, it isn't usually done. This isn't out of ignorance. There are a fair number of typographers in the AAUP, who know type quite well. The usual attitude is if you don't have a small cap, use the full cap. Life will go on. I'd bet what happened is that she'd decided on small caps for some level of subheads, &amp; ran into a subhead with italic in it, &amp; didn't want to change the subhead style if it could be avoided.</p>
       <p>A problem with faking any kind of small caps is you have to do a pretty good job of it, or someone in the "book" audience (readers, as well as editors) will notice, grimace, &amp; write a letter to the publisher. It isn't so much a problem of overkill; more like deciding to put on a Shakespeare play using an open set but period costumes.</p>
+    html_clean: |-
+      <p>I know, Miguel but that's the state of things. And it isn't just the AAUP -- Remember the poster on this board who was grousing that there were a bunch of Adobe fonts in OpenType that didn't have any more characters than the old Type 1 fonts? </p>
+      <p>And no, she wasn't confusing Premier Pro with AG, just "Couldn't find them on the Glyph Pallet." Well, it <cite>is</cite> a "full pallet." There are better ways to "find" them, once you know they really are there.</p>
+      <p>As to using "slopped" roman or bold small caps for the italic, no, it isn't usually done. This isn't out of ignorance. There are a fair number of typographers in the AAUP, who know type quite well. The usual attitude is if you don't have a small cap, use the full cap. Life will go on. I'd bet what happened is that she'd decided on small caps for some level of subheads, &amp; ran into a subhead with italic in it, &amp; didn't want to change the subhead style if it could be avoided.</p>
+      <p>A problem with faking any kind of small caps is you have to do a pretty good job of it, or someone in the "book" audience (readers, as well as editors) will notice, grimace, &amp; write a letter to the publisher. It isn't so much a problem of overkill; more like deciding to put on a Shakespeare play using an open set but period costumes.</p>
   - id: 219387
-    user_id: 16614
-    user_name: ErikSyrup
-    user_path: null
-    user_image: /files/pictures/picture-16614.jpg
-    date_raw: 14 Aug 2007 — 5:07pm
+    user: 16614
     date: 2007-08-14T17:07:00
+    date_raw: 14 Aug 2007 — 5:07pm
     votes: null
     html: <p>So I just got a new PC with Vista from Dell, and it doesn't seem to be supporting PFM/PFB (using Suitcase 9.2). How can I activate this feature you guys are talking about?</p>
+    html_clean: <p>So I just got a new PC with Vista from Dell, and it doesn't seem to be supporting PFM/PFB (using Suitcase 9.2). How can I activate this feature you guys are talking about?</p>
   - id: 219444
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 14 Aug 2007 — 11:06pm
+    user: 1844
     date: 2007-08-14T23:06:00
+    date_raw: 14 Aug 2007 — 11:06pm
     votes: null
     html: |-
       <p>According to Michael Kaplan, installing fonts on Vista is not much different from previous versions of Windows:<br>
       <a href="http://blogs.msdn.com/michkap/archive/2006/08/27/726378.aspx" rel="nofollow">About the Fonts folder in Windows, Part 3 (aka What changes in Vista?)</a></p>
+    html_clean: |-
+      <p>According to Michael Kaplan, installing fonts on Vista is not much different from previous versions of Windows:<br>
+      <a href="http://blogs.msdn.com/michkap/archive/2006/08/27/726378.aspx" rel="nofollow">About the Fonts folder in Windows, Part 3 (aka What changes in Vista?)</a></p>
   - id: 219448
-    user_id: 12948
-    user_name: Dan Gayle
-    user_path: null
-    user_image: /files/pictures/picture-12948.png
-    date_raw: 14 Aug 2007 — 11:25pm
+    user: 12948
     date: 2007-08-14T23:25:00
+    date_raw: 14 Aug 2007 — 11:25pm
     votes: null
     html: |-
       <p>@Thomas<br>
       Regardless of the MS method of rendering Type 1 fonts, can you still load them via the Adobe fonts folder? As was mentioned above, most Type 1 fonts are in use by creative professionals. The same users who most likely have an Adobe Suite in use.</p>
       <p>Unless, of course, they're hanging onto legacy systems like Quark 6 for the same reasons they're hanging onto their Type 1 fonts.</p>
+    html_clean: |-
+      <p>@Thomas<br>
+      Regardless of the MS method of rendering Type 1 fonts, can you still load them via the Adobe fonts folder? As was mentioned above, most Type 1 fonts are in use by creative professionals. The same users who most likely have an Adobe Suite in use.</p>
+      <p>Unless, of course, they're hanging onto legacy systems like Quark 6 for the same reasons they're hanging onto their Type 1 fonts.</p>
   - id: 219451
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 15 Aug 2007 — 12:00am
+    user: 1844
     date: 2007-08-15T00:00:00
+    date_raw: 15 Aug 2007 — 12:00am
     votes: null
     html: <p>BTW, is Suitcase 9.2 even compatible with Vista? According to Extensis' website the current version of Suitcase is 11.0.1.</p>
+    html_clean: <p>BTW, is Suitcase 9.2 even compatible with Vista? According to Extensis' website the current version of Suitcase is 11.0.1.</p>
   - id: 219971
-    user_id: 16614
-    user_name: ErikSyrup
-    user_path: null
-    user_image: /files/pictures/picture-16614.jpg
-    date_raw: 16 Aug 2007 — 1:57pm
+    user: 16614
     date: 2007-08-16T13:57:00
+    date_raw: 16 Aug 2007 — 1:57pm
     votes: null
     html: |-
       <p>Good point about Suitcase 9.2 perhaps not working so great with the new Vista, will update.</p>
       <p>But why hang on to Type1 fonts? It's like when the cd came out, or the mp3, can't throw away those old vinyl records and buy them all over again in the new format.</p>
+    html_clean: |-
+      <p>Good point about Suitcase 9.2 perhaps not working so great with the new Vista, will update.</p>
+      <p>But why hang on to Type1 fonts? It's like when the cd came out, or the mp3, can't throw away those old vinyl records and buy them all over again in the new format.</p>
   - id: 220883
-    user_id: 20913
-    user_name: jrush
-    user_path: null
-    user_image: null
-    date_raw: 20 Aug 2007 — 1:57pm
+    user: 20913
     date: 2007-08-20T13:57:00
+    date_raw: 20 Aug 2007 — 1:57pm
     votes: null
     html: <p>OK I'm confused now. Can I load Type 1 fonts under Vista Business or not? I had purchased the full Adobe Font Folio  some years ago. A 9k cost btw, and have always used Type 1 fonts for highend graphic work. I was always told to only use Type 1 for any print related work b/c other formats don't output at the high DPI that printers use. That info came from various print companies btw. So what's the story here? I don't see the need for Type 1 font support going away anytime soon for the graphic industry, and I normally do that kind of work on my mac, but I often use fonts from my Adobe Font Folio on a PC - mostly for Flash work.</p>
+    html_clean: <p>OK I'm confused now. Can I load Type 1 fonts under Vista Business or not? I had purchased the full Adobe Font Folio  some years ago. A 9k cost btw, and have always used Type 1 fonts for highend graphic work. I was always told to only use Type 1 for any print related work b/c other formats don't output at the high DPI that printers use. That info came from various print companies btw. So what's the story here? I don't see the need for Type 1 font support going away anytime soon for the graphic industry, and I normally do that kind of work on my mac, but I often use fonts from my Adobe Font Folio on a PC - mostly for Flash work.</p>
   - id: 220914
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 20 Aug 2007 — 3:46pm
+    user: 1844
     date: 2007-08-20T15:46:00
+    date_raw: 20 Aug 2007 — 3:46pm
     votes: null
     html: |-
+      <p>&gt; <em>I don’t see the need for Type 1 font support going away anytime soon for the graphic industry</em></p>
+      <p>The Type 1 font format is around 25 years old. Only 256 glyphs can be encoded in each font. There is no support for Unicode or layout features (stylistic or linguistic). Are these enough reasons for you?</p>
+      <p>Anyway, if support for the Type 1 format goes away in the near future, that might only happen at the operating system level. It's likely that Adobe apps will continue to support Type 1 after that. For example, the new InDesign CS3 still supports Multiple Master fonts despite the fact that Adobe stopped making new MM (and Type 1) fonts back in 1999.</p>
+    html_clean: |-
       <p>&gt; <em>I don’t see the need for Type 1 font support going away anytime soon for the graphic industry</em></p>
       <p>The Type 1 font format is around 25 years old. Only 256 glyphs can be encoded in each font. There is no support for Unicode or layout features (stylistic or linguistic). Are these enough reasons for you?</p>
       <p>Anyway, if support for the Type 1 format goes away in the near future, that might only happen at the operating system level. It's likely that Adobe apps will continue to support Type 1 after that. For example, the new InDesign CS3 still supports Multiple Master fonts despite the fact that Adobe stopped making new MM (and Type 1) fonts back in 1999.</p>

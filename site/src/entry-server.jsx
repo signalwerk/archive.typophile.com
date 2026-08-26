@@ -30,7 +30,7 @@ export function render(route, data) {
     case "thread":
       return {
         title: `${data.doc.title || `node ${data.doc.node}`} — Typophile archive`,
-        html: renderToStaticMarkup(<ThreadPage doc={data.doc} pictures={data.pictures} />),
+        html: renderToStaticMarkup(<ThreadPage doc={data.doc} users={data.users} />),
       };
     case "users": {
       const { items, page, pages } = data.page;

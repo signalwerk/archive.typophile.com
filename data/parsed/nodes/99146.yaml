@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/99146.html
   fingerprint: 4014152145096d93
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 99146
-  user_id: 5444
-  user_name: Sebastian Nagel
-  user_path: null
-  user_image: /files/pictures/picture-5444.jpg
-  date_raw: 25 Dec 2012 — 4:26pm
+  user: 5444
   date: 2012-12-25T16:26:00
+  date_raw: 25 Dec 2012 — 4:26pm
   votes: null
   html: |-
     <p>Dear readers,</p>
@@ -38,36 +35,49 @@ post:
               <a href="/node/99092" class="topic-previous" title="Go to previous forum topic">‹ Existencial doubt about SMCP spacing in FL</a>
                   <a href="/node/99049" class="topic-next" title="Go to next forum topic">Fontforge problem: Kerning doesn't work. ›</a>
           </div>
+  html_clean: |-
+    <p>Dear readers,</p>
+    <p>i'm using an indesign script (not created by my, but from the internets) to output all glyphs of a font, identified by their Glyph ID (GID) in a document for comparison, testing and specimen. </p>
+    <p>the problem especially in the creation of a glyph list, while still bugfixing is: if i change my font, adding or deleting glyphs, and update the document with the new font version, the glyphs "shift" in their order: Let's say i had "ABC" inserted via their glyph indexes 100, 101, 102, and i then delete the glyphs 50 and 51 in my font file, the glyphs "reshuffle". So in the new version, the glyph numbers used by indesign of course stay the same, but they represent "CDE" now, resulting in a "mess" in my indesign glyph list :)</p>
+    <p>I'm not working with unicode, as lots of my glyphs don't have one, but are alternates adressed by various opentype features.</p>
+    <p>How do you work in this problem? Any script to shift the GIDs in indesign too?  Do you have a way better approach when creating a glyph list in a layout program, while still working on the font?</p>
+    <p>thanks<br>
+    Sebastian</p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/99092" class="topic-previous" title="Go to previous forum topic">‹ Existencial doubt about SMCP spacing in FL</a>
+                  <a href="/node/99049" class="topic-next" title="Go to next forum topic">Fontforge problem: Kerning doesn't work. ›</a>
+          </div>
 comments:
   - id: 535085
-    user_id: 9636
-    user_name: jasonc
-    user_path: null
-    user_image: /files/pictures/picture-9636.gif
-    date_raw: 25 Dec 2012 — 9:20pm
+    user: 9636
     date: 2012-12-25T21:20:00
+    date_raw: 25 Dec 2012 — 9:20pm
     votes: null
     html: <p>Well certainly referencing GIDs is only going to lead to this problem. But as you noted, unicodes won't help. The only reference which would help in this situation would be for your script to refer to glyphs by glyph name. Unfortunately, I've reached the end of my InDesign knowledge here, and am not sure if that'd be even possible. :(</p>
+    html_clean: <p>Well certainly referencing GIDs is only going to lead to this problem. But as you noted, unicodes won't help. The only reference which would help in this situation would be for your script to refer to glyphs by glyph name. Unfortunately, I've reached the end of my InDesign knowledge here, and am not sure if that'd be even possible. :(</p>
   - id: 535107
-    user_id: 5444
-    user_name: Sebastian Nagel
-    user_path: null
-    user_image: /files/pictures/picture-5444.jpg
-    date_raw: 26 Dec 2012 — 4:21am
+    user: 5444
     date: 2012-12-26T04:21:00
+    date_raw: 26 Dec 2012 — 4:21am
     votes: null
     html: |-
       <p>thank you  - i have come to that conclusion too ... the glyph name would be "unique" and independent from GID or unicode, but as far as i can see in glyph palette (and also from search tool for glyphs), it is not used by indesign.</p>
       <p>So what i'd need is a script that looks for glyph IDs in the document, and add / subtract a value X to any GID it finds that is larger than Y (the position where i added / deleted a glyph) ... or accept that some of the work has to be done manually ;-)</p>
+    html_clean: |-
+      <p>thank you  - i have come to that conclusion too ... the glyph name would be "unique" and independent from GID or unicode, but as far as i can see in glyph palette (and also from search tool for glyphs), it is not used by indesign.</p>
+      <p>So what i'd need is a script that looks for glyph IDs in the document, and add / subtract a value X to any GID it finds that is larger than Y (the position where i added / deleted a glyph) ... or accept that some of the work has to be done manually ;-)</p>
   - id: 535108
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 26 Dec 2012 — 4:24am
+    user: 29994
     date: 2012-12-26T04:24:00
+    date_raw: 26 Dec 2012 — 4:24am
     votes: null
     html: |-
+      <p>The GID is the <em>index</em> number of the character in the font itself, and so of course they shift when you remove a character ... You can't have a not-consecutive list of indexes.</p>
+      <p>Unicode is a mapping from glyph index to a fixed code, so even when the glyph index itself changes, InDesign can still find the correct one. But if you rely on index alone, it cannot help you any further.<br>
+      The same thing will happen when you change your font to another one: Unicode mapped characters will stay the same, un-mapped characters will change to the random glyph on that index position in the new font.</p>
+      <p>Either don't insert or remove glyphs anymore (which should not be a problem, after all no software in the world works <em>solely</em> with glyph indexes), or assign Unicodes in the Private Range to your glyphs. The latter will ensure InDesign, as well as all other software, can keep up with your editing.</p>
+      <p>(The former can be accomplished by leaving 'deleted' glyphs as blanks in their position, and only add new characters at the end.)</p>
+    html_clean: |-
       <p>The GID is the <em>index</em> number of the character in the font itself, and so of course they shift when you remove a character ... You can't have a not-consecutive list of indexes.</p>
       <p>Unicode is a mapping from glyph index to a fixed code, so even when the glyph index itself changes, InDesign can still find the correct one. But if you rely on index alone, it cannot help you any further.<br>
       The same thing will happen when you change your font to another one: Unicode mapped characters will stay the same, un-mapped characters will change to the random glyph on that index position in the new font.</p>

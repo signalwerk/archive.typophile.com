@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/52414.html
   fingerprint: e18b6a57dc240c62
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 52414
-  user_id: 16708
-  user_name: guifa
-  user_path: null
-  user_image: /files/pictures/picture-16708.jpg
-  date_raw: 5 Dec 2008 — 6:47pm
+  user: 16708
   date: 2008-12-05T18:47:00
+  date_raw: 5 Dec 2008 — 6:47pm
   votes: null
   html: |-
     <p>The only way I can think to do this seems a bit complex so maybe there's ane asier way.</p>
@@ -36,25 +33,32 @@ post:
     4: If sequence "D.es E.es [any letter]" found, match do nothing<br>
     5: If sequence "D.es E.es" found, replace with D_E</p>
     <p>This requires making an extra glyph that is identical to a normal D and that in a Spanish document would be constantly being replaced.  I'm not sure if that in and of itself might cause concern as well.</p>
+  html_clean: |-
+    <p>The only way I can think to do this seems a bit complex so maybe there's ane asier way.</p>
+    <p>In Spanish (including modern day) often times the word "de" when set in all capitals is ligatured.  However, a standard ligature isn't enough because de appears in many words.  So I was going to do a contextual substitution to make sure I only nab DE as a single word.</p>
+    <p>BUT, this is of course unacceptable in most other languages.  So here's my solution, and just wondering if I'm approaching it properly or if there is a more efficient way.  (I'm using FontForge so I'll use psuedo code)</p>
+    <p>1: If language is "es", switch "D" with "D.es"<br>
+    2: If language is "es", switch "E" with "E.es"<br>
+    3: If sequence "[any letter]&nbsp;D.es E.es" found, match and do nothing<br>
+    4: If sequence "D.es E.es [any letter]" found, match do nothing<br>
+    5: If sequence "D.es E.es" found, replace with D_E</p>
+    <p>This requires making an extra glyph that is identical to a normal D and that in a Spanish document would be constantly being replaced.  I'm not sure if that in and of itself might cause concern as well.</p>
 comments:
   - id: 316581
-    user_id: 14650
-    user_name: Stephen Rapp
-    user_path: null
-    user_image: /files/pictures/picture-14650.gif
-    date_raw: 5 Dec 2008 — 7:34pm
+    user: 14650
     date: 2008-12-05T19:34:00
+    date_raw: 5 Dec 2008 — 7:34pm
     votes: null
     html: |-
       <p>House Industries did a whole language specific contextual sub thing with their new script Sable. It has local versions of some of the diacritic marks.</p>
       <p><a href="http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_how_lang" title="http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_how_lang">http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_ho...</a></p>
+    html_clean: |-
+      <p>House Industries did a whole language specific contextual sub thing with their new script Sable. It has local versions of some of the diacritic marks.</p>
+      <p><a href="http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_how_lang" title="http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_how_lang">http://www.houseind.com/index.php?page=showfont&amp;id=665&amp;subpage=studio_ho...</a></p>
   - id: 316591
-    user_id: 7783
-    user_name: Randy
-    user_path: null
-    user_image: /files/pictures/picture-7783.gif
-    date_raw: 5 Dec 2008 — 11:34pm
+    user: 7783
     date: 2008-12-05T23:34:00
+    date_raw: 5 Dec 2008 — 11:34pm
     votes: null
     html: |-
       <p>Seems like this is something for locl or salt or ss1 (stylistic sets) or a combo:<br>
@@ -76,13 +80,30 @@ comments:
       <p>This could well be garbage :-) but it's what I'd try.<br>
       Whoops that's fontlab, not fontforge.</p>
       <p>It'd be nice to get rid of both marker glyphs, not just one. The only other way I figured required an illegal one to many substitution. You could try to define when you do want the sub, not when you don't, but it's trickier.</p>
+    html_clean: |-
+      <p>Seems like this is something for locl or salt or ss1 (stylistic sets) or a combo:<br>
+      (taking a stab as I'm trying to improve my OT mind)</p>
+      <p>@UC = uppercase;</p>
+      <p>feature locl { # Localized Forms<br>
+      language ESP exclude_dflt; # Spanish;<br>
+      sub @UC D' E @UC by D.es; #D.es is a duplicate D marker glyph<br>
+      sub D E by D_E;<br>
+      } locl;</p>
+      <p>feature salt { # Spanish DE ligature<br>
+      sub @UC D' E @UC by D.es; #D.es is a duplicate D marker glyph<br>
+      sub D E by D_E;<br>
+      } ss1;</p>
+      <p>feature ss1 { # Spanish DE ligature<br>
+      sub @UC D' E @UC by D.es; #D.es is a duplicate D marker glyph<br>
+      sub D E by D_E;<br>
+      } ss1;</p>
+      <p>This could well be garbage :-) but it's what I'd try.<br>
+      Whoops that's fontlab, not fontforge.</p>
+      <p>It'd be nice to get rid of both marker glyphs, not just one. The only other way I figured required an illegal one to many substitution. You could try to define when you do want the sub, not when you don't, but it's trickier.</p>
   - id: 316592
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 5 Dec 2008 — 11:54pm
+    user: 1844
     date: 2008-12-05T23:54:00
+    date_raw: 5 Dec 2008 — 11:54pm
     votes: null
     html: |-
       <p>I don't think the glyphs D.es and E.es are necessary. I believe it can be done in one shot. The FDK syntax should be something like this:<br>
@@ -98,13 +119,24 @@ comments:
       			sub D' E' by D_E;<br>
       } liga;<br>
       </p>
+    html_clean: |-
+      <p>I don't think the glyphs D.es and E.es are necessary. I believe it can be done in one shot. The FDK syntax should be something like this:<br>
+      <code><br>
+      languagesystem latn dflt;<br>
+      languagesystem latn ESP;</code></p>
+      <p>@ALL_LETTERS = [A-Z a-z];</p>
+      <p>feature liga {<br>
+      	script latn;<br>
+      		language ESP;<br>
+      			ignore sub @ALL_LETTERS D' E';<br>
+      			ignore sub D' E' @ALL_LETTERS;<br>
+      			sub D' E' by D_E;<br>
+      } liga;<br>
+      </p>
   - id: 316658
-    user_id: 7783
-    user_name: Randy
-    user_path: null
-    user_image: /files/pictures/picture-7783.gif
-    date_raw: 6 Dec 2008 — 2:08pm
+    user: 7783
     date: 2008-12-06T14:08:00
+    date_raw: 6 Dec 2008 — 2:08pm
     votes: null
     html: |-
       <p>Hi Miguel,</p>
@@ -114,13 +146,18 @@ comments:
       2. Is that the prefered way to do things like polish diacritics in apps without locl support, or stylistic sets?<br>
       3. Can it be done in Fontlab's opentype editor or just FDK?<br>
       4. In your liga feature how do you signal the end of ESP specific subs, say if you wanted to add french specific subs or the aforementioned polish diacritics?</p>
+    html_clean: |-
+      <p>Hi Miguel,</p>
+      <p>Thank you! I didn't know about "ignore sub" .. that will be handy!</p>
+      <p>Side questions:</p>
+      <p>1. Is languagesystem toggled by the Language dropdown in the character palette of InD CS2?<br>
+      2. Is that the prefered way to do things like polish diacritics in apps without locl support, or stylistic sets?<br>
+      3. Can it be done in Fontlab's opentype editor or just FDK?<br>
+      4. In your liga feature how do you signal the end of ESP specific subs, say if you wanted to add french specific subs or the aforementioned polish diacritics?</p>
   - id: 316668
-    user_id: 1844
-    user_name: Miguel Sousa
-    user_path: null
-    user_image: /files/pictures/picture-1844.png
-    date_raw: 6 Dec 2008 — 3:32pm
+    user: 1844
     date: 2008-12-06T15:32:00
+    date_raw: 6 Dec 2008 — 3:32pm
     votes: null
     html: |-
       <p>Hey Randy,</p>
@@ -162,14 +199,54 @@ comments:
       </p>
       <p>The code in 'locl' is straightforward; glyphs are replaced by other glyphs depending on the language. The code in 'liga' is a little more tricky because there are ligatures that you'll want to have for all the languages and/or scripts in addition to the language-specific ones. In this case, all Latin languages (including ESP, FRA and PLK) will have the 'f_i' ligature. In addition, the 'D_E' ligature will be available to Spanish, and the 'e_t' ligature will be available to French.</p>
       <p>I could have been more concise with the 'liga' code but when it comes to coding language-specific behavior I like to be as explicit as I can to avoid unexpected behaviors. For example, the keyword 'include_dflt' could be omitted (because the lookups under 'language dflt;' are inherited by default by other languages within the same script). However, 'language PLK;' needs to be included in 'liga' otherwise 'f_i' will NOT be available for Polish.</p>
+    html_clean: |-
+      <p>Hey Randy,</p>
+      <p>1. Yes, it is toggled by the Language dropdown in the character palette, but it will only work in InDesign CS3 and up. Photoshop CS4 and Illustrator CS4 support it as well.</p>
+      <p>2. If the app does not have support for language-specific lookups, things won't work. For example, Adobe has been putting language-specific code in its fonts (e.g. Turkish) for quite some time, but only with InDesign CS3 we've started seeing the results of that code.</p>
+      <p>3. You'll be able to compile the features and see the results in Fontlab, but you should also include the line <code>languagesystem DFLT dflt;</code> in the features. However, the current Fontlab 5 will throw an error message because of that. You'll have no problems if you use the FDK.</p>
+      <p>4. The end of ESP would be signaled by the end of the feature, the start of another language, or the start of another script. Matthew's case had to do with a language-specific ligature, so the best way to do it is through 'liga'. In the case of Polish diacritics I'd say 'locl' is more appropriate. In the case of French, it depends on what you're trying to do. Below is some code for language-specific ligatures and diacritics.</p>
+      <p><code><br>
+      languagesystem DFLT dflt;<br>
+      languagesystem latn dflt;<br>
+      languagesystem latn ESP;<br>
+      languagesystem latn FRA;<br>
+      languagesystem latn PLK;</code></p>
+      <p>feature locl {<br>
+      script latn;<br>
+      language FRA;<br>
+      sub eacute by eacute.FRA;</p>
+      <p>language PLK;<br>
+      sub cacute by cacute.PLK;<br>
+      } locl;</p>
+      <p>@ALL_LETTERS = [A-Z a-z];</p>
+      <p>feature liga {<br>
+      script DFLT;<br>
+      language dflt;<br>
+      lookup LIGA {<br>
+      sub f i by f_i;<br>
+      } LIGA;</p>
+      <p>script latn;<br>
+      language dflt;<br>
+      lookup LIGA;</p>
+      <p>language PLK include_dflt;</p>
+      <p>language ESP include_dflt;<br>
+      ignore sub @ALL_LETTERS D' E';<br>
+      ignore sub D' E' @ALL_LETTERS;<br>
+      sub D' E' by D_E;</p>
+      <p>language FRA include_dflt;<br>
+      sub e t by e_t;<br>
+      } liga;<br>
+      </p>
+      <p>The code in 'locl' is straightforward; glyphs are replaced by other glyphs depending on the language. The code in 'liga' is a little more tricky because there are ligatures that you'll want to have for all the languages and/or scripts in addition to the language-specific ones. In this case, all Latin languages (including ESP, FRA and PLK) will have the 'f_i' ligature. In addition, the 'D_E' ligature will be available to Spanish, and the 'e_t' ligature will be available to French.</p>
+      <p>I could have been more concise with the 'liga' code but when it comes to coding language-specific behavior I like to be as explicit as I can to avoid unexpected behaviors. For example, the keyword 'include_dflt' could be omitted (because the lookups under 'language dflt;' are inherited by default by other languages within the same script). However, 'language PLK;' needs to be included in 'liga' otherwise 'f_i' will NOT be available for Polish.</p>
   - id: 316793
-    user_id: 7783
-    user_name: Randy
-    user_path: null
-    user_image: /files/pictures/picture-7783.gif
-    date_raw: 7 Dec 2008 — 11:52pm
+    user: 7783
     date: 2008-12-07T23:52:00
+    date_raw: 7 Dec 2008 — 11:52pm
     votes: null
     html: |-
+      <p>Thanks for your comprehensive reply. Next up: FDK bootcamp for me.</p>
+      <p>Randy</p>
+    html_clean: |-
       <p>Thanks for your comprehensive reply. Next up: FDK bootcamp for me.</p>
       <p>Randy</p>

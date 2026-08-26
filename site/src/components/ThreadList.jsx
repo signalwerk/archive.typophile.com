@@ -9,7 +9,7 @@ export function ThreadList({ threads }) {
             {t.title}
           </a>
           <div className="thread__meta">
-            {t.author ? <span>{t.author}</span> : null}
+            {t.authorName ? <a href={`/user/${t.author}/`}>{t.authorName}</a> : null}
             {t.date ? <span>{formatDate(t.date)}</span> : null}
             <span>
               {t.comments} {t.comments === 1 ? "reply" : "replies"}

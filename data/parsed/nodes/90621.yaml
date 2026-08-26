@@ -16,29 +16,28 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/90621.html
   fingerprint: 3fe89997eeae4f50
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 90621
-  user_id: 186651
-  user_name: bhuynh
-  user_path: null
-  user_image: null
-  date_raw: 1 Mar 2012 — 9:58pm
+  user: 186651
   date: 2012-03-01T21:58:00
+  date_raw: 1 Mar 2012 — 9:58pm
   votes: null
   html: |-
     <p>I'm trying to build a custom font that will make control character EOT visible. For instance, the EOT character (ASCII 4) would would be inserted as a symbol when I type cntrl + D.</p>
     <p>I have drawn the glyph in FontLab studio, but when I generate the font, the EOT character is not present.</p>
     <p>Could some kind soul explain how I can achieve this, or point me to a decent resource that I might try to understand the problem?</p>
     <p>Thank you</p>
+  html_clean: |-
+    <p>I'm trying to build a custom font that will make control character EOT visible. For instance, the EOT character (ASCII 4) would would be inserted as a symbol when I type cntrl + D.</p>
+    <p>I have drawn the glyph in FontLab studio, but when I generate the font, the EOT character is not present.</p>
+    <p>Could some kind soul explain how I can achieve this, or point me to a decent resource that I might try to understand the problem?</p>
+    <p>Thank you</p>
 comments:
   - id: 497346
-    user_id: 1250
-    user_name: hrant
-    user_path: null
-    user_image: /files/pictures/picture-1250.gif
-    date_raw: 2 Mar 2012 — 6:21am
+    user: 1250
     date: 2012-03-02T06:21:00
+    date_raw: 2 Mar 2012 — 6:21am
     votes: null
     html: |-
       <p>The OS and/or the application will often not bother<br>
@@ -46,44 +45,45 @@ comments:
       Sometimes it might even prevent software from working<br>
       properly. This applies even to the blank space character.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>The OS and/or the application will often not bother<br>
+      rendering what you've place in a control character.<br>
+      Sometimes it might even prevent software from working<br>
+      properly. This applies even to the blank space character.</p>
+      <p>hhp</p>
   - id: 497347
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 2 Mar 2012 — 6:33am
+    user: 29994
     date: 2012-03-02T06:33:00
+    date_raw: 2 Mar 2012 — 6:33am
     votes: null
     html: |-
       <p><cite> ... when I generate the font, the EOT character is not present.</cite></p>
       <p>How do you know? Because pressing Ctrl+D in any software doesn't show it? (See Hrant's answer for that.) Or by inspecting your font with a utility that is able to show glyphs and assigned codes?</p>
+    html_clean: |-
+      <p><cite> ... when I generate the font, the EOT character is not present.</cite></p>
+      <p>How do you know? Because pressing Ctrl+D in any software doesn't show it? (See Hrant's answer for that.) Or by inspecting your font with a utility that is able to show glyphs and assigned codes?</p>
   - id: 497348
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 2 Mar 2012 — 6:36am
+    user: 29994
     date: 2012-03-02T06:36:00
+    date_raw: 2 Mar 2012 — 6:36am
     votes: null
     html: |-
       <p>... A perfect reasonable representation for Ctrl+D in many programs is to show it as "^D". Not a font in the world that can work around that ...</p>
       <p>(Except an Opentype font that substitutes the sequence "^D" with an actual glyph of one. But that would not be the same, would it?)</p>
+    html_clean: |-
+      <p>... A perfect reasonable representation for Ctrl+D in many programs is to show it as "^D". Not a font in the world that can work around that ...</p>
+      <p>(Except an Opentype font that substitutes the sequence "^D" with an actual glyph of one. But that would not be the same, would it?)</p>
   - id: 497356
-    user_id: 1043
-    user_name: Mark Simonson
-    user_path: null
-    user_image: /files/pictures/picture-1043.jpg
-    date_raw: 2 Mar 2012 — 7:24am
+    user: 1043
     date: 2012-03-02T07:24:00
+    date_raw: 2 Mar 2012 — 7:24am
     votes: null
     html: <p>Control characters are by definition not displayable. They are special codes used to do things other than display characters, like ringing the bell on the teletype machine.</p>
+    html_clean: <p>Control characters are by definition not displayable. They are special codes used to do things other than display characters, like ringing the bell on the teletype machine.</p>
   - id: 497414
-    user_id: 186651
-    user_name: bhuynh
-    user_path: null
-    user_image: null
-    date_raw: 2 Mar 2012 — 1:16pm
+    user: 186651
     date: 2012-03-02T13:16:00
+    date_raw: 2 Mar 2012 — 1:16pm
     votes: null
     html: |-
       <p>Thanks for replying guys. </p>
@@ -95,26 +95,35 @@ comments:
        a backwards L (┘)</p>
       <p>When using my custom font, I just get a space. In debug mode, I can see that 0x04 is put into the buffer for the EOT character. </p>
       <p>I'm pretty certain that whatever comes out of Fontlab does not have a symbol mapped to the 0x04 character. Is there anyway to map a glyph to the EOT character within Fontlab?</p>
+    html_clean: |-
+      <p>Thanks for replying guys. </p>
+      <p>I'm writing the software that's supposed to display this character. The software is supposed to replace some legacy equipment that displayed the EOT character with a specific symbol. </p>
+      <p>I know Ctrl+D works because it displays the following when I use Courier New:</p>
+      <p>On Windows XP:<br>
+       a square (□)</p>
+      <p>On Windows 7:<br>
+       a backwards L (┘)</p>
+      <p>When using my custom font, I just get a space. In debug mode, I can see that 0x04 is put into the buffer for the EOT character. </p>
+      <p>I'm pretty certain that whatever comes out of Fontlab does not have a symbol mapped to the 0x04 character. Is there anyway to map a glyph to the EOT character within Fontlab?</p>
   - id: 497421
-    user_id: 9108
-    user_name: JanekZ
-    user_path: null
-    user_image: /files/pictures/picture-9108.png
-    date_raw: 2 Mar 2012 — 1:56pm
+    user: 9108
     date: 2012-03-02T13:56:00
+    date_raw: 2 Mar 2012 — 1:56pm
     votes: null
     html: |-
       <p>This is strange, but there is a glyph in this position:<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/45_4788.jpg"></div><br>
       so maybe you can do it. I placed a "0" at 0x3, generated the CFF font and opened it again.<br>
       PS not in FontLab, in FontForge<p></p>
+    html_clean: |-
+      <p>This is strange, but there is a glyph in this position:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/45_4788.jpg"></div><br>
+      so maybe you can do it. I placed a "0" at 0x3, generated the CFF font and opened it again.<br>
+      PS not in FontLab, in FontForge<p></p>
   - id: 497486
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 3 Mar 2012 — 5:15am
+    user: 29994
     date: 2012-03-03T05:15:00
+    date_raw: 3 Mar 2012 — 5:15am
     votes: null
     html: |-
       <p><cite>I know Ctrl+D works because it displays the following when I use Courier New:</cite></p>
@@ -122,77 +131,80 @@ comments:
       <p><cite>On Windows 7: a backwards L (┘)</cite></p>
       <p>You are mistaken. "Works" is a relative term; you don't say what software you are using to "prove" your point.</p>
       <p>And those characters are neither 'a square' nor 'a backwards L'. What character(s) do you get when you press any other Ctrl+ key? What character do you see when you enter a key code that is not available in the font?</p>
+    html_clean: |-
+      <p><cite>I know Ctrl+D works because it displays the following when I use Courier New:</cite></p>
+      <p><cite>On Windows XP: a square (□)</cite></p>
+      <p><cite>On Windows 7: a backwards L (┘)</cite></p>
+      <p>You are mistaken. "Works" is a relative term; you don't say what software you are using to "prove" your point.</p>
+      <p>And those characters are neither 'a square' nor 'a backwards L'. What character(s) do you get when you press any other Ctrl+ key? What character do you see when you enter a key code that is not available in the font?</p>
   - id: 497601
-    user_id: 83217
-    user_name: Té Rowan
-    user_path: null
-    user_image: /files/pictures/picture-83217.jpg
-    date_raw: 4 Mar 2012 — 5:59am
+    user: 83217
     date: 2012-03-04T05:59:00
+    date_raw: 4 Mar 2012 — 5:59am
     votes: null
     html: |-
       <p>As I recall, most Windows versions would display a box for a control character, probably because that's the font's 'missing character' symbol. I have seen it often enough instead of a ^Z or even ^@.</p>
       <p>IIRC, some TeX encodings use the U0000..U001F space for glyphs, and I already know that FontForge can stuff that space...</p>
+    html_clean: |-
+      <p>As I recall, most Windows versions would display a box for a control character, probably because that's the font's 'missing character' symbol. I have seen it often enough instead of a ^Z or even ^@.</p>
+      <p>IIRC, some TeX encodings use the U0000..U001F space for glyphs, and I already know that FontForge can stuff that space...</p>
   - id: 497778
-    user_id: 186651
-    user_name: bhuynh
-    user_path: null
-    user_image: null
-    date_raw: 5 Mar 2012 — 10:33am
+    user: 186651
     date: 2012-03-05T10:33:00
+    date_raw: 5 Mar 2012 — 10:33am
     votes: null
     html: |-
       <p>I've given up on trying to place a glyph into the EOT position and will instead handle the problem in my code:</p>
       <p>Whenever I see the EOT char (x04), I replace it with the section sign (xA7). In my font, I've replaced the section sign with the symbol I want to use. This only works because I know my software doesn't have to support the section sign.</p>
       <p>It still bothers me that I had to handle this with code. Both Fontlab and Fontforge have the glyph at this position, but I can't figure out how to it.</p>
       <p>Thanks for all the replies, I would have kept spinning my wheels looking for the "perfect" solution had you guys not convinced me it was difficult (if not impossible) to do.</p>
+    html_clean: |-
+      <p>I've given up on trying to place a glyph into the EOT position and will instead handle the problem in my code:</p>
+      <p>Whenever I see the EOT char (x04), I replace it with the section sign (xA7). In my font, I've replaced the section sign with the symbol I want to use. This only works because I know my software doesn't have to support the section sign.</p>
+      <p>It still bothers me that I had to handle this with code. Both Fontlab and Fontforge have the glyph at this position, but I can't figure out how to it.</p>
+      <p>Thanks for all the replies, I would have kept spinning my wheels looking for the "perfect" solution had you guys not convinced me it was difficult (if not impossible) to do.</p>
   - id: 497780
-    user_id: 1250
-    user_name: hrant
-    user_path: null
-    user_image: /files/pictures/picture-1250.gif
-    date_raw: 5 Mar 2012 — 10:39am
+    user: 1250
     date: 2012-03-05T10:39:00
+    date_raw: 5 Mar 2012 — 10:39am
     votes: null
     html: |-
       <p>I might use an even less useful character, like<br>
       the sputnik (generic currency sign, U+00A4).</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>I might use an even less useful character, like<br>
+      the sputnik (generic currency sign, U+00A4).</p>
+      <p>hhp</p>
   - id: 497783
-    user_id: 29994
-    user_name: Theunis de Jong
-    user_path: null
-    user_image: /files/pictures/picture-29994.gif
-    date_raw: 5 Mar 2012 — 10:47am
+    user: 29994
     date: 2012-03-05T10:47:00
+    date_raw: 5 Mar 2012 — 10:47am
     votes: null
     html: |-
       <p>Theoretically there is no specific problem with a character at this position, but the software has to support its actual drawing on screen. Your solution is as good as anything else; the use of other glyphs to display a Tab, Hard Return, Space, or other special character is common.</p>
       <p>And usually its 'special' status is indicated by having a different color than the surrounding text. See commands like 'Show Invisible Characters" in your favourite text editor. (Microsoft Word, with its intrusive glaringly black "hidden" characters is an exception.)</p>
+    html_clean: |-
+      <p>Theoretically there is no specific problem with a character at this position, but the software has to support its actual drawing on screen. Your solution is as good as anything else; the use of other glyphs to display a Tab, Hard Return, Space, or other special character is common.</p>
+      <p>And usually its 'special' status is indicated by having a different color than the surrounding text. See commands like 'Show Invisible Characters" in your favourite text editor. (Microsoft Word, with its intrusive glaringly black "hidden" characters is an exception.)</p>
   - id: 497881
-    user_id: 83217
-    user_name: Té Rowan
-    user_path: null
-    user_image: /files/pictures/picture-83217.jpg
-    date_raw: 6 Mar 2012 — 3:38am
+    user: 83217
     date: 2012-03-06T03:38:00
+    date_raw: 6 Mar 2012 — 3:38am
     votes: null
     html: <p>Hmm… If your system uses Unicode as native encoding, you can probably hack things to emit Control Picture codes (U+2400..U+241F) instead.</p>
+    html_clean: <p>Hmm… If your system uses Unicode as native encoding, you can probably hack things to emit Control Picture codes (U+2400..U+241F) instead.</p>
   - id: 497929
-    user_id: 186651
-    user_name: bhuynh
-    user_path: null
-    user_image: null
-    date_raw: 6 Mar 2012 — 11:19am
+    user: 186651
     date: 2012-03-06T11:19:00
+    date_raw: 6 Mar 2012 — 11:19am
     votes: null
     html: <p>The system I'm communicating with is ~20 yrs old and only takes 8-bit words, so I need to stick to ANSI to not over-complicate things when I try to communicate. Thanks for the comment.</p>
+    html_clean: <p>The system I'm communicating with is ~20 yrs old and only takes 8-bit words, so I need to stick to ANSI to not over-complicate things when I try to communicate. Thanks for the comment.</p>
   - id: 498036
-    user_id: 83217
-    user_name: Té Rowan
-    user_path: null
-    user_image: /files/pictures/picture-83217.jpg
-    date_raw: 7 Mar 2012 — 12:06pm
+    user: 83217
     date: 2012-03-07T12:06:00
+    date_raw: 7 Mar 2012 — 12:06pm
     votes: null
     html: <p>*blink* *blink* And I thought Magrat (my Linux box, whopping 466 bogoMIPS) was old!</p>
+    html_clean: <p>*blink* *blink* And I thought Magrat (my Linux box, whopping 466 bogoMIPS) was old!</p>

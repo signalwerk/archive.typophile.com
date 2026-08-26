@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/77158.html
   fingerprint: bbaa3524a3635327
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 77158
-  user_id: 84664
-  user_name: tavulteguy
-  user_path: null
-  user_image: null
-  date_raw: 12 Dec 2010 — 6:52pm
+  user: 84664
   date: 2010-12-12T18:52:00
+  date_raw: 12 Dec 2010 — 6:52pm
   votes: null
   html: |-
     <p>Hello All,</p>
@@ -32,25 +29,30 @@ post:
     <p>The issue: Egyptian hieroglyphs can be written either right-to-left or left-to-right. When they are written rtl, the font glyphs face right. When they are written ltr, they face left. This is very important. Unfortunately, the Unicode (5.2) block for Egyptian Hieroglyphs (U+13000..U+1342E) doesn't specify direction. For this reason, I cannot simply create a font with a double set of glyphs, or even two fonts (one for rtl and one for ltr). The two font solution would be fine, if not for the fact directionality would be completely lost for those using a different Egyptian font (say Aegyptus). </p>
     <p>Question: Is there any good way to solve this problem? Could a program like Graphite help?</p>
     <p>Thanks in advance for any wisdom.</p>
+  html_clean: |-
+    <p>Hello All,</p>
+    <p>I have a complex font issue with Egyptian hieroglyphs and figured someone here could shed light on the matter, or refer me on to someone else with wisdom in this area.</p>
+    <p>The issue: Egyptian hieroglyphs can be written either right-to-left or left-to-right. When they are written rtl, the font glyphs face right. When they are written ltr, they face left. This is very important. Unfortunately, the Unicode (5.2) block for Egyptian Hieroglyphs (U+13000..U+1342E) doesn't specify direction. For this reason, I cannot simply create a font with a double set of glyphs, or even two fonts (one for rtl and one for ltr). The two font solution would be fine, if not for the fact directionality would be completely lost for those using a different Egyptian font (say Aegyptus). </p>
+    <p>Question: Is there any good way to solve this problem? Could a program like Graphite help?</p>
+    <p>Thanks in advance for any wisdom.</p>
 comments:
   - id: 443318
-    user_id: 12518
-    user_name: DTY
-    user_path: null
-    user_image: /files/pictures/picture-12518.gif
-    date_raw: 12 Dec 2010 — 7:48pm
+    user: 12518
     date: 2010-12-12T19:48:00
+    date_raw: 12 Dec 2010 — 7:48pm
     votes: null
     html: <p>In principle, I think the correct way to do it would be to create a font with a double set of glyphs, naming the RTL glyphs as alternates of the corresponding LTR glyphs (e.g., u13000.rtlm), and using the rtlm and rtla OpenType features to do the substitutions. However, I have no idea whether any layout application currently supports these OTL features.</p>
+    html_clean: <p>In principle, I think the correct way to do it would be to create a font with a double set of glyphs, naming the RTL glyphs as alternates of the corresponding LTR glyphs (e.g., u13000.rtlm), and using the rtlm and rtla OpenType features to do the substitutions. However, I have no idea whether any layout application currently supports these OTL features.</p>
   - id: 443345
-    user_id: 5094
-    user_name: charles ellertson
-    user_path: null
-    user_image: null
-    date_raw: 13 Dec 2010 — 4:46am
+    user: 5094
     date: 2010-12-13T04:46:00
+    date_raw: 13 Dec 2010 — 4:46am
     votes: null
     html: |-
+      <p><cite>The two font solution would be fine, if not for the fact directionality would be completely lost for those using a different Egyptian font (say Aegyptus). </cite></p>
+      <p>It sounds to me that what you're asking for is a layout feature, not a type feature. The old "command rollover" feature we've lacked for so long. That is the only way I know for someone using an existing font, glyphs all facing one way, to achieve what you want.</p>
+      <p>BTW, for new fonts, you can put all the glyphs in one font, with one facing direction in a stylistic set. Again, you're dependent on a layout program that can access the stylistic set.</p>
+    html_clean: |-
       <p><cite>The two font solution would be fine, if not for the fact directionality would be completely lost for those using a different Egyptian font (say Aegyptus). </cite></p>
       <p>It sounds to me that what you're asking for is a layout feature, not a type feature. The old "command rollover" feature we've lacked for so long. That is the only way I know for someone using an existing font, glyphs all facing one way, to achieve what you want.</p>
       <p>BTW, for new fonts, you can put all the glyphs in one font, with one facing direction in a stylistic set. Again, you're dependent on a layout program that can access the stylistic set.</p>

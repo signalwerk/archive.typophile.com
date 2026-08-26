@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/78005.html
   fingerprint: 35aebcf7e2221569
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 78005
-  user_id: 2642
-  user_name: morten
-  user_path: null
-  user_image: /files/pictures/picture-2642.png
-  date_raw: 13 Jan 2011 — 7:30am
+  user: 2642
   date: 2011-01-13T07:30:00
+  date_raw: 13 Jan 2011 — 7:30am
   votes: null
   html: |-
     <p>Dear All,</p>
@@ -37,48 +34,57 @@ post:
      <tr class="odd"><td><a href="http://typophile.com/files/Skærmbillede 2011-01-13 kl. 16.22.12_0.png">Skærmbillede 2011-01-13 kl. 16.22.12.png</a></td><td>81.88 KB</td> </tr>
     </tbody>
     </table>
+  html_clean: |-
+    <p>Dear All,</p>
+    <p>I have a little problem here ...I have never generate a .ttf file before, so how do I name this font-file correctly in the Font-info<br>
+    in Fontlab?<br>
+    Thanks for your kind help! (Attach a screenshot with a test-font called Morten Pro).</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Skærmbillede 2011-01-13 kl. 16.22.12_0.png">Skærmbillede 2011-01-13 kl. 16.22.12.png</a></td><td>81.88 KB</td> </tr>
+    </tbody>
+    </table>
 comments:
   - id: 447294
-    user_id: 14722
-    user_name: blank
-    user_path: null
-    user_image: null
-    date_raw: 13 Jan 2011 — 7:33am
+    user: 14722
     date: 2011-01-13T07:33:00
+    date_raw: 13 Jan 2011 — 7:33am
     votes: null
     html: |-
       <p><a href="http://kltf.de/downloads/FontNaming-kltf.pdf" title="http://kltf.de/downloads/FontNaming-kltf.pdf">http://kltf.de/downloads/FontNaming-kltf.pdf</a><br>
       <a href="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html" title="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html">http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-nami...</a></p>
+    html_clean: |-
+      <p><a href="http://kltf.de/downloads/FontNaming-kltf.pdf" title="http://kltf.de/downloads/FontNaming-kltf.pdf">http://kltf.de/downloads/FontNaming-kltf.pdf</a><br>
+      <a href="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html" title="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html">http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-nami...</a></p>
   - id: 447296
-    user_id: 2642
-    user_name: morten
-    user_path: null
-    user_image: /files/pictures/picture-2642.png
-    date_raw: 13 Jan 2011 — 7:57am
+    user: 2642
     date: 2011-01-13T07:57:00
+    date_raw: 13 Jan 2011 — 7:57am
     votes: null
     html: |-
       <p>Thanks!<br>
       Well, Adam Twardoch has never been able to explain anything in a clear and simple way ;-) So difficult!<br>
       There must be a very easy way to show this - why not use pictures to explain this instead of words?</p>
+    html_clean: |-
+      <p>Thanks!<br>
+      Well, Adam Twardoch has never been able to explain anything in a clear and simple way ;-) So difficult!<br>
+      There must be a very easy way to show this - why not use pictures to explain this instead of words?</p>
   - id: 447300
-    user_id: 14722
-    user_name: blank
-    user_path: null
-    user_image: null
-    date_raw: 13 Jan 2011 — 9:16am
+    user: 14722
     date: 2011-01-13T09:16:00
+    date_raw: 13 Jan 2011 — 9:16am
     votes: null
     html: |-
       <p><cite>…why not use pictures to explain this instead of words?</cite></p>
       <p>Start drawing.</p>
+    html_clean: |-
+      <p><cite>…why not use pictures to explain this instead of words?</cite></p>
+      <p>Start drawing.</p>
   - id: 447340
-    user_id: 16986
-    user_name: RachelR
-    user_path: null
-    user_image: null
-    date_raw: 13 Jan 2011 — 2:44pm
+    user: 16986
     date: 2011-01-13T14:44:00
+    date_raw: 13 Jan 2011 — 2:44pm
     votes: null
     html: |-
       <p>No pictures sorry but I wrote this macro that will fill in all the relevant fields to name the font. Run the macro and you will get two dialog boxes, one for the font name and one for the font weight.</p>
@@ -158,15 +164,95 @@ comments:
       #<br>
       f.update()<br>
       </code></p>
+    html_clean: |-
+      <p>No pictures sorry but I wrote this macro that will fill in all the relevant fields to name the font. Run the macro and you will get two dialog boxes, one for the font name and one for the font weight.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      from robofab.interface.all.dialogs import AskString<br>
+      f = CurrentFont()<br>
+      #<br>
+      fontName = AskString('Font Name')<br>
+      Weight = AskString('Weight')<br>
+      #<br>
+      def naming( short, weight, weight2 ):<br>
+      	f.info.familyName = fontName+" "+short<br>
+      	f.info.widthName = "Normal"<br>
+      	f.info.styleName = weight<br>
+      	f.info.fontName = fontName.replace(' ', '')+"-"+weight2.replace(' ', '')<br>
+      	f.info.fullName = fontName+" "+weight2<br>
+      	f.info.menuName = fontName+" "+short<br>
+      	f.info.fondName = fontName.replace(' ', '')+" "+weight2.replace(' ', '')<br>
+      	f.info.otFamilyName = fontName<br>
+      	f.info.otStyleName = weight2<br>
+      #<br>
+      #<br>
+      if Weight == "Thin":<br>
+      	naming("Th", "Regular", "Thin")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light":<br>
+      	naming("Lt", "Regular", "Light")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Regular":<br>
+      	naming("Rg", "Regular", "Regular")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium":<br>
+      	naming("Lt", "Bold", "Medium")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold":<br>
+      	naming("Rg", "Bold" ,"Bold")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Thin Italic":<br>
+      	naming("Th", "Italic", "Thin Italic")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light Italic":<br>
+      	naming("Lt", "Italic", "Light Italic")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Italic":<br>
+      	naming("Rg", "Italic", "Italic")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium Italic":<br>
+      	naming("Lt", "Bold Italic", "Medium Italic")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold Italic":<br>
+      	naming("Rg", "Bold Italic", "Bold Italic")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      else:<br>
+      	print "Ooops that's not a weight"<br>
+      	print fontName+" "+"is not named"<br>
+      #<br>
+      f.update()<br>
+      </code></p>
   - id: 447347
-    user_id: 45774
-    user_name: Arno Enslin
-    user_path: null
-    user_image: /files/pictures/picture-45774.jpg
-    date_raw: 13 Jan 2011 — 4:21pm
+    user: 45774
     date: 2011-01-13T16:21:00
+    date_raw: 13 Jan 2011 — 4:21pm
     votes: null
     html: |-
+      <p>@ Morten</p>
+      <p><cite>Well, Adam Twardoch has never been able to explain anything in a clear and simple way ;-) So difficult!<br>
+      There must be a very easy way to show this - why not use pictures to explain this instead of words?</cite></p>
+      <p>I think the thread on the FontLab forum answers almost all questions with regard to the naming. I don’t think, that it can be explained in a much simpler way. With the next version of FontLab Studio it probably will be easier. But even then it may be, that you want to improve anything by decompiling and editing the name table.</p>
+    html_clean: |-
       <p>@ Morten</p>
       <p><cite>Well, Adam Twardoch has never been able to explain anything in a clear and simple way ;-) So difficult!<br>
       There must be a very easy way to show this - why not use pictures to explain this instead of words?</cite></p>

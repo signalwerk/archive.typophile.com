@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/99423.html
   fingerprint: 872d7ff6c4396556
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 99423
-  user_id: 206558
-  user_name: yaoziyuan
-  user_path: null
-  user_image: null
-  date_raw: 7 Jan 2013 — 9:08am
+  user: 206558
   date: 2013-01-07T09:08:00
+  date_raw: 7 Jan 2013 — 9:08am
   votes: null
   html: |-
     <p>Hi All,</p>
@@ -33,34 +30,36 @@ post:
     <p>Can anyone tell me the proper way to modify and save Charis SIL with FontForge (or any other free font editor)?</p>
     <p>Regards,<br>
     Ziyuan Yao</p>
+  html_clean: |-
+    <p>Hi All,</p>
+    <p>I'm new to FontForge and font editing in general. I simply want to modify the outlines of certain glyphs in Charis SIL. FontForge is the font editor I'm currently trying because it's free.</p>
+    <p>My problem is, after modifying the font in FontForge and saving, the resulting font no longer has Graphite features such as stacking combining diacritics. Apparently the Graphite tables in the font are lost in the new font.</p>
+    <p>Can anyone tell me the proper way to modify and save Charis SIL with FontForge (or any other free font editor)?</p>
+    <p>Regards,<br>
+    Ziyuan Yao</p>
 comments:
   - id: 536764
-    user_id: 803
-    user_name: George Thomas
-    user_path: null
-    user_image: null
-    date_raw: 7 Jan 2013 — 9:42am
+    user: 803
     date: 2013-01-07T09:42:00
+    date_raw: 7 Jan 2013 — 9:42am
     votes: null
     html: <p>You might have better luck with your question if you join the FontForge List at sourceforge.net. There is a User List there and the FontForge developers read it as well.</p>
+    html_clean: <p>You might have better luck with your question if you join the FontForge List at sourceforge.net. There is a User List there and the FontForge developers read it as well.</p>
   - id: 536886
-    user_id: 48268
-    user_name: Karl Stange
-    user_path: null
-    user_image: /files/pictures/picture-48268.jpg
-    date_raw: 8 Jan 2013 — 2:39am
+    user: 48268
     date: 2013-01-08T02:39:00
+    date_raw: 8 Jan 2013 — 2:39am
     votes: null
     html: |-
       <p>You may also find the Graphite support pages on the SIL website useful:</p>
       <p><a href="http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=graphite_devFont" title="http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=graphite_devFont">http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=gra...</a></p>
+    html_clean: |-
+      <p>You may also find the Graphite support pages on the SIL website useful:</p>
+      <p><a href="http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=graphite_devFont" title="http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=graphite_devFont">http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=gra...</a></p>
   - id: 536963
-    user_id: 18942
-    user_name: Michel Boyer
-    user_path: null
-    user_image: /files/pictures/picture-18942.gif
-    date_raw: 8 Jan 2013 — 10:55am
+    user: 18942
     date: 2013-01-08T10:55:00
+    date_raw: 8 Jan 2013 — 10:55am
     votes: null
     html: |-
       <p>Here is a suggestion that may work, if you want to keep all tables intact:  try <code>ttx</code>. It comes with <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a>, the Adobe Font Development Kit for OpenType (which provides other tools to manipulate font tables).</p>
@@ -77,13 +76,25 @@ comments:
       </pre><p>to obtain your new font file <code>CharisSIL-R#1.ttf</code> which is likely to work better than the font you generated with fontforge.</p>
       <p>I used a variation of that method with AAT fonts and it saved me many calls to the standard tool to generate AAT fonts. If it works fine for you with Graphite tables, please keep us informed.</p>
       <p>Here, I presume you keep the character width intact as well as its position in the bounding box (else you will need to work harder).</p>
+    html_clean: |-
+      <p>Here is a suggestion that may work, if you want to keep all tables intact:  try <code>ttx</code>. It comes with <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a>, the Adobe Font Development Kit for OpenType (which provides other tools to manipulate font tables).</p>
+      <p>Once <code>ttx</code> is installed, I suggest you decompile only the glyf and the name table with the line command:</p>
+      <pre>   ttx -t name -t glyf CharisSIL-R.ttf
+      </pre><p>This creates the file <code>CharisSIL-R.ttx</code> (if you repeat, a version number is added to the name).</p>
+      <p>If you already designed your modified glyph, you apply <code>ttx -t glyf</code> on that font; for example, if the glyph you modified is ccedilla, then replace the text in <code>CharisSIL-R.ttx</code> between</p>
+      <pre>&lt;TTGlyph name="ccedilla" xMin="66" yMin="-457" xMax="825" yMax="1012"&gt;
+      </pre><p>and the closing</p>
+      <pre>&lt;/TTGlyph&gt;
+      </pre><p>with the new description of ccedilla figuring in the ttx file of your new set of glyphs. You also change the font names according to your needs (and the EULA) in the name table.</p>
+      <p>You finally apply</p>
+      <pre>   ttx -m CharisSIL-R.ttf CharisSIL-R.ttx
+      </pre><p>to obtain your new font file <code>CharisSIL-R#1.ttf</code> which is likely to work better than the font you generated with fontforge.</p>
+      <p>I used a variation of that method with AAT fonts and it saved me many calls to the standard tool to generate AAT fonts. If it works fine for you with Graphite tables, please keep us informed.</p>
+      <p>Here, I presume you keep the character width intact as well as its position in the bounding box (else you will need to work harder).</p>
   - id: 537039
-    user_id: 206558
-    user_name: yaoziyuan
-    user_path: null
-    user_image: null
-    date_raw: 9 Jan 2013 — 1:35am
+    user: 206558
     date: 2013-01-09T01:35:00
+    date_raw: 9 Jan 2013 — 1:35am
     votes: null
     html: |-
       <p>Hi Michel,</p>
@@ -96,13 +107,21 @@ comments:
       <p>Now it seems this also involves changing these glyphs' bounding boxes. What else should I do to achieve this?</p>
       <p>Regards,<br>
       Ziyuan Yao</p>
+    html_clean: |-
+      <p>Hi Michel,</p>
+      <p>Your method works great.</p>
+      <p>Actually, I want to stretch<br>
+              uni0351 (COMBINING LEFT HALF RING ABOVE),<br>
+              uni0357 (COMBINING RIGHT HALF RING ABOVE) and<br>
+              uni030D (COMBINING VERTICAL LINE ABOVE),<br>
+      so that they can be viewed more easily at small font sizes.</p>
+      <p>Now it seems this also involves changing these glyphs' bounding boxes. What else should I do to achieve this?</p>
+      <p>Regards,<br>
+      Ziyuan Yao</p>
   - id: 537049
-    user_id: 206558
-    user_name: yaoziyuan
-    user_path: null
-    user_image: null
-    date_raw: 9 Jan 2013 — 2:15am
+    user: 206558
     date: 2013-01-09T02:15:00
+    date_raw: 9 Jan 2013 — 2:15am
     votes: null
     html: |-
       <p>Hi Michel,</p>
@@ -110,41 +129,41 @@ comments:
       <p>The project in question is "Phonetically Intuitive English" (<a href="https://sites.google.com/site/phoneticallyintuitiveenglish/" title="https://sites.google.com/site/phoneticallyintuitiveenglish/">https://sites.google.com/site/phoneticallyintuitiveenglish/</a>). I will mention you in its Acknowledgments :-)</p>
       <p>Regards,<br>
       Ziyuan Yao</p>
+    html_clean: |-
+      <p>Hi Michel,</p>
+      <p>Now I figured out how to change a glyph's width too: the glyph's "mtx" attribute in the "hmtx" table has to be changed accordingly.</p>
+      <p>The project in question is "Phonetically Intuitive English" (<a href="https://sites.google.com/site/phoneticallyintuitiveenglish/" title="https://sites.google.com/site/phoneticallyintuitiveenglish/">https://sites.google.com/site/phoneticallyintuitiveenglish/</a>). I will mention you in its Acknowledgments :-)</p>
+      <p>Regards,<br>
+      Ziyuan Yao</p>
   - id: 537075
-    user_id: 18942
-    user_name: Michel Boyer
-    user_path: null
-    user_image: /files/pictures/picture-18942.gif
-    date_raw: 9 Jan 2013 — 5:00am
+    user: 18942
     date: 2013-01-09T05:00:00
+    date_raw: 9 Jan 2013 — 5:00am
     votes: null
     html: |-
       <p>Great! Here is something faster (and that worked for me). Instead of text editing (or xml parsing) the file CharisSIL-R.ttx generated from CharisSIL-R.ttf, you can merge full tables of the new font generated by FontForge into CharisSIL-R.ttf ; choose "Reencode &gt; Glyph Order" in FontForge before generating the new font and then execute <code>ttx -m CharisSIL-R.ttf newfont.ttx</code> with <code>newfont.ttx</code> containing just the replacement tables from the new font (the ttf that is generated is named newfont... ).</p>
       <p>Michel Boyer</p>
+    html_clean: |-
+      <p>Great! Here is something faster (and that worked for me). Instead of text editing (or xml parsing) the file CharisSIL-R.ttx generated from CharisSIL-R.ttf, you can merge full tables of the new font generated by FontForge into CharisSIL-R.ttf ; choose "Reencode &gt; Glyph Order" in FontForge before generating the new font and then execute <code>ttx -m CharisSIL-R.ttf newfont.ttx</code> with <code>newfont.ttx</code> containing just the replacement tables from the new font (the ttf that is generated is named newfont... ).</p>
+      <p>Michel Boyer</p>
   - id: 537077
-    user_id: 18942
-    user_name: Michel Boyer
-    user_path: null
-    user_image: /files/pictures/picture-18942.gif
-    date_raw: 9 Jan 2013 — 5:45am
+    user: 18942
     date: 2013-01-09T05:45:00
+    date_raw: 9 Jan 2013 — 5:45am
     votes: null
     html: <p>I think this thread should be moved from "general discussion" to the build forum</p>
+    html_clean: <p>I think this thread should be moved from "general discussion" to the build forum</p>
   - id: 537145
-    user_id: 206558
-    user_name: yaoziyuan
-    user_path: null
-    user_image: null
-    date_raw: 9 Jan 2013 — 12:16pm
+    user: 206558
     date: 2013-01-09T12:16:00
+    date_raw: 9 Jan 2013 — 12:16pm
     votes: null
     html: <p>Is "Reencode &gt; Glyph Order" necessary? Why?</p>
+    html_clean: <p>Is "Reencode &gt; Glyph Order" necessary? Why?</p>
   - id: 537147
-    user_id: 18942
-    user_name: Michel Boyer
-    user_path: null
-    user_image: /files/pictures/picture-18942.gif
-    date_raw: 9 Jan 2013 — 12:40pm
+    user: 18942
     date: 2013-01-09T12:40:00
+    date_raw: 9 Jan 2013 — 12:40pm
     votes: null
     html: <p>I just checked with Charis in the present context, with ttx and fontforge, and the reordering does not seem necessary.  The other tools I was using required it. That is something I experimented about 18 months ago (during my summer vacations) and that was  left undocumented.</p>
+    html_clean: <p>I just checked with Charis in the present context, with ttx and fontforge, and the reordering does not seem necessary.  The other tools I was using required it. That is something I experimented about 18 months ago (during my summer vacations) and that was  left undocumented.</p>

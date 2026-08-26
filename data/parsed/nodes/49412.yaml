@@ -16,91 +16,86 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/49412.html
   fingerprint: 11443631c054c5ab
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 49412
-  user_id: 4019
-  user_name: billtroop
-  user_path: null
-  user_image: /files/pictures/picture-4019.jpg
-  date_raw: 13 Sep 2008 — 6:20am
+  user: 4019
   date: 2008-09-13T06:20:00
+  date_raw: 13 Sep 2008 — 6:20am
   votes: null
   html: |-
     <p>I have wondered about this a long, long time. In Fontographer, BCPs have floating point values. So it appears to be allowable in PostScript. It came to an urgent point for me today when I opened up a PS font in Fontlab and a stem seemed distorted.</p>
     <p>If I open this PS font in Fontographer, I get BCPs with x values of 326.7 and 324.7. In Fontlab, the values are 326 and 324 and the curve point is converted into a corner point. There is visible distortion of the stem in Fontlab. (There would be less if Fontlab rounded off more intelligently?)</p>
     <p>I would like to learn more about this. Obviously PS fonts have floating point (at least to two decimal places, apparently) BCPs. How do interpreters deal with them? </p>
     <p>Why does Fontlab round them off? Is there a way of subverting this behaviour? I am really worried about it. I am disturbed that Fog and Fontlab import PS fonts differently.</p>
+  html_clean: |-
+    <p>I have wondered about this a long, long time. In Fontographer, BCPs have floating point values. So it appears to be allowable in PostScript. It came to an urgent point for me today when I opened up a PS font in Fontlab and a stem seemed distorted.</p>
+    <p>If I open this PS font in Fontographer, I get BCPs with x values of 326.7 and 324.7. In Fontlab, the values are 326 and 324 and the curve point is converted into a corner point. There is visible distortion of the stem in Fontlab. (There would be less if Fontlab rounded off more intelligently?)</p>
+    <p>I would like to learn more about this. Obviously PS fonts have floating point (at least to two decimal places, apparently) BCPs. How do interpreters deal with them? </p>
+    <p>Why does Fontlab round them off? Is there a way of subverting this behaviour? I am really worried about it. I am disturbed that Fog and Fontlab import PS fonts differently.</p>
 comments:
   - id: 301174
-    user_id: 3135
-    user_name: dezcom
-    user_path: null
-    user_image: /files/pictures/picture-3135.gif
-    date_raw: 13 Sep 2008 — 7:17am
+    user: 3135
     date: 2008-09-13T07:17:00
+    date_raw: 13 Sep 2008 — 7:17am
     votes: null
     html: |-
       <p>Yes, FontLab rounds off decimals right away--either when drawn or imported. I believe their reasoning is that it is better to show them rounded straight off so you can make the needed corrections instead of when the font is output and you can't see the effect. Adam talked about this a few times. I hope he can correct me here if I am not accurate.</p>
       <p>ChrisL</p>
+    html_clean: |-
+      <p>Yes, FontLab rounds off decimals right away--either when drawn or imported. I believe their reasoning is that it is better to show them rounded straight off so you can make the needed corrections instead of when the font is output and you can't see the effect. Adam talked about this a few times. I hope he can correct me here if I am not accurate.</p>
+      <p>ChrisL</p>
   - id: 301176
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 13 Sep 2008 — 7:44am
+    user: 4019
     date: 2008-09-13T07:44:00
+    date_raw: 13 Sep 2008 — 7:44am
     votes: null
     html: <p>Chris, I think you are talking about points rather than handles here. And to be explicit, the source data here are _generated_ PS fonts. What I mean is that Fog and Fontlab appear to open PS fonts (not fog/flab databases but generated PS fonts) differently. One of them must be wrong, n'est-ce-pas?</p>
+    html_clean: <p>Chris, I think you are talking about points rather than handles here. And to be explicit, the source data here are _generated_ PS fonts. What I mean is that Fog and Fontlab appear to open PS fonts (not fog/flab databases but generated PS fonts) differently. One of them must be wrong, n'est-ce-pas?</p>
   - id: 301191
-    user_id: 3135
-    user_name: dezcom
-    user_path: null
-    user_image: /files/pictures/picture-3135.gif
-    date_raw: 13 Sep 2008 — 9:43am
+    user: 3135
     date: 2008-09-13T09:43:00
+    date_raw: 13 Sep 2008 — 9:43am
     votes: null
     html: |-
       <p>Bill, I mean both points and handles. My understanding is that rounding will occur in either and both. Zoom in all the way and tug on a bezier handle in FL and see how the handle will only snap to a raster point of intersection. My understanding from past use of FOG, and even the now defunct Studio, is that between positions for handles can happen but are rounded when output as fonts. I hope Adam will jump in here and set me straight. I am remembering his talk from one of the FontLab sessions at TypeCon a few years ago and my decrepit memory may be faulty :-)</p>
       <p>ChrisL</p>
+    html_clean: |-
+      <p>Bill, I mean both points and handles. My understanding is that rounding will occur in either and both. Zoom in all the way and tug on a bezier handle in FL and see how the handle will only snap to a raster point of intersection. My understanding from past use of FOG, and even the now defunct Studio, is that between positions for handles can happen but are rounded when output as fonts. I hope Adam will jump in here and set me straight. I am remembering his talk from one of the FontLab sessions at TypeCon a few years ago and my decrepit memory may be faulty :-)</p>
+      <p>ChrisL</p>
   - id: 301217
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 13 Sep 2008 — 12:42pm
+    user: 4019
     date: 2008-09-13T12:42:00
+    date_raw: 13 Sep 2008 — 12:42pm
     votes: null
     html: |-
       <p>Chris, fine if the programs round before generating. But in this case, we are starting with a PS font, opening it in Fog, and finding decimal places in the handles. So how did they get into the font if they're rounded off first? </p>
       <p>Here's an example from an old Adobe font, Poetica Supp Initial Swash Caps, glyph D. Open it in Fog. Look at point 33. The incoming BCP hz value is -290.22; the outgoing BCP hz value is -199.22. Open in Flab and the values are rounded down. Not such a very great deal in this case, but if the values had been .7, .8, or .9, the difference would be quite visible.</p>
+    html_clean: |-
+      <p>Chris, fine if the programs round before generating. But in this case, we are starting with a PS font, opening it in Fog, and finding decimal places in the handles. So how did they get into the font if they're rounded off first? </p>
+      <p>Here's an example from an old Adobe font, Poetica Supp Initial Swash Caps, glyph D. Open it in Fog. Look at point 33. The incoming BCP hz value is -290.22; the outgoing BCP hz value is -199.22. Open in Flab and the values are rounded down. Not such a very great deal in this case, but if the values had been .7, .8, or .9, the difference would be quite visible.</p>
   - id: 301220
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 13 Sep 2008 — 12:47pm
+    user: 4019
     date: 2008-09-13T12:47:00
+    date_raw: 13 Sep 2008 — 12:47pm
     votes: null
     html: "<p>And to complicate things still further: if I re-generate the Adobe font in Fontlab, then open it up in Fog, I find that the original values have been preserved. So Fontlab is failing to display the values correctly, but is, apparently, keeping track of them. When does it cause a problem? One possible example is when it is opening an MM file.</p>"
+    html_clean: "<p>And to complicate things still further: if I re-generate the Adobe font in Fontlab, then open it up in Fog, I find that the original values have been preserved. So Fontlab is failing to display the values correctly, but is, apparently, keeping track of them. When does it cause a problem? One possible example is when it is opening an MM file.</p>"
   - id: 301332
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 14 Sep 2008 — 11:39am
+    user: 1133
     date: 2008-09-14T11:39:00
+    date_raw: 14 Sep 2008 — 11:39am
     votes: null
     html: |-
       <p>Right now, FontLab Studio and TypeTool only allow integer coordinates. Fractional coordinates are allowed in the Type 1 format through the use of the div operator but not all PostScript engines properly support this (so Adobe used to use it in very old fonts but then reverted to integer coordinates only). Fontographer does indeed support fractional coordinates. We are planning to add support for fractional coordinates in all our products in the future. </p>
       <p>Adam</p>
+    html_clean: |-
+      <p>Right now, FontLab Studio and TypeTool only allow integer coordinates. Fractional coordinates are allowed in the Type 1 format through the use of the div operator but not all PostScript engines properly support this (so Adobe used to use it in very old fonts but then reverted to integer coordinates only). Fontographer does indeed support fractional coordinates. We are planning to add support for fractional coordinates in all our products in the future. </p>
+      <p>Adam</p>
   - id: 301333
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 14 Sep 2008 — 11:40am
+    user: 1262
     date: 2008-09-14T11:40:00
+    date_raw: 14 Sep 2008 — 11:40am
     votes: null
     html: |-
       <p>Here's a test:</p>
@@ -109,13 +104,17 @@ comments:
       <p>3. Open new font in FOG. Go to test glyph and look at position of touched BCP.</p>
       <p>If this BCP is in exactly the same unit position as you set it in FontLab but other BCPs are at fractional positions, this will confirm your conclusion as stated, i.e. that FontLab is keeping track of fractional values for untouched BCPs but not displaying them or allowing fractional editing.</p>
       <p>If the touched BCP also displays with a fractional value, then the problem is presumably on the FOG side, i.e. FOG is scaling BCPs somehow.</p>
+    html_clean: |-
+      <p>Here's a test:</p>
+      <p>1. Open font in FontLab. Select a glyph, open it, and manually move <em>one</em> BCP, leaving all others untouched.</p>
+      <p>2. Generate new font from FontLab.</p>
+      <p>3. Open new font in FOG. Go to test glyph and look at position of touched BCP.</p>
+      <p>If this BCP is in exactly the same unit position as you set it in FontLab but other BCPs are at fractional positions, this will confirm your conclusion as stated, i.e. that FontLab is keeping track of fractional values for untouched BCPs but not displaying them or allowing fractional editing.</p>
+      <p>If the touched BCP also displays with a fractional value, then the problem is presumably on the FOG side, i.e. FOG is scaling BCPs somehow.</p>
   - id: 301420
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 15 Sep 2008 — 4:36am
+    user: 2969
     date: 2008-09-15T04:36:00
+    date_raw: 15 Sep 2008 — 4:36am
     votes: null
     html: |-
       <p>Troop: "Why does Fontlab round them off? Is there a way of subverting this behaviour? "</p>
@@ -124,25 +123,30 @@ comments:
       <p>FontLab, does no such thing. It changes curve points to corner points indiscriminately, even if they are orthogonally aligned. </p>
       <p>(Consider yourself lucky to be working in Beziers! FL Truetype allows/enables no curve or tangent points, ever, at all, period!)</p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>Troop: "Why does Fontlab round them off? Is there a way of subverting this behaviour? "</p>
+      <p>We've discussed this just recently, if you design on an em with units per em larger or smaller than the em resolution you are producing, (1000 or 2048, e.g.), you are axing for trouble. Remember? I fired fog 4.0 for this reason? Define your design upm based on the output format's upm and stick to it!!!!!!</p>
+      <p>The other issue is the penchant of FL to mess with point type. Fog used this signal to indicate if you had scaled skewed or rotated something, that it could not keep a trio of points (offcurve-oncurve-offcurve) in a straight line. You'd get a corner point where a curve point used to be, as your sign from Fog.</p>
+      <p>FontLab, does no such thing. It changes curve points to corner points indiscriminately, even if they are orthogonally aligned. </p>
+      <p>(Consider yourself lucky to be working in Beziers! FL Truetype allows/enables no curve or tangent points, ever, at all, period!)</p>
+      <p>Cheers!</p>
   - id: 301473
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 15 Sep 2008 — 10:35am
+    user: 1262
     date: 2008-09-15T10:35:00
+    date_raw: 15 Sep 2008 — 10:35am
     votes: null
     html: |-
       <p>David: <em>(Consider yourself lucky to be working in Beziers! FL Truetype allows/enables no curve or tangent points, ever, at all, period!)</em></p>
       <p>[Note: TT curves are also Beziers. PS curves are cubic Béziers; TT curves are quadratic Béziers.]</p>
       <p>David, are there any quadratic Bézier editing tools that enable definition of point types and hence controlled alignment of off-line points through on-line curve or tangent points?</p>
+    html_clean: |-
+      <p>David: <em>(Consider yourself lucky to be working in Beziers! FL Truetype allows/enables no curve or tangent points, ever, at all, period!)</em></p>
+      <p>[Note: TT curves are also Beziers. PS curves are cubic Béziers; TT curves are quadratic Béziers.]</p>
+      <p>David, are there any quadratic Bézier editing tools that enable definition of point types and hence controlled alignment of off-line points through on-line curve or tangent points?</p>
   - id: 301477
-    user_id: 8664
-    user_name: k.l.
-    user_path: null
-    user_image: /files/pictures/picture-8664.jpg
-    date_raw: 15 Sep 2008 — 11:13am
+    user: 8664
     date: 2008-09-15T11:13:00
+    date_raw: 15 Sep 2008 — 11:13am
     votes: null
     html: |-
       <p>Regarding PS vs TT curves:</p>
@@ -157,22 +161,30 @@ comments:
       <p>The advantage I see in TT outlines is that one can determine the curve flow, say between a top and a rightside on-curve extremum point, nicely with three or so off-curve points inbetween. No need for an additional on-curve point as with PS -- and hence no kinks when interpolating.</p>
       <p>Hello Mr Yarmola!&nbsp;&nbsp;:)</p>
       <p>Karsten</p>
+    html_clean: |-
+      <p>Regarding PS vs TT curves:</p>
+      <p>TT outlines are not per se harder to edit than PS outlines -- it is just that FLS5's UI for PS outlines is better than that for TT outlines.<br>
+      Neither PS nor TT outlines know about tangent points, or about in- and outgoing off-curve plus on-curve point inbetween that keep in line when moving one of the off-curve points. That's just UI behavior (the curve/corner and smooth buttons).</p>
+      <p>FLS5 would simplify editing of TT outline a lot if it would<br>
+      [1] connect on-curve point and neighboring off-curve points with a line,<br>
+      [2] allow for tangential behavior (off-curve points bothsides of an on-curve point forming a line) i.e.<br>
+      [3] distinguish between corner, tangent and curve point as with PS outlines (currently TT outlines only seem to know corner points).<br>
+      [4] Allow adding/removing off-curve points with a special tool (or does it exist?).<br>
+      In one sentence: The "look and feel" should be the same as with PS outlines.</p>
+      <p>The advantage I see in TT outlines is that one can determine the curve flow, say between a top and a rightside on-curve extremum point, nicely with three or so off-curve points inbetween. No need for an additional on-curve point as with PS -- and hence no kinks when interpolating.</p>
+      <p>Hello Mr Yarmola!&nbsp;&nbsp;:)</p>
+      <p>Karsten</p>
   - id: 301486
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 15 Sep 2008 — 11:54am
+    user: 1262
     date: 2008-09-15T11:54:00
+    date_raw: 15 Sep 2008 — 11:54am
     votes: null
     html: <p>Some years ago, I asked Sampo Kaasila why he had selected quadratic Béziers for TrueType when editing conventions for cubic Béziers were so well established and familiar to many in the graphic arts fields. He said he had presumed that tool developers would apply similar editing conventions to quadratic curves, along the lines that Karsten suggests.</p>
+    html_clean: <p>Some years ago, I asked Sampo Kaasila why he had selected quadratic Béziers for TrueType when editing conventions for cubic Béziers were so well established and familiar to many in the graphic arts fields. He said he had presumed that tool developers would apply similar editing conventions to quadratic curves, along the lines that Karsten suggests.</p>
   - id: 301488
-    user_id: 8664
-    user_name: k.l.
-    user_path: null
-    user_image: /files/pictures/picture-8664.jpg
-    date_raw: 15 Sep 2008 — 12:31pm
+    user: 8664
     date: 2008-09-15T12:31:00
+    date_raw: 15 Sep 2008 — 12:31pm
     votes: null
     html: |-
       <p>And you did not report this to FontLab?&nbsp;&nbsp;:D</p>
@@ -183,13 +195,19 @@ comments:
       [5] When interpolating please do <em>not</em> revert to cubic Bezier.<br>
       DB -- <cite>Three off-curve points is too many for most users who have never edited IK or Bitstream data anyway.</cite><br>
       I trust that designers are always eager to learn.]</p>
+    html_clean: |-
+      <p>And you did not report this to FontLab?&nbsp;&nbsp;:D</p>
+      <p>[As an addition to my previous remark about avoiding kinks with help of TT outlines: For an example of getting rid of non-extremum on-curve points and instead using a few more off-curve points, see figure 4 in <a href="http://developer.apple.com/textfonts/TTRefMan/RM01/Chap1.html" target="_blank" rel="nofollow">chapter 1</a> of Apple's TT Reference Manual.]</p>
+      <p>[Since this post made a jump anyway ...<br>
+      DB -- <cite>you get a cubic Bézier for output</cite><br>
+      Damn yes, I did notice this special feature! So one more for Mr Yarmola:<br>
+      [5] When interpolating please do <em>not</em> revert to cubic Bezier.<br>
+      DB -- <cite>Three off-curve points is too many for most users who have never edited IK or Bitstream data anyway.</cite><br>
+      I trust that designers are always eager to learn.]</p>
   - id: 301493
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 15 Sep 2008 — 12:11pm
+    user: 2969
     date: 2008-09-15T12:11:00
+    date_raw: 15 Sep 2008 — 12:11pm
     votes: null
     html: |-
       <p>"...— and hence no kinks when interpolating."<br>
@@ -200,22 +218,26 @@ comments:
       Fog-Q is the one and only I'm aware of. Developed with the agreement to simplify the editing by allowing only two off-curve points between two on-curve points, this was splendid. Three off-curve points is too many for most users who have never edited IK or Bitstream data anyway.</p>
       <p>The direct advantages I see in quadratic Béziers is that, between a top and a rightside on-curve extremum point, two off-curve points can define all the curves from a straight line connecting the on-curve points, to a pair of straight lines (a sharp corner) instead of a curve, (try that with cubic Béziers!;)) and, that the conversion to cubic Béziers is loss-less. There are some indirect advantages as well, in allowing the direct editing of the world's most popular font format. :-.</p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>"...— and hence no kinks when interpolating."<br>
+      Maybe you don't know about this little super-kink?: if you interpolate two quadratic Béziers in FL, you get a cubic Bézier for output. :-o</p>
+      <p>"[Note: TT curves are also Beziers. PS curves are cubic Béziers; TT curves are quadratic Béziers.]"<br>
+      Yes John, cubic Béziers is what I meant, thanks. </p>
+      <p>"... are there any quadratic Bézier editing tools that enable definition of point types and hence controlled alignment of off-line points through on-line curve or tangent points?"<br>
+      Fog-Q is the one and only I'm aware of. Developed with the agreement to simplify the editing by allowing only two off-curve points between two on-curve points, this was splendid. Three off-curve points is too many for most users who have never edited IK or Bitstream data anyway.</p>
+      <p>The direct advantages I see in quadratic Béziers is that, between a top and a rightside on-curve extremum point, two off-curve points can define all the curves from a straight line connecting the on-curve points, to a pair of straight lines (a sharp corner) instead of a curve, (try that with cubic Béziers!;)) and, that the conversion to cubic Béziers is loss-less. There are some indirect advantages as well, in allowing the direct editing of the world's most popular font format. :-.</p>
+      <p>Cheers!</p>
   - id: 301504
-    user_id: 1519
-    user_name: kris
-    user_path: null
-    user_image: /files/pictures/picture-1519.gif
-    date_raw: 15 Sep 2008 — 12:49pm
+    user: 1519
     date: 2008-09-15T12:49:00
+    date_raw: 15 Sep 2008 — 12:49pm
     votes: null
     html: <p>--edit--</p>
+    html_clean: <p>--edit--</p>
   - id: 301651
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 16 Sep 2008 — 4:58am
+    user: 2969
     date: 2008-09-16T04:58:00
+    date_raw: 16 Sep 2008 — 4:58am
     votes: null
     html: |-
       <p>&gt;And you did not report this to FontLab?<br>
@@ -224,13 +246,17 @@ comments:
       <p>&gt;[5] When interpolating please do not revert to cubic Bezier.<br>
       As far as I can tell, it's a brain-twisting copulation-cluster because, the two TT input fonts have points that match, auto-converted T1 versions of these TT fonts would not have points that match, and would not interpolate. So, somehow... I think, the fonts are interpolated as TT, a resulting TT font must be "thought out" and then converted to T1 despite the obvious logic of matching the input format to the output format. I.E. Ewe mite half two go out of yore way too due what they dew rong. ;)</p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>&gt;And you did not report this to FontLab?<br>
+      In the fall of 2006, when I thought it more than safe to consider TrueType a major font format, I started reporting TT issues and requesting a true TT interface to TT outlines. See how patient I am? Not a single issue has been addressed, yet TT is still a major font format, ain't it? </p>
+      <p>This issue was, by-the-way, a major clue to me that the CT collection would most likely find its destiny in typographic oblivion. That the fonts were not drawn as TT, just converted to TT and seemingly barfed around 'till they "worked" was very enlightening. No one "out there" seemed to have learned from the excellence of the Verdana/Georgia development path. </p>
+      <p>&gt;[5] When interpolating please do not revert to cubic Bezier.<br>
+      As far as I can tell, it's a brain-twisting copulation-cluster because, the two TT input fonts have points that match, auto-converted T1 versions of these TT fonts would not have points that match, and would not interpolate. So, somehow... I think, the fonts are interpolated as TT, a resulting TT font must be "thought out" and then converted to T1 despite the obvious logic of matching the input format to the output format. I.E. Ewe mite half two go out of yore way too due what they dew rong. ;)</p>
+      <p>Cheers!</p>
   - id: 301749
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 16 Sep 2008 — 1:08pm
+    user: 1262
     date: 2008-09-16T13:08:00
+    date_raw: 16 Sep 2008 — 1:08pm
     votes: null
     html: |-
       <p><em>That the fonts were not drawn as TT, just converted to TT...</em></p>
@@ -238,13 +264,16 @@ comments:
       <p>I spent a heck of a lot of time manually editing TT outlines in Constantia. For Calibri, Lucas not only worked directly in TT outlines but also had a customised FL made so that he could make TT-flavour MM sources. At the beginning of the font development, MS conducted hint and rendering tests of all the designs, and determined that they did not consider converted outlines significantly different within CT, so the individual designers were encouraged to work however they found most comfortable.</p>
       <p>When I'm working directly in TT outlines I don't use that same approach as you, because it is most often impossible to get a truly smooth connection through a non-extrema on curve point, due to rounding of the position of the adjacent off-curve points, and I don't like the kinks and wobbles this produces. So I deliberately minimise the use of on-curve points. By way of illustration, here is Georgia, left, and Constantia, right.</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/gcq_4684.gif"></div><p></p>
+    html_clean: |-
+      <p><em>That the fonts were not drawn as TT, just converted to TT...</em></p>
+      <p>?</p>
+      <p>I spent a heck of a lot of time manually editing TT outlines in Constantia. For Calibri, Lucas not only worked directly in TT outlines but also had a customised FL made so that he could make TT-flavour MM sources. At the beginning of the font development, MS conducted hint and rendering tests of all the designs, and determined that they did not consider converted outlines significantly different within CT, so the individual designers were encouraged to work however they found most comfortable.</p>
+      <p>When I'm working directly in TT outlines I don't use that same approach as you, because it is most often impossible to get a truly smooth connection through a non-extrema on curve point, due to rounding of the position of the adjacent off-curve points, and I don't like the kinks and wobbles this produces. So I deliberately minimise the use of on-curve points. By way of illustration, here is Georgia, left, and Constantia, right.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/gcq_4684.gif"></div><p></p>
   - id: 301776
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 16 Sep 2008 — 2:24pm
+    user: 2969
     date: 2008-09-16T14:24:00
+    date_raw: 16 Sep 2008 — 2:24pm
     votes: null
     html: |-
       <p>"...I deliberately minimise the use of on-curve points"</p>
@@ -253,47 +282,52 @@ comments:
       <p>"...it is most often impossible to get a truly smooth connection through a non-extrema on curve point"<br>
       I don't put them on non-extrema either except for the s...?</p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>"...I deliberately minimise the use of on-curve points"</p>
+      <p>Oh that's good! I love to be rong and can seek other reasons for the oblivionation of the faces.<br>
+      But there are still 4 co-linear points on your example. Is that for future MM?</p>
+      <p>"...it is most often impossible to get a truly smooth connection through a non-extrema on curve point"<br>
+      I don't put them on non-extrema either except for the s...?</p>
+      <p>Cheers!</p>
   - id: 301794
-    user_id: 23584
-    user_name: Vladimir Tamari
-    user_path: null
-    user_image: /files/pictures/picture-23584.jpg
-    date_raw: 16 Sep 2008 — 5:32pm
+    user: 23584
     date: 2008-09-16T17:32:00
+    date_raw: 16 Sep 2008 — 5:32pm
     votes: null
     html: |-
       <p><em> The advantage I see in TT outlines is that one can determine the curve flow, say between a top and a rightside on-curve extremum point, nicely with three or so off-curve points inbetween. No need for an additional on-curve point as with PS — and hence no kinks when interpolating.</em></p>
       <p>Exactly, Karsten. When I started my first computer font, in my inexperience I used a few off-curve TT points to draw nice smooth curves.  But then I was told by more experienced designers that I needed extremums. I assume those are needed to control hinting?</p>
       <p>There was no way to add extremums to TT curves  automatically in FLS without distorting the curves or dotting them with too many new on-curve points. I then redesigned everything using PS outlines, but I miss the freedom and economy of designing with TT.</p>
+    html_clean: |-
+      <p><em> The advantage I see in TT outlines is that one can determine the curve flow, say between a top and a rightside on-curve extremum point, nicely with three or so off-curve points inbetween. No need for an additional on-curve point as with PS — and hence no kinks when interpolating.</em></p>
+      <p>Exactly, Karsten. When I started my first computer font, in my inexperience I used a few off-curve TT points to draw nice smooth curves.  But then I was told by more experienced designers that I needed extremums. I assume those are needed to control hinting?</p>
+      <p>There was no way to add extremums to TT curves  automatically in FLS without distorting the curves or dotting them with too many new on-curve points. I then redesigned everything using PS outlines, but I miss the freedom and economy of designing with TT.</p>
   - id: 301804
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 16 Sep 2008 — 6:04pm
+    user: 1262
     date: 2008-09-16T18:04:00
+    date_raw: 16 Sep 2008 — 6:04pm
     votes: null
     html: |-
       <p><em>But there are still 4 co-linear points on your example.</em></p>
       <p>They're not actually co-linear, they just look that way at that scaling factor. I don't work that small, of course.</p>
       <p><em>I don’t put them on non-extrema either except for the s...?</em></p>
       <p>Okay. But you mentioned 'the excellence of the Verdana/Georgia development path' and Georgia, as shown above, does use on-curve points along the paths, apparently necessitated by following a two-off-curve points between each on-curve point, which suggests Fog-Q.</p>
+    html_clean: |-
+      <p><em>But there are still 4 co-linear points on your example.</em></p>
+      <p>They're not actually co-linear, they just look that way at that scaling factor. I don't work that small, of course.</p>
+      <p><em>I don’t put them on non-extrema either except for the s...?</em></p>
+      <p>Okay. But you mentioned 'the excellence of the Verdana/Georgia development path' and Georgia, as shown above, does use on-curve points along the paths, apparently necessitated by following a two-off-curve points between each on-curve point, which suggests Fog-Q.</p>
   - id: 301805
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 16 Sep 2008 — 6:05pm
+    user: 1262
     date: 2008-09-16T18:05:00
+    date_raw: 16 Sep 2008 — 6:05pm
     votes: null
     html: <p>Anyway, aren't we all going to be designing with cornu curves in future? :)</p>
+    html_clean: <p>Anyway, aren't we all going to be designing with cornu curves in future? :)</p>
   - id: 301868
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 17 Sep 2008 — 3:32am
+    user: 2969
     date: 2008-09-17T03:32:00
+    date_raw: 17 Sep 2008 — 3:32am
     votes: null
     html: |-
       <p>"Anyway, aren’t we all going to be designing with cornu curves in future? :)"</p>
@@ -302,37 +336,43 @@ comments:
       My mistake, Georgia has been invaded by points with pointed heads.<br>
       The only question now is whether they came as peace keepers or something else.</p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>"Anyway, aren’t we all going to be designing with cornu curves in future? :)"</p>
+      <p>I doubt it. I see the iPhone as the new model for font selection and handling, who needs a new format.</p>
+      <p>"...Georgia, as shown above..."<br>
+      My mistake, Georgia has been invaded by points with pointed heads.<br>
+      The only question now is whether they came as peace keepers or something else.</p>
+      <p>Cheers!</p>
   - id: 301953
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 17 Sep 2008 — 11:25am
+    user: 4019
     date: 2008-09-17T11:25:00
+    date_raw: 17 Sep 2008 — 11:25am
     votes: null
     html: |-
       <p>Re adoption of the CT types, surely short-term that depends on how people get along with MS Word 2007, which has the worst interface of any program I have seen since the invention of the 8080 chip. I would be surprised if they attained the visceral traction Georgia and Verdana have attained, but I don't see how anyone can possibly tell what general usage will be like five or ten years from now or how we will see the situation then. </p>
       <p>David, re your admonitions: I AM keeping to the 1000 unit grid as you suggested. BUT, I have a ton of fonts that have floating point handles even from the Fog3 days. Moreover, I think Adam is wrong: FontLab does seem to preserve these values to some extent. It may not show them, and it may capriciously and with inexcusable inaccuracy round them off under circumstances not yet identified. But under certain circumstances, it does preserve them.</p>
       <p>We need to know when it is preserving them and when it is rounding them off.</p>
+    html_clean: |-
+      <p>Re adoption of the CT types, surely short-term that depends on how people get along with MS Word 2007, which has the worst interface of any program I have seen since the invention of the 8080 chip. I would be surprised if they attained the visceral traction Georgia and Verdana have attained, but I don't see how anyone can possibly tell what general usage will be like five or ten years from now or how we will see the situation then. </p>
+      <p>David, re your admonitions: I AM keeping to the 1000 unit grid as you suggested. BUT, I have a ton of fonts that have floating point handles even from the Fog3 days. Moreover, I think Adam is wrong: FontLab does seem to preserve these values to some extent. It may not show them, and it may capriciously and with inexcusable inaccuracy round them off under circumstances not yet identified. But under certain circumstances, it does preserve them.</p>
+      <p>We need to know when it is preserving them and when it is rounding them off.</p>
   - id: 302802
-    user_id: 1078
-    user_name: vanblokland
-    user_path: null
-    user_image: /files/pictures/picture-1078.gif
-    date_raw: 23 Sep 2008 — 5:39am
+    user: 1078
     date: 2008-09-23T05:39:00
+    date_raw: 23 Sep 2008 — 5:39am
     votes: null
     html: |-
       <p>&gt; I have a ton of fonts that have floating point handles even from the Fog3 days. </p>
       <p>I don't think any version of Fog 3 did floating point coordinates.</p>
       <p>E</p>
+    html_clean: |-
+      <p>&gt; I have a ton of fonts that have floating point handles even from the Fog3 days. </p>
+      <p>I don't think any version of Fog 3 did floating point coordinates.</p>
+      <p>E</p>
   - id: 302812
-    user_id: 23584
-    user_name: Vladimir Tamari
-    user_path: null
-    user_image: /files/pictures/picture-23584.jpg
-    date_raw: 23 Sep 2008 — 6:34am
+    user: 23584
     date: 2008-09-23T06:34:00
+    date_raw: 23 Sep 2008 — 6:34am
     votes: null
     html: |-
       <p><em>Anyway, aren’t we all going to be designing with cornu curves in future? :)</em> </p>
@@ -340,110 +380,111 @@ comments:
       I wonder what is the state of the art as far as font design in concerned, and why the smiley :)</p>
       <p>+ <a href="http://www.typophile.com/node/7570" title="www.typophile.com/node/7570">www.typophile.com/node/7570</a><br>
       ++ <a href="http://igor.grafitron.com/cornu/" title="http://igor.grafitron.com/cornu/">http://igor.grafitron.com/cornu/</a></p>
+    html_clean: |-
+      <p><em>Anyway, aren’t we all going to be designing with cornu curves in future? :)</em> </p>
+      <p>John judging from an older thread+, you were in on the early development of cornu splines (not to be confused with the Cornu spiral which is one particular curve from diffraction physics).   I checked a fun Java applet++ illustrating these curves and could see how useful they could be in some situations.<br>
+      I wonder what is the state of the art as far as font design in concerned, and why the smiley :)</p>
+      <p>+ <a href="http://www.typophile.com/node/7570" title="www.typophile.com/node/7570">www.typophile.com/node/7570</a><br>
+      ++ <a href="http://igor.grafitron.com/cornu/" title="http://igor.grafitron.com/cornu/">http://igor.grafitron.com/cornu/</a></p>
   - id: 302876
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 23 Sep 2008 — 11:57am
+    user: 1262
     date: 2008-09-23T11:57:00
+    date_raw: 23 Sep 2008 — 11:57am
     votes: null
     html: |-
       <p>Vladimir, I can hardly be said to have been 'in on the early development of cornu splines', other than chatting with their inventor, Raph Levien. I still have not actually got around to trying to use them (largely because installing support for them in FontForge seemed difficult for Windows). I see that they are making their way into a number of open source drawing tools, such as NodeBox and Inkscape. I'd like to see them incorporated as a drawing option in FontLab, perhaps replacing the weird 'Sketch' tool, which I've never been able to figure out.</p>
       <p>The smiley was an acknowledgement that introducing a new drawing format, no matter how good and easy to work with, is unlikely to result in a global change in everyone's practices. As David pointed out, there are always issues in outline format conversion and sometimes benefits to working within the native format of the final font, even if the tools for such work are deficient. I know some designers who still swear by Ikarus, but I've also had the job of cleaning up IK-to-Beziér conversions, the quality of which can vary considerably dependent on the skill of the Ikarus user and the approach taken to the drawing.</p>
+    html_clean: |-
+      <p>Vladimir, I can hardly be said to have been 'in on the early development of cornu splines', other than chatting with their inventor, Raph Levien. I still have not actually got around to trying to use them (largely because installing support for them in FontForge seemed difficult for Windows). I see that they are making their way into a number of open source drawing tools, such as NodeBox and Inkscape. I'd like to see them incorporated as a drawing option in FontLab, perhaps replacing the weird 'Sketch' tool, which I've never been able to figure out.</p>
+      <p>The smiley was an acknowledgement that introducing a new drawing format, no matter how good and easy to work with, is unlikely to result in a global change in everyone's practices. As David pointed out, there are always issues in outline format conversion and sometimes benefits to working within the native format of the final font, even if the tools for such work are deficient. I know some designers who still swear by Ikarus, but I've also had the job of cleaning up IK-to-Beziér conversions, the quality of which can vary considerably dependent on the skill of the Ikarus user and the approach taken to the drawing.</p>
   - id: 303016
-    user_id: 23584
-    user_name: Vladimir Tamari
-    user_path: null
-    user_image: /files/pictures/picture-23584.jpg
-    date_raw: 24 Sep 2008 — 3:46am
+    user: 23584
     date: 2008-09-24T03:46:00
+    date_raw: 24 Sep 2008 — 3:46am
     votes: null
     html: <p>Thanks for the explanations John :) I consider myself lucky that I started my digital font design experience after what appears to have been an intense period of experimentation with new font formats and software by so many talented programmers and the designers like you who used their products and provided feedback.  There is obviously a lot to be done still. One tool I would like to see is an automatic method to <em> adjust </em> the distance between the opposite outlines of a glyph according to a circle or ellipse of a given size set at fixed angle as it sweeps the area inside the glyph. That would be somewhat like the  use of a brush tool to create a script-like outline. I've never used the sketch tool maybe I should check it out, also the programs you mentioned, and one called <a class="freelinking external" href="http://www.levien.com/spiro" rel="nofollow">Spiro</a> (also by Raph Levien) which sounds intriguing. One worries whether in all this flurry of activity some really useful tools and ideas might get forgotten or ignored by the designer community!</p>
+    html_clean: <p>Thanks for the explanations John :) I consider myself lucky that I started my digital font design experience after what appears to have been an intense period of experimentation with new font formats and software by so many talented programmers and the designers like you who used their products and provided feedback.  There is obviously a lot to be done still. One tool I would like to see is an automatic method to <em> adjust </em> the distance between the opposite outlines of a glyph according to a circle or ellipse of a given size set at fixed angle as it sweeps the area inside the glyph. That would be somewhat like the  use of a brush tool to create a script-like outline. I've never used the sketch tool maybe I should check it out, also the programs you mentioned, and one called <a class="freelinking external" href="http://www.levien.com/spiro" rel="nofollow">Spiro</a> (also by Raph Levien) which sounds intriguing. One worries whether in all this flurry of activity some really useful tools and ideas might get forgotten or ignored by the designer community!</p>
   - id: 303225
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 25 Sep 2008 — 8:20am
+    user: 1133
     date: 2008-09-25T08:20:00
+    date_raw: 25 Sep 2008 — 8:20am
     votes: null
     html: |-
       <p>David, you write: </p>
       <p>"In the fall of 2006, when I thought it more than safe to consider TrueType a major font format, I started reporting TT issues and requesting a true TT interface to TT outlines. See how patient I am? Not a single issue has been addressed, yet TT is still a major font format, ain’t it?"</p>
       <p>Well, there hasn't been any major release of FontLab Studio since the fall of 2006. Your notes about quadratic curve editing have been duly noted and we're considering improving that support. </p>
       <p>Adam</p>
+    html_clean: |-
+      <p>David, you write: </p>
+      <p>"In the fall of 2006, when I thought it more than safe to consider TrueType a major font format, I started reporting TT issues and requesting a true TT interface to TT outlines. See how patient I am? Not a single issue has been addressed, yet TT is still a major font format, ain’t it?"</p>
+      <p>Well, there hasn't been any major release of FontLab Studio since the fall of 2006. Your notes about quadratic curve editing have been duly noted and we're considering improving that support. </p>
+      <p>Adam</p>
   - id: 303228
-    user_id: 3135
-    user_name: dezcom
-    user_path: null
-    user_image: /files/pictures/picture-3135.gif
-    date_raw: 25 Sep 2008 — 8:33am
+    user: 3135
     date: 2008-09-25T08:33:00
+    date_raw: 25 Sep 2008 — 8:33am
     votes: null
     html: |-
       <p>"...there hasn’t been any major release of FontLab Studio since the fall of 2006"</p>
       <p>So when can we expect one?  Several months ago, Yuri was strongly hinting something was in the works. The AtypI in Russia has past--the place where one might expect an announcement. So, what is the deal?</p>
       <p>ChrisL</p>
+    html_clean: |-
+      <p>"...there hasn’t been any major release of FontLab Studio since the fall of 2006"</p>
+      <p>So when can we expect one?  Several months ago, Yuri was strongly hinting something was in the works. The AtypI in Russia has past--the place where one might expect an announcement. So, what is the deal?</p>
+      <p>ChrisL</p>
   - id: 306049
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 12 Oct 2008 — 1:50pm
+    user: 4019
     date: 2008-10-12T13:50:00
+    date_raw: 12 Oct 2008 — 1:50pm
     votes: null
     html: <p>Erik, you're right, Fog 3 doesn't do floating point handles, I just checked. That being the case it would presumably mis-import and mis-generate FP handles generated by the Adobe Tools. Or does it store the information but fail to display it as Fontlab does? A rounding error from 2.01 to 3 would be pretty awful -- assuming that Fog 3 rounded off as badly as Fontlab currently does.</p>
+    html_clean: <p>Erik, you're right, Fog 3 doesn't do floating point handles, I just checked. That being the case it would presumably mis-import and mis-generate FP handles generated by the Adobe Tools. Or does it store the information but fail to display it as Fontlab does? A rounding error from 2.01 to 3 would be pretty awful -- assuming that Fog 3 rounded off as badly as Fontlab currently does.</p>
   - id: 306122
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 13 Oct 2008 — 6:35am
+    user: 2969
     date: 2008-10-13T06:35:00
+    date_raw: 13 Oct 2008 — 6:35am
     votes: null
     html: |-
       <p>Thanks Adam, I'm looking forward to whatever support can come out for the most popular font format in the universe as we know it. </p>
       <p>Cheers!</p>
+    html_clean: |-
+      <p>Thanks Adam, I'm looking forward to whatever support can come out for the most popular font format in the universe as we know it. </p>
+      <p>Cheers!</p>
   - id: 306174
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 13 Oct 2008 — 11:58am
+    user: 1262
     date: 2008-10-13T11:58:00
+    date_raw: 13 Oct 2008 — 11:58am
     votes: null
     html: |-
       <p>Bill: <em>Or does it store the information but fail to display it as Fontlab does?</em></p>
       <p>Have we actually established that this is what FontLab does? I proposed a test in my first post in this thread, but I don't know if anyone has actually tried this yet. And given that you only report the fractional positions from having seen them in Fontographer, I wouldn't presume that one tool is doing something right and another wrong until I'd seen the raw PS code in the original font.</p>
+    html_clean: |-
+      <p>Bill: <em>Or does it store the information but fail to display it as Fontlab does?</em></p>
+      <p>Have we actually established that this is what FontLab does? I proposed a test in my first post in this thread, but I don't know if anyone has actually tried this yet. And given that you only report the fractional positions from having seen them in Fontographer, I wouldn't presume that one tool is doing something right and another wrong until I'd seen the raw PS code in the original font.</p>
   - id: 306348
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 14 Oct 2008 — 12:55pm
+    user: 4019
     date: 2008-10-14T12:55:00
+    date_raw: 14 Oct 2008 — 12:55pm
     votes: null
     html: <p>John, your test isn't necessarily valid, because it doesn't take into account what Flab might be doing during the act of moving the handle. It might internally store the floating point value, but may round off upon being commanded to move that handle. It is now clear to me that one of the reasons why Flab converts curve points to corner points in MM import from Fog databases and PS fonts is that the rounding off of the handles is more than adequate to change the type of the segment. It is quite dreadful, and accounts for a lot of messy imports. It astounds me that such a situation -- which must have resulted in a staggering amount of data corruption over the past few years -- should exist, and virtually without comment.</p>
+    html_clean: <p>John, your test isn't necessarily valid, because it doesn't take into account what Flab might be doing during the act of moving the handle. It might internally store the floating point value, but may round off upon being commanded to move that handle. It is now clear to me that one of the reasons why Flab converts curve points to corner points in MM import from Fog databases and PS fonts is that the rounding off of the handles is more than adequate to change the type of the segment. It is quite dreadful, and accounts for a lot of messy imports. It astounds me that such a situation -- which must have resulted in a staggering amount of data corruption over the past few years -- should exist, and virtually without comment.</p>
   - id: 306419
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 14 Oct 2008 — 7:30pm
+    user: 1262
     date: 2008-10-14T19:30:00
+    date_raw: 14 Oct 2008 — 7:30pm
     votes: null
     html: |-
       <p>Bill: <em>John, your test isn’t necessarily valid, because it doesn’t take into account what Flab might be doing during the act of moving the handle. It might internally store the floating point value, but may round off upon being commanded to move that handle.</em></p>
       <p>That is exactly the point of the test, to determine whether FontLab is retaining fractional values for untouched BCPs while forcing rounding of touched ones. That is what the test tests.</p>
       <p>But even before this is done, the first thing that should be done is a raw PS dump of the glyphs in the original fonts, because you are assuming that the fractional values you are seeing in Fontographer represent what is actually in the font, and I wouldn't assume any such thing. I would first determine what the native format (PS) contains, and then look at what different tools do with that data.</p>
+    html_clean: |-
+      <p>Bill: <em>John, your test isn’t necessarily valid, because it doesn’t take into account what Flab might be doing during the act of moving the handle. It might internally store the floating point value, but may round off upon being commanded to move that handle.</em></p>
+      <p>That is exactly the point of the test, to determine whether FontLab is retaining fractional values for untouched BCPs while forcing rounding of touched ones. That is what the test tests.</p>
+      <p>But even before this is done, the first thing that should be done is a raw PS dump of the glyphs in the original fonts, because you are assuming that the fractional values you are seeing in Fontographer represent what is actually in the font, and I wouldn't assume any such thing. I would first determine what the native format (PS) contains, and then look at what different tools do with that data.</p>
   - id: 306601
-    user_id: 4019
-    user_name: billtroop
-    user_path: null
-    user_image: /files/pictures/picture-4019.jpg
-    date_raw: 15 Oct 2008 — 4:58pm
+    user: 4019
     date: 2008-10-15T16:58:00
+    date_raw: 15 Oct 2008 — 4:58pm
     votes: null
     html: |-
       <p>&gt;the first thing that should be done is a raw PS dump of the glyphs in the original fonts</p>
@@ -452,14 +493,21 @@ comments:
       <p>Adobe can hardly have changed the data points of the handles in those older fonts during the library's transition to OT (regardless of whether 'some' clones 'don't' understand floating point handles), so I guess Fontlab wasn't part of that particular workflow? </p>
       <p>Unless Adobe converted without even being aware of the ghastly errors that could occur? That seems impossible!</p>
       <p>My, my, you could hear a bezier handle drop! Tclunk!</p>
+    html_clean: |-
+      <p>&gt;the first thing that should be done is a raw PS dump of the glyphs in the original fonts</p>
+      <p>Notice the great hurry everyone is in to be first? Why doesn't Fontlab just 'fess up and tell us exactly what is happening? If they know? </p>
+      <p>And what does Adam mean by 'very old fonts' ? Certainly Adobe was using floating point handles exactly ten years ago, which doesn't constitute 'very' old fonts in my view. </p>
+      <p>Adobe can hardly have changed the data points of the handles in those older fonts during the library's transition to OT (regardless of whether 'some' clones 'don't' understand floating point handles), so I guess Fontlab wasn't part of that particular workflow? </p>
+      <p>Unless Adobe converted without even being aware of the ghastly errors that could occur? That seems impossible!</p>
+      <p>My, my, you could hear a bezier handle drop! Tclunk!</p>
   - id: 323860
-    user_id: 2969
-    user_name: dberlow
-    user_path: null
-    user_image: null
-    date_raw: 20 Jan 2009 — 5:31pm
+    user: 2969
     date: 2009-01-20T17:31:00
+    date_raw: 20 Jan 2009 — 5:31pm
     votes: null
     html: |-
+      <p>So, I lost the other thread on this, but is there a way to MAKE Fontographer 4.x design only on 1,000ths, e.g.  without the floating values being considered by the tool in the placement of points, on a new font?</p>
+      <p>Cheers!</p>
+    html_clean: |-
       <p>So, I lost the other thread on this, but is there a way to MAKE Fontographer 4.x design only on 1,000ths, e.g.  without the floating values being considered by the tool in the placement of points, on a new font?</p>
       <p>Cheers!</p>

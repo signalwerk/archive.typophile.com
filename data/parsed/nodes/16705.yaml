@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/16705.html
   fingerprint: b565031c344f06ce
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 16705
-  user_id: 2942
-  user_name: ebensorkin
-  user_path: null
-  user_image: /files/pictures/picture-2942.jpg
-  date_raw: 8 Dec 2005 — 2:17pm
+  user: 2942
   date: 2005-12-08T14:17:00
+  date_raw: 8 Dec 2005 — 2:17pm
   votes: null
   html: |-
     <p>I have 3 questions related to the Open type feature 'locl'</p>
@@ -34,14 +31,19 @@ post:
     <p>Does anybody know if that code was written correctly? Is there is any sample code for this feature? I have been googling but to no avail. </p>
     <p>3. Would anybody share their code? I wanted to build some Polish &amp; Czech localization into a font!</p>
     <p>Thanks!</p>
+  html_clean: |-
+    <p>I have 3 questions related to the Open type feature 'locl'</p>
+    <p>1. It seems that there is no application support for the 'locl' feature yet. Thomas Phinney agrees that there is none in Adobe products ( yet). But is it in Microsoft Vista/longhorn? </p>
+    <p>2. Henadij posted some locl feature code here:</p>
+    <p><a href="http://www.typophile.com/node/15506" title="http://www.typophile.com/node/15506">http://www.typophile.com/node/15506</a></p>
+    <p>Does anybody know if that code was written correctly? Is there is any sample code for this feature? I have been googling but to no avail. </p>
+    <p>3. Would anybody share their code? I wanted to build some Polish &amp; Czech localization into a font!</p>
+    <p>Thanks!</p>
 comments:
   - id: 99235
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 8 Dec 2005 — 3:22pm
+    user: 1133
     date: 2005-12-08T15:22:00
+    date_raw: 8 Dec 2005 — 3:22pm
     votes: null
     html: |-
       <p>Eben, </p>
@@ -57,34 +59,44 @@ comments:
       <p>Adobe software does not parse the glyph suffixes into anything meaningful yet, but Fontlab Ltd. does plan to have some smart algorithms that takes notion of properly formed glyph name suffixes. </p>
       <p>Regards,<br>
       Adam</p>
+    html_clean: |-
+      <p>Eben, </p>
+      <p>the code Henadij posted is principally correct but it is better to name the glyphs according to the Adobe/FontLab naming conventions: baseglyphname.suffix. Fontlab Ltd. recommends that the suffix for localized forms corresponds either to the primary OpenType feature name that the localized glyph is associated with (that would be "locl") or to the OpenType language tag of the primary language that the localized form is associated with (that would be "PLK" for Polish in Henadij's example). </p>
+      <p>So if I wrote the code, it would be: </p>
+      <p>@loclPLK1 = [cacute nacute oacute sacute zacute];<br>
+      @loclPLK2 = [cacute.PLK nacute.PLK oacute.PLK sacute.PLK zacute.PLK];</p>
+      <p>feature locl { # Localized Forms<br>
+        language PLK exclude_dflt; # Polish;<br>
+        sub @loclPLK1 by @loclPLK2;<br>
+      } locl;</p>
+      <p>Alternatively, the glyph names "cacute.PLK" etc. could be "cacute.locl". </p>
+      <p>Adobe software does not parse the glyph suffixes into anything meaningful yet, but Fontlab Ltd. does plan to have some smart algorithms that takes notion of properly formed glyph name suffixes. </p>
+      <p>Regards,<br>
+      Adam</p>
   - id: 99244
-    user_id: 1336
-    user_name: .
-    user_path: null
-    user_image: null
-    date_raw: 8 Dec 2005 — 4:03pm
+    user: 1336
     date: 2005-12-08T16:03:00
+    date_raw: 8 Dec 2005 — 4:03pm
     votes: null
     html: <p>Eben, it doesn't hurt to have a locl feature in yout font. And you can also "double-up" the feature as a Stylistic Set, which will allow present users of InDesign CS2 access to it.</p>
+    html_clean: <p>Eben, it doesn't hurt to have a locl feature in yout font. And you can also "double-up" the feature as a Stylistic Set, which will allow present users of InDesign CS2 access to it.</p>
   - id: 99248
-    user_id: 2942
-    user_name: ebensorkin
-    user_path: null
-    user_image: /files/pictures/picture-2942.jpg
-    date_raw: 8 Dec 2005 — 4:18pm
+    user: 2942
     date: 2005-12-08T16:18:00
+    date_raw: 8 Dec 2005 — 4:18pm
     votes: null
     html: |-
       <p>Adam, Wow! So clearly put &amp; so fast! Awesome. </p>
       <p>Chester, can you point me at some feature code for a 'stylistic set'? Is the feature called 'ss01'? Or is it 'salt?' I bet it's ss01 ( ss02, etc) There is probably some discustion of this feature here on typophile. I'd better search for it.</p>
       <p>Thanks to you both!</p>
+    html_clean: |-
+      <p>Adam, Wow! So clearly put &amp; so fast! Awesome. </p>
+      <p>Chester, can you point me at some feature code for a 'stylistic set'? Is the feature called 'ss01'? Or is it 'salt?' I bet it's ss01 ( ss02, etc) There is probably some discustion of this feature here on typophile. I'd better search for it.</p>
+      <p>Thanks to you both!</p>
   - id: 99249
-    user_id: 1336
-    user_name: .
-    user_path: null
-    user_image: null
-    date_raw: 8 Dec 2005 — 4:25pm
+    user: 1336
     date: 2005-12-08T16:25:00
+    date_raw: 8 Dec 2005 — 4:25pm
     votes: null
     html: |-
       <p>ssXX is it. The first one in your font will be ss01. And the way it would look, borrowing Adam's code above:</p>
@@ -92,13 +104,16 @@ comments:
       language PLK exclude_dflt; # Polish;<br>
       sub @loclPLK1 by @loclPLK2;<br>
       } ss01;</p>
+    html_clean: |-
+      <p>ssXX is it. The first one in your font will be ss01. And the way it would look, borrowing Adam's code above:</p>
+      <p>feature ss01 { # Polish Localized Forms<br>
+      language PLK exclude_dflt; # Polish;<br>
+      sub @loclPLK1 by @loclPLK2;<br>
+      } ss01;</p>
   - id: 99256
-    user_id: 2942
-    user_name: ebensorkin
-    user_path: null
-    user_image: /files/pictures/picture-2942.jpg
-    date_raw: 8 Dec 2005 — 5:04pm
+    user: 2942
     date: 2005-12-08T17:04:00
+    date_raw: 8 Dec 2005 — 5:04pm
     votes: null
     html: |-
       <p>So then the complete code would look like this :</p>
@@ -109,76 +124,79 @@ comments:
        sub @loclPLK1 by @loclPLK2;<br>
        } ss01;</p>
       <p>Or do you only need the code you showed if the locl feature precedes the ss01 feature?</p>
+    html_clean: |-
+      <p>So then the complete code would look like this :</p>
+      <p>@loclPLK1 = [cacute nacute oacute sacute zacute];<br>
+      @loclPLK2 = [cacute.PLK nacute.PLK oacute.PLK sacute.PLK zacute.PLK];<br>
+      feature ss01 { # Polish Localized Forms<br>
+       language PLK exclude_dflt; # Polish;<br>
+       sub @loclPLK1 by @loclPLK2;<br>
+       } ss01;</p>
+      <p>Or do you only need the code you showed if the locl feature precedes the ss01 feature?</p>
   - id: 99257
-    user_id: 2942
-    user_name: ebensorkin
-    user_path: null
-    user_image: /files/pictures/picture-2942.jpg
-    date_raw: 8 Dec 2005 — 5:08pm
+    user: 2942
     date: 2005-12-08T17:08:00
+    date_raw: 8 Dec 2005 — 5:08pm
     votes: null
     html: <p>Also I noticed that when I test The locl or the langage feature in Fontlab that my calt features are not available to be applied at the same time. It seems to be either or in the Fontlab preview. Willl it be like that in Indesign or other apps too?</p>
+    html_clean: <p>Also I noticed that when I test The locl or the langage feature in Fontlab that my calt features are not available to be applied at the same time. It seems to be either or in the Fontlab preview. Willl it be like that in Indesign or other apps too?</p>
   - id: 99261
-    user_id: 909
-    user_name: Thomas Phinney
-    user_path: null
-    user_image: /files/pictures/picture-909.png
-    date_raw: 8 Dec 2005 — 5:29pm
+    user: 909
     date: 2005-12-08T17:29:00
+    date_raw: 8 Dec 2005 — 5:29pm
     votes: null
     html: |-
       <p>Nothing wrong with also putting this in a stylistic set, but you should certainly do it in 'locl' as well.</p>
       <p>T</p>
+    html_clean: |-
+      <p>Nothing wrong with also putting this in a stylistic set, but you should certainly do it in 'locl' as well.</p>
+      <p>T</p>
   - id: 99262
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 8 Dec 2005 — 5:33pm
+    user: 1262
     date: 2005-12-08T17:33:00
+    date_raw: 8 Dec 2005 — 5:33pm
     votes: null
     html: |-
       <p><em>Will it be like that in Indesign or other apps too?</em></p>
       <p>It certainly shouldn't be. Microsoft's approach, which I hope other layout engine developers will follow, is to apply the 'locl' feature before any other layout feature, thereby setting the localised input glyphs for all subsequent features. Then the 'ccmp' feature is applied, and then the other supported features in the order in which the lookups are ordered in the font (with some exceptions for complex script handling, e.g. for Indic scripts, in which language shaping features are strictly ordered by the shaping engine). Once the 'locl' feature has been applied, you should be able to apply any other features to the results: the 'locl' feature is certainly not supposed to be exclusive.</p>
+    html_clean: |-
+      <p><em>Will it be like that in Indesign or other apps too?</em></p>
+      <p>It certainly shouldn't be. Microsoft's approach, which I hope other layout engine developers will follow, is to apply the 'locl' feature before any other layout feature, thereby setting the localised input glyphs for all subsequent features. Then the 'ccmp' feature is applied, and then the other supported features in the order in which the lookups are ordered in the font (with some exceptions for complex script handling, e.g. for Indic scripts, in which language shaping features are strictly ordered by the shaping engine). Once the 'locl' feature has been applied, you should be able to apply any other features to the results: the 'locl' feature is certainly not supposed to be exclusive.</p>
   - id: 99264
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 8 Dec 2005 — 5:52pm
+    user: 1262
     date: 2005-12-08T17:52:00
+    date_raw: 8 Dec 2005 — 5:52pm
     votes: null
     html: |-
       <p>Paul Nelson showed a demonstration of 'locl' feature support in MS Publisher at the ATypI conference in Rome in 2002 (specifically, substitution of preferred Urdu forms of Persian numeral characters). This has not been released though, and the fact that he demo'd it doesn't necessarily mean it will be in Office 12. MS, like most software companies, won't commit to or comment on functionality of unreleased products. They test a lot of things internally that might not show up in published software for two or three versions, if at all.</p>
       <p>On 25 February 2005, Paul noted on the OpenType developer list that APIs for calling language system tags had been added to Uniscribe (the MS Unicode Script Processor), so the back end will be in Windows Vista. But applications will need to take advantage of the new APIs.</p>
+    html_clean: |-
+      <p>Paul Nelson showed a demonstration of 'locl' feature support in MS Publisher at the ATypI conference in Rome in 2002 (specifically, substitution of preferred Urdu forms of Persian numeral characters). This has not been released though, and the fact that he demo'd it doesn't necessarily mean it will be in Office 12. MS, like most software companies, won't commit to or comment on functionality of unreleased products. They test a lot of things internally that might not show up in published software for two or three versions, if at all.</p>
+      <p>On 25 February 2005, Paul noted on the OpenType developer list that APIs for calling language system tags had been added to Uniscribe (the MS Unicode Script Processor), so the back end will be in Windows Vista. But applications will need to take advantage of the new APIs.</p>
   - id: 99288
-    user_id: 2942
-    user_name: ebensorkin
-    user_path: null
-    user_image: /files/pictures/picture-2942.jpg
-    date_raw: 8 Dec 2005 — 10:22pm
+    user: 2942
     date: 2005-12-08T22:22:00
+    date_raw: 8 Dec 2005 — 10:22pm
     votes: null
     html: <p>Thanks for the clarification John! I have been to the official adobe feature request page to ask for locl support. Is there a MS equivalent? I have no idea if it means anything but I figure I have to try...</p>
+    html_clean: <p>Thanks for the clarification John! I have been to the official adobe feature request page to ask for locl support. Is there a MS equivalent? I have no idea if it means anything but I figure I have to try...</p>
   - id: 99292
-    user_id: 909
-    user_name: Thomas Phinney
-    user_path: null
-    user_image: /files/pictures/picture-909.png
-    date_raw: 8 Dec 2005 — 11:19pm
+    user: 909
     date: 2005-12-08T23:19:00
+    date_raw: 8 Dec 2005 — 11:19pm
     votes: null
     html: |-
       <p>I'll note that it would be a wise precaution to order the locl and ccmp lookups in the same order as well, in case one puts the font in some environment that relies strictly on the order of lookups in the font. Microsoft themselves have been making noises about going to that approach in the future.</p>
       <p>I can't say when or where Adobe will support 'locl', but it is very reasonable to assume that we will get there eventually.</p>
       <p>T</p>
+    html_clean: |-
+      <p>I'll note that it would be a wise precaution to order the locl and ccmp lookups in the same order as well, in case one puts the font in some environment that relies strictly on the order of lookups in the font. Microsoft themselves have been making noises about going to that approach in the future.</p>
+      <p>I can't say when or where Adobe will support 'locl', but it is very reasonable to assume that we will get there eventually.</p>
+      <p>T</p>
   - id: 99405
-    user_id: 1133
-    user_name: twardoch
-    user_path: null
-    user_image: /files/pictures/picture-1133.jpg
-    date_raw: 9 Dec 2005 — 6:10pm
+    user: 1133
     date: 2005-12-09T18:10:00
+    date_raw: 9 Dec 2005 — 6:10pm
     votes: null
     html: |-
       <p>Chester, this is wrong: </p>
@@ -243,14 +261,77 @@ comments:
       <p># END</p>
       <p>Regards,<br>
       Adam</p>
+    html_clean: |-
+      <p>Chester, this is wrong: </p>
+      <p>feature ss01 { # Polish Localized Forms<br>
+      language PLK exclude_dflt; # Polish;<br>
+      sub @loclPLK1 by @loclPLK2;<br>
+      } ss01;</p>
+      <p>Maybe not wrong, but doesn't make much sense. You want the "locl" feature to work in the Polish language context but you want the stylistic set work regardless of the language context. </p>
+      <p>Here is an example how locl, ss01, ss02 and salt could work for Polish and Romanian localized forms. </p>
+      <p># START </p>
+      <p># Define classes for substitutions<br>
+      @loclPLK1 = [Cacute Nacute Oacute Sacute Zacute cacute nacute oacute sacute zacute];<br>
+      @loclPLK2 = [Cacute.PLK Nacute.PLK Oacute.PLK Sacute.PLK Zacute.PLK cacute.PLK nacute.PLK oacute.PLK sacute.PLK zacute.PLK];<br>
+      @loclROM1 = [Scedilla scedilla];<br>
+      @loclROM2 = [Scommaaccent scommaaccent]; </p>
+      <p># Define locl (Localized Forms) feature<br>
+      feature locl {<br>
+      # Latin script, this is optional<br>
+      script latn;<br>
+      # Next lookup applies to Romanian language context only<br>
+      language ROM exclude_dflt;<br>
+      # Define and implement loclROM lookup<br>
+      lookup loclROM {<br>
+      sub @loclROM1 by @loclROM2;<br>
+      } loclROM;<br>
+      # Next lookup applies to Polish language context only<br>
+      language PLK exclude_dflt; # Polish;<br>
+      # Define and implement loclPLK lookup<br>
+      lookup loclPLK {<br>
+      sub @loclPLK1 by @loclPLK2;<br>
+      } loclPLK; </p>
+      <p>} locl;</p>
+      <p># Define ss01 (Stylistic Set 1) feature for Polish localized forms<br>
+      feature ss01 {<br>
+      # Next lookup applies to the default language context only<br>
+      language dflt;<br>
+      # Refer to the loclPLK lookup defined earlier<br>
+      lookup loclPLK;<br>
+      # The lookup above also applies to the Polish language context<br>
+      language PLK include_dflt; # Polish;<br>
+      # The lookup above also applies to the Romanian language context<br>
+      language ROM include_dflt; # Romanian;<br>
+      } ss01;</p>
+      <p># Define ss02 (Stylistic Set 2) feature for Romanian localized forms<br>
+      feature ss02 {<br>
+      # Next lookup applies to the default language context only<br>
+      language dflt;<br>
+      # Refer to the loclROM lookup defined earlier<br>
+      lookup loclROM;<br>
+      # The lookup above also applies to the Polish language context<br>
+      language PLK include_dflt; # Polish;<br>
+      # The lookup above also applies to the Romanian language context<br>
+      language ROM include_dflt; # Romanian;<br>
+      } ss02;</p>
+      <p># Define salt (Stylistic Alternates) feature for all stylistic substitutions<br>
+      # This feature defines and implements just one lookup<br>
+      # that applies to all language contexts<br>
+      feature salt {<br>
+      sub @loclROM1 by @loclROM2;<br>
+      sub @loclPLK1 by @loclPLK2;<br>
+      } salt; </p>
+      <p># END</p>
+      <p>Regards,<br>
+      Adam</p>
   - id: 99408
-    user_id: 1262
-    user_name: John Hudson
-    user_path: null
-    user_image: /files/pictures/picture-1262.gif
-    date_raw: 9 Dec 2005 — 6:16pm
+    user: 1262
     date: 2005-12-09T18:16:00
+    date_raw: 9 Dec 2005 — 6:16pm
     votes: null
     html: |-
+      <p><em>I’ll note that it would be a wise precaution to order the locl and ccmp lookups in the same order as well, in case one puts the font in some environment that relies strictly on the order of lookups in the font.</em></p>
+      <p>Yes, absolutely. The original intent of OpenType was that lookups would be applied in the order in which they occur in the font. The only reason why Microsoft decided to overide this for certain features is the some font developers, who shall remain nameless, were getting the ordering wrong for Indic fonts that require very strict feature processing for correct display.</p>
+    html_clean: |-
       <p><em>I’ll note that it would be a wise precaution to order the locl and ccmp lookups in the same order as well, in case one puts the font in some environment that relies strictly on the order of lookups in the font.</em></p>
       <p>Yes, absolutely. The original intent of OpenType was that lookups would be applied in the order in which they occur in the font. The only reason why Microsoft decided to overide this for certain features is the some font developers, who shall remain nameless, were getting the ordering wrong for Indic fonts that require very strict feature processing for correct display.</p>

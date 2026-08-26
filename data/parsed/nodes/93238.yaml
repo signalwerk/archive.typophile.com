@@ -16,15 +16,12 @@ source:
   generation: sidebars
   file: data/archives/commoncrawl.org/files/typophile.com/node/93238.html
   fingerprint: 84997bd822866264
-  parser: b5b223b774d42ab2
+  parser: 34efae9498635f11
 post:
   id: 93238
-  user_id: 59672
-  user_name: Eimantas Paškonis
-  user_path: null
-  user_image: /files/pictures/picture-59672.png
-  date_raw: 21 May 2012 — 7:46am
+  user: 59672
   date: 2012-05-21T07:46:00
+  date_raw: 21 May 2012 — 7:46am
   votes: null
   html: |-
     <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screenshot_6318.PNG"></div><br>
@@ -36,16 +33,35 @@ post:
     </code><br>
     I understand why K_A gets priority over A_A, but why A_A gets priority over R_A?<br>
     Or vice-versa.<p></p>
+  html_clean: |-
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screenshot_6318.PNG"></div><br>
+    So the code sequence for dlig's goes like this:<br>
+    <code><br>
+    sub A A by A_A;<br>
+    sub K A by K_A;<br>
+    sub R A by R_A;<br>
+    </code><br>
+    I understand why K_A gets priority over A_A, but why A_A gets priority over R_A?<br>
+    Or vice-versa.<p></p>
 comments:
   - id: 510544
-    user_id: 31798
-    user_name: agisaak
-    user_path: null
-    user_image: /files/pictures/picture-31798.jpg
-    date_raw: 21 May 2012 — 10:56am
+    user: 31798
     date: 2012-05-21T10:56:00
+    date_raw: 21 May 2012 — 10:56am
     votes: null
     html: |-
+      <p>The opentype implementation can sometimes sort ligature ordering in rather arcane ways (see the comments on ligatures at <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a>).</p>
+      <p>If you want complete control over how your ligatures are prioritized, you should include explicit lookup declarations in your code. For example, if you want your RA ligature to take priority over other ligatures, include the following:</p>
+      <p>feature dlig {</p>
+      <p>lookup HighestPriority { # This lookup will be applied to the text run first.<br>
+      sub R A by R_A;<br>
+      } HighestPriority;</p>
+      <p>lookup LowerPriority { # These substitutions will be applied after R_A substitutions.<br>
+      sub A A by A_A;<br>
+      sub K A by K_A;<br>
+      } LowerPriority;</p>
+      <p>} dlig;</p>
+    html_clean: |-
       <p>The opentype implementation can sometimes sort ligature ordering in rather arcane ways (see the comments on ligatures at <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a>).</p>
       <p>If you want complete control over how your ligatures are prioritized, you should include explicit lookup declarations in your code. For example, if you want your RA ligature to take priority over other ligatures, include the following:</p>
       <p>feature dlig {</p>

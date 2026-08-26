@@ -16,6 +16,7 @@ import * as cheerio from "cheerio";
 import YAML from "yaml";
 import { DATA } from "./lib/config.js";
 import { detectGeneration } from "./lib/generations.js";
+import { userIdFor } from "./lib/users.js";
 import { ensureDir, ensureDirCached, readJsonl, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
 const args = parseArgs();
@@ -27,6 +28,40 @@ const OUT = `${DATA}/parsed`;
 const NODES_OUT = `${OUT}/nodes`;
 const LOG_FILE = `${OUT}/parse.log`;
 const STATE_FILE = `${OUT}/state.json`;
+// Everything the byline said about an author, kept out of the thread files so
+// a member's name and avatar are stored once rather than 84,000 times. Step 7
+// turns this into one file per member.
+const OBSERVATIONS_FILE = `${OUT}/users/_observations.jsonl`;
+
+// A thread entry carries a reference to its author, not a copy of them.
+function toEntry(entry) {
+  if (!entry) return null;
+  return {
+    id: entry.id,
+    user: userIdFor(entry),
+    date: entry.date,
+    date_raw: entry.date_raw,
+    votes: entry.votes,
+    html: entry.html,
+  };
+}
+
+function toObservation(entry, kind, ctx) {
+  const user = userIdFor(entry);
+  if (user === null) return null;
+  return {
+    user,
+    name: entry.user_name ?? null,
+    path: entry.user_path ?? null,
+    image: entry.user_image ?? null,
+    node: ctx.node,
+    title: ctx.title ?? null,
+    forum: ctx.forum ?? null,
+    kind,
+    comment: kind === "comment" ? entry.id ?? null : null,
+    date: entry.date ?? null,
+  };
+}
 
 // A change to the parsers must invalidate everything they produced, otherwise
 // a fixed bug quietly leaves stale YAML behind. Hashing the source that does
@@ -152,6 +187,16 @@ function main() {
       }
       emit(pick.node, issues);
 
+      const ctx = { node: pick.node, title: result.title, forum: result.forum?.id ?? null };
+      const observations = [];
+      for (const [entry, kind] of [
+        [result.post, "post"],
+        ...(result.comments ?? []).map((c) => [c, "comment"]),
+      ]) {
+        const ob = toObservation(entry, kind, ctx);
+        if (ob) observations.push(ob);
+      }
+
       const doc = {
         node: pick.node,
         title: result.title,
@@ -171,8 +216,8 @@ function main() {
           fingerprint: pick.fp,
           parser,
         },
-        post: result.post,
-        comments: result.comments,
+        post: toEntry(result.post),
+        comments: (result.comments ?? []).map(toEntry),
       };
 
       ensureDirCached(path.dirname(outFile));
@@ -182,6 +227,7 @@ function main() {
       nextState[pick.node] = {
         fp: pick.fp, parser, generation: generation.id,
         ...(issues.length ? { issues } : {}),
+        ...(observations.length ? { users: observations } : {}),
       };
       counts.parsed++;
 
@@ -195,6 +241,21 @@ function main() {
 
     fs.writeFileSync(`${STATE_FILE}.part`, JSON.stringify(nextState));
     fs.renameSync(`${STATE_FILE}.part`, STATE_FILE);
+
+    // Rewritten in full every run, including for skipped threads, so it always
+    // describes the whole corpus.
+    ensureDir(path.dirname(OBSERVATIONS_FILE));
+    const obs = fs.createWriteStream(`${OBSERVATIONS_FILE}.part`);
+    let observed = 0;
+    for (const node of Object.keys(nextState)) {
+      for (const ob of nextState[node].users ?? []) {
+        obs.write(JSON.stringify(ob) + "\n");
+        observed++;
+      }
+    }
+    await new Promise((resolve) => obs.end(resolve));
+    fs.renameSync(`${OBSERVATIONS_FILE}.part`, OBSERVATIONS_FILE);
+    counts.observations = observed;
 
     writeJson(`${OUT}/parse.meta.json`, {
       ...counts, parser, byGeneration, unknownSamples, generatedAt: new Date().toISOString(),
