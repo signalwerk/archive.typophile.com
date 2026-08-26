@@ -27,8 +27,16 @@ const FIELDS = {
 
 const DURATION = /(\d+)\s*(year|month|week|day)s?/gi;
 
-// "11 years 3 weeks" -> how long before the capture they joined.
-// Week granularity, so the result is approximate by design.
+// "11 years 3 weeks" -> roughly when they joined, counting back from the
+// capture.
+//
+// The page states the duration in whole weeks, so the result is good to about
+// a week either way and a day-precise date would be pretending. It is reported
+// as the YYYY-MM the computed date falls in.
+//
+// Deliberately the containing month rather than the nearer one: this is a
+// "since" date, and rounding 18 April up to May would claim someone joined
+// after they actually did. Erring early keeps the statement true.
 export function memberSince(memberFor, capturedAt) {
   if (!memberFor || !capturedAt) return null;
   const at = new Date(capturedAt);
@@ -48,7 +56,8 @@ export function memberSince(memberFor, capturedAt) {
   if (!matched) return null;
 
   const joined = new Date(at.getTime() - days * 86_400_000);
-  return joined.toISOString().slice(0, 10);
+
+  return `${joined.getUTCFullYear()}-${String(joined.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
 export function parseUserProfile(html, { capturedAt } = {}) {
@@ -67,9 +76,13 @@ export function parseUserProfile(html, { capturedAt } = {}) {
   });
 
   if (Object.keys(out).length === 0) return null;
+
+  // "Member for" is only meaningful next to the date it was captured, and we
+  // are not a live site -- so it is converted and then dropped.
   if (out.member_for) {
     const since = memberSince(out.member_for, capturedAt);
+    delete out.member_for;
     if (since) out.member_since = since;
   }
-  return out;
+  return Object.keys(out).length ? out : null;
 }

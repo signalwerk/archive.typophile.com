@@ -29,7 +29,7 @@ function Profile({ profile }) {
     ["Full name", profile.name],
     ["Location", place || null],
     ["Occupation", profile.occupation],
-    ["Member since", profile.member_since ? `${profile.member_since} (${profile.member_for})` : null],
+    ["Member since", profile.member_since],
     ["Home page", profile.home_page],
   ].filter(([, v]) => v);
   if (!rows.length) return null;
