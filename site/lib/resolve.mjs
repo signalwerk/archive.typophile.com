@@ -13,6 +13,8 @@ function withAuthors(page) {
 
 export function resolve(route, index) {
   switch (route.type) {
+    case "about":
+      return { totals: index.totals, forums: index.forums.length };
     case "index":
       return {
         page: withAuthors(paginate(index.threads, route.page)),

@@ -5,6 +5,7 @@ export function parseRoute(pathname) {
   const p = pathname.replace(/\/+$/, "") || "/";
 
   if (p === "/") return { type: "index", page: 1 };
+  if (p === "/about") return { type: "about" };
 
   let m = /^\/page\/(\d+)$/.exec(p);
   if (m) return { type: "index", page: Number(m[1]) };
@@ -26,6 +27,8 @@ export function parseRoute(pathname) {
 
 export function routeToPath(route) {
   switch (route.type) {
+    case "about":
+      return "/about/";
     case "index":
       return route.page > 1 ? `/page/${route.page}/` : "/";
     case "forum":

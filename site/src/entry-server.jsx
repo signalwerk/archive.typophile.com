@@ -2,12 +2,18 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { IndexPage } from "./pages/Index.jsx";
 import { ForumPage } from "./pages/Forum.jsx";
 import { ThreadPage } from "./pages/Thread.jsx";
+import { AboutPage } from "./pages/About.jsx";
 import { UserPage } from "./pages/User.jsx";
 
 // Pure rendering: the caller supplies the data, so the dev server and the
 // static build produce identical output from identical input.
 export function render(route, data) {
   switch (route.type) {
+    case "about":
+      return {
+        title: "About — Typophile archive",
+        html: renderToStaticMarkup(<AboutPage totals={data.totals} forums={data.forums} />),
+      };
     case "index": {
       const { items, page, pages } = data.page;
       return {

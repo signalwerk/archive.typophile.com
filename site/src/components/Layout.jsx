@@ -6,17 +6,13 @@ export function Layout({ children, wide = false }) {
         <h1 className="masthead__title">
           <a href="/">Typophile</a>
         </h1>
+        <a className="masthead__about" href="/about/">about</a>
         <nav className="masthead__nav">
           <a href="/">threads</a>
           <a href="/#forums">forums</a>
         </nav>
       </header>
       {children}
-      <footer className="foot">
-        An archive of typophile.com, recovered from the Internet Archive,
-        Arquivo.pt and Common Crawl. The site went offline in 2015; posts are
-        shown as they were captured.
-      </footer>
     </div>
   );
 }

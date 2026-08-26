@@ -58,7 +58,7 @@ async function main() {
   const index = buildIndex();
 
   // Every route the site has.
-  const routes = [];
+  const routes = [{ type: "about" }];
   const indexPages = Math.max(1, Math.ceil(index.threads.length / PER_PAGE));
   for (let p = 1; p <= indexPages; p++) routes.push({ type: "index", page: p });
   for (const forum of index.forums) {
