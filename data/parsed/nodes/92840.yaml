@@ -38,6 +38,7 @@ post:
   date_raw: 8 May 2012 — 9:22am
   votes: null
   html: <p>Did anybody ever have negative rendering experiences with TrueType-flavoured webfonts that have overlapping components (Ç) for the sake of file size reduction?</p>
+  html_clean: <p>Did anybody ever have negative rendering experiences with TrueType-flavoured webfonts that have overlapping components (Ç) for the sake of file size reduction?</p>
 comments:
   - id: 509170
     user: 11526
@@ -48,12 +49,17 @@ comments:
       <p>Haven't done any real investigation, but I did exactly that it (at first) on a recent project but on some Macs, you could spot a really small thin line where the outline met the outline, so I’d say it’s not safe. It didn't<br>
       look like Postscript fonts where the overlap made a white “cut”, it was very subtle.</p>
       <p>On the other hand I’ve heard people saying it should work. Perhaps it’s safe on Windows or older systems? Dunno.</p>
+    html_clean: |-
+      <p>Haven't done any real investigation, but I did exactly that it (at first) on a recent project but on some Macs, you could spot a really small thin line where the outline met the outline, so I’d say it’s not safe. It didn't<br>
+      look like Postscript fonts where the overlap made a white “cut”, it was very subtle.</p>
+      <p>On the other hand I’ve heard people saying it should work. Perhaps it’s safe on Windows or older systems? Dunno.</p>
   - id: 509175
     user: 1262
     date: 2012-05-09T12:42:00
     date_raw: 9 May 2012 — 12:42pm
     votes: null
     html: <p>It's been safe on Windows for a while now. Overlapping of decomposed outlines should be avoided, but overlapping of components is okay.</p>
+    html_clean: <p>It's been safe on Windows for a while now. Overlapping of decomposed outlines should be avoided, but overlapping of components is okay.</p>
   - id: 509179
     user: 1250
     date: 2012-05-09T13:48:00
@@ -62,18 +68,23 @@ comments:
     html: |-
       <p>John, I'm not getting the difference.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>John, I'm not getting the difference.</p>
+      <p>hhp</p>
   - id: 509183
     user: 17101
     date: 2012-05-09T14:14:00
     date_raw: 9 May 2012 — 2:14pm
     votes: null
     html: '<p>I’m experimenting with this: <a href="http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream" title="http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream">http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream</a></p>'
+    html_clean: '<p>I’m experimenting with this: <a href="http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream" title="http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream">http://www.flickr.com/photos/56183109@N02/6970925362/in/photostream</a></p>'
   - id: 509184
     user: 17101
     date: 2012-05-09T14:16:00
     date_raw: 9 May 2012 — 2:16pm
     votes: null
     html: <p>But then again, I’m a crazy ****.</p>
+    html_clean: <p>But then again, I’m a crazy ****.</p>
   - id: 509190
     user: 44873
     date: 2012-05-09T14:46:00
@@ -85,12 +96,22 @@ comments:
       <p><a href="http://www.facebook.com/richard.fink" rel="nofollow">Richard Fink</a><br>
       Blog: <a href="http://readableweb.com" rel="nofollow">Readable Web</a><br>
       Font Director: <a href="http://kernest.com" rel="nofollow">Kernest/Konstellations</a></p>
+    html_clean: |-
+      <p>No. Haven't had any problems with overlapping components.<br>
+      And have done quite a bit of it and well tested, too.</p>
+      <p><a href="http://www.facebook.com/richard.fink" rel="nofollow">Richard Fink</a><br>
+      Blog: <a href="http://readableweb.com" rel="nofollow">Readable Web</a><br>
+      Font Director: <a href="http://kernest.com" rel="nofollow">Kernest/Konstellations</a></p>
   - id: 509194
     user: 11578
     date: 2012-05-09T15:47:00
     date_raw: 9 May 2012 — 3:47pm
     votes: null
     html: |-
+      <p>@hrant - Components mean that the glyph outlines aren't defined in that character position, but are created by referring to other positions.  If you 'decompose' such a glyph, the outlines are now in their character's position. For example, the O-slash position could have pointers to the 'O' and the 'Slash' (component) or it could have the outlines right there (decomposed). There's a slight saving in file size using components; I believe that they must be decomposed before creating an open type font.</p>
+      <p>Now why rendering agents should display them differently, I have no idea. Possibly something to do with the rendering sequence, or outline directions,  or conflicting hinting, or ... or ...</p>
+      <p>- Herb</p>
+    html_clean: |-
       <p>@hrant - Components mean that the glyph outlines aren't defined in that character position, but are created by referring to other positions.  If you 'decompose' such a glyph, the outlines are now in their character's position. For example, the O-slash position could have pointers to the 'O' and the 'Slash' (component) or it could have the outlines right there (decomposed). There's a slight saving in file size using components; I believe that they must be decomposed before creating an open type font.</p>
       <p>Now why rendering agents should display them differently, I have no idea. Possibly something to do with the rendering sequence, or outline directions,  or conflicting hinting, or ... or ...</p>
       <p>- Herb</p>
@@ -106,18 +127,27 @@ comments:
       - Component referral only saves space if you use a component enough times (which might be as low as three, or even two, depending). For something like the cedilla there's probably no contest, but for the slash, I wonder.<br>
       - A problem with referred components -especially overlapping ones, and in darker weights- is that there's no opportunity for modulation. For example the lower curve of the /C/c should get thinner when a cedilla is attached. Then there's the ogonek, which likes to affect the base glyph bigtime...</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Got it. But why ever leave overlapping outlines in the position? For one thing they take up <em>more</em> room than the overlap-removed one. So I assume Yanone is talking about referred components.</p>
+      <p>Also:<br>
+      - I assume the rendering varies because for referred components each glyph is rasterized individually, then the bitmaps are merged. If so, that means it's slower than rendering a single outline-merged glyph. So you're trading rendering speed for download speed.<br>
+      - Component referral only saves space if you use a component enough times (which might be as low as three, or even two, depending). For something like the cedilla there's probably no contest, but for the slash, I wonder.<br>
+      - A problem with referred components -especially overlapping ones, and in darker weights- is that there's no opportunity for modulation. For example the lower curve of the /C/c should get thinner when a cedilla is attached. Then there's the ogonek, which likes to affect the base glyph bigtime...</p>
+      <p>hhp</p>
   - id: 509201
     user: 17101
     date: 2012-05-09T16:11:00
     date_raw: 9 May 2012 — 4:11pm
     votes: null
     html: "<p>Side note: The ø should **never** reuse the slash, despite its international name.</p>"
+    html_clean: "<p>Side note: The ø should **never** reuse the slash, despite its international name.</p>"
   - id: 509219
     user: 11578
     date: 2012-05-09T20:30:00
     date_raw: 9 May 2012 — 8:30pm
     votes: null
     html: <p>@frode  Yes. I only used that as a graphically clear example.</p>
+    html_clean: <p>@frode  Yes. I only used that as a graphically clear example.</p>
   - id: 509340
     user: 909
     date: 2012-05-10T15:44:00
@@ -127,12 +157,23 @@ comments:
       <p>One major reason to avoid this for desktop fonts was that if an end user strokes the outline of the glyphs, they get undesirable results from overlapping components.</p>
       <p>Of course, given a greatly increased concern with file size, that might change the balance of priorities.</p>
       <p>T</p>
+    html_clean: |-
+      <p>One major reason to avoid this for desktop fonts was that if an end user strokes the outline of the glyphs, they get undesirable results from overlapping components.</p>
+      <p>Of course, given a greatly increased concern with file size, that might change the balance of priorities.</p>
+      <p>T</p>
   - id: 509390
     user: 2969
     date: 2012-05-11T03:03:00
     date_raw: 11 May 2012 — 3:03am
     votes: null
     html: |-
+      <p>"Now why rendering agents should display them differently, I have no idea..."</p>
+      <p>The parts of a component are rendered to bitmaps separately and then the bitmaps are combined. Overlapping bitmaps are not a problem. Overlapping contours require the rendering to figure out the overlap and present a bitmap.</p>
+      <p>"For one thing they take up more room than the overlap-removed one..."</p>
+      <p>Plus.... a landscape oriented rectangle and a portrait oriented rectangle overlap and use 8 points and 10 hints. Remove overlap and you have 12 points and 14 hints. </p>
+      <p>"...if an end user strokes the outline of the glyphs, they get undesirable results from overlapping components."</p>
+      <p>Not in Cooltype or any other savvy app. You Occidentals don't know squat about overlapping issues. ;)</p>
+    html_clean: |-
       <p>"Now why rendering agents should display them differently, I have no idea..."</p>
       <p>The parts of a component are rendered to bitmaps separately and then the bitmaps are combined. Overlapping bitmaps are not a problem. Overlapping contours require the rendering to figure out the overlap and present a bitmap.</p>
       <p>"For one thing they take up more room than the overlap-removed one..."</p>
@@ -149,12 +190,22 @@ comments:
       <p>Hmm. I recall seeing some intelligent stroke outlining in Adobe apps previously, but when I tested this today in InDesign CS5.5 ME, these are the results I got:</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/IDoverlap_6082.png"></div><p></p>
       <p>[Top: Adobe Arabic, showing overlaps of joining glyphs; bottom: Segoe UI showing overlaping components in a single glyph.]</p>
+    html_clean: |-
+      <p>David: <em>Not in Cooltype or any other savvy app.</em></p>
+      <p>Hmm. I recall seeing some intelligent stroke outlining in Adobe apps previously, but when I tested this today in InDesign CS5.5 ME, these are the results I got:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/IDoverlap_6082.png"></div><p></p>
+      <p>[Top: Adobe Arabic, showing overlaps of joining glyphs; bottom: Segoe UI showing overlaping components in a single glyph.]</p>
   - id: 509471
     user: 2969
     date: 2012-05-12T03:13:00
     date_raw: 12 May 2012 — 3:13am
     votes: null
     html: |-
+      <p>Works here. Input TT glyph on left. Screen rendering of same glyph on right.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/&amp;ow_5132.png"></div><p></p>
+      <p>CS 3 5.0.3, (Mac of course). </p>
+      <p>(don't know if the png will show up).</p>
+    html_clean: |-
       <p>Works here. Input TT glyph on left. Screen rendering of same glyph on right.<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/&amp;ow_5132.png"></div><p></p>
       <p>CS 3 5.0.3, (Mac of course). </p>
@@ -169,12 +220,20 @@ comments:
       <p>DB replied: Not in Cooltype or any other savvy app.</p>
       <p>Well, I've seen it, John has shown it, and it was at Adobe, where they make CoolType, that I both saw it and was taught about it being a problem. That was why they never allowed overlapping outlines in their western fonts.</p>
       <p>Of course it is unavoidable for connected fonts, whether they are Arabic, Indic, or western connected script fonts. But that doesn't mean it shouldn't be avoided where practical.</p>
+    html_clean: |-
+      <p>I wrote: "...if an end user strokes the outline of the glyphs, they get undesirable results from overlapping components."</p>
+      <p>DB replied: Not in Cooltype or any other savvy app.</p>
+      <p>Well, I've seen it, John has shown it, and it was at Adobe, where they make CoolType, that I both saw it and was taught about it being a problem. That was why they never allowed overlapping outlines in their western fonts.</p>
+      <p>Of course it is unavoidable for connected fonts, whether they are Arabic, Indic, or western connected script fonts. But that doesn't mean it shouldn't be avoided where practical.</p>
   - id: 509718
     user: 6470
     date: 2012-05-14T14:08:00
     date_raw: 14 May 2012 — 2:08pm
     votes: null
     html: |-
+      <p>Thomas,</p>
+      <p>The overlapping is only unavoidable if the outline is centered on the glyph’s periphery. In applications which allow you to place the outline <strong>behind</strong> the glyph, the problem disappears.</p>
+    html_clean: |-
       <p>Thomas,</p>
       <p>The overlapping is only unavoidable if the outline is centered on the glyph’s periphery. In applications which allow you to place the outline <strong>behind</strong> the glyph, the problem disappears.</p>
   - id: 509747
@@ -187,12 +246,20 @@ comments:
       <p>They taught about overlapping TT at Adobe?</p>
       <p>The TT spec allows overlapping contours and components from 1.0, and the only experience I've had where that didn't render properly was corrected by Apple in their iOS about two years ago, partly, I was told, because there isn't any software on the web that renders "western fonts" differently from "eastern fonts", and Apple has a lot of eastern fonts that follow the TT spec.</p>
       <p>Besides all that, last time I tried to stroke and fill a live font on the web, the support was so inconsistent, forgetting about the overlap issue, that I had to include SVG and graphics to make my presentation show up on all browsers.</p>
+    html_clean: |-
+      <p>TP: "...that I both saw it and was taught about it being a problem." </p>
+      <p>They taught about overlapping TT at Adobe?</p>
+      <p>The TT spec allows overlapping contours and components from 1.0, and the only experience I've had where that didn't render properly was corrected by Apple in their iOS about two years ago, partly, I was told, because there isn't any software on the web that renders "western fonts" differently from "eastern fonts", and Apple has a lot of eastern fonts that follow the TT spec.</p>
+      <p>Besides all that, last time I tried to stroke and fill a live font on the web, the support was so inconsistent, forgetting about the overlap issue, that I had to include SVG and graphics to make my presentation show up on all browsers.</p>
   - id: 509819
     user: 1215
     date: 2012-05-15T05:48:00
     date_raw: 15 May 2012 — 5:48am
     votes: null
     html: |-
+      <blockquote><p>(don't know if the png will show up).</p></blockquote>
+      <p>David — The png format itself should show up fine; but you included an ampersand in your file name, which will not work with the system. So, your image got lost somewhere on the server. If you rename the image with only alphanumeric characters, you can re-upload it and then it should work.</p>
+    html_clean: |-
       <blockquote><p>(don't know if the png will show up).</p></blockquote>
       <p>David — The png format itself should show up fine; but you included an ampersand in your file name, which will not work with the system. So, your image got lost somewhere on the server. If you rename the image with only alphanumeric characters, you can re-upload it and then it should work.</p>
   - id: 509845
@@ -208,6 +275,14 @@ comments:
       <a href="http://www.impallari.com/testing/" title="http://www.impallari.com/testing/">http://www.impallari.com/testing/</a></p>
       <p>Click the “Latin” and take a look at glyphs with overlapping components. The default Times version have same issues on my computer, just like my example.</p>
       <p>So, I consider it not safe.</p>
+    html_clean: |-
+      <p>Here is Aring with two overlapping components in Safari, OSX Lion..</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/overlap_4397.png"></div><p></p>
+      <p>(If you don’t see it first, look again)</p>
+      <p>You can also see it live here:<br>
+      <a href="http://www.impallari.com/testing/" title="http://www.impallari.com/testing/">http://www.impallari.com/testing/</a></p>
+      <p>Click the “Latin” and take a look at glyphs with overlapping components. The default Times version have same issues on my computer, just like my example.</p>
+      <p>So, I consider it not safe.</p>
   - id: 509846
     user: 1250
     date: 2012-05-15T11:17:00
@@ -216,18 +291,31 @@ comments:
     html: |-
       <p>I hope that doesn't mean Apple is planning on resolutions going so high that even anti-aliasing won't be needed...  :-)</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>I hope that doesn't mean Apple is planning on resolutions going so high that even anti-aliasing won't be needed...  :-)</p>
+      <p>hhp</p>
   - id: 509875
     user: 17101
     date: 2012-05-15T11:08:00
     date_raw: 15 May 2012 — 11:08am
     votes: null
     html: <p>Is that TT or PS? Btw, for text that is more than safe.</p>
+    html_clean: <p>Is that TT or PS? Btw, for text that is more than safe.</p>
   - id: 509876
     user: 44873
     date: 2012-05-15T11:08:00
     date_raw: 15 May 2012 — 11:08am
     votes: null
     html: |-
+      <p>@Goran Soderstrom:</p>
+      <p>The Aring example you're showing is a bug of some kind and bugs get fixed.<br>
+      Is it happening with every font you try? </p>
+      <p>I've looked at hundreds of different fonts using overlapping components on Mac platforms and have never seen this.<br>
+      (And as rendering weirdness goes, it's not even that bad, IMHO.)<br>
+      Certainly not enough for me to avoid TT fonts with overlapping components and/or actual outlines.</p>
+      <p>I haven't seen a problem yet, except for the one you're presenting.</p>
+      <p>Rich</p>
+    html_clean: |-
       <p>@Goran Soderstrom:</p>
       <p>The Aring example you're showing is a bug of some kind and bugs get fixed.<br>
       Is it happening with every font you try? </p>
@@ -244,12 +332,19 @@ comments:
     html: |-
       <p>GS: "So, I consider it not safe."</p>
       <p>That's the OS with a bug that I think shows up in older Apple apps and not in others that have revved. I can show it in Fontbook and Textedit, but not Keynote or Safari. Can you show it in Safari?</p>
+    html_clean: |-
+      <p>GS: "So, I consider it not safe."</p>
+      <p>That's the OS with a bug that I think shows up in older Apple apps and not in others that have revved. I can show it in Fontbook and Textedit, but not Keynote or Safari. Can you show it in Safari?</p>
   - id: 509958
     user: 11526
     date: 2012-05-15T22:29:00
     date_raw: 15 May 2012 — 10:29pm
     votes: null
     html: |-
+      <p>I’m running OSX 10.7.3 and this shows up in Safari and FireFox on my newest MacBook. It also was visible on my older Mac with that other cat system.</p>
+      <p>Perhaps it’s a bug but it’s there :)</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/components_6324.png"></div><p></p>
+    html_clean: |-
       <p>I’m running OSX 10.7.3 and this shows up in Safari and FireFox on my newest MacBook. It also was visible on my older Mac with that other cat system.</p>
       <p>Perhaps it’s a bug but it’s there :)</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/components_6324.png"></div><p></p>
@@ -261,12 +356,18 @@ comments:
     html: |-
       <p>@Goran</p>
       <p>Is anybody going to NOT see that it's an Aring?  And don't let one edge case make you nervous. Relax.</p>
+    html_clean: |-
+      <p>@Goran</p>
+      <p>Is anybody going to NOT see that it's an Aring?  And don't let one edge case make you nervous. Relax.</p>
   - id: 510285
     user: 1250
     date: 2012-05-18T17:04:00
     date_raw: 18 May 2012 — 5:04pm
     votes: null
     html: |-
+      <p>YEAH! And why are you bothering with those damn-fangled accent thingies in the first place? Relax.</p>
+      <p>hhp</p>
+    html_clean: |-
       <p>YEAH! And why are you bothering with those damn-fangled accent thingies in the first place? Relax.</p>
       <p>hhp</p>
   - id: 510350
@@ -279,12 +380,20 @@ comments:
       <p>We have a different way of thinking about quality – what it is – how it looks –&nbsp;and how to present it to people who license fonts if that’s your answer.</p>
       <p>And you certainly do not know the swedish language.</p>
       <p>Bye now.</p>
+    html_clean: |-
+      <p>@Richard and hrant</p>
+      <p>We have a different way of thinking about quality – what it is – how it looks –&nbsp;and how to present it to people who license fonts if that’s your answer.</p>
+      <p>And you certainly do not know the swedish language.</p>
+      <p>Bye now.</p>
   - id: 510351
     user: 11526
     date: 2012-05-19T09:12:00
     date_raw: 19 May 2012 — 9:12am
     votes: null
     html: |-
+      <p>@frode</p>
+      <p>It’s TT.</p>
+    html_clean: |-
       <p>@frode</p>
       <p>It’s TT.</p>
   - id: 510353
@@ -296,11 +405,18 @@ comments:
       <p>I was being sarcastic.<br>
       <a href="http://www.flickr.com/photos/48413419@N00/347980079" title="http://www.flickr.com/photos/48413419@N00/347980079">http://www.flickr.com/photos/48413419@N00/347980079</a></p>
       <p>hhp</p>
+    html_clean: |-
+      <p>I was being sarcastic.<br>
+      <a href="http://www.flickr.com/photos/48413419@N00/347980079" title="http://www.flickr.com/photos/48413419@N00/347980079">http://www.flickr.com/photos/48413419@N00/347980079</a></p>
+      <p>hhp</p>
   - id: 510355
     user: 11526
     date: 2012-05-19T09:26:00
     date_raw: 19 May 2012 — 9:26am
     votes: null
     html: |-
+      <p>@hrant</p>
+      <p>Ok, sorry I didn’t get that after first reading Richards answer.</p>
+    html_clean: |-
       <p>@hrant</p>
       <p>Ok, sorry I didn’t get that after first reading Richards answer.</p>

@@ -50,6 +50,19 @@ post:
               <a href="/node/80221" class="topic-previous" title="Go to previous forum topic">‹ Why am I seeing colour fringing</a>
                   <a href="/node/80451" class="topic-next" title="Go to next forum topic">Copy kerning from lowercase to uppercase and * upper-to-lowercase ›</a>
           </div>
+  html_clean: |-
+    <p>For some reason in Illustrator I'm getting a giant cursor where text is added to the top. If you look at the picture you'll see the black portion is highlighted text. Despite the huge cursor the leading appears to be perfectly fine.</p>
+    <p>I'm not sure if this is related, but the ttf is cut off in MS Word and I'm assuming my vertical metrics are off...which is at least one of my problems if not both.</p>
+    <p><img src="http://i.imgur.com/7SorA.jpg" alt="" title="Hosted by imgur.com"></p>
+    <p>And for my dimensions:</p>
+    <p>Asc:  590<br>
+    Des:  -287<br>
+    UPM: 1000</p>
+    <p>I've read the numerous articles about vertical metrics but something must still be off. Based on these values can anyone lend a hand on my OS/2 and hhea?</p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/80221/" class="topic-previous" title="Go to previous forum topic">‹ Why am I seeing colour fringing</a>
+                  <a href="/node/80451/" class="topic-next" title="Go to next forum topic">Copy kerning from lowercase to uppercase and * upper-to-lowercase ›</a>
+          </div>
 comments:
   - id: 457048
     user: 6470
@@ -57,6 +70,7 @@ comments:
     date_raw: 24 Mar 2011 — 3:15pm
     votes: null
     html: <p>The Ascender and Descender, as positive values, don't add up to the UPM; also check your bbox values.</p>
+    html_clean: <p>The Ascender and Descender, as positive values, don't add up to the UPM; also check your bbox values.</p>
   - id: 457053
     user: 81477
     date: 2011-03-24T15:47:00
@@ -69,21 +83,31 @@ comments:
       <p>I see a huge negative value but not sure where it's coming from and not sure how to change it.</p>
       <p>Font BBox (-818, -5678) - (730, 706)</p>
       <p>Would you mind consulting with me? I'm completely lost about the best way to go about this and no changes seem to make it work.</p>
+    html_clean: |-
+      <p>Thanks for the reply oldnick</p>
+      <p>So then UPM should be 877 (which I understand may give me weird scaling issues?...oh well)</p>
+      <p>What about the bounding box should I look for?</p>
+      <p>I see a huge negative value but not sure where it's coming from and not sure how to change it.</p>
+      <p>Font BBox (-818, -5678) - (730, 706)</p>
+      <p>Would you mind consulting with me? I'm completely lost about the best way to go about this and no changes seem to make it work.</p>
   - id: 457056
     user: 6470
     date: 2011-03-24T16:14:00
     date_raw: 24 Mar 2011 — 4:14pm
     votes: null
     html: <p>Well, it's pretty obvious that the cursor problem is caused by the HUGE negative value in the bbox. You may be able to track down the errant point/object that's causing this anomaly by selecting the first character in your font (usually the exclamation mark), selecting VIEW &gt; ZOOM &gt; FIT, then stepping through your characters (CMD/CTRL+]). When you hit the offending character, you oughta know it...</p>
+    html_clean: <p>Well, it's pretty obvious that the cursor problem is caused by the HUGE negative value in the bbox. You may be able to track down the errant point/object that's causing this anomaly by selecting the first character in your font (usually the exclamation mark), selecting VIEW &gt; ZOOM &gt; FIT, then stepping through your characters (CMD/CTRL+]). When you hit the offending character, you oughta know it...</p>
   - id: 457064
     user: 81477
     date: 2011-03-24T17:26:00
     date_raw: 24 Mar 2011 — 5:26pm
     votes: null
     html: <p>Beautiful. Found some pesky dashes hanging around way way down there. Hopefully that will fix the issues in MS Word as well. OldNick you are the MAN!</p>
+    html_clean: <p>Beautiful. Found some pesky dashes hanging around way way down there. Hopefully that will fix the issues in MS Word as well. OldNick you are the MAN!</p>
   - id: 457144
     user: 81477
     date: 2011-03-25T09:47:00
     date_raw: 25 Mar 2011 — 9:47am
     votes: null
     html: <p>Just to confirm. This did fix my issues in MS Word too. Thanks again OldNick</p>
+    html_clean: <p>Just to confirm. This did fix my issues in MS Word too. Thanks again OldNick</p>

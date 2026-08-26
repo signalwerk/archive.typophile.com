@@ -45,6 +45,14 @@ post:
     3) Interpolate the intermediate forms, like Thin, Light, Bold, Black, etc.</p>
     <p>Is this how it's generally done? Are most typeface families created from these three weights? Also, are the results acceptable if you're interpolating something across a wide range, such as an interpolation between a regular weight and an "Ultra Black" weight? Or should the extremes be closer together?</p>
     <p>Lastly, I want at least three weights-- light, regular and bold. I'd imagine that in this case, MM can't help me, as I would need at least these three weights before I could do any interpolation anyway. The only other way would be using extrapolation, but I don't trust the results of that particular technique for my font weights.</p>
+  html_clean: |-
+    <p>I am working on a typeface and not looking forward to the idea of redesigning each glyph for every single <a href="/wiki/weight" class="freelinking" rel="nofollow">weight</a>, so I'm very interested in generating some of the weights using <a href="/wiki/multiple%20master" class="freelinking" rel="nofollow">multiple masters</a> in FontLab.</p>
+    <p>How does this generally work? I read the chapter in the FL manual and it seems that the best way to do it is:</p>
+    <p>1) Create a regular weight<br>
+    2) Create "extremes", for instance, "Ultra Thin" and "Ultra Black".<br>
+    3) Interpolate the intermediate forms, like Thin, Light, Bold, Black, etc.</p>
+    <p>Is this how it's generally done? Are most typeface families created from these three weights? Also, are the results acceptable if you're interpolating something across a wide range, such as an interpolation between a regular weight and an "Ultra Black" weight? Or should the extremes be closer together?</p>
+    <p>Lastly, I want at least three weights-- light, regular and bold. I'd imagine that in this case, MM can't help me, as I would need at least these three weights before I could do any interpolation anyway. The only other way would be using extrapolation, but I don't trust the results of that particular technique for my font weights.</p>
 comments:
   - id: 241540
     user: 14722
@@ -52,12 +60,17 @@ comments:
     date_raw: 23 Nov 2007 — 12:12pm
     votes: null
     html: <p>I’m also looking for any good references on interpolation techniques, Fontlab-centric or otherwise.</p>
+    html_clean: <p>I’m also looking for any good references on interpolation techniques, Fontlab-centric or otherwise.</p>
   - id: 241560
     user: 3972
     date: 2007-11-23T14:02:00
     date_raw: 23 Nov 2007 — 2:02pm
     votes: null
     html: |-
+      <p><a href="http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov" title="http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov">http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov</a><br>
+      . . .<br>
+      Bert Vanderveen BNO</p>
+    html_clean: |-
       <p><a href="http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov" title="http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov">http://superpolator.com/movies/SuperpolatorScreencast_intro_small.mov</a><br>
       . . .<br>
       Bert Vanderveen BNO</p>
@@ -71,24 +84,34 @@ comments:
       Extrapolation is marginally useful.<br>
       Other than that--experiment! You don't need a whole font, just make a few letters and see what happens.<br>
       If you want three weights, it makes sense to have Hairline and Ultra as the extremes, rather than Light and Bold, because you will then be able to make those anyway, and interpolation is far better than extrapolation. And for a sans, Hairline is quite easy--just draw a path (using your Regular in the mask layer as a guide) and give it a stroke value of 20.</p>
+    html_clean: |-
+      <p>Yes, the Thin--Regular--Ultra system works for me.<br>
+      Extrapolation is marginally useful.<br>
+      Other than that--experiment! You don't need a whole font, just make a few letters and see what happens.<br>
+      If you want three weights, it makes sense to have Hairline and Ultra as the extremes, rather than Light and Bold, because you will then be able to make those anyway, and interpolation is far better than extrapolation. And for a sans, Hairline is quite easy--just draw a path (using your Regular in the mask layer as a guide) and give it a stroke value of 20.</p>
   - id: 241568
     user: 8664
     date: 2007-11-23T14:15:00
     date_raw: 23 Nov 2007 — 2:15pm
     votes: null
     html: <p>A related thread is <a href="http://typophile.com/node/39239" rel="nofollow">http://typophile.com/node/39239</a> (Design forum), with a great post by Carl Crossgrove.</p>
+    html_clean: <p>A related thread is <a href="http://typophile.com/node/39239" rel="nofollow">http://typophile.com/node/39239</a> (Design forum), with a great post by Carl Crossgrove.</p>
   - id: 242034
     user: 4763
     date: 2007-11-26T05:46:00
     date_raw: 26 Nov 2007 — 5:46am
     votes: null
     html: <p>You may find <a class="freelinking external" href="http://tim-ahrens.de/type/Tim%20Ahrens%20-%20Partial%20Extrapolation.pdf" rel="nofollow">this</a> interesting. Or useful. Or totally confusing.</p>
+    html_clean: <p>You may find <a class="freelinking external" href="http://tim-ahrens.de/type/Tim%20Ahrens%20-%20Partial%20Extrapolation.pdf" rel="nofollow">this</a> interesting. Or useful. Or totally confusing.</p>
   - id: 242116
     user: 1262
     date: 2007-11-26T11:06:00
     date_raw: 26 Nov 2007 — 11:06am
     votes: null
     html: |-
+      <p>Totally confusing, Tim, but interesting. I'm having a little trouble imagining how it would be applied, i.e. what the results would look like in an actual glyph. But I love this statement:</p>
+      <p><em>These three diagrams are different interpretations or manifestations of the same phenomenon. Just like a thrown object describes a parabola in real space as well as in a path-space diagram.</em></p>
+    html_clean: |-
       <p>Totally confusing, Tim, but interesting. I'm having a little trouble imagining how it would be applied, i.e. what the results would look like in an actual glyph. But I love this statement:</p>
       <p><em>These three diagrams are different interpretations or manifestations of the same phenomenon. Just like a thrown object describes a parabola in real space as well as in a path-space diagram.</em></p>
   - id: 242181
@@ -104,12 +127,23 @@ comments:
       In the XB the bar is tweaked very much, which finds its way into the interpolated SB, as seen on the right: the horizontal is too heavy, and also the overall weight.<br>
       What we want is something in between: part extrapolation and part interpolation. This can be achieved by adjusting the weights in our cocktail that gives the semibold. I typically put the three weights into an MM font (which means, unfortunately, that two masters are identical) and then calculate the required MM positions to give the desired resulting weight, and amount of extra- vs interpolation. Note that in the above example the fact that there is exactly 100% REG is random, it could be more or less than that.</p>
       <p>This may all seem complicated and the improvements are not drastic. However, it amost does not cause any additional work – all you have to do is to combine your weights a bit differently when you generate the weights you do not design manually. It is my experience that the time you save for correcting the semibold outweighs (ha ha) the effort to set up the MM font.</p>
+    html_clean: |-
+      <p>This is a real world example:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/p_extra_5569.gif"></div><p></p>
+      <p>This is assuming a manually designed extralight (XL), regular (REG) and extrabold (XB) exist, otherwise my system cannot be applied.<br>
+      If we want to generate a semibold (SB) we can do so by extrapolating from XL 'across' REG, as seen on the left. However, the horizontal bar is too heavy for this weight since it is (almost) proportional in both the source weights.<br>
+      In the XB the bar is tweaked very much, which finds its way into the interpolated SB, as seen on the right: the horizontal is too heavy, and also the overall weight.<br>
+      What we want is something in between: part extrapolation and part interpolation. This can be achieved by adjusting the weights in our cocktail that gives the semibold. I typically put the three weights into an MM font (which means, unfortunately, that two masters are identical) and then calculate the required MM positions to give the desired resulting weight, and amount of extra- vs interpolation. Note that in the above example the fact that there is exactly 100% REG is random, it could be more or less than that.</p>
+      <p>This may all seem complicated and the improvements are not drastic. However, it amost does not cause any additional work – all you have to do is to combine your weights a bit differently when you generate the weights you do not design manually. It is my experience that the time you save for correcting the semibold outweighs (ha ha) the effort to set up the MM font.</p>
   - id: 242193
     user: 2021
     date: 2007-11-26T15:22:00
     date_raw: 26 Nov 2007 — 3:22pm
     votes: null
     html: |-
+      <p><a href="http://www.lucasfonts.com/index_neu.html" title="http://www.lucasfonts.com/index_neu.html">http://www.lucasfonts.com/index_neu.html</a></p>
+      <p>&gt;information  &gt; interpolation theory</p>
+    html_clean: |-
       <p><a href="http://www.lucasfonts.com/index_neu.html" title="http://www.lucasfonts.com/index_neu.html">http://www.lucasfonts.com/index_neu.html</a></p>
       <p>&gt;information  &gt; interpolation theory</p>
   - id: 242202
@@ -122,12 +156,18 @@ comments:
       <p>Michel</p>
       <p>[edit 1] Maybe the method should rather be called "exponential interpolation". I can find no reference for the moment.<br>
       [edit 2] Yes, it should be called exponential interpolation as can be found <a href="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf" rel="nofollow">here</a>.</p>
+    html_clean: |-
+      <p>The LucasFont idea is this: all the formulas boil down to saying that b, the width of the "medial" stem, is the square root of the product of a by c, where a is the smallest and c the largest stem. This means that the width of the medium stem is the geometric mean of the widths of the smallest and largest stems. This is equivalent to saying that the logarithm of b is exactly the arithmetic mean of the logarithm of a and that of c. This is logarithmic interpolation and this looks interesting. My feeling is that Tim's interpolation uses a quadratic fit (whence the parabola). Am I wrong? Tim, would it make any sense to mix the two approaches (i.e. take a log, use a quadratic fit, and then exponentiate)? </p>
+      <p>Michel</p>
+      <p>[edit 1] Maybe the method should rather be called "exponential interpolation". I can find no reference for the moment.<br>
+      [edit 2] Yes, it should be called exponential interpolation as can be found <a href="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf" rel="nofollow">here</a>.</p>
   - id: 242206
     user: 1551
     date: 2007-11-26T16:36:00
     date_raw: 26 Nov 2007 — 4:36pm
     votes: null
     html: "<p>As someone pointed out in another thread, a simple way of stating Lucas's idea is that the weights should be a geometric progression: the ratio of each term (weight) to the previous one is the same. For example, if you have three successively heavy weights, A,B,C, then algebraically A/B = B/C. Rearranging you get Lucas's formula: AC = B^2 . In a talk I saw him give, he explained a more complex version that takes into account double and triple horizontal strokes, but I don't remember it.</p>"
+    html_clean: "<p>As someone pointed out in another thread, a simple way of stating Lucas's idea is that the weights should be a geometric progression: the ratio of each term (weight) to the previous one is the same. For example, if you have three successively heavy weights, A,B,C, then algebraically A/B = B/C. Rearranging you get Lucas's formula: AC = B^2 . In a talk I saw him give, he explained a more complex version that takes into account double and triple horizontal strokes, but I don't remember it.</p>"
   - id: 242210
     user: 18942
     date: 2007-11-26T16:42:00
@@ -136,12 +176,21 @@ comments:
     html: |-
       <p>&gt; <cite> Lucas’s idea is that the weights should be a geometric progression</cite></p>
       <p>This is exactly why they can be made to fit an exponential curve.</p>
+    html_clean: |-
+      <p>&gt; <cite> Lucas’s idea is that the weights should be a geometric progression</cite></p>
+      <p>This is exactly why they can be made to fit an exponential curve.</p>
   - id: 242212
     user: 4763
     date: 2007-11-26T16:51:00
     date_raw: 26 Nov 2007 — 4:51pm
     votes: null
     html: |-
+      <p><cite>My feeling is that Tim’s interpolation uses a quadratic fit.</cite></p>
+      <p>Note that my diagrams are in different spaces than Lucas's. My approach does not say anything about the weight of the individual instances, it considers only the interpolation. By choosing the amounts of the three ingredients (which means two degrees of freedom) you can create any graph you want. All I am saying is that it should not have kinks. A pure interpolation with a kink is a special case in my approach.</p>
+      <p><cite>Yes, it should be called exponential interpolation</cite></p>
+      <p>No, it should be called geometric sequence or progression (see <a href="http://en.wikipedia.org/wiki/Geometric_sequence" title="http://en.wikipedia.org/wiki/Geometric_sequence">http://en.wikipedia.org/wiki/Geometric_sequence</a>). This is precisely what it is, nothing more and nothing less. You can transform that into complicated formulas if you want, of course, but they will not say anything else.</p>
+      <p>Lucas's concept is about the individual weights – despite the name it does not say anything about interpolation, actually.</p>
+    html_clean: |-
       <p><cite>My feeling is that Tim’s interpolation uses a quadratic fit.</cite></p>
       <p>Note that my diagrams are in different spaces than Lucas's. My approach does not say anything about the weight of the individual instances, it considers only the interpolation. By choosing the amounts of the three ingredients (which means two degrees of freedom) you can create any graph you want. All I am saying is that it should not have kinks. A pure interpolation with a kink is a special case in my approach.</p>
       <p><cite>Yes, it should be called exponential interpolation</cite></p>
@@ -156,18 +205,27 @@ comments:
       <p>&gt; <cite>You can transform that into complicated formulas if you want, of course, but they will not say anything else.</cite></p>
       <p>I agree with your statement. However, if the smallest stem is a, the largest is c, and if you have 5 weights between a and c, then according to Lucas the stem of weights k=1 to 5 is a*(c/a)**(k/6.0) using Python code. The explanation in terms of geometric progression is nice but does not give Python code.</p>
       <p>[edit] I meant according to the formula y(x) = y0*(y1/y0)**x; here y0 = a, y1 = c; x is k/6 where k=0 for stem a and k=6 for stem c and k from 1 to 5 gives those in between.</p>
+    html_clean: |-
+      <p>&gt; <cite>You can transform that into complicated formulas if you want, of course, but they will not say anything else.</cite></p>
+      <p>I agree with your statement. However, if the smallest stem is a, the largest is c, and if you have 5 weights between a and c, then according to Lucas the stem of weights k=1 to 5 is a*(c/a)**(k/6.0) using Python code. The explanation in terms of geometric progression is nice but does not give Python code.</p>
+      <p>[edit] I meant according to the formula y(x) = y0*(y1/y0)**x; here y0 = a, y1 = c; x is k/6 where k=0 for stem a and k=6 for stem c and k from 1 to 5 gives those in between.</p>
   - id: 242218
     user: 18942
     date: 2007-11-26T17:34:00
     date_raw: 26 Nov 2007 — 5:34pm
     votes: null
     html: <p>If you take the formula on Geometric Progression in Wikipedia, you can also write  a*r**k for k from 1 to 5 with r = (c/a)**(1.0/6). Both approaches are indeed equivalent; the advantage of the formula in <a href="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf" title="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf">http://music.nuim.ie/musictec/docs/progr/interpolation.pdf</a> is that it is expressed as an interpolation formula.</p>
+    html_clean: <p>If you take the formula on Geometric Progression in Wikipedia, you can also write  a*r**k for k from 1 to 5 with r = (c/a)**(1.0/6). Both approaches are indeed equivalent; the advantage of the formula in <a href="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf" title="http://music.nuim.ie/musictec/docs/progr/interpolation.pdf">http://music.nuim.ie/musictec/docs/progr/interpolation.pdf</a> is that it is expressed as an interpolation formula.</p>
   - id: 242243
     user: 2021
     date: 2007-11-26T20:45:00
     date_raw: 26 Nov 2007 — 8:45pm
     votes: null
     html: |-
+      <p>The important thing to decide is how many instances you have between the lightest and the fattest.<br>
+      You want to be very careful to avoid an instance where the stem width and the width between stems is identical.<br>
+      That can happen if you have, say, x number of instances, but x+1 or x-1 will avoid it. However, then you have to consider another priority: you should have Regular and Bold work well together and look like Regular and Bold, not Regular and Extra Bold or Light and Medium.</p>
+    html_clean: |-
       <p>The important thing to decide is how many instances you have between the lightest and the fattest.<br>
       You want to be very careful to avoid an instance where the stem width and the width between stems is identical.<br>
       That can happen if you have, say, x number of instances, but x+1 or x-1 will avoid it. However, then you have to consider another priority: you should have Regular and Bold work well together and look like Regular and Bold, not Regular and Extra Bold or Light and Medium.</p>
@@ -179,6 +237,9 @@ comments:
     html: |-
       <p>I just want to say that I’ve been playing with the MM features in Fontlab based on the comments in this thread, the Fontlab manual, and Adobe’s <em>Designing Multiple Master Typefaces</em>. </p>
       <p>This is so awesome and easy it’s scary. And it’s fun, too.</p>
+    html_clean: |-
+      <p>I just want to say that I’ve been playing with the MM features in Fontlab based on the comments in this thread, the Fontlab manual, and Adobe’s <em>Designing Multiple Master Typefaces</em>. </p>
+      <p>This is so awesome and easy it’s scary. And it’s fun, too.</p>
   - id: 242944
     user: 1043
     date: 2007-11-28T20:30:00
@@ -187,12 +248,23 @@ comments:
     html: |-
       <p><em>You want to be very careful to avoid an instance where the stem width and the width between stems is identical.</em></p>
       <p>I don't think I've ever heard this rule before. It's not hard to find examples of classic foundry typefaces where this is true for some characters, so I must say I'm a bit skeptical. Where does this idea come from and what's the reason for it?</p>
+    html_clean: |-
+      <p><em>You want to be very careful to avoid an instance where the stem width and the width between stems is identical.</em></p>
+      <p>I don't think I've ever heard this rule before. It's not hard to find examples of classic foundry typefaces where this is true for some characters, so I must say I'm a bit skeptical. Where does this idea come from and what's the reason for it?</p>
   - id: 242950
     user: 2021
     date: 2007-11-28T22:05:00
     date_raw: 28 Nov 2007 — 10:05pm
     votes: null
     html: |-
+      <p>I wouldn't say it's a rule, just an observation and a recommendation.<br>
+      There's something disconcerting about evenly matched values in a figure-ground relationship, because the eye is not quite sure which is which.<br>
+      So I think it makes sense, when you're picking where to place your instances on the curve, to avoid that situation.<br>
+      Here are two typeface examples of adjacent weights, Helvetica and Univers, which straddle the equivalent instance.<br>
+      I haven't done a survey, but I suspect this is typical.<br>
+      The general idea is that while a multiple master curve offers infinite choices, there are scales of visually-pleasing instances which restrict what is practical.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/ns_5646.jpg"></div><p></p>
+    html_clean: |-
       <p>I wouldn't say it's a rule, just an observation and a recommendation.<br>
       There's something disconcerting about evenly matched values in a figure-ground relationship, because the eye is not quite sure which is which.<br>
       So I think it makes sense, when you're picking where to place your instances on the curve, to avoid that situation.<br>
@@ -210,24 +282,39 @@ comments:
       <p><cite><strong>Member for</strong><br>
       1 hour 22 min</cite></p>
       <p>... and then already kicked out. Tsk, tsk.</p>
+    html_clean: |-
+      <p>Moderators, please <em>do</em> remove spam.</p>
+      <p><cite><strong>Member for</strong><br>
+      1 hour 22 min</cite></p>
+      <p>... and then already kicked out. Tsk, tsk.</p>
   - id: 366568
     user: 108
     date: 2009-09-08T14:18:00
     date_raw: 8 Sep 2009 — 2:18pm
     votes: null
     html: <p>If you notice spam please <a href="http://typophile.com/moderators" rel="nofollow">report it to the moderators</a>. Thanks. :)</p>
+    html_clean: <p>If you notice spam please <a href="http://typophile.com/moderators" rel="nofollow">report it to the moderators</a>. Thanks. :)</p>
   - id: 597057
     user: 225497
     date: 2015-01-10T15:31:00
     date_raw: 10 Jan 2015 — 3:31pm
     votes: null
     html: <p>I am researching this topic for use in a future business I am thinking about starting. Thank you for this information, it has been educational and helpful to me. <a class="freelinking external" href="http://www.createautomation.co.uk/iPad-in-wall-mounts_c_29.html" rel="nofollow">Web Site</a></p>
+    html_clean: <p>I am researching this topic for use in a future business I am thinking about starting. Thank you for this information, it has been educational and helpful to me. <a class="freelinking external" href="http://www.createautomation.co.uk/iPad-in-wall-mounts_c_29.html" rel="nofollow">Web Site</a></p>
   - id: 597352
     user: 225604
     date: 2015-01-15T08:54:00
     date_raw: 15 Jan 2015 — 8:54am
     votes: null
     html: |-
+      <p>Here at Toronto Secure Locks we offer an unbeatable fast Professional<br>
+      Locksmith service, so if you’re locked out, need your locks changing<br>
+      or replacing or even need a safe opening we can help any time of day,<br>
+       we also provide an Access control, CCTV </p>
+      <p><a href="http://yorklocksmith.com/" title="http://yorklocksmith.com/">http://yorklocksmith.com/</a><br>
+      <a href="http://0544342878.com" title="http://0544342878.com">http://0544342878.com</a><br>
+      <a href="http://mysaite.ru" title="http://mysaite.ru">http://mysaite.ru</a></p>
+    html_clean: |-
       <p>Here at Toronto Secure Locks we offer an unbeatable fast Professional<br>
       Locksmith service, so if you’re locked out, need your locks changing<br>
       or replacing or even need a safe opening we can help any time of day,<br>
@@ -247,12 +334,27 @@ comments:
       <p><a href="http://escorts4you.me" title="http://escorts4you.me">http://escorts4you.me</a><br>
       <a href="http://escorts4you.biz" title="http://escorts4you.biz">http://escorts4you.biz</a><br>
       <a href="http://escorts4you.info" title="http://escorts4you.info">http://escorts4you.info</a></p>
+    html_clean: |-
+      <p>הרודס מפורסם והארווי ניקס, וברים ומסעדות בשפע כמו בודהה בר<br>
+       וסן לורנצו, שם לעולם לא נהיה מחסור במקומות ללכת. ובכל מקום<br>
+       שאתה הולך אתה תהיה מוקף בתזזיות וזוהר זה שם נרדף לאזור.</p>
+      <p><a href="http://escorts4you.me" title="http://escorts4you.me">http://escorts4you.me</a><br>
+      <a href="http://escorts4you.biz" title="http://escorts4you.biz">http://escorts4you.biz</a><br>
+      <a href="http://escorts4you.info" title="http://escorts4you.info">http://escorts4you.info</a></p>
   - id: 597690
     user: 225604
     date: 2015-01-20T08:29:00
     date_raw: 20 Jan 2015 — 8:29am
     votes: null
     html: |-
+      <p>Here at Toronto Secure Locks we offer an unbeatable fast Professional<br>
+      Locksmith service, so if you’re locked out, need your locks changing<br>
+      or replacing or even need a safe opening we can help any time of day,<br>
+       we also provide an Access control, CCTV </p>
+      <p><a href="http://localcalgarylocksmith.com" rel="nofollow">http://localcalgarylocksmith.com/</a><br>
+      <a href="http://0544342878.com" rel="nofollow">http://0544342878.com</a><br>
+      <a href="http://mysaite.ru" rel="nofollow">http://mysaite.ru</a></p>
+    html_clean: |-
       <p>Here at Toronto Secure Locks we offer an unbeatable fast Professional<br>
       Locksmith service, so if you’re locked out, need your locks changing<br>
       or replacing or even need a safe opening we can help any time of day,<br>
@@ -269,12 +371,23 @@ comments:
       <p><a href="http://livuysex.com" rel="nofollow">שירותי ליווי</a><br>
       <a href="http://livuysex.net" rel="nofollow">זונות ליווי</a><br>
       <a href="http://livuysex.biz" rel="nofollow">נערות ליווי</a></p>
+    html_clean: |-
+      <p><a href="http://livuysex.com" rel="nofollow">שירותי ליווי</a><br>
+      <a href="http://livuysex.net" rel="nofollow">זונות ליווי</a><br>
+      <a href="http://livuysex.biz" rel="nofollow">נערות ליווי</a></p>
   - id: 599649
     user: 225604
     date: 2015-02-20T07:34:00
     date_raw: 20 Feb 2015 — 7:34am
     votes: null
     html: |-
+      <p>Here at LocalMaster. Locksmith we understand the importance of your<br>
+       security needs and that is why we provide emergency locksmith service<br>
+      in Toronto around the clock for you! Whether you require a locksmith for<br>
+       your vehicle, a locksmith for your home or a commercial locksmith we<br>
+       will always have the right solution for you, every time.</p>
+      <p><a href="http://localmaster.info/locksmith-scarborough" rel="nofollow">Locksmith Scarborough</a></p>
+    html_clean: |-
       <p>Here at LocalMaster. Locksmith we understand the importance of your<br>
        security needs and that is why we provide emergency locksmith service<br>
       in Toronto around the clock for you! Whether you require a locksmith for<br>

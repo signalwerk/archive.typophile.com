@@ -38,6 +38,7 @@ post:
   date_raw: 7 Sep 2008 — 1:32pm
   votes: null
   html: <p>FDK’s CompareFamily is blaming me for using underscores in glyphname extensions like in <code>zero.onum_pnum</code>. It interprets the glyphs as ligatures like a <code>f_l</code> glyph and it searches for the pnum glyph without any luck. Is it just FDK that is a little bit too sensitive here or does this affect decomposition behavior in Acrobat as well?</p>
+  html_clean: <p>FDK’s CompareFamily is blaming me for using underscores in glyphname extensions like in <code>zero.onum_pnum</code>. It interprets the glyphs as ligatures like a <code>f_l</code> glyph and it searches for the pnum glyph without any luck. Is it just FDK that is a little bit too sensitive here or does this affect decomposition behavior in Acrobat as well?</p>
 comments:
   - id: 300150
     user: 1844
@@ -45,6 +46,7 @@ comments:
     date_raw: 7 Sep 2008 — 4:04pm
     votes: null
     html: <p><code>zero.onum_pnum</code> is a fine name. Some CompareFamily tests may be too tailored to the glyph names we use at Adobe. Would be good to know exactly what's the message you're getting and which test is generating it, so that we can improve the algorithm to account for such glyph names. Thanks.</p>
+    html_clean: <p><code>zero.onum_pnum</code> is a fine name. Some CompareFamily tests may be too tailored to the glyph names we use at Adobe. Would be good to know exactly what's the message you're getting and which test is generating it, so that we can improve the algorithm to account for such glyph names. Thanks.</p>
   - id: 300181
     user: 1021
     date: 2008-09-08T00:10:00
@@ -57,17 +59,28 @@ comments:
       <p>The same message follows for all the other glyphs with the same kind of name extension. </p>
       <p>I'm running a rather verbose report with the following command:</p>
       <p><code>comparefamily -rm -rn -rp -hint -l ../log/compareFamily.log</code></p>
+    html_clean: |-
+      <p>Thanks Miguel.</p>
+      <p>The warning is in the <code>Single Face Test 26: Glyph name checks</code> part and says:</p>
+      <p><code>Warning. Glyph name 'pnum' in ligature name 'zero.onum_pnum' is neither in the AGD, nor a 'uni' name, and can't be mapped to a Unicode value.</code></p>
+      <p>The same message follows for all the other glyphs with the same kind of name extension. </p>
+      <p>I'm running a rather verbose report with the following command:</p>
+      <p><code>comparefamily -rm -rn -rp -hint -l ../log/compareFamily.log</code></p>
   - id: 300230
     user: 14637
     date: 2008-09-08T08:45:00
     date_raw: 8 Sep 2008 — 8:45am
     votes: null
     html: <p>This is a bug in CompareFamily - it shouldn't be applying the ligature checking logic to the glyph suffix. This fixed now in my version, fix will be available in the next AFDKO release, =do in a few weeks.</p>
+    html_clean: <p>This is a bug in CompareFamily - it shouldn't be applying the ligature checking logic to the glyph suffix. This fixed now in my version, fix will be available in the next AFDKO release, =do in a few weeks.</p>
   - id: 300231
     user: 3135
     date: 2008-09-08T08:52:00
     date_raw: 8 Sep 2008 — 8:52am
     votes: null
     html: |-
+      <p>Thanks, Read!</p>
+      <p>ChrisL</p>
+    html_clean: |-
       <p>Thanks, Read!</p>
       <p>ChrisL</p>

@@ -50,6 +50,19 @@ post:
     <p>print A</p>
     <p>f.update()</p>
     <p></p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>Is it possible to use RoboFab control the sidebearing of glyphs.</p>
+    <p>I was thinking something like this might work.</p>
+    <p>This code just prints the sidebearing - 20, what I really wanted to do is decrease the left sidebearing by 20.</p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()</code></p>
+    <p>A = f['A'].leftMargin</p>
+    <p>A-=20</p>
+    <p>print A</p>
+    <p>f.update()</p>
+    <p></p>
 comments:
   - id: 264560
     user: 8664
@@ -61,18 +74,34 @@ comments:
       <p><code>print "before", f['A'].leftMargin</code><br>
       <code>f['A'].leftMargin = f['A'].leftMargin -20</code><br>
       <code>print "after", f['A'].leftMargin</code></p>
+    html_clean: |-
+      <p>Have you tried this?</p>
+      <p><code>print "before", f['A'].leftMargin</code><br>
+      <code>f['A'].leftMargin = f['A'].leftMargin -20</code><br>
+      <code>print "after", f['A'].leftMargin</code></p>
   - id: 264604
     user: 1551
     date: 2008-03-08T14:41:00
     date_raw: 8 Mar 2008 — 2:41pm
     votes: null
     html: "<p>That's easy to do in Font Lab also. Select the glyphs you want to change, and then go to: actions/metrics/set side bearings.</p>"
+    html_clean: "<p>That's easy to do in Font Lab also. Select the glyphs you want to change, and then go to: actions/metrics/set side bearings.</p>"
   - id: 264617
     user: 16986
     date: 2008-03-08T15:43:00
     date_raw: 8 Mar 2008 — 3:43pm
     votes: null
     html: |-
+      <p>k.l.</p>
+      <p>Thanks that worked, still getting to grips with the RoboFab syntax</p>
+      <p>I think I was trying to do this with my first attempt.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      f = CurrentFont()</code></p>
+      <p>f['A'].leftMargin -=20</p>
+      <p>f.update()<br>
+      </p>
+    html_clean: |-
       <p>k.l.</p>
       <p>Thanks that worked, still getting to grips with the RoboFab syntax</p>
       <p>I think I was trying to do this with my first attempt.</p>
@@ -90,6 +119,9 @@ comments:
     html: |-
       <p>How can I do the same, but using the 'measurement line'?<br>
       I mean: To measures the distance from, let say, the middle of the x-height instead if the first left point.</p>
+    html_clean: |-
+      <p>How can I do the same, but using the 'measurement line'?<br>
+      I mean: To measures the distance from, let say, the middle of the x-height instead if the first left point.</p>
   - id: 506778
     user: 1078
     date: 2012-04-23T13:07:00
@@ -98,12 +130,19 @@ comments:
     html: |-
       <p>Pablo, have a look at the marginPen module in RoboFab/pens. It will calculate the margins of a glyph at a requested height (or width)</p>
       <p><a class="freelinking external" href="http://code.robofab.com/browser/trunk/Lib/robofab/pens/marginPen.py" rel="nofollow">link to marginPen.py on code.robofab.com</a></p>
+    html_clean: |-
+      <p>Pablo, have a look at the marginPen module in RoboFab/pens. It will calculate the margins of a glyph at a requested height (or width)</p>
+      <p><a class="freelinking external" href="http://code.robofab.com/browser/trunk/Lib/robofab/pens/marginPen.py" rel="nofollow">link to marginPen.py on code.robofab.com</a></p>
   - id: 506803
     user: 54527
     date: 2012-04-23T15:53:00
     date_raw: 23 Apr 2012 — 3:53pm
     votes: null
     html: |-
+      <p>Erik, thanks!<br>
+      marginPen is awesome.</p>
+      <p>I'm working on a spacing macro, will release it shortly.</p>
+    html_clean: |-
       <p>Erik, thanks!<br>
       marginPen is awesome.</p>
       <p>I'm working on a spacing macro, will release it shortly.</p>

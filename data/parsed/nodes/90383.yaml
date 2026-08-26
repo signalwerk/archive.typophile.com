@@ -45,6 +45,14 @@ post:
     <p>Also, does anyone know why microsoft imposes this weird restriction on opentype fonts?</p>
     <p>TIA,<br>
     André</p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>I don't have access to a windows machine, and need some clarifications on the need for digital signatures for fonts to work correctly in some versions of windows.</p>
+    <p>My understanding is that it is necessary for a DSIG table to be present for windows to recognise OpenType fonts. However, some sites have suggested that this is only necessary for .ttf files. If I am generating CFF-flavoured fonts with an .otf extension, can I safely dispense with this table and still have the font work in a windows environment?</p>
+    <p>If the answer to the above question is 'no', will inserting a zero-length DSIG table using TTX suffice, or do I need to include some dummy data in the table?</p>
+    <p>Also, does anyone know why microsoft imposes this weird restriction on opentype fonts?</p>
+    <p>TIA,<br>
+    André</p>
 comments:
   - id: 496277
     user: 9108
@@ -56,24 +64,34 @@ comments:
       It looks like font works. Font can be installed, works in Corel 12, WordPad and ID5. Not sure about "safely".<br>
       win XP sp3<br>
        </p><div class="imageWrap"><img src="http://typophile.com/files/43_5276.jpg"></div><p></p>
+    html_clean: |-
+      <p>"If I am generating CFF-flavoured fonts with an .otf extension, can I safely dispense with this table and still have the font work in a windows environment?"<br>
+      It looks like font works. Font can be installed, works in Corel 12, WordPad and ID5. Not sure about "safely".<br>
+      win XP sp3<br>
+       </p><div class="imageWrap"><img src="http://typophile.com/files/43_5276.jpg"></div><p></p>
   - id: 496285
     user: 83217
     date: 2012-02-24T03:18:00
     date_raw: 24 Feb 2012 — 3:18am
     votes: null
     html: <p>WinXP (dunno about later) will accept the TrueType flavour as OpenType only if there is a DSIG. It can be a dummy (null) DSIG, but it's gotta be there. The CFF flavour is accepted without question.</p>
+    html_clean: <p>WinXP (dunno about later) will accept the TrueType flavour as OpenType only if there is a DSIG. It can be a dummy (null) DSIG, but it's gotta be there. The CFF flavour is accepted without question.</p>
   - id: 496286
     user: 21217
     date: 2012-02-24T03:20:00
     date_raw: 24 Feb 2012 — 3:20am
     votes: null
     html: <p>Some MS apps (Word IIRC) will not allow using OpenType features for Latin script in TTF-flavoured fonts if they don't contain a DSIG table, also Windows explorer will show the font with an OpenType icon if it has such table. This was not needed for CFF-flavoured fonts last time I checked.</p>
+    html_clean: <p>Some MS apps (Word IIRC) will not allow using OpenType features for Latin script in TTF-flavoured fonts if they don't contain a DSIG table, also Windows explorer will show the font with an OpenType icon if it has such table. This was not needed for CFF-flavoured fonts last time I checked.</p>
   - id: 496317
     user: 29572
     date: 2012-02-24T09:33:00
     date_raw: 24 Feb 2012 — 9:33am
     votes: null
     html: |-
+      <p>&gt;WinXP (dunno about later) will accept the TrueType flavour as OpenType only if there is a DSIG. </p>
+      <p>Where is this documented in the spec?  We make and test TT flavour OTF's without DSIG constantly in XP and 7 without problems.</p>
+    html_clean: |-
       <p>&gt;WinXP (dunno about later) will accept the TrueType flavour as OpenType only if there is a DSIG. </p>
       <p>Where is this documented in the spec?  We make and test TT flavour OTF's without DSIG constantly in XP and 7 without problems.</p>
   - id: 496361
@@ -85,12 +103,22 @@ comments:
       <p>What spec? MSWindows has specs? *blink* *blink* Wot yeh ge' ter hear ere yer ears fall off.</p>
       <p>I saw this mentioned on the web. I <em>tested</em> it. On TT-flavoured fonts, the OT icon appeared only on fonts with a DSIG. To me, this indicated that what I stated above. If they didn't have a DSIG, WinXP showed them to be plain old TrueType.</p>
       <p>As it happens, the difference between a TrueType font and a TT-flavoured OpenType font is pretty damn small. The OT font has some OT tables and a different version setting, and that's about it. So why would WinXP latch onto the DSIG as an indicator? Beats all hell outta me.</p>
+    html_clean: |-
+      <p>What spec? MSWindows has specs? *blink* *blink* Wot yeh ge' ter hear ere yer ears fall off.</p>
+      <p>I saw this mentioned on the web. I <em>tested</em> it. On TT-flavoured fonts, the OT icon appeared only on fonts with a DSIG. To me, this indicated that what I stated above. If they didn't have a DSIG, WinXP showed them to be plain old TrueType.</p>
+      <p>As it happens, the difference between a TrueType font and a TT-flavoured OpenType font is pretty damn small. The OT font has some OT tables and a different version setting, and that's about it. So why would WinXP latch onto the DSIG as an indicator? Beats all hell outta me.</p>
   - id: 496366
     user: 18942
     date: 2012-02-24T16:14:00
     date_raw: 24 Feb 2012 — 4:14pm
     votes: null
     html: |-
+      <p>Here is a paragraph from the link <a href="http://www.microsoft.com/typography/developers/opentype/detail.htm" title="http://www.microsoft.com/typography/developers/opentype/detail.htm">http://www.microsoft.com/typography/developers/opentype/detail.htm</a></p>
+      <dl>
+      <dd>At the beginning of this section, I referred to the DSIG table as a 'required' table. In fact, a digital signature is not required in the same sense that the CMAP and many other tables are required simply for the font to work. A font without a DSIG table will work, but it will not be recognized as an OpenType font by the Windows operating system. Because the OpenType format is an extension of the TrueType format, and most of the new tables are optional, Windows makes a distinction between the two formats based solely on the presence or absence of a DSIG table. A font with a DSIG table will be recorded in the Windows font folder as an OpenType font and presented with the OpenType icon.</dd>
+      </dl>
+      <p>Ok, it is old, 2001, but still there.</p>
+    html_clean: |-
       <p>Here is a paragraph from the link <a href="http://www.microsoft.com/typography/developers/opentype/detail.htm" title="http://www.microsoft.com/typography/developers/opentype/detail.htm">http://www.microsoft.com/typography/developers/opentype/detail.htm</a></p>
       <dl>
       <dd>At the beginning of this section, I referred to the DSIG table as a 'required' table. In fact, a digital signature is not required in the same sense that the CMAP and many other tables are required simply for the font to work. A font without a DSIG table will work, but it will not be recognized as an OpenType font by the Windows operating system. Because the OpenType format is an extension of the TrueType format, and most of the new tables are optional, Windows makes a distinction between the two formats based solely on the presence or absence of a DSIG table. A font with a DSIG table will be recorded in the Windows font folder as an OpenType font and presented with the OpenType icon.</dd>
@@ -109,12 +137,24 @@ comments:
       &nbsp;&nbsp;&lt;/hexdata&gt;
       &lt;/DSIG&gt;
       </pre>
+    html_clean: |-
+      <p>Concerning the dummy DSIG table, FontForge can be asked to produce one. If I do that and apply ttx on the resulting font file, here is what it looks like (after removing a comment)</p>
+      <pre>&lt;DSIG&gt;
+      &nbsp;&nbsp;&lt;hexdata&gt;
+      &nbsp;&nbsp;&nbsp;&nbsp;00000001&nbsp;00000000&nbsp;&nbsp;
+      &nbsp;&nbsp;&lt;/hexdata&gt;
+      &lt;/DSIG&gt;
+      </pre>
   - id: 496373
     user: 18942
     date: 2012-02-24T17:01:00
     date_raw: 24 Feb 2012 — 5:01pm
     votes: null
     html: |-
+      <p>Hmm, maybe I should not have removed the comment, for it says</p>
+      <p><code>&lt;!-- note that the Digital Signature will be invalid after recompilation! --&gt;</code></p>
+      <p>That does not sound promising. On the other hand, if I apply ttx twice again (to get an otf, and then a ttx), that signature is left unchanged. So, it looks worth trying.</p>
+    html_clean: |-
       <p>Hmm, maybe I should not have removed the comment, for it says</p>
       <p><code>&lt;!-- note that the Digital Signature will be invalid after recompilation! --&gt;</code></p>
       <p>That does not sound promising. On the other hand, if I apply ttx twice again (to get an otf, and then a ttx), that signature is left unchanged. So, it looks worth trying.</p>
@@ -128,18 +168,27 @@ comments:
       <p>(citing:)</p>
       <p>OpenType fonts that contain TrueType outlines should use the value of 1.0 for the sfnt version. OpenType fonts containing CFF data should use the tag 'OTTO' as the sfnt version number. ("This page was last updated 5 May 2008.")</p>
       <p>The 'required tables' listing does not contain DSIG for Truetype,  and its full description doesn't mention anything special either.</p>
+    html_clean: |-
+      <p>So Windows (by Microsoft) does not check the sfnt header as described in the <a href="http://www.microsoft.com/typography/otspec/otff.htm" rel="nofollow">OTF specs</a> ... by Microsoft?</p>
+      <p>(citing:)</p>
+      <p>OpenType fonts that contain TrueType outlines should use the value of 1.0 for the sfnt version. OpenType fonts containing CFF data should use the tag 'OTTO' as the sfnt version number. ("This page was last updated 5 May 2008.")</p>
+      <p>The 'required tables' listing does not contain DSIG for Truetype,  and its full description doesn't mention anything special either.</p>
   - id: 496390
     user: 18942
     date: 2012-02-24T20:48:00
     date_raw: 24 Feb 2012 — 8:48pm
     votes: null
     html: <p>The question of the DSIG table was discussed in this <a href="http://forum.fontlab.com/microsoft-visual-opentype-layout-tool-volt/opentype-ligatures-support-in-word-2010-t7176.0.html" rel="nofollow"><strong>FontLab Forum</strong></a> in relation to ligatures in Word 2010. Puzzling indeed.</p>
+    html_clean: <p>The question of the DSIG table was discussed in this <a href="http://forum.fontlab.com/microsoft-visual-opentype-layout-tool-volt/opentype-ligatures-support-in-word-2010-t7176.0.html" rel="nofollow"><strong>FontLab Forum</strong></a> in relation to ligatures in Word 2010. Puzzling indeed.</p>
   - id: 496410
     user: 21217
     date: 2012-02-25T02:49:00
     date_raw: 25 Feb 2012 — 2:49am
     votes: null
     html: |-
+      <p>@Michel:<br>
+      I think the comment refers to real DSIG tables which will becomes valid since the checksum will be different (or something similar), but since this is a dummy one it does not matter any way.</p>
+    html_clean: |-
       <p>@Michel:<br>
       I think the comment refers to real DSIG tables which will becomes valid since the checksum will be different (or something similar), but since this is a dummy one it does not matter any way.</p>
   - id: 496411
@@ -150,12 +199,18 @@ comments:
     html: |-
       <p>@Theunis:<br>
       A plain TrueType font (i.e. with no OpenType specific tables) will also have a 1.0 version, so it does not help very much, though if it were me I'd check for a more relevant table(s).</p>
+    html_clean: |-
+      <p>@Theunis:<br>
+      A plain TrueType font (i.e. with no OpenType specific tables) will also have a 1.0 version, so it does not help very much, though if it were me I'd check for a more relevant table(s).</p>
   - id: 496420
     user: 31798
     date: 2012-02-25T06:41:00
     date_raw: 25 Feb 2012 — 6:41am
     votes: null
     html: |-
+      <p>Thanks to all who have responded. Your comments along with Michel's link seem to confirm that this won't be a real issue for me since I work in CFF-flavoured OT rather than TrueType. I'm still a bit curious, though, about the underlying rationale for this requirement for TT-flavoured fonts.</p>
+      <p>André</p>
+    html_clean: |-
       <p>Thanks to all who have responded. Your comments along with Michel's link seem to confirm that this won't be a real issue for me since I work in CFF-flavoured OT rather than TrueType. I'm still a bit curious, though, about the underlying rationale for this requirement for TT-flavoured fonts.</p>
       <p>André</p>
   - id: 496493
@@ -166,6 +221,9 @@ comments:
     html: |-
       <p>"I'm still a bit curious, though, about the underlying rationale for this requirement for TT-flavoured fonts."</p>
       <p>Well, when it was introduced at a MS / Adobe event in the mid-90s, it was postured as protection for font vendors. Through discussion, however, it was determined to actually be protection for users from dangerous fonts. At the time, MS expressed the desire for all documents, and all other content running on or through windows to have a digital signature, and fonts seemed like the perfect place to start.</p>
+    html_clean: |-
+      <p>"I'm still a bit curious, though, about the underlying rationale for this requirement for TT-flavoured fonts."</p>
+      <p>Well, when it was introduced at a MS / Adobe event in the mid-90s, it was postured as protection for font vendors. Through discussion, however, it was determined to actually be protection for users from dangerous fonts. At the time, MS expressed the desire for all documents, and all other content running on or through windows to have a digital signature, and fonts seemed like the perfect place to start.</p>
   - id: 496507
     user: 1262
     date: 2012-02-25T15:20:00
@@ -174,12 +232,18 @@ comments:
     html: |-
       <p>That's a general comment about DSIGs, David, regardless of format.</p>
       <p>The issue for Windows in determining what constitutes an OpenType font, as distinct from a TrueType font, inititally for cosmetic purposes (icon presentation) and legal purposes (trademark), was confused by the fact that all the OpenType Layout tables are optional, and all the common sfnt tables needed to be backwards compatible. So Microsoft decided to define a TTF-flavour OpenType font as an sfnt with a OT DSIG table. It's an odd decision that has confused people ever since, including, apparently, the Word 2010 programmers.</p>
+    html_clean: |-
+      <p>That's a general comment about DSIGs, David, regardless of format.</p>
+      <p>The issue for Windows in determining what constitutes an OpenType font, as distinct from a TrueType font, inititally for cosmetic purposes (icon presentation) and legal purposes (trademark), was confused by the fact that all the OpenType Layout tables are optional, and all the common sfnt tables needed to be backwards compatible. So Microsoft decided to define a TTF-flavour OpenType font as an sfnt with a OT DSIG table. It's an odd decision that has confused people ever since, including, apparently, the Word 2010 programmers.</p>
   - id: 496509
     user: 83217
     date: 2012-02-25T15:53:00
     date_raw: 25 Feb 2012 — 3:53pm
     votes: null
     html: |-
+      <p>"There's nowt as queer as Windows..."</p>
+      <p>Dipped a bit into both Apple and MS TT/OT specs to brush up on OS2Version. Unless I've branched to Atlantis, 0 is Apple TrueType, 1 is MS TrueType and 2-up are OpenType. And I used to think there was nowt as queer as folk.</p>
+    html_clean: |-
       <p>"There's nowt as queer as Windows..."</p>
       <p>Dipped a bit into both Apple and MS TT/OT specs to brush up on OS2Version. Unless I've branched to Atlantis, 0 is Apple TrueType, 1 is MS TrueType and 2-up are OpenType. And I used to think there was nowt as queer as folk.</p>
   - id: 497079
@@ -191,11 +255,18 @@ comments:
       <p>JH: "That's a general comment about DSIGs, David, regardless of format."</p>
       <p>No idea what you are talking about.<br>
       What's a General Comment and how many font formats have a dsig as a format Identifier.</p>
+    html_clean: |-
+      <p>JH: "That's a general comment about DSIGs, David, regardless of format."</p>
+      <p>No idea what you are talking about.<br>
+      What's a General Comment and how many font formats have a dsig as a format Identifier.</p>
   - id: 497126
     user: 83217
     date: 2012-03-01T03:00:00
     date_raw: 1 Mar 2012 — 3:00am
     votes: null
     html: |-
+      <p>There are no formats that use DSIG as an identifier, but it's the only OT feature Windows looks for in TT-flavoured OT fonts.</p>
+      <p>General Comment is a part of the military committee that oversees USA's economic recovery, as is General Failure.</p>
+    html_clean: |-
       <p>There are no formats that use DSIG as an identifier, but it's the only OT feature Windows looks for in TT-flavoured OT fonts.</p>
       <p>General Comment is a part of the military committee that oversees USA's economic recovery, as is General Failure.</p>

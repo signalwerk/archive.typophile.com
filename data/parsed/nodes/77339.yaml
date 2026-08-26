@@ -333,6 +333,302 @@ post:
     } kern;<br>
     </code></p>
     <p>I've also tried duplicating each class into separate left-side and right-side classes, but that didn't make any difference.</p>
+  html_clean: |-
+    <p>In a font I'm making, just one kerning class, the _A class, won't kern on the right side with other classes. It will kern with unclassed characters like the question mark. "AVATAYA?" looks like "A VA TA YA?" in the preview window. All the other pairs work correctly, as far as I've been able to determine. Any ideas? Here is the feature code, just as FontLab generated it:</p>
+    <p><code><br>
+    feature kern {<br>
+       pos F AE -50;<br>
+       pos F slash -40;<br>
+       pos P X -50;<br>
+       pos P AE -70;<br>
+       pos P slash -50;<br>
+       pos X Lslash -30;<br>
+       pos B X -20;<br>
+       pos x q -25;<br>
+       pos lcaron q -60;<br>
+       pos lcaron x -20;<br>
+       pos tcaron f -10;<br>
+       pos tcaron p -20;<br>
+       pos tcaron q -90;<br>
+       pos tcaron x -20;<br>
+       enum pos @_A question -50;<br>
+       enum pos @_A registered -60;<br>
+       enum pos @_A backslash -70;<br>
+       enum pos @_A one -50;<br>
+       enum pos @_A seven -30;<br>
+       enum pos @_C X -30;<br>
+       enum pos @_K f -20;<br>
+       enum pos @_K Lslash -30;<br>
+       enum pos @_L question -50;<br>
+       enum pos @_L registered -60;<br>
+       enum pos @_L backslash -70;<br>
+       enum pos @_L seven -30;<br>
+       enum pos @_O X -30;<br>
+       enum pos @_S X -30;<br>
+       enum pos @_T q -40;<br>
+       enum pos @_T AE -100;<br>
+       enum pos @_T ampersand -50;<br>
+       enum pos @_T slash -70;<br>
+       enum pos @_V f -10;<br>
+       enum pos @_V q -40;<br>
+       enum pos @_V p -20;<br>
+       enum pos @_V x -20;<br>
+       enum pos @_V AE -90;<br>
+       enum pos @_V ampersand -50;<br>
+       enum pos @_V slash -70;<br>
+       enum pos @_Y f -10;<br>
+       enum pos @_Y p -20;<br>
+       enum pos @_Y q -30;<br>
+       enum pos @_Y x -30;<br>
+       enum pos @_Y AE -120;<br>
+       enum pos @_Y slash -70;<br>
+       enum pos @_a f -10;<br>
+       enum pos @_c x -20;<br>
+       enum pos @_e x -20;<br>
+       enum pos @_o x -20;<br>
+       enum pos @_b x -20;<br>
+       enum pos @_r x -30;<br>
+       enum pos @_v ae -10;<br>
+       enum pos @_v q -25;<br>
+       enum pos @_quotesingle q -30;<br>
+       enum pos @_quotesingle x -10;<br>
+       enum pos @_hyphen X -70;<br>
+       enum pos @_hyphen seven -30;<br>
+       subtable;<br>
+       enum pos F @_A -30;<br>
+       enum pos F @_period -60;<br>
+       enum pos P @_A -50;<br>
+       enum pos P @_period -80;<br>
+       enum pos X @_O -30;<br>
+       enum pos X @_S -30;<br>
+       enum pos X @_C -30;<br>
+       enum pos X @_G -30;<br>
+       enum pos X @_J -30;<br>
+       enum pos X @_o -20;<br>
+       enum pos X @_e -20;<br>
+       enum pos X @_c -20;<br>
+       enum pos X @_s -20;<br>
+       enum pos X @_a -10;<br>
+       enum pos X @_y -20;<br>
+       enum pos X @_hyphen -70;<br>
+       enum pos B @_A -20;<br>
+       enum pos B @_V -20;<br>
+       enum pos f @_a -10;<br>
+       enum pos ae @_v -15;<br>
+       enum pos q @_j 70;<br>
+       enum pos x @_Y -30;<br>
+       enum pos x @_o -20;<br>
+       enum pos x @_c -20;<br>
+       enum pos x @_e -20;<br>
+       enum pos x @_d -25;<br>
+       enum pos x @_quotesingle -10;<br>
+       enum pos ampersand @_V -40;<br>
+       enum pos ampersand @_T -50;<br>
+       enum pos seven @_A -50;<br>
+       enum pos seven @_J -50;<br>
+       enum pos seven @_hyphen -40;<br>
+       enum pos seven @_period -60;<br>
+       enum pos question @_A -70;<br>
+       enum pos slash @_A -70;<br>
+       enum pos exclamdown @_T -20;<br>
+       enum pos exclamdown @_V -20;<br>
+       enum pos questiondown @_T -40;<br>
+       enum pos questiondown @_V -40;<br>
+       enum pos backslash @_V -70;<br>
+       enum pos backslash @_T -70;<br>
+       enum pos backslash @_Y -70;<br>
+       enum pos lcaron @_a -60;<br>
+       enum pos lcaron @_c -60;<br>
+       enum pos lcaron @_d -60;<br>
+       enum pos lcaron @_e -60;<br>
+       enum pos lcaron [g gdotaccent gcircumflex gbreve gcommaaccent] -60;<br>
+       enum pos lcaron @_o -60;<br>
+       enum pos lcaron @_s -60;<br>
+       enum pos lcaron @_u -20;<br>
+       enum pos lcaron @_z -20;<br>
+       enum pos Lcaron @_T -50;<br>
+       enum pos Lcaron @_V -50;<br>
+       enum pos tcaron @_a -90;<br>
+       enum pos tcaron @_c -90;<br>
+       enum pos tcaron @_d -80;<br>
+       enum pos tcaron @_e -90;<br>
+       enum pos tcaron [g gdotaccent gcircumflex gbreve gcommaaccent] -80;<br>
+       enum pos tcaron @_n -10;<br>
+       enum pos tcaron @_o -90;<br>
+       enum pos tcaron @_r -20;<br>
+       enum pos tcaron @_s -80;<br>
+       enum pos tcaron @_z -40;<br>
+       enum pos tcaron @_u -20;<br>
+       subtable;<br>
+       pos @_A @_V -60;<br>
+       pos @_A @_T -60;<br>
+       pos @_A @_Y -80;<br>
+       pos @_A @_O -20;<br>
+       pos @_A @_J -20;<br>
+       pos @_A @_v -50;<br>
+       pos @_A @_C -30;<br>
+       pos @_A @_G -20;<br>
+       pos @_A @_U -20;<br>
+       pos @_A @_t -25;<br>
+       pos @_A @_o -15;<br>
+       pos @_A @_c -15;<br>
+       pos @_A @_e -15;<br>
+       pos @_A @_quotesingle -70;<br>
+       pos @_A @_hyphen -40;<br>
+       pos @_C @_A -20;<br>
+       pos @_C @_V -10;<br>
+       pos @_D @_A -20;<br>
+       pos @_D @_V -20;<br>
+       pos @_J @_A -20;<br>
+       pos @_K @_a -20;<br>
+       pos @_K @_o -30;<br>
+       pos @_K @_e -30;<br>
+       pos @_K @_s -20;<br>
+       pos @_K @_c -30;<br>
+       pos @_K @_t -20;<br>
+       pos @_K @_u -20;<br>
+       pos @_K @_v -50;<br>
+       pos @_K @_y -30;<br>
+       pos @_K @_d -20;<br>
+       pos @_K @_g -10;<br>
+       pos @_K @_hyphen -70;<br>
+       pos @_K @_O -30;<br>
+       pos @_L @_T -90;<br>
+       pos @_L @_V -70;<br>
+       pos @_L @_Y -100;<br>
+       pos @_L @_quotesingle -60;<br>
+       pos @_O @_A -20;<br>
+       pos @_O @_V -20;<br>
+       pos @_R @_V -20;<br>
+       pos @_S @_V -20;<br>
+       pos @_T @_A -60;<br>
+       pos @_T @_J -90;<br>
+       pos @_T @_a -40;<br>
+       pos @_T @_c -40;<br>
+       pos @_T @_d -40;<br>
+       pos @_T @_e -40;<br>
+       pos @_T @_g -40;<br>
+       pos @_T @_o -40;<br>
+       pos @_T @_s -40;<br>
+       pos @_T @_period -80;<br>
+       pos @_T @_colon -80;<br>
+       pos @_T @_hyphen -30;<br>
+       pos @_U @_A -20;<br>
+       pos @_V @_A -60;<br>
+       pos @_V @_J -60;<br>
+       pos @_V @_a -40;<br>
+       pos @_V @_c -40;<br>
+       pos @_V @_e -40;<br>
+       pos @_V @_d -40;<br>
+       pos @_V @_g -40;<br>
+       pos @_V @_n -20;<br>
+       pos @_V @_o -40;<br>
+       pos @_V @_r -20;<br>
+       pos @_V @_s -40;<br>
+       pos @_V @_u -20;<br>
+       pos @_V @_z -20;<br>
+       pos @_V @_y -20;<br>
+       pos @_V @_v -20;<br>
+       pos @_V @_O -20;<br>
+       pos @_V @_C -10;<br>
+       pos @_V @_period -80;<br>
+       pos @_V @_colon -50;<br>
+       pos @_V @_hyphen -40;<br>
+       pos @_Y @_A -80;<br>
+       pos @_Y @_J -90;<br>
+       pos @_Y @_a -70;<br>
+       pos @_Y @_c -50;<br>
+       pos @_Y @_d -40;<br>
+       pos @_Y @_e -70;<br>
+       pos @_Y @_g -40;<br>
+       pos @_Y @_o -70;<br>
+       pos @_Y @_n -20;<br>
+       pos @_Y @_r -20;<br>
+       pos @_Y @_s -50;<br>
+       pos @_Y @_u -20;<br>
+       pos @_Y @_v -30;<br>
+       pos @_Y @_z -20;<br>
+       pos @_Y @_period -80;<br>
+       pos @_Y @_colon -60;<br>
+       pos @_a @_V -40;<br>
+       pos @_a @_Y -40;<br>
+       pos @_a @_v -30;<br>
+       pos @_a @_y -15;<br>
+       pos @_a @_t -10;<br>
+       pos @_a @_quotesingle -50;<br>
+       pos @_c @_V -40;<br>
+       pos @_c @_Y -50;<br>
+       pos @_c @_T -40;<br>
+       pos @_c @_quotesingle -40;<br>
+       pos @_e @_V -40;<br>
+       pos @_e @_Y -50;<br>
+       pos @_e @_v -15;<br>
+       pos @_e @_y -10;<br>
+       pos @_e @_T -40;<br>
+       pos @_e @_quotesingle -40;<br>
+       pos @_g @_V -20;<br>
+       pos @_g @_j 70;<br>
+       pos @_h @_quotesingle -30;<br>
+       pos @_h @_V -40;<br>
+       pos @_h @_Y -50;<br>
+       pos @_h @_T -30;<br>
+       pos @_j @_j 70;<br>
+       pos @_n @_V -40;<br>
+       pos @_n @_Y -50;<br>
+       pos @_n @_v -20;<br>
+       pos @_n @_T -30;<br>
+       pos @_n @_quotesingle -30;<br>
+       pos @_o @_V -40;<br>
+       pos @_o @_Y -70;<br>
+       pos @_o @_v -20;<br>
+       pos @_o @_T -50;<br>
+       pos @_o @_quotesingle -40;<br>
+       pos @_b @_V -40;<br>
+       pos @_b @_Y -50;<br>
+       pos @_b @_v -20;<br>
+       pos @_b @_T -30;<br>
+       pos @_b @_quotesingle -30;<br>
+       pos @_r @_V -20;<br>
+       pos @_r @_Y -30;<br>
+       pos @_r @_a -10;<br>
+       pos @_r @_quotesingle -20;<br>
+       pos @_r @_v -10;<br>
+       pos @_s @_V -40;<br>
+       pos @_s @_Y -50;<br>
+       pos @_s @_quotesingle -40;<br>
+       pos @_s @_v -25;<br>
+       pos @_v @_Y -30;<br>
+       pos @_v @_o -20;<br>
+       pos @_v @_e -15;<br>
+       pos @_v @_a -10;<br>
+       pos @_v @_d -15;<br>
+       pos @_v @_s -15;<br>
+       pos @_v @_A -40;<br>
+       pos @_y @_e -15;<br>
+       pos @_z @_Y -20;<br>
+       pos @_z @_quotesingle -10;<br>
+       pos @_quotesingle @_A -70;<br>
+       pos @_quotesingle @_s -40;<br>
+       pos @_quotesingle @_a -40;<br>
+       pos @_quotesingle @_c -40;<br>
+       pos @_quotesingle @_d -40;<br>
+       pos @_quotesingle @_e -40;<br>
+       pos @_quotesingle @_g -40;<br>
+       pos @_quotesingle @_o -40;<br>
+       pos @_quotesingle @_z -20;<br>
+       pos @_quotesingle @_J -60;<br>
+       pos @_colon @_T -80;<br>
+       pos @_colon @_V -50;<br>
+       pos @_colon @_Y -60;<br>
+       pos @_period @_T -80;<br>
+       pos @_period @_V -80;<br>
+       pos @_period @_Y -80;<br>
+       pos @_hyphen @_A -40;<br>
+       pos @_hyphen @_T -30;<br>
+       pos @_hyphen @_V -40;<br>
+    } kern;<br>
+    </code></p>
+    <p>I've also tried duplicating each class into separate left-side and right-side classes, but that didn't make any difference.</p>
 comments:
   - id: 444631
     user: 3320
@@ -340,12 +636,14 @@ comments:
     date_raw: 22 Dec 2010 — 1:11am
     votes: null
     html: <p>Are you getting confused by 'left' and 'right' side? By your example it is the A in it's left side (or FIRST position) that is not working.</p>
+    html_clean: <p>Are you getting confused by 'left' and 'right' side? By your example it is the A in it's left side (or FIRST position) that is not working.</p>
   - id: 444705
     user: 2021
     date: 2010-12-22T11:34:00
     date_raw: 22 Dec 2010 — 11:34am
     votes: null
     html: <p>Try manually inserting a "subtable; " (or more), to break up what may be too many kerns to fully compile.</p>
+    html_clean: <p>Try manually inserting a "subtable; " (or more), to break up what may be too many kerns to fully compile.</p>
   - id: 444706
     user: 2462
     date: 2010-12-22T11:39:00
@@ -354,18 +652,27 @@ comments:
     html: |-
       <p>I say "the kerning on the right side <em>of</em> the A" and I guess you prefer to say "the kerning when the A is on the left side"... same thing.</p>
       <p>Anyway, I don't know how much to trust the features preview in FontLab now. I've tested the font in OpenOffice and it works on both sides, but only the class masters kern. So I guess I ought to take W out of V's kerning class. I don't know how it looks in InDesign yet, because $700 is a lot of money. I am starting to resent OpenType.</p>
+    html_clean: |-
+      <p>I say "the kerning on the right side <em>of</em> the A" and I guess you prefer to say "the kerning when the A is on the left side"... same thing.</p>
+      <p>Anyway, I don't know how much to trust the features preview in FontLab now. I've tested the font in OpenOffice and it works on both sides, but only the class masters kern. So I guess I ought to take W out of V's kerning class. I don't know how it looks in InDesign yet, because $700 is a lot of money. I am starting to resent OpenType.</p>
   - id: 444708
     user: 2462
     date: 2010-12-22T11:55:00
     date_raw: 22 Dec 2010 — 11:55am
     votes: null
     html: <p>Thank you, Nick, that seems to be doing it. I'm afraid I wouldn't have thought of that, since the one "subtable;" that was already there was right before the AV pair, making it suspicious enough that all I thought to try was to take it out!</p>
+    html_clean: <p>Thank you, Nick, that seems to be doing it. I'm afraid I wouldn't have thought of that, since the one "subtable;" that was already there was right before the AV pair, making it suspicious enough that all I thought to try was to take it out!</p>
   - id: 456339
     user: 84836
     date: 2011-03-19T03:41:00
     date_raw: 19 Mar 2011 — 3:41am
     votes: null
     html: |-
+      <p>Mr. Shinn,</p>
+      <p>I think I have the same problem as this guy.</p>
+      <p>Can you point me to some instructions on how to insert the "subtable;" in the code and where to put it?</p>
+      <p>I have a lot of kern pairs in my font (4,262 so far. A lot I know). My font is an opentype-flavored opentype font. Do you think that when it compiles my kerning, it's throwing some of it out, and if I insert enough of those "subtable;" things in the code in the right places, can I cram all of my kerning in there without any of it getting tossed out?</p>
+    html_clean: |-
       <p>Mr. Shinn,</p>
       <p>I think I have the same problem as this guy.</p>
       <p>Can you point me to some instructions on how to insert the "subtable;" in the code and where to put it?</p>

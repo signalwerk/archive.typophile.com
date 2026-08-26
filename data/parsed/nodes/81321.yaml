@@ -51,6 +51,20 @@ post:
     <p>3: (This is not a warning. It's a note.)<br>
     [NOTE]  Removing duplicate glyph &lt;&gt; [/Users/admin/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 3029]</p>
     <p>I get tons of these warnings for various glyphs.</p>
+  html_clean: |-
+    <p>When I generate my new font I get these [WARNING] messages and I don't know what I am supposed to do about them.</p>
+    <p>Does anyone know what these warnings in the output Panel mean or how to fix the problems? Thanks in advance!</p>
+    <p>1:<br>
+    [WARNING]  Pair positioning has two different values in 'kern' feature; choosing the smaller absolute value: Abreve<br>
+    [WARNING]  Pair positioning has two different values in 'kern' feature; choosing the smaller absolute value: Abreve </p>
+    <p>YES, IT SAYS THIS TWICE IN A ROW for some reason.</p>
+    <p>I get several of these duplicate warnings. About ten pairs or each problem glyph: Abreve, Aogonek, Emacron, Ebreve (there are 4 duplicates of that warning), Edotaccent, Eogonek, Ecaron, OE, Tcommaaccent, Tcaron, and Tbar.</p>
+    <p>2:<br>
+    [WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [A Agrave Aacute Acircumflex Atilde Adieresis Aring Amacron Abreve Aogonek] [S Sacute Scedilla Scaron ] [/Users/admin/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 3019]</p>
+    <p>I get tons of these warnings for various glyphs.</p>
+    <p>3: (This is not a warning. It's a note.)<br>
+    [NOTE]  Removing duplicate glyph &lt;&gt; [/Users/admin/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 3029]</p>
+    <p>I get tons of these warnings for various glyphs.</p>
 comments:
   - id: 460671
     user: 14722
@@ -58,6 +72,9 @@ comments:
     date_raw: 17 Apr 2011 — 8:18pm
     votes: null
     html: |-
+      <p>The first two suggest that your kerning is a mess. Are you expanding class-based kerning to flat kerning tables instead of using OpenType kerning? </p>
+      <p>The third probably means that you have the same glyph defined twice in a class or feature.</p>
+    html_clean: |-
       <p>The first two suggest that your kerning is a mess. Are you expanding class-based kerning to flat kerning tables instead of using OpenType kerning? </p>
       <p>The third probably means that you have the same glyph defined twice in a class or feature.</p>
   - id: 460710
@@ -68,12 +85,22 @@ comments:
     html: |-
       <p>A glyph may be placed into a left AND a right kerning class OR a kerning class that applies to both sides of a pair. Place it into any more kerning classes than that and you will get errors.</p>
       <p>It sure would be more helpful of FontLab to warn when you make the error rather than wait until you build the kern feature and try to compile, which may be long after you made the error. Short of that, the only solution is to be very careful when setting up your kerning classes.</p>
+    html_clean: |-
+      <p>A glyph may be placed into a left AND a right kerning class OR a kerning class that applies to both sides of a pair. Place it into any more kerning classes than that and you will get errors.</p>
+      <p>It sure would be more helpful of FontLab to warn when you make the error rather than wait until you build the kern feature and try to compile, which may be long after you made the error. Short of that, the only solution is to be very careful when setting up your kerning classes.</p>
   - id: 461439
     user: 84836
     date: 2011-04-22T02:28:00
     date_raw: 22 Apr 2011 — 2:28am
     votes: null
     html: |-
+      <p>Hi Dunwich. Yeah it was a mess but I think I've got it under control now. Thanks for your help.</p>
+      <p>Hi again Mr. Simonson!</p>
+      <p>I'll repeat what I just wrote on our fontlab forum:</p>
+      <p>"Yep. You're right. The problem was in my classes. They were all messed up. This is my first font, and while I was working on it, I wound up really messing some things up. The only thing that finally fixed it for me was to go back to a previous version and copy and paste glyphs from the new one into that. From now on I will be more careful. Live and learn. Now I don't get any error messages, but I'm still copying and pasting and realigning glyphs right now."</p>
+      <p>Yeah it would be nice if fontlab would warn you ahead of time when you make errors in the classes panel. Especially if you're new to kerning and classes like me.</p>
+      <p>Thanks again Mr. Simonson. You've really helped me out in the past too and I appreciate it.</p>
+    html_clean: |-
       <p>Hi Dunwich. Yeah it was a mess but I think I've got it under control now. Thanks for your help.</p>
       <p>Hi again Mr. Simonson!</p>
       <p>I'll repeat what I just wrote on our fontlab forum:</p>

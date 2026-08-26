@@ -40,6 +40,9 @@ post:
   html: |-
     <p>I have a stylistic alternates in my opentype values, but for some reason the opentype panel in Photoshop/Illustrator will not toggle them. The interesting thing is, the glyph window in Illustrator reads them fine, but toggling the alternates in the opentype window does nothing. In order to select an alternate, it has to be done via the glyph window. </p>
     <p>Has anyone ever experienced this, any ideas what is causing this?</p>
+  html_clean: |-
+    <p>I have a stylistic alternates in my opentype values, but for some reason the opentype panel in Photoshop/Illustrator will not toggle them. The interesting thing is, the glyph window in Illustrator reads them fine, but toggling the alternates in the opentype window does nothing. In order to select an alternate, it has to be done via the glyph window. </p>
+    <p>Has anyone ever experienced this, any ideas what is causing this?</p>
 comments:
   - id: 441679
     user: 14722
@@ -47,12 +50,1002 @@ comments:
     date_raw: 28 Nov 2010 — 8:40am
     votes: null
     html: <p>Have you actually written the OpenType code to activate the alternates?</p>
+    html_clean: <p>Have you actually written the OpenType code to activate the alternates?</p>
   - id: 441738
     user: 65510
     date: 2010-11-28T17:22:00
     date_raw: 28 Nov 2010 — 5:22pm
     votes: null
     html: |-
+      <p>Yes, my code is:</p>
+      <p>feature aalt{<br>
+        feature calt;<br>
+        feature salt;<br>
+      } aalt;</p>
+      <p>feature kern { # Kerning<br>
+       # Latin<br>
+      lookup kern0 {<br>
+          pos C X -33;<br>
+          pos C a -33;<br>
+          pos C y -33;<br>
+          pos C e -33;<br>
+          pos C o -33;<br>
+          pos C u -33;<br>
+          pos D J -22;<br>
+          pos D X -33;<br>
+          pos F J -88;<br>
+          pos F X -33;<br>
+          pos F a -22;<br>
+          pos F e -33;<br>
+          pos F o -33;<br>
+          pos F A.alt -20;<br>
+          pos F Adieresis -20;<br>
+          pos F Aring -20;<br>
+          pos F Agrave -20;<br>
+          pos F Atilde -20;<br>
+          pos F Acircumflex -20;<br>
+          pos F Aacute -20;<br>
+          pos F A -33;<br>
+          pos G T -33;<br>
+          pos G V -22;<br>
+          pos K y -33;<br>
+          pos K v -33;<br>
+          pos K w -33;<br>
+          pos L C -33;<br>
+          pos L G -66;<br>
+          pos L J -22;<br>
+          pos L O -33;<br>
+          pos L Q -33;<br>
+          pos L S -33;<br>
+          pos L T -100;<br>
+          pos L U -33;<br>
+          pos L V -88;<br>
+          pos L W -40;<br>
+          pos L Y -88;<br>
+          pos L T.alt -100;<br>
+          pos L V.alt -80;<br>
+          pos L W.alt -40;<br>
+          pos L Y.alt -80;<br>
+          pos L Yacute -80;<br>
+          pos L Ydieresis -80;<br>
+          pos O T -33;<br>
+          pos O X -33;<br>
+          pos P J -77;<br>
+          pos P X -44;<br>
+          pos P a -33;<br>
+          pos P e -33;<br>
+          pos P o -33;<br>
+          pos P A -33;<br>
+          pos Q T -33;<br>
+          pos Q X -22;<br>
+          pos R J -22;<br>
+          pos R a -33;<br>
+          pos R e -33;<br>
+          pos R o -33;<br>
+          pos S T -33;<br>
+          pos S y -33;<br>
+          pos S w -33;<br>
+          pos T G -33;<br>
+          pos T J -100;<br>
+          pos T O -33;<br>
+          pos T Q -33;<br>
+          pos T S -33;<br>
+          pos T X -33;<br>
+          pos T a -88;<br>
+          pos T c -80;<br>
+          pos T z -40;<br>
+          pos T y -88;<br>
+          pos T e -88;<br>
+          pos T g -80;<br>
+          pos T i -40;<br>
+          pos T j -60;<br>
+          pos T m -80;<br>
+          pos T n -80;<br>
+          pos T o -88;<br>
+          pos T r -88;<br>
+          pos T s -88;<br>
+          pos T u -88;<br>
+          pos T v -40;<br>
+          pos T w -77;<br>
+          pos T x -60;<br>
+          pos T A.alt -60;<br>
+          pos T J.alt -100;<br>
+          pos T a.alt -80;<br>
+          pos T c.alt -80;<br>
+          pos T e.alt -80;<br>
+          pos T g.alt -80;<br>
+          pos T i.alt -40;<br>
+          pos T j.alt -60;<br>
+          pos T m.alt -80;<br>
+          pos T n.alt -80;<br>
+          pos T o.alt -80;<br>
+          pos T r.alt -80;<br>
+          pos T s.alt -80;<br>
+          pos T u.alt -80;<br>
+          pos T v.alt -40;<br>
+          pos T w.alt -40;<br>
+          pos T x.alt -60;<br>
+          pos T y.alt -40;<br>
+          pos T z.alt -40;<br>
+          pos T ae -80;<br>
+          pos T oe -80;<br>
+          pos T oslash -80;<br>
+          pos T dotlessi -88;<br>
+          pos T aacute -88;<br>
+          pos T agrave -88;<br>
+          pos T acircumflex -88;<br>
+          pos T adieresis -88;<br>
+          pos T atilde -80;<br>
+          pos T aring -80;<br>
+          pos T eacute -80;<br>
+          pos T egrave -80;<br>
+          pos T ecircumflex -80;<br>
+          pos T edieresis -80;<br>
+          pos T iacute -40;<br>
+          pos T igrave -40;<br>
+          pos T icircumflex -40;<br>
+          pos T idieresis -40;<br>
+          pos T oacute -80;<br>
+          pos T ograve -80;<br>
+          pos T ocircumflex -80;<br>
+          pos T odieresis -88;<br>
+          pos T otilde -80;<br>
+          pos T uacute -80;<br>
+          pos T ugrave -80;<br>
+          pos T ucircumflex -80;<br>
+          pos T udieresis -88;<br>
+          pos T Adieresis -60;<br>
+          pos T Aring -60;<br>
+          pos T Agrave -60;<br>
+          pos T Atilde -60;<br>
+          pos T Acircumflex -60;<br>
+          pos T Aacute -60;<br>
+          pos T ccedilla -80;<br>
+          pos T ntilde -80;<br>
+          pos T yacute -40;<br>
+          pos T ydieresis -40;<br>
+          pos T A -66;<br>
+          pos V J -80;<br>
+          pos V a -88;<br>
+          pos V c -77;<br>
+          pos V y -33;<br>
+          pos V e -77;<br>
+          pos V i -33;<br>
+          pos V o -77;<br>
+          pos V r -77;<br>
+          pos V s -77;<br>
+          pos V u -77;<br>
+          pos V A.alt -50;<br>
+          pos V J.alt -80;<br>
+          pos V dotlessi -77;<br>
+          pos V aacute -44;<br>
+          pos V agrave -44;<br>
+          pos V acircumflex -44;<br>
+          pos V adieresis -44;<br>
+          pos V atilde -44;<br>
+          pos V aring -44;<br>
+          pos V eacute -44;<br>
+          pos V egrave -44;<br>
+          pos V ecircumflex -44;<br>
+          pos V edieresis -44;<br>
+          pos V iacute -44;<br>
+          pos V oacute -88;<br>
+          pos V ograve -77;<br>
+          pos V ocircumflex -77;<br>
+          pos V odieresis -77;<br>
+          pos V otilde -77;<br>
+          pos V uacute -44;<br>
+          pos V ugrave -44;<br>
+          pos V ucircumflex -44;<br>
+          pos V udieresis -44;<br>
+          pos V Adieresis -50;<br>
+          pos V Aring -50;<br>
+          pos V Agrave -50;<br>
+          pos V Atilde -50;<br>
+          pos V Acircumflex -50;<br>
+          pos V Aacute -50;<br>
+          pos V A -50;<br>
+          pos W J -60;<br>
+          pos W a -66;<br>
+          pos W y -33;<br>
+          pos W e -66;<br>
+          pos W i -33;<br>
+          pos W m -33;<br>
+          pos W o -66;<br>
+          pos W r -44;<br>
+          pos W s -66;<br>
+          pos W u -66;<br>
+          pos W x -33;<br>
+          pos W A.alt -30;<br>
+          pos W J.alt -60;<br>
+          pos W dotlessi -66;<br>
+          pos W aacute -33;<br>
+          pos W agrave -33;<br>
+          pos W acircumflex -33;<br>
+          pos W adieresis -33;<br>
+          pos W atilde -33;<br>
+          pos W aring -33;<br>
+          pos W eacute -33;<br>
+          pos W egrave -33;<br>
+          pos W ecircumflex -33;<br>
+          pos W edieresis -33;<br>
+          pos W iacute -33;<br>
+          pos W oacute -33;<br>
+          pos W ograve -33;<br>
+          pos W ocircumflex -33;<br>
+          pos W odieresis -33;<br>
+          pos W otilde -33;<br>
+          pos W uacute -33;<br>
+          pos W ugrave -33;<br>
+          pos W ucircumflex -33;<br>
+          pos W udieresis -33;<br>
+          pos W Adieresis -30;<br>
+          pos W Aring -30;<br>
+          pos W Agrave -30;<br>
+          pos W Atilde -30;<br>
+          pos W Acircumflex -30;<br>
+          pos W Aacute -30;<br>
+          pos W ydieresis -33;<br>
+          pos W A -33;<br>
+          pos X C -33;<br>
+          pos X G -33;<br>
+          pos X O -33;<br>
+          pos X Q -33;<br>
+          pos X T -33;<br>
+          pos X a -33;<br>
+          pos X y -33;<br>
+          pos X e -33;<br>
+          pos X o -33;<br>
+          pos Y C -33;<br>
+          pos Y F -33;<br>
+          pos Y J -88;<br>
+          pos Y O -33;<br>
+          pos Y S -33;<br>
+          pos Y a -88;<br>
+          pos Y c -80;<br>
+          pos Y z -40;<br>
+          pos Y y -40;<br>
+          pos Y d -33;<br>
+          pos Y e -80;<br>
+          pos Y g -80;<br>
+          pos Y i -60;<br>
+          pos Y j -60;<br>
+          pos Y m -80;<br>
+          pos Y n -80;<br>
+          pos Y o -80;<br>
+          pos Y p -77;<br>
+          pos Y r -80;<br>
+          pos Y s -80;<br>
+          pos Y u -80;<br>
+          pos Y v -48;<br>
+          pos Y w -40;<br>
+          pos Y A.alt -60;<br>
+          pos Y J.alt -80;<br>
+          pos Y a.alt -80;<br>
+          pos Y c.alt -80;<br>
+          pos Y e.alt -80;<br>
+          pos Y g.alt -80;<br>
+          pos Y i.alt -60;<br>
+          pos Y j.alt -60;<br>
+          pos Y m.alt -80;<br>
+          pos Y n.alt -80;<br>
+          pos Y o.alt -80;<br>
+          pos Y r.alt -80;<br>
+          pos Y s.alt -80;<br>
+          pos Y u.alt -80;<br>
+          pos Y v.alt -40;<br>
+          pos Y w.alt -40;<br>
+          pos Y y.alt -40;<br>
+          pos Y z.alt -40;<br>
+          pos Y ae -80;<br>
+          pos Y oe -80;<br>
+          pos Y oslash -80;<br>
+          pos Y dotlessi -77;<br>
+          pos Y aacute -80;<br>
+          pos Y agrave -80;<br>
+          pos Y acircumflex -80;<br>
+          pos Y adieresis -80;<br>
+          pos Y atilde -80;<br>
+          pos Y aring -80;<br>
+          pos Y eacute -80;<br>
+          pos Y egrave -80;<br>
+          pos Y ecircumflex -80;<br>
+          pos Y edieresis -80;<br>
+          pos Y iacute -60;<br>
+          pos Y igrave -60;<br>
+          pos Y icircumflex -60;<br>
+          pos Y idieresis -60;<br>
+          pos Y oacute -80;<br>
+          pos Y ograve -80;<br>
+          pos Y ocircumflex -80;<br>
+          pos Y odieresis -80;<br>
+          pos Y otilde -80;<br>
+          pos Y uacute -80;<br>
+          pos Y ugrave -80;<br>
+          pos Y ucircumflex -80;<br>
+          pos Y udieresis -80;<br>
+          pos Y Adieresis -60;<br>
+          pos Y Aring -60;<br>
+          pos Y Agrave -60;<br>
+          pos Y Atilde -60;<br>
+          pos Y Acircumflex -60;<br>
+          pos Y Aacute -60;<br>
+          pos Y ccedilla -80;<br>
+          pos Y ntilde -80;<br>
+          pos Y yacute -40;<br>
+          pos Y ydieresis -40;<br>
+          pos Y A -60;<br>
+          pos Z a -33;<br>
+          pos Z y -33;<br>
+          pos Z e -33;<br>
+          pos Z o -33;<br>
+          pos A.alt T -60;<br>
+          pos A.alt V -50;<br>
+          pos A.alt W -30;<br>
+          pos A.alt Y -60;<br>
+          pos A.alt T.alt -60;<br>
+          pos A.alt V.alt -50;<br>
+          pos A.alt W.alt -30;<br>
+          pos A.alt Y.alt -60;<br>
+          pos A.alt Yacute -60;<br>
+          pos A.alt Ydieresis -60;<br>
+          pos L.alt T -100;<br>
+          pos L.alt V -80;<br>
+          pos L.alt W -40;<br>
+          pos L.alt Y -80;<br>
+          pos L.alt T.alt -100;<br>
+          pos L.alt V.alt -80;<br>
+          pos L.alt W.alt -40;<br>
+          pos L.alt Y.alt -80;<br>
+          pos L.alt Yacute -80;<br>
+          pos L.alt Ydieresis -80;<br>
+          pos T.alt J -100;<br>
+          pos T.alt a -80;<br>
+          pos T.alt c -80;<br>
+          pos T.alt z -40;<br>
+          pos T.alt y -40;<br>
+          pos T.alt e -80;<br>
+          pos T.alt g -80;<br>
+          pos T.alt i -40;<br>
+          pos T.alt j -60;<br>
+          pos T.alt m -80;<br>
+          pos T.alt n -80;<br>
+          pos T.alt o -80;<br>
+          pos T.alt r -80;<br>
+          pos T.alt s -80;<br>
+          pos T.alt u -80;<br>
+          pos T.alt v -40;<br>
+          pos T.alt w -40;<br>
+          pos T.alt x -60;<br>
+          pos T.alt A.alt -60;<br>
+          pos T.alt J.alt -100;<br>
+          pos T.alt a.alt -80;<br>
+          pos T.alt c.alt -80;<br>
+          pos T.alt e.alt -80;<br>
+          pos T.alt g.alt -80;<br>
+          pos T.alt i.alt -40;<br>
+          pos T.alt j.alt -60;<br>
+          pos T.alt m.alt -80;<br>
+          pos T.alt n.alt -80;<br>
+          pos T.alt o.alt -80;<br>
+          pos T.alt r.alt -80;<br>
+          pos T.alt s.alt -80;<br>
+          pos T.alt u.alt -80;<br>
+          pos T.alt v.alt -40;<br>
+          pos T.alt w.alt -40;<br>
+          pos T.alt x.alt -60;<br>
+          pos T.alt y.alt -40;<br>
+          pos T.alt z.alt -40;<br>
+          pos T.alt ae -80;<br>
+          pos T.alt oe -80;<br>
+          pos T.alt oslash -80;<br>
+          pos T.alt aacute -80;<br>
+          pos T.alt agrave -80;<br>
+          pos T.alt acircumflex -80;<br>
+          pos T.alt adieresis -80;<br>
+          pos T.alt atilde -80;<br>
+          pos T.alt aring -80;<br>
+          pos T.alt eacute -80;<br>
+          pos T.alt egrave -80;<br>
+          pos T.alt ecircumflex -80;<br>
+          pos T.alt edieresis -80;<br>
+          pos T.alt iacute -40;<br>
+          pos T.alt igrave -40;<br>
+          pos T.alt icircumflex -40;<br>
+          pos T.alt idieresis -40;<br>
+          pos T.alt oacute -80;<br>
+          pos T.alt ograve -80;<br>
+          pos T.alt ocircumflex -80;<br>
+          pos T.alt odieresis -80;<br>
+          pos T.alt otilde -80;<br>
+          pos T.alt uacute -80;<br>
+          pos T.alt ugrave -80;<br>
+          pos T.alt ucircumflex -80;<br>
+          pos T.alt udieresis -80;<br>
+          pos T.alt Adieresis -60;<br>
+          pos T.alt Aring -60;<br>
+          pos T.alt Agrave -60;<br>
+          pos T.alt Atilde -60;<br>
+          pos T.alt Acircumflex -60;<br>
+          pos T.alt Aacute -60;<br>
+          pos T.alt ccedilla -80;<br>
+          pos T.alt ntilde -80;<br>
+          pos T.alt yacute -40;<br>
+          pos T.alt ydieresis -40;<br>
+          pos T.alt A -60;<br>
+          pos V.alt J -80;<br>
+          pos V.alt A.alt -50;<br>
+          pos V.alt J.alt -80;<br>
+          pos V.alt Adieresis -50;<br>
+          pos V.alt Aring -50;<br>
+          pos V.alt Agrave -50;<br>
+          pos V.alt Atilde -50;<br>
+          pos V.alt Acircumflex -50;<br>
+          pos V.alt Aacute -50;<br>
+          pos V.alt A -50;<br>
+          pos W.alt J -60;<br>
+          pos W.alt A.alt -30;<br>
+          pos W.alt J.alt -60;<br>
+          pos W.alt Adieresis -30;<br>
+          pos W.alt Aring -30;<br>
+          pos W.alt Agrave -30;<br>
+          pos W.alt Atilde -30;<br>
+          pos W.alt Acircumflex -30;<br>
+          pos W.alt Aacute -30;<br>
+          pos W.alt A -30;<br>
+          pos Y.alt J -80;<br>
+          pos Y.alt a -80;<br>
+          pos Y.alt c -80;<br>
+          pos Y.alt z -40;<br>
+          pos Y.alt y -40;<br>
+          pos Y.alt e -80;<br>
+          pos Y.alt g -80;<br>
+          pos Y.alt i -60;<br>
+          pos Y.alt j -60;<br>
+          pos Y.alt m -80;<br>
+          pos Y.alt n -80;<br>
+          pos Y.alt o -80;<br>
+          pos Y.alt r -80;<br>
+          pos Y.alt s -80;<br>
+          pos Y.alt u -80;<br>
+          pos Y.alt v -40;<br>
+          pos Y.alt w -40;<br>
+          pos Y.alt A.alt -60;<br>
+          pos Y.alt J.alt -80;<br>
+          pos Y.alt a.alt -80;<br>
+          pos Y.alt c.alt -80;<br>
+          pos Y.alt e.alt -80;<br>
+          pos Y.alt g.alt -80;<br>
+          pos Y.alt i.alt -60;<br>
+          pos Y.alt j.alt -60;<br>
+          pos Y.alt m.alt -80;<br>
+          pos Y.alt n.alt -80;<br>
+          pos Y.alt o.alt -80;<br>
+          pos Y.alt r.alt -80;<br>
+          pos Y.alt s.alt -80;<br>
+          pos Y.alt u.alt -80;<br>
+          pos Y.alt v.alt -40;<br>
+          pos Y.alt w.alt -40;<br>
+          pos Y.alt y.alt -40;<br>
+          pos Y.alt z.alt -40;<br>
+          pos Y.alt ae -80;<br>
+          pos Y.alt oe -80;<br>
+          pos Y.alt oslash -80;<br>
+          pos Y.alt aacute -80;<br>
+          pos Y.alt agrave -80;<br>
+          pos Y.alt acircumflex -80;<br>
+          pos Y.alt adieresis -80;<br>
+          pos Y.alt atilde -80;<br>
+          pos Y.alt aring -80;<br>
+          pos Y.alt eacute -80;<br>
+          pos Y.alt egrave -80;<br>
+          pos Y.alt ecircumflex -80;<br>
+          pos Y.alt edieresis -80;<br>
+          pos Y.alt iacute -60;<br>
+          pos Y.alt igrave -60;<br>
+          pos Y.alt icircumflex -60;<br>
+          pos Y.alt idieresis -60;<br>
+          pos Y.alt oacute -80;<br>
+          pos Y.alt ograve -80;<br>
+          pos Y.alt ocircumflex -80;<br>
+          pos Y.alt odieresis -80;<br>
+          pos Y.alt otilde -80;<br>
+          pos Y.alt uacute -80;<br>
+          pos Y.alt ugrave -80;<br>
+          pos Y.alt ucircumflex -80;<br>
+          pos Y.alt udieresis -80;<br>
+          pos Y.alt Adieresis -60;<br>
+          pos Y.alt Aring -60;<br>
+          pos Y.alt Agrave -60;<br>
+          pos Y.alt Atilde -60;<br>
+          pos Y.alt Acircumflex -60;<br>
+          pos Y.alt Aacute -60;<br>
+          pos Y.alt ccedilla -80;<br>
+          pos Y.alt ntilde -80;<br>
+          pos Y.alt yacute -40;<br>
+          pos Y.alt ydieresis -40;<br>
+          pos Y.alt A -60;<br>
+          pos seven four -88;<br>
+          pos seven two -33;<br>
+          pos seven one -33;<br>
+          pos four one -33;<br>
+          pos Adieresis T -60;<br>
+          pos Adieresis V -50;<br>
+          pos Adieresis W -30;<br>
+          pos Adieresis Y -60;<br>
+          pos Adieresis T.alt -60;<br>
+          pos Adieresis V.alt -50;<br>
+          pos Adieresis W.alt -30;<br>
+          pos Adieresis Y.alt -60;<br>
+          pos Adieresis Yacute -60;<br>
+          pos Adieresis Ydieresis -60;<br>
+          pos Aring T -60;<br>
+          pos Aring V -50;<br>
+          pos Aring W -30;<br>
+          pos Aring Y -60;<br>
+          pos Aring T.alt -60;<br>
+          pos Aring V.alt -50;<br>
+          pos Aring W.alt -30;<br>
+          pos Aring Y.alt -60;<br>
+          pos Aring Yacute -60;<br>
+          pos Aring Ydieresis -60;<br>
+          pos Agrave T -60;<br>
+          pos Agrave V -50;<br>
+          pos Agrave W -30;<br>
+          pos Agrave Y -60;<br>
+          pos Agrave T.alt -60;<br>
+          pos Agrave V.alt -50;<br>
+          pos Agrave W.alt -30;<br>
+          pos Agrave Y.alt -60;<br>
+          pos Agrave Yacute -60;<br>
+          pos Agrave Ydieresis -60;<br>
+          pos Atilde T -60;<br>
+          pos Atilde V -50;<br>
+          pos Atilde W -30;<br>
+          pos Atilde Y -60;<br>
+          pos Atilde T.alt -60;<br>
+          pos Atilde V.alt -50;<br>
+          pos Atilde W.alt -30;<br>
+          pos Atilde Y.alt -60;<br>
+          pos Atilde Yacute -60;<br>
+          pos Atilde Ydieresis -60;<br>
+          pos Acircumflex T -60;<br>
+          pos Acircumflex V -50;<br>
+          pos Acircumflex W -30;<br>
+          pos Acircumflex Y -60;<br>
+          pos Acircumflex T.alt -60;<br>
+          pos Acircumflex V.alt -50;<br>
+          pos Acircumflex W.alt -30;<br>
+          pos Acircumflex Y.alt -60;<br>
+          pos Acircumflex Yacute -60;<br>
+          pos Acircumflex Ydieresis -60;<br>
+          pos Aacute T -60;<br>
+          pos Aacute V -50;<br>
+          pos Aacute W -30;<br>
+          pos Aacute Y -60;<br>
+          pos Aacute T.alt -60;<br>
+          pos Aacute V.alt -50;<br>
+          pos Aacute W.alt -30;<br>
+          pos Aacute Y.alt -60;<br>
+          pos Aacute Yacute -60;<br>
+          pos Aacute Ydieresis -60;<br>
+          pos Yacute J -80;<br>
+          pos Yacute a -80;<br>
+          pos Yacute c -80;<br>
+          pos Yacute z -40;<br>
+          pos Yacute y -40;<br>
+          pos Yacute e -80;<br>
+          pos Yacute g -80;<br>
+          pos Yacute i -60;<br>
+          pos Yacute j -60;<br>
+          pos Yacute m -80;<br>
+          pos Yacute n -80;<br>
+          pos Yacute o -80;<br>
+          pos Yacute r -80;<br>
+          pos Yacute s -80;<br>
+          pos Yacute u -80;<br>
+          pos Yacute v -40;<br>
+          pos Yacute w -40;<br>
+          pos Yacute A.alt -60;<br>
+          pos Yacute J.alt -80;<br>
+          pos Yacute a.alt -80;<br>
+          pos Yacute c.alt -80;<br>
+          pos Yacute e.alt -80;<br>
+          pos Yacute g.alt -80;<br>
+          pos Yacute i.alt -60;<br>
+          pos Yacute j.alt -60;<br>
+          pos Yacute m.alt -80;<br>
+          pos Yacute n.alt -80;<br>
+          pos Yacute o.alt -80;<br>
+          pos Yacute r.alt -80;<br>
+          pos Yacute s.alt -80;<br>
+          pos Yacute u.alt -80;<br>
+          pos Yacute v.alt -40;<br>
+          pos Yacute w.alt -40;<br>
+          pos Yacute y.alt -40;<br>
+          pos Yacute z.alt -40;<br>
+          pos Yacute ae -80;<br>
+          pos Yacute oe -80;<br>
+          pos Yacute oslash -80;<br>
+          pos Yacute aacute -80;<br>
+          pos Yacute agrave -80;<br>
+          pos Yacute acircumflex -80;<br>
+          pos Yacute adieresis -80;<br>
+          pos Yacute atilde -80;<br>
+          pos Yacute aring -80;<br>
+          pos Yacute eacute -80;<br>
+          pos Yacute egrave -80;<br>
+          pos Yacute ecircumflex -80;<br>
+          pos Yacute edieresis -80;<br>
+          pos Yacute iacute -60;<br>
+          pos Yacute igrave -60;<br>
+          pos Yacute icircumflex -60;<br>
+          pos Yacute idieresis -60;<br>
+          pos Yacute oacute -80;<br>
+          pos Yacute ograve -80;<br>
+          pos Yacute ocircumflex -80;<br>
+          pos Yacute odieresis -80;<br>
+          pos Yacute otilde -80;<br>
+          pos Yacute uacute -80;<br>
+          pos Yacute ugrave -80;<br>
+          pos Yacute ucircumflex -80;<br>
+          pos Yacute udieresis -80;<br>
+          pos Yacute Adieresis -60;<br>
+          pos Yacute Aring -60;<br>
+          pos Yacute Agrave -60;<br>
+          pos Yacute Atilde -60;<br>
+          pos Yacute Acircumflex -60;<br>
+          pos Yacute Aacute -60;<br>
+          pos Yacute ccedilla -80;<br>
+          pos Yacute ntilde -80;<br>
+          pos Yacute yacute -40;<br>
+          pos Yacute ydieresis -40;<br>
+          pos Yacute A -60;<br>
+          pos Ydieresis J -80;<br>
+          pos Ydieresis a -80;<br>
+          pos Ydieresis c -80;<br>
+          pos Ydieresis z -40;<br>
+          pos Ydieresis y -40;<br>
+          pos Ydieresis e -80;<br>
+          pos Ydieresis g -80;<br>
+          pos Ydieresis i -60;<br>
+          pos Ydieresis j -60;<br>
+          pos Ydieresis m -80;<br>
+          pos Ydieresis n -80;<br>
+          pos Ydieresis o -80;<br>
+          pos Ydieresis r -80;<br>
+          pos Ydieresis s -80;<br>
+          pos Ydieresis u -80;<br>
+          pos Ydieresis v -40;<br>
+          pos Ydieresis w -40;<br>
+          pos Ydieresis A.alt -60;<br>
+          pos Ydieresis J.alt -80;<br>
+          pos Ydieresis a.alt -80;<br>
+          pos Ydieresis c.alt -80;<br>
+          pos Ydieresis e.alt -80;<br>
+          pos Ydieresis g.alt -80;<br>
+          pos Ydieresis i.alt -60;<br>
+          pos Ydieresis j.alt -60;<br>
+          pos Ydieresis m.alt -80;<br>
+          pos Ydieresis n.alt -80;<br>
+          pos Ydieresis o.alt -80;<br>
+          pos Ydieresis r.alt -80;<br>
+          pos Ydieresis s.alt -80;<br>
+          pos Ydieresis u.alt -80;<br>
+          pos Ydieresis v.alt -40;<br>
+          pos Ydieresis w.alt -40;<br>
+          pos Ydieresis y.alt -40;<br>
+          pos Ydieresis z.alt -40;<br>
+          pos Ydieresis ae -80;<br>
+          pos Ydieresis oe -80;<br>
+          pos Ydieresis oslash -80;<br>
+          pos Ydieresis aacute -80;<br>
+          pos Ydieresis agrave -80;<br>
+          pos Ydieresis acircumflex -80;<br>
+          pos Ydieresis adieresis -80;<br>
+          pos Ydieresis atilde -80;<br>
+          pos Ydieresis aring -80;<br>
+          pos Ydieresis eacute -80;<br>
+          pos Ydieresis egrave -80;<br>
+          pos Ydieresis ecircumflex -80;<br>
+          pos Ydieresis edieresis -80;<br>
+          pos Ydieresis iacute -60;<br>
+          pos Ydieresis igrave -60;<br>
+          pos Ydieresis icircumflex -60;<br>
+          pos Ydieresis idieresis -60;<br>
+          pos Ydieresis oacute -80;<br>
+          pos Ydieresis ograve -80;<br>
+          pos Ydieresis ocircumflex -80;<br>
+          pos Ydieresis odieresis -80;<br>
+          pos Ydieresis otilde -80;<br>
+          pos Ydieresis uacute -80;<br>
+          pos Ydieresis ugrave -80;<br>
+          pos Ydieresis ucircumflex -80;<br>
+          pos Ydieresis udieresis -80;<br>
+          pos Ydieresis Adieresis -60;<br>
+          pos Ydieresis Aring -60;<br>
+          pos Ydieresis Agrave -60;<br>
+          pos Ydieresis Atilde -60;<br>
+          pos Ydieresis Acircumflex -60;<br>
+          pos Ydieresis Aacute -60;<br>
+          pos Ydieresis ccedilla -80;<br>
+          pos Ydieresis ntilde -80;<br>
+          pos Ydieresis yacute -40;<br>
+          pos Ydieresis ydieresis -40;<br>
+          pos Ydieresis A -60;<br>
+          pos A Q -33;<br>
+          pos A S -33;<br>
+          pos A T -66;<br>
+          pos A V -50;<br>
+          pos A W -30;<br>
+          pos A Y -60;<br>
+          pos A y -33;<br>
+          pos A e -11;<br>
+          pos A f -33;<br>
+          pos A j -22;<br>
+          pos A T.alt -60;<br>
+          pos A V.alt -50;<br>
+          pos A W.alt -30;<br>
+          pos A Y.alt -60;<br>
+          pos A Yacute -60;<br>
+          pos A Ydieresis -60;<br>
+      } kern0;<br>
+      } kern;</p>
+      <p>feature calt { # Contextual Alternates<br>
+       # Latin<br>
+          sub exclam exclam' by exclam.alt;<br>
+          sub exclam.alt exclam.alt' by exclam;<br>
+          sub zero zero' by zero.alt;<br>
+          sub one one' by one.alt;<br>
+          sub two two' by two.alt;<br>
+          sub three three' by three.alt;<br>
+          sub four four' by four.alt;<br>
+          sub five five' by five.alt;<br>
+          sub six six' by six.alt;<br>
+          sub seven seven' by seven.alt;<br>
+          sub eight eight' by eight.alt;<br>
+          sub nine nine' by nine.alt;<br>
+          sub zero.alt zero.alt' by zero;<br>
+          sub one.alt one.alt' by one;<br>
+          sub two.alt two.alt' by two;<br>
+          sub three.alt three.alt' by three;<br>
+          sub four.alt four.alt' by four;<br>
+          sub five.alt five.alt' by five;<br>
+          sub six.alt six.alt' by six;<br>
+          sub seven.alt seven.alt' by seven;<br>
+          sub eight.alt eight.alt' by eight;<br>
+          sub nine.alt nine.alt' by nine;<br>
+          sub A.alt A.alt' by A;<br>
+          sub a.alt a.alt' by a;<br>
+          sub B.alt B.alt' by B;<br>
+          sub b.alt b.alt' by b;<br>
+          sub C.alt C.alt' by C;<br>
+          sub c.alt c.alt' by c;<br>
+          sub D.alt D.alt' by D;<br>
+          sub d.alt d.alt' by d;<br>
+          sub E.alt E.alt' by E;<br>
+          sub e.alt e.alt' by e;<br>
+          sub F.alt F.alt' by F;<br>
+          sub f.alt f.alt' by f;<br>
+          sub G.alt G.alt' by G;<br>
+          sub g.alt g.alt' by g;<br>
+          sub H.alt H.alt' by H;<br>
+          sub h.alt h.alt' by h;<br>
+          sub i.alt i.alt' by i;<br>
+          sub J.alt J.alt' by J;<br>
+          sub j.alt j.alt' by j;<br>
+          sub K.alt K.alt' by K;<br>
+          sub k.alt k.alt' by k;<br>
+          sub L.alt L.alt' by L;<br>
+          sub l.alt l.alt' by l;<br>
+          sub M.alt M.alt' by M;<br>
+          sub m.alt m.alt' by m;<br>
+          sub N.alt N.alt' by N;<br>
+          sub n.alt n.alt' by n;<br>
+          sub O.alt O.alt' by O;<br>
+          sub o.alt o.alt' by o;<br>
+          sub P.alt P.alt' by P;<br>
+          sub p.alt p.alt' by p;<br>
+          sub Q.alt Q.alt' by Q;<br>
+          sub q.alt q.alt' by q;<br>
+          sub R.alt R.alt' by R;<br>
+          sub r.alt r.alt' by r;<br>
+          sub S.alt S.alt' by S;<br>
+          sub s.alt s.alt' by s;<br>
+          sub T.alt T.alt' by T;<br>
+          sub t.alt t.alt' by t;<br>
+          sub U.alt U.alt' by U;<br>
+          sub u.alt u.alt' by u;<br>
+          sub V.alt V.alt' by V;<br>
+          sub v.alt v.alt' by v;<br>
+          sub W.alt W.alt' by W;<br>
+          sub w.alt w.alt' by w;<br>
+          sub X.alt X.alt' by X;<br>
+          sub x.alt x.alt' by x;<br>
+          sub Y.alt Y.alt' by Y;<br>
+          sub y.alt y.alt' by y;<br>
+          sub Z.alt Z.alt' by Z;<br>
+          sub z.alt z.alt' by z;<br>
+          sub A A' by A.alt;<br>
+          sub a a' by a.alt;<br>
+          sub B B' by B.alt;<br>
+          sub b b' by b.alt;<br>
+          sub C C' by C.alt;<br>
+          sub c c' by c.alt;<br>
+          sub D D' by D.alt;<br>
+          sub d d' by d.alt;<br>
+          sub E E' by E.alt;<br>
+          sub e e' by e.alt;<br>
+          sub F F' by F.alt;<br>
+          sub f f' by f.alt;<br>
+          sub G G' by G.alt;<br>
+          sub g g' by g.alt;<br>
+          sub H H' by H.alt;<br>
+          sub h h' by h.alt;<br>
+          sub i i' by i.alt;<br>
+          sub J J' by J.alt;<br>
+          sub j j' by j.alt;<br>
+          sub K K' by K.alt;<br>
+          sub k k' by k.alt;<br>
+          sub L L' by L.alt;<br>
+          sub l l' by l.alt;<br>
+          sub M M' by M.alt;<br>
+          sub m m' by m.alt;<br>
+          sub N N' by N.alt;<br>
+          sub n n' by n.alt;<br>
+          sub O O' by O.alt;<br>
+          sub o o' by o.alt;<br>
+          sub P P' by P.alt;<br>
+          sub p p' by p.alt;<br>
+          sub Q Q' by Q.alt;<br>
+          sub q q' by q.alt;<br>
+          sub R R' by R.alt;<br>
+          sub r r' by r.alt;<br>
+          sub S S' by S.alt;<br>
+          sub s s' by s.alt;<br>
+          sub T T' by T.alt;<br>
+          sub t t' by t.alt;<br>
+          sub U U' by U.alt;<br>
+          sub u u' by u.alt;<br>
+          sub V V' by V.alt;<br>
+          sub v v' by v.alt;<br>
+          sub W W' by W.alt;<br>
+          sub w w' by w.alt;<br>
+          sub X X' by X.alt;<br>
+          sub x x' by x.alt;<br>
+          sub Y Y' by Y.alt;<br>
+          sub y y' by y.alt;<br>
+          sub Z Z' by Z.alt;<br>
+          sub z z' by z.alt;<br>
+      } calt;</p>
+      <p>feature salt { # Stylistic Alternates<br>
+       # Latin<br>
+          sub exclam exclam' by exclam.alt;<br>
+          sub exclam.alt exclam.alt' by exclam;<br>
+          sub zero zero' by zero.alt;<br>
+          sub one one' by one.alt;<br>
+          sub two two' by two.alt;<br>
+          sub three three' by three.alt;<br>
+          sub four four' by four.alt;<br>
+          sub five five' by five.alt;<br>
+          sub six six' by six.alt;<br>
+          sub seven seven' by seven.alt;<br>
+          sub eight eight' by eight.alt;<br>
+          sub nine nine' by nine.alt;<br>
+          sub zero.alt zero.alt' by zero;<br>
+          sub one.alt one.alt' by one;<br>
+          sub two.alt two.alt' by two;<br>
+          sub three.alt three.alt' by three;<br>
+          sub four.alt four.alt' by four;<br>
+          sub five.alt five.alt' by five;<br>
+          sub six.alt six.alt' by six;<br>
+          sub seven.alt seven.alt' by seven;<br>
+          sub eight.alt eight.alt' by eight;<br>
+          sub nine.alt nine.alt' by nine;<br>
+          sub A.alt A.alt' by A;<br>
+          sub a.alt a.alt' by a;<br>
+          sub B.alt B.alt' by B;<br>
+          sub b.alt b.alt' by b;<br>
+          sub C.alt C.alt' by C;<br>
+          sub c.alt c.alt' by c;<br>
+          sub D.alt D.alt' by D;<br>
+          sub d.alt d.alt' by d;<br>
+          sub E.alt E.alt' by E;<br>
+          sub e.alt e.alt' by e;<br>
+          sub F.alt F.alt' by F;<br>
+          sub f.alt f.alt' by f;<br>
+          sub G.alt G.alt' by G;<br>
+          sub g.alt g.alt' by g;<br>
+          sub H.alt H.alt' by H;<br>
+          sub h.alt h.alt' by h;<br>
+          sub i.alt i.alt' by i;<br>
+          sub J.alt J.alt' by J;<br>
+          sub j.alt j.alt' by j;<br>
+          sub K.alt K.alt' by K;<br>
+          sub k.alt k.alt' by k;<br>
+          sub L.alt L.alt' by L;<br>
+          sub l.alt l.alt' by l;<br>
+          sub M.alt M.alt' by M;<br>
+          sub m.alt m.alt' by m;<br>
+          sub N.alt N.alt' by N;<br>
+          sub n.alt n.alt' by n;<br>
+          sub O.alt O.alt' by O;<br>
+          sub o.alt o.alt' by o;<br>
+          sub P.alt P.alt' by P;<br>
+          sub p.alt p.alt' by p;<br>
+          sub Q.alt Q.alt' by Q;<br>
+          sub q.alt q.alt' by q;<br>
+          sub R.alt R.alt' by R;<br>
+          sub r.alt r.alt' by r;<br>
+          sub S.alt S.alt' by S;<br>
+          sub s.alt s.alt' by s;<br>
+          sub T.alt T.alt' by T;<br>
+          sub t.alt t.alt' by t;<br>
+          sub U.alt U.alt' by U;<br>
+          sub u.alt u.alt' by u;<br>
+          sub V.alt V.alt' by V;<br>
+          sub v.alt v.alt' by v;<br>
+          sub W.alt W.alt' by W;<br>
+          sub w.alt w.alt' by w;<br>
+          sub X.alt X.alt' by X;<br>
+          sub x.alt x.alt' by x;<br>
+          sub Y.alt Y.alt' by Y;<br>
+          sub y.alt y.alt' by y;<br>
+          sub Z.alt Z.alt' by Z;<br>
+          sub z.alt z.alt' by z;<br>
+          sub A A' by A.alt;<br>
+          sub a a' by a.alt;<br>
+          sub B B' by B.alt;<br>
+          sub b b' by b.alt;<br>
+          sub C C' by C.alt;<br>
+          sub c c' by c.alt;<br>
+          sub D D' by D.alt;<br>
+          sub d d' by d.alt;<br>
+          sub E E' by E.alt;<br>
+          sub e e' by e.alt;<br>
+          sub F F' by F.alt;<br>
+          sub f f' by f.alt;<br>
+          sub G G' by G.alt;<br>
+          sub g g' by g.alt;<br>
+          sub H H' by H.alt;<br>
+          sub h h' by h.alt;<br>
+          sub i i' by i.alt;<br>
+          sub J J' by J.alt;<br>
+          sub j j' by j.alt;<br>
+          sub K K' by K.alt;<br>
+          sub k k' by k.alt;<br>
+          sub L L' by L.alt;<br>
+          sub l l' by l.alt;<br>
+          sub M M' by M.alt;<br>
+          sub m m' by m.alt;<br>
+          sub N N' by N.alt;<br>
+          sub n n' by n.alt;<br>
+          sub O O' by O.alt;<br>
+          sub o o' by o.alt;<br>
+          sub P P' by P.alt;<br>
+          sub p p' by p.alt;<br>
+          sub Q Q' by Q.alt;<br>
+          sub q q' by q.alt;<br>
+          sub R R' by R.alt;<br>
+          sub r r' by r.alt;<br>
+          sub S S' by S.alt;<br>
+          sub s s' by s.alt;<br>
+          sub T T' by T.alt;<br>
+          sub t t' by t.alt;<br>
+          sub U U' by U.alt;<br>
+          sub u u' by u.alt;<br>
+          sub V V' by V.alt;<br>
+          sub v v' by v.alt;<br>
+          sub W W' by W.alt;<br>
+          sub w w' by w.alt;<br>
+          sub X X' by X.alt;<br>
+          sub x x' by x.alt;<br>
+          sub Y Y' by Y.alt;<br>
+          sub y y' by y.alt;<br>
+          sub Z Z' by Z.alt;<br>
+          sub z z' by z.alt;<br>
+      } salt;</p>
+    html_clean: |-
       <p>Yes, my code is:</p>
       <p>feature aalt{<br>
         feature calt;<br>
@@ -1050,12 +2043,22 @@ comments:
       <p>I think you need to tidy that up with OTF classes. You can create a class for all similar substitutions in one that represents @state1 then nearly identical class with all of your ".alts" in exactly the same order and number called @state2 (or whatever name you choose for the classes).</p>
       <p>Also, you may be making the same substitution in 2 different features.<br>
       {calt} is on by default and may take precedent over later features. You have to be very careful of the order you place not only your features with each other but which sub comes first in your string of code.</p>
+    html_clean: |-
+      <p>I think you need to tidy that up with OTF classes. You can create a class for all similar substitutions in one that represents @state1 then nearly identical class with all of your ".alts" in exactly the same order and number called @state2 (or whatever name you choose for the classes).</p>
+      <p>Also, you may be making the same substitution in 2 different features.<br>
+      {calt} is on by default and may take precedent over later features. You have to be very careful of the order you place not only your features with each other but which sub comes first in your string of code.</p>
   - id: 441750
     user: 65510
     date: 2010-11-28T19:00:00
     date_raw: 28 Nov 2010 — 7:00pm
     votes: null
     html: |-
+      <p>So are you saying, instead of using calt and salt, maybe call them something else like swapA, swapB, then initiate those in the aalt code?  Like this:</p>
+      <p>feature aalt{<br>
+      feature swapA;<br>
+      feature swapB;<br>
+      } aalt;</p>
+    html_clean: |-
       <p>So are you saying, instead of using calt and salt, maybe call them something else like swapA, swapB, then initiate those in the aalt code?  Like this:</p>
       <p>feature aalt{<br>
       feature swapA;<br>
@@ -1070,12 +2073,88 @@ comments:
       <p>btw, I have two classes now for the OT settings. </p>
       <p><a href="http://grab.by/7CE0" title="http://grab.by/7CE0">http://grab.by/7CE0</a><br>
       <a href="http://grab.by/7CDY" title="http://grab.by/7CDY">http://grab.by/7CDY</a></p>
+    html_clean: |-
+      <p>btw, I have two classes now for the OT settings. </p>
+      <p><a href="http://grab.by/7CE0" title="http://grab.by/7CE0">http://grab.by/7CE0</a><br>
+      <a href="http://grab.by/7CDY" title="http://grab.by/7CDY">http://grab.by/7CDY</a></p>
   - id: 441760
     user: 65510
     date: 2010-11-28T20:29:00
     date_raw: 28 Nov 2010 — 8:29pm
     votes: null
     html: |-
+      <p>Ok, I found the issue. This was developed by former team member, so I am sorting debugging this from the wild. It seems they way over thought this, with double letters, coding the feature twice, and yes as mentioned above, I think it was overwriting the command with double actions (normal to alt, alt to normal). Also seems the code was kinda wrong, they had:</p>
+      <p>sub w w' by w.alt;</p>
+      <p>when it should have been</p>
+      <p>sub w by w.alt;</p>
+      <p>----<br>
+      I removed the salt code, and aalt code, and left the calt:</p>
+      <p>feature calt {<br>
+          sub A by A.alt;<br>
+          sub a by a.alt;<br>
+          sub B by B.alt;<br>
+          sub b by b.alt;<br>
+          sub C by C.alt;<br>
+          sub c by c.alt;<br>
+          sub D by D.alt;<br>
+          sub d by d.alt;<br>
+          sub E by E.alt;<br>
+          sub e by e.alt;<br>
+          sub F by F.alt;<br>
+          sub f by f.alt;<br>
+          sub G by G.alt;<br>
+          sub g by g.alt;<br>
+          sub H by H.alt;<br>
+          sub h by h.alt;<br>
+          sub i by i.alt;<br>
+          sub J by J.alt;<br>
+          sub j by j.alt;<br>
+          sub K by K.alt;<br>
+          sub k by k.alt;<br>
+          sub L by L.alt;<br>
+          sub l by l.alt;<br>
+          sub M by M.alt;<br>
+          sub m by m.alt;<br>
+          sub N by N.alt;<br>
+          sub n by n.alt;<br>
+          sub O by O.alt;<br>
+          sub o by o.alt;<br>
+          sub P by P.alt;<br>
+          sub p by p.alt;<br>
+          sub Q by Q.alt;<br>
+          sub q by q.alt;<br>
+          sub R by R.alt;<br>
+          sub r by r.alt;<br>
+          sub S by S.alt;<br>
+          sub s by s.alt;<br>
+          sub T by T.alt;<br>
+          sub t by t.alt;<br>
+          sub U by U.alt;<br>
+          sub u by u.alt;<br>
+          sub V by V.alt;<br>
+          sub v by v.alt;<br>
+          sub W by W.alt;<br>
+          sub w by w.alt;<br>
+          sub X by X.alt;<br>
+          sub x by x.alt;<br>
+          sub Y by Y.alt;<br>
+          sub y by y.alt;<br>
+          sub Z by Z.alt;<br>
+          sub z by z.alt;<br>
+          sub zero by zero.alt;<br>
+          sub one by one.alt;<br>
+          sub two by two.alt;<br>
+          sub three by three.alt;<br>
+          sub four by four.alt;<br>
+          sub five by five.alt;<br>
+          sub six by six.alt;<br>
+          sub seven by seven.alt;<br>
+          sub eight by eight.alt;<br>
+          sub nine by nine.alt;<br>
+          sub exclam by exclam.alt;<br>
+          sub question by question.alt;<br>
+      } calt;</p>
+    html_clean: |-
       <p>Ok, I found the issue. This was developed by former team member, so I am sorting debugging this from the wild. It seems they way over thought this, with double letters, coding the feature twice, and yes as mentioned above, I think it was overwriting the command with double actions (normal to alt, alt to normal). Also seems the code was kinda wrong, they had:</p>
       <p>sub w w' by w.alt;</p>
       <p>when it should have been</p>
@@ -1161,6 +2240,15 @@ comments:
        # Latin<br>
         sub @swap1 by @swap2;<br>
       } salt;</p>
+    html_clean: |-
+      <p>Here are 2 classes I made from your code. The class name is followed by a colon and then the list of glyphs in the separated class by a single space --</p>
+      <p>swap1: A a B b C c D d E e eight exclam F f five four G g H h i J j K k L l M m N n nine O o one P p Q q question R r S s seven six T t three two U u V v W w X x Y y Z z zero</p>
+      <p>swap2: A.alt a.alt  B.alt  b.alt  C.alt  c.alt  D.alt  d.alt  E.alt  e.alt  eight.alt  exclam.alt  F.alt  f.alt  five.alt  four.alt  G.alt  g.alt  H.alt  h.alt  i.alt  J.alt  j.alt  K.alt  k.alt  L.alt  l.alt  M.alt  m.alt  N.alt  n.alt  nine.alt  O.alt  o.alt  one.alt  P.alt  p.alt  Q.alt  q.alt  question.alt  R.alt  r.alt  S.alt  s.alt  seven.alt  six.alt  T.alt  t.alt  three.alt  two.alt  U.alt  u.alt  V.alt  v.alt  W.alt  w.alt  X.alt  x.alt  Y.alt  y.alt  Z.alt  z.alt  zero.alt</p>
+      <p>After you make those 2 classes, your feature code for this one feature is simply:</p>
+      <p>feature salt { # Stylistic alternates<br>
+       # Latin<br>
+        sub @swap1 by @swap2;<br>
+      } salt;</p>
   - id: 441791
     user: 31798
     date: 2010-11-29T07:45:00
@@ -1179,9 +2267,23 @@ comments:
       <p>If you really intend it to be the latter rather than the former then you probably don't want this substitution to appear in the 'calt' feature, but rather in a stylistic set ('ss01' - 'ss20') or, possibly, in 'salt'. What is the nature of the alternate glyphs?</p>
       <p>Also, features aren't initiated in 'aalt' -- 'aalt' is a distinct feature (access all alternates) which is responsible (for example) for mapping glyphs to their available alternates in the glyph palette.</p>
       <p>André</p>
+    html_clean: |-
+      <p><cite> Ok, I found the issue. This was developed by former team member, so I am sorting debugging this from the wild. It seems they way over thought this, with double letters, coding the feature twice, and yes as mentioned above, I think it was overwriting the command with double actions (normal to alt, alt to normal). Also seems the code was kinda wrong, they had: </cite></p>
+      <p><cite> sub w w' by w.alt; </cite></p>
+      <p><cite> when it should have been </cite></p>
+      <p><cite> sub w by w.alt; </cite></p>
+      <p>I'm not clear what your substitutions are trying to do, but since you say you've left only the 'calt' feature it seems like the original developers probably had the former rather than the latter line of code (quoted above) in mind.</p>
+      <p><code>&nbsp;&nbsp;&nbsp;sub w w' by w.alt; </code></p>
+      <p>will substitute a w by w.alt when it follows another w (and if you have a bunch of w's in a row it will affect every second one).</p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;sub w by w.alt; </code></p>
+      <p>on the other hand, will substitute any w with w.alt.</p>
+      <p>If you really intend it to be the latter rather than the former then you probably don't want this substitution to appear in the 'calt' feature, but rather in a stylistic set ('ss01' - 'ss20') or, possibly, in 'salt'. What is the nature of the alternate glyphs?</p>
+      <p>Also, features aren't initiated in 'aalt' -- 'aalt' is a distinct feature (access all alternates) which is responsible (for example) for mapping glyphs to their available alternates in the glyph palette.</p>
+      <p>André</p>
   - id: 441922
     user: 65510
     date: 2010-11-30T10:03:00
     date_raw: 30 Nov 2010 — 10:03am
     votes: null
     html: <p>Yeah, i added it into the salt area, mentioned wrong thing there. While the original designer might have wanted the alternate to show up in double letter combos, it seems that code also made hitting the salt option button in AI not work. I prefer to have that work more than the glyph window. options.</p>
+    html_clean: <p>Yeah, i added it into the salt area, mentioned wrong thing there. While the original designer might have wanted the alternate to show up in double letter combos, it seems that code also made hitting the salt option button in AI not work. I prefer to have that work more than the glyph window. options.</p>

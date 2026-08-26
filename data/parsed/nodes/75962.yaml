@@ -58,6 +58,27 @@ post:
     @end_swash: t.end</p>
     <p>Thanks! :)</p>
     <p>~ Laura</p>
+  html_clean: |-
+    <p>Hello! I need help with programming in beginning and ending swashes into a new script font I'm working on. I want to set this up in such a way that I can use both a beginning and an ending in the same word. I found an older thread on this, and followed it, but it wasn't working. I tried it with just one letter that has three variations, but it isn't working for me. This is what I have: </p>
+    <p>feature calt {</p>
+    <p>lookup caltstart {<br>
+       ignore sub @letter_start @start';<br>
+       sub @start' by @start_swash;<br>
+    } caltstart;</p>
+    <p>lookup caltend {<br>
+       ignore sub @end' @letter_end;<br>
+       sub @end' by @end_swash;<br>
+    } caltend;</p>
+    <p>} calt;</p>
+    <p>- - - - - - - - - - - - - - - - - - - -</p>
+    <p>@letter_start: t t.start<br>
+    @start: t<br>
+    @start_swash: t.start<br>
+    @letter_end: t t.end<br>
+    @end: t<br>
+    @end_swash: t.end</p>
+    <p>Thanks! :)</p>
+    <p>~ Laura</p>
 comments:
   - id: 437864
     user: 45774
@@ -67,9 +88,13 @@ comments:
     html: |-
       <p>What’s with your classes, Laura?</p>
       <p><code>@class_name = [character character];</code> is the syntax. Please don't get angry, but in case of <em>this</em> question I must say it: Have a look into <strong><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.ii" rel="nofollow">the fu***** manual</a></strong>.</p>
+    html_clean: |-
+      <p>What’s with your classes, Laura?</p>
+      <p><code>@class_name = [character character];</code> is the syntax. Please don't get angry, but in case of <em>this</em> question I must say it: Have a look into <strong><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.ii" rel="nofollow">the fu***** manual</a></strong>.</p>
   - id: 437868
     user: 3254
     date: 2010-11-04T10:57:00
     date_raw: 4 Nov 2010 — 10:57am
     votes: null
     html: <p>If these are classes set up using the classes panel in fontlab, the problem could be that you don't need the at-signs there.</p>
+    html_clean: <p>If these are classes set up using the classes panel in fontlab, the problem could be that you don't need the at-signs there.</p>

@@ -41,6 +41,10 @@ post:
     <p>Hi, I have been reading about the advantages of OTF format and want to extend an old font beyond standard latin alphabet (A-Z). However, the font is originally in TTF format. I am wondering, after looking at the various pages on this site, is there a way of reducing the number of nodes in a OTF that has been converted from TTF without altering the shape of the glyph? I have seen "Optimise" and "Clean up" functions in FLS5 but they appear to alter the curves a bit. </p>
     <p>Also when reducing the font from 2048 to 1000 em, what is the best way of doing it? Clean up everything first, then reduce, or reduce first, then clean everything up?</p>
     <p>Thanks for your help.</p>
+  html_clean: |-
+    <p>Hi, I have been reading about the advantages of OTF format and want to extend an old font beyond standard latin alphabet (A-Z). However, the font is originally in TTF format. I am wondering, after looking at the various pages on this site, is there a way of reducing the number of nodes in a OTF that has been converted from TTF without altering the shape of the glyph? I have seen "Optimise" and "Clean up" functions in FLS5 but they appear to alter the curves a bit. </p>
+    <p>Also when reducing the font from 2048 to 1000 em, what is the best way of doing it? Clean up everything first, then reduce, or reduce first, then clean everything up?</p>
+    <p>Thanks for your help.</p>
 comments:
   - id: 535182
     user: 83217
@@ -48,6 +52,9 @@ comments:
     date_raw: 27 Dec 2012 — 2:52am
     votes: null
     html: |-
+      <p>There are two flavours of OpenType (OT): Compact Font Format (CFF) aka PostScript (PS), and TrueType (TT). The main difference between a TT font and a TT-flavoured OT font is the presence of OT look-up tables in the latter.</p>
+      <p>Meaning? Unless you absolutely <em>need</em> the font to have the CFF flavour, leave it as TT. You and the world will be much happier.</p>
+    html_clean: |-
       <p>There are two flavours of OpenType (OT): Compact Font Format (CFF) aka PostScript (PS), and TrueType (TT). The main difference between a TT font and a TT-flavoured OT font is the presence of OT look-up tables in the latter.</p>
       <p>Meaning? Unless you absolutely <em>need</em> the font to have the CFF flavour, leave it as TT. You and the world will be much happier.</p>
   - id: 535202
@@ -59,18 +66,26 @@ comments:
       <p>Hi Reynir,<br>
       Unfortunately, yes CFF is required in order to keep font size down :-(<br>
       Pete</p>
+    html_clean: |-
+      <p>Hi Reynir,<br>
+      Unfortunately, yes CFF is required in order to keep font size down :-(<br>
+      Pete</p>
   - id: 535211
     user: 2969
     date: 2012-12-27T07:10:00
     date_raw: 27 Dec 2012 — 7:10am
     votes: null
     html: <p>You can license Robofont, open the ttf, set the font info to "preserve points", output ttf and cff compatible UFOs, reaching point-compatible ufos in each format. Compare the two, make whatever edits to the new cubic beziers you may find, and output a cff-ready OTF?</p>
+    html_clean: <p>You can license Robofont, open the ttf, set the font info to "preserve points", output ttf and cff compatible UFOs, reaching point-compatible ufos in each format. Compare the two, make whatever edits to the new cubic beziers you may find, and output a cff-ready OTF?</p>
   - id: 535214
     user: 1250
     date: 2012-12-27T07:57:00
     date_raw: 27 Dec 2012 — 7:57am
     votes: null
     html: |-
+      <p>So Robofont's conversion is cleaner? But it does still need occasional tweaking?</p>
+      <p>hhp</p>
+    html_clean: |-
       <p>So Robofont's conversion is cleaner? But it does still need occasional tweaking?</p>
       <p>hhp</p>
   - id: 535224
@@ -83,18 +98,31 @@ comments:
       <p>IIRC, the 1000 limitation applies to Type 1 fonts (pfb/pfm) but NOT to CFF OT fonts.</p>
       <p>Are there any known circumstances where a CFF OT  will fail if it has a UPM other than 1000? Six years ago Adam Twardoch said that InDesign assumes 1000 and uses a text cursor to match, so if the font has a UPM of 2000 the cursor would be sized at 50%.</p>
       <p> - Herb</p>
+    html_clean: |-
+      <p>It is not necessary to change the UPM size to 1000 for an OpenType font. There are many typophile threads attesting to this.</p>
+      <p>IIRC, the 1000 limitation applies to Type 1 fonts (pfb/pfm) but NOT to CFF OT fonts.</p>
+      <p>Are there any known circumstances where a CFF OT  will fail if it has a UPM other than 1000? Six years ago Adam Twardoch said that InDesign assumes 1000 and uses a text cursor to match, so if the font has a UPM of 2000 the cursor would be sized at 50%.</p>
+      <p> - Herb</p>
   - id: 535235
     user: 1262
     date: 2012-12-27T10:22:00
     date_raw: 27 Dec 2012 — 10:22am
     votes: null
     html: <p>The InDesign cursor scaling bug was fixed some time ago. However, we've found issues with some third-party PDF creators that assume a 1000 unit em for CFF fonts, and that mess up scaling and metrics. This won't stop us from producing fonts with higher UPM values if the details of the individual design require it, but it does mean that we try to stick to 1000 for PS fonts whenever possible.</p>
+    html_clean: <p>The InDesign cursor scaling bug was fixed some time ago. However, we've found issues with some third-party PDF creators that assume a 1000 unit em for CFF fonts, and that mess up scaling and metrics. This won't stop us from producing fonts with higher UPM values if the details of the individual design require it, but it does mean that we try to stick to 1000 for PS fonts whenever possible.</p>
   - id: 535250
     user: 2969
     date: 2012-12-27T11:51:00
     date_raw: 27 Dec 2012 — 11:51am
     votes: null
     html: |-
+      <p>"So Robofont's conversion is cleaner?"</p>
+      <p>One has the proper choices:<br>
+      convert and keep the exact shape,<br>
+      or convert and keep the exact points.</p>
+      <p>"But it does still need occasional tweaking?"</p>
+      <p>I suppose, if one is concerned about the output above 300 dpi, or so, one could tweak occasionally, and if not, not at all.</p>
+    html_clean: |-
       <p>"So Robofont's conversion is cleaner?"</p>
       <p>One has the proper choices:<br>
       convert and keep the exact shape,<br>
@@ -111,18 +139,27 @@ comments:
       <p>@John Hudson - exactly! I have found that 1000em for CFF is best :-)</p>
       <p>@ dberlow in your last post, you say that there are two proper choices, however, where do I find these options? When I open the font in Robofont, a popup message says "RoboFont will convert TrueType splines to splines with 2 offcurve points." so I click on ok. Then what? Forgive my ignorance, I have never used Robofont before.</p>
       <p>Thanks</p>
+    html_clean: |-
+      <p>Hi all, thanks for the feedback. </p>
+      <p>@John Hudson - exactly! I have found that 1000em for CFF is best :-)</p>
+      <p>@ dberlow in your last post, you say that there are two proper choices, however, where do I find these options? When I open the font in Robofont, a popup message says "RoboFont will convert TrueType splines to splines with 2 offcurve points." so I click on ok. Then what? Forgive my ignorance, I have never used Robofont before.</p>
+      <p>Thanks</p>
   - id: 535338
     user: 2969
     date: 2012-12-28T09:43:00
     date_raw: 28 Dec 2012 — 9:43am
     votes: null
     html: <p>Peter, in the font window, the "Robofont" selection, under "Generate"...</p>
+    html_clean: <p>Peter, in the font window, the "Robofont" selection, under "Generate"...</p>
   - id: 535597
     user: 163060
     date: 2012-12-29T04:25:00
     date_raw: 29 Dec 2012 — 4:25am
     votes: null
     html: |-
+      <p>Hi dberlow,</p>
+      <p>Done that, trying both ways - it doesn't actually reduce the number of points, it increases them :-( I'm trying to find a way that I can reduce the number of points/nodes so that I can reduce the size of the OTF. Thanks for the suggestion re robofont though.</p>
+    html_clean: |-
       <p>Hi dberlow,</p>
       <p>Done that, trying both ways - it doesn't actually reduce the number of points, it increases them :-( I'm trying to find a way that I can reduce the number of points/nodes so that I can reduce the size of the OTF. Thanks for the suggestion re robofont though.</p>
   - id: 535607
@@ -133,18 +170,25 @@ comments:
     html: |-
       <p>I think mathematically/theoretically you cannot reduce data (while preserving the shape) via conversion, you can only increase it. The number of on-curve points (of which a quadratic derivative <em>may</em> have fewer) is only half the story; off-curve points (of which a cubic original <em>necessarily</em> has fewer) have to be there too.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>I think mathematically/theoretically you cannot reduce data (while preserving the shape) via conversion, you can only increase it. The number of on-curve points (of which a quadratic derivative <em>may</em> have fewer) is only half the story; off-curve points (of which a cubic original <em>necessarily</em> has fewer) have to be there too.</p>
+      <p>hhp</p>
   - id: 535615
     user: 83217
     date: 2012-12-29T08:40:00
     date_raw: 29 Dec 2012 — 8:40am
     votes: null
     html: <p>If you can get FontForge to work for you, it should be able to do the job without splatting nodes all over the place. Plus, it can simplify outlines with various degrees of aggressiveness.</p>
+    html_clean: <p>If you can get FontForge to work for you, it should be able to do the job without splatting nodes all over the place. Plus, it can simplify outlines with various degrees of aggressiveness.</p>
   - id: 535617
     user: 1250
     date: 2012-12-29T08:47:00
     date_raw: 29 Dec 2012 — 8:47am
     votes: null
     html: |-
+      <p>Why would you expect it to do a better job than FL and RF?</p>
+      <p>hhp</p>
+    html_clean: |-
       <p>Why would you expect it to do a better job than FL and RF?</p>
       <p>hhp</p>
   - id: 535622
@@ -155,12 +199,23 @@ comments:
     html: |-
       <p>Peter: " the font is originally in TTF format. I am wondering, after looking at the various pages on this site, is there a way of reducing the number of nodes in a OTF that has been converted from TTF without altering the shape of the glyph?"</p>
       <p>So, what I said is that the way to reduce the points is not to let them increase in the first place by using the RF conversion. If this does not work for you, or your situation, sorry, I hope something else works.</p>
+    html_clean: |-
+      <p>Peter: " the font is originally in TTF format. I am wondering, after looking at the various pages on this site, is there a way of reducing the number of nodes in a OTF that has been converted from TTF without altering the shape of the glyph?"</p>
+      <p>So, what I said is that the way to reduce the points is not to let them increase in the first place by using the RF conversion. If this does not work for you, or your situation, sorry, I hope something else works.</p>
   - id: 535631
     user: 1262
     date: 2012-12-29T11:17:00
     date_raw: 29 Dec 2012 — 11:17am
     votes: null
     html: |-
+      <p>Peter, much is going to depend on how the TTF outline looks to begin with. If a quadratic bezier outline has been fairly cleanly defined with on-curve points used only at extrema and where necessary, FontLab Studio -- Windows, at least, I've never tried the Mac version -- does a remarkably good job of converting to an accurate cubic (PS) bezier without introducing interpolated on-curve points between extrema. This illustration shows an original TTF outline and a converted PS outline; note that the number of cubic nodes is not affected by the number of off-curve quadratic points in the original:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/ttf2ps_6632.png"></div><p></p>
+      <p>It is as accurate in its preservation of curve quality as I think you can get given the fundamental differences in the mathematics involved. At typical type sizes, even at high resolution, these differences are smaller than the eye can discern. Here are the two outlines superimposed:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/overlay_3822.png"></div><p></p>
+      <p>If the original TTF outline is less cleanly defined, then FontLab will tend to multiply the number of PS points, sometimes inserting them everywhere that the TTF off-curve points imply an intermediate on-curve point. The earlier FontLab conversion algorithm did this everywhere.<br>
+      _____</p>
+      <p>David, I'd be interested in seeing some illustrations of the results of the two RoboFont options. I think I understand what you mean, but pictures, thousands of words, etc..</p>
+    html_clean: |-
       <p>Peter, much is going to depend on how the TTF outline looks to begin with. If a quadratic bezier outline has been fairly cleanly defined with on-curve points used only at extrema and where necessary, FontLab Studio -- Windows, at least, I've never tried the Mac version -- does a remarkably good job of converting to an accurate cubic (PS) bezier without introducing interpolated on-curve points between extrema. This illustration shows an original TTF outline and a converted PS outline; note that the number of cubic nodes is not affected by the number of off-curve quadratic points in the original:</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/ttf2ps_6632.png"></div><p></p>
       <p>It is as accurate in its preservation of curve quality as I think you can get given the fundamental differences in the mathematics involved. At typical type sizes, even at high resolution, these differences are smaller than the eye can discern. Here are the two outlines superimposed:</p>
@@ -181,12 +236,26 @@ comments:
       <p>We use to do this with loudspeakers, after raunchy stereo salesmen would try &amp; tell us how much "better" the more profitable speaker system was. The "we" here is a couple recording engineers, who had far better ears than the salesman.</p>
       <p>So the parallel for you, if you can't tell the glyphs apart, when used as they will be used, would be to get a type designer to critique the differences -- again, as used, not at 256 points on the screen, overlayed.</p>
       <p>(Loudspeakers? I use Magneplaners. There are better choices if you're into rock 'n roll with a lot of bass... Otherwise, plan on a lot more money...)</p>
+    html_clean: |-
+      <p><cite>I have seen "Optimise" and "Clean up" functions in FLS5 but they appear to alter the curves a bit.</cite></p>
+      <p>Indeed they do. But can you tell the difference? </p>
+      <p>The answer to that is mainly how you look for the difference. One way is to toggle back &amp; forth with the glyph displayed at 256 points &amp; watch things change. Yup, it's different.</p>
+      <p>Another way is to print out the characters, both the original ttf and the optimized .otf, using a laser printer, at, say, 12 point (or whatever size will typically be used). Shuffle the paper &amp; go home. Come in the next day, look only at the paper, and see if you can tell them apart.</p>
+      <p>We use to do this with loudspeakers, after raunchy stereo salesmen would try &amp; tell us how much "better" the more profitable speaker system was. The "we" here is a couple recording engineers, who had far better ears than the salesman.</p>
+      <p>So the parallel for you, if you can't tell the glyphs apart, when used as they will be used, would be to get a type designer to critique the differences -- again, as used, not at 256 points on the screen, overlayed.</p>
+      <p>(Loudspeakers? I use Magneplaners. There are better choices if you're into rock 'n roll with a lot of bass... Otherwise, plan on a lot more money...)</p>
   - id: 535765
     user: 2969
     date: 2012-12-30T06:02:00
     date_raw: 30 Dec 2012 — 6:02am
     votes: null
     html: |-
+      <p>John, I'm not that interested in the preserve shape option... either from PS to TT, or from TT to PS. </p>
+      <p>Here is the preserve points option.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Twinspng_4721.png"></div><p></p>
+      <p>Path direction is your only clue as you will note the presence in RF of the often FL-requested never FL-granted TT point-type match, i.e. not all RF TT points act like corner points as in FL as I know it. But there can still be curve points, and tangents in FL TT in time for TT's 25th birthday!?</p>
+      <p>Hope this helps!</p>
+    html_clean: |-
       <p>John, I'm not that interested in the preserve shape option... either from PS to TT, or from TT to PS. </p>
       <p>Here is the preserve points option.<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/Twinspng_4721.png"></div><p></p>
@@ -203,6 +272,12 @@ comments:
       </p><div class="imageWrap"><img src="http://typophile.com/files/Twinspng_4721.png"></div><p></p>
       <p>Path direction is your only clue and you will note the presence in RF of the often FL-requested never FL-granted TT point-type match, i.e. not all RF TT points look and act like corner points as in FL as I know it. But maybe there can be curve points, and tangent points in FL in time for TT's 25th birthday!?</p>
       <p>Hope this helps!</p>
+    html_clean: |-
+      <p>John, I'm not that interested in the preserve shape option... either from PS to TT, or from TT to PS. </p>
+      <p>Here is the preserve points option.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Twinspng_4721.png"></div><p></p>
+      <p>Path direction is your only clue and you will note the presence in RF of the often FL-requested never FL-granted TT point-type match, i.e. not all RF TT points look and act like corner points as in FL as I know it. But maybe there can be curve points, and tangent points in FL in time for TT's 25th birthday!?</p>
+      <p>Hope this helps!</p>
   - id: 535784
     user: 1262
     date: 2012-12-30T10:36:00
@@ -211,18 +286,25 @@ comments:
     html: |-
       <p><em>Path direction is your only clue</em></p>
       <p>That and the length of the control handles relative to the curve segments: if a line drawn between the control handles would touch the curve, that's TT.</p>
+    html_clean: |-
+      <p><em>Path direction is your only clue</em></p>
+      <p>That and the length of the control handles relative to the curve segments: if a line drawn between the control handles would touch the curve, that's TT.</p>
   - id: 535800
     user: 83217
     date: 2012-12-30T12:16:00
     date_raw: 30 Dec 2012 — 12:16pm
     votes: null
     html: <p>@Hrant – Why do you expect me to be expecting FF to be better than FL or RF? FF may well have a different approach or implementation that could turn out to be better for the job in question. Or worse. Or the same. I'm not a seer.</p>
+    html_clean: <p>@Hrant – Why do you expect me to be expecting FF to be better than FL or RF? FF may well have a different approach or implementation that could turn out to be better for the job in question. Or worse. Or the same. I'm not a seer.</p>
   - id: 535809
     user: 1250
     date: 2012-12-30T14:04:00
     date_raw: 30 Dec 2012 — 2:04pm
     votes: null
     html: |-
+      <p>It just feels like you're recommending a wild goose chase due to a personal preference for free software. I mean, I myself adore lard, but I'm not going to recommend it to somebody asking for dieting advice.</p>
+      <p>hhp</p>
+    html_clean: |-
       <p>It just feels like you're recommending a wild goose chase due to a personal preference for free software. I mean, I myself adore lard, but I'm not going to recommend it to somebody asking for dieting advice.</p>
       <p>hhp</p>
   - id: 535816
@@ -233,12 +315,22 @@ comments:
     html: |-
       <p><em>I myself adore lard, but I'm not going to recommend it to somebody asking for dieting advice.</em></p>
       <p>I would, presuming of course that we're talking about lard that you've rendered yourself from forage-fed pig fat, and not the hydrogenated stuff they sell in supermarkets.</p>
+    html_clean: |-
+      <p><em>I myself adore lard, but I'm not going to recommend it to somebody asking for dieting advice.</em></p>
+      <p>I would, presuming of course that we're talking about lard that you've rendered yourself from forage-fed pig fat, and not the hydrogenated stuff they sell in supermarkets.</p>
   - id: 535819
     user: 1250
     date: 2012-12-30T15:40:00
     date_raw: 30 Dec 2012 — 3:40pm
     votes: null
     html: |-
+      <p>I mean this:<br>
+      <a href="http://www.flickr.com/photos/48413419@N00/405892192" title="http://www.flickr.com/photos/48413419@N00/405892192">http://www.flickr.com/photos/48413419@N00/405892192</a><br>
+      Although I have to doubt those particular critters are forage-fed. Speaking of what they're allowed to eat, the swineherds of the true "Pata Negra" variety of Jamón de Serra feed them <em>only</em> acorns - I wonder whether their lard is the best. But as wonderful as pigs are, if we loosen the definition of lard a bit there's nothing better than the tail of the Middle-Eastern sheep.<br>
+      <a href="http://desertcandy.blogspot.com/2011_02_01_archive.html" title="http://desertcandy.blogspot.com/2011_02_01_archive.html">http://desertcandy.blogspot.com/2011_02_01_archive.html</a><br>
+      BTW because (almost) all the fat is in the tail, the meat is free of that pungent smell that turns so many people away from lamb (although not myself).</p>
+      <p>hhp</p>
+    html_clean: |-
       <p>I mean this:<br>
       <a href="http://www.flickr.com/photos/48413419@N00/405892192" title="http://www.flickr.com/photos/48413419@N00/405892192">http://www.flickr.com/photos/48413419@N00/405892192</a><br>
       Although I have to doubt those particular critters are forage-fed. Speaking of what they're allowed to eat, the swineherds of the true "Pata Negra" variety of Jamón de Serra feed them <em>only</em> acorns - I wonder whether their lard is the best. But as wonderful as pigs are, if we loosen the definition of lard a bit there's nothing better than the tail of the Middle-Eastern sheep.<br>
@@ -257,18 +349,29 @@ comments:
       That is unbelievable!<br>
       top - FontLab 5.2, Nov 2012<br>
       bottom - FontForge, Jul 2012<p></p>
+    html_clean: |-
+      <p>David: "not all RF TT points look and act like corner points as in FL as I know it"<br>
+      aha<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/06_4051.jpg"></div><br>
+      That is unbelievable!<br>
+      top - FontLab 5.2, Nov 2012<br>
+      bottom - FontForge, Jul 2012<p></p>
   - id: 535835
     user: 2969
     date: 2012-12-30T18:06:00
     date_raw: 30 Dec 2012 — 6:06pm
     votes: null
     html: <p>Speaking of what pigs can do to threads, I'll take this opportunity to say goodbye.</p>
+    html_clean: <p>Speaking of what pigs can do to threads, I'll take this opportunity to say goodbye.</p>
   - id: 536000
     user: 163060
     date: 2013-01-01T19:54:00
     date_raw: 1 Jan 2013 — 7:54pm
     votes: null
     html: |-
+      <p>Sorry for the late reply, thank you all for your comments. @ John Hudson, how did you make your nodes coloured in your picture, when I highlight mine (on mac) they are red colour only and when they are not highlighted they are black.</p>
+      <p>From what I gather on this thread, it is not so important to have less nodes/points rather to have as many to make an accurate conversion?</p>
+    html_clean: |-
       <p>Sorry for the late reply, thank you all for your comments. @ John Hudson, how did you make your nodes coloured in your picture, when I highlight mine (on mac) they are red colour only and when they are not highlighted they are black.</p>
       <p>From what I gather on this thread, it is not so important to have less nodes/points rather to have as many to make an accurate conversion?</p>
   - id: 536003
@@ -279,24 +382,30 @@ comments:
     html: |-
       <p>Jan, I'm not getting your point - could you explain?</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Jan, I'm not getting your point - could you explain?</p>
+      <p>hhp</p>
   - id: 536017
     user: 1262
     date: 2013-01-01T23:11:00
     date_raw: 1 Jan 2013 — 11:11pm
     votes: null
     html: <p>Peter, the colouring of nodes in my screenshots are the standard FontLab colouring in Windows if you turn on coloured nodes in Options.</p>
+    html_clean: <p>Peter, the colouring of nodes in my screenshots are the standard FontLab colouring in Windows if you turn on coloured nodes in Options.</p>
   - id: 536271
     user: 9108
     date: 2013-01-03T12:39:00
     date_raw: 3 Jan 2013 — 12:39pm
     votes: null
     html: <p>I do not see any chance to edit the TT curves when smooth points behave like corner points. In the picture above the same lc "o" from SourceSans ttf font (Adobe).</p>
+    html_clean: <p>I do not see any chance to edit the TT curves when smooth points behave like corner points. In the picture above the same lc "o" from SourceSans ttf font (Adobe).</p>
   - id: 536292
     user: 83217
     date: 2013-01-03T14:22:00
     date_raw: 3 Jan 2013 — 2:22pm
     votes: null
     html: <p>@hrant – Not every trip needs a Range Rover. Some can be completed via bus.</p>
+    html_clean: <p>@hrant – Not every trip needs a Range Rover. Some can be completed via bus.</p>
   - id: 536295
     user: 1250
     date: 2013-01-03T14:31:00
@@ -305,9 +414,13 @@ comments:
     html: |-
       <p>Sure, but I do think you're jumping to a self-validating conclusion.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Sure, but I do think you're jumping to a self-validating conclusion.</p>
+      <p>hhp</p>
   - id: 536351
     user: 83217
     date: 2013-01-04T02:39:00
     date_raw: 4 Jan 2013 — 2:39am
     votes: null
     html: <p>That conclusion being?</p>
+    html_clean: <p>That conclusion being?</p>

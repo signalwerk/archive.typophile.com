@@ -48,6 +48,17 @@ post:
     3) [low with left-connecting overbar] [high] -&gt; [low with fully connecting overbar] [high with lef-connecting overbar stub]</p>
     <p>and rule 2 would have to recursively kick in... and that's just in one direction.</p>
     <p>Has anyone every tried something like this before? Or does anyone have thoughts on how this might be achieved?</p>
+  html_clean: |-
+    <p>I'm prototyping a cursive font where, at least on paper, any word with a "t" in it has the crossbar on the t extended to the left and right over letters as long as this fits; verticals in h, l, d, etc. will cut off the bar, so something like:</p>
+    <p><img src="http://pomax.github.io/Cursive-swash-typeface/images/01.jpg"></p>
+    <p>becomes something like:</p>
+    <p><img src="http://pomax.github.io/Cursive-swash-typeface/images/02.jpg"></p>
+    <p>I'm not entirely sure how to implement this, though. I was thinking of using many-to-many GSUB rules based on glyph classes, but no matter how I look at it, it turns into needing recursive GSUB behaviour...</p>
+    <p>1) t [low] -&gt;[t with bar that continues right]  [low with left-connecting overbar]<br>
+    2) [low with left-connecting overbar] [low] -&gt;[low with fully connecting overbar] [low with left-connecting overbar]<br>
+    3) [low with left-connecting overbar] [high] -&gt; [low with fully connecting overbar] [high with lef-connecting overbar stub]</p>
+    <p>and rule 2 would have to recursively kick in... and that's just in one direction.</p>
+    <p>Has anyone every tried something like this before? Or does anyone have thoughts on how this might be achieved?</p>
 comments:
   - id: 576000
     user: 9108
@@ -61,12 +72,20 @@ comments:
       </p><div class="imageWrap"><img src="http://typophile.com/files/Metrics_4872.jpg"></div><br>
       Of course it is POC, you need to add some glyphs and substitute i,j with dotless i,j<br>
       <div class="imageWrap"><img src="http://typophile.com/files/Untitled_3918.jpg"></div><p></p>
+    html_clean: |-
+      <p>My feature file:<br>
+      <a href="https://dl.dropboxusercontent.com/u/19437300/Exp1.fea" title="https://dl.dropboxusercontent.com/u/19437300/Exp1.fea">https://dl.dropboxusercontent.com/u/19437300/Exp1.fea</a></p>
+      <p>Something like this?<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Metrics_4872.jpg"></div><br>
+      Of course it is POC, you need to add some glyphs and substitute i,j with dotless i,j<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/Untitled_3918.jpg"></div><p></p>
   - id: 576008
     user: 62738
     date: 2014-04-12T09:46:00
     date_raw: 12 Apr 2014 — 9:46am
     votes: null
     html: <p>awesome, thanks! although I'm curious why the feature cuts off on the 'u' in ligatures, but not the 'u' in features.</p>
+    html_clean: <p>awesome, thanks! although I'm curious why the feature cuts off on the 'u' in ligatures, but not the 'u' in features.</p>
   - id: 576011
     user: 9108
     date: 2014-04-12T10:22:00
@@ -75,18 +94,23 @@ comments:
     html: |-
       <p>Because I was lazy and did not make one line of the code and one glyph (3 letters, t, 4 letters)...<br>
       To be honest, much more is required, e.g. "transparency" - t11.</p>
+    html_clean: |-
+      <p>Because I was lazy and did not make one line of the code and one glyph (3 letters, t, 4 letters)...<br>
+      To be honest, much more is required, e.g. "transparency" - t11.</p>
   - id: 576014
     user: 62738
     date: 2014-04-12T11:15:00
     date_raw: 12 Apr 2014 — 11:15am
     votes: null
     html: <p>If I'm reading this correctly, the substitutions are simpy t's with longer bars, right? They're fixed length and you might have iiiiit have an overhang to the left compared to aaaaat due to the glyph width of 'i' being a fraction of 'a'?</p>
+    html_clean: <p>If I'm reading this correctly, the substitutions are simpy t's with longer bars, right? They're fixed length and you might have iiiiit have an overhang to the left compared to aaaaat due to the glyph width of 'i' being a fraction of 'a'?</p>
   - id: 576016
     user: 9108
     date: 2014-04-12T11:31:00
     date_raw: 12 Apr 2014 — 11:31am
     votes: null
     html: <p>Yes; I don't know any better solution to do this..</p>
+    html_clean: <p>Yes; I don't know any better solution to do this..</p>
   - id: 576018
     user: 62738
     date: 2014-04-12T12:05:00
@@ -95,9 +119,13 @@ comments:
     html: |-
       <p>Another option I was considering was a substitution for every low class glyph with a macron counterpart, so that [t] + [low] contextually becomes [t-extended] + [low with macro], then simply have a huge block that goes [low macron] + a → [same] + ā, and repeat the block a stupid number of times to get the "recursive" length desired, with terminations like ā + l → [l with a left-terminator], etc.</p>
       <p>But they're both not ideal solutions =/</p>
+    html_clean: |-
+      <p>Another option I was considering was a substitution for every low class glyph with a macron counterpart, so that [t] + [low] contextually becomes [t-extended] + [low with macro], then simply have a huge block that goes [low macron] + a → [same] + ā, and repeat the block a stupid number of times to get the "recursive" length desired, with terminations like ā + l → [l with a left-terminator], etc.</p>
+      <p>But they're both not ideal solutions =/</p>
   - id: 576067
     user: 10971
     date: 2014-04-13T11:44:00
     date_raw: 13 Apr 2014 — 11:44am
     votes: null
     html: <p>{.}</p>
+    html_clean: <p>{.}</p>

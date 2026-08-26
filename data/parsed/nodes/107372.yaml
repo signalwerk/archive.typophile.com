@@ -38,6 +38,7 @@ post:
   date_raw: 19 Nov 2013 — 9:06am
   votes: null
   html: <p>Is there any technical reason that a font should not have an apostrophe in its ID or filename?</p>
+  html_clean: <p>Is there any technical reason that a font should not have an apostrophe in its ID or filename?</p>
 comments:
   - id: 567266
     user: 909
@@ -48,18 +49,27 @@ comments:
       <p>What do you mean by "ID"?</p>
       <p>Some of the name fields involved in a font do not allow apostrophes, such as the PostScript font name.</p>
       <p>Also, what do you mean by apostrophe? The typewriter mark, or a true curly apostrophe?</p>
+    html_clean: |-
+      <p>What do you mean by "ID"?</p>
+      <p>Some of the name fields involved in a font do not allow apostrophes, such as the PostScript font name.</p>
+      <p>Also, what do you mean by apostrophe? The typewriter mark, or a true curly apostrophe?</p>
   - id: 567267
     user: 909
     date: 2013-11-26T12:13:00
     date_raw: 26 Nov 2013 — 12:13pm
     votes: null
     html: <p>(duplicate post)</p>
+    html_clean: <p>(duplicate post)</p>
   - id: 567295
     user: 65972
     date: 2013-11-27T12:43:00
     date_raw: 27 Nov 2013 — 12:43pm
     votes: null
     html: |-
+      <p>Character U+0027—I don't want to use anything outside 7-bit ASCII in any identifier, because I'm not sure what kind of support it would have in older operating systems. </p>
+      <p>I'm aware the PS name has limitations; not even spaces are allowed. What I'm not sure about is whether there are any filesystems that would choke on apostrophe in a filename, or common APIs that wouldn't like it in another identifier.</p>
+      <p>AFAICT, it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. In practice, some browsers may have problems. For instance, FF25 doesn't like the name inside a single-quoted string, even when escaped. (Should probably file that as a bug.) Putting it in a double-quoted string works fine w/o escapes.</p>
+    html_clean: |-
       <p>Character U+0027—I don't want to use anything outside 7-bit ASCII in any identifier, because I'm not sure what kind of support it would have in older operating systems. </p>
       <p>I'm aware the PS name has limitations; not even spaces are allowed. What I'm not sure about is whether there are any filesystems that would choke on apostrophe in a filename, or common APIs that wouldn't like it in another identifier.</p>
       <p>AFAICT, it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. In practice, some browsers may have problems. For instance, FF25 doesn't like the name inside a single-quoted string, even when escaped. (Should probably file that as a bug.) Putting it in a double-quoted string works fine w/o escapes.</p>
@@ -72,6 +82,10 @@ comments:
       <p>Character U+0027—I don't want to use anything outside 7-bit ASCII in any identifier, because I'm not sure what kind of support it would have in older operating systems. </p>
       <p>I'm aware the PS name has limitations; not even spaces are allowed. What I'm not sure about is whether there are any filesystems that would choke on apostrophe in a filename, or common APIs that wouldn't like it in another identifier.</p>
       <p>AFAICT, it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. In practice, some browsers may have problems. For instance, FF25 doesn't like the name inside a single-quoted string, even when escaped. (Should probably file that as a bug.) Putting it in a double-quoted string works fine w/o escapes.</p>
+    html_clean: |-
+      <p>Character U+0027—I don't want to use anything outside 7-bit ASCII in any identifier, because I'm not sure what kind of support it would have in older operating systems. </p>
+      <p>I'm aware the PS name has limitations; not even spaces are allowed. What I'm not sure about is whether there are any filesystems that would choke on apostrophe in a filename, or common APIs that wouldn't like it in another identifier.</p>
+      <p>AFAICT, it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. In practice, some browsers may have problems. For instance, FF25 doesn't like the name inside a single-quoted string, even when escaped. (Should probably file that as a bug.) Putting it in a double-quoted string works fine w/o escapes.</p>
   - id: 567708
     user: 205259
     date: 2013-12-14T20:50:00
@@ -80,18 +94,23 @@ comments:
     html: |-
       <p>Do you really need to use the apostrophe in your font names/ID? The English language uses the apostrophe for possessives but most other languages get along fine without it. An apostrophe would not be helpful for non-English language customers. Indeed, in some jurisdictions the governments have active programs to eradicate product names that use the apostrophe. I decided not to use it for "donshottype" or any of my fonts for international reasons as much as for the problems with font field naming.<br>
       Don</p>
+    html_clean: |-
+      <p>Do you really need to use the apostrophe in your font names/ID? The English language uses the apostrophe for possessives but most other languages get along fine without it. An apostrophe would not be helpful for non-English language customers. Indeed, in some jurisdictions the governments have active programs to eradicate product names that use the apostrophe. I decided not to use it for "donshottype" or any of my fonts for international reasons as much as for the problems with font field naming.<br>
+      Don</p>
   - id: 567798
     user: 909
     date: 2013-12-17T09:03:00
     date_raw: 17 Dec 2013 — 9:03am
     votes: null
     html: <p>I suspect that something, somewhere will choke on it in a menu name. But there's no way to be sure without extensive testing. Personally, I probably wouldn't push that envelope.</p>
+    html_clean: <p>I suspect that something, somewhere will choke on it in a menu name. But there's no way to be sure without extensive testing. Personally, I probably wouldn't push that envelope.</p>
   - id: 569275
     user: 65972
     date: 2014-01-14T09:41:00
     date_raw: 14 Jan 2014 — 9:41am
     votes: null
     html: <p>The name uses a term from a sci-fi pseudo-alien language. Of course, the way the writer made it look "alien" was to put apostrophes in odd places. It's probably not absolutely necessary to use it, but OTOH if it wouldn't cause problems, why not?</p>
+    html_clean: <p>The name uses a term from a sci-fi pseudo-alien language. Of course, the way the writer made it look "alien" was to put apostrophes in odd places. It's probably not absolutely necessary to use it, but OTOH if it wouldn't cause problems, why not?</p>
   - id: 569283
     user: 50554
     date: 2014-01-14T15:04:00
@@ -104,11 +123,21 @@ comments:
       <p>@ChristTrekker:<br>
       <cite>Of course, the way the writer made it look "alien" was to put apostrophes in odd places.</cite></p>
       <p>So they stand for glottal stops, and thus are an essential part of the name, just like the vowels and consonants.</p>
+    html_clean: |-
+      <p>@donshottype:<br>
+      <cite>Indeed, in some jurisdictions the governments have active programs to eradicate product names that use the apostrophe.</cite></p>
+      <p>Now that's odd. Of course, in Quebec, they have been eradicating signs in languages other than French, so Eaton's became Eaton... instead of, say, Chez Eaton.</p>
+      <p>@ChristTrekker:<br>
+      <cite>Of course, the way the writer made it look "alien" was to put apostrophes in odd places.</cite></p>
+      <p>So they stand for glottal stops, and thus are an essential part of the name, just like the vowels and consonants.</p>
   - id: 569299
     user: 1794
     date: 2014-01-14T23:07:00
     date_raw: 14 Jan 2014 — 11:07pm
     votes: null
     html: |-
+      <p><cite>… it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. </cite></p>
+      <p>@font-face just links a file resource to an arbitrary name, the web developer can choose. The internal name fields of the font are not relevant.</p>
+    html_clean: |-
       <p><cite>… it should be alright to specify for web use, as long as one escapes the apostrophe properly in CSS. </cite></p>
       <p>@font-face just links a file resource to an arbitrary name, the web developer can choose. The internal name fields of the font are not relevant.</p>

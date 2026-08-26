@@ -44,6 +44,13 @@ post:
     <p>I have attached the photos which describe my frustrated problem.<br>
     </p><div class="imageWrap"><img src="http://typophile.com/files/9_5284.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/10_6509.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/11_5589.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/12_4799.jpg"></div><p></p>
     <p>Thank you for your help and guidance.</p>
+  html_clean: |-
+    <p>Hello my friends:</p>
+    <p>I have a problem regarding my designed TTF and OTF fonts using FontLab software. When I design a font and delete all kerning and metrics classes in the fonts, I generate the final TTF and OTF files. After opening them again in the FontLab, I found that the same classes are still there and nothing has been deleted. I am not sure if the FontLab program that I have working properly but it repeats the same classes after my repeated tries of deleting them and generating new OTF and TTF files.</p>
+    <p>What could I do to make these classes deleted permanently and not generated again in my generated TTF and OTF?</p>
+    <p>I have attached the photos which describe my frustrated problem.<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/9_5284.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/10_6509.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/11_5589.jpg"></div><div class="imageWrap"><img src="http://typophile.com/files/12_4799.jpg"></div><p></p>
+    <p>Thank you for your help and guidance.</p>
 comments:
   - id: 497354
     user: 103753
@@ -51,6 +58,9 @@ comments:
     date_raw: 2 Mar 2012 — 7:22am
     votes: null
     html: |-
+      <p>Um, it sounds obvious, but have you been clicking the "Accept" button after you make the deletions?</p>
+      <p>David</p>
+    html_clean: |-
       <p>Um, it sounds obvious, but have you been clicking the "Accept" button after you make the deletions?</p>
       <p>David</p>
   - id: 497357
@@ -61,12 +71,18 @@ comments:
     html: |-
       <p>Did you regenerate your kern feature after deleting the classes?</p>
       <p>André</p>
+    html_clean: |-
+      <p>Did you regenerate your kern feature after deleting the classes?</p>
+      <p>André</p>
   - id: 497468
     user: 185413
     date: 2012-03-02T22:17:00
     date_raw: 2 Mar 2012 — 10:17pm
     votes: null
     html: |-
+      <p>- I am sure that I have not press "Accept" button, but would this make a great difference? Every time I generate the TTF or OTF, I do have the same classes not the new one. Does this happen because of the "Accept" button?</p>
+      <p>- Yes, I have regenerated the kern features after deleting the classes but when I save the font and generate it with a new TTF extension, I had also the same problem.</p>
+    html_clean: |-
       <p>- I am sure that I have not press "Accept" button, but would this make a great difference? Every time I generate the TTF or OTF, I do have the same classes not the new one. Does this happen because of the "Accept" button?</p>
       <p>- Yes, I have regenerated the kern features after deleting the classes but when I save the font and generate it with a new TTF extension, I had also the same problem.</p>
   - id: 497498
@@ -78,6 +94,10 @@ comments:
       <p><cite> - I am sure that I have not press "Accept" button, but would this make a great difference? Every time I generate the TTF or OTF, I do have the same classes not the new one. Does this happen because of the "Accept" button? </cite></p>
       <p>If you don't press 'accept', your changes won't be made.</p>
       <p>André</p>
+    html_clean: |-
+      <p><cite> - I am sure that I have not press "Accept" button, but would this make a great difference? Every time I generate the TTF or OTF, I do have the same classes not the new one. Does this happen because of the "Accept" button? </cite></p>
+      <p>If you don't press 'accept', your changes won't be made.</p>
+      <p>André</p>
   - id: 497503
     user: 103753
     date: 2012-03-03T07:24:00
@@ -86,12 +106,23 @@ comments:
     html: |-
       <p>Do you have to press the "Accept" button? Yes, every time you make any change, whether it's adding, deleting or changing a class.</p>
       <p>David</p>
+    html_clean: |-
+      <p>Do you have to press the "Accept" button? Yes, every time you make any change, whether it's adding, deleting or changing a class.</p>
+      <p>David</p>
   - id: 497555
     user: 5094
     date: 2012-03-03T18:07:00
     date_raw: 3 Mar 2012 — 6:07pm
     votes: null
     html: |-
+      <p>Things get stored where you may not expect it in FontLab.</p>
+      <p>Try this: Export the font features into a .fea file. Now open up the classes panel, and rest it -- you'll be getting rid of all classes BTW, not just kerning.</p>
+      <p>Now, in a text editor,  open up the .fea file you wrote off, and you'll probably notice the classes are there, too. Delete whichever classes you don't want -- just the kerning classes, probably. You'll also have to delete the kern feature itself, not just the class definitions.</p>
+      <p>Now, in the font, open up the OT menu. Reset the features (essentially clear all). Now use "open features" &amp; read in your (now edited) .fea file. Complile.</p>
+      <p>I'll bet your unwanted kerns are gone. There are probably settings within FL that will let you do the same thing; I just always work with a text editor in outboarded files, so don't know how to set them.</p>
+      <p>If this works, you have no kerning. You can add it in several ways -- By using the metrics windows &amp; then use the "generate kern" feature in the OT features, or by incorporating an external kern feature in the .fea file you wrote off, so it is imported along with everything else in the .fea file.</p>
+      <p>Not sure want you're trying to accomplish, but that should get rid of all the extant kerning from when you first opened the font.</p>
+    html_clean: |-
       <p>Things get stored where you may not expect it in FontLab.</p>
       <p>Try this: Export the font features into a .fea file. Now open up the classes panel, and rest it -- you'll be getting rid of all classes BTW, not just kerning.</p>
       <p>Now, in a text editor,  open up the .fea file you wrote off, and you'll probably notice the classes are there, too. Delete whichever classes you don't want -- just the kerning classes, probably. You'll also have to delete the kern feature itself, not just the class definitions.</p>

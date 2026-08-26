@@ -46,6 +46,15 @@ post:
     <p>Many thanks!</p>
     <p>Mårten<br>
     </p><div class="imageWrap"><img src="http://typophile.com/files/desired-look_5810.png"></div><p></p>
+  html_clean: |-
+    <p>Dear Typophile members.<br>
+    I'm compiling some letters (drawn by someone else) into a font. The letters are meant to be used in icon bitmaps sized 24 x 24 pixels and the characters were drawn to match this grid. However the result should not be a pure black/white pixel font but should show some gray tones as well. Please see attached image (desired look).<br>
+    I made the font in TypeTool. The trouble is, I can't produce the right look in Photoshop when using the font. I use 8 pt size.<br>
+    The UPM is 1024 and each pixel is 128 units (8 x 128 = 1024). Also every letter spacing is 128 units.</p>
+    <p>Clearly I'm doing something wrong. Does anyone know how to do this right?</p>
+    <p>Many thanks!</p>
+    <p>Mårten<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/desired-look_5810.png"></div><p></p>
 comments:
   - id: 447085
     user: 6470
@@ -53,6 +62,9 @@ comments:
     date_raw: 11 Jan 2011 — 2:45pm
     votes: null
     html: |-
+      <p>No can do with Type Tool. Other than making a Type 3 PostScript font (which I'm not sure can be done anymore), you might look at this...</p>
+      <p><a href="http://www.fontlab.com/photofont/" title="http://www.fontlab.com/photofont/">http://www.fontlab.com/photofont/</a></p>
+    html_clean: |-
       <p>No can do with Type Tool. Other than making a Type 3 PostScript font (which I'm not sure can be done anymore), you might look at this...</p>
       <p><a href="http://www.fontlab.com/photofont/" title="http://www.fontlab.com/photofont/">http://www.fontlab.com/photofont/</a></p>
   - id: 447089
@@ -63,18 +75,28 @@ comments:
     html: |-
       <p>Hi!<br>
       I don't want grayscales in the actual font. The glyphs look like the ones in the top two rows of the image. The pixel versions are just screen appearances at 8 pt (72 dpi). Thanks!</p>
+    html_clean: |-
+      <p>Hi!<br>
+      I don't want grayscales in the actual font. The glyphs look like the ones in the top two rows of the image. The pixel versions are just screen appearances at 8 pt (72 dpi). Thanks!</p>
   - id: 447094
     user: 6470
     date: 2011-01-11T15:49:00
     date_raw: 11 Jan 2011 — 3:49pm
     votes: null
     html: "<p>I don't understand what the problem is: if you get your \"desired look\" with XaraX export, then why not use it?</p>"
+    html_clean: "<p>I don't understand what the problem is: if you get your \"desired look\" with XaraX export, then why not use it?</p>"
   - id: 447139
     user: 10907
     date: 2011-01-12T00:18:00
     date_raw: 12 Jan 2011 — 12:18am
     votes: null
     html: |-
+      <p>Hi oldnick, thanks for helping me with this!</p>
+      <p>The glyphs were drawn in XaraX, so they are scaled perfectly and that's why it works. In the XaraX example, no font is used, it's just the glyphs drawn directly.</p>
+      <p>The two other images are from Photoshop, using the font that I created. First without anti-aliasing and then with anti-aliasing set to "sharp". The trouble now is to align the vector font with the screen pixels to get the same result that I got from XaraX.</p>
+      <p>Does it make sense?<br>
+      Thanks.</p>
+    html_clean: |-
       <p>Hi oldnick, thanks for helping me with this!</p>
       <p>The glyphs were drawn in XaraX, so they are scaled perfectly and that's why it works. In the XaraX example, no font is used, it's just the glyphs drawn directly.</p>
       <p>The two other images are from Photoshop, using the font that I created. First without anti-aliasing and then with anti-aliasing set to "sharp". The trouble now is to align the vector font with the screen pixels to get the same result that I got from XaraX.</p>
@@ -88,6 +110,9 @@ comments:
     html: |-
       <p>It looks like the vectors are slightly off the grid. Are the sidebearings also set to whole pixels on your grid?</p>
       <p>Jason C</p>
+    html_clean: |-
+      <p>It looks like the vectors are slightly off the grid. Are the sidebearings also set to whole pixels on your grid?</p>
+      <p>Jason C</p>
   - id: 447178
     user: 6470
     date: 2011-01-12T08:30:00
@@ -97,12 +122,25 @@ comments:
       <p>As Jason pointed out, ALL measurements must equal whole pixel values for the font to work.<br>
       Therefore, the Ascender AND Cap heights MUST equal 896 and the Descender MUST equal 128. The Left Sidebearing should be zero, and the Right sidebearing 128.</p>
       <p>BTW, if you scale everything 200% and generate a TTF-flavor font, your measurements would be ideal (2,048 UPM) for the format.</p>
+    html_clean: |-
+      <p>As Jason pointed out, ALL measurements must equal whole pixel values for the font to work.<br>
+      Therefore, the Ascender AND Cap heights MUST equal 896 and the Descender MUST equal 128. The Left Sidebearing should be zero, and the Right sidebearing 128.</p>
+      <p>BTW, if you scale everything 200% and generate a TTF-flavor font, your measurements would be ideal (2,048 UPM) for the format.</p>
   - id: 447200
     user: 10907
     date: 2011-01-12T12:46:00
     date_raw: 12 Jan 2011 — 12:46pm
     votes: null
     html: |-
+      <p>Thanks guys.<br>
+      I've gone through the Font Metrics and this is how it's set now:<br>
+      Ascender 896, Cap height 896, Descender -128, left sidebearing 0, right sidebearing 128. I moved some anchor points that were off the grid by 1 unit. I also tried to change the UPM to 2048, but that didn't seem to change anything. </p>
+      <p>I've used auto-hinting on "A" and "B" in this example. Should I?</p>
+      <p>I think it looks a little better, at least the scaling is right, but some gray is still leaking to the neighboring pixels.</p>
+      <p>Any ideas what could still be wrong?</p>
+      <p>Thanks!<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/Pixels_6548.png"></div><p></p>
+    html_clean: |-
       <p>Thanks guys.<br>
       I've gone through the Font Metrics and this is how it's set now:<br>
       Ascender 896, Cap height 896, Descender -128, left sidebearing 0, right sidebearing 128. I moved some anchor points that were off the grid by 1 unit. I also tried to change the UPM to 2048, but that didn't seem to change anything. </p>
@@ -123,6 +161,13 @@ comments:
       <p>Best Regards<br>
       Mårten<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/it works_6616.png"></div><p></p>
+    html_clean: |-
+      <p>It seems like this was altogether a Photoshop issue:<br>
+      When I changed the anti-aliasing from "Sharp" to "Crisp" it suddenly works! Confusing.<br>
+      Thanks for helping out with this!</p>
+      <p>Best Regards<br>
+      Mårten<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/it works_6616.png"></div><p></p>
   - id: 447207
     user: 10907
     date: 2011-01-12T13:33:00
@@ -131,9 +176,13 @@ comments:
     html: |-
       <p>Another example:<br>
       </p><div class="imageWrap"><img src="http://typophile.com/files/3 examples_3851.png"></div><p></p>
+    html_clean: |-
+      <p>Another example:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/3 examples_3851.png"></div><p></p>
   - id: 447529
     user: 2969
     date: 2011-01-15T01:52:00
     date_raw: 15 Jan 2011 — 1:52am
     votes: null
     html: <p>Photoshop, cleartype and Apple quartz rendering all turn on pixels outside of the contour. Hope that helps.</p>
+    html_clean: <p>Photoshop, cleartype and Apple quartz rendering all turn on pixels outside of the contour. Hope that helps.</p>

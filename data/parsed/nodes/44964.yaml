@@ -45,6 +45,14 @@ post:
     <p>4) In OpenType one could use glyph substitution to map all lowercase input to the uppercase letters. This would still require the lowercase glyphs to be present, but they could just be empty. But what OpenType feature should then be used to make this switch? - it would have to be always-on...</p>
     <p>So... have anyone found a clever way to make an uppercase-only OpenType font?<br>
     What is your preferred method?</p>
+  html_clean: |-
+    <p>When generating an OpenType font that only contains uppercase letters, is there some clever trick to avoid redundant information/data?</p>
+    <p>1) If one makes the font without glyphs in the lowercase slots, the user will get "missing glyphs" when typing without Caps Lock on - not good.</p>
+    <p>2) If one copies the uppercase glyphs to the lowercase slots, one have to take care to make the kerning work between the sets - effectively doubling the outline data and quadrupling the kerning data. I don't like this redundancy and would prefer to avoid it. But as I use class-kerning anyway this is probably the solution I'll end up using...</p>
+    <p>3) One could use the uppercase glyphs as composites in the lowercase slots, but this may perhaps create problems (I don't think I've ever encountered a font with composites in the basic ASCII set - so I guess this is not good...). This would still need 4 times the kerning pairs, but at least the outline data will not be double.</p>
+    <p>4) In OpenType one could use glyph substitution to map all lowercase input to the uppercase letters. This would still require the lowercase glyphs to be present, but they could just be empty. But what OpenType feature should then be used to make this switch? - it would have to be always-on...</p>
+    <p>So... have anyone found a clever way to make an uppercase-only OpenType font?<br>
+    What is your preferred method?</p>
 comments:
   - id: 276662
     user: 2462
@@ -52,12 +60,14 @@ comments:
     date_raw: 4 May 2008 — 10:22am
     votes: null
     html: <p>5) You can assign more than one Unicode point to a glyph. The code field for "B" would show "0062 0042". I'm not sure if there are any problems inherent in the fact that it can have only one glyph name.</p>
+    html_clean: <p>5) You can assign more than one Unicode point to a glyph. The code field for "B" would show "0062 0042". I'm not sure if there are any problems inherent in the fact that it can have only one glyph name.</p>
   - id: 276686
     user: 19560
     date: 2008-05-04T12:24:00
     date_raw: 4 May 2008 — 12:24pm
     votes: null
     html: <p>#2/#3 are the most sensible solutions, considering platform and user frailties. There is no restriction on composites in the ASCII set.</p>
+    html_clean: <p>#2/#3 are the most sensible solutions, considering platform and user frailties. There is no restriction on composites in the ASCII set.</p>
   - id: 276711
     user: 909
     date: 2008-05-04T17:31:00
@@ -71,12 +81,25 @@ comments:
       <p>5) You can assign more than one Unicode point to a glyph, but this has some unfortunate side effects for backtracing Unicode codepoints from glyphs. Given (3), this would seem unnecessary.</p>
       <p>Cheers,</p>
       <p>T</p>
+    html_clean: |-
+      <p>Undurprisingly, I agree with Josh. A few more detailed comments.</p>
+      <p>2) If you use class kerning, there's zero increase in the amount of kerning data, so I don't understand the concern. The "kerning pairs" are purely virtual.</p>
+      <p>3) Composites is a fine idea for OT-TT. For OT-CFF, if the font is built with subroutinization, the duplicate glyphs will add next to nothing to the total size, and you don't need even need to use composites (though it might help you keep things straight during development).</p>
+      <p>4) That's a pretty weird choice. And in general, OT features should not map from one character to a different one.</p>
+      <p>5) You can assign more than one Unicode point to a glyph, but this has some unfortunate side effects for backtracing Unicode codepoints from glyphs. Given (3), this would seem unnecessary.</p>
+      <p>Cheers,</p>
+      <p>T</p>
   - id: 276784
     user: 27336
     date: 2008-05-05T08:01:00
     date_raw: 5 May 2008 — 8:01am
     votes: null
     html: |-
+      <p>Thanks for the extra suggestion and comments. Much appreciated.<br>
+      And if not even Adobes own font expert knows of a special clever way to make uppercase-only fonts, then probably no-one does. ;)</p>
+      <p>As I thought: I'll make, kern and space the uppercase, and then copy them to the lowercase slots before adding the diacritics as composites - using class-kerning based on the kerning of the uppercase glyphs. This will leave _some_ "redundant" data, but is probably the best option compatibility- and encoding-wise... Better to make a normal, working font, than risk trouble by being "clever". :)</p>
+      <p>Roger</p>
+    html_clean: |-
       <p>Thanks for the extra suggestion and comments. Much appreciated.<br>
       And if not even Adobes own font expert knows of a special clever way to make uppercase-only fonts, then probably no-one does. ;)</p>
       <p>As I thought: I'll make, kern and space the uppercase, and then copy them to the lowercase slots before adding the diacritics as composites - using class-kerning based on the kerning of the uppercase glyphs. This will leave _some_ "redundant" data, but is probably the best option compatibility- and encoding-wise... Better to make a normal, working font, than risk trouble by being "clever". :)</p>

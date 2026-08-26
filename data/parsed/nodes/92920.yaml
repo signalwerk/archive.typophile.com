@@ -70,6 +70,39 @@ post:
     	f[g].mark = 140</p>
     <p>f.update()<br>
     </p>
+  html_clean: |-
+    <p>Hi all</p>
+    <p>I have this simple Robofab script here I wrote to shift the vertical position<br>
+    of subscript glyphs.</p>
+    <p>I haven't used it for a while but it has stopped working now.</p>
+    <p>I get an error message saying - NotImplementedError</p>
+    <p>Is there a reason why this has started to happen? can I fix it?</p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    from robofab.interface.all.dialogs import AskString<br>
+    #<br>
+    f = CurrentFont()<br>
+    #<br>
+    glyph = [</code></p>
+    <p>	'a.subs',<br>
+      'b.subs',<br>
+      'c.subs',<br>
+      'd.subs',<br>
+      'e.subs',<br>
+      'f.subs',<br>
+      'g.subs',<br>
+      'h.subs',<br>
+      'i.subs',<br>
+      'j.subs',</p>
+    <p>]<br>
+    #<br>
+    down = int(AskString('Move Down'))<br>
+    #<br>
+    for g in glyph:<br>
+    	f[g].move((0,down))<br>
+    	f[g].mark = 140</p>
+    <p>f.update()<br>
+    </p>
 comments:
   - id: 509325
     user: 39733
@@ -77,6 +110,9 @@ comments:
     date_raw: 10 May 2012 — 1:14pm
     votes: null
     html: |-
+      <p>'AskString' has some issues in the latest versions of FL – an easy fix would be removing that call, and assigning an integer to the 'down' variable.<br>
+      Makes the script less universal, but works for the moment.</p>
+    html_clean: |-
       <p>'AskString' has some issues in the latest versions of FL – an easy fix would be removing that call, and assigning an integer to the 'down' variable.<br>
       Makes the script less universal, but works for the moment.</p>
   - id: 510041
@@ -90,9 +126,16 @@ comments:
       instead of<br>
       <code>from robofab.interface.all.dialogs</code></p>
       <p>I was having the same problem and found this: <a class="freelinking external" href="http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0" rel="nofollow">http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0</a></p>
+    html_clean: |-
+      <p>Try<br>
+      <code>from robofab.interface.all.dialogs_legacy</code><br>
+      instead of<br>
+      <code>from robofab.interface.all.dialogs</code></p>
+      <p>I was having the same problem and found this: <a class="freelinking external" href="http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0" rel="nofollow">http://groups.google.com/group/robofab/browse_thread/thread/3a495566dbe88a0</a></p>
   - id: 510223
     user: 48056
     date: 2012-05-18T07:26:00
     date_raw: 18 May 2012 — 7:26am
     votes: null
     html: <p>Thanks for that scruggsdesign, it worked. Saved me  a load of time.</p>
+    html_clean: <p>Thanks for that scruggsdesign, it worked. Saved me  a load of time.</p>

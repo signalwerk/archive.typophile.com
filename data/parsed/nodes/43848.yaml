@@ -40,6 +40,9 @@ post:
   html: |-
     <p>I was trying to use the AFDKO's checkOutlines and AutoHint, but it didn't work because the Python version was 2.5 in MacOSX 10.4. I got an error message that "This script supports only Python versions 2.3 and 2.4. The current version is 2.5."<br>
     So I would like to replace ver.2.5 to ver.2.4 or ver.2.3 but I didn't know how should I replace the python program. Or is there any way to solve this problem?</p>
+  html_clean: |-
+    <p>I was trying to use the AFDKO's checkOutlines and AutoHint, but it didn't work because the Python version was 2.5 in MacOSX 10.4. I got an error message that "This script supports only Python versions 2.3 and 2.4. The current version is 2.5."<br>
+    So I would like to replace ver.2.5 to ver.2.4 or ver.2.3 but I didn't know how should I replace the python program. Or is there any way to solve this problem?</p>
 comments:
   - id: 270571
     user: 19560
@@ -49,18 +52,42 @@ comments:
     html: |-
       <p>Just curious if you've gotten anywhere with this. Maybe you're using an older AFDKO?</p>
       <p>I'm running the latest AFDKO with Python 2.5 (2.5.1, specifically) without a problem — but under OS X 10.5.2, not 10.4.</p>
+    html_clean: |-
+      <p>Just curious if you've gotten anywhere with this. Maybe you're using an older AFDKO?</p>
+      <p>I'm running the latest AFDKO with Python 2.5 (2.5.1, specifically) without a problem — but under OS X 10.5.2, not 10.4.</p>
   - id: 270576
     user: 1262
     date: 2008-04-04T12:53:00
     date_raw: 4 Apr 2008 — 12:53pm
     votes: null
     html: "<p>On Windows, you can install multiple versions of Python, and I'm guessing the same is true on the Mac. So you may not need to replace v2.5, but might install v2.4 alongside it. You can get the v2.4 package for Mac here: <a href=\"http://www.pythonmac.org/packages/\" title=\"http://www.pythonmac.org/packages/\">http://www.pythonmac.org/packages/</a></p>"
+    html_clean: "<p>On Windows, you can install multiple versions of Python, and I'm guessing the same is true on the Mac. So you may not need to replace v2.5, but might install v2.4 alongside it. You can get the v2.4 package for Mac here: <a href=\"http://www.pythonmac.org/packages/\" title=\"http://www.pythonmac.org/packages/\">http://www.pythonmac.org/packages/</a></p>"
   - id: 270682
     user: 1927
     date: 2008-04-05T08:27:00
     date_raw: 5 Apr 2008 — 8:27am
     votes: null
     html: |-
+      <p>Thanks your comment, Joshua.<br>
+      &gt;I’m running the latest AFDKO with Python 2.5 (2.5.1, specifically) without a problem — but under OS X 10.5.2, not 10.4.</p>
+      <p>Really?<br>
+      I've downloaded AFDKO again and reinstalled it, but It didn't work.</p>
+      <p>Thanks, John,<br>
+      I've done it and checkOutlines script worked from FontLab.<br>
+      I got a message that Terminal app. showed.</p>
+      <p>Python 2.4.4 (#1, Oct 18 2006, 10:34:39)<br>
+      [GCC 4.0.1 (Apple Computer, Inc. build 5341)] on darwin<br>
+      Type "help", "copyright", "credits" or "license" for more information.<br>
+      &gt;&gt;&gt;</p>
+      <p>However, I've got another problem.<br>
+      When I inputed command line "tx -h" into Terminal.app, Terminal showed an error message like</p>
+      <p>shotype:~ okano$ tx -h<br>
+      -bash: tx: command not found</p>
+      <p>In order to confirm settings I inputed "which tx" into Terminal,<br>
+      Then Terminal shows below message.<br>
+      no tx in /Library/Frameworks/Python.framework/Versions/Current/bin /bin /sbin /usr/bin /usr/sbin</p>
+      <p>Maybe I have to fix the setting of the path, but I don't know where I should touch to fix the path.</p>
+    html_clean: |-
       <p>Thanks your comment, Joshua.<br>
       &gt;I’m running the latest AFDKO with Python 2.5 (2.5.1, specifically) without a problem — but under OS X 10.5.2, not 10.4.</p>
       <p>Really?<br>
@@ -89,6 +116,10 @@ comments:
       <p><em>Maybe I have to fix the setting of the path, but I don’t know where I should touch to fix the path.</em></p>
       <p>Frankly, I don't know squat about Macs (well, except for emacs),  but you might find info in this link useful: <a href="http://typophile.com/node/20078?" rel="nofollow">http://typophile.com/node/20078?</a>.</p>
       <p>Good luck.</p>
+    html_clean: |-
+      <p><em>Maybe I have to fix the setting of the path, but I don’t know where I should touch to fix the path.</em></p>
+      <p>Frankly, I don't know squat about Macs (well, except for emacs),  but you might find info in this link useful: <a href="/node/20078/" rel="nofollow">http://typophile.com/node/20078?</a>.</p>
+      <p>Good luck.</p>
   - id: 270759
     user: 1844
     date: 2008-04-05T16:10:00
@@ -108,12 +139,30 @@ comments:
       <p>7. Close the Terminal window</p>
       <p>8. Open a new Terminal window. Typing <code><strong>tx -h</strong></code> should now work, as well as all the other AFDKO command line tools</p>
       <p>Hope this helps.</p>
+    html_clean: |-
+      <p>&gt; <em>shotype:~ okano$ tx -h<br>
+      -bash: tx: command not found</em></p>
+      <p>Hi Kunihiko, try this:</p>
+      <p>1. Open a new Terminal window and type <code><strong>pico .profile</strong></code></p>
+      <p>2. You should now have the .profile file opened in pico, and see some lines that look like this:<br>
+      <code><strong>PATH=${PATH}:"/Users/your_username/bin/"</strong></code></p>
+      <p>3. Select those lines, copy them, and close the file (Ctrl+X)</p>
+      <p>4. Type <code><strong>pico .bash_profile</strong></code></p>
+      <p>5. Paste the lines copied in step 3</p>
+      <p>6. Close the file (Ctrl+X), answering "Y" to save the changes</p>
+      <p>7. Close the Terminal window</p>
+      <p>8. Open a new Terminal window. Typing <code><strong>tx -h</strong></code> should now work, as well as all the other AFDKO command line tools</p>
+      <p>Hope this helps.</p>
   - id: 270784
     user: 1927
     date: 2008-04-05T19:52:00
     date_raw: 5 Apr 2008 — 7:52pm
     votes: null
     html: |-
+      <p>Thank you very much, Miguel!<br>
+      That's it! This is very useful tips. I could add the path of AFDKO.<br>
+      I appreciate to use AFDKO comfortably again.</p>
+    html_clean: |-
       <p>Thank you very much, Miguel!<br>
       That's it! This is very useful tips. I could add the path of AFDKO.<br>
       I appreciate to use AFDKO comfortably again.</p>

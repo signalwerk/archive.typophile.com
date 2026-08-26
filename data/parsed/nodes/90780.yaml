@@ -38,6 +38,7 @@ post:
   date_raw: 6 Mar 2012 — 10:28am
   votes: null
   html: <p>Is it possible to “switch off” x-direction hints in Cleartype Mode but still use them in Binary?</p>
+  html_clean: <p>Is it possible to “switch off” x-direction hints in Cleartype Mode but still use them in Binary?</p>
 comments:
   - id: 497960
     user: 11526
@@ -45,18 +46,21 @@ comments:
     date_raw: 6 Mar 2012 — 9:54pm
     votes: null
     html: <p>Interesting idea.</p>
+    html_clean: <p>Interesting idea.</p>
   - id: 498024
     user: 2969
     date: 2012-03-07T09:56:00
     date_raw: 7 Mar 2012 — 9:56am
     votes: null
     html: <p><a href="http://typophile.com/node/62675" rel="nofollow">From 2008</a>. They are off, unless you consider rounding to sub pixels as instructions. Turning them on is what's really hard and balloons the data to between 2x and 16x the size of " normal" instructions.</p>
+    html_clean: <p><a href="http://typophile.com/node/62675" rel="nofollow">From 2008</a>. They are off, unless you consider rounding to sub pixels as instructions. Turning them on is what's really hard and balloons the data to between 2x and 16x the size of " normal" instructions.</p>
   - id: 498045
     user: 17101
     date: 2012-03-07T12:59:00
     date_raw: 7 Mar 2012 — 12:59pm
     votes: null
     html: <p>I don't speek Berlowese, but it's apparent x-direction hints (links) are not turned off in Cleartype.</p>
+    html_clean: <p>I don't speek Berlowese, but it's apparent x-direction hints (links) are not turned off in Cleartype.</p>
   - id: 499258
     user: 11119
     date: 2012-03-12T19:35:00
@@ -65,12 +69,19 @@ comments:
     html: |-
       <p>Neither do I seem to understand Berlowese, but rest assured that x-direction “hints” are <em>not</em> turned off in ClearType.</p>
       <p>If you are looking for a switch similar to the INSTCTRL[] for re-introducing x-direction deltas (cf end of <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec12" rel="nofollow">RTR 4.1.2 Deltas “Galore”</a>), the answer is ‘no’—I didn’t put one into the rasterizer at the time, and I’m unaware of anybody else who might have done so since. If you’re considering programming in native TrueType assembly language, you could use <code>GETINFO[]</code> to identify the rendering method and bracket instructions executed in x-direction by <code>IF[] … EIF[]</code> pairs. However, be aware that while this may solve spacing problems related to <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec20" rel="nofollow">RTR 4.2.0 “Compatible” Advance Widths</a>, it may introduce new ones as a result of the advance width still being rounded to integer (“padding” or “truncating” of the right side-bearing, cf <a href="http://www.beatstamm.com/typography/RTRCh3.htm#Sec30" rel="nofollow">RTR 3.3.0</a>, <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec21" rel="nofollow">RTR 4.2.1</a>, and <a href="http://typophile.com/node/80015#comment-457577" rel="nofollow">this example in the RTR thread</a>).</p>
+    html_clean: |-
+      <p>Neither do I seem to understand Berlowese, but rest assured that x-direction “hints” are <em>not</em> turned off in ClearType.</p>
+      <p>If you are looking for a switch similar to the INSTCTRL[] for re-introducing x-direction deltas (cf end of <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec12" rel="nofollow">RTR 4.1.2 Deltas “Galore”</a>), the answer is ‘no’—I didn’t put one into the rasterizer at the time, and I’m unaware of anybody else who might have done so since. If you’re considering programming in native TrueType assembly language, you could use <code>GETINFO[]</code> to identify the rendering method and bracket instructions executed in x-direction by <code>IF[] … EIF[]</code> pairs. However, be aware that while this may solve spacing problems related to <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec20" rel="nofollow">RTR 4.2.0 “Compatible” Advance Widths</a>, it may introduce new ones as a result of the advance width still being rounded to integer (“padding” or “truncating” of the right side-bearing, cf <a href="http://www.beatstamm.com/typography/RTRCh3.htm#Sec30" rel="nofollow">RTR 3.3.0</a>, <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec21" rel="nofollow">RTR 4.2.1</a>, and <a href="/node/80015/#comment-457577" rel="nofollow">this example in the RTR thread</a>).</p>
   - id: 499303
     user: 2969
     date: 2012-03-13T07:55:00
     date_raw: 13 Mar 2012 — 7:55am
     votes: null
     html: |-
+      <p>If there's a way to post graphics here, I can't find the button no more. but <a href="//typophile.com/node/91017" rel="nofollow">here</a>. </p>
+      <p>The link that I pointed to above in this thread, includes testimony of the fact that one can hint the stems to move in x when CT is turned on, but one cannot do it with “links”, or <em>size <strong>in</strong>dependent instructions</em> like "mirp" and "mdrp". </p>
+      <p>Thus! <em>size dependent instructions</em> for CT, depending on how many sizes are “hinted”, make the font file n-times larger than “normal” x-direction hints (for aliased or greyscale rendering), where n is for all practical purposes, the number of sizes one hints.</p>
+    html_clean: |-
       <p>If there's a way to post graphics here, I can't find the button no more. but <a href="//typophile.com/node/91017" rel="nofollow">here</a>. </p>
       <p>The link that I pointed to above in this thread, includes testimony of the fact that one can hint the stems to move in x when CT is turned on, but one cannot do it with “links”, or <em>size <strong>in</strong>dependent instructions</em> like "mirp" and "mdrp". </p>
       <p>Thus! <em>size dependent instructions</em> for CT, depending on how many sizes are “hinted”, make the font file n-times larger than “normal” x-direction hints (for aliased or greyscale rendering), where n is for all practical purposes, the number of sizes one hints.</p>
@@ -120,12 +131,54 @@ comments:
       <p>Granted, most of the above TT related jargon may be outside the conceptual range of casual Typophile Forum visitors. At the same time, 256 combinations of ClearType deltas are all but ludicrous, even with a graphical user-interface. But overcoming this “bazillion exception approach” requires programming, whether you <code>MIRP</code> it or <code>MSIRP</code> it. Along the way you get to change the spacing algorithm or similar strategies without “re-hinting” the entire font. And your file size does not “bloat” n-fold. That’s why I called it <a href="http://www.beatstamm.com/typography/RTRCh6.htm#Sec3" rel="nofollow">Beyond “Delta-Hinting”</a>.</p>
       <p>@frode frank<br>
       Unnskyldning på kapre din tråd igjen…</p>
+    html_clean: |-
+      <p>Most “hinters” I’ve come across don’t seem to understand the concept and power of size-independent instructions, nor CVT cut-ins or dual PVs for that matter, let alone the necessary preconditions for using <code>SDPVTL[R]</code>—testament of which I’ve seen time and again while analyzing major failures of fonts rendered with early implementations of ClearType. “A computer could never do this!” was the mantra-esque “explanation” I was given when I tried to nudge “hinting” towards a ppem agnostic ansatz. “We need these deltas to do it properly!” and “Hinting puts the ‘Clear’ into ‘ClearType!’” While today the latter seems more than a bit ironic to me, at the time this engineer on somebody else’s payroll was happy to comply with the employee review goals and added 256 combinations of ClearType deltas to the GUI of VTT for everybody’s exuberant indulgence in color fringes.</p>
+      <p>While prototyping an auto-hinter it dawned on me how intensely absent the notion of ppem independence was amongst professional “hinters:”</p>
+      <ul>
+      <li>“Spacing algorithm? Don’t bother with it, most of the time this doesn’t work, anyway.” More deltas!</li>
+      <li>“Inheritance tree? Well… you could do 3 pixels here and 4 pixels there, but in <em>this</em> case it’s too early to do 2 and 3.” CVT deltas!!</li>
+      <li>“Composites? Just use fn nn to put the accent on top of the base character. What do you mean, ‘center the umlaut’?” Composite deltas!!!</li>
+      </ul>
+      <p>Deltas are completely useless in an auto-hinter. The auto-hinter doesn’t go “Hm… maybe I should ‘pop’ this pixel here and that pixel there” after it’s done with a character. When you write an auto-hinter, the code has to get it right the first time around, in a ppem-independent way. Hence for the inheritance algorithm I gathered abundant anecdotal evidence until I saw a pattern, while for the composites I revisited the tenets of my PhD thesis and implemented a kludge. As to the spacing algorithm, I compromised it to the prevailing preferences and the anticipation that subsequent use of the font will require linear spacing (WYSIWYG and similar fixed layouts). </p>
+      <p>The world around me seemed comfortable with the ClearType quirks of <code>MDAP[]</code>, <code>MIAP[]</code>, <code>MDRP[]</code>, <code>MIRP[]</code>, and <code>ROUND[]</code>, along with a generous palette of deltas, but me and my auto-hinter weren’t. While I can’t tell you how I implemented the auto-hinter, I can give you the gist of what I did for many of the illustrations in the RTR (cf e.g. the table in <a href="http://www.beatstamm.com/typography/RTRCh6.htm#Sec10" rel="nofollow">RTR 6.1.0</a>):</p>
+      <ul>
+      <li>Use <code>SCFS[]</code> instead of <code>MDAP[]</code> or <code>MIAP[]</code></li>
+      <li>Use <code>MSIRP[]</code> instead of <code>MDRP[]</code> or <code>MIRP[]</code></li>
+      <li>Do my own math instead of <code>ROUND[]</code>, including CVT cut-in logic and minimum distance constraint</li>
+      <li>Use a <code>SCANTYPE[]</code> snippet like <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec12" rel="nofollow">this</a> in my <code>prep</code> even though I’m not using a single delta.</li>
+      </ul>
+      <p>This does require some programming in native TrueType assembly language but lets me address a plurality of rendering methods with a single set of function calls, like so for a Calibri UC ‘H:’</p>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH11pt96dpiAAX.png"></p>
+      <p>What may seem like many parameters is simply a way to switch out spacing algorithms or linking strategies. This permitted me to emulate the “link tree” of your example, with the left edge rounded to grid and the right edge rounded to sample—without “re-hinting” Calibri—simply by changing the respective function (notice that I didn’t use a CVT for the LSB since I don’t know the strategy behind your spacing algorithm). This produces a decent size ramp in B&amp;W with consistent stroke design contrast. Once the vertical stems are heavier than the horizontal crossbars, they stay heavier, with the ratio approximating the original design as closely as the coarse pixels allow.</p>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiBW.png"></p>
+      <p>That same set of functions can implement different rounding “granularities” once it’s rendered in gray-scaling, with progressively smoother transitions between stem and crossbar weights, along with a more gradual introduction of stroke design contrast. The rounding granularity is simply an implied parameter of some of the functions used in the process. Also notice the subtle introduction of the rounded stroke ends by around 30 pt on the middle row, and earlier on the bottom row.</p>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiAA2x.png"><br>
+      <img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiAA4x.png"><br>
+      <img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiAA8x.png"></p>
+      <p>Plain ClearType suffers because it doesn’t anti-alias in y-direction, hence the crossbar weight “jumps” in increments of pixels, but at least it doesn’t appear to have crossbars that are heavier than the stems. Likewise, it cannot render the rounded stroke ends until 127 pt or thereabouts, at which point it makes little sense to use ClearType in the first place. Like in your B&amp;W and gray-scaling examples both stems are left-aligned to pixel boundaries, while the stem weights are rounded to the nearest 1/6 of a pixel, compatible with ClearType’s 6× oversampling rate, and hence pairs of stems yield the exact same color fringes.</p>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiCT.png"></p>
+      <p>ClearType with y-anti-aliasing improves on the aforementioned short-comings, with the rounded stroke ends coming in at 27 pt. This difference is due to the fact that the middle row of the gray-scaling examples uses 4× oversampling, compatible with Windows NT gray scaling and above, while y-anti-aliased ClearType uses 5× oversampling. In other words, y-anti-aliased ClearType uses slightly smaller samples and hence the rounded stroke ends can be “turned on” at a slightly smaller point size.</p>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH6to48pt96dpiCTyAA.png"></p>
+      <p>Following your examples, below are 3 juxtapositions of TT source code and rendered output. Top to bottom:</p>
+      <ol>
+      <li>ClearType, y and x instructions on</li>
+      <li>ClearType, y instructions on, x instructions and <code>IUP[X]</code> and <code>IUP[Y]</code> commented out</li>
+      <li>Same as above except forcing integer ppem sizes in the <code>head</code> table</li>
+      </ol>
+      <p><img src="http://www.beatstamm.com/temp/CalibriH11pt96dpiCTX.png"><br>
+      <img src="http://www.beatstamm.com/temp/CalibriH11pt96dpiCTNoXFractPpem.png"><br>
+      <img src="http://www.beatstamm.com/temp/CalibriH11pt96dpiCTNoXIntPpem.png"></p>
+      <p>The difference between x instructions on and off is apparent. What may be less apparent is the effect of forcing integer ppem sizes in the <code>head</code> table. At 11 pt and 96 dpi, the exact ppem size is 14 2/3. Forcing this to integer rounds this up to 15 ppem, with commensurate effects on height and width of the outlines. While the height is still hinted (and would be perfectly smooth without commenting out the <code>IUP[Y]</code>), without hinting the black body width further encroaches on the RSB space, which may not help spacing.</p>
+      <p>Granted, most of the above TT related jargon may be outside the conceptual range of casual Typophile Forum visitors. At the same time, 256 combinations of ClearType deltas are all but ludicrous, even with a graphical user-interface. But overcoming this “bazillion exception approach” requires programming, whether you <code>MIRP</code> it or <code>MSIRP</code> it. Along the way you get to change the spacing algorithm or similar strategies without “re-hinting” the entire font. And your file size does not “bloat” n-fold. That’s why I called it <a href="http://www.beatstamm.com/typography/RTRCh6.htm#Sec3" rel="nofollow">Beyond “Delta-Hinting”</a>.</p>
+      <p>@frode frank<br>
+      Unnskyldning på kapre din tråd igjen…</p>
   - id: 499513
     user: 1250
     date: 2012-03-14T14:28:00
     date_raw: 14 Mar 2012 — 2:28pm
     votes: null
     html: <p>{To Follow}</p>
+    html_clean: <p>{To Follow}</p>
   - id: 499619
     user: 2969
     date: 2012-03-15T19:37:00
@@ -138,12 +191,23 @@ comments:
       <p>We can do it any way MS says!, though I was hoping for something compatible with the publicly available tools, like the ones Frode is probably using. </p>
       <p>Which returns us to the original question of how to turn off instructions that don't work anyway. </p>
       <p>Is there any publishable documentation that lists the complete set of TT instructions that are not turned off but just don't work with Cleartype? Or is it simply anything that references the CVT?</p>
+    html_clean: |-
+      <p>Like I said, x hints are turned off in ClearType. </p>
+      <p>The MS specification is also wrong now, as it says: <em>"An MSIRP <strong>has the same effect</strong> as a MIRP instruction except that it takes its value from the stack rather than the Control Value Table."</em></p>
+      <p>(my italics and bold italics, only because there is no black italic;)</p>
+      <p>We can do it any way MS says!, though I was hoping for something compatible with the publicly available tools, like the ones Frode is probably using. </p>
+      <p>Which returns us to the original question of how to turn off instructions that don't work anyway. </p>
+      <p>Is there any publishable documentation that lists the complete set of TT instructions that are not turned off but just don't work with Cleartype? Or is it simply anything that references the CVT?</p>
   - id: 499729
     user: 9636
     date: 2012-03-15T18:05:00
     date_raw: 15 Mar 2012 — 6:05pm
     votes: null
     html: |-
+      <p><cite>Is there any publishable documentation that lists the complete set of TT instructions that are not turned off but just don't work with Cleartype? Or is it simply anything that references the CVT?</cite></p>
+      <p>And at the risk of asking a silly question, are diagonal instructions disregarded entirely, or does it depend on how the projection vector is set?</p>
+      <p>Jason C</p>
+    html_clean: |-
       <p><cite>Is there any publishable documentation that lists the complete set of TT instructions that are not turned off but just don't work with Cleartype? Or is it simply anything that references the CVT?</cite></p>
       <p>And at the risk of asking a silly question, are diagonal instructions disregarded entirely, or does it depend on how the projection vector is set?</p>
       <p>Jason C</p>
@@ -164,12 +228,28 @@ comments:
       where sample at the time was defined to be 1/16 pixel. The <code><strong>else</strong></code> case includes both x-direction and notably any diagonal directions. The background behind this logic is described in <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec1" rel="nofollow">RTR 4.1 ClearType &amp; “Legacy” Fonts</a> and plenty more details are available in GregH’s article “<a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx" rel="nofollow">Backwards Compatibility of TrueType Instructions with Microsoft ClearType</a>.”</p>
       <p><em>@dberlow:</em> With all due respect for someone like you, Mr Berlow, who can run a business making fonts in this day and age: I have tried to help you with anything I could, but now it sounds like someone lost his TrueTypity blanket…</p>
       <p><img src="http://www.beatstamm.com/Temp/David Berlow TrueTypity Blanket.png"></p>
+    html_clean: |-
+      <p><em>@jasonc:</em> Not a silly question: with the exception of distorting deltas, none of the instructions are turned off, but—depending on the direction of the projection vector—rounding is generally performed in one of two ways:</p>
+      <pre><code>
+      <strong>if</strong> “projection vector is in y-direction”
+      <strong>then</strong> “round to pixel”
+      <strong>else</strong> “round to sample”
+      <strong>end;</strong>
+      </code>
+      </pre><p>
+      where sample at the time was defined to be 1/16 pixel. The <code><strong>else</strong></code> case includes both x-direction and notably any diagonal directions. The background behind this logic is described in <a href="http://www.beatstamm.com/typography/RTRCh4.htm#Sec1" rel="nofollow">RTR 4.1 ClearType &amp; “Legacy” Fonts</a> and plenty more details are available in GregH’s article “<a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx" rel="nofollow">Backwards Compatibility of TrueType Instructions with Microsoft ClearType</a>.”</p>
+      <p><em>@dberlow:</em> With all due respect for someone like you, Mr Berlow, who can run a business making fonts in this day and age: I have tried to help you with anything I could, but now it sounds like someone lost his TrueTypity blanket…</p>
+      <p><img src="http://www.beatstamm.com/Temp/David Berlow TrueTypity Blanket.png"></p>
   - id: 499811
     user: 2969
     date: 2012-03-16T08:43:00
     date_raw: 16 Mar 2012 — 8:43am
     votes: null
     html: |-
+      <p>Beat: "<em>With all due respect for someone like you, Mr Berlow, who can run a business making fonts in this day and age: I have tried to help you with anything I could..."</em></p>
+      <p>Lol;) With all due respect for someone like you, Mr. Stamm, who can build a business from any kind of hinting in this day and age? Windows x-hinting is the last of the font rendering tragedies I'm afraid, it's just not a big deal for a good environment, and no one I know wants to spend a dime on CT hints. </p>
+      <p>So, I think we just heard a collision of business models gone personal. ;(</p>
+    html_clean: |-
       <p>Beat: "<em>With all due respect for someone like you, Mr Berlow, who can run a business making fonts in this day and age: I have tried to help you with anything I could..."</em></p>
       <p>Lol;) With all due respect for someone like you, Mr. Stamm, who can build a business from any kind of hinting in this day and age? Windows x-hinting is the last of the font rendering tragedies I'm afraid, it's just not a big deal for a good environment, and no one I know wants to spend a dime on CT hints. </p>
       <p>So, I think we just heard a collision of business models gone personal. ;(</p>
@@ -191,12 +271,28 @@ comments:
       <a href="http://www.typotheque.com/fonts/elementar#sans-a_09_11_3" title="http://www.typotheque.com/fonts/elementar#sans-a_09_11_3">http://www.typotheque.com/fonts/elementar#sans-a_09_11_3</a></p>
       <p>Anyway, as you where (I'm mostly here to learn).</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Which is entirely human.<br>
+      And spectators can learn much from both sides,<br>
+      especially if they engage in a healthy tussle.</p>
+      <p>I personally never liked hinting, but only because<br>
+      I'm a bitmap-level-control person*, and -especially<br>
+      if hinting is already there- ignoring it is even more<br>
+      tragic. This is not an ideological stance - it's visible to<br>
+      the eye (even if that's only unconscious for laymen).</p>
+      <p>* Like I adore this:<br>
+      <a href="http://www.typotheque.com/fonts/elementar#sans-a_09_11_3" title="http://www.typotheque.com/fonts/elementar#sans-a_09_11_3">http://www.typotheque.com/fonts/elementar#sans-a_09_11_3</a></p>
+      <p>Anyway, as you where (I'm mostly here to learn).</p>
+      <p>hhp</p>
   - id: 499960
     user: 1262
     date: 2012-03-17T12:26:00
     date_raw: 17 Mar 2012 — 12:26pm
     votes: null
     html: |-
+      <p>David: <em>Windows x-hinting is the last of the font rendering tragedies I'm afraid</em></p>
+      <p>You fuzzily have not yet looked at the Windows 8 public beta. It turns out that Microsoft still had at least one more font rendering tragedy up their sleeve. :(</p>
+    html_clean: |-
       <p>David: <em>Windows x-hinting is the last of the font rendering tragedies I'm afraid</em></p>
       <p>You fuzzily have not yet looked at the Windows 8 public beta. It turns out that Microsoft still had at least one more font rendering tragedy up their sleeve. :(</p>
   - id: 500324
@@ -207,18 +303,26 @@ comments:
     html: |-
       <p>John: You fuzzily have not yet looked at the Windows 8 public beta. . .</p>
       <p>No, I did not look directly at the Windows 8 beta. But the tragedy is not to be found only by looking. Poking around on a voyage of negative discovery (before I wrote my last post), what I didn't find are the four riders of the typographic apocalypse; patents, trademarks, fonts or studies related to Windows 8 fonts. Have you found any of these things?</p>
+    html_clean: |-
+      <p>John: You fuzzily have not yet looked at the Windows 8 public beta. . .</p>
+      <p>No, I did not look directly at the Windows 8 beta. But the tragedy is not to be found only by looking. Poking around on a voyage of negative discovery (before I wrote my last post), what I didn't find are the four riders of the typographic apocalypse; patents, trademarks, fonts or studies related to Windows 8 fonts. Have you found any of these things?</p>
   - id: 500325
     user: 17101
     date: 2012-03-20T05:01:00
     date_raw: 20 Mar 2012 — 5:01am
     votes: null
     html: <p>Sorry guys. I just became a father (!). Had to zone out for a while :) I appreciate your posts very much, regardless of disagreement. However, I’m not anywhere near smart enough to follow you two. Guess I gotta get back to the books, or the Raster Tragedy or whatever …</p>
+    html_clean: <p>Sorry guys. I just became a father (!). Had to zone out for a while :) I appreciate your posts very much, regardless of disagreement. However, I’m not anywhere near smart enough to follow you two. Guess I gotta get back to the books, or the Raster Tragedy or whatever …</p>
   - id: 500326
     user: 17101
     date: 2012-03-20T05:07:00
     date_raw: 20 Mar 2012 — 5:07am
     votes: null
     html: |-
+      <p><em>one can hint the stems to move in x when CT is turned on, but one cannot do it with “links”</em></p>
+      <p>DB:  Your answer to my question is <em>no.</em> I was talking about links, and I see no reason to bloat files with tons of one-size-only (delta) instructions.</p>
+      <p>BS: Your answer to my question is <em>yes,</em> you can with a well written function that does not bloat the size. In order to get there I have quite a bit to learn first though.</p>
+    html_clean: |-
       <p><em>one can hint the stems to move in x when CT is turned on, but one cannot do it with “links”</em></p>
       <p>DB:  Your answer to my question is <em>no.</em> I was talking about links, and I see no reason to bloat files with tons of one-size-only (delta) instructions.</p>
       <p>BS: Your answer to my question is <em>yes,</em> you can with a well written function that does not bloat the size. In order to get there I have quite a bit to learn first though.</p>
@@ -230,12 +334,21 @@ comments:
     html: |-
       <p>Frode, Congratulations!!</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>Frode, Congratulations!!</p>
+      <p>hhp</p>
   - id: 500385
     user: 1262
     date: 2012-03-20T10:37:00
     date_raw: 20 Mar 2012 — 10:37am
     votes: null
     html: |-
+      <p>David, I didn't find the four riders, but then I wasn't looking for them, either.</p>
+      <p>What I did find is a glossy new runs-on-any-device interactive whizbang user interface -- 'Metro' -- that is apparently so demanding of the graphics processor and memory that, somewhere between the Win8 developer preview and the public beta, Microsoft decided to disable ClearType for Metro apps and UI and replace it with a faster-rendering 8x1 greyscale antialiasing (4x4 at larger sizes, gaspable) but -- and here's the nasty bit -- <em>keeping subpixel positioning.</em></p>
+      <p>I'm not sure yet what hints are respected in this new rendering. If all the old greyscale rendering hints are respected, then presumably there's the possibility of snapping to full pixel widths and avoiding the effects of the subpixel positioning.</p>
+      <p>_____</p>
+      <p>Indeed, congratulations, Frode!</p>
+    html_clean: |-
       <p>David, I didn't find the four riders, but then I wasn't looking for them, either.</p>
       <p>What I did find is a glossy new runs-on-any-device interactive whizbang user interface -- 'Metro' -- that is apparently so demanding of the graphics processor and memory that, somewhere between the Win8 developer preview and the public beta, Microsoft decided to disable ClearType for Metro apps and UI and replace it with a faster-rendering 8x1 greyscale antialiasing (4x4 at larger sizes, gaspable) but -- and here's the nasty bit -- <em>keeping subpixel positioning.</em></p>
       <p>I'm not sure yet what hints are respected in this new rendering. If all the old greyscale rendering hints are respected, then presumably there's the possibility of snapping to full pixel widths and avoiding the effects of the subpixel positioning.</p>
@@ -251,12 +364,21 @@ comments:
       <p>I might have misconstrued this, but: we had a thread<br>
       here recently where it seemed Apple was doing that too.</p>
       <p>hhp</p>
+    html_clean: |-
+      <p>&gt; .... keeping subpixel positioning.</p>
+      <p>I might have misconstrued this, but: we had a thread<br>
+      here recently where it seemed Apple was doing that too.</p>
+      <p>hhp</p>
   - id: 500431
     user: 1262
     date: 2012-03-20T13:10:00
     date_raw: 20 Mar 2012 — 1:10pm
     votes: null
     html: |-
+      <p>You mean in the context of colour subpixel Quartz rendering, yes? The Win8 rendering is something new: 8x1 asymmetric greyscale rendering (8 shades of grey in the x direction, 1 (black) in the y direction) jumping to a 4x4 symmetric rendering for larger sizes, but unlike older greyscale rendering positioned on natural widths using subpixel positioning. I think in the y direction the new MS rendering will still be better than Mac in terms of readability, since it doesn't allow horizontals hairlines to lose contrast; but in the x direction greyscale on a subpixel spacing grid may be fuzzier than colour subpixel rendering on the same spacing grid in many situations.</p>
+      <p>I confirmed this morning that DWrite specifically prevents hinting of advance widths. I'm not sure what this implications of this are for the Win8 rendering, but I suspect it isn't good in terms of whether we'd be able to hint to avoid the subpixel positioning. This suggests that in order to produce crisp and dark text under typical desktop/laptop resolutions in Metro, one would need to target specific sizes with outlines and metrics all fitted to full pixel edges, because even a small variance off the full pixel advance widths would have a knock on effect on the fuzziness of subsequent glyphs in a line (and, of course, even if you do keep to full pixel advance widths, you'll lose sharpness as soon as someone uses the font in the same line of text as a preceding different font without this (an issue we hit with subpixel rendering of an Arabic UI font recently)).</p>
+      <p>On mobile phones and tablets, for which the Metro UI is clearly targeted, these issues will be ameliorated but not removed by higher screen resolutions. There is also the possibility that this is a temporary situation, I suppose, particular to Windows 8. The fact that the decision was made so late in the day -- after the developer preview -- suggests that maybe the Metro programmers felt they didn't have time to optimise either their code or the ClearType renderer to improve performance, and this is something they might be able to do for Windows 9.</p>
+    html_clean: |-
       <p>You mean in the context of colour subpixel Quartz rendering, yes? The Win8 rendering is something new: 8x1 asymmetric greyscale rendering (8 shades of grey in the x direction, 1 (black) in the y direction) jumping to a 4x4 symmetric rendering for larger sizes, but unlike older greyscale rendering positioned on natural widths using subpixel positioning. I think in the y direction the new MS rendering will still be better than Mac in terms of readability, since it doesn't allow horizontals hairlines to lose contrast; but in the x direction greyscale on a subpixel spacing grid may be fuzzier than colour subpixel rendering on the same spacing grid in many situations.</p>
       <p>I confirmed this morning that DWrite specifically prevents hinting of advance widths. I'm not sure what this implications of this are for the Win8 rendering, but I suspect it isn't good in terms of whether we'd be able to hint to avoid the subpixel positioning. This suggests that in order to produce crisp and dark text under typical desktop/laptop resolutions in Metro, one would need to target specific sizes with outlines and metrics all fitted to full pixel edges, because even a small variance off the full pixel advance widths would have a knock on effect on the fuzziness of subsequent glyphs in a line (and, of course, even if you do keep to full pixel advance widths, you'll lose sharpness as soon as someone uses the font in the same line of text as a preceding different font without this (an issue we hit with subpixel rendering of an Arabic UI font recently)).</p>
       <p>On mobile phones and tablets, for which the Metro UI is clearly targeted, these issues will be ameliorated but not removed by higher screen resolutions. There is also the possibility that this is a temporary situation, I suppose, particular to Windows 8. The fact that the decision was made so late in the day -- after the developer preview -- suggests that maybe the Metro programmers felt they didn't have time to optimise either their code or the ClearType renderer to improve performance, and this is something they might be able to do for Windows 9.</p>
@@ -269,6 +391,10 @@ comments:
       <p>Are you sure that this rendering mode is a done deal for Windows 8? They couldn't change their mind again?</p>
       <p>Also, is this a DWrite rendering mode only? Will GDI apps still get ClearType? I'm trying to understand what will happen to existing web browsers on WIndows 8.</p>
       <p>Fascinating stuff!</p>
+    html_clean: |-
+      <p>Are you sure that this rendering mode is a done deal for Windows 8? They couldn't change their mind again?</p>
+      <p>Also, is this a DWrite rendering mode only? Will GDI apps still get ClearType? I'm trying to understand what will happen to existing web browsers on WIndows 8.</p>
+      <p>Fascinating stuff!</p>
   - id: 500928
     user: 1262
     date: 2012-03-22T20:53:00
@@ -277,17 +403,24 @@ comments:
     html: |-
       <p>Tom, the new rendering shouldn't affect any existing apps: it is particular to the new shell (Metro) and new apps. I don't have answers to all the questions about where it applies and where it doesn't, but I doubt if it affects GDI apps (even new ones). Nor do I know if it affects all DWrite apps under Win8, or only some. And I don't know what happens to CFF fonts.</p>
       <p>It does seem to be a done deal for Win8. At least, that's the impression I get from folk at MS. I suppose if there were a lot of negative feedback from the Consumer Preview, they might revisit it.</p>
+    html_clean: |-
+      <p>Tom, the new rendering shouldn't affect any existing apps: it is particular to the new shell (Metro) and new apps. I don't have answers to all the questions about where it applies and where it doesn't, but I doubt if it affects GDI apps (even new ones). Nor do I know if it affects all DWrite apps under Win8, or only some. And I don't know what happens to CFF fonts.</p>
+      <p>It does seem to be a done deal for Win8. At least, that's the impression I get from folk at MS. I suppose if there were a lot of negative feedback from the Consumer Preview, they might revisit it.</p>
   - id: 501154
     user: 2969
     date: 2012-03-23T05:18:00
     date_raw: 23 Mar 2012 — 5:18am
     votes: null
     html: <p>Really fascinating! Even if every app a windows user launches has a different rendering, eliminating color from any of it is, I think, reducing the volume of the windows font tragedy.</p>
+    html_clean: <p>Really fascinating! Even if every app a windows user launches has a different rendering, eliminating color from any of it is, I think, reducing the volume of the windows font tragedy.</p>
   - id: 502383
     user: 909
     date: 2012-03-28T17:59:00
     date_raw: 28 Mar 2012 — 5:59pm
     votes: null
     html: |-
+      <p>Whew. That sounds mostly like a relief. Thanks John!</p>
+      <p>I just got a Windows 8 VM set up to play with, but I have to find time to play with it (and remember how to log into it remotely)</p>
+    html_clean: |-
       <p>Whew. That sounds mostly like a relief. Thanks John!</p>
       <p>I just got a Windows 8 VM set up to play with, but I have to find time to play with it (and remember how to log into it remotely)</p>

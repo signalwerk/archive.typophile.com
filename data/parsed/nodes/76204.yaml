@@ -49,6 +49,18 @@ post:
     <p>So, we can run the script in 2 fonts, open the list in excel &amp; quickly find the glyphs that needs more tunning to be compatible.<br>
     Can this be done? Where do I star looking for info to code this?</p>
     <p>Thanks in advance.</p>
+  html_clean: |-
+    <p>Hello there:</p>
+    <p>As there is nothing like Prepolator for PC....<br>
+    I'm thinking of some kind of basic script to help PC users to prepare fonts for "mask to master" interpolation.</p>
+    <p>Nothing too complex, maybe something simple like this:</p>
+    <p>For each glyph in the current open font:<br>
+     - Count number of points<br>
+     - Count number of contours<br>
+     - Save list as .txt file, or just output somewhere that can be copied and pasted.</p>
+    <p>So, we can run the script in 2 fonts, open the list in excel &amp; quickly find the glyphs that needs more tunning to be compatible.<br>
+    Can this be done? Where do I star looking for info to code this?</p>
+    <p>Thanks in advance.</p>
 comments:
   - id: 439185
     user: 14722
@@ -56,6 +68,7 @@ comments:
     date_raw: 10 Nov 2010 — 6:13pm
     votes: null
     html: <p>Superpolator comes with a Fontlab/robofab script that does this. Superpolator does not deign to run on PCs, but you might be able to get Erik to license the script.</p>
+    html_clean: <p>Superpolator comes with a Fontlab/robofab script that does this. Superpolator does not deign to run on PCs, but you might be able to get Erik to license the script.</p>
   - id: 439217
     user: 14455
     date: 2010-11-11T02:31:00
@@ -69,18 +82,51 @@ comments:
       </code></p>
       <p>... and it works on PC</p>
       <p>Eigi</p>
+    html_clean: |-
+      <p>You can use the robofab framework. A robofab glyph has a "isCompatible" method:</p>
+      <p><code><br>
+      <strong>isCompatible(self, otherGlyph, report=True):</strong><br>
+      """Return a bool value if the glyph is compatible with otherGlyph.With report = True, isCompatible will return a report of what's wrong. The interpolate method requires absolute equality between contour data. Absolute equality is preferred among component and anchor data, but it is NOT required. Interpolation between components and anchors will only deal with compatible data and incompatible data will be ignored. This method reflects this system."""<br>
+      </code></p>
+      <p>... and it works on PC</p>
+      <p>Eigi</p>
   - id: 439279
     user: 54527
     date: 2010-11-11T08:38:00
     date_raw: 11 Nov 2010 — 8:38am
     votes: null
     html: <p>Thanks Andreas, that's great!</p>
+    html_clean: <p>Thanks Andreas, that's great!</p>
   - id: 439697
     user: 1137
     date: 2010-11-15T01:23:00
     date_raw: 15 Nov 2010 — 1:23am
     votes: null
     html: |-
+      <p>from robofab.world import CurrentFont,CurrentGlyph<br>
+      font = CurrentFont()</p>
+      <p># make a list to collect your data<br>
+      stuff = []</p>
+      <p># naming attributes<br>
+      stuff.append(font.info.fullName)<br>
+      stuff.append('---------------------------------------------------------') </p>
+      <p>for glyph in font:<br>
+      	stuff.append('    ')<br>
+      	stuff.append(glyph.name)<br>
+      	stuff.append("(glyph has %d contour)" % len(glyph))<br>
+      	stuff.append('-------------------------------') </p>
+      <p>	for contour in glyph:</p>
+      <p>		#stuff.append(`contour`)</p>
+      <p>		stuff.append("  This contour has %d segments" % len(contour.segments)) </p>
+      <p># make up a path where you want to save<br>
+      # if you run this script in fontlab<br>
+      # you need to provide a full path</p>
+      <p>import os.path<br>
+      path = os.path.join( os.path.split(fl.font.file_name)[0] , "segmentos.txt")<br>
+      f = open(path, 'w')<br>
+      f.write("\r".join(stuff))<br>
+      f.close</p>
+    html_clean: |-
       <p>from robofab.world import CurrentFont,CurrentGlyph<br>
       font = CurrentFont()</p>
       <p># make a list to collect your data<br>
@@ -112,11 +158,17 @@ comments:
     html: |-
       <p>IMPORTANTE: cortar y pegar en FL y poner las indentaciones tal como muestra la imagen que adjunto (sino no anda).</p>
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen_3603.jpg"></div><p></p>
+    html_clean: |-
+      <p>IMPORTANTE: cortar y pegar en FL y poner las indentaciones tal como muestra la imagen que adjunto (sino no anda).</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen_3603.jpg"></div><p></p>
   - id: 439783
     user: 54527
     date: 2010-11-15T11:32:00
     date_raw: 15 Nov 2010 — 11:32am
     votes: null
     html: |-
+      <p>Thanks Ramiro!<br>
+      Works great</p>
+    html_clean: |-
       <p>Thanks Ramiro!<br>
       Works great</p>

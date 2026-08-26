@@ -47,6 +47,16 @@ post:
     </code><br>
     I understand why K_A gets priority over A_A, but why A_A gets priority over R_A?<br>
     Or vice-versa.<p></p>
+  html_clean: |-
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screenshot_6318.PNG"></div><br>
+    So the code sequence for dlig's goes like this:<br>
+    <code><br>
+    sub A A by A_A;<br>
+    sub K A by K_A;<br>
+    sub R A by R_A;<br>
+    </code><br>
+    I understand why K_A gets priority over A_A, but why A_A gets priority over R_A?<br>
+    Or vice-versa.<p></p>
 comments:
   - id: 510544
     user: 31798
@@ -54,6 +64,18 @@ comments:
     date_raw: 21 May 2012 — 10:56am
     votes: null
     html: |-
+      <p>The opentype implementation can sometimes sort ligature ordering in rather arcane ways (see the comments on ligatures at <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a>).</p>
+      <p>If you want complete control over how your ligatures are prioritized, you should include explicit lookup declarations in your code. For example, if you want your RA ligature to take priority over other ligatures, include the following:</p>
+      <p>feature dlig {</p>
+      <p>lookup HighestPriority { # This lookup will be applied to the text run first.<br>
+      sub R A by R_A;<br>
+      } HighestPriority;</p>
+      <p>lookup LowerPriority { # These substitutions will be applied after R_A substitutions.<br>
+      sub A A by A_A;<br>
+      sub K A by K_A;<br>
+      } LowerPriority;</p>
+      <p>} dlig;</p>
+    html_clean: |-
       <p>The opentype implementation can sometimes sort ligature ordering in rather arcane ways (see the comments on ligatures at <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#4.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a>).</p>
       <p>If you want complete control over how your ligatures are prioritized, you should include explicit lookup declarations in your code. For example, if you want your RA ligature to take priority over other ligatures, include the following:</p>
       <p>feature dlig {</p>

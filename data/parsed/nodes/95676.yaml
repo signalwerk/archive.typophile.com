@@ -43,6 +43,12 @@ post:
     <p>I defined a few classes and pairs. (<a class="freelinking external" href="http://dl.dropbox.com/u/46459223/fontlab_bug.png" rel="nofollow">See my code.</a>) but nothing happened - they weren't applied. The only message I get is:</p>
     <p>[WARNING]  Glyph class @FLSFNT8733 redefined [C:/Users/boris/Documents/FontLab/Studio5/fontlab.fea 3] </p>
     <p>As i saif, my font compiles correcty, bu the pairs aren't applied. Help.</p>
+  html_clean: |-
+    <p>I am trying to introduce a class-based kerning to my font, using the technique from this tutorial:<br>
+    <a href="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf" title="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf">http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_...</a></p>
+    <p>I defined a few classes and pairs. (<a class="freelinking external" href="http://dl.dropbox.com/u/46459223/fontlab_bug.png" rel="nofollow">See my code.</a>) but nothing happened - they weren't applied. The only message I get is:</p>
+    <p>[WARNING]  Glyph class @FLSFNT8733 redefined [C:/Users/boris/Documents/FontLab/Studio5/fontlab.fea 3] </p>
+    <p>As i saif, my font compiles correcty, bu the pairs aren't applied. Help.</p>
 comments:
   - id: 519516
     user: 76756
@@ -50,6 +56,7 @@ comments:
     date_raw: 20 Aug 2012 — 10:22am
     votes: null
     html: "<p>update: I tried to kern my font the normal way - again it didnt work! Everything looks good in the sample panel ( that dialogue that opens from a icon in the opentype features panel), but the effect is not visible anywhere else</p>"
+    html_clean: "<p>update: I tried to kern my font the normal way - again it didnt work! Everything looks good in the sample panel ( that dialogue that opens from a icon in the opentype features panel), but the effect is not visible anywhere else</p>"
   - id: 519605
     user: 63394
     date: 2012-08-21T10:59:00
@@ -64,18 +71,32 @@ comments:
       <p>PS If you use a .fea file/format, it should be something like this:</p>
       <p>@_a = [ a  aacute ];</p>
       <p>NB the double space after the "a".</p>
+    html_clean: |-
+      <p>A basic error:</p>
+      <p>"The name of a kerning class must start with an underscore (e.g. _a)."</p>
+      <p>and</p>
+      <p>"Each kerning class and each metrics class must have exactly one key glyph defined –this is done by following one of the glyph names in the glyph definition by the quotesingle (') character. The key glyph acts as a “representative” of the class."</p>
+      <p><a href="http://www.fontlab.ch/downloads/manuals/FLS5WinManual.zip" title="http://www.fontlab.ch/downloads/manuals/FLS5WinManual.zip">http://www.fontlab.ch/downloads/manuals/FLS5WinManual.zip</a></p>
+      <p>PS If you use a .fea file/format, it should be something like this:</p>
+      <p>@_a = [ a  aacute ];</p>
+      <p>NB the double space after the "a".</p>
   - id: 520249
     user: 76756
     date: 2012-08-28T10:04:00
     date_raw: 28 Aug 2012 — 10:04am
     votes: null
     html: <p>what double space?</p>
+    html_clean: <p>what double space?</p>
   - id: 520307
     user: 2438
     date: 2012-08-28T19:08:00
     date_raw: 28 Aug 2012 — 7:08pm
     votes: null
     html: |-
+      <p>The line should read...</p>
+      <pre>@_a = [ a  aacute ];</pre><p>
+      ...but HTML collapses extra space characters unless they're escaped (as in <code>&amp;nbsp;</code>) or inside of a &lt;pre&gt; element.</p>
+    html_clean: |-
       <p>The line should read...</p>
       <pre>@_a = [ a  aacute ];</pre><p>
       ...but HTML collapses extra space characters unless they're escaped (as in <code>&amp;nbsp;</code>) or inside of a &lt;pre&gt; element.</p>

@@ -41,6 +41,10 @@ post:
     <p>Looking for a way to specify space left and right of the underline. It is only possible to change vertical offset, but i simply need my underline to leave 1mm space to the left and the right of the underlined word/line. Any ideas, maybe workarounds or hacks????</p>
     <p>quite urgent, so any help much appreciated!!!</p>
     <p>thanks constantin</p>
+  html_clean: |-
+    <p>Looking for a way to specify space left and right of the underline. It is only possible to change vertical offset, but i simply need my underline to leave 1mm space to the left and the right of the underlined word/line. Any ideas, maybe workarounds or hacks????</p>
+    <p>quite urgent, so any help much appreciated!!!</p>
+    <p>thanks constantin</p>
 comments:
   - id: 83898
     user: 6470
@@ -48,18 +52,23 @@ comments:
     date_raw: 16 Aug 2005 — 5:47am
     votes: null
     html: <p>In ye olden days BDTP (before desktop publishing), typesetters could insert spaces of various sizes (thin, normal, en, em) wherever they wished. You could insert a regular space on either side of the underscore, then adjust the horizontal scale of those spaces to match your requirements. Once you are satisfied with the results, you could copy and paste the space+underscore combos (beginning and ending) wherever you wanted.</p>
+    html_clean: <p>In ye olden days BDTP (before desktop publishing), typesetters could insert spaces of various sizes (thin, normal, en, em) wherever they wished. You could insert a regular space on either side of the underscore, then adjust the horizontal scale of those spaces to match your requirements. Once you are satisfied with the results, you could copy and paste the space+underscore combos (beginning and ending) wherever you wanted.</p>
   - id: 83900
     user: 3434
     date: 2005-08-16T05:56:00
     date_raw: 16 Aug 2005 — 5:56am
     votes: null
     html: <p>to make it a bit more complicated i am looking for a solution using character/paragraph style. I have quite a bit of text to style like that.....</p>
+    html_clean: <p>to make it a bit more complicated i am looking for a solution using character/paragraph style. I have quite a bit of text to style like that.....</p>
   - id: 83901
     user: 3972
     date: 2005-08-16T06:06:00
     date_raw: 16 Aug 2005 — 6:06am
     votes: null
     html: |-
+      <p>Why not using a condensed space with underline? Just fiddle until it's about a mm wide. Make that a separate style and build the total using nested styles.<br>
+      Quick though dirty...</p>
+    html_clean: |-
       <p>Why not using a condensed space with underline? Just fiddle until it's about a mm wide. Make that a separate style and build the total using nested styles.<br>
       Quick though dirty...</p>
   - id: 83914
@@ -71,12 +80,17 @@ comments:
       <p>Ok guys. Now i figured out that I can just insert a space or an em space. That works fine. only thing is that i have a lot of text and it isnt really the most efficient way to manually insert spaces, especially if i need to change the width of my textbox. So i really need to use character / paragraph styles, but i just cant figure out how to include a space into a character style. Any help????</p>
       <p>Thanks a lot,<br>
       Co</p>
+    html_clean: |-
+      <p>Ok guys. Now i figured out that I can just insert a space or an em space. That works fine. only thing is that i have a lot of text and it isnt really the most efficient way to manually insert spaces, especially if i need to change the width of my textbox. So i really need to use character / paragraph styles, but i just cant figure out how to include a space into a character style. Any help????</p>
+      <p>Thanks a lot,<br>
+      Co</p>
   - id: 83931
     user: 2172
     date: 2005-08-16T10:32:00
     date_raw: 16 Aug 2005 — 10:32am
     votes: null
     html: <p>I don't think there's any way to cap a style with spaces in-line like that. Just a lot of find and replace, I guess.</p>
+    html_clean: <p>I don't think there's any way to cap a style with spaces in-line like that. Just a lot of find and replace, I guess.</p>
   - id: 83935
     user: 956
     date: 2005-08-16T11:03:00
@@ -93,15 +107,28 @@ comments:
       <p>You then have the underline extending past the word the width of a hair space, a break, &amp; new underline that extends a bit before the word. If you want the break to be bigger, you can replace the thin space w/ a regular space, then muck with the word-spacing parameters.</p>
       <p>Obviously, you want to do this after all editing is done.  :0)</p>
       <p>Jay</p>
+    html_clean: |-
+      <p>Uh, I'm pretty tired so I'm not sure I understand what your goal is, but you can probably do this with a series of search-and-replaces.</p>
+      <p>Step 1:<br>
+      find: [space]<br>
+      replace with: [hair space][thin space][hair space]</p>
+      <p>Step 2:<br>
+      find: [thin space]<br>
+      replace with [character style: notUnderlined]</p>
+      <p>You then have the underline extending past the word the width of a hair space, a break, &amp; new underline that extends a bit before the word. If you want the break to be bigger, you can replace the thin space w/ a regular space, then muck with the word-spacing parameters.</p>
+      <p>Obviously, you want to do this after all editing is done.  :0)</p>
+      <p>Jay</p>
   - id: 83958
     user: 4754
     date: 2005-08-16T13:28:00
     date_raw: 16 Aug 2005 — 1:28pm
     votes: null
     html: <p>elastik, I don't know if that works with your text flow, or if it's even more complicated than the suggestions made before, but you might as well try using table cells and take the bottom cell border as your (under-)line (with the stroke weight of your choice applied). One cell with a variable width sits in the middle (for your text) and two cells with fixed widths to its right and left. All the other cell borders (above and vertical) are then set to "none"/no stroke.</p>
+    html_clean: <p>elastik, I don't know if that works with your text flow, or if it's even more complicated than the suggestions made before, but you might as well try using table cells and take the bottom cell border as your (under-)line (with the stroke weight of your choice applied). One cell with a variable width sits in the middle (for your text) and two cells with fixed widths to its right and left. All the other cell borders (above and vertical) are then set to "none"/no stroke.</p>
   - id: 83959
     user: 2203
     date: 2005-08-16T13:32:00
     date_raw: 16 Aug 2005 — 1:32pm
     votes: null
     html: <p>Add a paragraph rule under your text. Command Option J (Mac) and establish a right and left indent on your rules. You can make them either the length of the text or the text frame and of course you can indent them and offset them.</p>
+    html_clean: <p>Add a paragraph rule under your text. Command Option J (Mac) and establish a right and left indent on your rules. You can make them either the length of the text or the text frame and of course you can indent them and offset them.</p>

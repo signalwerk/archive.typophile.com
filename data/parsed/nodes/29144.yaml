@@ -41,6 +41,10 @@ post:
     <p>Is there a way to denote a paragraph break in the OpenType Feature Definition Language?</p>
     <p>The paragraph break as such (not the pilcrow _glyph_, that is, but the _character_, so to speak), has no code point in the font, but is implemented through and handled by the text processor or text setting engine. So, unfortunately, I don't see a way to incorporate it in an OpenType feature.</p>
     <p>It might be very useful to have this, though; one may want to have for example end swashes only at the end of a paragraph.</p>
+  html_clean: |-
+    <p>Is there a way to denote a paragraph break in the OpenType Feature Definition Language?</p>
+    <p>The paragraph break as such (not the pilcrow _glyph_, that is, but the _character_, so to speak), has no code point in the font, but is implemented through and handled by the text processor or text setting engine. So, unfortunately, I don't see a way to incorporate it in an OpenType feature.</p>
+    <p>It might be very useful to have this, though; one may want to have for example end swashes only at the end of a paragraph.</p>
 comments:
   - id: 165372
     user: 909
@@ -48,9 +52,11 @@ comments:
     date_raw: 28 Oct 2006 — 5:27pm
     votes: null
     html: <p>You're correct that there's no way to do this in OpenType today. line and paragraph beginnings/endings are not really handled in OpenType.</p>
+    html_clean: <p>You're correct that there's no way to do this in OpenType today. line and paragraph beginnings/endings are not really handled in OpenType.</p>
   - id: 165377
     user: 14571
     date: 2006-10-28T17:49:00
     date_raw: 28 Oct 2006 — 5:49pm
     votes: null
     html: <p>That's quite unfortunate. Could it be done by the text setting engine? I mean, at every instance where a line or paragraph breaks, the text engine could call the font and insert the appropriate glyph. One could go even so far as to implement this into the line breaking algorithm, so that the advance width of the alternate glyph could be reckoned with, while calculating the optimal spacing. I guess this is similar to how 'jalt' (Justifcation Alternates) works?</p>
+    html_clean: <p>That's quite unfortunate. Could it be done by the text setting engine? I mean, at every instance where a line or paragraph breaks, the text engine could call the font and insert the appropriate glyph. One could go even so far as to implement this into the line breaking algorithm, so that the advance width of the alternate glyph could be reckoned with, while calculating the optimal spacing. I guess this is similar to how 'jalt' (Justifcation Alternates) works?</p>

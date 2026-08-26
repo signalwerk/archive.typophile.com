@@ -44,6 +44,13 @@ post:
     <p>This has something to do with CCMP feature.</p>
     <p>I request anyone who has used this feature for the mentioned purpose to kindly share their experience.</p>
     <p>Thanks and regards.</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>Somewhere on Typophile I read about adding dots (nuqta) to base glyph in VOLT.<br>
+    This means instead of making glyphs for each combination of base glyph with dots in FontLab, you use VOLT to compose glyphs on the fly using a single base glyph.</p>
+    <p>This has something to do with CCMP feature.</p>
+    <p>I request anyone who has used this feature for the mentioned purpose to kindly share their experience.</p>
+    <p>Thanks and regards.</p>
 comments:
   - id: 504446
     user: 1262
@@ -51,6 +58,11 @@ comments:
     date_raw: 8 Apr 2012 — 8:51pm
     votes: null
     html: |-
+      <p>You still need precomposed versions of the default encoded Unicode characters, but then you can decompose these in VOLT and use GPOS mark positioning for the dots. This can be done either in the ccmp feature, or within the individual shaping features: isol, init, medi and fina. So, for example, one can decompose</p>
+      <p><code>ccmp<br>
+      uni0628 -&gt; B.isol dotbelow</code></p>
+      <p>There are some software support issues with this approach -- if a user in Word turns off display of marks, or chooses to display the marks in a different colour, this will incorrectly affect the dots -- but it is the most practical approach for many traditional styles of Arabic in which dot position needs to be contextually adjusted.</p>
+    html_clean: |-
       <p>You still need precomposed versions of the default encoded Unicode characters, but then you can decompose these in VOLT and use GPOS mark positioning for the dots. This can be done either in the ccmp feature, or within the individual shaping features: isol, init, medi and fina. So, for example, one can decompose</p>
       <p><code>ccmp<br>
       uni0628 -&gt; B.isol dotbelow</code></p>
@@ -65,6 +77,11 @@ comments:
       <p>What if I only make the default encoded Unicode characters in Fontlab with nuqtas added to them, and dont do anything (ccmp or any type of decomposition) to these glyphs in VOLT, and compose rest of glyphs and nuqtas in VOLT..</p>
       <p>Is that a possible workflow?</p>
       <p>Thanks and regards.</p>
+    html_clean: |-
+      <p>Thanks John for the reply.</p>
+      <p>What if I only make the default encoded Unicode characters in Fontlab with nuqtas added to them, and dont do anything (ccmp or any type of decomposition) to these glyphs in VOLT, and compose rest of glyphs and nuqtas in VOLT..</p>
+      <p>Is that a possible workflow?</p>
+      <p>Thanks and regards.</p>
   - id: 504482
     user: 16942
     date: 2012-04-09T04:32:00
@@ -73,12 +90,27 @@ comments:
     html: |-
       <p>Short answer is no it's not gonna work!<br>
       why? because glyph will not be decomposed to the base character and Noqta, so I guess when you start typing using this approach, you will not see any Nuqta in the program.</p>
+    html_clean: |-
+      <p>Short answer is no it's not gonna work!<br>
+      why? because glyph will not be decomposed to the base character and Noqta, so I guess when you start typing using this approach, you will not see any Nuqta in the program.</p>
   - id: 504495
     user: 45719
     date: 2012-04-09T07:03:00
     date_raw: 9 Apr 2012 — 7:03am
     votes: null
     html: |-
+      <p>Thanks bahman for the reply.</p>
+      <p>From this discussion this far, I think the workflow goes something like this:</p>
+      <ul>
+      <li>Create all default encoded Unicode characters in Fontlab with nuqtas added to them.</li>
+      <li>Decompose them in VOLT using CCMP feature.</li>
+      <li>Add nuqtas to them again in VOLT using GPOS mark positioning.</li>
+      <li>For all the other glyphs, only create a base glyph in FontLab, and add nuqtas in VOLT using CCMP feature.</li>
+      </ul>
+      <p>Please correct me if I'm making any mistake in the above list.</p>
+      <p>Another question: I'll use mark positioning to add Nuqtas. Then again I'll use Mark positioning to add Diacritics. Wouldn't that be a problem?</p>
+      <p>Thanks and regards.</p>
+    html_clean: |-
       <p>Thanks bahman for the reply.</p>
       <p>From this discussion this far, I think the workflow goes something like this:</p>
       <ul>
@@ -99,6 +131,10 @@ comments:
       <p><em>I'll use mark positioning to add Nuqtas. Then again I'll use Mark positioning to add Diacritics. Wouldn't that be a problem?</em></p>
       <p>No, because you will use different named anchors for dots and for vowel marks (you may end up with more than one anchor for different numbers of dots, too). The other thing you need to cater for in this method is positioning of vowel signs relative to dots <em>when preceded by some letters but not by others.</em> In other words, sometimes you will want mark-to-mark positioning for the vowel signs and sometimes mark-to-base. And that is contextual.</p>
       <p>There's no denying that this approach introduces a lot of complexities, and I only recommend it for styles in which you need to be able to move the dots around.</p>
+    html_clean: |-
+      <p><em>I'll use mark positioning to add Nuqtas. Then again I'll use Mark positioning to add Diacritics. Wouldn't that be a problem?</em></p>
+      <p>No, because you will use different named anchors for dots and for vowel marks (you may end up with more than one anchor for different numbers of dots, too). The other thing you need to cater for in this method is positioning of vowel signs relative to dots <em>when preceded by some letters but not by others.</em> In other words, sometimes you will want mark-to-mark positioning for the vowel signs and sometimes mark-to-base. And that is contextual.</p>
+      <p>There's no denying that this approach introduces a lot of complexities, and I only recommend it for styles in which you need to be able to move the dots around.</p>
   - id: 504526
     user: 15306
     date: 2012-04-09T10:51:00
@@ -112,12 +148,31 @@ comments:
       <p>We can benefit the experience of our friend Khaled Hosny, He has developed his font - Amiri -  by this way and he faced some problems.  </p>
       <p>best wishes<br>
       Badr</p>
+    html_clean: |-
+      <p>I'll use mark positioning to add Nuqtas. Then again I'll use Mark positioning to add Diacritics. Wouldn't that be a problem?</p>
+      <p>Note 1: The operating system - like Windows - will deal with the Noqta as if it were a diacritic mark, if requested by coloring composition it will color Noqta with it.</p>
+      <p>Note 2: You should test positions of Noqta to the letters and to diacritics with any GPOS you do, Noqta will be affected by it.</p>
+      <p>Note 3: You will make a lot of GPOS tables - like John hinted - and it will be so complexity, so trying.</p>
+      <p>We can benefit the experience of our friend Khaled Hosny, He has developed his font - Amiri -  by this way and he faced some problems.  </p>
+      <p>best wishes<br>
+      Badr</p>
   - id: 504602
     user: 45719
     date: 2012-04-09T19:56:00
     date_raw: 9 Apr 2012 — 7:56pm
     votes: null
     html: |-
+      <p>Thanks John and Badr for the valuable guidance.</p>
+      <p>The font I'm working on for about 3 years is based on a reasonably complex naskh script.<br>
+      Movable nuqtas is on of the top 3 requirements of the design. (to avoid collision of nuqtas in words like  النبيين، تتقون، تقتتل، تقول), currently I've made seperate glyphs for some common collisions and used CALT on them. The current approach is not at all working, as it only covers specific collisions. This led me to find some other solution.</p>
+      <p>I found these very useful guide on Khtt.net.<br>
+      <a class="freelinking external" href="http://khtt.net/attachment/31760" rel="nofollow">Part 1</a><br>
+      <a class="freelinking external" href="http://khtt.net/attachment/33164" rel="nofollow">Part 2</a></p>
+      <p>Amirifont.org is also very useful reference.<br>
+      Khaled Hosny talking about THE PROBLEM : <a class="freelinking external" href="http://www.khaledhosny.org/node/178" rel="nofollow">Khaled's Blog</a><br>
+      Thanks Badr.</p>
+      <p>Thanks and regards.</p>
+    html_clean: |-
       <p>Thanks John and Badr for the valuable guidance.</p>
       <p>The font I'm working on for about 3 years is based on a reasonably complex naskh script.<br>
       Movable nuqtas is on of the top 3 requirements of the design. (to avoid collision of nuqtas in words like  النبيين، تتقون، تقتتل، تقول), currently I've made seperate glyphs for some common collisions and used CALT on them. The current approach is not at all working, as it only covers specific collisions. This led me to find some other solution.</p>

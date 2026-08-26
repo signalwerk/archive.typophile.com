@@ -44,6 +44,13 @@ post:
     <p>for sure i had made some kind of mistake, can anybody help me with this?<br>
     i am thinking about wrong positioning in the classes panel, am i right?</p>
     <p>thanks in advance.</p>
+  html_clean: |-
+    <p>Dear List.</p>
+    <p>I am trying to kern throw class kerning and i get this line:</p>
+    <p>"Start of new pair positioning subtable; some pairs may never be accessed: [f ff] [dotlessi i iacute icircumflex idieresis igrave]"</p>
+    <p>for sure i had made some kind of mistake, can anybody help me with this?<br>
+    i am thinking about wrong positioning in the classes panel, am i right?</p>
+    <p>thanks in advance.</p>
 comments:
   - id: 177833
     user: 8664
@@ -51,12 +58,14 @@ comments:
     date_raw: 12 Jan 2007 — 3:08pm
     votes: null
     html: <p>Hello! Maybe the first thing to check is whether any glyph appears in more than one leftside class or more than one rightside class.</p>
+    html_clean: <p>Hello! Maybe the first thing to check is whether any glyph appears in more than one leftside class or more than one rightside class.</p>
   - id: 177837
     user: 4763
     date: 2007-01-12T15:33:00
     date_raw: 12 Jan 2007 — 3:33pm
     votes: null
     html: <p>There is a button with a yin-yang sign in the Kerning Assistance dialogue that helps you detect such kind of mistakes in the class definitions.</p>
+    html_clean: <p>There is a button with a yin-yang sign in the Kerning Assistance dialogue that helps you detect such kind of mistakes in the class definitions.</p>
   - id: 177893
     user: 8223
     date: 2007-01-13T07:02:00
@@ -65,18 +74,39 @@ comments:
     html: |-
       <p>hi Tim, hi Karsten!</p>
       <p>I checked both things already and seems to be fine. there is no duplicate within the class kern. I have this [f ff] in both kern and metric classes, but should work fine anyway I believe...</p>
+    html_clean: |-
+      <p>hi Tim, hi Karsten!</p>
+      <p>I checked both things already and seems to be fine. there is no duplicate within the class kern. I have this [f ff] in both kern and metric classes, but should work fine anyway I believe...</p>
   - id: 178200
     user: 108
     date: 2007-01-15T11:32:00
     date_raw: 15 Jan 2007 — 11:32am
     votes: null
     html: <p>Dario, did your problem get resolved?</p>
+    html_clean: <p>Dario, did your problem get resolved?</p>
   - id: 178420
     user: 8223
     date: 2007-01-16T12:36:00
     date_raw: 16 Jan 2007 — 12:36pm
     votes: null
     html: |-
+      <p>yes, with K.L.help. i copy his solution to keep it here for anybody else:</p>
+      <p>You need to do two things --<br>
+      (1)<br>
+      Go to the OpenType Panel (which contains the feature code)<br>
+      and delete all the class definitions from the bottom-right<br>
+      part.<br>
+      (2)<br>
+      Go to FontLab Options/Preferences (depends on whether you<br>
+      use Windows or Mac),<br>
+      click through the submenus "General Options" and "Unicode<br>
+      and OpenType" -- and therein activate both options:<br>
+      "Add all glyph classes [...]"<br>
+      and<br>
+      "Do not add metrics classes"</p>
+      <p>Now go to the OpenType Panel again and compile. Over<br>
+      here this worked well without error message.</p>
+    html_clean: |-
       <p>yes, with K.L.help. i copy his solution to keep it here for anybody else:</p>
       <p>You need to do two things --<br>
       (1)<br>
