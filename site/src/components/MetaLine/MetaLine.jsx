@@ -15,19 +15,23 @@ export function MetaLine({
   votes,
   emphasis = false,
 }) {
-  const name = author
-    ? authorId != null
-      ? <a href={`/user/${authorId}/`}>{author}</a>
-      : <span>{author}</span>
-    : null;
+  const name = author ? (
+    authorId != null ? (
+      <a href={`/user/${authorId}/`}>{author}</a>
+    ) : (
+      <span>{author}</span>
+    )
+  ) : null;
 
   return (
-    <div className={emphasis ? "meta-line meta-line--emphasis" : "meta-line"}>
-      {name ? (emphasis ? <strong>{name}</strong> : name) : null}
+    <div className="meta-line">
+      {name ? <span className="meta-line__name">{name}</span> : null}
 
       {date ? (
         dateHref ? (
-          <a href={dateHref}><DateTime value={date} /></a>
+          <a href={dateHref}>
+            <DateTime value={date} />
+          </a>
         ) : (
           <DateTime value={date} />
         )

@@ -31,7 +31,9 @@ export function formatDate(iso) {
   return `${Number(m[3])} ${SHORT[Number(m[2]) - 1]} ${m[1]}`;
 }
 
-export function DateTime({ value }) {
+// `dateOnly` drops the clock, for places where the time says nothing useful --
+// the span a member was active, for instance.
+export function DateTime({ value, dateOnly = false }) {
   if (!value) return null;
-  return <time dateTime={value}>{formatDateTime(value)}</time>;
+  return <time dateTime={value}>{dateOnly ? formatDate(value) : formatDateTime(value)}</time>;
 }

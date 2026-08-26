@@ -15,7 +15,6 @@ function Entry({ entry, op = false, anchor, user }) {
         </a>
         <div className="entry__main">
             <MetaLine
-              emphasis
               author={name}
               authorId={entry.user}
               date={entry.date}

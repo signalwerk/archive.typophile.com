@@ -1,5 +1,6 @@
 import { Layout } from "../components/Layout.jsx";
-import { formatDate } from "../components/DateTime/DateTime.jsx";
+import { Fragment } from "react";
+import { DateTime } from "../components/DateTime/DateTime.jsx";
 import { Avatar } from "../components/Avatar.jsx";
 import { NodePreview } from "../components/NodePreview/NodePreview.jsx";
 
@@ -56,6 +57,19 @@ function Profile({ profile }) {
 }
 
 export function UserPage({ doc }) {
+  // Built as a list so a missing piece cannot leave a stray separator behind.
+  const facts = [];
+  if (doc.first_seen) {
+    facts.push(
+      <>
+        active <DateTime value={doc.first_seen} dateOnly /> –{" "}
+        <DateTime value={doc.last_seen} dateOnly />
+      </>
+    );
+  }
+  facts.push(<>{doc.counts.posts} {doc.counts.posts === 1 ? "thread" : "threads"}</>);
+  facts.push(<>{doc.counts.comments} {doc.counts.comments === 1 ? "reply" : "replies"}</>);
+
   return (
     <Layout wide>
       <div className="crumbs">
@@ -67,9 +81,12 @@ export function UserPage({ doc }) {
         <div>
           <h1>{doc.name || `user ${doc.user}`}</h1>
           <p className="profile__meta">
-            user {doc.user}
-            {doc.first_seen ? <> · active {formatDate(doc.first_seen)} – {formatDate(doc.last_seen)}</> : null}
-            <> · {doc.counts.posts} threads · {doc.counts.comments} replies</>
+            {facts.map((fact, i) => (
+              <Fragment key={i}>
+                {i > 0 ? " · " : null}
+                {fact}
+              </Fragment>
+            ))}
           </p>
           {doc.profile?.city || doc.profile?.country ? (
             <p className="profile__meta">
