@@ -75,6 +75,14 @@ export function AboutPage({ totals, forums, archives }) {
           rendered. The words and the structure of a post are left alone.
         </li>
         <li>
+          <strong>Embedded images and attachments point here where we have
+          them.</strong> A picture in a post, or a file somebody attached, is
+          copied out of the archive and the post is pointed at our copy. Where
+          the archives never captured the file, the tag is left as it was and
+          the image stays broken rather than pointing somewhere that looks
+          right and is not.
+        </li>
+        <li>
           <strong>Member pages show less than the profiles did.</strong> Where
           somebody lived, when they joined, and details they filled in about
           themselves — gender, social accounts, education — are not shown. Only

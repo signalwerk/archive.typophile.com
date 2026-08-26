@@ -20,8 +20,9 @@ function decodeEntities(value) {
     .replace(/&gt;/gi, ">");
 }
 
-// Work out whether a href points at one of our pages.
-export function internalTarget(rawHref) {
+// Reduce an address to the path it names on the old site, unwrapping any
+// replay wrapper on the way. Returns null for anything that points elsewhere.
+export function sitePath(rawHref) {
   if (!rawHref) return null;
   let href = decodeEntities(String(rawHref).trim());
   if (!href || href.startsWith("#") || /^(mailto|javascript|data):/i.test(href)) return null;
@@ -44,8 +45,18 @@ export function internalTarget(rawHref) {
   const withoutHash = hashAt === -1 ? rest : rest.slice(0, hashAt);
 
   const queryAt = withoutHash.indexOf("?");
-  const pathname = queryAt === -1 ? withoutHash : withoutHash.slice(0, queryAt);
-  const query = queryAt === -1 ? "" : withoutHash.slice(queryAt + 1);
+  return {
+    pathname: queryAt === -1 ? withoutHash : withoutHash.slice(0, queryAt),
+    query: queryAt === -1 ? "" : withoutHash.slice(queryAt + 1),
+    hash,
+  };
+}
+
+// Work out whether a href points at one of our pages.
+export function internalTarget(rawHref) {
+  const parts = sitePath(rawHref);
+  if (!parts) return null;
+  const { pathname, query, hash } = parts;
 
   // /node/123, /cms/node/123, and the same for members.
   let m = /^\/(?:cms\/)?(node|user)\/(\d+)(?:\/.*)?$/i.exec(pathname);

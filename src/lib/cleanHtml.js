@@ -3,9 +3,11 @@
 // Two things happen here, both on a real parse of the document rather than by
 // pattern-matching the markup:
 //
-//   * anything that would execute or fetch from elsewhere is removed, and
+//   * anything that would execute or fetch from elsewhere is removed,
 //   * links that point at a thread or member we recovered are repointed at our
-//     copy of it.
+//     copy of it, and
+//   * links and images pointing at a file we recovered are pointed at our copy
+//     of the file.
 //
 // Only the href of a link changes; its wording, its title and every other
 // attribute are left alone, and a link to something we do not hold keeps its
@@ -15,7 +17,7 @@
 // it -- so the pass can be re-run or extended without losing the original.
 
 import * as cheerio from "cheerio";
-import { internalTarget } from "./links.js";
+import { internalTarget, sitePath } from "./links.js";
 
 // Elements that run code, load from elsewhere, or collect input.
 const DROP = [
@@ -27,10 +29,11 @@ const EVENT_ATTR = /^on/i;
 const URL_ATTR = /^(href|src|action|formaction|background|poster|data)$/i;
 const JS_URL = /^\s*javascript:/i;
 
-export function cleanHtml(html, have) {
+export function cleanHtml(html, have, asset) {
   const stats = {
     links: 0, internal: 0, rewritten: 0, missing: [],
     dropped: 0, handlers: 0, jsUrls: 0,
+    assets: 0, assetsRewritten: 0,
   };
   if (!html) return { html, stats };
 
@@ -70,6 +73,23 @@ export function cleanHtml(html, have) {
     el.attribs.href = `/${target.type}/${target.id}/${target.hash}`;
     stats.rewritten++;
   });
+
+  // Images people embedded, and files they linked to. A tag whose file we do
+  // not hold is left exactly as it was.
+  if (asset) {
+    $("a[href], img[src]").each((i, el) => {
+      const attr = el.tagName === "img" ? "src" : "href";
+      const parts = sitePath(el.attribs[attr]);
+      if (!parts || !/^\/files\//i.test(parts.pathname)) return;
+
+      stats.assets++;
+      const href = asset(parts.pathname);
+      if (!href) return;
+
+      el.attribs[attr] = href + parts.hash;
+      stats.assetsRewritten++;
+    });
+  }
 
   return { html: $.html(), stats };
 }

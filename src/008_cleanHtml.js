@@ -18,6 +18,7 @@ import { fileURLToPath } from "url";
 import YAML from "yaml";
 import { DATA } from "./lib/config.js";
 import { cleanHtml } from "./lib/cleanHtml.js";
+import { buildAssetIndex, makeAssetResolver, ASSETS_DIR } from "./lib/assets.js";
 import { ensureDir, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
 const args = parseArgs();
@@ -33,7 +34,7 @@ const META_FILE = `${DATA}/parsed/clean.meta.json`;
 function cleanerVersion() {
   const here = path.dirname(fileURLToPath(import.meta.url));
   const hash = crypto.createHash("sha1");
-  for (const f of [`${here}/lib/cleanHtml.js`, `${here}/lib/links.js`, `${here}/008_cleanHtml.js`]) {
+  for (const f of [`${here}/lib/cleanHtml.js`, `${here}/lib/links.js`, `${here}/lib/assets.js`, `${here}/008_cleanHtml.js`]) {
     try { hash.update(fs.readFileSync(f)); } catch { /* ignore */ }
   }
   return hash.digest("hex").slice(0, 16);
@@ -59,7 +60,14 @@ function main() {
     }
   }
   const have = (type, id) => (type === "node" ? nodes.has(id) : users.has(id));
-  console.log(`can link to ${formatCount(nodes.size)} threads and ${formatCount(users.size)} members`);
+
+  const assetIndex = buildAssetIndex();
+  const assetStats = { copied: 0 };
+  const asset = makeAssetResolver(assetIndex, assetStats);
+  console.log(
+    `can link to ${formatCount(nodes.size)} threads, ${formatCount(users.size)} members ` +
+    `and ${formatCount(assetIndex.size)} file(s)`
+  );
 
   const version = cleanerVersion();
   let state = {};
@@ -69,7 +77,7 @@ function main() {
   const counts = {
     threads: 0, cleaned: 0, unchanged: 0, entries: 0,
     links: 0, internal: 0, rewritten: 0, missing: 0,
-    dropped: 0, handlers: 0, jsUrls: 0,
+    dropped: 0, handlers: 0, jsUrls: 0, assets: 0, assetsRewritten: 0,
   };
   const missingCounts = new Map();
 
@@ -98,6 +106,8 @@ function main() {
       counts.dropped += known.dropped ?? 0;
       counts.handlers += known.handlers ?? 0;
       counts.jsUrls += known.jsUrls ?? 0;
+      counts.assets += known.assets ?? 0;
+      counts.assetsRewritten += known.assetsRewritten ?? 0;
       for (const miss of known.missing ?? []) {
         missingCounts.set(miss, (missingCounts.get(miss) || 0) + 1);
       }
@@ -108,19 +118,21 @@ function main() {
     try { doc = YAML.parse(fs.readFileSync(file, "utf8")); } catch { continue; }
     if (!doc) continue;
 
-    const totals = { links: 0, internal: 0, rewritten: 0, entries: 0, dropped: 0, handlers: 0, jsUrls: 0 };
+    const totals = { links: 0, internal: 0, rewritten: 0, entries: 0, dropped: 0, handlers: 0, jsUrls: 0, assets: 0, assetsRewritten: 0 };
     const missedHere = [];
 
     const clean = (entry) => {
       if (!entry) return entry;
       totals.entries++;
-      const { html: cleaned, stats } = cleanHtml(entry.html, have);
+      const { html: cleaned, stats } = cleanHtml(entry.html, have, asset);
       totals.links += stats.links;
       totals.internal += stats.internal;
       totals.rewritten += stats.rewritten;
       totals.dropped += stats.dropped;
       totals.handlers += stats.handlers;
       totals.jsUrls += stats.jsUrls;
+      totals.assets += stats.assets;
+      totals.assetsRewritten += stats.assetsRewritten;
       for (const miss of stats.missing) {
         missingCounts.set(miss, (missingCounts.get(miss) || 0) + 1);
         missedHere.push(miss);
@@ -157,6 +169,8 @@ function main() {
     counts.dropped += totals.dropped;
     counts.handlers += totals.handlers;
     counts.jsUrls += totals.jsUrls;
+    counts.assets += totals.assets;
+    counts.assetsRewritten += totals.assetsRewritten;
 
     if (counts.threads % 2000 === 0) process.stdout.write(`\r  ${formatCount(counts.threads)} threads ...`);
   }
@@ -186,6 +200,9 @@ function main() {
   console.log(`  repointed ......... ${formatCount(counts.rewritten)}`);
   console.log(`  target not held ... ${formatCount(counts.missing)} (${formatCount(missing.length)} distinct)`);
   console.log(`removed ............. ${formatCount(counts.dropped)} element(s), ${formatCount(counts.handlers)} inline handler(s), ${formatCount(counts.jsUrls)} javascript: address(es)`);
+  console.log(`files referenced .... ${formatCount(counts.assets)}`);
+  console.log(`  pointed at ours ... ${formatCount(counts.assetsRewritten)}`);
+  console.log(`  copied ............ ${formatCount(assetStats.copied)} -> ${ASSETS_DIR}/`);
   console.log(`\nstored as html_clean alongside the captured html`);
 }
 
