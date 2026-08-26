@@ -7,7 +7,6 @@ export function Layout({ children, wide = false }) {
           <a href="/">Typophile</a>
         </h1>
         <nav className="masthead__nav">
-          <a href="/">threads</a>
           <a href="/about/">about</a>
         </nav>
       </header>
