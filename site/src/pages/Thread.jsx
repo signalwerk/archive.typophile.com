@@ -1,5 +1,6 @@
 import { Layout } from "../components/Layout.jsx";
-import { DateTime, formatDate } from "../components/DateTime/DateTime.jsx";
+import { formatDate } from "../components/DateTime/DateTime.jsx";
+import { MetaLine } from "../components/MetaLine/MetaLine.jsx";
 import { sanitize } from "../../lib/sanitize.mjs";
 import { Avatar } from "../components/Avatar.jsx";
 
@@ -13,19 +14,14 @@ function Entry({ entry, op = false, anchor, user }) {
           <Avatar user={{ name, picture: user?.picture }} size={44} />
         </a>
         <div className="entry__main">
-          <div className="byline">
-            <strong>{href ? <a href={href}>{name}</a> : name}</strong>
-            {entry.date ? (
-              anchor ? (
-                <a href={`#${anchor}`}>
-                  <DateTime value={entry.date} />
-                </a>
-              ) : (
-                <DateTime value={entry.date} />
-              )
-            ) : null}
-            {entry.votes != null ? <span>{entry.votes} votes</span> : null}
-          </div>
+            <MetaLine
+              emphasis
+              author={name}
+              authorId={entry.user}
+              date={entry.date}
+              dateHref={anchor ? `#${anchor}` : undefined}
+              votes={entry.votes}
+            />
           {/* html_clean has internal links repointed at our copies; fall back
               to the captured html if the cleanup pass has not run yet. */}
           <div

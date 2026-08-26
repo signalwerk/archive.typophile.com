@@ -1,0 +1,28 @@
+// Styles for MetaLine only. Where the line sits is the caller's business.
+
+.meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--faint);
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // In a thread the author's name carries the post, so it is not as quiet.
+  &--emphasis {
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+
+    strong {
+      font-weight: 600;
+      color: var(--muted);
+    }
+  }
+}
