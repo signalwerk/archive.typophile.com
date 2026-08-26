@@ -4,7 +4,10 @@ import { DateTime } from "../components/DateTime/DateTime.jsx";
 import { Avatar } from "../components/Avatar.jsx";
 import { NodePreview } from "../components/NodePreview/NodePreview.jsx";
 
-function Activity({ title, items, empty }) {
+// `threadContext` adds the forum and the thread's reply count. A member's own
+// replies do not carry it: the count would be the whole thread's, not theirs,
+// which reads as if they had written all of them.
+function Activity({ title, items, threadContext = false }) {
   if (!items.length) return null;
   return (
     <section className="activity">
@@ -19,9 +22,9 @@ function Activity({ title, items, empty }) {
             title={it.title}
             href={`/node/${it.node}/${it.comment ? `#comment-${it.comment}` : ""}`}
             date={it.date}
-            comments={it.comments}
-            forum={it.forum}
-            forumTitle={it.forumTitle}
+            comments={threadContext ? it.comments : undefined}
+            forum={threadContext ? it.forum : undefined}
+            forumTitle={threadContext ? it.forumTitle : undefined}
           />
         ))}
       </ul>
@@ -97,7 +100,7 @@ export function UserPage({ doc }) {
 
       <Profile profile={doc.profile} />
 
-      <Activity title="Threads started" items={doc.posts ?? []} />
+      <Activity title="Threads started" items={doc.posts ?? []} threadContext />
       <Activity title="Replies" items={doc.comments ?? []} />
     </Layout>
   );

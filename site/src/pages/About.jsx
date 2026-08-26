@@ -54,6 +54,38 @@ export function AboutPage({ totals, forums, archives }) {
         </p>
       ) : null}
 
+      <h2 className="section-title">Changes to the original content</h2>
+      <p>
+        Posts are shown as they were captured. Where that is not true, it is
+        listed here. This list will grow as more is done to the material.
+      </p>
+      <ul className="changes">
+        <li>
+          <strong>Links point here where they can.</strong> A link inside a post
+          that pointed at a thread or a member we recovered is repointed at our
+          copy of it. Only the address changes — the wording of the link and
+          everything around it are untouched. A link to something we do not
+          have keeps its original address and stays dead, rather than
+          pretending to lead somewhere.
+        </li>
+        <li>
+          <strong>Anything that runs is removed.</strong> Scripts, styles,
+          embedded frames and objects, forms, inline event handlers and{" "}
+          <code>javascript:</code> addresses are stripped before a page is
+          rendered. The words and the structure of a post are left alone.
+        </li>
+        <li>
+          <strong>Member pages show less than the profiles did.</strong> Where
+          somebody lived, when they joined, and details they filled in about
+          themselves — gender, social accounts, education — are not shown. Only
+          a name, an occupation and a home page remain.
+        </li>
+      </ul>
+      <p>
+        In every case the captured page is kept unchanged alongside the edited
+        one, so nothing here is irreversible.
+      </p>
+
       <h2 className="section-title">Who made it</h2>
       <p>
         Put together by <a href="https://signalwerk.ch/" rel="noreferrer">Stefan Huber</a>.

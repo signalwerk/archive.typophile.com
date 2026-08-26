@@ -6,7 +6,7 @@ export function IndexPage({ threads, page, pages, forums, totals }) {
     <Layout wide>
       <p className="lede">
         {totals.threads.toLocaleString("en-US")} threads,{" "}
-        {totals.comments.toLocaleString("en-US")} replies, recovered from three web archives.
+        {totals.comments.toLocaleString("en-US")} replies, recovered from web archives.
       </p>
 
       {page === 1 ? (
