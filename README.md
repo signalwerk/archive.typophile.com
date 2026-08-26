@@ -291,6 +291,77 @@ ERROR node 13987   post.html: empty post body
 
 Counts land in `data/parsed/parse.meta.json`.
 
+## The site
+
+A Vite + React generator in [site/](site/) turns the parsed YAML into static
+HTML — no client-side JavaScript beyond the stylesheet.
+
+```sh
+cd site
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # -> site/dist
+```
+
+### Dev renders one page, not eleven thousand
+
+The dev server renders per request. Only the page you ask for is built, and
+only that thread's YAML is read. The listing pages need a summary per thread,
+so those summaries are cached in `site/.cache/index.json` and re-read only for
+files whose size or mtime changed:
+
+```
+first build   8.3s     (11,227 threads)
+cached        0.07s
+page request  0.08s
+```
+
+Editing one thread's YAML costs one re-read. Editing a component goes through
+Vite's normal HMR and touches no data at all.
+
+The full static build is separate: `npm run build` renders every route —
+11,442 pages in about 11 seconds.
+
+### Routes
+
+| route | page |
+| --- | --- |
+| `/`, `/page/<n>/` | all threads, newest activity first, 100 per page |
+| `/forum/<id>/`, `/forum/<id>/page/<n>/` | one forum |
+| `/node/<id>/` | a thread: opening post then every comment |
+
+`lib/routes.mjs` is the single definition of these shapes, shared by the dev
+server and the build, so a route cannot work in dev and 404 in production.
+
+### Archived HTML
+
+Post and comment HTML is rendered as captured. Before it goes into a page,
+`lib/sanitize.mjs` drops the parts that execute or phone home — `script`,
+`style`, `iframe`, `object`, `embed`, `form`, inline `on*` handlers and
+`javascript:` URLs. Everything structural is left alone. Images still point at
+typophile.com and will not load; that is the archive being honest about what it
+has.
+
+## Publishing
+
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds the site
+and publishes it to **typophile.signalwerk.ch** on every push to `main` that
+touches `data/parsed/**` or `site/**`.
+
+For that to work the parsed YAML is committed to the repository — that is why
+`.gitignore` lets `data/parsed/nodes/` through while keeping the raw archive
+material (tens of gigabytes, and reproducible) out.
+
+One-time setup in the repository settings: **Settings → Pages → Source →
+GitHub Actions**, and point a `CNAME` DNS record for `typophile` at
+`signalwerk.github.io`. The build writes the `CNAME` file itself.
+
+> **A note on repository size.** The parsed YAML is ~56 MB (~17 MB packed) for
+> the 11k threads recovered so far. Because a parser change rewrites every
+> file, each such commit adds another full copy to git history permanently. If
+> the archive.org download multiplies the thread count, consider committing the
+> data as a single compressed archive, or moving it to Git LFS.
+
 ## Still to do
 
 - **Combine the archives** for everything other than `/node/` pages.
