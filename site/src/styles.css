@@ -1,4 +1,5 @@
-/* Monochrome and quiet: the pages are here to be read, not decorated. */
+/* Monochrome and quiet: the pages are here to be read, not decorated.
+   Light only -- black on white, in every colour scheme. */
 
 :root {
   --ink: #000;
@@ -11,18 +12,10 @@
   --wide: 60rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #e8e8e8;
-    --paper: #111;
-    --muted: rgba(232, 232, 232, 0.6);
-    --faint: rgba(232, 232, 232, 0.38);
-    --rule: rgba(232, 232, 232, 0.16);
-    --wash: rgba(232, 232, 232, 0.05);
-  }
-}
-
 html {
+  /* Keep browser-painted UI (scrollbars, form controls) light too, even when
+     the operating system is set to dark. */
+  color-scheme: light;
   color: var(--ink);
   background: var(--paper);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
