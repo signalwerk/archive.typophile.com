@@ -21,13 +21,20 @@ export function AboutPage({ totals, forums, archives }) {
       </p>
       <ul className="plain">
         <li>
-          <a href="https://web.archive.org/" rel="noreferrer">Internet Archive Wayback Machine</a>
+          <a href="https://web.archive.org/" rel="noreferrer">
+            Internet Archive Wayback Machine
+          </a>
         </li>
         <li>
-          <a href="https://arquivo.pt/" rel="noreferrer">Arquivo.pt</a>, the Portuguese Web Archive
+          <a href="https://arquivo.pt/" rel="noreferrer">
+            Arquivo.pt
+          </a>
+          , the Portuguese Web Archive
         </li>
         <li>
-          <a href="https://commoncrawl.org/" rel="noreferrer">Common Crawl</a>
+          <a href="https://commoncrawl.org/" rel="noreferrer">
+            Common Crawl
+          </a>
         </li>
       </ul>
       <p>
@@ -42,9 +49,9 @@ export function AboutPage({ totals, forums, archives }) {
       <p>
         The archives did not capture everything, and some of what they captured
         is partial. Long discussions ran across several pages and not all of
-        them survived; where that happens the thread says so rather than
-        quietly showing a fraction. Images and files mostly point at addresses
-        that no longer answer.
+        them survived; where that happens the thread says so rather than quietly
+        showing a fraction. Images and files mostly point at addresses that no
+        longer answer.
       </p>
       {totals ? (
         <p className="lede">
@@ -64,9 +71,9 @@ export function AboutPage({ totals, forums, archives }) {
           <strong>Links point here where they can.</strong> A link inside a post
           that pointed at a thread or a member we recovered is repointed at our
           copy of it. Only the address changes — the wording of the link and
-          everything around it are untouched. A link to something we do not
-          have keeps its original address and stays dead, rather than
-          pretending to lead somewhere.
+          everything around it are untouched. A link to something we do not have
+          keeps its original address and stays dead, rather than pretending to
+          lead somewhere.
         </li>
         <li>
           <strong>Every link says where it leads.</strong> An arrow marks one
@@ -85,18 +92,19 @@ export function AboutPage({ totals, forums, archives }) {
           rendered. The words and the structure of a post are left alone.
         </li>
         <li>
-          <strong>Embedded images and attachments point here where we have
-          them.</strong> A picture in a post, or a file somebody attached, is
-          copied out of the archive and the post is pointed at our copy. Where
-          the archives never captured the file, the tag is left as it was and
-          the image stays broken rather than pointing somewhere that looks
-          right and is not.
+          <strong>
+            Embedded images and attachments point here where we have them.
+          </strong>{" "}
+          A picture in a post, or a file somebody attached, is copied out of the
+          archive and the post is pointed at our copy. Where the archives never
+          captured the file, the tag is left as it was and the image stays
+          broken rather than pointing somewhere that looks right and is not.
         </li>
         <li>
           <strong>Member pages show less than the profiles did.</strong> Where
           somebody lived, when they joined, and details they filled in about
-          themselves — gender, social accounts, education — are not shown. Only
-          a name, an occupation and a home page remain.
+          themselves — gender, social accounts, occupation, education — are not
+          shown. Only a name and a home page remain.
         </li>
       </ul>
       <p>
@@ -106,10 +114,15 @@ export function AboutPage({ totals, forums, archives }) {
 
       <h2 className="section-title">Who made it</h2>
       <p>
-        Put together by <a href="https://signalwerk.ch/" rel="noreferrer">Stefan Huber</a>.
-        The code that fetches, verifies, parses and renders all of this is on{" "}
-        <a href={REPO} rel="noreferrer">GitHub</a> — including the parts that
-        record what is missing.
+        Put together by{" "}
+        <a href="https://signalwerk.ch/" rel="noreferrer">
+          Stefan Huber
+        </a>
+        . The code that fetches, verifies, parses and renders all of this is on{" "}
+        <a href={REPO} rel="noreferrer">
+          GitHub
+        </a>{" "}
+        — including the parts that record what is missing.
       </p>
     </Layout>
   );

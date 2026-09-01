@@ -38,7 +38,7 @@ function Profile({ profile }) {
   // Location and the join date are already in the header, above this list.
   const rows = [
     ["Full name", profile.name],
-    ["Occupation", profile.occupation],
+    // ["Occupation", profile.occupation],
     ["Home page", profile.home_page],
   ].filter(([, v]) => v);
   if (!rows.length) return null;
