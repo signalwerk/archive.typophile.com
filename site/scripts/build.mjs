@@ -80,7 +80,7 @@ async function main() {
   let skipped = 0;
   for (const route of routes) {
     if (done + skipped >= limit) break;
-    const data = resolve(route, index);
+    const data = resolve(route, () => index);
     if (!data) { skipped++; continue; }
     const out = render(route, data);
     writePage(

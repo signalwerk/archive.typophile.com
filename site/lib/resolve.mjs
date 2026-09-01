@@ -2,6 +2,10 @@ import { buildIndex, loadNode, loadUser, buildUserIndex, paginate } from "./data
 
 // Turn a route into exactly the data that route needs -- nothing more, so a
 // thread page never pays for the full index being parsed.
+//
+// The index arrives as a function rather than a value, and only the routes
+// that actually read it call it. A thread page is the whole point: it needs
+// one YAML file, and used to wait on a summary of all sixty thousand first.
 // Thread summaries reference their author by id; listings want a name.
 function withAuthors(page) {
   const { byId } = buildUserIndex();
@@ -11,17 +15,22 @@ function withAuthors(page) {
   };
 }
 
-export function resolve(route, index) {
+export function resolve(route, getIndex) {
   switch (route.type) {
-    case "about":
+    case "about": {
+      const index = getIndex();
       return { totals: index.totals, forums: index.forums.length };
-    case "index":
+    }
+    case "index": {
+      const index = getIndex();
       return {
         page: withAuthors(paginate(index.threads, route.page)),
         forums: index.forums,
         totals: index.totals,
       };
+    }
     case "forum": {
+      const index = getIndex();
       const forum = index.forums.find((f) => f.id === route.forum);
       if (!forum) return null;
       const threads = index.threads.filter((t) => t.forum === route.forum);
@@ -47,7 +56,7 @@ export function resolve(route, index) {
       // A member file records what they wrote, not the state of the thread it
       // landed in. The forum and the reply count come from the thread index,
       // so neither has to be duplicated into every member file.
-      const byNode = new Map(index.threads.map((t) => [t.id, t]));
+      const byNode = new Map(getIndex().threads.map((t) => [t.id, t]));
       const withThread = (items) =>
         (items ?? []).map((it) => {
           const thread = byNode.get(it.node);

@@ -95,20 +95,31 @@ function summarise(doc) {
 // Changing what a summary holds has to invalidate the summaries already
 // cached, or a field added here would silently never appear for threads whose
 // files have not been touched since.
+//
+// It is the shape of a summary that matters, so this hashes `summarise` and
+// nothing else. Hashing the whole file, as this once did, threw away all
+// sixty thousand summaries -- a minute of re-parsing -- whenever anything else
+// here was touched, down to a comment.
 let summaryVersionCache = null;
 function summaryVersion() {
   if (summaryVersionCache) return summaryVersionCache;
-  try {
-    summaryVersionCache = crypto
-      .createHash("sha1")
-      .update(fs.readFileSync(fileURLToPath(import.meta.url)))
-      .digest("hex")
-      .slice(0, 12);
-  } catch {
-    summaryVersionCache = "unknown";
-  }
+  summaryVersionCache = crypto
+    .createHash("sha1")
+    .update(summarise.toString())
+    .digest("hex")
+    .slice(0, 12);
   return summaryVersionCache;
 }
+
+// Held for as long as the process lives, because rebuilding it means one stat
+// per thread and re-reading a cache file of some twenty megabytes -- half a
+// second, and the dev server was paying it on every single request.
+//
+// A directory's mtime moves whenever an entry is created, removed or renamed,
+// which is how every pipeline step writes (to `.part`, then rename), so a run
+// of any of them is caught. Editing one thread's YAML in place is not; restart
+// the dev server after doing that by hand.
+let indexCache = null;
 
 export function buildIndex({ quiet = false } = {}) {
   if (!fs.existsSync(NODES_DIR)) {
@@ -118,6 +129,9 @@ export function buildIndex({ quiet = false } = {}) {
       `or point TYPOPHILE_DATA at a parsed directory.`
     );
   }
+
+  const dirStamp = `${Math.round(fs.statSync(NODES_DIR).mtimeMs)}:${summaryVersion()}`;
+  if (indexCache?.stamp === dirStamp) return indexCache.value;
 
   let cache = { entries: {} };
   try {
@@ -166,7 +180,7 @@ export function buildIndex({ quiet = false } = {}) {
     forums.get(t.forum).threads++;
   }
 
-  return {
+  const value = {
     threads,
     forums: [...forums.values()].sort((a, b) => b.threads - a.threads),
     totals: {
@@ -174,6 +188,8 @@ export function buildIndex({ quiet = false } = {}) {
       comments: threads.reduce((n, t) => n + t.comments, 0),
     },
   };
+  indexCache = { stamp: dirStamp, value };
+  return value;
 }
 
 export function paginate(items, page, perPage = PER_PAGE) {

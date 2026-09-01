@@ -9,10 +9,11 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 
 // Render one page per request instead of the whole site.
 //
-// The index of thread summaries is cached on disk and only re-read for files
-// whose size or mtime changed, so editing a single thread's YAML costs one
-// re-read -- not eleven thousand. Component edits go through Vite's normal
-// module graph and need no data work at all.
+// Nothing is prepared up front: the server starts at once, and a page costs
+// only what that page needs. A thread reads one YAML file. Listings need the
+// index of thread summaries, which is cached on disk, re-read only for files
+// whose size or mtime changed, and then held in memory. Component edits go
+// through Vite's normal module graph and need no data work at all.
 function forumDevServer() {
   return {
     name: "typophile-dev",
@@ -60,9 +61,9 @@ function forumDevServer() {
             const { buildIndex } = await server.ssrLoadModule("/lib/data.mjs");
             const { render } = await server.ssrLoadModule("/src/entry-server.jsx");
 
-            // Cheap after the first call; see lib/data.mjs.
-            const index = buildIndex({ quiet: true });
-            const data = resolve(route, index);
+            // Built only if the route asks for it, and held in memory once it
+            // has been; a thread page touches neither. See lib/data.mjs.
+            const data = resolve(route, () => buildIndex({ quiet: true }));
             if (!data) {
               res.statusCode = 404;
               return res.end(`Not found: ${url}`);
