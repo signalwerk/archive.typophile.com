@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
-import crypto from "crypto";
 import { fileURLToPath } from "url";
 import YAML from "yaml";
+// The pipeline owns the shape of a thread summary, because the pipeline is
+// what writes them; see src/lib/summary.js and step 9.
+import { summarise, summaryVersion } from "../../src/lib/summary.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -14,6 +16,7 @@ const NODES_DIR = path.join(DATA_DIR, "nodes");
 const USERS_DIR = path.join(DATA_DIR, "users");
 export const PICTURES_DIR = path.join(USERS_DIR, "pictures");
 export const FILES_DIR = path.join(DATA_DIR, "files");
+const THREAD_INDEX = path.join(NODES_DIR, "_index.jsonl");
 const CACHE_FILE = path.resolve(here, "../.cache/index.json");
 
 export const PER_PAGE = 100;
@@ -70,56 +73,48 @@ export function buildUserIndex() {
 // --- the index -------------------------------------------------------------
 //
 // Every listing page needs a line per thread, but a thread's YAML is mostly
-// post and comment HTML we do not need here. Parsing all of them takes a
-// while, so the summaries are cached and only re-read when a file's size or
-// mtime changes. In dev, editing one thread costs one re-read -- not eleven
-// thousand.
-
-function summarise(doc) {
-  const comments = doc.comments ?? [];
-  const last = comments.length ? comments[comments.length - 1] : null;
-  return {
-    id: doc.node,
-    title: doc.title || `node ${doc.node}`,
-    forum: doc.forum?.id ?? null,
-    forumTitle: doc.forum?.title ?? null,
-    author: doc.post?.user ?? null,
-    date: doc.post?.date ?? null,
-    comments: comments.length,
-    lastDate: last?.date ?? doc.post?.date ?? null,
-    archive: doc.source?.archive ?? null,
-    truncated: Boolean(doc.source?.truncated),
-  };
-}
-
-// Changing what a summary holds has to invalidate the summaries already
-// cached, or a field added here would silently never appear for threads whose
-// files have not been touched since.
+// post and comment HTML none of them want. Step 9 writes those lines out to
+// `nodes/_index.jsonl`, so ordinarily this reads one file of a few megabytes
+// and is done.
 //
-// It is the shape of a summary that matters, so this hashes `summarise` and
-// nothing else. Hashing the whole file, as this once did, threw away all
-// sixty thousand summaries -- a minute of re-parsing -- whenever anything else
-// here was touched, down to a comment.
-let summaryVersionCache = null;
-function summaryVersion() {
-  if (summaryVersionCache) return summaryVersionCache;
-  summaryVersionCache = crypto
-    .createHash("sha1")
-    .update(summarise.toString())
-    .digest("hex")
-    .slice(0, 12);
-  return summaryVersionCache;
-}
+// Where that file has not been written, the summaries are gathered from the
+// thread files instead and cached on disk. That path is correct but slow, and
+// -- because it is keyed on each file's size and date -- a cleaning pass,
+// which rewrites all of them, costs a full minute of re-reading. Running step
+// 9 is what makes that go away.
 
-// Held for as long as the process lives, because rebuilding it means one stat
-// per thread and re-reading a cache file of some twenty megabytes -- half a
-// second, and the dev server was paying it on every single request.
+// Held for as long as the process lives. Even the cheap path is a file read
+// and a parse, and the dev server was paying it on every single request.
 //
 // A directory's mtime moves whenever an entry is created, removed or renamed,
 // which is how every pipeline step writes (to `.part`, then rename), so a run
 // of any of them is caught. Editing one thread's YAML in place is not; restart
 // the dev server after doing that by hand.
 let indexCache = null;
+
+// Sorted, counted, and grouped into forums -- the same whichever way the
+// summaries were come by.
+function shape(threads) {
+  // Newest thread first, by when it was started -- not by last reply, so the
+  // order does not shuffle when an old thread happens to get a late comment.
+  threads.sort((a, b) => String(b.date ?? "").localeCompare(String(a.date ?? "")));
+
+  const forums = new Map();
+  for (const t of threads) {
+    if (t.forum === null) continue;
+    if (!forums.has(t.forum)) forums.set(t.forum, { id: t.forum, title: t.forumTitle, threads: 0 });
+    forums.get(t.forum).threads++;
+  }
+
+  return {
+    threads,
+    forums: [...forums.values()].sort((a, b) => b.threads - a.threads),
+    totals: {
+      threads: threads.length,
+      comments: threads.reduce((n, t) => n + t.comments, 0),
+    },
+  };
+}
 
 export function buildIndex({ quiet = false } = {}) {
   if (!fs.existsSync(NODES_DIR)) {
@@ -128,6 +123,27 @@ export function buildIndex({ quiet = false } = {}) {
       `Run the pipeline first (npm run select && npm run parse in the repo root), ` +
       `or point TYPOPHILE_DATA at a parsed directory.`
     );
+  }
+
+  if (fs.existsSync(THREAD_INDEX)) {
+    const stat = fs.statSync(THREAD_INDEX);
+    const stamp = `step9:${stat.size}:${Math.round(stat.mtimeMs)}`;
+    if (indexCache?.stamp === stamp) return indexCache.value;
+
+    const threads = [];
+    for (const line of fs.readFileSync(THREAD_INDEX, "utf8").split("\n")) {
+      if (!line) continue;
+      try {
+        // `k` is step 9's own record of what the line was written from; it
+        // says nothing to a listing page.
+        const { k, ...thread } = JSON.parse(line);
+        threads.push(thread);
+      } catch { /* torn line */ }
+    }
+
+    const value = shape(threads);
+    indexCache = { stamp, value };
+    return value;
   }
 
   const dirStamp = `${Math.round(fs.statSync(NODES_DIR).mtimeMs)}:${summaryVersion()}`;
@@ -168,26 +184,7 @@ export function buildIndex({ quiet = false } = {}) {
     console.log(`  index: read ${reread} of ${files.length} threads (rest from cache)`);
   }
 
-  const threads = Object.values(entries).map((e) => e.summary);
-  // Newest thread first, by when it was started -- not by last reply, so the
-  // order does not shuffle when an old thread happens to get a late comment.
-  threads.sort((a, b) => String(b.date ?? "").localeCompare(String(a.date ?? "")));
-
-  const forums = new Map();
-  for (const t of threads) {
-    if (t.forum === null) continue;
-    if (!forums.has(t.forum)) forums.set(t.forum, { id: t.forum, title: t.forumTitle, threads: 0 });
-    forums.get(t.forum).threads++;
-  }
-
-  const value = {
-    threads,
-    forums: [...forums.values()].sort((a, b) => b.threads - a.threads),
-    totals: {
-      threads: threads.length,
-      comments: threads.reduce((n, t) => n + t.comments, 0),
-    },
-  };
+  const value = shape(Object.values(entries).map((e) => e.summary));
   indexCache = { stamp: dirStamp, value };
   return value;
 }

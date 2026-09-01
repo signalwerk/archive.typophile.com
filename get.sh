@@ -48,5 +48,11 @@ node src/006_parseNodes.js
 #    their avatars out of the archives into the parsed data.
 node src/007_users.js
 
-# 8. Clean up the stored HTML: repoint links at the copies we hold.
+# 8. Clean up the stored HTML: mend addresses the old site mangled, repoint
+#    links at the copies we hold, and mark every link with where it leads.
 node src/008_cleanHtml.js
+
+# 9. Summarise every thread into one line, so listing pages never open all
+#    62,000 files. Keyed on the capture each thread came from, so step 8
+#    rewriting the files costs this nothing.
+node src/009_threadIndex.js

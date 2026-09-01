@@ -69,6 +69,16 @@ export function AboutPage({ totals, forums, archives }) {
           pretending to lead somewhere.
         </li>
         <li>
+          <strong>Every link says where it leads.</strong> An arrow marks one
+          that leaves this site, a green dot one whose page or file we hold, a
+          red dot one that is gone.
+        </li>
+        <li>
+          <strong>Mangled addresses are mended.</strong> The old site turned a
+          few hundred pasted links into broken wiki addresses. Those are put
+          back the way they were written.
+        </li>
+        <li>
           <strong>Anything that runs is removed.</strong> Scripts, styles,
           embedded frames and objects, forms, inline event handlers and{" "}
           <code>javascript:</code> addresses are stripped before a page is
