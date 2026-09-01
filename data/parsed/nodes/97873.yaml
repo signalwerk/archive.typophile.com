@@ -1,0 +1,270 @@
+node: 97873
+title: MM Typeface and [FATAL] GPOS feature 'kern' causes overflow of offset to a subtable
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141022075031"
+  captured_at: 2014-10-22T07:50:31Z
+  url: http://typophile.com:80/node/97873
+  digest: CPE6WPBFSXEDFE6QIZEXB77XDK43OLWF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/97873.html
+  fingerprint: 48fb3bb2f8f03764
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141022075031"
+      digest: CPE6WPBFSXEDFE6QIZEXB77XDK43OLWF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/97873.html
+post:
+  id: 97873
+  user: 18978
+  date: 2012-11-07T01:50:00
+  date_raw: 7 Nov 2012 — 1:50am
+  votes: null
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I’m am stuck in the following peculiar situation:</p>
+    <p>I have a MM typeface, composed from two masters (weight – wt0 and wt1). After careful kerning  (started four times from scratch) I ended with 6000 kern pairs, which include Latin, Cyrillic, small caps for both, different numeral sets, fractions and etc. – it’s a big typeface. When building the kern feature and then compiling the font everything works just fine. But, if I split the typeface to the desired instances, for fine tuning and polishing, it seems that after updating the kern feature, every font does not compile (excluding the equivalent of wt0) - ending with “[FATAL] GPOS feature 'kern' causes overflow of offset to a subtable”. The peculiar thing is that, if I split the typeface only to the two masters wt0 and wt1, wt0 compiles ok with 6000 pairs. On the other hand wt1 does return “GPOS overflow..” every time, until I reduce the pairs to approximately 4420, which is -1600 pairs short. </p>
+    <p>Any ideas what could cause this kind of behavior?  Thank you in advance!</p>
+    <p>note: I am using Fontlab 5.04 win. My class kerning is revolving around the idea to have class for every glyph (not shape type) that is part of composite + Cyrillic : A’ Atilte Adireseis…..cyrillic A…etc.  Classes are composed from mixed script characters, so I could only kern for differences.</p>
+  html_clean: |-
+    <p>Hi everyone,</p>
+    <p>I’m am stuck in the following peculiar situation:</p>
+    <p>I have a MM typeface, composed from two masters (weight – wt0 and wt1). After careful kerning  (started four times from scratch) I ended with 6000 kern pairs, which include Latin, Cyrillic, small caps for both, different numeral sets, fractions and etc. – it’s a big typeface. When building the kern feature and then compiling the font everything works just fine. But, if I split the typeface to the desired instances, for fine tuning and polishing, it seems that after updating the kern feature, every font does not compile (excluding the equivalent of wt0) - ending with “[FATAL] GPOS feature 'kern' causes overflow of offset to a subtable”. The peculiar thing is that, if I split the typeface only to the two masters wt0 and wt1, wt0 compiles ok with 6000 pairs. On the other hand wt1 does return “GPOS overflow..” every time, until I reduce the pairs to approximately 4420, which is -1600 pairs short. </p>
+    <p>Any ideas what could cause this kind of behavior?  Thank you in advance!</p>
+    <p>note: I am using Fontlab 5.04 win. My class kerning is revolving around the idea to have class for every glyph (not shape type) that is part of composite + Cyrillic : A’ Atilte Adireseis…..cyrillic A…etc.  Classes are composed from mixed script characters, so I could only kern for differences.</p>
+comments:
+  - id: 529435
+    user: 6470
+    date: 2012-11-07T04:51:00
+    date_raw: 7 Nov 2012 — 4:51am
+    votes: null
+    html: <p>I've gotten this message, trying to generate fonts with far fewer kerning pairs. Maybe FontLab ought to pay more attention to fixing structural flaws, rather than adding a lot of new and unasked-for functions and features, which will probably involve a steep learning curve. IMHO.</p>
+    html_clean: <p>I've gotten this message, trying to generate fonts with far fewer kerning pairs. Maybe FontLab ought to pay more attention to fixing structural flaws, rather than adding a lot of new and unasked-for functions and features, which will probably involve a steep learning curve. IMHO.</p>
+  - id: 534956
+    user: 97507
+    date: 2012-12-24T04:26:00
+    date_raw: 24 Dec 2012 — 4:26am
+    votes: null
+    html: "<p>You shouldn’n mix different scripts in one kerning class, it may cause an increasing of unnecessary kerning pairs when changing class kerning into plain kerning (because some applications don’t support class kerning). Also I remember Miguel Saosa wrote that when you have a large character set (more than 2000 glyphs) and different scripts you have to optimise kern feature, for example your classes for different scripts shouldn’t mix in the class panel: first all latin classes should go and after them all cyrillic ones or first cyrillic and then latin, but don’t mix them. I think this may be the reason for your kern feature overflow. I had kern feature overflow too, and after rearranging of classes my feature compiled. Also check if there any glyphs that belong to more then one class with one side. Hope it helps.</p>"
+    html_clean: "<p>You shouldn’n mix different scripts in one kerning class, it may cause an increasing of unnecessary kerning pairs when changing class kerning into plain kerning (because some applications don’t support class kerning). Also I remember Miguel Saosa wrote that when you have a large character set (more than 2000 glyphs) and different scripts you have to optimise kern feature, for example your classes for different scripts shouldn’t mix in the class panel: first all latin classes should go and after them all cyrillic ones or first cyrillic and then latin, but don’t mix them. I think this may be the reason for your kern feature overflow. I had kern feature overflow too, and after rearranging of classes my feature compiled. Also check if there any glyphs that belong to more then one class with one side. Hope it helps.</p>"
+  - id: 534971
+    user: 1262
+    date: 2012-12-24T10:50:00
+    date_raw: 24 Dec 2012 — 10:50am
+    votes: null
+    html: |-
+      <p>This error generally occurs because the contents of the kern feature lookups overflow the size limit of the GPOS subtable. The way to fix it is to break up the kern feature into a number of smaller subtables. This can be done manually in the feature code, but for best results I recommend licensing Karsten Luecke's excellent <a href="http://www.kltf.de/kltf_otproduction.htm" rel="nofollow">KLTF Make Kern Feature</a> script, which analyses your kerning data and generates the most efficient kern feature code with appropriate subtable breaks.</p>
+      <p>See also <a href="http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf" title="http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf">http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf</a></p>
+    html_clean: |-
+      <p>This error generally occurs because the contents of the kern feature lookups overflow the size limit of the GPOS subtable. The way to fix it is to break up the kern feature into a number of smaller subtables. This can be done manually in the feature code, but for best results I recommend licensing Karsten Luecke's excellent <a href="http://www.kltf.de/kltf_otproduction.htm" rel="nofollow" class="link-external">KLTF Make Kern Feature</a> script, which analyses your kerning data and generates the most efficient kern feature code with appropriate subtable breaks.</p>
+      <p>See also <a href="http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf" title="http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf" class="link-external">http://www.kltf.de/downloads/KLTF-MakeKernFeature.pdf</a></p>
+  - id: 534980
+    user: 1250
+    date: 2012-12-24T14:13:00
+    date_raw: 24 Dec 2012 — 2:13pm
+    votes: null
+    html: |-
+      <p>The experts at FSI -who were going to be doing the final production on Ernestine*- warned me early on to keep the kerning in my Armenian component lean, since the font overall had so many characters. I ended up staying under 300, which was a bit disappointing**. Somebody somewhere should fix this problem.</p>
+      <p>* <a href="http://ernestinefont.com/" title="http://ernestinefont.com/">http://ernestinefont.com/</a></p>
+      <p>** As a comparison, I ended up with about 800 in a third-party Armenian-component spacing &amp; kerning job I just finished.</p>
+      <p>John, I assume Luecke's script doesn't circumvent <em>all</em> such limits?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>The experts at FSI -who were going to be doing the final production on Ernestine*- warned me early on to keep the kerning in my Armenian component lean, since the font overall had so many characters. I ended up staying under 300, which was a bit disappointing**. Somebody somewhere should fix this problem.</p>
+      <p>* <a href="http://ernestinefont.com/" title="http://ernestinefont.com/" class="link-external">http://ernestinefont.com/</a></p>
+      <p>** As a comparison, I ended up with about 800 in a third-party Armenian-component spacing &amp; kerning job I just finished.</p>
+      <p>John, I assume Luecke's script doesn't circumvent <em>all</em> such limits?</p>
+      <p>hhp</p>
+  - id: 534986
+    user: 1262
+    date: 2012-12-24T15:09:00
+    date_raw: 24 Dec 2012 — 3:09pm
+    votes: null
+    html: |-
+      <p><em>I assume Luecke's script doesn't circumvent all such limits?</em></p>
+      <p>I'm not sure what you mean. It circumvents the kern subtable overflow limit, which is what it is designed to do. I've used it -- via the VOLT export option -- on some very large fonts with the class+exception equivalent of &gt;100,000 flat kern pairs.</p>
+    html_clean: |-
+      <p><em>I assume Luecke's script doesn't circumvent all such limits?</em></p>
+      <p>I'm not sure what you mean. It circumvents the kern subtable overflow limit, which is what it is designed to do. I've used it -- via the VOLT export option -- on some very large fonts with the class+exception equivalent of &gt;100,000 flat kern pairs.</p>
+  - id: 534987
+    user: 1250
+    date: 2012-12-24T15:37:00
+    date_raw: 24 Dec 2012 — 3:37pm
+    votes: null
+    html: |-
+      <p>And the reason FSI for one doesn't use this technique/script?</p>
+      <p>Sort of related:<br>
+      You know what's funny BTW? The guy who made Maven* being so proud that it has 6,500 kerns, except pretty much everything is (most likely auto) kerned... and it still sets like junk. Bah, who needs to worry about sidebearings anyway!  :-/</p>
+      <p>* <a href="http://vissol.co.uk/mavenpro/" title="http://vissol.co.uk/mavenpro/">http://vissol.co.uk/mavenpro/</a></p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>And the reason FSI for one doesn't use this technique/script?</p>
+      <p>Sort of related:<br>
+      You know what's funny BTW? The guy who made Maven* being so proud that it has 6,500 kerns, except pretty much everything is (most likely auto) kerned... and it still sets like junk. Bah, who needs to worry about sidebearings anyway!  :-/</p>
+      <p>* <a href="http://vissol.co.uk/mavenpro/" title="http://vissol.co.uk/mavenpro/" class="link-external">http://vissol.co.uk/mavenpro/</a></p>
+      <p>hhp</p>
+  - id: 534991
+    user: 1262
+    date: 2012-12-24T18:04:00
+    date_raw: 24 Dec 2012 — 6:04pm
+    votes: null
+    html: |-
+      <p><em>And the reason FSI for one doesn't use this technique/script?</em></p>
+      <p>No idea. The other way to do it is manually, and most people use trial and error or best guess about where to put the subtable breaks.</p>
+    html_clean: |-
+      <p><em>And the reason FSI for one doesn't use this technique/script?</em></p>
+      <p>No idea. The other way to do it is manually, and most people use trial and error or best guess about where to put the subtable breaks.</p>
+  - id: 534992
+    user: 3135
+    date: 2012-12-24T18:11:00
+    date_raw: 24 Dec 2012 — 6:11pm
+    votes: null
+    html: |-
+      <p>Was the kern subtable overflow limit set in the beginning before we had so many extremely large fonts to work with? </p>
+      <p>I have also used Karsten's script, he also recommends some particular naming conventions for classes which helps minimize the problem.</p>
+    html_clean: |-
+      <p>Was the kern subtable overflow limit set in the beginning before we had so many extremely large fonts to work with? </p>
+      <p>I have also used Karsten's script, he also recommends some particular naming conventions for classes which helps minimize the problem.</p>
+  - id: 535220
+    user: 1657
+    date: 2012-12-27T08:19:00
+    date_raw: 27 Dec 2012 — 8:19am
+    votes: null
+    html: <p>Karsten"s script has saved my bacon for years! Best additional purchase I have made for Fontlab.</p>
+    html_clean: <p>Karsten"s script has saved my bacon for years! Best additional purchase I have made for Fontlab.</p>
+  - id: 535248
+    user: 1262
+    date: 2012-12-27T11:31:00
+    date_raw: 27 Dec 2012 — 11:31am
+    votes: null
+    html: |-
+      <p>Chris: <em>Was the kern subtable overflow limit set in the beginning before we had so many extremely large fonts to work with?</em></p>
+      <p>It's not particular to the kern feature subtable, it just happens that this feature is the most common to exceed the subtable limit. The limit is part of the basic architecture of TrueType, in which there is a 64k size restriction on table size. The extension mechanism in the OpenType Layout tables enables this to be overcome, but each subtable within the mechanism is still limited to 64k.</p>
+      <p>Recently, I hit the GPOS subtable limit with a mark positioning feature, and presently I have no tool to perform the kind of subtable break that Karsten does for the kern feature. I had to manually optimise my mark feature contents to fit within a single subtable.</p>
+    html_clean: |-
+      <p>Chris: <em>Was the kern subtable overflow limit set in the beginning before we had so many extremely large fonts to work with?</em></p>
+      <p>It's not particular to the kern feature subtable, it just happens that this feature is the most common to exceed the subtable limit. The limit is part of the basic architecture of TrueType, in which there is a 64k size restriction on table size. The extension mechanism in the OpenType Layout tables enables this to be overcome, but each subtable within the mechanism is still limited to 64k.</p>
+      <p>Recently, I hit the GPOS subtable limit with a mark positioning feature, and presently I have no tool to perform the kind of subtable break that Karsten does for the kern feature. I had to manually optimise my mark feature contents to fit within a single subtable.</p>
+  - id: 535255
+    user: 3135
+    date: 2012-12-27T12:33:00
+    date_raw: 27 Dec 2012 — 12:33pm
+    votes: null
+    html: <p>ouch!</p>
+    html_clean: <p>ouch!</p>
+  - id: 538533
+    user: 8664
+    date: 2013-01-17T03:02:00
+    date_raw: 17 Jan 2013 — 3:02am
+    votes: null
+    html: |-
+      <blockquote><p>Somebody somewhere should fix this problem.</p></blockquote>
+      <p>Which is is what I did.</p>
+      <blockquote><p>John, I assume Luecke's script doesn't circumvent all such limits?</p></blockquote>
+      <p>It does not 'circumvent' any limits. It simply breaks up data into junks small enough to stay within subtable-size limitations, as a consequence, offset-value limitations.</p>
+      <blockquote><p>And the reason FSI for one doesn't use this technique/script?</p></blockquote>
+      <p>Only FSI knows.</p>
+    html_clean: |-
+      <blockquote><p>Somebody somewhere should fix this problem.</p></blockquote>
+      <p>Which is is what I did.</p>
+      <blockquote><p>John, I assume Luecke's script doesn't circumvent all such limits?</p></blockquote>
+      <p>It does not 'circumvent' any limits. It simply breaks up data into junks small enough to stay within subtable-size limitations, as a consequence, offset-value limitations.</p>
+      <blockquote><p>And the reason FSI for one doesn't use this technique/script?</p></blockquote>
+      <p>Only FSI knows.</p>
+  - id: 538551
+    user: 2969
+    date: 2013-01-17T05:15:00
+    date_raw: 17 Jan 2013 — 5:15am
+    votes: null
+    html: |-
+      <p>"The limit is part of the basic architecture of TrueType..."</p>
+      <p>All good, but it's immediately a limit on the sfnt that causes the overflow, so it's in the architecture of all the wrappers wrap.</p>
+      <p>The less immediate issue is that the gpos provides control over glyph placement for sophisticated text layout and the rendering of each script and language system that a font supports, while the kerning table contains the values that control the inter-character spacing for the glyphs in a font.</p>
+    html_clean: |-
+      <p>"The limit is part of the basic architecture of TrueType..."</p>
+      <p>All good, but it's immediately a limit on the sfnt that causes the overflow, so it's in the architecture of all the wrappers wrap.</p>
+      <p>The less immediate issue is that the gpos provides control over glyph placement for sophisticated text layout and the rendering of each script and language system that a font supports, while the kerning table contains the values that control the inter-character spacing for the glyphs in a font.</p>
+  - id: 538555
+    user: 1250
+    date: 2013-01-17T06:21:00
+    date_raw: 17 Jan 2013 — 6:21am
+    votes: null
+    html: |-
+      <p>Thank you Karsten!</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Thank you Karsten!</p>
+      <p>hhp</p>
+  - id: 538564
+    user: 3135
+    date: 2013-01-17T07:27:00
+    date_raw: 17 Jan 2013 — 7:27am
+    votes: null
+    html: <p>Thanks again, Karsten, for your many helpful tools and suggestions!</p>
+    html_clean: <p>Thanks again, Karsten, for your many helpful tools and suggestions!</p>
+  - id: 538610
+    user: 1262
+    date: 2013-01-17T11:52:00
+    date_raw: 17 Jan 2013 — 11:52am
+    votes: null
+    html: <p>David, are you referring to the 'kern' table? That comes with numerous limitations of it's own, and trying to separate 'inter-character spacing for the glyphs in a font' from 'glyph placement for ... the rendering of each script and language system that a font supports' isn't an option for many of those scripts and languages.</p>
+    html_clean: <p>David, are you referring to the 'kern' table? That comes with numerous limitations of it's own, and trying to separate 'inter-character spacing for the glyphs in a font' from 'glyph placement for ... the rendering of each script and language system that a font supports' isn't an option for many of those scripts and languages.</p>
+  - id: 538750
+    user: 2969
+    date: 2013-01-18T09:55:00
+    date_raw: 18 Jan 2013 — 9:55am
+    votes: null
+    html: <p>Is there another kind?</p>
+    html_clean: <p>Is there another kind?</p>
+  - id: 538766
+    user: 1262
+    date: 2013-01-18T11:23:00
+    date_raw: 18 Jan 2013 — 11:23am
+    votes: null
+    html: |-
+      <p>There's GPOS kerning, hence my query as to your meaning, because your statement appeared to make a distinction between GPOS and kerning, and the phrase 'kerning table', as distinct from the specific 'kern' table, could refer to a GPOS kern feature subtable (the thing that goes boom and prompts threads like this one).</p>
+      <p>As far as I'm concerned the 'kern' table is a legacy data format; it's been a decade since I've been asked to ship a font containing one, and even then it was only a subset of the kerning provided in the GPOS table, and only included for backwards compatibility. In most of the fonts I make, the kern table simply can't do what I need kerning to be able to do.</p>
+    html_clean: |-
+      <p>There's GPOS kerning, hence my query as to your meaning, because your statement appeared to make a distinction between GPOS and kerning, and the phrase 'kerning table', as distinct from the specific 'kern' table, could refer to a GPOS kern feature subtable (the thing that goes boom and prompts threads like this one).</p>
+      <p>As far as I'm concerned the 'kern' table is a legacy data format; it's been a decade since I've been asked to ship a font containing one, and even then it was only a subset of the kerning provided in the GPOS table, and only included for backwards compatibility. In most of the fonts I make, the kern table simply can't do what I need kerning to be able to do.</p>
+  - id: 538788
+    user: 2969
+    date: 2013-01-18T13:28:00
+    date_raw: 18 Jan 2013 — 1:28pm
+    votes: null
+    html: |-
+      <p>And what is that?</p>
+      <p>As far as the name, I call it what MS documentation calls it "the kerning table". Hope that's clear.</p>
+    html_clean: |-
+      <p>And what is that?</p>
+      <p>As far as the name, I call it what MS documentation calls it "the kerning table". Hope that's clear.</p>
+  - id: 538807
+    user: 1262
+    date: 2013-01-18T14:16:00
+    date_raw: 18 Jan 2013 — 2:16pm
+    votes: null
+    html: |-
+      <p>For most of the scripts I work with, contextual kerning is a requirement, not an option. This is even the case in Latin fonts that support GPOS mark positioning. Consider that the kerning of the glyph pair <em>Te</em> is unlikely to be appropriate if the <em>e</em> is carrying a combining mark glyph above it. I'm also mostly working with glyph sets in which class kerning is essential to handle the number of glyphs involved; it isn't unusual for flattened kerning to be &gt;65,000 pairs in one font.</p>
+      <p><em>As far as the name, I call it what MS documentation calls it "the kerning table".</em></p>
+      <p>Ah, you mean the Kerning table.</p>
+    html_clean: |-
+      <p>For most of the scripts I work with, contextual kerning is a requirement, not an option. This is even the case in Latin fonts that support GPOS mark positioning. Consider that the kerning of the glyph pair <em>Te</em> is unlikely to be appropriate if the <em>e</em> is carrying a combining mark glyph above it. I'm also mostly working with glyph sets in which class kerning is essential to handle the number of glyphs involved; it isn't unusual for flattened kerning to be &gt;65,000 pairs in one font.</p>
+      <p><em>As far as the name, I call it what MS documentation calls it "the kerning table".</em></p>
+      <p>Ah, you mean the Kerning table.</p>

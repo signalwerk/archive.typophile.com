@@ -1,0 +1,185 @@
+node: 98746
+title: Monospaced rendering as not monospaced on Windows
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140810031343"
+  captured_at: 2014-08-10T03:13:43Z
+  url: http://typophile.com/node/98746
+  digest: CWUBACPEW72R5OPRH2TW22DJXT5MDA46
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/98746.html
+  fingerprint: ce572a57860ff088
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140810031343"
+      digest: CWUBACPEW72R5OPRH2TW22DJXT5MDA46
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98746.html
+post:
+  id: 98746
+  user: 749
+  date: 2012-12-08T22:07:00
+  date_raw: 8 Dec 2012 — 10:07pm
+  votes: null
+  html: |-
+    <p>(I originally posted this in the FontLab support forum, but y'all are pretty active here, and I'm in a bit of a panic mode, so pardon the bad habit.)</p>
+    <p>Hi folks, I'm having a strange issue with a monospaced TrueType font on Windows, and I'm wondering if anyone will have seen something like this before.</p>
+    <p>The custom font in question is designed to match a different custom font, and the metrics are supposed to match exactly.</p>
+    <p>On Windows 7, the font renders as non-monospaced, with more space given to certain characters (o, L, P). Additionally, certain characters seem to be dramatically shifted within their bounding box, such that they run into their neighbors (particularly the uppercase i). There's also too much leading. On a Mac, everything shows up fine, properly monospaced.</p>
+    <p>The font has no TT instructions, but I tried a quick autohint and saw yet different metrics, both horizontal and vertical. But in spite of the hinting having a profound effect on the metrics, it doesn't seem like strictly a hinting issue, because the font renders with the same problems at all sizes.</p>
+    <p>To make matters worse, sometimes it doesn't render at all. In Final Draft, it appears correctly in the font and renders the expected font on screen. In Wordpad, it appears in the font menu, but renders as Arial.</p>
+    <p>I'm wondering if this is a FontLab bug, because if I just open the original custom font, rename it, and regenerate it, it exhibits the same problems, while the original font renders just fine.</p>
+    <p>Attached are two images, one for Mac and one for Windows. Has anyone seen anything like this before?</p>
+    <p>Thanks for your time,<br>
+    Alan</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/tt-rendering-windows.png">tt-rendering-windows.png</a></td><td>24.4 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/tt-rendering-mac.png">tt-rendering-mac.png</a></td><td>59 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>(I originally posted this in the FontLab support forum, but y'all are pretty active here, and I'm in a bit of a panic mode, so pardon the bad habit.)</p>
+    <p>Hi folks, I'm having a strange issue with a monospaced TrueType font on Windows, and I'm wondering if anyone will have seen something like this before.</p>
+    <p>The custom font in question is designed to match a different custom font, and the metrics are supposed to match exactly.</p>
+    <p>On Windows 7, the font renders as non-monospaced, with more space given to certain characters (o, L, P). Additionally, certain characters seem to be dramatically shifted within their bounding box, such that they run into their neighbors (particularly the uppercase i). There's also too much leading. On a Mac, everything shows up fine, properly monospaced.</p>
+    <p>The font has no TT instructions, but I tried a quick autohint and saw yet different metrics, both horizontal and vertical. But in spite of the hinting having a profound effect on the metrics, it doesn't seem like strictly a hinting issue, because the font renders with the same problems at all sizes.</p>
+    <p>To make matters worse, sometimes it doesn't render at all. In Final Draft, it appears correctly in the font and renders the expected font on screen. In Wordpad, it appears in the font menu, but renders as Arial.</p>
+    <p>I'm wondering if this is a FontLab bug, because if I just open the original custom font, rename it, and regenerate it, it exhibits the same problems, while the original font renders just fine.</p>
+    <p>Attached are two images, one for Mac and one for Windows. Has anyone seen anything like this before?</p>
+    <p>Thanks for your time,<br>
+    Alan</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="/files/tt-rendering-windows.png" class="link-kept">tt-rendering-windows.png</a></td><td>24.4 KB</td> </tr>
+     <tr class="even"><td><a href="/files/tt-rendering-mac.png" class="link-kept">tt-rendering-mac.png</a></td><td>59 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 533456
+    user: 1262
+    date: 2012-12-08T22:51:00
+    date_raw: 8 Dec 2012 — 10:51pm
+    votes: null
+    html: |-
+      <p>This sounds like a font cache corruption problem. Have you tried installing on a different Windows machine?</p>
+      <p>I suggest:</p>
+      <p>1. Uninstall the font.<br>
+      2. Delete this file: C:\Windows\System32\FNTCACHE.DAT<br>
+      3. Restart your system.<br>
+      4. Re-install the font.</p>
+      <p>If the problem persists after that, then there may be some piece of information in the font that is causing the problem, but that would not be my first guess.</p>
+    html_clean: |-
+      <p>This sounds like a font cache corruption problem. Have you tried installing on a different Windows machine?</p>
+      <p>I suggest:</p>
+      <p>1. Uninstall the font.<br>
+      2. Delete this file: C:\Windows\System32\FNTCACHE.DAT<br>
+      3. Restart your system.<br>
+      4. Re-install the font.</p>
+      <p>If the problem persists after that, then there may be some piece of information in the font that is causing the problem, but that would not be my first guess.</p>
+  - id: 533459
+    user: 749
+    date: 2012-12-08T23:30:00
+    date_raw: 8 Dec 2012 — 11:30pm
+    votes: null
+    html: |-
+      <p>Thanks, John. I haven't tried your suggestion (I don't own a Windows machine, so it's hard for me to test quickly), but the same thing is happening on two different machines, neither of which have ever had any version of this font installed.</p>
+      <p>I'll try testing some unrelated fonts, and maybe do a fresh copy/paste into a new file to see if there's something corrupted in my VFB. Thanks for your quick response.</p>
+    html_clean: |-
+      <p>Thanks, John. I haven't tried your suggestion (I don't own a Windows machine, so it's hard for me to test quickly), but the same thing is happening on two different machines, neither of which have ever had any version of this font installed.</p>
+      <p>I'll try testing some unrelated fonts, and maybe do a fresh copy/paste into a new file to see if there's something corrupted in my VFB. Thanks for your quick response.</p>
+  - id: 533479
+    user: 6470
+    date: 2012-12-09T03:20:00
+    date_raw: 9 Dec 2012 — 3:20am
+    votes: null
+    html: "<p>I have have occasionally run across similar problems with FontLab files: some of them seem to have acquired some voodoo bug, which are resistant to exorcism. In such instances, I usually generate a PS type 1 version of the fonts, then open that font in FontLab. So far, this workaround has worked for me...</p>"
+    html_clean: "<p>I have have occasionally run across similar problems with FontLab files: some of them seem to have acquired some voodoo bug, which are resistant to exorcism. In such instances, I usually generate a PS type 1 version of the fonts, then open that font in FontLab. So far, this workaround has worked for me...</p>"
+  - id: 533492
+    user: 749
+    date: 2012-12-09T05:58:00
+    date_raw: 9 Dec 2012 — 5:58am
+    votes: null
+    html: <p>Thanks, Nick. I'll give your suggestion a shot as soon as I can.</p>
+    html_clean: <p>Thanks, Nick. I'll give your suggestion a shot as soon as I can.</p>
+  - id: 533510
+    user: 1262
+    date: 2012-12-09T10:13:00
+    date_raw: 9 Dec 2012 — 10:13am
+    votes: null
+    html: |-
+      <p>A few more things to check:</p>
+      <p>a) Make sure that all glyphs in the font have exactly the same advance width, with no exceptions.</p>
+      <p>b) Ensure that the Panose value for monospaced is set in the Panose / Proportion font info.</p>
+      <p>c) Ensure that the TrueType Unique ID record in the font info identification settings is indeed unique to this font and can't be confused with anything else.</p>
+    html_clean: |-
+      <p>A few more things to check:</p>
+      <p>a) Make sure that all glyphs in the font have exactly the same advance width, with no exceptions.</p>
+      <p>b) Ensure that the Panose value for monospaced is set in the Panose / Proportion font info.</p>
+      <p>c) Ensure that the TrueType Unique ID record in the font info identification settings is indeed unique to this font and can't be confused with anything else.</p>
+  - id: 533512
+    user: 749
+    date: 2012-12-09T11:13:00
+    date_raw: 9 Dec 2012 — 11:13am
+    votes: null
+    html: |-
+      <p><em>a) Make sure that all glyphs in the font have exactly the same advance width, with no exceptions.</em></p>
+      <p>Dang. I have some contextual alts to make nice emdashes and such, I'll have to look into replacing those with many-to-many substitutions. I did try a version on Windows with those extra-wide characters removed, but hadn't done most of these other suggestions, so it had no effect.</p>
+      <p>Thanks again for your time, I'm itching to get back on that PC and try these out.</p>
+    html_clean: |-
+      <p><em>a) Make sure that all glyphs in the font have exactly the same advance width, with no exceptions.</em></p>
+      <p>Dang. I have some contextual alts to make nice emdashes and such, I'll have to look into replacing those with many-to-many substitutions. I did try a version on Windows with those extra-wide characters removed, but hadn't done most of these other suggestions, so it had no effect.</p>
+      <p>Thanks again for your time, I'm itching to get back on that PC and try these out.</p>
+  - id: 533709
+    user: 749
+    date: 2012-12-10T14:45:00
+    date_raw: 10 Dec 2012 — 2:45pm
+    votes: null
+    html: |-
+      <p>Hi again, I've done some more testing, and haven't had any better luck. I converted all my double-wide characters to regular width, so all glyph widths are the same. Exporting as PS, opening in FontLab, exporting TT didn't work. Copy/paste into new VFB didn't work. I was careful to clear the Windows font cache and make sure everything had unique names and IDs.</p>
+      <p>It turns out I was wrong about it being consistent at all sizes. Different characters are wider or narrower at different sizes.</p>
+      <p>Stranger still, the italics work fine, mostly. I'm not getting any odd spacing with italics, though they don't match the metrics of the original custom font. I started with the regular, then used that as a basis for the italic, bold, and bold italic, so I'm not sure what's so special about the italics that they're less problematic.</p>
+      <p>I was just about to test various smoothing settings, but I've now run into an issue where installing any new fonts causes them to disappear, and can't be used in applications. This is apparently a Windows 7 bug, so I'm not sure what testing I can do next.</p>
+      <p>Does anyone have any more ideas?</p>
+      <p>Thanks,<br>
+      Alan</p>
+    html_clean: |-
+      <p>Hi again, I've done some more testing, and haven't had any better luck. I converted all my double-wide characters to regular width, so all glyph widths are the same. Exporting as PS, opening in FontLab, exporting TT didn't work. Copy/paste into new VFB didn't work. I was careful to clear the Windows font cache and make sure everything had unique names and IDs.</p>
+      <p>It turns out I was wrong about it being consistent at all sizes. Different characters are wider or narrower at different sizes.</p>
+      <p>Stranger still, the italics work fine, mostly. I'm not getting any odd spacing with italics, though they don't match the metrics of the original custom font. I started with the regular, then used that as a basis for the italic, bold, and bold italic, so I'm not sure what's so special about the italics that they're less problematic.</p>
+      <p>I was just about to test various smoothing settings, but I've now run into an issue where installing any new fonts causes them to disappear, and can't be used in applications. This is apparently a Windows 7 bug, so I'm not sure what testing I can do next.</p>
+      <p>Does anyone have any more ideas?</p>
+      <p>Thanks,<br>
+      Alan</p>
+  - id: 533741
+    user: 749
+    date: 2012-12-10T22:16:00
+    date_raw: 10 Dec 2012 — 10:16pm
+    votes: null
+    html: <p>Ok, I am, quite possibly, a horrible human being. I unknowingly had "autohint unhinted glyphs" on TT export turned on. And with it, "add link to right sidebearing point", which seems like it would do exactly the kind of damage I'm seeing. Will test tomorrow ...</p>
+    html_clean: <p>Ok, I am, quite possibly, a horrible human being. I unknowingly had "autohint unhinted glyphs" on TT export turned on. And with it, "add link to right sidebearing point", which seems like it would do exactly the kind of damage I'm seeing. Will test tomorrow ...</p>
+  - id: 534073
+    user: 749
+    date: 2012-12-13T06:23:00
+    date_raw: 13 Dec 2012 — 6:23am
+    votes: null
+    html: <p>Turns out that autohinting on the right sidebearing was the culprit. Well, now I know. Still wrestling with the vertical metrics, I'll start a separate thread if needed. Thanks again for all of your suggestions!</p>
+    html_clean: <p>Turns out that autohinting on the right sidebearing was the culprit. Well, now I know. Still wrestling with the vertical metrics, I'll start a separate thread if needed. Thanks again for all of your suggestions!</p>

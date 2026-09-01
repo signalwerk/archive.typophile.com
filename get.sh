@@ -61,3 +61,7 @@ node src/009_threadIndex.js
 #     Drupal nodes they became, store that address, and log recovered old
 #     discussions with no captured node counterpart.
 node src/010_oldUrls.js
+
+# 11. Parse recovered old discussions that have no captured Drupal node into a
+#     separate node-shaped corpus, keyed by old forum id and message id.
+node src/011_oldMessages.js

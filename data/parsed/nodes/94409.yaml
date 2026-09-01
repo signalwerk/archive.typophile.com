@@ -1,0 +1,111 @@
+node: 94409
+title: Robofab script to address separate masters of a MM font.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130823072203"
+  captured_at: 2013-08-23T07:22:03Z
+  url: http://typophile.com/node/94409
+  digest: 7N65M35CQEKEN4MRCJDJ77WP3H3MSN5L
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/94409.html
+  fingerprint: a3f229cd33c1987f
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130823072203"
+      digest: 7N65M35CQEKEN4MRCJDJ77WP3H3MSN5L
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/94409.html
+post:
+  id: 94409
+  user: 48056
+  date: 2012-07-03T01:34:00
+  date_raw: 3 Jul 2012 — 1:34am
+  votes: null
+  html: |-
+    <p>Hi all</p>
+    <p>I have this simple Robofab script here that adjust the height of accents above glyphs.<br>
+    I'm sure there are better ways of doing this but I like this method.</p>
+    <p><code><br>
+      from robofab.world import CurrentFont<br>
+      #<br>
+      f = CurrentFont()<br>
+      #<br>
+      glyphs = [<br>
+      'Aacute',<br>
+      'Abreve',<br>
+      'Acircumflex',<br>
+      'Adieresis',<br>
+      'Agrave',<br>
+      'Amacron',<br>
+      'Atilde',<br>
+      'AEacute',<br>
+      'Aring',<br>
+      'Aringacute',<br>
+      ……<br>
+      ]<br>
+      #<br>
+      for g in glyphs:<br>
+      	f[g].components[1].move((0,5))<br>
+      	f[g].mark = 10<br>
+      f.update()<br>
+    </code></p>
+    <p>If I use this on a MM font it will adjust the height of the accents in both masters.</p>
+    <p>Is it possible it adjust the height in just one of the masters.</p>
+  html_clean: |-
+    <p>Hi all</p>
+    <p>I have this simple Robofab script here that adjust the height of accents above glyphs.<br>
+    I'm sure there are better ways of doing this but I like this method.</p>
+    <p><code><br>
+      from robofab.world import CurrentFont<br>
+      #<br>
+      f = CurrentFont()<br>
+      #<br>
+      glyphs = [<br>
+      'Aacute',<br>
+      'Abreve',<br>
+      'Acircumflex',<br>
+      'Adieresis',<br>
+      'Agrave',<br>
+      'Amacron',<br>
+      'Atilde',<br>
+      'AEacute',<br>
+      'Aring',<br>
+      'Aringacute',<br>
+      ……<br>
+      ]<br>
+      #<br>
+      for g in glyphs:<br>
+      	f[g].components[1].move((0,5))<br>
+      	f[g].mark = 10<br>
+      f.update()<br>
+    </code></p>
+    <p>If I use this on a MM font it will adjust the height of the accents in both masters.</p>
+    <p>Is it possible it adjust the height in just one of the masters.</p>
+comments:
+  - id: 514508
+    user: 17208
+    date: 2012-07-03T03:00:00
+    date_raw: 3 Jul 2012 — 3:00am
+    votes: null
+    html: |-
+      <p>No, RoboFab cannot address seperate masters in FontLab.</p>
+      <p>For this you need to use <a class="freelinking external" href="http://www.e-font.de/flpydoc/" rel="nofollow">FontLab’s native Python API</a></p>
+    html_clean: |-
+      <p>No, RoboFab cannot address seperate masters in FontLab.</p>
+      <p>For this you need to use <a class="freelinking external link-external" href="http://www.e-font.de/flpydoc/" rel="nofollow">FontLab’s native Python API</a></p>

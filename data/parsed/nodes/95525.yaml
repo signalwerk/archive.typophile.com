@@ -1,0 +1,169 @@
+node: 95525
+title: ccmp and mark/mkmk - stacked diacritics
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416154407"
+  captured_at: 2015-04-16T15:44:07Z
+  url: http://typophile.com/node/95525
+  digest: 2R4R6OHFPURSHRMGAS5LYXUYRQKATBPX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/95525.html
+  fingerprint: 0a658b62d8b976c1
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416154407"
+      digest: 2R4R6OHFPURSHRMGAS5LYXUYRQKATBPX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/95525.html
+post:
+  id: 95525
+  user: 9108
+  date: 2012-08-12T11:15:00
+  date_raw: 12 Aug 2012 — 11:15am
+  votes: null
+  html: |-
+    <p>I want to make to operate stacking diacritics, for example ocircumflex with breve above. First way to type it is: ocircumflex + breve, the second: o + circumflex + breve. I made it that way:<br>
+    1. ocircumflex is decomposed to o + circumflex<br>
+    2. o and circumflex are positioned via mark<br>
+    3. circumflex and breve are positioned via mkmk<br>
+    So whatever combination you type (o ̂ ̆) or (ô ̆) you get proper stacked letter. It works beautifully in FontForge but to my astonishment only in FF. What is going on? Please help with this enigma.</p>
+  html_clean: |-
+    <p>I want to make to operate stacking diacritics, for example ocircumflex with breve above. First way to type it is: ocircumflex + breve, the second: o + circumflex + breve. I made it that way:<br>
+    1. ocircumflex is decomposed to o + circumflex<br>
+    2. o and circumflex are positioned via mark<br>
+    3. circumflex and breve are positioned via mkmk<br>
+    So whatever combination you type (o ̂ ̆) or (ô ̆) you get proper stacked letter. It works beautifully in FontForge but to my astonishment only in FF. What is going on? Please help with this enigma.</p>
+comments:
+  - id: 518867
+    user: 21217
+    date: 2012-08-12T11:50:00
+    date_raw: 12 Aug 2012 — 11:50am
+    votes: null
+    html: |-
+      <p>With no font to check (or at least feature code snippet, if you are writing feature files), it is hard to tell what is going on. </p>
+      <p>Staping in the dark, my first guess would be broken application(s), try testing in Notepad in Windows and/or Firefox, if still broken then make sure you have set script and language correctly for your feature.</p>
+    html_clean: |-
+      <p>With no font to check (or at least feature code snippet, if you are writing feature files), it is hard to tell what is going on. </p>
+      <p>Staping in the dark, my first guess would be broken application(s), try testing in Notepad in Windows and/or Firefox, if still broken then make sure you have set script and language correctly for your feature.</p>
+  - id: 518873
+    user: 7006
+    date: 2012-08-12T12:15:00
+    date_raw: 12 Aug 2012 — 12:15pm
+    votes: null
+    html: |-
+      <p>Janek,<br>
+      I've recently added the exact behavior you're describing to a font family on which I have been working. However, I compiled my fonts using the AFDKO. The resulting fonts have the correct behavior in MS Word (I tested version 10 on XP) and in InDesign CS6 with the World Ready composer applied (there seems to be a bug in this regard in the default composer). Those were the only instances that I tested. I've sent the font off to someone who does Jarai typography in XeLaTeX, I'll post back with his results, if interested.</p>
+      <p>Here's my decomposition code in FDK syntax. Note the lookup titled DECOMPOSITION is outside of any feature block and before the  feature. Also beware of the wrapping commented line below:</p>
+      <p><code>lookup DECOMPOSITION {<br>
+      		sub Ecircumflex by E circumflexcmb;<br>
+      		sub ecircumflex by e circumflexcmb;<br>
+      		sub Ocircumflex by O circumflexcmb;<br>
+      		sub ocircumflex by o circumflexcmb;<br>
+      } DECOMPOSITION;</code></p>
+      <p><code>feature ccmp { # Glyph Composition / Decomposition</code></p>
+      <p><code>	lookup GLYPH_DECOMPOSITION_CONTEXTUAL_2 {<br>
+      		#decomposes ecircumflex and ocircumflex forms when followed by combining breve: Jarai language support<br>
+      		sub Ecircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub ecircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub Ocircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub ocircumflex' lookup DECOMPOSITION brevecmb;<br>
+      	} GLYPH_DECOMPOSITION_CONTEXTUAL_2;</code></p>
+      <p><code>} ccmp;<br>
+      </code></p>
+    html_clean: |-
+      <p>Janek,<br>
+      I've recently added the exact behavior you're describing to a font family on which I have been working. However, I compiled my fonts using the AFDKO. The resulting fonts have the correct behavior in MS Word (I tested version 10 on XP) and in InDesign CS6 with the World Ready composer applied (there seems to be a bug in this regard in the default composer). Those were the only instances that I tested. I've sent the font off to someone who does Jarai typography in XeLaTeX, I'll post back with his results, if interested.</p>
+      <p>Here's my decomposition code in FDK syntax. Note the lookup titled DECOMPOSITION is outside of any feature block and before the  feature. Also beware of the wrapping commented line below:</p>
+      <p><code>lookup DECOMPOSITION {<br>
+      		sub Ecircumflex by E circumflexcmb;<br>
+      		sub ecircumflex by e circumflexcmb;<br>
+      		sub Ocircumflex by O circumflexcmb;<br>
+      		sub ocircumflex by o circumflexcmb;<br>
+      } DECOMPOSITION;</code></p>
+      <p><code>feature ccmp { # Glyph Composition / Decomposition</code></p>
+      <p><code>	lookup GLYPH_DECOMPOSITION_CONTEXTUAL_2 {<br>
+      		#decomposes ecircumflex and ocircumflex forms when followed by combining breve: Jarai language support<br>
+      		sub Ecircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub ecircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub Ocircumflex' lookup DECOMPOSITION brevecmb;<br>
+      		sub ocircumflex' lookup DECOMPOSITION brevecmb;<br>
+      	} GLYPH_DECOMPOSITION_CONTEXTUAL_2;</code></p>
+      <p><code>} ccmp;<br>
+      </code></p>
+  - id: 518874
+    user: 9108
+    date: 2012-08-13T02:48:00
+    date_raw: 13 Aug 2012 — 2:48am
+    votes: null
+    html: |-
+      <p>Thanks a lot Khaled!<br>
+      Font works in FireFox as expected. I didn't expect I can write on Pablo Impallari test page, but it works.<br>
+      Then what about InD? [edit] Aha, I see... Thanks Paul!<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/1C_5792.jpg"></div><br>
+      <div class="imageWrap"><img src="http://typophile.com/files/05_6504.jpg"></div><br>
+      in brackets is the input (with spaces) and glyphs on the right<br>
+      FireFox 14, <a href="http://www.impallari.com/testing/" title="http://www.impallari.com/testing/">http://www.impallari.com/testing/</a><p></p>
+    html_clean: |-
+      <p>Thanks a lot Khaled!<br>
+      Font works in FireFox as expected. I didn't expect I can write on Pablo Impallari test page, but it works.<br>
+      Then what about InD? [edit] Aha, I see... Thanks Paul!<br>
+      </p><div class="imageWrap"><img src="/files/1c_5792.jpg"></div><br>
+      <div class="imageWrap"><img src="/files/05_6504.jpg"></div><br>
+      in brackets is the input (with spaces) and glyphs on the right<br>
+      FireFox 14, <a href="http://www.impallari.com/testing/" title="http://www.impallari.com/testing/" class="link-external">http://www.impallari.com/testing/</a><p></p>
+  - id: 518881
+    user: 9108
+    date: 2012-08-12T13:22:00
+    date_raw: 12 Aug 2012 — 1:22pm
+    votes: null
+    html: |-
+      <p>A bit shorter feature file with classes: (sub part only)<br>
+      <code><br>
+      sub [Ecircumflex ecircumflex Ocircumflex ocircumflex]' lookup DECOMPOSITION [brevecmb uni0306];<br>
+      <code></code></code></p>
+    html_clean: |-
+      <p>A bit shorter feature file with classes: (sub part only)<br>
+      <code><br>
+      sub [Ecircumflex ecircumflex Ocircumflex ocircumflex]' lookup DECOMPOSITION [brevecmb uni0306];<br>
+      <code></code></code></p>
+  - id: 518943
+    user: 9108
+    date: 2012-08-13T02:18:00
+    date_raw: 13 Aug 2012 — 2:18am
+    votes: null
+    html: |-
+      <p>Paul:<br>
+      "I've recently added the exact behavior..."<br>
+      Post on your blog inspired me to explore ccmp and mark/mkmk. Especially ccmp is modestly documented.<br>
+      "However, I compiled my fonts using the AFDKO."<br>
+      FontForge uses AFDKO syntax, so your fea file was merged without any problems and modifications. Probably every AFDKO feature is supported by FF.<br>
+      "(there seems to be a bug in this regard in the default composer)"<br>
+      What a pity! There are fonts (yours and Brill by John/Tiro at the very least) and InD does not fully support them.<br>
+      Thank you both for your prompt replies.<br>
+      regards</p>
+    html_clean: |-
+      <p>Paul:<br>
+      "I've recently added the exact behavior..."<br>
+      Post on your blog inspired me to explore ccmp and mark/mkmk. Especially ccmp is modestly documented.<br>
+      "However, I compiled my fonts using the AFDKO."<br>
+      FontForge uses AFDKO syntax, so your fea file was merged without any problems and modifications. Probably every AFDKO feature is supported by FF.<br>
+      "(there seems to be a bug in this regard in the default composer)"<br>
+      What a pity! There are fonts (yours and Brill by John/Tiro at the very least) and InD does not fully support them.<br>
+      Thank you both for your prompt replies.<br>
+      regards</p>

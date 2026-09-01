@@ -1,0 +1,67 @@
+node: 95864
+title: "newbie: How to find glyph stroke starts and stroke ends from TTX XML output"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130822204255"
+  captured_at: 2013-08-22T20:42:55Z
+  url: http://typophile.com/node/95864
+  digest: SWC4WILY5B2AGFIPMECY3P2E7QDRTOBD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/95864.html
+  fingerprint: 905e8ac8beca34e5
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130822204255"
+      digest: SWC4WILY5B2AGFIPMECY3P2E7QDRTOBD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/95864.html
+post:
+  id: 95864
+  user: 198233
+  date: 2012-08-28T05:39:00
+  date_raw: 28 Aug 2012 — 5:39am
+  votes: null
+  html: <p>As per the subject, if I extract a font's info using ttx and I want to find where each glyph stroke begins and ends? Since I don't know much about the tables in fonts, I am not sure what values represent the lines used to draw a glyph.</p>
+  html_clean: <p>As per the subject, if I extract a font's info using ttx and I want to find where each glyph stroke begins and ends? Since I don't know much about the tables in fonts, I am not sure what values represent the lines used to draw a glyph.</p>
+comments:
+  - id: 520232
+    user: 2438
+    date: 2012-08-28T09:18:00
+    date_raw: 28 Aug 2012 — 9:18am
+    votes: null
+    html: |-
+      <p>For TrueType fonts, look in the &lt;glyf&gt; table, each &lt;TTGlyph&gt; element contains the point coordinates for that glyph's contours.<br>
+      <code><br>
+      &lt;glyf&gt;<br>
+      &nbsp;&nbsp;&lt;TTGlyph ... &gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;contour&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pt ... /&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pt ... /&gt;<br>
+      </code></p>
+      <p>In CFF OpenType fonts, the outline data is represented as PostScript code contained within &lt;CharString&gt; elements, which can be found in the &lt;CFF&gt; table. Unfortunately, determining point coordinates from the charstrings is not so straightforward unless you're fluent in PostScript.</p>
+    html_clean: |-
+      <p>For TrueType fonts, look in the &lt;glyf&gt; table, each &lt;TTGlyph&gt; element contains the point coordinates for that glyph's contours.<br>
+      <code><br>
+      &lt;glyf&gt;<br>
+      &nbsp;&nbsp;&lt;TTGlyph ... &gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;contour&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pt ... /&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;pt ... /&gt;<br>
+      </code></p>
+      <p>In CFF OpenType fonts, the outline data is represented as PostScript code contained within &lt;CharString&gt; elements, which can be found in the &lt;CFF&gt; table. Unfortunately, determining point coordinates from the charstrings is not so straightforward unless you're fluent in PostScript.</p>

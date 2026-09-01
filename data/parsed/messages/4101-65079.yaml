@@ -1,0 +1,61 @@
+node: 65079
+title: OpenType rules
+old_url: http://www.typophile.com/forums/messages/4101/65079.html
+forum:
+  id: 4101
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20050223174949"
+  captured_at: 2005-02-23T17:49:49Z
+  url: http://typophile.com/forums/messages/4101/65079.html?1108429865
+  digest: LPJKQQ5ZEO32O2ONMATUMOOT4ENVVHRK
+  verified: true
+  truncated: false
+  sound: true
+  content: merged snapshots
+  generation: discus
+  file: data/archives/web.archive.org/files/typophile.com/forums/messages/4101/65079__q_1108429865.html
+  fingerprint: a4f8c7f3ae207bec
+  parser: b3a5504bf0bf2c65
+  snapshots: 2
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20050223174949"
+      digest: LPJKQQ5ZEO32O2ONMATUMOOT4ENVVHRK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/forums/messages/4101/65079__q_1108429865.html
+post:
+  id: 92908
+  user: gena-wenli-users
+  date: 2005-02-09T14:28:00
+  date_raw: Wednesday, February 09, 2005 - 2:28 pm
+  votes: null
+  html: '<font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">Hello! <BR>I&#39;m Gena Wenli, and I&#39;m new to Typophile forums &#40;but not Typophile altogether&#41;. I have a newbie question: If I&#39;m making a font, how do I set up some OpenType rules that, say, convert the B and Y glyphs to a third that has a ligature if they are next to each other. Can I do this in FontLab &#40;which I have&#41;? Please correct my terminology if it is wrong! Thanks! <BR> <BR> <BR> <BR>G</font></font></font></font></font></font></font>'
+comments:
+  - id: 92911
+    user: 1133
+    date: 2005-02-09T14:35:00
+    date_raw: Wednesday, February 09, 2005 - 2:35 pm
+    votes: 5
+    html: '<font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">Gena,  <BR> <BR>that&#39;s easily done in FontLab 4.6. If you have your &#34;B&#34; glyph and your &#34;Y&#34; glyph, add a third one that is named &#34;B_Y&#34;. Then, open Window / OpenType Panel and click on the &#34;&#43;&#34; button in the panel. In the top text field of the OpenType panel, put the following text:  <BR> <BR>feature liga {  <BR>  sub B Y by B_Y;  <BR>} liga;  <BR> <BR>Then click on the Compile button on the panel, open Window / Preview Panel, switch to OpenType Features on the panel and test your font. If everything is fine, generate your font in OpenType-CFF format.  <BR> <BR>I recommend getting the book &#34;Learn FontLab Fast&#34; by Leslie Cabarga &#40;<a href="http://www.logofontandlettering.com/" target="_blank">http://www.logofontandlettering.com/</a> &#41; which includes some more tips on creating OpenType fonts. There are also more tips in the FontLab manual.  <BR> <BR>Regards,  <BR>Adam Twardoch <BR>Fontlab Ltd.</font></font></font></font></font></font>'
+  - id: 92912
+    user: gena-wenli-users
+    date: 2005-02-09T14:39:00
+    date_raw: Wednesday, February 09, 2005 - 2:39 pm
+    votes: null
+    html: '<font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">Wow! Thanks so much! One more question: if I want to do the same thing with lowercase glyphs, do I just type the same rule but with lowercase? Will that work? Thanks! <BR> <BR> <BR> <BR>G</font></font></font>'
+  - id: 93254
+    user: pablohoney77-users
+    date: 2005-02-14T17:11:00
+    date_raw: Monday, February 14, 2005 - 5:11 pm
+    votes: null
+    html: '<font class="dontLookLikeCrap">yes, you can follow the same format as above for example: <BR> <BR>feature liga {  <BR>sub f f i by ffi;  <BR>} liga; <BR> <BR>will give you your standard ffi ligature, but you can substitute any letters you want to combine. read the section of the FontLab manual on OT programing, I thought it was fairly straightforward and easy to understand.</font>'

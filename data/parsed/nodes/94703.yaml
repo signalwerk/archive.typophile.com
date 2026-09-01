@@ -1,0 +1,138 @@
+node: 94703
+title: Multiple SALTs for one CALT base glyph?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130822193821"
+  captured_at: 2013-08-22T19:38:21Z
+  url: http://typophile.com/node/94703
+  digest: FRNICZKLW4RH3BLMP7T6XBOJVLNZQQWE
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/94703.html
+  fingerprint: b3c9e330830df929
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130822193821"
+      digest: FRNICZKLW4RH3BLMP7T6XBOJVLNZQQWE
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/94703.html
+post:
+  id: 94703
+  user: 19417
+  date: 2012-07-14T05:16:00
+  date_raw: 14 Jul 2012 — 5:16am
+  votes: null
+  html: |-
+    <p>I've made a calt to add swashed alternatives to beginning and end of every word. I think it's ok, but I'm planning also stylistic alternatives to these swashes and it's here where it gets complicated. I get "Duplicate target glyph for single substitution" error when compiling. This is what i have now:</p>
+    <p>Classes:<br>
+    All_glyphs (All glyphs, including swashes. 986 total)<br>
+    Normal_Caps_Start (Starting glyphs to be replaced. 170 total)<br>
+    Normal_Caps_End (Ending glyphs to be replaced. 133 total)<br>
+    Swash_Caps_Start (Starting glyph swashes. 170 total)<br>
+    Swash_Caps_End (Ending glyph swashes. 133 total)</p>
+    <p>Code:<br>
+    feature calt {<br>
+    lookup start_swashes {<br>
+        ignore sub @All_glyphs @Normal_Caps_Start';<br>
+        sub @Normal_Caps_Start' by @Swash_Caps_Start;<br>
+    } start_swashes;<br>
+    lookup end_swashes {<br>
+        ignore sub @All_glyphs @Normal_Caps_End';<br>
+        sub @Normal_Caps_End' by @Swash_Caps_End;<br>
+    } end_swashes;<br>
+    } calt;</p>
+    <p>I've put calt feature after salt feature.</p>
+    <p>The problem must be in the way i made the classes. For example letter A has A1 and A2 alternatives. In Swash_Caps_Start this means: [A1, A2, B...], and in Normal_Caps_Start class its [A, A, B...]. This way the substitute classes have the same amount of pairs, but there are two A's in the other class. How is this done correctly?</p>
+    <p>Probably there is some really simple solution for this, but now i just can't figure it out. I've searched for this, but Google doesn't anymore give the results from Typophile it has used to.</p>
+  html_clean: |-
+    <p>I've made a calt to add swashed alternatives to beginning and end of every word. I think it's ok, but I'm planning also stylistic alternatives to these swashes and it's here where it gets complicated. I get "Duplicate target glyph for single substitution" error when compiling. This is what i have now:</p>
+    <p>Classes:<br>
+    All_glyphs (All glyphs, including swashes. 986 total)<br>
+    Normal_Caps_Start (Starting glyphs to be replaced. 170 total)<br>
+    Normal_Caps_End (Ending glyphs to be replaced. 133 total)<br>
+    Swash_Caps_Start (Starting glyph swashes. 170 total)<br>
+    Swash_Caps_End (Ending glyph swashes. 133 total)</p>
+    <p>Code:<br>
+    feature calt {<br>
+    lookup start_swashes {<br>
+        ignore sub @All_glyphs @Normal_Caps_Start';<br>
+        sub @Normal_Caps_Start' by @Swash_Caps_Start;<br>
+    } start_swashes;<br>
+    lookup end_swashes {<br>
+        ignore sub @All_glyphs @Normal_Caps_End';<br>
+        sub @Normal_Caps_End' by @Swash_Caps_End;<br>
+    } end_swashes;<br>
+    } calt;</p>
+    <p>I've put calt feature after salt feature.</p>
+    <p>The problem must be in the way i made the classes. For example letter A has A1 and A2 alternatives. In Swash_Caps_Start this means: [A1, A2, B...], and in Normal_Caps_Start class its [A, A, B...]. This way the substitute classes have the same amount of pairs, but there are two A's in the other class. How is this done correctly?</p>
+    <p>Probably there is some really simple solution for this, but now i just can't figure it out. I've searched for this, but Google doesn't anymore give the results from Typophile it has used to.</p>
+comments:
+  - id: 515640
+    user: 31798
+    date: 2012-07-14T07:34:00
+    date_raw: 14 Jul 2012 — 7:34am
+    votes: null
+    html: |-
+      <p><cite> The problem must be in the way i made the classes. For example letter A has A1 and A2 alternatives. In Swash_Caps_Start this means: [A1, A2, B...], and in Normal_Caps_Start class its [A, A, B...]. This way the substitute classes have the same amount of pairs, but there are two A's in the other class. How is this done correctly? </cite></p>
+      <p>This means that in effect you have you are trying to replace {A, A, B ... } with {A1, A2, B ... }, and the software cannot determine whether A should be substituted by A1 or A2. If you have a rule of the form <code>sub @A by @B</code>, it's perfectly OK to have the same glyph listed multiple times in class B, but generally <em>not</em> in class A.</p>
+      <p>What you need to do is map {A, B, ... } to {A1, B1, ...} and then substitute A1 by A2 in some lookup which occurs later in your features.</p>
+      <p>Also, on an unrelated note I suspect that there is an error in your 'calt' code. I think that where you write:</p>
+      <p><code> ignore sub @All_glyphs @Normal_Caps_End';</code></p>
+      <p>you actually want the following (assuming you're trying to get the substitution to occur only at the end of a word, i.e. where no glyph <em> follows</em> the target glyph).</p>
+      <p><code>ignore sub @Normal_Caps_End' @All_glyphs;</code></p>
+      <p>André</p>
+    html_clean: |-
+      <p><cite> The problem must be in the way i made the classes. For example letter A has A1 and A2 alternatives. In Swash_Caps_Start this means: [A1, A2, B...], and in Normal_Caps_Start class its [A, A, B...]. This way the substitute classes have the same amount of pairs, but there are two A's in the other class. How is this done correctly? </cite></p>
+      <p>This means that in effect you have you are trying to replace {A, A, B ... } with {A1, A2, B ... }, and the software cannot determine whether A should be substituted by A1 or A2. If you have a rule of the form <code>sub @A by @B</code>, it's perfectly OK to have the same glyph listed multiple times in class B, but generally <em>not</em> in class A.</p>
+      <p>What you need to do is map {A, B, ... } to {A1, B1, ...} and then substitute A1 by A2 in some lookup which occurs later in your features.</p>
+      <p>Also, on an unrelated note I suspect that there is an error in your 'calt' code. I think that where you write:</p>
+      <p><code> ignore sub @All_glyphs @Normal_Caps_End';</code></p>
+      <p>you actually want the following (assuming you're trying to get the substitution to occur only at the end of a word, i.e. where no glyph <em> follows</em> the target glyph).</p>
+      <p><code>ignore sub @Normal_Caps_End' @All_glyphs;</code></p>
+      <p>André</p>
+  - id: 515672
+    user: 19417
+    date: 2012-07-14T13:28:00
+    date_raw: 14 Jul 2012 — 1:28pm
+    votes: null
+    html: <p>Thanks André, sounds reasonable. Do you mean that A to A1 substitution happens in the calt feature and the A1 to A2 substitution would then be in salt, which would be positioned later in the feature order?</p>
+    html_clean: <p>Thanks André, sounds reasonable. Do you mean that A to A1 substitution happens in the calt feature and the A1 to A2 substitution would then be in salt, which would be positioned later in the feature order?</p>
+  - id: 515708
+    user: 31798
+    date: 2012-07-15T07:41:00
+    date_raw: 15 Jul 2012 — 7:41am
+    votes: null
+    html: |-
+      <p>If I understand you correctly, A1 and A2 are both swash versions intended for initial use, correct?</p>
+      <p>If so, then yes, you'd perform the A-&gt;A1 substitution in 'calt', and the A1-&gt;A2 substitution in 'salt', which would be done <em>after</em> your 'calt' feature.</p>
+      <p>Also, I'd recommend duplicating your 'salt' feature in 'ss01' since InDesign implements stylistic sets but not 'salt', whereas Illustrator implements 'salt' but not stylistic sets.</p>
+      <p>Finally, don't name your glyphs A1, A2, etc. Use a suffix; for example A.1, A.2. Otherwise, you'll run into compatibility problems with (e.g.) Acrobat Distiller.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>If I understand you correctly, A1 and A2 are both swash versions intended for initial use, correct?</p>
+      <p>If so, then yes, you'd perform the A-&gt;A1 substitution in 'calt', and the A1-&gt;A2 substitution in 'salt', which would be done <em>after</em> your 'calt' feature.</p>
+      <p>Also, I'd recommend duplicating your 'salt' feature in 'ss01' since InDesign implements stylistic sets but not 'salt', whereas Illustrator implements 'salt' but not stylistic sets.</p>
+      <p>Finally, don't name your glyphs A1, A2, etc. Use a suffix; for example A.1, A.2. Otherwise, you'll run into compatibility problems with (e.g.) Acrobat Distiller.</p>
+      <p>André</p>
+  - id: 515784
+    user: 19417
+    date: 2012-07-16T03:27:00
+    date_raw: 16 Jul 2012 — 3:27am
+    votes: null
+    html: <p>It all works now, phew. I was just referring the A1 and A2 names to simplify my post, but a good point there. Thanks Andre, you've been a great help!</p>
+    html_clean: <p>It all works now, phew. I was just referring the A1 and A2 names to simplify my post, but a good point there. Thanks Andre, you've been a great help!</p>

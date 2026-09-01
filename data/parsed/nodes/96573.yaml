@@ -1,0 +1,161 @@
+node: 96573
+title: Vertical metrics, does not compute
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140719192159"
+  captured_at: 2014-07-19T19:21:59Z
+  url: http://typophile.com/node/96573
+  digest: XK64XPRLENYQUZHEBEW73VF7KFG6WRX2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/96573.html
+  fingerprint: 06b5cf9f8e76a886
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140719192159"
+      digest: XK64XPRLENYQUZHEBEW73VF7KFG6WRX2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/96573.html
+post:
+  id: 96573
+  user: 19417
+  date: 2012-09-22T13:06:00
+  date_raw: 22 Sep 2012 — 1:06pm
+  votes: null
+  html: |-
+    <p>I ran FontQA and got these errors:</p>
+    <p>"Not all OS/2-sTypoAscender values are matching the required value. OS/2-sTypoAscender: 750, required: 950"</p>
+    <p>"The OS/2-sTypoDescender value does not match the required value OS/2-sTypoDescender: -250, required: -193"</p>
+    <p>Font's UPM is 1000. Ascender: 950. Descender: -193. Caps height: 697. Ascenders are also 697 tall (for a reason) and decenders go to -193 (also for a reason). Going to be postscript OT, that's why I thought it would be safe to leave the TT-specific metrics to automation. Apparently not the way to go? I tried to make some sense of the Vertical metrics How-To, but still not sure what to do. That How-To is quite dated, anyone know is it still valid today?</p>
+  html_clean: |-
+    <p>I ran FontQA and got these errors:</p>
+    <p>"Not all OS/2-sTypoAscender values are matching the required value. OS/2-sTypoAscender: 750, required: 950"</p>
+    <p>"The OS/2-sTypoDescender value does not match the required value OS/2-sTypoDescender: -250, required: -193"</p>
+    <p>Font's UPM is 1000. Ascender: 950. Descender: -193. Caps height: 697. Ascenders are also 697 tall (for a reason) and decenders go to -193 (also for a reason). Going to be postscript OT, that's why I thought it would be safe to leave the TT-specific metrics to automation. Apparently not the way to go? I tried to make some sense of the Vertical metrics How-To, but still not sure what to do. That How-To is quite dated, anyone know is it still valid today?</p>
+comments:
+  - id: 523197
+    user: 9636
+    date: 2012-09-22T18:53:00
+    date_raw: 22 Sep 2012 — 6:53pm
+    votes: null
+    html: |-
+      <p>Yes, there hasn't been much change to vertical metrics, so the how-to is still valid. </p>
+      <p>Jason C</p>
+    html_clean: |-
+      <p>Yes, there hasn't been much change to vertical metrics, so the how-to is still valid. </p>
+      <p>Jason C</p>
+  - id: 523309
+    user: 48268
+    date: 2012-09-23T14:44:00
+    date_raw: 23 Sep 2012 — 2:44pm
+    votes: null
+    html: |-
+      <p>Assuming you are using FontLab try this. In the 'Key dimensions' panel, change your Ascender to 807, keep your Descender as -193 and keep your Caps height at 697. In the 'TrueType-specific metrics' panel tick the box to 'Set custom values' and set the values as below:</p>
+      <p>[OS/2]<br>
+      TypoAscender: 807<br>
+      TypoDescender: -193<br>
+      TypoLineGap: 200<br>
+      WinAscent: 950<br>
+      WinDescent: -250<br>
+      [hhea]<br>
+      Ascender: 950<br>
+      Descender: -250<br>
+      LineGap: 0</p>
+      <p>Hopefully this should work if I understand your issue correctly.</p>
+    html_clean: |-
+      <p>Assuming you are using FontLab try this. In the 'Key dimensions' panel, change your Ascender to 807, keep your Descender as -193 and keep your Caps height at 697. In the 'TrueType-specific metrics' panel tick the box to 'Set custom values' and set the values as below:</p>
+      <p>[OS/2]<br>
+      TypoAscender: 807<br>
+      TypoDescender: -193<br>
+      TypoLineGap: 200<br>
+      WinAscent: 950<br>
+      WinDescent: -250<br>
+      [hhea]<br>
+      Ascender: 950<br>
+      Descender: -250<br>
+      LineGap: 0</p>
+      <p>Hopefully this should work if I understand your issue correctly.</p>
+  - id: 523311
+    user: 1262
+    date: 2012-09-23T14:50:00
+    date_raw: 23 Sep 2012 — 2:50pm
+    votes: null
+    html: |-
+      <p>That looks pretty sound, Karl. However, if the actual ascender height in the font -- e.g. measured to the top of the lowercase d, the usual PS measurement -- is 950, then Topy might want to consider scaling his outlines down. At present the implication of 950 + 193 is that the total ascender + descender height is greater than the em height, which is usually not a good idea.</p>
+      <p>Topy, note that 'TrueType-specific metrics' in the FontLab UI is a misnomer, since these OS/2 and hhea values also apply to PS OpenType.</p>
+    html_clean: |-
+      <p>That looks pretty sound, Karl. However, if the actual ascender height in the font -- e.g. measured to the top of the lowercase d, the usual PS measurement -- is 950, then Topy might want to consider scaling his outlines down. At present the implication of 950 + 193 is that the total ascender + descender height is greater than the em height, which is usually not a good idea.</p>
+      <p>Topy, note that 'TrueType-specific metrics' in the FontLab UI is a misnomer, since these OS/2 and hhea values also apply to PS OpenType.</p>
+  - id: 523372
+    user: 19417
+    date: 2012-09-24T00:54:00
+    date_raw: 24 Sep 2012 — 12:54am
+    votes: null
+    html: |-
+      <p>Many thanks, Karl! I think I understand this, now both sets of values equal to 1000. I'll run a few tests next. John, what might result from having too large ascender&amp;descender height? </p>
+      <p>Actually, come to think of it, the ascender value doesn't have to be 950? I just used it to control the leading. The max height of all outlines is 697, to the ascender value could be much lower than 950?</p>
+    html_clean: |-
+      <p>Many thanks, Karl! I think I understand this, now both sets of values equal to 1000. I'll run a few tests next. John, what might result from having too large ascender&amp;descender height? </p>
+      <p>Actually, come to think of it, the ascender value doesn't have to be 950? I just used it to control the leading. The max height of all outlines is 697, to the ascender value could be much lower than 950?</p>
+  - id: 523374
+    user: 1262
+    date: 2012-09-24T01:12:00
+    date_raw: 24 Sep 2012 — 1:12am
+    votes: null
+    html: <p>The value of the OS/2 typo ascender added to the depth of the typo descender should sum to the em height. So the values that Karl suggests should work for you. I would consider an actual ascender height of 697 to be 'cast small on the body', though. In general you want the actual ascender and descender height and depth to be close to the OS/2 typo values and hence close to the em size.</p>
+    html_clean: <p>The value of the OS/2 typo ascender added to the depth of the typo descender should sum to the em height. So the values that Karl suggests should work for you. I would consider an actual ascender height of 697 to be 'cast small on the body', though. In general you want the actual ascender and descender height and depth to be close to the OS/2 typo values and hence close to the em size.</p>
+  - id: 523385
+    user: 48268
+    date: 2012-09-24T03:22:00
+    date_raw: 24 Sep 2012 — 3:22am
+    votes: null
+    html: <p>What John said. I found <a class="freelinking external" href="http://www.kltf.de/kltf_otproduction.htm" rel="nofollow">Karsten Luecke's guide to Font Metrics</a> essential in understanding this, having encountered numerous problems along these lines when updating fonts created by other people. It took a couple of read throughs and experimentation but once it starts to make sense it is invaluable.</p>
+    html_clean: <p>What John said. I found <a class="freelinking external link-external" href="http://www.kltf.de/kltf_otproduction.htm" rel="nofollow">Karsten Luecke's guide to Font Metrics</a> essential in understanding this, having encountered numerous problems along these lines when updating fonts created by other people. It took a couple of read throughs and experimentation but once it starts to make sense it is invaluable.</p>
+  - id: 523650
+    user: 19417
+    date: 2012-09-25T10:51:00
+    date_raw: 25 Sep 2012 — 10:51am
+    votes: null
+    html: |-
+      <p>I've tested Karl's values, seems to work fine. Only thing is the leading, which I find a bit too tight. So how should I go about increasing it?</p>
+      <p>"In general you want the actual ascender and descender height and depth to be close to the OS/2 typo values and hence close to the em size."</p>
+      <p>Sorry for being hard-headed, but why? What is the benefit of that and what are the dangers if they are not close to em size? I mean, if I don't know the benefits/risks involved, how could I ever fully understand this?</p>
+    html_clean: |-
+      <p>I've tested Karl's values, seems to work fine. Only thing is the leading, which I find a bit too tight. So how should I go about increasing it?</p>
+      <p>"In general you want the actual ascender and descender height and depth to be close to the OS/2 typo values and hence close to the em size."</p>
+      <p>Sorry for being hard-headed, but why? What is the benefit of that and what are the dangers if they are not close to em size? I mean, if I don't know the benefits/risks involved, how could I ever fully understand this?</p>
+  - id: 523661
+    user: 1262
+    date: 2012-09-25T12:00:00
+    date_raw: 25 Sep 2012 — 12:00pm
+    votes: null
+    html: |-
+      <p>The em is what is scaled. So, for instance, if text is set at 12pt then it is the em height that is 12pts high. So the relative sizing of the actual outlines to the em determines whether the font looks small or large or similar relative to other fonts at the same nominal size. If your ascender and descender lengths are significantly shorter than the em, the font will look small compared to most other fonts at the same size. If they are taller than the em, not only will the font look larger than other fonts it might also appear too tightly line-spaced in typical leading situations.</p>
+      <p>Note that some software makes use of font vertical metrics to determine default leading, while other software uses explicit leading set by the user. MS Wordpad is a good example of the former, and Adobe InDesign of the latter. Hence, you want to set the vertical metrics to produce what you consider the desirable linespacing in Wordpad, but also to scale your outlines relative to the em such that your font is of similar size to other fonts. There is no absolute standard -- and there are reasons why one might choose to make an individual font 'small on the body' -- but general practice is to make the Latin ascender and descender heights sum quite close to the em height.</p>
+      <p>Having established the ascender and descender heights and corresponding Typo vertical metrics, you can increase linespacing by increasing the TypeLinegap value. You then need to also increase the Win and hhea metrics values by the same amount. Typically, this is done by either splitting the increase equally or proportionally across the two Win metrics values, or by adding it all to the WinAscent value.</p>
+    html_clean: |-
+      <p>The em is what is scaled. So, for instance, if text is set at 12pt then it is the em height that is 12pts high. So the relative sizing of the actual outlines to the em determines whether the font looks small or large or similar relative to other fonts at the same nominal size. If your ascender and descender lengths are significantly shorter than the em, the font will look small compared to most other fonts at the same size. If they are taller than the em, not only will the font look larger than other fonts it might also appear too tightly line-spaced in typical leading situations.</p>
+      <p>Note that some software makes use of font vertical metrics to determine default leading, while other software uses explicit leading set by the user. MS Wordpad is a good example of the former, and Adobe InDesign of the latter. Hence, you want to set the vertical metrics to produce what you consider the desirable linespacing in Wordpad, but also to scale your outlines relative to the em such that your font is of similar size to other fonts. There is no absolute standard -- and there are reasons why one might choose to make an individual font 'small on the body' -- but general practice is to make the Latin ascender and descender heights sum quite close to the em height.</p>
+      <p>Having established the ascender and descender heights and corresponding Typo vertical metrics, you can increase linespacing by increasing the TypeLinegap value. You then need to also increase the Win and hhea metrics values by the same amount. Typically, this is done by either splitting the increase equally or proportionally across the two Win metrics values, or by adding it all to the WinAscent value.</p>
+  - id: 523813
+    user: 19417
+    date: 2012-09-26T12:50:00
+    date_raw: 26 Sep 2012 — 12:50pm
+    votes: null
+    html: <p>Wow, thanks John, greatly appreciated! Makes much more sense now. Have you ever thought about writing a book? :)</p>
+    html_clean: <p>Wow, thanks John, greatly appreciated! Makes much more sense now. Have you ever thought about writing a book? :)</p>

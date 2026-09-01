@@ -221,8 +221,11 @@ async function main() {
     observations: seen, users: 0, written: 0, unchanged: 0,
     withImage: 0, copied: 0, imageMissing: 0, slugIds: 0,
     withProfile: 0, withMemberSince: 0, postlessMembers: 0,
+    staleRemoved: 0, stalePicturesRemoved: 0,
   };
   const indexLines = [];
+  const expectedUserFiles = new Set();
+  const expectedPictures = new Set();
 
   for (const id of [...users.keys()].sort(compareIds)) {
     const u = users.get(id);
@@ -235,6 +238,7 @@ async function main() {
       const res = copyPicture(lookup, u.image, id);
       if (res.file) {
         picture = res.file;
+        expectedPictures.add(path.basename(res.file));
         if (res.copied) counts.copied++;
       } else {
         counts.imageMissing++;
@@ -275,6 +279,7 @@ async function main() {
 
     const out = YAML.stringify(doc, { lineWidth: 0, blockQuote: "literal" });
     const file = `${USERS_DIR}/${id}.yaml`;
+    expectedUserFiles.add(`${id}.yaml`);
     // Only touch the file when it differs, so re-runs stay quiet in git.
     if (!force && fs.existsSync(file) && fs.readFileSync(file, "utf8") === out) {
       counts.unchanged++;
@@ -296,6 +301,23 @@ async function main() {
     }));
   }
 
+  // This directory is derived from the current observations. Parser fixes can
+  // merge identities (for example `user-103` into numeric user 103), so stale
+  // records and their copied pictures must not survive a rebuild.
+  for (const name of fs.readdirSync(USERS_DIR)) {
+    if (!name.endsWith(".yaml") || expectedUserFiles.has(name)) continue;
+    fs.unlinkSync(path.join(USERS_DIR, name));
+    counts.staleRemoved++;
+  }
+  if (fs.existsSync(PICTURES_DIR)) {
+    for (const name of fs.readdirSync(PICTURES_DIR)) {
+      const file = path.join(PICTURES_DIR, name);
+      if (!fs.statSync(file).isFile() || expectedPictures.has(name)) continue;
+      fs.unlinkSync(file);
+      counts.stalePicturesRemoved++;
+    }
+  }
+
   fs.writeFileSync(`${INDEX_FILE}.part`, indexLines.join("\n") + "\n");
   fs.renameSync(`${INDEX_FILE}.part`, INDEX_FILE);
 
@@ -313,12 +335,14 @@ async function main() {
   console.log(`members ............. ${formatCount(counts.users)}  (${formatCount(counts.slugIds)} without a numeric id)`);
   console.log(`  written ........... ${formatCount(counts.written)}`);
   console.log(`  unchanged ......... ${formatCount(counts.unchanged)}`);
+  if (counts.staleRemoved) console.log(`  stale removed ..... ${formatCount(counts.staleRemoved)}`);
   console.log(`profiles parsed ..... ${formatCount(counts.withProfile)}  (${formatCount(profilesParsed)} read, ${formatCount(profilesCached)} cached)`);
   console.log(`  with a join date .. ${formatCount(counts.withMemberSince)}`);
   console.log(`  no posts or replies ${formatCount(counts.postlessMembers)}`);
   console.log(`avatars referenced .. ${formatCount(counts.withImage)}`);
   console.log(`  copied ............ ${formatCount(counts.copied)}`);
   console.log(`  not downloaded .... ${formatCount(counts.imageMissing)}`);
+  if (counts.stalePicturesRemoved) console.log(`  stale removed ..... ${formatCount(counts.stalePicturesRemoved)}`);
   console.log(`\nmembers -> ${USERS_DIR}/<id>.yaml`);
 }
 

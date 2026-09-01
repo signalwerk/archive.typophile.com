@@ -1,0 +1,185 @@
+node: 97815
+title: Adding OT "size" feature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130818211119"
+  captured_at: 2013-08-18T21:11:19Z
+  url: http://typophile.com/node/97815
+  digest: UPF2KNHEBSC55AQYXACBWEOUS53RLGVN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/97815.html
+  fingerprint: 60fd2b8900f18f8c
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130818211119"
+      digest: UPF2KNHEBSC55AQYXACBWEOUS53RLGVN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/97815.html
+post:
+  id: 97815
+  user: 56792
+  date: 2012-11-05T00:49:00
+  date_raw: 5 Nov 2012 — 12:49am
+  votes: null
+  html: |-
+    <p>More and more applications seem to be capable of using the OpenType <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#8.b" rel="nofollow">›size‹</a> feature found in some fonts that come in different optical sizes (e.g. Adobe's ›opticals‹, or the Latin Modern fonts). I can't seem to be able to implement that feature to a font I'm designing, though. FontLab, for example, will let me add and save it as part of the .vfb file, but loses it when generating the actual OT file. It won't properly read the size feature, either, when loading a font that has it.</p>
+    <p>What other ways are there to add it to (a) a font in the making, and (b) to an existing font? Thanks in advance!</p>
+  html_clean: |-
+    <p>More and more applications seem to be capable of using the OpenType <a class="freelinking external link-external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#8.b" rel="nofollow">›size‹</a> feature found in some fonts that come in different optical sizes (e.g. Adobe's ›opticals‹, or the Latin Modern fonts). I can't seem to be able to implement that feature to a font I'm designing, though. FontLab, for example, will let me add and save it as part of the .vfb file, but loses it when generating the actual OT file. It won't properly read the size feature, either, when loading a font that has it.</p>
+    <p>What other ways are there to add it to (a) a font in the making, and (b) to an existing font? Thanks in advance!</p>
+comments:
+  - id: 529148
+    user: 1794
+    date: 2012-11-05T01:30:00
+    date_raw: 5 Nov 2012 — 1:30am
+    votes: null
+    html: |-
+      <p><cite>More and more applications seem to be capable of using the OpenType ›size‹ feature</cite></p>
+      <p>Which ones?</p>
+      <p><cite>FontLab, for example, will let me add and save it as part of the .vfb file, but loses it when generating the actual OT file.</cite></p>
+      <p>How do you check that?</p>
+    html_clean: |-
+      <p><cite>More and more applications seem to be capable of using the OpenType ›size‹ feature</cite></p>
+      <p>Which ones?</p>
+      <p><cite>FontLab, for example, will let me add and save it as part of the .vfb file, but loses it when generating the actual OT file.</cite></p>
+      <p>How do you check that?</p>
+  - id: 529177
+    user: 1250
+    date: 2012-11-05T06:13:00
+    date_raw: 5 Nov 2012 — 6:13am
+    votes: null
+    html: <p>{To Follow}</p>
+    html_clean: <p>{To Follow}</p>
+  - id: 529184
+    user: 56792
+    date: 2012-11-05T08:16:00
+    date_raw: 5 Nov 2012 — 8:16am
+    votes: null
+    html: |-
+      <p><em>&gt; Which ones?</em></p>
+      <p>LuaTeX; XeTeX; FontForge (as I just found out); probably Adobe's products (haven't used them in a while). Lua and Xe, to be precise, aren't doing anything entirely new in the TeX world (as TeX has been selecting the correct optical size automatically for about 30 years now), but they now do the same with OpenType fonts out of the box -- provided the ›size‹ feature is present. Otherwise fonts have to be assigned to sizes manually. So for, say, Minion Pro Opticals, something like this...<br>
+      <code><br>
+      \documentclass{scrartcl}<br>
+      \usepackage{fontspec}<br>
+      \setmainfont{Minion Pro}<br>
+      \begin{document}<br>
+      \tiny hat einer und gemacht<br>
+      \normalsize zu werden um<br>
+      \huge von Buch wollen<br>
+      \end{document}<br>
+      </code></p>
+      <p>...would result in Minion's different size variants to be selected automatically for different sizes.</p>
+      <p>As for FontForge, I just learned it has a dedicated ›size‹ tab asking for the relevant information, and apparently stores it correctly, too -- which solved my problem for now.</p>
+      <p><img src="http://i.imgur.com/l7dSs.png"></p>
+      <p><em>&gt; How do you check that?</em></p>
+      <p>using <em>otfinfo,</em> which reported »no valid 'size' feature data in the 'size' feature«. After the FontForge treatment, things seem to be okay, though.</p>
+    html_clean: |-
+      <p><em>&gt; Which ones?</em></p>
+      <p>LuaTeX; XeTeX; FontForge (as I just found out); probably Adobe's products (haven't used them in a while). Lua and Xe, to be precise, aren't doing anything entirely new in the TeX world (as TeX has been selecting the correct optical size automatically for about 30 years now), but they now do the same with OpenType fonts out of the box -- provided the ›size‹ feature is present. Otherwise fonts have to be assigned to sizes manually. So for, say, Minion Pro Opticals, something like this...<br>
+      <code><br>
+      \documentclass{scrartcl}<br>
+      \usepackage{fontspec}<br>
+      \setmainfont{Minion Pro}<br>
+      \begin{document}<br>
+      \tiny hat einer und gemacht<br>
+      \normalsize zu werden um<br>
+      \huge von Buch wollen<br>
+      \end{document}<br>
+      </code></p>
+      <p>...would result in Minion's different size variants to be selected automatically for different sizes.</p>
+      <p>As for FontForge, I just learned it has a dedicated ›size‹ tab asking for the relevant information, and apparently stores it correctly, too -- which solved my problem for now.</p>
+      <p><img src="http://i.imgur.com/l7dSs.png"></p>
+      <p><em>&gt; How do you check that?</em></p>
+      <p>using <em>otfinfo,</em> which reported »no valid 'size' feature data in the 'size' feature«. After the FontForge treatment, things seem to be okay, though.</p>
+  - id: 529213
+    user: 2021
+    date: 2012-11-05T11:23:00
+    date_raw: 5 Nov 2012 — 11:23am
+    votes: null
+    html: |-
+      <p>The size feature doesn’t seem to be a good idea.</p>
+      <p>Surely it’s up to the typographer to decide which cut of a typeface is right for a particular setting, rather than have that decision made by the font.</p>
+      <p>For instance, if a typeface is being printed on coarse paper, reversed, or with low contrast between foreground and background colours, then a smaller “optical” size would be called for. But how is a font to know what stock it is being printed on, and in what colour?</p>
+    html_clean: |-
+      <p>The size feature doesn’t seem to be a good idea.</p>
+      <p>Surely it’s up to the typographer to decide which cut of a typeface is right for a particular setting, rather than have that decision made by the font.</p>
+      <p>For instance, if a typeface is being printed on coarse paper, reversed, or with low contrast between foreground and background colours, then a smaller “optical” size would be called for. But how is a font to know what stock it is being printed on, and in what colour?</p>
+  - id: 529219
+    user: 1250
+    date: 2012-11-05T11:42:00
+    date_raw: 5 Nov 2012 — 11:42am
+    votes: null
+    html: |-
+      <p>A good typographer should be able to over-ride it, but:<br>
+      - The font doing the job -or even coming close- on its own saves time.<br>
+      - Sadly most typographers are not as good as the font could be.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>A good typographer should be able to over-ride it, but:<br>
+      - The font doing the job -or even coming close- on its own saves time.<br>
+      - Sadly most typographers are not as good as the font could be.</p>
+      <p>hhp</p>
+  - id: 529228
+    user: 1262
+    date: 2012-11-05T13:21:00
+    date_raw: 5 Nov 2012 — 1:21pm
+    votes: null
+    html: |-
+      <p>Adobe apps don't support the 'size' feature, although AFDKO does and Adobe implement the feature in their fonts.</p>
+      <p>I've long argued -- with some traction at both Microsoft and Adobe, I believe -- that as a mechanism the OTL 'size' feature is a bad idea: it's really a hack of the GPOS data structure to affect font selection. A number of better ideas are kicking around, and I'm hopeful that one of them will be selected for the standards process.</p>
+    html_clean: |-
+      <p>Adobe apps don't support the 'size' feature, although AFDKO does and Adobe implement the feature in their fonts.</p>
+      <p>I've long argued -- with some traction at both Microsoft and Adobe, I believe -- that as a mechanism the OTL 'size' feature is a bad idea: it's really a hack of the GPOS data structure to affect font selection. A number of better ideas are kicking around, and I'm hopeful that one of them will be selected for the standards process.</p>
+  - id: 529284
+    user: 2969
+    date: 2012-11-06T03:14:00
+    date_raw: 6 Nov 2012 — 3:14am
+    votes: null
+    html: |-
+      <p>"Surely it’s up to the typographer to decide which cut of a typeface is right for a particular setting,..."</p>
+      <p>Not nessesarily. What if "the typographer" is at lunch, or asleep, or there isn't one, or never was, at the very moment of scaling to the output. Fairly common, I think, 'specially on the web, ya know... the end user is quite often the typographer.</p>
+      <p>This has been obvious for near twenty years. The standards have failed and any foundry needing to operate their fonts without shipping, or offering the services of a live typograpler... has the font name.</p>
+      <p>And don't call me Surely.</p>
+    html_clean: |-
+      <p>"Surely it’s up to the typographer to decide which cut of a typeface is right for a particular setting,..."</p>
+      <p>Not nessesarily. What if "the typographer" is at lunch, or asleep, or there isn't one, or never was, at the very moment of scaling to the output. Fairly common, I think, 'specially on the web, ya know... the end user is quite often the typographer.</p>
+      <p>This has been obvious for near twenty years. The standards have failed and any foundry needing to operate their fonts without shipping, or offering the services of a live typograpler... has the font name.</p>
+      <p>And don't call me Surely.</p>
+  - id: 529355
+    user: 2021
+    date: 2012-11-06T10:55:00
+    date_raw: 6 Nov 2012 — 10:55am
+    votes: null
+    html: |-
+      <p>What kind of standard are you in favour of David?<br>
+      What benchmark can I use for determining the renderability ranges of the fonts I manufacture?</p>
+    html_clean: |-
+      <p>What kind of standard are you in favour of David?<br>
+      What benchmark can I use for determining the renderability ranges of the fonts I manufacture?</p>
+  - id: 529362
+    user: 2969
+    date: 2012-11-06T11:50:00
+    date_raw: 6 Nov 2012 — 11:50am
+    votes: null
+    html: |-
+      <p>Nick, except when the fonts get "rounded down" to the current standards, I'm not in favor of standards outside of FB's until/unless we ever have to "round up", in which case FB'd move formats again to higher ground. I'm not at all hopeful of dramatic change in either the standards or compliance to them. Don't forget, a lot of work was needed to get to the lowest common denominator of font functionality we have today, and thems serious efforts you just can't undo. </p>
+      <p>As for benchmarks, the type designer making such fundamental decisions about the appearance of typography is tricky. When I class size for the Font Bureau library going to the web, I decide based on the unhinted appearance of the fonts on windows. Determining what we call 7 pt, or "bold", or the default figures, that was all fine while the world was stuck with books and print, but now that the world is struck with screens and CSS...</p>
+    html_clean: |-
+      <p>Nick, except when the fonts get "rounded down" to the current standards, I'm not in favor of standards outside of FB's until/unless we ever have to "round up", in which case FB'd move formats again to higher ground. I'm not at all hopeful of dramatic change in either the standards or compliance to them. Don't forget, a lot of work was needed to get to the lowest common denominator of font functionality we have today, and thems serious efforts you just can't undo. </p>
+      <p>As for benchmarks, the type designer making such fundamental decisions about the appearance of typography is tricky. When I class size for the Font Bureau library going to the web, I decide based on the unhinted appearance of the fonts on windows. Determining what we call 7 pt, or "bold", or the default figures, that was all fine while the world was stuck with books and print, but now that the world is struck with screens and CSS...</p>

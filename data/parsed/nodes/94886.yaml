@@ -1,0 +1,175 @@
+node: 94886
+title: Three masters in a FL MM font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130823030252"
+  captured_at: 2013-08-23T03:02:52Z
+  url: http://typophile.com/node/94886
+  digest: GHK2M6G76JQS3NTT3R4MCRSIMNB3JCD2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/94886.html
+  fingerprint: 375694e8f035cb09
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130823030252"
+      digest: GHK2M6G76JQS3NTT3R4MCRSIMNB3JCD2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/94886.html
+post:
+  id: 94886
+  user: 48056
+  date: 2012-07-20T01:03:00
+  date_raw: 20 Jul 2012 — 1:03am
+  votes: null
+  html: |-
+    <p>Hi all</p>
+    <p>Is it possible to have three masters in a FL MM font.</p>
+    <p>At the moment I am using two masters - a light weight and a bold weight.</p>
+    <p>This is the process I use to create the MM with FL.</p>
+    <p>Tools &gt; Mask &gt; Assign Font Mask - Select the Bold weight<br>
+    Tools &gt; Multiple Master &gt; Define New Axis - Select Weight<br>
+    Select all glyphs then, Tools &gt; Multiple Master &gt; Mask to Master - select Wt1.</p>
+    <p>Is it possible to add another medium master to this process - if so how would I do that?</p>
+  html_clean: |-
+    <p>Hi all</p>
+    <p>Is it possible to have three masters in a FL MM font.</p>
+    <p>At the moment I am using two masters - a light weight and a bold weight.</p>
+    <p>This is the process I use to create the MM with FL.</p>
+    <p>Tools &gt; Mask &gt; Assign Font Mask - Select the Bold weight<br>
+    Tools &gt; Multiple Master &gt; Define New Axis - Select Weight<br>
+    Select all glyphs then, Tools &gt; Multiple Master &gt; Mask to Master - select Wt1.</p>
+    <p>Is it possible to add another medium master to this process - if so how would I do that?</p>
+comments:
+  - id: 516292
+    user: 21687
+    date: 2012-07-20T08:05:00
+    date_raw: 20 Jul 2012 — 8:05am
+    votes: null
+    html: |-
+      <p>It’s not possible in FontLab to have intermediate masters.</p>
+      <p>You can cheat though if you ‘abuse’ an additional width axis and reconfigure the masters: Use the Weight axis for Light (wt0, wd0) to Medium (wt1, wd0), put the Bold on the Width axis (wt1, wd1). Then you can use the Weight axis for interpolation between Light and Medium (with Width set to 0), and the Width axis for interpolation between Medium and Bold (with Weight set to 1000).</p>
+      <p>You have to add a dummy master to (wt0, wd1) that is never used, because MM always needs two masters on one axis. It’s a bit fiddly but should work.</p>
+    html_clean: |-
+      <p>It’s not possible in FontLab to have intermediate masters.</p>
+      <p>You can cheat though if you ‘abuse’ an additional width axis and reconfigure the masters: Use the Weight axis for Light (wt0, wd0) to Medium (wt1, wd0), put the Bold on the Width axis (wt1, wd1). Then you can use the Weight axis for interpolation between Light and Medium (with Width set to 0), and the Width axis for interpolation between Medium and Bold (with Weight set to 1000).</p>
+      <p>You have to add a dummy master to (wt0, wd1) that is never used, because MM always needs two masters on one axis. It’s a bit fiddly but should work.</p>
+  - id: 516295
+    user: 1250
+    date: 2012-07-20T08:24:00
+    date_raw: 20 Jul 2012 — 8:24am
+    votes: null
+    html: |-
+      <p>One interesting application of this "cheat" would be to treat the intermediate as the cut-off between text and display weights of a typeface, applying a different spacing (and maybe even a different vertical proportions) strategy based on the MM axis. Using the third axis would even allow two cut-offs (treating the middle area as for text and the two outsides as for display).</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>One interesting application of this "cheat" would be to treat the intermediate as the cut-off between text and display weights of a typeface, applying a different spacing (and maybe even a different vertical proportions) strategy based on the MM axis. Using the third axis would even allow two cut-offs (treating the middle area as for text and the two outsides as for display).</p>
+      <p>hhp</p>
+  - id: 516443
+    user: 2969
+    date: 2012-07-22T03:59:00
+    date_raw: 22 Jul 2012 — 3:59am
+    votes: null
+    html: |-
+      <p>Jens' is the right suggestion. One can also use Superpolator where this "cheating" is normal under the theory that designing type spaces from the "corners in" is a programmer's solution not fit for all types.</p>
+      <p>HP "...even allow two cut-offs (treating the middle area as for text and the two outsides as for display)."</p>
+      <p>So in the middle, medium text, to one outside medium display, then to the other outside... what are you trying to say?</p>
+    html_clean: |-
+      <p>Jens' is the right suggestion. One can also use Superpolator where this "cheating" is normal under the theory that designing type spaces from the "corners in" is a programmer's solution not fit for all types.</p>
+      <p>HP "...even allow two cut-offs (treating the middle area as for text and the two outsides as for display)."</p>
+      <p>So in the middle, medium text, to one outside medium display, then to the other outside... what are you trying to say?</p>
+  - id: 516486
+    user: 1250
+    date: 2012-07-22T11:50:00
+    date_raw: 22 Jul 2012 — 11:50am
+    votes: null
+    html: |-
+      <p>The middle: weights that are good for running text, hence spaced accordingly. To the sides: weights that are too light ("left" side) or too dark ("right" side) for running text, which means they can only be used large, so are spaced tightly. All in one MM space with 1/2 + 1 + 1/2 axes.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>The middle: weights that are good for running text, hence spaced accordingly. To the sides: weights that are too light ("left" side) or too dark ("right" side) for running text, which means they can only be used large, so are spaced tightly. All in one MM space with 1/2 + 1 + 1/2 axes.</p>
+      <p>hhp</p>
+  - id: 516505
+    user: 1262
+    date: 2012-07-22T15:53:00
+    date_raw: 22 Jul 2012 — 3:53pm
+    votes: null
+    html: <p>More generally (light and dark being only one set of variables), I understood Hrant's comment to imply two different display styles each interpolable with a single text style but not designed to be interpolable with each other. Of course, there's no reason why the display styles should be limited to two.</p>
+    html_clean: <p>More generally (light and dark being only one set of variables), I understood Hrant's comment to imply two different display styles each interpolable with a single text style but not designed to be interpolable with each other. Of course, there's no reason why the display styles should be limited to two.</p>
+  - id: 516540
+    user: 2969
+    date: 2012-07-23T05:31:00
+    date_raw: 23 Jul 2012 — 5:31am
+    votes: null
+    html: |-
+      <p>"1/2 + 1 + 1/2 axes."</p>
+      <p>Hrant: There really is nothing 1/2 axised about this technology. You need to round 1/2 to 1, and 1 to 2, and then 4 will be the number of masters, not 1 or 2 or 3... </p>
+      <p>"I understood Hrant's comment to imply two different display styles each interpolable with a single text style but not designed to be interpolable with each other. Of course, there's no reason why the display styles should be limited to two."</p>
+      <p>John: Do you mean, you understood Hrant's comment to imply two different display style axes each interpolable with all the styles of the size axis from which they emenate, but not designed to be interpolable with each other?</p>
+    html_clean: |-
+      <p>"1/2 + 1 + 1/2 axes."</p>
+      <p>Hrant: There really is nothing 1/2 axised about this technology. You need to round 1/2 to 1, and 1 to 2, and then 4 will be the number of masters, not 1 or 2 or 3... </p>
+      <p>"I understood Hrant's comment to imply two different display styles each interpolable with a single text style but not designed to be interpolable with each other. Of course, there's no reason why the display styles should be limited to two."</p>
+      <p>John: Do you mean, you understood Hrant's comment to imply two different display style axes each interpolable with all the styles of the size axis from which they emenate, but not designed to be interpolable with each other?</p>
+  - id: 516597
+    user: 1262
+    date: 2012-07-23T12:03:00
+    date_raw: 23 Jul 2012 — 12:03pm
+    votes: null
+    html: <p>Yes, that is what I understood Hrant to imply, if I am in turn understanding you correctly. So, for example, there would be an axis between Text and Display 1, and another axis between Text and Display 2. Note, that I used the phrase 'designed to be interpolable', which is different from interpolable per se. Since outline compatibility of Text to Display 1 and Text to Display 2 implies outline compatibility between Display 1 and Display 2, technically the two display masters are also interpolable, but in the design scheme they are not interpolated because their axis relationship is each to Text, not to each other.</p>
+    html_clean: <p>Yes, that is what I understood Hrant to imply, if I am in turn understanding you correctly. So, for example, there would be an axis between Text and Display 1, and another axis between Text and Display 2. Note, that I used the phrase 'designed to be interpolable', which is different from interpolable per se. Since outline compatibility of Text to Display 1 and Text to Display 2 implies outline compatibility between Display 1 and Display 2, technically the two display masters are also interpolable, but in the design scheme they are not interpolated because their axis relationship is each to Text, not to each other.</p>
+  - id: 516700
+    user: 1250
+    date: 2012-07-24T09:55:00
+    date_raw: 24 Jul 2012 — 9:55am
+    votes: null
+    html: |-
+      <p>Yes. Basically it's a one-step extension to what Jens described (so a "half", meaning fake, axis on each side of the main/text weight axis) with the twist the half axes on the sides would have display (tight) spacing, since they would be respectively too light or dark for text.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Yes. Basically it's a one-step extension to what Jens described (so a "half", meaning fake, axis on each side of the main/text weight axis) with the twist the half axes on the sides would have display (tight) spacing, since they would be respectively too light or dark for text.</p>
+      <p>hhp</p>
+  - id: 516710
+    user: 1262
+    date: 2012-07-24T11:32:00
+    date_raw: 24 Jul 2012 — 11:32am
+    votes: null
+    html: <p>I think your notion of 'half axes' is confusing, Hrant. Any  axis between two masters is a complete axis. It makes more sense to think of an interpolation matrix of axes. What Jen's 'cheat' involves is individual axes pointing off a central structure of interlocking axes. If you're using FontLab, this needs to be handled using separate sources for different parts of the matrix.</p>
+    html_clean: <p>I think your notion of 'half axes' is confusing, Hrant. Any  axis between two masters is a complete axis. It makes more sense to think of an interpolation matrix of axes. What Jen's 'cheat' involves is individual axes pointing off a central structure of interlocking axes. If you're using FontLab, this needs to be handled using separate sources for different parts of the matrix.</p>
+  - id: 516740
+    user: 1250
+    date: 2012-07-24T14:36:00
+    date_raw: 24 Jul 2012 — 2:36pm
+    votes: null
+    html: |-
+      <p>By "half" I simply mean that one end of the axis is identical to one end of the "full" axis in the middle.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>By "half" I simply mean that one end of the axis is identical to one end of the "full" axis in the middle.</p>
+      <p>hhp</p>
+  - id: 516765
+    user: 1262
+    date: 2012-07-24T19:13:00
+    date_raw: 24 Jul 2012 — 7:13pm
+    votes: null
+    html: |-
+      <p>Yes, I understood, but I think it is not a helpful terminology. The scheme needs to be describable in all the ways in which it can occur, one of which is that there are simply two axes -- as in the example I gave of Text, Display 1 and Display 2 -- and in which it makes no sense to try to talk of 'full' and 'half' axes. If you want to be able to distinguish terminologically, I suggest something like 'knitted axes' and 'independent axes'. So, for example, four masters that enable interpolation between any of the four constitute a matrix of six knitted axes, to which might be added, using Jen's approach, any number of independent axes involving additional masters that are not interpolated to other masters in the matrix.</p>
+      <p>Now, from this it follows that if one can bold independent axes onto a knitted matrix, one can also bolt knitted matrices onto each other, and that these might even attach to each other at more than one master. That's the point at which you really need to draw diagrams to keep it straight in your head. I recall David Lemon telling me once that Adobe made a 3D model of the interpolation matrix for Kepler.</p>
+    html_clean: |-
+      <p>Yes, I understood, but I think it is not a helpful terminology. The scheme needs to be describable in all the ways in which it can occur, one of which is that there are simply two axes -- as in the example I gave of Text, Display 1 and Display 2 -- and in which it makes no sense to try to talk of 'full' and 'half' axes. If you want to be able to distinguish terminologically, I suggest something like 'knitted axes' and 'independent axes'. So, for example, four masters that enable interpolation between any of the four constitute a matrix of six knitted axes, to which might be added, using Jen's approach, any number of independent axes involving additional masters that are not interpolated to other masters in the matrix.</p>
+      <p>Now, from this it follows that if one can bold independent axes onto a knitted matrix, one can also bolt knitted matrices onto each other, and that these might even attach to each other at more than one master. That's the point at which you really need to draw diagrams to keep it straight in your head. I recall David Lemon telling me once that Adobe made a 3D model of the interpolation matrix for Kepler.</p>

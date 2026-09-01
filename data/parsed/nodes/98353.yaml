@@ -1,0 +1,173 @@
+node: 98353
+title: Fontlab OpenType newbie contextual alternates confusion
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140810032458"
+  captured_at: 2014-08-10T03:24:58Z
+  url: http://typophile.com/node/98353
+  digest: 5OIRVH54KGBYWIJE4S6B2NCH74XWYA4B
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/98353.html
+  fingerprint: 3c9edc1b28afe231
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140810032458"
+      digest: 5OIRVH54KGBYWIJE4S6B2NCH74XWYA4B
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98353.html
+post:
+  id: 98353
+  user: 203985
+  date: 2012-11-23T11:20:00
+  date_raw: 23 Nov 2012 — 11:20am
+  votes: null
+  html: |-
+    <p>hello...</p>
+    <p>I'm attempting to make a font with some OpenType features for the first time, using Fontlab, and, guess what - it's slightly confusing...</p>
+    <p>what I'd like OpenType to do is:<br>
+    for lots of specific character pairs, substitute pairs of alternate characters</p>
+    <p>so, for example, if someone types 'AB' I'd like OpenType to substitute glyph A_2 followed by glyph B_2...</p>
+    <p>I was kind of thinking I could do this with a contextual alternate feature like</p>
+    <p><code>sub A' B' by A_2 B_2;</code></p>
+    <p>but that doesn't seem to compile</p>
+    <p><code>sub A B' by B_2;</code></p>
+    <p>compiles OK, but doesn't really do what I want...</p>
+    <p>does what I'm trying to do make any sense? is it possible?</p>
+    <p>would a better way be to make all my desired glyph combinations as ligature glyphs? (and also make all the individual alternate glyphs separately available)</p>
+    <p>any help would be great</p>
+  html_clean: |-
+    <p>hello...</p>
+    <p>I'm attempting to make a font with some OpenType features for the first time, using Fontlab, and, guess what - it's slightly confusing...</p>
+    <p>what I'd like OpenType to do is:<br>
+    for lots of specific character pairs, substitute pairs of alternate characters</p>
+    <p>so, for example, if someone types 'AB' I'd like OpenType to substitute glyph A_2 followed by glyph B_2...</p>
+    <p>I was kind of thinking I could do this with a contextual alternate feature like</p>
+    <p><code>sub A' B' by A_2 B_2;</code></p>
+    <p>but that doesn't seem to compile</p>
+    <p><code>sub A B' by B_2;</code></p>
+    <p>compiles OK, but doesn't really do what I want...</p>
+    <p>does what I'm trying to do make any sense? is it possible?</p>
+    <p>would a better way be to make all my desired glyph combinations as ligature glyphs? (and also make all the individual alternate glyphs separately available)</p>
+    <p>any help would be great</p>
+comments:
+  - id: 531471
+    user: 1262
+    date: 2012-11-23T12:10:00
+    date_raw: 23 Nov 2012 — 12:10pm
+    votes: null
+    html: |-
+      <p>OpenType doesn't support many-to-many substitutions. So you need to do this as two steps:</p>
+      <p>A -&gt; A.2<br>
+      when followed by B</p>
+      <p>then</p>
+      <p>B -&gt; B.2<br>
+      when preceded by A.2</p>
+    html_clean: |-
+      <p>OpenType doesn't support many-to-many substitutions. So you need to do this as two steps:</p>
+      <p>A -&gt; A.2<br>
+      when followed by B</p>
+      <p>then</p>
+      <p>B -&gt; B.2<br>
+      when preceded by A.2</p>
+  - id: 531501
+    user: 2438
+    date: 2012-11-23T20:10:00
+    date_raw: 23 Nov 2012 — 8:10pm
+    votes: null
+    html: |-
+      <p>In the AFDKO/FontLab syntax, that would translate to:</p>
+      <pre>sub A' B by A.2;
+      sub A.2 B' by B.2;</pre><p>
+      For glyph names, underscores are customarily used to indicate ligatures between two characters, and periods to precede suffixes. Suffixes might also be more descriptive if you have different kinds of alternates– i.e. <code>.alt[x]</code> for general alternates, <code>.swsh[x]</code> for swashes, (where <code>[x]</code> is a numeric index), <code>.smcp</code> for small caps, etc.</p>
+    html_clean: |-
+      <p>In the AFDKO/FontLab syntax, that would translate to:</p>
+      <pre>sub A' B by A.2;
+      sub A.2 B' by B.2;</pre><p>
+      For glyph names, underscores are customarily used to indicate ligatures between two characters, and periods to precede suffixes. Suffixes might also be more descriptive if you have different kinds of alternates– i.e. <code>.alt[x]</code> for general alternates, <code>.swsh[x]</code> for swashes, (where <code>[x]</code> is a numeric index), <code>.smcp</code> for small caps, etc.</p>
+  - id: 531610
+    user: 187995
+    date: 2012-11-24T17:32:00
+    date_raw: 24 Nov 2012 — 5:32pm
+    votes: null
+    html: |-
+      <blockquote><p> OpenType doesn't support many-to-many substitutions.</p></blockquote>
+      <p>Actually it seems to me that OpenType *does* permit m2m substitutions (using GSUB type 5 or 6 lookups) but none of the common tools (VOLT and AFDKO) provide a way to express these such rules.</p>
+      <p>So I've often wondered if rendering engines actually support m2m lookups or not?</p>
+    html_clean: |-
+      <blockquote><p> OpenType doesn't support many-to-many substitutions.</p></blockquote>
+      <p>Actually it seems to me that OpenType *does* permit m2m substitutions (using GSUB type 5 or 6 lookups) but none of the common tools (VOLT and AFDKO) provide a way to express these such rules.</p>
+      <p>So I've often wondered if rendering engines actually support m2m lookups or not?</p>
+  - id: 531623
+    user: 29994
+    date: 2012-11-24T20:14:00
+    date_raw: 24 Nov 2012 — 8:14pm
+    votes: null
+    html: |-
+      <blockquote><p>I've often wondered if rendering engines actually support m2m lookups or not?</p></blockquote>
+      <p>I should <em>really</em> double-check this, but I think InDesign does. I constructed a many-to-many translation with a TTX dump as intermediary.</p>
+    html_clean: |-
+      <blockquote><p>I've often wondered if rendering engines actually support m2m lookups or not?</p></blockquote>
+      <p>I should <em>really</em> double-check this, but I think InDesign does. I constructed a many-to-many translation with a TTX dump as intermediary.</p>
+  - id: 531759
+    user: 5094
+    date: 2012-11-26T06:27:00
+    date_raw: 26 Nov 2012 — 6:27am
+    votes: null
+    html: |-
+      <p><cite>For glyph names, underscores are customarily used to indicate ligatures between two characters</cite></p>
+      <p>More than custom. IIRC, when generating a PDF, that's what the Adobe engine will assume &amp; make happen. So, if you have a glyph named A_B in your font, that glyph will become the two characters A &amp; B in a PDF text stream. (Or, I may not RC...)</p>
+      <p>A period is what you want; everything after the period is dropped. So, "A.(anything)" remains "A".</p>
+    html_clean: |-
+      <p><cite>For glyph names, underscores are customarily used to indicate ligatures between two characters</cite></p>
+      <p>More than custom. IIRC, when generating a PDF, that's what the Adobe engine will assume &amp; make happen. So, if you have a glyph named A_B in your font, that glyph will become the two characters A &amp; B in a PDF text stream. (Or, I may not RC...)</p>
+      <p>A period is what you want; everything after the period is dropped. So, "A.(anything)" remains "A".</p>
+  - id: 531767
+    user: 2438
+    date: 2012-11-26T07:13:00
+    date_raw: 26 Nov 2012 — 7:13am
+    votes: null
+    html: <p>Thanks for elaborating, Charles. That's my understanding as well, but was trying to stay succinct with the naming advice. No doubt the topic has been <a class="freelinking external" href="http://typophile.com/node/33330#comment-200526" rel="nofollow">discussed here before at some point</a>.</p>
+    html_clean: <p>Thanks for elaborating, Charles. That's my understanding as well, but was trying to stay succinct with the naming advice. No doubt the topic has been <a class="freelinking external link-kept" href="/node/33330/#comment-200526" rel="nofollow">discussed here before at some point</a>.</p>
+  - id: 531866
+    user: 5094
+    date: 2012-11-26T19:35:00
+    date_raw: 26 Nov 2012 — 7:35pm
+    votes: null
+    html: |-
+      <p>Publisher A decides to take a book out of print, and sell the rights to publisher B. They supply PDF files, without fonts, of course. Publisher B has to take the text stream &amp; use it for the resetting. </p>
+      <p>And you're trying to be succinct? I've been involved in a few projects where recovering the text was, shall we say (amongst other choice words), expensive. </p>
+      <p>Or did you mean you wouldn't write the code that way, it was just for this example? Don't scare old people like me. Use a period, even in examples.</p>
+    html_clean: |-
+      <p>Publisher A decides to take a book out of print, and sell the rights to publisher B. They supply PDF files, without fonts, of course. Publisher B has to take the text stream &amp; use it for the resetting. </p>
+      <p>And you're trying to be succinct? I've been involved in a few projects where recovering the text was, shall we say (amongst other choice words), expensive. </p>
+      <p>Or did you mean you wouldn't write the code that way, it was just for this example? Don't scare old people like me. Use a period, even in examples.</p>
+  - id: 531887
+    user: 2438
+    date: 2012-11-26T22:52:00
+    date_raw: 26 Nov 2012 — 10:52pm
+    votes: null
+    html: <p>Charles, perhaps I was not clear. I did use a period in my example code, then <em>succinctly</em> advised the original poster to use periods instead of underscores for suffixes, without fully elaborating on the matter. You explained the technical reasons behind this practice, so I thanked you for taking the time to do so (whereas, in my succinctness, I had not) and linked to a more detailed discussion on the topic. So I'm pretty sure we're in agreement.</p>
+    html_clean: <p>Charles, perhaps I was not clear. I did use a period in my example code, then <em>succinctly</em> advised the original poster to use periods instead of underscores for suffixes, without fully elaborating on the matter. You explained the technical reasons behind this practice, so I thanked you for taking the time to do so (whereas, in my succinctness, I had not) and linked to a more detailed discussion on the topic. So I'm pretty sure we're in agreement.</p>
+  - id: 533909
+    user: 203985
+    date: 2012-12-12T01:28:00
+    date_raw: 12 Dec 2012 — 1:28am
+    votes: null
+    html: <p>thanks everyone for your replies and the ensuing discussion... I've realised there was some illogic in what I was trying to do and, in figuring that out, and considering your contributions, I am now somewhat wiser!</p>
+    html_clean: <p>thanks everyone for your replies and the ensuing discussion... I've realised there was some illogic in what I was trying to do and, in figuring that out, and considering your contributions, I am now somewhat wiser!</p>

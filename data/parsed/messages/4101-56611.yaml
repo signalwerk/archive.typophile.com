@@ -1,0 +1,61 @@
+node: 56611
+title: How to do ligatures in Greek in features list
+old_url: http://www.typophile.com/forums/messages/4101/56611.html
+forum:
+  id: 4101
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20041231002411"
+  captured_at: 2004-12-31T00:24:11Z
+  url: http://typophile.com/forums/messages/4101/56611.html
+  digest: WPFJQHVT67Q2VVROYTXVXYTK3YQC7XQ5
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: discus
+  file: data/archives/web.archive.org/files/typophile.com/forums/messages/4101/56611.html
+  fingerprint: be3f577da58c2498
+  parser: b3a5504bf0bf2c65
+  snapshots: 1
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20041231002411"
+      digest: WPFJQHVT67Q2VVROYTXVXYTK3YQC7XQ5
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/forums/messages/4101/56611.html
+post:
+  id: 87481
+  user: 5094
+  date: 2004-12-25T10:25:00
+  date_raw: Saturday, December 25, 2004 - 10:25 am
+  votes: null
+  html: <font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">I&#39;m making a font that has both the Latin characters and Greek characters &#40;including Greek extended&#41;. The rho has a tail, so I need to make a ligature for a rho following a zeta, xi, and chi. Making the glyphs is not the problem. <BR> <BR>No matter how I put these ligatures in the &#42;liga&#42; feature in FontLab, it won&#39;t compile. Obviously, I&#39;m doing something wrong -- can anyone tell me the proper form? <BR> <BR>Oh yes, what is the proper name for a swash small-cap R? R.scswash? <BR> <BR>Thanks, <BR> <BR>Charles</font></font></font></font></font>
+comments:
+  - id: 87488
+    user: 3135
+    date: 2004-12-25T13:00:00
+    date_raw: Saturday, December 25, 2004 - 1:00 pm
+    votes: null
+    html: <font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">Charles, <BR>Post the text of your liga feature so we can see what you did. <BR> <BR>ChrisL</font></font></font></font>
+  - id: 87490
+    user: 5094
+    date: 2004-12-25T13:29:00
+    date_raw: Saturday, December 25, 2004 - 1:29 pm
+    votes: null
+    html: '<font class="dontLookLikeCrap"><font class="dontLookLikeCrap"><font class="dontLookLikeCrap">Actually, what I did was to forget the bloody semicolon at the end of the line. I put it in, &amp; it now compiles &#40;haven�t tested it yet, though&#41;. The features area has REALLY small type in my display. <BR> <BR>BTW, while it compiles, it isn�t really right;I suppose it should be limited to Greek <BR> <BR> <BR>feature liga { # Standard Ligatures <BR> # Latin <BR>    sub hyphen hyphen hyphen hyphen hyphen hyphen hyphen hyphen hyphen by threeemdash; <BR>    sub hyphen hyphen hyphen hyphen hyphen hyphen by twoemdash; <BR>    sub hyphen hyphen hyphen by emdash; <BR>    sub hyphen hyphen by endash; <BR>    sub f f i by f_f_i; <BR>    sub f f l by f_f_l; <BR>    sub f f by f_f; <BR>    sub f i by f_i; <BR>    sub f l by f_l; <BR>    sub f agrave by f_agrave; <BR>    sub f egrave by f_egrave; <BR>    sub f igrave by f_igrave; <BR>    sub f ograve by f_ograve; <BR>    sub f ugrave by f_ugrave; <BR>    sub \uni03B6 \uni03C1 by zeta_rho; <BR>    sub \uni03BE \uni03C1 by xi_rho; <BR>    sub \uni03C7 \uni03C1 by chi_rho; <BR>} liga; <BR> <BR>Thanks in advance, <BR> <BR>Charles</font></font></font>'
+  - id: 87491
+    user: 1262
+    date: 2004-12-25T14:44:00
+    date_raw: Saturday, December 25, 2004 - 2:44 pm
+    votes: null
+    html: '<font class="dontLookLikeCrap">You don&#39;t need the slashes in this context: <BR> <BR> sub uni03B6 uni03C1 by zeta_rho;  <BR> <BR>You only need the slashes when entering glyph names in preview text boxes, and then they should be / not \. <BR> <BR>The backslash is only used for actual Unicode values, e.g. \03B6, again in preview text boxes. <BR> <BR>Try dropping the slashes from your feature code and see if it compiles.</font>'

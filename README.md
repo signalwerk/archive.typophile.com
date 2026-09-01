@@ -47,6 +47,7 @@ Steps can also be run on their own. The archive collection steps (0–4) take
 | 8 | `npm run clean` | derive cleaned HTML and repoint links at recovered files |
 | 9 | `npm run threads` | build the compact thread listing index |
 | 10 | `npm run old-urls` | match pre-Drupal discussion URLs to their node IDs |
+| 11 | `npm run old-messages` | parse unmatched old discussions into a separate corpus |
 
 ## What step 0 re-fetches
 
@@ -341,6 +342,42 @@ could not be assigned to a captured node as `MISSING`; these may have been
 dropped during migration, or their modern page may simply be absent from our
 captures. Genuine multiple-node matches are listed as `AMBIGUOUS`. Modern
 nodes without an old counterpart are deliberately not logged.
+
+Step 11 parses those `MISSING` discussions into
+`data/parsed/messages/<forum-id>-<old-message-id>.yaml`. They use the same raw
+thread shape as step 6 output but stay separate from Drupal nodes. Both legacy
+ids are part of the filename because ten message ids survive under multiple
+forum paths; each URL remains a distinct file rather than colliding.
+
+Archived query-string snapshots are merged by Discus post id rather than
+choosing only one capture. This matters because later snapshots sometimes omit
+posts visible in earlier ones. The newest observation wins for edited posts,
+while older-only posts remain. Snapshots are merged only when they belong to
+the exact same forum/message URL; moved-forum aliases are not merged. The
+current corpus contains 1,029 files and 6,923 recovered posts and replies from
+1,279 parseable snapshots.
+These files contain preserved raw `html`; step 8 and the site do not yet read
+the separate `messages/` corpus.
+
+Each run reconstructs `messages/` from the current step-10 `MISSING` set in a
+staging directory and publishes it only when complete. If a later archive run
+recovers a Drupal node and step 10 can match it, its legacy-only YAML is
+therefore removed on the next step-11 run.
+
+Step 11 learns author mappings from discussions that step 10 matched to Drupal
+nodes. The opening posts are paired by that established thread relation;
+replies are paired only when their local timestamp and normalised body both
+match exactly. A Discus identity is replaced with a Drupal user id only when
+all migrated-post evidence points to one existing user. Display-name similarity
+is never treated as a match.
+
+Identities without migrated-post evidence remain stable string ids and are
+listed once each as `UNRESOLVED_USER` in `messages.log`. Evidence pointing to
+multiple Drupal users is left unchanged and listed as `AMBIGUOUS_USER` with the
+candidate ids. Each line also includes the old profile key, observed names,
+entry count, and discussion count. The current corpus resolves 537 identities
+covering 5,878 entries; 412 identities covering 873 entries are unresolved,
+and five identities covering 172 entries are ambiguous.
 
 ## The site
 

@@ -1,0 +1,373 @@
+node: 98062
+title: Speed Punk available by email
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150323001804"
+  captured_at: 2015-03-23T00:18:04Z
+  url: http://typophile.com:80/node/98062
+  digest: DEG2OWZ2AKVRK555OUM7T47RMKUJGLAX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/98062.html
+  fingerprint: 559a2f66010dc235
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150323001804"
+      digest: DEG2OWZ2AKVRK555OUM7T47RMKUJGLAX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98062.html
+post:
+  id: 98062
+  user: 24931
+  date: 2012-11-13T04:46:00
+  date_raw: 13 Nov 2012 — 4:46am
+  votes: null
+  html: |-
+    <p>Hi type drawing folks,</p>
+    <p>until I manage to finish my new online shop I’ll sell you my visual outline quality checker plugin for <em>Glyphs</em> and <em>RoboFont</em> by email, after you’ve wired $30 or 20€ to <em>post at yanone dot de</em> on PayPal.</p>
+    <p>You’ll receive the plugin for both type editor applications as well as voucher codes for my future online shop so you can register later and receive updates. At this point there are none, though.</p>
+    <p>Here’s a text I’ve recently written about the plugin for a magazine:</p>
+    <p>——</p>
+    <p>Speed Punk is a learning tool. It teaches you to better understand the nature of Bézier curves and their curvature, the technical basis of digital type design. </p>
+    <p>The Bézier curve was developed almost simultaneously by two Frenchmen working in computer aided design (CAD) in the French automobile industry in the early 1960s, Paul de Casteljau working for Citroën and Pierre Bézier working for Renault. De Casteljau is today attributed with the invention, but Citroën decided to keep his research secret until the late ’60s, hence they carry Bézier’s name.<br>
+    The curves play an important role in many areas of industrial design, namely aqua- and aerodynamics, as well as computer animation (smoothly controlling the velocity of an object over time). And of course computer graphics in general and type design in particular, as they provide a memory efficient means of storing illustrations and can easily be scaled and rasterized on the fly for sharp printing on output devices with varying resolutions.</p>
+    <p>Without Bézier curves many things we take for granted wouldn’t be possible. Taking off in a roller coaster from the flat into a perfect circle loop would brake your spine, as the curvature would infinitely increase from the straight line to a fixed amount of curve speed in the circle. Or imagine the impossibility of your car’s steering wheel needing to be turned instantly by a fixed angle from the straight road into a curve. Instead, any moving object turns into a curve progressively, starting with no curvature and slowly increasing it over time.</p>
+    <p>Curvature of cubic Bézier curves (the most commonly used form of the Bézier curves in computer graphics, also part of the PostScript language) is controlled by two off-curve points per curve segment commonly known as “handles” or “vectors”. Pulling one of them will influence the distribution of the curvature of the entire curve segment.</p>
+    <p>Any design more complex than a quarter circle will require the use of several consecutive curve segments, and this is especially true for letter forms. One of the problems the designer is confronted with is to distribute the curvature equally across two joining curve segments, across their shared on-curve point. If the curvature across this point is not continuous, one might see a smaller or bigger dent in the curve on either side of the on-curve point.<br>
+    Curvature continuity is called G2 in mathematical terms as opposed to tangential continuity (G1) where two joining curves have a common tangent in the joining point but no continuous curvature, as opposed to positional continuity (G0) where two curves join but have no common tangent, as opposed to no continuity at all (the curves don’t even join). “While it may be obvious that a curve would require G1 continuity to appear smooth, for good aesthetics, such as those aspired to in architecture and sports car design, higher levels of geometric continuity are required. For example, reflections in a car body will not appear smooth unless the body has G2 continuity.” (Wikipedia)</p>
+    <p>A technical requirement of digital typefaces adds to the type designer’s problem: the necessity of adding on-curve points at the curves’ extremes in both X and Y direction. It is (or was, as some say) necessary to speed up the rasterizer’s glyph arithmetics especially for making glyph bounding box calculation efficient and reliable. But those extremum points will unfortunately in many cases have to be positioned in shape-wise unnatural locations.<br>
+    Take the construction of the letter “o” mimicking a broad nib pen for instance. Wouldn’t it feel natural to position the on-curve points along the contrast axis for the counter or along a mirrored contrast axis for the outline? Instead we have to position the nodes horizontally and vertically in the most awkward spots. This poses the risk of discontinuous curvature.</p>
+    <p>Speed Punk illustrates the curvature on top of the outlines with shapes that stand perpendicular on the outline. This is a technique commonly known from CAD software. The “bigger” the illustration is (the further away from the outline), the higher the curvature is at this point. This way it is easy to judge curvature continuity at on-curve points: if the illustrations are of same distance from the on-curve point (they “meet”), the two curves are of continuous curvature. If you see a jump in the curvature illustration, curvature is discontinuous. Simple. Mathematically speaking the curvature is the first derivative of the curve’s direction and it is being calculated using the general cubic Bézier equation.</p>
+    <p>Another thing to judge other than continuous curvature across on-curve points is the distribution of curvature within curve segments: how loose or tight are the curves themselves? While it is very hard to assess equal curvature on two opposing corners of an “o”, visually comparing the sizes of the curvature illustrations is much easier. As another visual aid, the illustrations’ colors are being interpolated between the highest and lowest measured curvature amounts for each glyph. When the two opposing corners of the “o” have a similar color, their curvature amount is also similar.</p>
+    <p>All of this design trouble, however, will go away with increasing experience of the type designer. Which is why I call it a learning tool.</p>
+    <p>Still with Speed Punk we can observe some interesting anomalies of Bézier curves.<br>
+    Have you ever wondered what the much talked about “inflections” really are? We get taught that a curve’s one handle is not supposed to cross over the other handle’s imaginary continued direction, but why? What this actually means is that the curvature at some point in the curve segment inflects into the negative — the curve becomes an “s” form. However small the amount is — if not intended it should be avoided — another dent is inevitable. In Speed Punk this will show as the curvature illustration crossing over the outline into the other side (in “Outer side of curve” mode) or bounce back from the outline (in “Outside of glyph” mode).<br>
+    There are exceptions, of course. One letter that is supposed to carry two inflections is — not surprisingly — the “s”.<br>
+    The other interesting observation is the curvature of a circle. Theoretically, curvature would be identical all around. So Speed Punk’s illustration would form another circle at a distance. It is known that with no amount of Bézier curve segments can a perfect circle be constructed. The lower the amount of segments, the less perfect the result.<br>
+    A normal circle’s radius constructed of four curve segments will deviate from the exact radius by a maximum of about 0,27 per mill according to my measurements. The curvature starts out at the on-curve point with its minimum, reaching a maximum (highest deviation from exact radius) at about 14 degrees angle, then going back to a medium curvature at 45 degrees, then repeating over in reverse until the end of the segment.</p>
+    <p>Speed Punk lends its name from the curve speed (another term for curvature) and the Mohawk-like shapes that illustrate the curvature on the letter outlines. And it suggests that it’s cool to draw curvature continuous Bézier curves.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/01_4963.png"></div><br>
+    While the top curve may appear to the designer’s eye as continuous at the on-curve point, it is not, indicated by the jump in curvature illustration. Also visible: the general quality of the two top curves differ from the two bottom curves. The top curves show a curvature emphasis in the center of the segment, the bottom curves show emphasis towards the sides.<p></p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/02_4738.png"></div><br>
+    The curvature is continuous throughout this o’s on-curve points. However, the counter’s top right curve segment shows a significantly higher curvature than the lower left segment, indicating an uneven curvature distribution.<p></p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/03_3610.png"></div><br>
+    Visual proof of a geometrically unprecise circle constructed from four cubic Bézier segments. The curvature illustration is far from circular and the interpolated colours clearly indicate the highest and lowest measured curvature.<p></p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/04_5653.png"></div><br>
+    An inflection is where the curvature inflects into the negative — the illustration crosses over the outline. This example segment barely shows a dent. But however small, a dent is inevitable.<p></p>
+  html_clean: |-
+    <p>Hi type drawing folks,</p>
+    <p>until I manage to finish my new online shop I’ll sell you my visual outline quality checker plugin for <em>Glyphs</em> and <em>RoboFont</em> by email, after you’ve wired $30 or 20€ to <em>post at yanone dot de</em> on PayPal.</p>
+    <p>You’ll receive the plugin for both type editor applications as well as voucher codes for my future online shop so you can register later and receive updates. At this point there are none, though.</p>
+    <p>Here’s a text I’ve recently written about the plugin for a magazine:</p>
+    <p>——</p>
+    <p>Speed Punk is a learning tool. It teaches you to better understand the nature of Bézier curves and their curvature, the technical basis of digital type design. </p>
+    <p>The Bézier curve was developed almost simultaneously by two Frenchmen working in computer aided design (CAD) in the French automobile industry in the early 1960s, Paul de Casteljau working for Citroën and Pierre Bézier working for Renault. De Casteljau is today attributed with the invention, but Citroën decided to keep his research secret until the late ’60s, hence they carry Bézier’s name.<br>
+    The curves play an important role in many areas of industrial design, namely aqua- and aerodynamics, as well as computer animation (smoothly controlling the velocity of an object over time). And of course computer graphics in general and type design in particular, as they provide a memory efficient means of storing illustrations and can easily be scaled and rasterized on the fly for sharp printing on output devices with varying resolutions.</p>
+    <p>Without Bézier curves many things we take for granted wouldn’t be possible. Taking off in a roller coaster from the flat into a perfect circle loop would brake your spine, as the curvature would infinitely increase from the straight line to a fixed amount of curve speed in the circle. Or imagine the impossibility of your car’s steering wheel needing to be turned instantly by a fixed angle from the straight road into a curve. Instead, any moving object turns into a curve progressively, starting with no curvature and slowly increasing it over time.</p>
+    <p>Curvature of cubic Bézier curves (the most commonly used form of the Bézier curves in computer graphics, also part of the PostScript language) is controlled by two off-curve points per curve segment commonly known as “handles” or “vectors”. Pulling one of them will influence the distribution of the curvature of the entire curve segment.</p>
+    <p>Any design more complex than a quarter circle will require the use of several consecutive curve segments, and this is especially true for letter forms. One of the problems the designer is confronted with is to distribute the curvature equally across two joining curve segments, across their shared on-curve point. If the curvature across this point is not continuous, one might see a smaller or bigger dent in the curve on either side of the on-curve point.<br>
+    Curvature continuity is called G2 in mathematical terms as opposed to tangential continuity (G1) where two joining curves have a common tangent in the joining point but no continuous curvature, as opposed to positional continuity (G0) where two curves join but have no common tangent, as opposed to no continuity at all (the curves don’t even join). “While it may be obvious that a curve would require G1 continuity to appear smooth, for good aesthetics, such as those aspired to in architecture and sports car design, higher levels of geometric continuity are required. For example, reflections in a car body will not appear smooth unless the body has G2 continuity.” (Wikipedia)</p>
+    <p>A technical requirement of digital typefaces adds to the type designer’s problem: the necessity of adding on-curve points at the curves’ extremes in both X and Y direction. It is (or was, as some say) necessary to speed up the rasterizer’s glyph arithmetics especially for making glyph bounding box calculation efficient and reliable. But those extremum points will unfortunately in many cases have to be positioned in shape-wise unnatural locations.<br>
+    Take the construction of the letter “o” mimicking a broad nib pen for instance. Wouldn’t it feel natural to position the on-curve points along the contrast axis for the counter or along a mirrored contrast axis for the outline? Instead we have to position the nodes horizontally and vertically in the most awkward spots. This poses the risk of discontinuous curvature.</p>
+    <p>Speed Punk illustrates the curvature on top of the outlines with shapes that stand perpendicular on the outline. This is a technique commonly known from CAD software. The “bigger” the illustration is (the further away from the outline), the higher the curvature is at this point. This way it is easy to judge curvature continuity at on-curve points: if the illustrations are of same distance from the on-curve point (they “meet”), the two curves are of continuous curvature. If you see a jump in the curvature illustration, curvature is discontinuous. Simple. Mathematically speaking the curvature is the first derivative of the curve’s direction and it is being calculated using the general cubic Bézier equation.</p>
+    <p>Another thing to judge other than continuous curvature across on-curve points is the distribution of curvature within curve segments: how loose or tight are the curves themselves? While it is very hard to assess equal curvature on two opposing corners of an “o”, visually comparing the sizes of the curvature illustrations is much easier. As another visual aid, the illustrations’ colors are being interpolated between the highest and lowest measured curvature amounts for each glyph. When the two opposing corners of the “o” have a similar color, their curvature amount is also similar.</p>
+    <p>All of this design trouble, however, will go away with increasing experience of the type designer. Which is why I call it a learning tool.</p>
+    <p>Still with Speed Punk we can observe some interesting anomalies of Bézier curves.<br>
+    Have you ever wondered what the much talked about “inflections” really are? We get taught that a curve’s one handle is not supposed to cross over the other handle’s imaginary continued direction, but why? What this actually means is that the curvature at some point in the curve segment inflects into the negative — the curve becomes an “s” form. However small the amount is — if not intended it should be avoided — another dent is inevitable. In Speed Punk this will show as the curvature illustration crossing over the outline into the other side (in “Outer side of curve” mode) or bounce back from the outline (in “Outside of glyph” mode).<br>
+    There are exceptions, of course. One letter that is supposed to carry two inflections is — not surprisingly — the “s”.<br>
+    The other interesting observation is the curvature of a circle. Theoretically, curvature would be identical all around. So Speed Punk’s illustration would form another circle at a distance. It is known that with no amount of Bézier curve segments can a perfect circle be constructed. The lower the amount of segments, the less perfect the result.<br>
+    A normal circle’s radius constructed of four curve segments will deviate from the exact radius by a maximum of about 0,27 per mill according to my measurements. The curvature starts out at the on-curve point with its minimum, reaching a maximum (highest deviation from exact radius) at about 14 degrees angle, then going back to a medium curvature at 45 degrees, then repeating over in reverse until the end of the segment.</p>
+    <p>Speed Punk lends its name from the curve speed (another term for curvature) and the Mohawk-like shapes that illustrate the curvature on the letter outlines. And it suggests that it’s cool to draw curvature continuous Bézier curves.</p>
+    <p></p><div class="imageWrap"><img src="/files/01_4963.png"></div><br>
+    While the top curve may appear to the designer’s eye as continuous at the on-curve point, it is not, indicated by the jump in curvature illustration. Also visible: the general quality of the two top curves differ from the two bottom curves. The top curves show a curvature emphasis in the center of the segment, the bottom curves show emphasis towards the sides.<p></p>
+    <p></p><div class="imageWrap"><img src="/files/02_4738.png"></div><br>
+    The curvature is continuous throughout this o’s on-curve points. However, the counter’s top right curve segment shows a significantly higher curvature than the lower left segment, indicating an uneven curvature distribution.<p></p>
+    <p></p><div class="imageWrap"><img src="/files/03_3610.png"></div><br>
+    Visual proof of a geometrically unprecise circle constructed from four cubic Bézier segments. The curvature illustration is far from circular and the interpolated colours clearly indicate the highest and lowest measured curvature.<p></p>
+    <p></p><div class="imageWrap"><img src="/files/04_5653.png"></div><br>
+    An inflection is where the curvature inflects into the negative — the illustration crosses over the outline. This example segment barely shows a dent. But however small, a dent is inevitable.<p></p>
+comments:
+  - id: 530136
+    user: 54527
+    date: 2012-11-13T06:50:00
+    date_raw: 13 Nov 2012 — 6:50am
+    votes: null
+    html: |-
+      <p>This is awesome! Congrats.<br>
+      I sent you the payment last Sunday. Did you get it?</p>
+    html_clean: |-
+      <p>This is awesome! Congrats.<br>
+      I sent you the payment last Sunday. Did you get it?</p>
+  - id: 530141
+    user: 24931
+    date: 2012-11-13T07:08:00
+    date_raw: 13 Nov 2012 — 7:08am
+    votes: null
+    html: <p>Yes. I just sent you the plugin again to the address you mentioned in the transfer notes. Thank you.</p>
+    html_clean: <p>Yes. I just sent you the plugin again to the address you mentioned in the transfer notes. Thank you.</p>
+  - id: 530144
+    user: 54527
+    date: 2012-11-13T07:43:00
+    date_raw: 13 Nov 2012 — 7:43am
+    votes: null
+    html: |-
+      <p>Thanks, just installed it, and it's already helping me to see new details in my curves.<br>
+      It's mind-blowing!!!</p>
+    html_clean: |-
+      <p>Thanks, just installed it, and it's already helping me to see new details in my curves.<br>
+      It's mind-blowing!!!</p>
+  - id: 530174
+    user: 1250
+    date: 2012-11-13T11:31:00
+    date_raw: 13 Nov 2012 — 11:31am
+    votes: null
+    html: |-
+      <p>Useful and pretty - a rare combination.</p>
+      <p>FontLab support?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Useful and pretty - a rare combination.</p>
+      <p>FontLab support?</p>
+      <p>hhp</p>
+  - id: 530175
+    user: 1043
+    date: 2012-11-13T11:41:00
+    date_raw: 13 Nov 2012 — 11:41am
+    votes: null
+    html: <p>Thanks for the detailed explanation. I understand it much better now.</p>
+    html_clean: <p>Thanks for the detailed explanation. I understand it much better now.</p>
+  - id: 530305
+    user: 181264
+    date: 2012-11-14T11:28:00
+    date_raw: 14 Nov 2012 — 11:28am
+    votes: null
+    html: <p>PC support?</p>
+    html_clean: <p>PC support?</p>
+  - id: 536880
+    user: 172457
+    date: 2013-01-08T00:01:00
+    date_raw: 8 Jan 2013 — 12:01am
+    votes: null
+    html: |-
+      <p>In my past life as an industrial designer I learned 3D modelling and in that world, mathematically perfect continuity is king. When I took my first type design class I was taught to draw in (gasp!) Illustrator and found the lack of curvature continuity analysis tools frustrating. I later moved on to Fontlab and then RoboFont but missed porcupine analysis from my Rhino3D days.<br>
+      Needless to say I fell in love with speedpunk when I hear it existed…</p>
+      <p>Anyways, after that love letter, here are a couple videos explaining continuity and continuity analysis. They're aimed at 3D modellers, but are very understandable and well worth a watch to better grasp what SpeedPunk does and why it makes for nice outlines.</p>
+      <p><a class="freelinking external" href="http://cadjunkie.com/1113/continuity-101" rel="nofollow">http://cadjunkie.com/1113/continuity-101</a></p>
+      <p><a class="freelinking external" href="http://cadjunkie.com/1117/continuity-102-analysis" rel="nofollow">http://cadjunkie.com/1117/continuity-102-analysis</a></p>
+    html_clean: |-
+      <p>In my past life as an industrial designer I learned 3D modelling and in that world, mathematically perfect continuity is king. When I took my first type design class I was taught to draw in (gasp!) Illustrator and found the lack of curvature continuity analysis tools frustrating. I later moved on to Fontlab and then RoboFont but missed porcupine analysis from my Rhino3D days.<br>
+      Needless to say I fell in love with speedpunk when I hear it existed…</p>
+      <p>Anyways, after that love letter, here are a couple videos explaining continuity and continuity analysis. They're aimed at 3D modellers, but are very understandable and well worth a watch to better grasp what SpeedPunk does and why it makes for nice outlines.</p>
+      <p><a class="freelinking external link-external" href="http://cadjunkie.com/1113/continuity-101" rel="nofollow">http://cadjunkie.com/1113/continuity-101</a></p>
+      <p><a class="freelinking external link-external" href="http://cadjunkie.com/1117/continuity-102-analysis" rel="nofollow">http://cadjunkie.com/1117/continuity-102-analysis</a></p>
+  - id: 536922
+    user: 54527
+    date: 2013-01-08T07:40:00
+    date_raw: 8 Jan 2013 — 7:40am
+    votes: null
+    html: <p>Rodrigo, Thanks for sharing those links!</p>
+    html_clean: <p>Rodrigo, Thanks for sharing those links!</p>
+  - id: 536935
+    user: 1250
+    date: 2013-01-08T08:59:00
+    date_raw: 8 Jan 2013 — 8:59am
+    votes: null
+    html: |-
+      <p>Rodrigo, great links. BUT don't forget about Dwiggins... A font, especially a text font, is not a car.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Rodrigo, great links. BUT don't forget about Dwiggins... A font, especially a text font, is not a car.</p>
+      <p>hhp</p>
+  - id: 536964
+    user: 1043
+    date: 2013-01-08T10:38:00
+    date_raw: 8 Jan 2013 — 10:38am
+    votes: null
+    html: <p>It's not that perfect continuity is always the goal, but knowing what's going on with your curves, that they're doing what you mean for them to do, is invaluable.</p>
+    html_clean: <p>It's not that perfect continuity is always the goal, but knowing what's going on with your curves, that they're doing what you mean for them to do, is invaluable.</p>
+  - id: 537493
+    user: 25106
+    date: 2013-01-11T12:14:00
+    date_raw: 11 Jan 2013 — 12:14pm
+    votes: null
+    html: <p>Agree with Hrant. A possible pitfall of this kind of tool (with full respect and appreciation to Yanone's effort) is that it may give the user the wrong assumption that all curves have to be smooth. If you disagree with me, just run Speed Punk on renowned typefaces, especially Adobe ones like Adobe Garamond, Minion, Jenson, Arno, and their italics. Would you say they are bad typefaces because Speed Punk gives you bad results?</p>
+    html_clean: <p>Agree with Hrant. A possible pitfall of this kind of tool (with full respect and appreciation to Yanone's effort) is that it may give the user the wrong assumption that all curves have to be smooth. If you disagree with me, just run Speed Punk on renowned typefaces, especially Adobe ones like Adobe Garamond, Minion, Jenson, Arno, and their italics. Would you say they are bad typefaces because Speed Punk gives you bad results?</p>
+  - id: 537705
+    user: 24931
+    date: 2013-01-13T08:40:00
+    date_raw: 13 Jan 2013 — 8:40am
+    votes: null
+    html: |-
+      <p>I have only learned recently (two years after the first working prototype of Speed Punk) how to properly read the illustrations and make good use of them. Now being even more fascinated by the tool.</p>
+      <p>Today I let myself be carried to the extreme to say that curvature continuity across oncurve points is a necessity! It’s what happens left and right of them and with the curve as a whole (across multiple segments) that makes a difference. What Mark said.<br>
+      Tension and curvature continuity don’t contradict each other.</p>
+      <p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless because the originals to these designs were made without the technical constraints of the Beziér curve. It’s because we are required today to place points in often awkward locations like geometrical extremes why a tool like Speed Punk and curvature continuity is boss.</p>
+      <p>Start paying more attention to the quality of the curvature distribution rather than continuity alone. See first showing above.</p>
+    html_clean: |-
+      <p>I have only learned recently (two years after the first working prototype of Speed Punk) how to properly read the illustrations and make good use of them. Now being even more fascinated by the tool.</p>
+      <p>Today I let myself be carried to the extreme to say that curvature continuity across oncurve points is a necessity! It’s what happens left and right of them and with the curve as a whole (across multiple segments) that makes a difference. What Mark said.<br>
+      Tension and curvature continuity don’t contradict each other.</p>
+      <p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless because the originals to these designs were made without the technical constraints of the Beziér curve. It’s because we are required today to place points in often awkward locations like geometrical extremes why a tool like Speed Punk and curvature continuity is boss.</p>
+      <p>Start paying more attention to the quality of the curvature distribution rather than continuity alone. See first showing above.</p>
+  - id: 537706
+    user: 1250
+    date: 2013-01-13T08:59:00
+    date_raw: 13 Jan 2013 — 8:59am
+    votes: null
+    html: |-
+      <blockquote><p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless</p></blockquote>
+      <p>Agreed.<br>
+      However the references to Calibri (in another recent thread*) and most of all to the M-Formula are not at all pointless. In fact the latter has been a very strong positive force in type design of late (although only among a few**) especially in countering the succubus of chirographic type; the more you move towards the Text end of the Display-Text axis, the more <em>discontinuity</em> (first, second or any derivative) is useful.</p>
+      <p>* <a href="http://typophile.com/node/97783?page=2" title="http://typophile.com/node/97783?page=2">http://typophile.com/node/97783?page=2</a></p>
+      <p>** <a href="http://www.typophile.com/node/96123" title="http://www.typophile.com/node/96123">http://www.typophile.com/node/96123</a></p>
+      <p>All this does not make Speed Punk anti–type-design, and certainly not useless. It's just a tool - it can be used well or poorly. I for one am glad you made it. Just figure out how to make it work on the world's most popular font editor.  ;-)</p>
+      <p>hhp</p>
+    html_clean: |-
+      <blockquote><p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless</p></blockquote>
+      <p>Agreed.<br>
+      However the references to Calibri (in another recent thread*) and most of all to the M-Formula are not at all pointless. In fact the latter has been a very strong positive force in type design of late (although only among a few**) especially in countering the succubus of chirographic type; the more you move towards the Text end of the Display-Text axis, the more <em>discontinuity</em> (first, second or any derivative) is useful.</p>
+      <p>* <a href="/node/97783/" title="http://typophile.com/node/97783?page=2" class="link-kept">http://typophile.com/node/97783?page=2</a></p>
+      <p>** <a href="/node/96123/" title="http://www.typophile.com/node/96123" class="link-kept">http://www.typophile.com/node/96123</a></p>
+      <p>All this does not make Speed Punk anti–type-design, and certainly not useless. It's just a tool - it can be used well or poorly. I for one am glad you made it. Just figure out how to make it work on the world's most popular font editor.  ;-)</p>
+      <p>hhp</p>
+  - id: 537712
+    user: 24931
+    date: 2013-01-13T10:22:00
+    date_raw: 13 Jan 2013 — 10:22am
+    votes: null
+    html: |-
+      <p>I knew people would soon start vivisecting other people’s typefaces :)<br>
+      For laughs I actually wanted to pull this on the initial introduction on Robothon and ask the audience to open fonts I have on my computer.<br>
+      But I forgot it just like showing a few of the other things from the above text due to stage excitement.</p>
+    html_clean: |-
+      <p>I knew people would soon start vivisecting other people’s typefaces :)<br>
+      For laughs I actually wanted to pull this on the initial introduction on Robothon and ask the audience to open fonts I have on my computer.<br>
+      But I forgot it just like showing a few of the other things from the above text due to stage excitement.</p>
+  - id: 537717
+    user: 1262
+    date: 2013-01-13T12:11:00
+    date_raw: 13 Jan 2013 — 12:11pm
+    votes: null
+    html: |-
+      <p>Calibri was built as a quadratic multiple master, and one of the reasons for that was that the rounded corners were too tight to cleanly convert back and forth between cubic and quadratic outlines. So the illustration in the other thread of Speed Punk applied to a converted-to-cubic Calibri outline seems to me not very useful.</p>
+      <p>As Yanone says, Speed Punk -- like Tim Ahren's excellent RMX Harmoniser tool -- is concerned with what happens on either side of a cubic node on a continuous curve. This seems to me to have nothing to do with the so-called M-Formula, Hrant, which is about breaking curves with angles and the resulting relationship of interior and outer shapes.</p>
+    html_clean: |-
+      <p>Calibri was built as a quadratic multiple master, and one of the reasons for that was that the rounded corners were too tight to cleanly convert back and forth between cubic and quadratic outlines. So the illustration in the other thread of Speed Punk applied to a converted-to-cubic Calibri outline seems to me not very useful.</p>
+      <p>As Yanone says, Speed Punk -- like Tim Ahren's excellent RMX Harmoniser tool -- is concerned with what happens on either side of a cubic node on a continuous curve. This seems to me to have nothing to do with the so-called M-Formula, Hrant, which is about breaking curves with angles and the resulting relationship of interior and outer shapes.</p>
+  - id: 537739
+    user: 1250
+    date: 2013-01-13T15:03:00
+    date_raw: 13 Jan 2013 — 3:03pm
+    votes: null
+    html: |-
+      <p>To me the M-Formula isn't just about abrupt breaks - that's merely its most literal implementation; in fact I would say that's its most primitive implementation, and its attenuation is where the gold lies.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>To me the M-Formula isn't just about abrupt breaks - that's merely its most literal implementation; in fact I would say that's its most primitive implementation, and its attenuation is where the gold lies.</p>
+      <p>hhp</p>
+  - id: 537764
+    user: 1262
+    date: 2013-01-13T19:19:00
+    date_raw: 13 Jan 2013 — 7:19pm
+    votes: null
+    html: <p>Which still implies nothing about curve equation maths.</p>
+    html_clean: <p>Which still implies nothing about curve equation maths.</p>
+  - id: 537767
+    user: 1250
+    date: 2013-01-13T19:57:00
+    date_raw: 13 Jan 2013 — 7:57pm
+    votes: null
+    html: |-
+      <p>I could be wrong since I haven't actually used Speed Punk to do a vivisection, dissection or autopsy, but my [strong] hunch is that the more a given outline takes the M-Formula to heart, the more Speed Punk will produce an uneven hairdo.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I could be wrong since I haven't actually used Speed Punk to do a vivisection, dissection or autopsy, but my [strong] hunch is that the more a given outline takes the M-Formula to heart, the more Speed Punk will produce an uneven hairdo.</p>
+      <p>hhp</p>
+  - id: 537773
+    user: 1262
+    date: 2013-01-13T20:50:00
+    date_raw: 13 Jan 2013 — 8:50pm
+    votes: null
+    html: <p>I think you are still not understanding what Speed Punk does. In order for your statement to be true, it would be <em>necessary</em> for curves through nodes in an M-Formula design to be mathematically imbalanced, but that is not the case. What Speed Punk indicates about curves is mostly independent of design, i.e. it indicates how a curve continuing through a node is mathematically defined, not what the shape of the curve is or how it relates to other curves. It might be helpful to look again at the illustrations in Yanone's original post, and to realise that in every case the curves illustrated could be otherwise defined mathematically while retaining their shapes.</p>
+    html_clean: <p>I think you are still not understanding what Speed Punk does. In order for your statement to be true, it would be <em>necessary</em> for curves through nodes in an M-Formula design to be mathematically imbalanced, but that is not the case. What Speed Punk indicates about curves is mostly independent of design, i.e. it indicates how a curve continuing through a node is mathematically defined, not what the shape of the curve is or how it relates to other curves. It might be helpful to look again at the illustrations in Yanone's original post, and to realise that in every case the curves illustrated could be otherwise defined mathematically while retaining their shapes.</p>
+  - id: 537775
+    user: 1250
+    date: 2013-01-13T21:07:00
+    date_raw: 13 Jan 2013 — 9:07pm
+    votes: null
+    html: |-
+      <p>No, I do understand (note that I hold a minor in Numerical Analysis :-). But/so what I wrote is only a hunch. Basically, thinking practically, a good sort of question to ask is: assuming -if only for the sake of argument- that Speed Punk does raise red flags in Turnip's outlines, would David Jonathan Ross (who is an open-minded and modest designer, not a dogmatic or self-important one - at least from what I can tell) agree with the changes he would have to make to lower those flags? Possibly.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>No, I do understand (note that I hold a minor in Numerical Analysis :-). But/so what I wrote is only a hunch. Basically, thinking practically, a good sort of question to ask is: assuming -if only for the sake of argument- that Speed Punk does raise red flags in Turnip's outlines, would David Jonathan Ross (who is an open-minded and modest designer, not a dogmatic or self-important one - at least from what I can tell) agree with the changes he would have to make to lower those flags? Possibly.</p>
+      <p>hhp</p>
+  - id: 537782
+    user: 1262
+    date: 2013-01-13T23:19:00
+    date_raw: 13 Jan 2013 — 11:19pm
+    votes: null
+    html: <p>That's a different sort of question. As Tim Ahren's says regarding RMX Harmoniser -- which automates adjustment of curve smoothness -- don't go to the hospital if you're not sick. If the curves are the way you want them to be, and you are satisfied with the results, changing them to achieve mathematically better balanced smoothness is unnecessary. But that is a different thing from positing a strong hunch that a particular kind of design requires imbalanced curve smoothness. The real question to ask regarding a typeface like Turnip -- or any typeface, really -- and tools like Speed Punk or RMX Harmoniser is whether balancing the smoothness of curves mathematically significantly affects the shapes at all? My experience with RMX Harmoniser is that pretty much any curve involving one or more intermediate nodes can be expressed in a multitude of ways, most imbalanced in one way or another and one that is balanced.</p>
+    html_clean: <p>That's a different sort of question. As Tim Ahren's says regarding RMX Harmoniser -- which automates adjustment of curve smoothness -- don't go to the hospital if you're not sick. If the curves are the way you want them to be, and you are satisfied with the results, changing them to achieve mathematically better balanced smoothness is unnecessary. But that is a different thing from positing a strong hunch that a particular kind of design requires imbalanced curve smoothness. The real question to ask regarding a typeface like Turnip -- or any typeface, really -- and tools like Speed Punk or RMX Harmoniser is whether balancing the smoothness of curves mathematically significantly affects the shapes at all? My experience with RMX Harmoniser is that pretty much any curve involving one or more intermediate nodes can be expressed in a multitude of ways, most imbalanced in one way or another and one that is balanced.</p>
+  - id: 537900
+    user: 1250
+    date: 2013-01-14T07:08:00
+    date_raw: 14 Jan 2013 — 7:08am
+    votes: null
+    html: |-
+      <blockquote><p>whether balancing the smoothness of curves mathematically significantly affects the shapes at all?</p></blockquote>
+      <p>If it doesn't then why use Speed Punk at all?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <blockquote><p>whether balancing the smoothness of curves mathematically significantly affects the shapes at all?</p></blockquote>
+      <p>If it doesn't then why use Speed Punk at all?</p>
+      <p>hhp</p>
+  - id: 537921
+    user: 1262
+    date: 2013-01-14T10:17:00
+    date_raw: 14 Jan 2013 — 10:17am
+    votes: null
+    html: |-
+      <p>1. A curve may have an overall pleasing shape, but may carry even a slight sense of displacement at an intermediate node point. This will become more evident at large sizes, but since we're dealing with scaleable outline technologies, why not optimise the smoothness <em>if smoothness is the effect you are seeking.</em></p>
+      <p>2. I use RMX Harmoniser in part as a tool to check my work, to determine whether the curves I have created are as smooth as I want them to be (again, presuming that smoothness is what I'm after), and I can imagine Speed Punk being similarly used. Both can be useful training aids, helping you understand how smooth curves are best expressed as beziers, and hence improving your use of the tools to achieve your design goals.</p>
+      <p>3. I'm a smooth kinda guy, and I like my curves curvaceous.</p>
+    html_clean: |-
+      <p>1. A curve may have an overall pleasing shape, but may carry even a slight sense of displacement at an intermediate node point. This will become more evident at large sizes, but since we're dealing with scaleable outline technologies, why not optimise the smoothness <em>if smoothness is the effect you are seeking.</em></p>
+      <p>2. I use RMX Harmoniser in part as a tool to check my work, to determine whether the curves I have created are as smooth as I want them to be (again, presuming that smoothness is what I'm after), and I can imagine Speed Punk being similarly used. Both can be useful training aids, helping you understand how smooth curves are best expressed as beziers, and hence improving your use of the tools to achieve your design goals.</p>
+      <p>3. I'm a smooth kinda guy, and I like my curves curvaceous.</p>
+  - id: 537927
+    user: 25106
+    date: 2013-01-14T11:31:00
+    date_raw: 14 Jan 2013 — 11:31am
+    votes: null
+    html: |-
+      <blockquote><p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless because the originals to these designs were made without the technical constraints of the Beziér curve.</p></blockquote>
+      <p>Adobe Garamond is not a metal typeface. It doesn't matter if it's Adobe or not (or whether it is a revival of a metal type or not), it can be any good typeface of which Speed Punk gives a bad result.</p>
+    html_clean: |-
+      <blockquote><p>The cross reference to Garamond, Minion, Jenson, Arno is somewhat pointless because the originals to these designs were made without the technical constraints of the Beziér curve.</p></blockquote>
+      <p>Adobe Garamond is not a metal typeface. It doesn't matter if it's Adobe or not (or whether it is a revival of a metal type or not), it can be any good typeface of which Speed Punk gives a bad result.</p>
+  - id: 539524
+    user: 1250
+    date: 2013-01-22T13:56:00
+    date_raw: 22 Jan 2013 — 1:56pm
+    votes: null
+    html: |-
+      <p>Something just hit me: Speed Punk might be a great tool for deciding where to make stencil cuts.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Something just hit me: Speed Punk might be a great tool for deciding where to make stencil cuts.</p>
+      <p>hhp</p>

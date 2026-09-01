@@ -1,0 +1,70 @@
+node: 9851
+title: "&#34;Bad font&#34; error in Illustrator CS"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140911140018"
+  captured_at: 2014-09-11T14:00:18Z
+  url: http://typophile.com/node/9851
+  digest: ZS6JKWYMTO2IOLZMEMGP4SJVL3QMISW3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/9851.html
+  fingerprint: 1bd2b12ee4c44103
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140911140018"
+      digest: ZS6JKWYMTO2IOLZMEMGP4SJVL3QMISW3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/9851.html
+post:
+  id: 9851
+  user: 1043
+  date: 2005-03-19T07:41:00
+  date_raw: 19 Mar 2005 — 7:41am
+  votes: null
+  html: "<p>I'm developing some OpenType (CFF) fonts in FontLab. Suddenly, I'm getting a strange error when I try to print samples from Illustrator CS: <br> <br>\"Can't print the illustration. There's a bad font used in the document.\" <br> <br>I've looked all over the web, but I can't find any explanation as to what this error means. <br> <br>The font prints fine from InDesign CS. If I save as PDF from Illustrator CS, that prints okay, too.  <br> <br>Certain characters seem to be causing the problem, but it's difficult to say. If I change one word to small caps, it prints. If I change a different word to small caps, it prints. But, if I change both words to small caps, I get the \"bad font\" error. <br> <br>I've tested this on two Macs, so I know it's probably a problem with the font. But what the heck does that error mean? It would be helpful to know what kind of flaw I'm looking for.</p>"
+  html_clean: "<p>I'm developing some OpenType (CFF) fonts in FontLab. Suddenly, I'm getting a strange error when I try to print samples from Illustrator CS: <br> <br>\"Can't print the illustration. There's a bad font used in the document.\" <br> <br>I've looked all over the web, but I can't find any explanation as to what this error means. <br> <br>The font prints fine from InDesign CS. If I save as PDF from Illustrator CS, that prints okay, too.  <br> <br>Certain characters seem to be causing the problem, but it's difficult to say. If I change one word to small caps, it prints. If I change a different word to small caps, it prints. But, if I change both words to small caps, I get the \"bad font\" error. <br> <br>I've tested this on two Macs, so I know it's probably a problem with the font. But what the heck does that error mean? It would be helpful to know what kind of flaw I'm looking for.</p>"
+comments:
+  - id: 62805
+    user: 3135
+    date: 2005-03-19T07:58:00
+    date_raw: 19 Mar 2005 — 7:58am
+    votes: null
+    html: <p>I am assuming that FontLab showed no error mesage when you generated the the font.  Is your "liga" before your "smcp" in the open type panel? And would tere be a ligature in one of the words?</p>
+    html_clean: <p>I am assuming that FontLab showed no error mesage when you generated the the font.  Is your "liga" before your "smcp" in the open type panel? And would tere be a ligature in one of the words?</p>
+  - id: 62806
+    user: 1043
+    date: 2005-03-19T08:25:00
+    date_raw: 19 Mar 2005 — 8:25am
+    votes: null
+    html: "<p>The OT features compile just fine, I'm almost positive it's not related to that. <br> <br>I think I figured it out: I decomposed all the composite characters and merged all the paths and now it works. I like to keep things flexible by using composites and overlapping paths during development, but I guess Illustrator CS is picky about one or both of those things (the composites, most likely). <br> <br>If this is actually what's going on, it's not a big deal because I always do those things as a final step anyway.</p>"
+    html_clean: "<p>The OT features compile just fine, I'm almost positive it's not related to that. <br> <br>I think I figured it out: I decomposed all the composite characters and merged all the paths and now it works. I like to keep things flexible by using composites and overlapping paths during development, but I guess Illustrator CS is picky about one or both of those things (the composites, most likely). <br> <br>If this is actually what's going on, it's not a big deal because I always do those things as a final step anyway.</p>"
+  - id: 62807
+    user: 3135
+    date: 2005-03-19T09:59:00
+    date_raw: 19 Mar 2005 — 9:59am
+    votes: null
+    html: <p>I work the same way with composites.  I sometimes make a copy of my final FontLab file and keep it as composites just in case I need to fix something.  It would be nice if FontLab would decompose and merge on the fly when you output but keep the editing advantage of maintaining composites in your file. <br>BTW, I have also noticedthat AI-CS handles type differently than InD.  The way OT fonts group is not the same and sometimes a weight is ommitted. Maybe Adobe will tighten up there OT look-and-feel amoung their CS apps in the next rev. <br> <br>ChrisL</p>
+    html_clean: <p>I work the same way with composites.  I sometimes make a copy of my final FontLab file and keep it as composites just in case I need to fix something.  It would be nice if FontLab would decompose and merge on the fly when you output but keep the editing advantage of maintaining composites in your file. <br>BTW, I have also noticedthat AI-CS handles type differently than InD.  The way OT fonts group is not the same and sometimes a weight is ommitted. Maybe Adobe will tighten up there OT look-and-feel amoung their CS apps in the next rev. <br> <br>ChrisL</p>
+  - id: 62808
+    user: 1043
+    date: 2005-03-19T10:31:00
+    date_raw: 19 Mar 2005 — 10:31am
+    votes: null
+    html: <p>Illustrator CS handles alternate characters better in one way. You can select a range of text and select Stylistic Alternates from the OpenType palette, similar to the way you apply small caps or discretionary ligatures. In InDesign CS, the only way to get alternate characters is from the Glyph palette, which displays them with a little pop-up menu on characters that have more than one design. But it only works for single characters. It does mean that you can get access when there are multiple alternates, something which you can't do in Illustrator CS. Adobe should have both methods in both programs, as well as a better way to handle multiple alternates. Cycling through would work for me.</p>
+    html_clean: <p>Illustrator CS handles alternate characters better in one way. You can select a range of text and select Stylistic Alternates from the OpenType palette, similar to the way you apply small caps or discretionary ligatures. In InDesign CS, the only way to get alternate characters is from the Glyph palette, which displays them with a little pop-up menu on characters that have more than one design. But it only works for single characters. It does mean that you can get access when there are multiple alternates, something which you can't do in Illustrator CS. Adobe should have both methods in both programs, as well as a better way to handle multiple alternates. Cycling through would work for me.</p>

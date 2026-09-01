@@ -1,0 +1,969 @@
+node: 98031
+title: TrueType outlines as ASCII text
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150426231559"
+  captured_at: 2015-04-26T23:15:59Z
+  url: http://typophile.com/node/98031
+  digest: YRV53ITQ4ZLMEENPSXTRVWJPNZ7OTKE5
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/98031.html
+  fingerprint: d5b447792aaf1160
+  parser: a85d4ab3500d11ea
+pages:
+  total: 2
+  recovered: 2
+  complete: true
+  have:
+    - 0
+    - 1
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150426231559"
+      digest: YRV53ITQ4ZLMEENPSXTRVWJPNZ7OTKE5
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98031.html
+    - page: 1
+      archive: web.archive.org
+      timestamp: "20130822225738"
+      digest: 3RLKFZG6RZOOGITJWBP4DHDVLSMMWJVK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98031__q_page=1.html
+post:
+  id: 98031
+  user: 19493
+  date: 2012-11-12T04:40:00
+  date_raw: 12 Nov 2012 — 4:40am
+  votes: null
+  html: <p>Does anyone know of a way of storing TrueType outlines as human-readable ASCII text that could be easily translated to and from a <code>'glyf'</code> table bytecode? Similar to how PostScript Type 1 code can be assembled/disassembled with Type 1 Utilities or Adobe's FDK. There's of course TTX or GLIF, but I myself wouldn't count that, as they don’t read nor play well in standard Unix toolchain and versioning systems.</p>
+  html_clean: <p>Does anyone know of a way of storing TrueType outlines as human-readable ASCII text that could be easily translated to and from a <code>'glyf'</code> table bytecode? Similar to how PostScript Type 1 code can be assembled/disassembled with Type 1 Utilities or Adobe's FDK. There's of course TTX or GLIF, but I myself wouldn't count that, as they don’t read nor play well in standard Unix toolchain and versioning systems.</p>
+comments:
+  - id: 529985
+    user: 48268
+    date: 2012-11-12T04:53:00
+    date_raw: 12 Nov 2012 — 4:53am
+    votes: null
+    html: <p>Can you offer a more detailed example of your requirements?</p>
+    html_clean: <p>Can you offer a more detailed example of your requirements?</p>
+  - id: 529987
+    user: 21217
+    date: 2012-11-12T05:10:00
+    date_raw: 12 Nov 2012 — 5:10am
+    votes: null
+    html: <p>If you want 100% round trip conversion, I don’t think there is any (certainly not TTX, which can corrupt some OpenType tables badly).</p>
+    html_clean: <p>If you want 100% round trip conversion, I don’t think there is any (certainly not TTX, which can corrupt some OpenType tables badly).</p>
+  - id: 529991
+    user: 16321
+    date: 2012-11-12T05:51:00
+    date_raw: 12 Nov 2012 — 5:51am
+    votes: null
+    html: |-
+      <p>Tried <a href="http://code.google.com/p/sfntly/" title="http://code.google.com/p/sfntly/">http://code.google.com/p/sfntly/</a><br>
+      ?</p>
+    html_clean: |-
+      <p>Tried <a href="http://code.google.com/p/sfntly/" title="http://code.google.com/p/sfntly/" class="link-external">http://code.google.com/p/sfntly/</a><br>
+      ?</p>
+  - id: 530059
+    user: 19493
+    date: 2012-11-12T11:08:00
+    date_raw: 12 Nov 2012 — 11:08am
+    votes: null
+    html: |-
+      <p>I haven't dug into sfntly before, but as I'm reading briefly through the source, it looks like its dumps are only informative and don't print the actual glyph data.</p>
+      <p>Karl, it basically would be as simple as that; a plaintext description of data contained in the <code>'glyf'</code> table that could be compiled and fused into a font binary directly. This would allow for storing and versioning TrueType outlines in a manner similar to PostScript or MetaFont sources. But as Khaled said, there may be no such thing available today, not publicly anyway.</p>
+    html_clean: |-
+      <p>I haven't dug into sfntly before, but as I'm reading briefly through the source, it looks like its dumps are only informative and don't print the actual glyph data.</p>
+      <p>Karl, it basically would be as simple as that; a plaintext description of data contained in the <code>'glyf'</code> table that could be compiled and fused into a font binary directly. This would allow for storing and versioning TrueType outlines in a manner similar to PostScript or MetaFont sources. But as Khaled said, there may be no such thing available today, not publicly anyway.</p>
+  - id: 530060
+    user: 48268
+    date: 2012-11-12T11:28:00
+    date_raw: 12 Nov 2012 — 11:28am
+    votes: null
+    html: <p>Are you experimenting with parametric design?</p>
+    html_clean: <p>Are you experimenting with parametric design?</p>
+  - id: 530076
+    user: 19493
+    date: 2012-11-12T14:07:00
+    date_raw: 12 Nov 2012 — 2:07pm
+    votes: null
+    html: <p>No, I would simply like to have some reasonable storage for native TrueType designs. Keeping all in binary is not very practical. But having more options for working on TrueType curves would be much appreciated indeed. It appears that it becomes more and more undervalued these days.</p>
+    html_clean: <p>No, I would simply like to have some reasonable storage for native TrueType designs. Keeping all in binary is not very practical. But having more options for working on TrueType curves would be much appreciated indeed. It appears that it becomes more and more undervalued these days.</p>
+  - id: 530105
+    user: 48268
+    date: 2012-11-13T02:15:00
+    date_raw: 13 Nov 2012 — 2:15am
+    votes: null
+    html: |-
+      <blockquote><p>It appears that it becomes more and more undervalued these days.</p></blockquote>
+      <p>Judging by some recent discussions I have seen on the matter I think most people would like to see an easier way of working natively with quadratic beziers for drawing, and a more straightforward approach to working natively with TrueType would benefit everyone working with fonts. There still seems to be a significant amount of misunderstanding and even suspicion about the TrueType format even in the type community, which is worrying.</p>
+    html_clean: |-
+      <blockquote><p>It appears that it becomes more and more undervalued these days.</p></blockquote>
+      <p>Judging by some recent discussions I have seen on the matter I think most people would like to see an easier way of working natively with quadratic beziers for drawing, and a more straightforward approach to working natively with TrueType would benefit everyone working with fonts. There still seems to be a significant amount of misunderstanding and even suspicion about the TrueType format even in the type community, which is worrying.</p>
+  - id: 530107
+    user: 2969
+    date: 2012-11-13T02:38:00
+    date_raw: 13 Nov 2012 — 2:38am
+    votes: null
+    html: |-
+      <p>UFO and RoboFont ended this kind of discussion, I thought?</p>
+      <p>Glyphs are stored as text in a UFO and native quad editing is available for no extra charge in RoboFont.</p>
+    html_clean: |-
+      <p>UFO and RoboFont ended this kind of discussion, I thought?</p>
+      <p>Glyphs are stored as text in a UFO and native quad editing is available for no extra charge in RoboFont.</p>
+  - id: 530111
+    user: 48268
+    date: 2012-11-13T03:25:00
+    date_raw: 13 Nov 2012 — 3:25am
+    votes: null
+    html: |-
+      <blockquote><p>UFO and RoboFont ended this kind of discussion, I thought?</p></blockquote>
+      <p>Entirely possible that I am looking at this the wrong way but below are the text results of the same glyph data as taken from a TrueType file decomposed in TTX and then the same taken from the UFO file [EDIT] (generated with FontForge as I do not currently have access to RoboFont):</p>
+      <dl><strong>TTX:</strong>
+      <dl>&lt;TTGlyph name="A" xMin="50" yMin="0" xMax="1698" yMax="1648"&gt;<br>
+      &lt;contour&gt;<br>
+      &lt;pt x="50" y="1648" on="1"/&gt;<br>
+      &lt;pt x="1698" y="1648" on="1"/&gt;<br>
+      &lt;pt x="1698" y="0" on="1"/&gt;<br>
+      &lt;pt x="50" y="0" on="1"/&gt;<br>
+      &lt;/contour&gt;<br>
+      &lt;instructions&gt;&lt;assembly&gt;<br>
+      &lt;/assembly&gt;&lt;/instructions&gt;<br>
+      &lt;/TTGlyph&gt;<br>
+      </dl>
+      <p><strong>UFO:</strong></p>
+      <dl>&lt;glyph name="A" format="1"&gt;<br>
+      &lt;advance width="1748"/&gt;<br>
+        &lt;unicode hex="0041"/&gt;<br>
+        &lt;outline&gt;<br>
+          &lt;contour&gt;<br>
+            &lt;point x="50" y="1648" type="line" smooth="no"/&gt;<br>
+            &lt;point x="1698" y="1648" type="line" smooth="no"/&gt;<br>
+            &lt;point x="1698" y="0" type="line" smooth="no"/&gt;<br>
+            &lt;point x="50" y="0" type="line" smooth="no"/&gt;<br>
+          &lt;/contour&gt;<br>
+        &lt;/outline&gt;<br>
+      &lt;/glyph&gt;<br>
+      </dl>
+      </dl>
+      <p>Grzegorz, is the second set of data any easier to parse?</p>
+    html_clean: |-
+      <blockquote><p>UFO and RoboFont ended this kind of discussion, I thought?</p></blockquote>
+      <p>Entirely possible that I am looking at this the wrong way but below are the text results of the same glyph data as taken from a TrueType file decomposed in TTX and then the same taken from the UFO file [EDIT] (generated with FontForge as I do not currently have access to RoboFont):</p>
+      <dl><strong>TTX:</strong>
+      <dl>&lt;TTGlyph name="A" xMin="50" yMin="0" xMax="1698" yMax="1648"&gt;<br>
+      &lt;contour&gt;<br>
+      &lt;pt x="50" y="1648" on="1"/&gt;<br>
+      &lt;pt x="1698" y="1648" on="1"/&gt;<br>
+      &lt;pt x="1698" y="0" on="1"/&gt;<br>
+      &lt;pt x="50" y="0" on="1"/&gt;<br>
+      &lt;/contour&gt;<br>
+      &lt;instructions&gt;&lt;assembly&gt;<br>
+      &lt;/assembly&gt;&lt;/instructions&gt;<br>
+      &lt;/TTGlyph&gt;<br>
+      </dl>
+      <p><strong>UFO:</strong></p>
+      <dl>&lt;glyph name="A" format="1"&gt;<br>
+      &lt;advance width="1748"/&gt;<br>
+        &lt;unicode hex="0041"/&gt;<br>
+        &lt;outline&gt;<br>
+          &lt;contour&gt;<br>
+            &lt;point x="50" y="1648" type="line" smooth="no"/&gt;<br>
+            &lt;point x="1698" y="1648" type="line" smooth="no"/&gt;<br>
+            &lt;point x="1698" y="0" type="line" smooth="no"/&gt;<br>
+            &lt;point x="50" y="0" type="line" smooth="no"/&gt;<br>
+          &lt;/contour&gt;<br>
+        &lt;/outline&gt;<br>
+      &lt;/glyph&gt;<br>
+      </dl>
+      </dl>
+      <p>Grzegorz, is the second set of data any easier to parse?</p>
+  - id: 530114
+    user: 48268
+    date: 2012-11-13T03:47:00
+    date_raw: 13 Nov 2012 — 3:47am
+    votes: null
+    html: <p>Also, have you experimented with <a class="freelinking external" href="http://www.microsoft.com/typography/tools/tools.aspx" rel="nofollow">Microsoft's TTFdump</a> tool?</p>
+    html_clean: <p>Also, have you experimented with <a class="freelinking external link-external" href="http://www.microsoft.com/typography/tools/tools.aspx" rel="nofollow">Microsoft's TTFdump</a> tool?</p>
+  - id: 530128
+    user: 19493
+    date: 2012-11-13T05:34:00
+    date_raw: 13 Nov 2012 — 5:34am
+    votes: null
+    html: |-
+      <p>Both TTX and UFO would be same easy or same hard to parse if you like. I just wouldn’t consider UFO a mature format, particularly not a format that would be closely tied to any of the target technologies in the industry, i.e., either PostScript or TrueType. It’s the lowest common denominator between the two and while this can be useful in an early work environment, it makes it bad for fine-tuning and storage.</p>
+      <p>In fact, TTX would be more adequate for the job, but it’s still a bulky XML/Python combo and the tool itself appears not to be maintained any more. I haven’t had any access to Microsoft’s software lately, so I can’t tell nothing about TTFDump.</p>
+    html_clean: |-
+      <p>Both TTX and UFO would be same easy or same hard to parse if you like. I just wouldn’t consider UFO a mature format, particularly not a format that would be closely tied to any of the target technologies in the industry, i.e., either PostScript or TrueType. It’s the lowest common denominator between the two and while this can be useful in an early work environment, it makes it bad for fine-tuning and storage.</p>
+      <p>In fact, TTX would be more adequate for the job, but it’s still a bulky XML/Python combo and the tool itself appears not to be maintained any more. I haven’t had any access to Microsoft’s software lately, so I can’t tell nothing about TTFDump.</p>
+  - id: 530131
+    user: 48268
+    date: 2012-11-13T06:01:00
+    date_raw: 13 Nov 2012 — 6:01am
+    votes: null
+    html: |-
+      <blockquote><p>I haven’t had any access to Microsoft’s software lately, so I can’t tell nothing about TTFDump.</p></blockquote>
+      <p>There appears to be a Linux distribution as well, either independent of or tied to TeX but I have not been able to get that or the Windows version working.</p>
+    html_clean: |-
+      <blockquote><p>I haven’t had any access to Microsoft’s software lately, so I can’t tell nothing about TTFDump.</p></blockquote>
+      <p>There appears to be a Linux distribution as well, either independent of or tied to TeX but I have not been able to get that or the Windows version working.</p>
+  - id: 530132
+    user: 48268
+    date: 2012-11-13T06:05:00
+    date_raw: 13 Nov 2012 — 6:05am
+    votes: null
+    html: <p>There appears to be a <a class="freelinking external" href="http://fontforge.org/fontutils.html" rel="nofollow">FontForge specific utility called ShowTTF</a> but <a class="freelinking external" href="http://typophile.com/node/98051#comment-530116" rel="nofollow">I am not sure how to make it work with my Mac installation of FontForge</a>.</p>
+    html_clean: <p>There appears to be a <a class="freelinking external link-external" href="http://fontforge.org/fontutils.html" rel="nofollow">FontForge specific utility called ShowTTF</a> but <a class="freelinking external link-kept" href="/node/98051/#comment-530116" rel="nofollow">I am not sure how to make it work with my Mac installation of FontForge</a>.</p>
+  - id: 530135
+    user: 21217
+    date: 2012-11-13T06:46:00
+    date_raw: 13 Nov 2012 — 6:46am
+    votes: null
+    html: <p>TeX Live’s ttfdump, is a different utility not related to Microsoft one, and it only dumps TTf files (the tables it understands), but can not compile them back.</p>
+    html_clean: <p>TeX Live’s ttfdump, is a different utility not related to Microsoft one, and it only dumps TTf files (the tables it understands), but can not compile them back.</p>
+  - id: 530138
+    user: 48268
+    date: 2012-11-13T06:51:00
+    date_raw: 13 Nov 2012 — 6:51am
+    votes: null
+    html: |-
+      <blockquote><p>TeX Live’s ttfdump, is a different utility not related to Microsoft one, and it only dumps TTf files (the tables it understands), but can not compile them back.</p></blockquote>
+      <p>Thank you, Khaled. The Google searches were getting increasingly confusing!</p>
+    html_clean: |-
+      <blockquote><p>TeX Live’s ttfdump, is a different utility not related to Microsoft one, and it only dumps TTf files (the tables it understands), but can not compile them back.</p></blockquote>
+      <p>Thank you, Khaled. The Google searches were getting increasingly confusing!</p>
+  - id: 530165
+    user: 29994
+    date: 2012-11-13T10:29:00
+    date_raw: 13 Nov 2012 — 10:29am
+    votes: null
+    html: |-
+      <p>Grzegorz, in essence TrueType font outlines are points, connected with lines. It's hard to describe that in any "easy readable" way.</p>
+      <p>Can you make up a sample of what sort of output you'd like to see?<br>
+      Keep in mind there is a limit to "human readabilty" if you want it to be able to be compiled back into a font as well.</p>
+    html_clean: |-
+      <p>Grzegorz, in essence TrueType font outlines are points, connected with lines. It's hard to describe that in any "easy readable" way.</p>
+      <p>Can you make up a sample of what sort of output you'd like to see?<br>
+      Keep in mind there is a limit to "human readabilty" if you want it to be able to be compiled back into a font as well.</p>
+  - id: 530167
+    user: 64594
+    date: 2012-11-13T10:49:00
+    date_raw: 13 Nov 2012 — 10:49am
+    votes: null
+    html: |-
+      <p>I think it's worth mentioning that FontForge's format, ".sfd", is plain-text. And FontForge's author also wrote some tools to do diff and merge for .sfd files. Even without the extra utilities, it goes well with Git and diff and is fairly human readable.</p>
+      <p>However, I don't think converting a font to .sfd and back will generate exactly the same thing...</p>
+    html_clean: |-
+      <p>I think it's worth mentioning that FontForge's format, ".sfd", is plain-text. And FontForge's author also wrote some tools to do diff and merge for .sfd files. Even without the extra utilities, it goes well with Git and diff and is fairly human readable.</p>
+      <p>However, I don't think converting a font to .sfd and back will generate exactly the same thing...</p>
+  - id: 530176
+    user: 2969
+    date: 2012-11-13T11:46:00
+    date_raw: 13 Nov 2012 — 11:46am
+    votes: null
+    html: |-
+      <p>"I... wouldn’t consider UFO a mature format... not a format that would be closely tied to any of the target technologies in the industry... the lowest common denominator between PostScript or TrueType... bad for fine-tuning and storage."</p>
+      <p>It's upside-down day. ;)</p>
+    html_clean: |-
+      <p>"I... wouldn’t consider UFO a mature format... not a format that would be closely tied to any of the target technologies in the industry... the lowest common denominator between PostScript or TrueType... bad for fine-tuning and storage."</p>
+      <p>It's upside-down day. ;)</p>
+  - id: 530214
+    user: 19493
+    date: 2013-12-17T15:21:00
+    date_raw: 17 Dec 2013 — 3:21pm
+    votes: null
+    html: |-
+      <blockquote><p>In essence TrueType font outlines are points, connected with lines. It's hard to describe that in any "easy readable" way.</p></blockquote>
+      <p>The thing is, the way those points are stored in the <code>glyf</code> table is full of techniques for making it spectacularly space efficient. It’s those tricks that could be translated without a loss into some concise syntax, and be reassembled byte-for-byte.</p>
+    html_clean: |-
+      <blockquote><p>In essence TrueType font outlines are points, connected with lines. It's hard to describe that in any "easy readable" way.</p></blockquote>
+      <p>The thing is, the way those points are stored in the <code>glyf</code> table is full of techniques for making it spectacularly space efficient. It’s those tricks that could be translated without a loss into some concise syntax, and be reassembled byte-for-byte.</p>
+  - id: 555382
+    user: 19493
+    date: 2013-12-17T15:31:00
+    date_raw: 17 Dec 2013 — 3:31pm
+    votes: null
+    html: <p>I’ll be doing some prototyping in the near future of a simple assembler/disassembler to test some example syntax I’m thinking of.</p>
+    html_clean: <p>I’ll be doing some prototyping in the near future of a simple assembler/disassembler to test some example syntax I’m thinking of.</p>
+  - id: 555449
+    user: 3320
+    date: 2013-05-27T18:57:00
+    date_raw: 27 May 2013 — 6:57pm
+    votes: null
+    html: |-
+      <blockquote><p>In fact, TTX would be more adequate for the job, but it’s still a bulky XML/Python combo and the tool itself appears not to be maintained any more. </p></blockquote>
+      <p>The UFO format (which is a close relation of TTX) is ideal for storing font data in a readable form, and converting back to binary.</p>
+      <p>Having a readable form of binary data means a hefty overhead in size compared to the original binary form, and a relatively high resource demand when trying to interpret the readable form.</p>
+    html_clean: |-
+      <blockquote><p>In fact, TTX would be more adequate for the job, but it’s still a bulky XML/Python combo and the tool itself appears not to be maintained any more. </p></blockquote>
+      <p>The UFO format (which is a close relation of TTX) is ideal for storing font data in a readable form, and converting back to binary.</p>
+      <p>Having a readable form of binary data means a hefty overhead in size compared to the original binary form, and a relatively high resource demand when trying to interpret the readable form.</p>
+  - id: 555481
+    user: 1262
+    date: 2013-05-28T05:22:00
+    date_raw: 28 May 2013 — 5:22am
+    votes: null
+    html: <p>Yes, which is the main reason that I'm not crazy about UFO as a working format. For a small Latin font, it isn't so bad, but for a large multiscript font the file size and the resource demands are unattractive. As an archive format, however, UFO is a great idea.</p>
+    html_clean: <p>Yes, which is the main reason that I'm not crazy about UFO as a working format. For a small Latin font, it isn't so bad, but for a large multiscript font the file size and the resource demands are unattractive. As an archive format, however, UFO is a great idea.</p>
+  - id: 555547
+    user: 19493
+    date: 2013-12-17T15:34:00
+    date_raw: 17 Dec 2013 — 3:34pm
+    votes: null
+    html: |-
+      <blockquote><p>The UFO format […] is ideal for storing font data in a readable form, and converting back to binary.</p></blockquote>
+      <p>Malcolm, I have to disagree. It’s not an ideal archive nor conversion format. It’s pretty primitive in what it can represent and how, thus it’s bulky, and it loses much of the production details of both PostScript/CFF and TrueType binaries. For now, lack of any kind of hinting representation is probably the most notorious example.</p>
+      <p>I think the unbeatable format for developing or archiving fonts with PostScript outlines is a raw PostScript Type 1 code. Type 1 is an acknowledged and stable technology in the industry, with lots of freely available utilities such as the good old Type 1 Utilities. It’s also a format that has code-like qualities: it’s plain text that is concise and can be edited by hand, versioned and manipulated with standard Unix tools and filters. Furthermore, it translates practically losslessly into the CFF in an OpenType binary.</p>
+      <p>Real-life example: I have a bunch of PFAs I want to merge with Adobe's <code>mergeFonts</code> utility and bake a final OTF with <code>makeotf</code>. Before that, I have to wipe out any encodings in the PFAs to avoid conflicts on merge. So I disassemble them into raw Type 1 code with <code>t1disasm</code>, pipe it through <code>sed</code> with a simple regex, and assemble back into PFAs with <code>t1asm</code>, all in a single command:</p>
+      <p><code>t1disasm enc.pfa | sed '/^dup [0-9][0-9]* \/..* put$/d' | t1asm --pfa &gt; notdef.pfa</code></p>
+      <p>This is the simplest case I could think of now; please see, for example, the build script of my Kontrapunkt Pro project at <a href="https://github.com/grzegorzrolek/kontrapunkt-pro/" title="https://github.com/grzegorzrolek/kontrapunkt-pro/">https://github.com/grzegorzrolek/kontrapunkt-pro/</a> for a much broader illustration.</p>
+      <p>Now, TrueType outlines have no representation like that. Few people have mentioned TTX, but it’s still an XML that’s bulky by itself and that’s hard to parse or edit, either by hand or any standard Unix utility. What’s more, it doesn’t represent TrueType’s binary data close enough to make it a one-to-one conversion format.</p>
+    html_clean: |-
+      <blockquote><p>The UFO format […] is ideal for storing font data in a readable form, and converting back to binary.</p></blockquote>
+      <p>Malcolm, I have to disagree. It’s not an ideal archive nor conversion format. It’s pretty primitive in what it can represent and how, thus it’s bulky, and it loses much of the production details of both PostScript/CFF and TrueType binaries. For now, lack of any kind of hinting representation is probably the most notorious example.</p>
+      <p>I think the unbeatable format for developing or archiving fonts with PostScript outlines is a raw PostScript Type 1 code. Type 1 is an acknowledged and stable technology in the industry, with lots of freely available utilities such as the good old Type 1 Utilities. It’s also a format that has code-like qualities: it’s plain text that is concise and can be edited by hand, versioned and manipulated with standard Unix tools and filters. Furthermore, it translates practically losslessly into the CFF in an OpenType binary.</p>
+      <p>Real-life example: I have a bunch of PFAs I want to merge with Adobe's <code>mergeFonts</code> utility and bake a final OTF with <code>makeotf</code>. Before that, I have to wipe out any encodings in the PFAs to avoid conflicts on merge. So I disassemble them into raw Type 1 code with <code>t1disasm</code>, pipe it through <code>sed</code> with a simple regex, and assemble back into PFAs with <code>t1asm</code>, all in a single command:</p>
+      <p><code>t1disasm enc.pfa | sed '/^dup [0-9][0-9]* \/..* put$/d' | t1asm --pfa &gt; notdef.pfa</code></p>
+      <p>This is the simplest case I could think of now; please see, for example, the build script of my Kontrapunkt Pro project at <a href="https://github.com/grzegorzrolek/kontrapunkt-pro/" title="https://github.com/grzegorzrolek/kontrapunkt-pro/" class="link-external">https://github.com/grzegorzrolek/kontrapunkt-pro/</a> for a much broader illustration.</p>
+      <p>Now, TrueType outlines have no representation like that. Few people have mentioned TTX, but it’s still an XML that’s bulky by itself and that’s hard to parse or edit, either by hand or any standard Unix utility. What’s more, it doesn’t represent TrueType’s binary data close enough to make it a one-to-one conversion format.</p>
+  - id: 555677
+    user: 19493
+    date: 2013-05-29T15:46:00
+    date_raw: 29 May 2013 — 3:46pm
+    votes: null
+    html: <p>It just occurred to me that the disassembly in the example above is actually redundant, as the encoding in Type 1 fonts is obviously in the plain text part of the file. Still, the whole idea applies.</p>
+    html_clean: <p>It just occurred to me that the disassembly in the example above is actually redundant, as the encoding in Type 1 fonts is obviously in the plain text part of the file. Still, the whole idea applies.</p>
+  - id: 555833
+    user: 3320
+    date: 2013-05-30T18:53:00
+    date_raw: 30 May 2013 — 6:53pm
+    votes: null
+    html: |-
+      <blockquote><p>What’s more, it doesn’t represent TrueType’s binary data close enough to make it a one-to-one conversion format.</p></blockquote>
+      <p>Showing TrueType bytecode in a reasonably understandable 'Human Readable' form is difficult. </p>
+      <p>There are some programs that can compile text-like ascii into bytecode, but I don't know any that can decompile the bytecode into a reasonably understandable text-like syntax that can be easily edited by hand and then recompiled back to bytecode. Perhaps others here know of such a tool.</p>
+      <p>Font developers will often use two or three different programs to create their source data (one for outlines, another for hinting and another for OT Features, perhaps another for kerning...). It's down to careful management to keep the sources aligned so they can be easily recovered for further work.</p>
+    html_clean: |-
+      <blockquote><p>What’s more, it doesn’t represent TrueType’s binary data close enough to make it a one-to-one conversion format.</p></blockquote>
+      <p>Showing TrueType bytecode in a reasonably understandable 'Human Readable' form is difficult. </p>
+      <p>There are some programs that can compile text-like ascii into bytecode, but I don't know any that can decompile the bytecode into a reasonably understandable text-like syntax that can be easily edited by hand and then recompiled back to bytecode. Perhaps others here know of such a tool.</p>
+      <p>Font developers will often use two or three different programs to create their source data (one for outlines, another for hinting and another for OT Features, perhaps another for kerning...). It's down to careful management to keep the sources aligned so they can be easily recovered for further work.</p>
+  - id: 555838
+    user: 2969
+    date: 2013-05-30T21:27:00
+    date_raw: 30 May 2013 — 9:27pm
+    votes: null
+    html: |-
+      <p>"Perhaps others here know of such a tool."</p>
+      <p>Yes. But this turns out to be something quite extraordinary to develop. The combination of reading and writing all of the tables of  OT fonts, with all the parsing, UIs and compiling required for the multitude of possible human interactions, formats and user-driven derivatives, has historically been... well, read this thread. Guy posts a query on the best way to store TT outlines, and with little or no encouragement, ends up satisfied that type 1 fonts are nirvana. I've read it 100 times and such incomplete thinking has been thoroughly proven.</p>
+    html_clean: |-
+      <p>"Perhaps others here know of such a tool."</p>
+      <p>Yes. But this turns out to be something quite extraordinary to develop. The combination of reading and writing all of the tables of  OT fonts, with all the parsing, UIs and compiling required for the multitude of possible human interactions, formats and user-driven derivatives, has historically been... well, read this thread. Guy posts a query on the best way to store TT outlines, and with little or no encouragement, ends up satisfied that type 1 fonts are nirvana. I've read it 100 times and such incomplete thinking has been thoroughly proven.</p>
+  - id: 555853
+    user: 83217
+    date: 2013-05-31T03:45:00
+    date_raw: 31 May 2013 — 3:45am
+    votes: null
+    html: "<p>It may be that the best best way is to use both SFD and TTX formats, both of which are text. SFD is FontForge's native format, but since FF tends to drop tables it doesn't understand, saving these as TTX should help. Mind, the chances that the recovered font will be exactly like the original are exactly three: Fat, slim and none.</p>"
+    html_clean: "<p>It may be that the best best way is to use both SFD and TTX formats, both of which are text. SFD is FontForge's native format, but since FF tends to drop tables it doesn't understand, saving these as TTX should help. Mind, the chances that the recovered font will be exactly like the original are exactly three: Fat, slim and none.</p>"
+  - id: 555895
+    user: 1262
+    date: 2013-05-31T11:44:00
+    date_raw: 31 May 2013 — 11:44am
+    votes: null
+    html: |-
+      <p>It seems pretty obvious to me that the ideal archive format -- and probably the ideal source format* -- for a TrueType font is ... a TrueType font. Now, obviously, this is the answer to a different question than 'What is the ideal archive format for a digital typeface design?', so we should be clear what we're asking about, and why.</p>
+      <p>I'm still haunted by the memory of standing in the non-Latin archive room at Linotype when it was being prepared for transfer to the University of Reading, and looking at the shelves of archive tape media of early digital type, realising that there were no machines that could read the tapes. [At Reading, Gerry Leonidas was able to track down a company that still makes the special filing cabinets to hold the large hanging files used for Linotype's paper drawings; I think the tapes were junked.]</p>
+      <p>* The sfnt table structure seems to me such an obviously good source format. It enables you to store most data natively in the target font format, and if you want to store independent source data, e.g. visual hints, you can always include private tables that can be read by font tools. This is how VTT and VOLT already work: the .ttf is the source file, and the tool data is stored in private tables until the font is 'shipped'. The Microsoft math font tool goes one better, and simply writes and reads the MATH table directly, which seems a good option for any tool that doesn't need to present the user with data that isn't written to the final font tables.</p>
+    html_clean: |-
+      <p>It seems pretty obvious to me that the ideal archive format -- and probably the ideal source format* -- for a TrueType font is ... a TrueType font. Now, obviously, this is the answer to a different question than 'What is the ideal archive format for a digital typeface design?', so we should be clear what we're asking about, and why.</p>
+      <p>I'm still haunted by the memory of standing in the non-Latin archive room at Linotype when it was being prepared for transfer to the University of Reading, and looking at the shelves of archive tape media of early digital type, realising that there were no machines that could read the tapes. [At Reading, Gerry Leonidas was able to track down a company that still makes the special filing cabinets to hold the large hanging files used for Linotype's paper drawings; I think the tapes were junked.]</p>
+      <p>* The sfnt table structure seems to me such an obviously good source format. It enables you to store most data natively in the target font format, and if you want to store independent source data, e.g. visual hints, you can always include private tables that can be read by font tools. This is how VTT and VOLT already work: the .ttf is the source file, and the tool data is stored in private tables until the font is 'shipped'. The Microsoft math font tool goes one better, and simply writes and reads the MATH table directly, which seems a good option for any tool that doesn't need to present the user with data that isn't written to the final font tables.</p>
+  - id: 555896
+    user: 1262
+    date: 2013-05-31T11:53:00
+    date_raw: 31 May 2013 — 11:53am
+    votes: null
+    html: <p>[I realise that my last post is a bit of an aside from the main conversation, since Grzegorz isn't looking for an archive or even a source format but what might be termed a transformation format. Sometimes I just feel like saying things, though.]</p>
+    html_clean: <p>[I realise that my last post is a bit of an aside from the main conversation, since Grzegorz isn't looking for an archive or even a source format but what might be termed a transformation format. Sometimes I just feel like saying things, though.]</p>
+  - id: 555910
+    user: 19493
+    date: 2013-05-31T14:35:00
+    date_raw: 31 May 2013 — 2:35pm
+    votes: null
+    html: |-
+      <blockquote><p>Grzegorz isn’t looking for an archive or even a source format but what might be termed a transformation format.</p></blockquote>
+      <p>You have one, you have the others. The purpose is the same: a textual translation that is fully reversible and lossless. Something that Eric S. Raymond in The Art of Unix Programming calls a <em>textualization</em>:</p>
+      <blockquote><p>[Textualizers] degrade the [binary] representation as little as possible — in fact, they translate it reversibly and losslessly. This property is very important, and worth implementing even if there is no obvious application demand for that kind of 100% fidelity. It gives potential users confidence that they can experiment without degrading their data.</p></blockquote>
+      <p>It also gives enough flexibility and precision to make fonts that push the technology to its extremes, something that just can’t be done with regular font editors, which make many assumptions behind your back, which make cross-format generalizations, et cetera.</p>
+      <p>I once read on FontForge’s mailing list George Williams himself saying that TrueType binary is indeed a good, if not best, format for storing the TrueType font, exactly because all the data is in there. But still, you can’t edit the binary without an editor while staying completely sane, and by using the editor you lose the flexibility, you lose the precision and the confidence.</p>
+    html_clean: |-
+      <blockquote><p>Grzegorz isn’t looking for an archive or even a source format but what might be termed a transformation format.</p></blockquote>
+      <p>You have one, you have the others. The purpose is the same: a textual translation that is fully reversible and lossless. Something that Eric S. Raymond in The Art of Unix Programming calls a <em>textualization</em>:</p>
+      <blockquote><p>[Textualizers] degrade the [binary] representation as little as possible — in fact, they translate it reversibly and losslessly. This property is very important, and worth implementing even if there is no obvious application demand for that kind of 100% fidelity. It gives potential users confidence that they can experiment without degrading their data.</p></blockquote>
+      <p>It also gives enough flexibility and precision to make fonts that push the technology to its extremes, something that just can’t be done with regular font editors, which make many assumptions behind your back, which make cross-format generalizations, et cetera.</p>
+      <p>I once read on FontForge’s mailing list George Williams himself saying that TrueType binary is indeed a good, if not best, format for storing the TrueType font, exactly because all the data is in there. But still, you can’t edit the binary without an editor while staying completely sane, and by using the editor you lose the flexibility, you lose the precision and the confidence.</p>
+  - id: 555958
+    user: 19493
+    date: 2013-12-17T15:18:00
+    date_raw: 17 Dec 2013 — 3:18pm
+    votes: null
+    html: |-
+      <p>Here are two illustrations why TrueType outline’s binary data would make a distinct textual representation, and how it could be useful.</p>
+      <p>First. In the binary, each coordinate have corresponding bit flags telling about its properties. Particular combination of those flags indicate, for example, that a coordinate is stored as a single byte (a short version), or as two bytes (long). In an ideal situation all coordinates that could be stored as single bytes would be stored as so, and the rest would be stored as two bytes. In that case, a textual disassembler could make those default assumptions and represent the point (an off-curve one) simply as:</p>
+      <p><strong>point off</strong> x y</p>
+      <p>But some font editors or converters could make a lousy job of this optimization (as few system fonts on my machine I’ve tested happen to have it wrong with offsets in the compound glyphs). In that case the point would have a hint (or a cast if you prefer) and therefore look like this:</p>
+      <p><strong>point off (x-long)</strong> x y</p>
+      <p>You could just leave it as such, and the assembler would force the coordinate to be stored as a long value in the output bytecode, thus making a lossless round-trip conversion back into the original binary as nothing ever happened. But you could also delete the "long" cast and allow the assembler to build it with the default behavior, thus giving you a properly optimized version of the font.</p>
+      <p>Second. Flags that are exactly the same for a given series of points are not repeated, but are indicated to be repeated a number of times to save space in the binary. This could be presented as:</p>
+      <p><strong>point off</strong> x y, x′ y′, x″ y″</p>
+      <p>Now because in the binary, contour breaks are independent of both point and flag listings, this optimization can continue even with a contour boundary, giving a representation like so:</p>
+      <p><strong>point off</strong> x y, <strong>end</strong> x′ y′, x″ y″</p>
+      <p>This would be different than points with flags that are same but made explicit for each point in the binary:</p>
+      <p><code><strong>point off</strong> x y<br>
+      <strong>point off end</strong> x′ y′<br>
+      <strong>point off</strong> x″ y″</code></p>
+      <p>Formats like TTX or UFO store contours as separated lists of points, thus make the two scenarios indistinguishable and some of the binary data simply gets lost.</p>
+    html_clean: |-
+      <p>Here are two illustrations why TrueType outline’s binary data would make a distinct textual representation, and how it could be useful.</p>
+      <p>First. In the binary, each coordinate have corresponding bit flags telling about its properties. Particular combination of those flags indicate, for example, that a coordinate is stored as a single byte (a short version), or as two bytes (long). In an ideal situation all coordinates that could be stored as single bytes would be stored as so, and the rest would be stored as two bytes. In that case, a textual disassembler could make those default assumptions and represent the point (an off-curve one) simply as:</p>
+      <p><strong>point off</strong> x y</p>
+      <p>But some font editors or converters could make a lousy job of this optimization (as few system fonts on my machine I’ve tested happen to have it wrong with offsets in the compound glyphs). In that case the point would have a hint (or a cast if you prefer) and therefore look like this:</p>
+      <p><strong>point off (x-long)</strong> x y</p>
+      <p>You could just leave it as such, and the assembler would force the coordinate to be stored as a long value in the output bytecode, thus making a lossless round-trip conversion back into the original binary as nothing ever happened. But you could also delete the "long" cast and allow the assembler to build it with the default behavior, thus giving you a properly optimized version of the font.</p>
+      <p>Second. Flags that are exactly the same for a given series of points are not repeated, but are indicated to be repeated a number of times to save space in the binary. This could be presented as:</p>
+      <p><strong>point off</strong> x y, x′ y′, x″ y″</p>
+      <p>Now because in the binary, contour breaks are independent of both point and flag listings, this optimization can continue even with a contour boundary, giving a representation like so:</p>
+      <p><strong>point off</strong> x y, <strong>end</strong> x′ y′, x″ y″</p>
+      <p>This would be different than points with flags that are same but made explicit for each point in the binary:</p>
+      <p><code><strong>point off</strong> x y<br>
+      <strong>point off end</strong> x′ y′<br>
+      <strong>point off</strong> x″ y″</code></p>
+      <p>Formats like TTX or UFO store contours as separated lists of points, thus make the two scenarios indistinguishable and some of the binary data simply gets lost.</p>
+  - id: 555960
+    user: 2969
+    date: 2013-06-01T06:22:00
+    date_raw: 1 Jun 2013 — 6:22am
+    votes: null
+    html: |-
+      <p>"I'm still haunted by the memory of standing in the non-Latin archive room at Linotype [...] looking at the shelves of archive tape media of early digital type, realising that there were no machines that could read the tapes"</p>
+      <p>:) But we still go to the archives of the drawings those tapes came from, which made it pretty obvious to me that the ideal archive format for a typeface style is not a TrueType or Type1 font, or the "lowest common denominator" or even the highest, but the richest and most attractive format to type developers of typeface families. </p>
+      <p>A fully hinted TT glyph can have all the information of a Linotype drawing. The representation of that, and the charts that accompanied the folios of drawings, can be held in private sfnt tables, but you don't want your source data the way sfnt's are: good for picking which tables to deal with this century, and which to deal with next century. Founders have complete and immediate needs, as we know. </p>
+      <p>This includes storing everything from the ideals of a <em>typeface</em> to the size instances of each glyph,  <em>and</em> how they all (styles and glyphs) work together <em>size dependently</em>. Not any TrueType or Type1 fonts I know of can do that, so how to store all this sfntishly? (especially when one don't need to...)</p>
+    html_clean: |-
+      <p>"I'm still haunted by the memory of standing in the non-Latin archive room at Linotype [...] looking at the shelves of archive tape media of early digital type, realising that there were no machines that could read the tapes"</p>
+      <p>:) But we still go to the archives of the drawings those tapes came from, which made it pretty obvious to me that the ideal archive format for a typeface style is not a TrueType or Type1 font, or the "lowest common denominator" or even the highest, but the richest and most attractive format to type developers of typeface families. </p>
+      <p>A fully hinted TT glyph can have all the information of a Linotype drawing. The representation of that, and the charts that accompanied the folios of drawings, can be held in private sfnt tables, but you don't want your source data the way sfnt's are: good for picking which tables to deal with this century, and which to deal with next century. Founders have complete and immediate needs, as we know. </p>
+      <p>This includes storing everything from the ideals of a <em>typeface</em> to the size instances of each glyph,  <em>and</em> how they all (styles and glyphs) work together <em>size dependently</em>. Not any TrueType or Type1 fonts I know of can do that, so how to store all this sfntishly? (especially when one don't need to...)</p>
+  - id: 555980
+    user: 19571
+    date: 2013-06-01T14:21:00
+    date_raw: 1 Jun 2013 — 2:21pm
+    votes: null
+    html: |-
+      <p>Most of the discussion above seems to dodge the issue. The issue is having an assembly language representation of the table contents. I would suggest writing one if none exists and one wants it.</p>
+      <p>I would suggest it would be easiest to write such a thing as an s-expression language, the way Knuth did for tools like TFTOPL and PLTOTF, and to use Scheme or Common Lisp as the programming language, although s-expressions are easily handled in other languages. In Lisps there is no need to write a parser for s-expressions; you just read them in. (Expect to see Guile, a GNU Scheme implementation, gaining popularity as a programming language over coming years.)</p>
+    html_clean: |-
+      <p>Most of the discussion above seems to dodge the issue. The issue is having an assembly language representation of the table contents. I would suggest writing one if none exists and one wants it.</p>
+      <p>I would suggest it would be easiest to write such a thing as an s-expression language, the way Knuth did for tools like TFTOPL and PLTOTF, and to use Scheme or Common Lisp as the programming language, although s-expressions are easily handled in other languages. In Lisps there is no need to write a parser for s-expressions; you just read them in. (Expect to see Guile, a GNU Scheme implementation, gaining popularity as a programming language over coming years.)</p>
+  - id: 555981
+    user: 19571
+    date: 2013-06-01T14:27:00
+    date_raw: 1 Jun 2013 — 2:27pm
+    votes: null
+    html: <p>One might also look at how cubic splines are written in Metafont for ideas about compact but human readable representations of quadratic splines expressed in glorious detail. You can specify control points explicitly and still have great readability.</p>
+    html_clean: <p>One might also look at how cubic splines are written in Metafont for ideas about compact but human readable representations of quadratic splines expressed in glorious detail. You can specify control points explicitly and still have great readability.</p>
+  - id: 556023
+    user: 16849
+    date: 2013-06-02T10:37:00
+    date_raw: 2 Jun 2013 — 10:37am
+    votes: null
+    html: |-
+      <p><em>(Expect to see Guile, a GNU Scheme implementation, gaining popularity as a programming language over coming years.)</em></p>
+      <p>I'm curious what evidence you see pointing to this trend. </p>
+      <p><em>It seems pretty obvious to me that the ideal archive format ... for a TrueType font is... a TrueType font.</em></p>
+      <p>I agree. </p>
+      <p><em> -- and probably the ideal source format ... The sfnt table structure seems to me such an obviously good source format. It enables you to store most data natively in the target font format, and if you want to store independent source data, e.g. visual hints, you can always include private tables that can be read by font tools. This is how VTT and VOLT already work</em></p>
+      <p>I disagree; source ought not be binary.</p>
+    html_clean: |-
+      <p><em>(Expect to see Guile, a GNU Scheme implementation, gaining popularity as a programming language over coming years.)</em></p>
+      <p>I'm curious what evidence you see pointing to this trend. </p>
+      <p><em>It seems pretty obvious to me that the ideal archive format ... for a TrueType font is... a TrueType font.</em></p>
+      <p>I agree. </p>
+      <p><em> -- and probably the ideal source format ... The sfnt table structure seems to me such an obviously good source format. It enables you to store most data natively in the target font format, and if you want to store independent source data, e.g. visual hints, you can always include private tables that can be read by font tools. This is how VTT and VOLT already work</em></p>
+      <p>I disagree; source ought not be binary.</p>
+  - id: 556031
+    user: 1262
+    date: 2013-06-02T11:50:00
+    date_raw: 2 Jun 2013 — 11:50am
+    votes: null
+    html: |-
+      <p><em>...source ought not be binary</em></p>
+      <p>What if the binary is better documented than existing source formats, has the advantage that it can be interpreted by multiple tools rather than being limited to one particular tool or programming language, can be translated to and from multiple transformation formats, and is designed in such a way that it can store any amount of non-compiled source data, including private data? In the case of things like VTT and VOLT source tables, we're really talking about source data that can travel with the binary, rather than a source/binary unification.</p>
+    html_clean: |-
+      <p><em>...source ought not be binary</em></p>
+      <p>What if the binary is better documented than existing source formats, has the advantage that it can be interpreted by multiple tools rather than being limited to one particular tool or programming language, can be translated to and from multiple transformation formats, and is designed in such a way that it can store any amount of non-compiled source data, including private data? In the case of things like VTT and VOLT source tables, we're really talking about source data that can travel with the binary, rather than a source/binary unification.</p>
+  - id: 556039
+    user: 8664
+    date: 2013-06-02T13:09:00
+    date_raw: 2 Jun 2013 — 1:09pm
+    votes: null
+    html: "<p>@Dave: As regards the private tables, at least, VOLT data and afaik VTT data too are not binary but text. And reading/writing tables from sfnt structure fonts is trivial. As regards all others, the question is whether a) design/production data is meant to be condensed, with final/binary data to be extracted from it with help of additional mechanisms, or whether b) design/production data and final/binary data are essentially the same in terms of content and structure, demanding only light conversion when generating the latter out of the former. In case of a), a TTF is not a good design/production/archive format, containing too much and redundant data. In case of b), it is. And the way fonts are produced today basically reflects b), if alone because font editors work that way.</p>"
+    html_clean: "<p>@Dave: As regards the private tables, at least, VOLT data and afaik VTT data too are not binary but text. And reading/writing tables from sfnt structure fonts is trivial. As regards all others, the question is whether a) design/production data is meant to be condensed, with final/binary data to be extracted from it with help of additional mechanisms, or whether b) design/production data and final/binary data are essentially the same in terms of content and structure, demanding only light conversion when generating the latter out of the former. In case of a), a TTF is not a good design/production/archive format, containing too much and redundant data. In case of b), it is. And the way fonts are produced today basically reflects b), if alone because font editors work that way.</p>"
+  - id: 556078
+    user: 83217
+    date: 2013-06-03T06:11:00
+    date_raw: 3 Jun 2013 — 6:11am
+    votes: null
+    html: <p>Unfortunately, today's version control systems are geared for text, not binary. Zaps (binary diffs) are a sorta lost art, I'm afraid.</p>
+    html_clean: <p>Unfortunately, today's version control systems are geared for text, not binary. Zaps (binary diffs) are a sorta lost art, I'm afraid.</p>
+  - id: 556086
+    user: 1688
+    date: 2013-06-03T09:51:00
+    date_raw: 3 Jun 2013 — 9:51am
+    votes: null
+    html: |-
+      <p>After all these years I’m very pleased with the IKARUS format for data storage and font generation still. And being there for almost 40 years, it has proved its resistance to the time. If everything goes well, the new OS X / Windows / Linux editor will support the storage of quadratic splines and hinting also. And it will support manual digitizing. Yippee!</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>After all these years I’m very pleased with the IKARUS format for data storage and font generation still. And being there for almost 40 years, it has proved its resistance to the time. If everything goes well, the new OS X / Windows / Linux editor will support the storage of quadratic splines and hinting also. And it will support manual digitizing. Yippee!</p>
+      <p>FEB</p>
+  - id: 557890
+    user: 1133
+    date: 2013-06-21T06:47:00
+    date_raw: 21 Jun 2013 — 6:47am
+    votes: null
+    html: |-
+      <p>I'll give my word of support for TTX. It's not free of flaws, and is XML (which Grzegorz seems to particularly dislike), but in my opinion is currently the by far closest to Grzegorz's aims. </p>
+      <p>I've been working with TTX for a long time now. You need to consider two aspects: there is the .ttx format, and there is the fontTools/TTX suite of tools, written in Python. </p>
+      <p>The .ttx format is, perhaps unfortunately, not documented by means other than the source code in Python. But this by itself may not be a big problem, because fontTools/TTX essentially defines a *transformation path* from the binary SFNT structure to human-readable XML, and back. And, after all, it is the binary SFNT structure that remains *canonical* in terms of the specification. The .ttx format is, and will remain, dependent on the binary structure — not the other way around. </p>
+      <p>Contrary to what Grzegorz suggests, fontTools/TTX is being maintained. The SFNT structure doesn't change much, because the OpenType font format doesn't change hugely. But whenever a new version of the OpenType format was published, fontTools/TTX was typically patched quite quickly. Adobe have been using fontTools/TTX extensively in AFDKO, and contributed a lot of code to fontTools/TTX. So in fact, if you use Adobe FDK for OpenType, you're using fontTools/TTX already anyway. </p>
+      <p>One great missing thing of relevance today is fontTools/TTX modules (and therefore the .ttx format) for the AAT tables. Apart from that, all is well supported. </p>
+      <p>There are a few SFNT tables where I use .ttx as my source format when I build fonts, "name" table being one of the most prominent. </p>
+      <p>Grzegorz, if you manage, perhaps, to overcome your dislike of Python and XML —&nbsp;I think you'd do the community a great service, should you decide to contribute some code to fontTools/TTX, or build something around it :) </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>I'll give my word of support for TTX. It's not free of flaws, and is XML (which Grzegorz seems to particularly dislike), but in my opinion is currently the by far closest to Grzegorz's aims. </p>
+      <p>I've been working with TTX for a long time now. You need to consider two aspects: there is the .ttx format, and there is the fontTools/TTX suite of tools, written in Python. </p>
+      <p>The .ttx format is, perhaps unfortunately, not documented by means other than the source code in Python. But this by itself may not be a big problem, because fontTools/TTX essentially defines a *transformation path* from the binary SFNT structure to human-readable XML, and back. And, after all, it is the binary SFNT structure that remains *canonical* in terms of the specification. The .ttx format is, and will remain, dependent on the binary structure — not the other way around. </p>
+      <p>Contrary to what Grzegorz suggests, fontTools/TTX is being maintained. The SFNT structure doesn't change much, because the OpenType font format doesn't change hugely. But whenever a new version of the OpenType format was published, fontTools/TTX was typically patched quite quickly. Adobe have been using fontTools/TTX extensively in AFDKO, and contributed a lot of code to fontTools/TTX. So in fact, if you use Adobe FDK for OpenType, you're using fontTools/TTX already anyway. </p>
+      <p>One great missing thing of relevance today is fontTools/TTX modules (and therefore the .ttx format) for the AAT tables. Apart from that, all is well supported. </p>
+      <p>There are a few SFNT tables where I use .ttx as my source format when I build fonts, "name" table being one of the most prominent. </p>
+      <p>Grzegorz, if you manage, perhaps, to overcome your dislike of Python and XML —&nbsp;I think you'd do the community a great service, should you decide to contribute some code to fontTools/TTX, or build something around it :) </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 557893
+    user: 1133
+    date: 2013-06-21T06:57:00
+    date_raw: 21 Jun 2013 — 6:57am
+    votes: null
+    html: |-
+      <p>Ps. When comparing .ufo with .ttx, one could say that .ufo requires "smart" tools while .ttx works with "dumb" tools. I.e. the transformation from .ufo to a final font requires a complex toolchain and there is no straightforward path which would guarantee that one .ufo would give you a particular .otf or .ttf. In other words, .ufo operates on an abstract level, and lots of information that has to go into .otf or .ttf is not included in .ufo, and therefore needs to be "invented" by the tool. On the other hand, .ttx operates on a lower level, and really is a very straightforward representation of .otf or .ttf. In other words, one could have a very different tool for compiling .ttx into .otf/.ttf, written in a different language -- but the results of the conversion would be the same. So the .ttx-to-.ttf process really is a straightforward combination, and it's a *stable* process. The .ufo-to-.ttf conversion is, well, something like going from HTML to PDF —&nbsp;lots of decisions need to happen in the software and those decisions are not "stable" in the sense of "not predetermined". </p>
+      <p>For example, the same .ufo will yield you very different .ttf files depending on what software you use to convert (FontForge, Glyphs, RoboFont, TransType 4). But that's the nature of .ufo, as it's intended to be high-level, and deliberately leaves various decisions to tools.</p>
+    html_clean: |-
+      <p>Ps. When comparing .ufo with .ttx, one could say that .ufo requires "smart" tools while .ttx works with "dumb" tools. I.e. the transformation from .ufo to a final font requires a complex toolchain and there is no straightforward path which would guarantee that one .ufo would give you a particular .otf or .ttf. In other words, .ufo operates on an abstract level, and lots of information that has to go into .otf or .ttf is not included in .ufo, and therefore needs to be "invented" by the tool. On the other hand, .ttx operates on a lower level, and really is a very straightforward representation of .otf or .ttf. In other words, one could have a very different tool for compiling .ttx into .otf/.ttf, written in a different language -- but the results of the conversion would be the same. So the .ttx-to-.ttf process really is a straightforward combination, and it's a *stable* process. The .ufo-to-.ttf conversion is, well, something like going from HTML to PDF —&nbsp;lots of decisions need to happen in the software and those decisions are not "stable" in the sense of "not predetermined". </p>
+      <p>For example, the same .ufo will yield you very different .ttf files depending on what software you use to convert (FontForge, Glyphs, RoboFont, TransType 4). But that's the nature of .ufo, as it's intended to be high-level, and deliberately leaves various decisions to tools.</p>
+  - id: 557998
+    user: 19493
+    date: 2013-06-22T18:05:00
+    date_raw: 22 Jun 2013 — 6:05pm
+    votes: null
+    html: |-
+      <blockquote><p>It’s not free of flaws, and is XML (which Grzegorz seems to particularly dislike)…</p></blockquote>
+      <p>I dislike XML only insofar as it’s a <em>markup</em>, whereas fonts are <em>data</em>. Markup languages indeed are yet unbeaten technology if we consider, well, markup — description of documents of mixed content and loose structure. But using a markup-like language for describing plain data is an overkill both syntactically and processing-wise. I suppose XML is being used almost instinctively because of its familiarity and the parsers available in most programming languages out there, but this doesn’t mean it’s always a best choice for a given problem domain. Think the XML vs. JSON debate from a few years back.</p>
+      <p>Given the open architecture of the <code>sfnt</code>, I can imagine a development format that would involve all the basic, or native, languages for each type of technology being used in a font. That would be:</p>
+      <ul>
+      <li>Type 2 Charstring for PostScript outlines</li>
+      <li>the feature file language for OpenType Layout</li>
+      <li>respective input files of AAT and Graphite technologies.</li>
+      </ul>
+      <p>They are all great for hand editing, machine parsing, versioning and storage, and they all compile directly and losslessly into the font binary. These files and their compilers could give a basic, very reliable and flexible workflow. Different kind of programs, either filter-like or more abstract editors, could be built on top of that and used interchangeably. In fact, that’s exactly what UFO got right originally: a set of separate, domain-specific files. But it fell short with GLIF and Property Lists: a weak outline format, and a can of worms in <em>ad hoc</em> plist data, respectively. Swap all this for a native “language” for the core TrueType tables, including the <code>glyf</code> data and the hinting bytecode, and the image above is complete.</p>
+    html_clean: |-
+      <blockquote><p>It’s not free of flaws, and is XML (which Grzegorz seems to particularly dislike)…</p></blockquote>
+      <p>I dislike XML only insofar as it’s a <em>markup</em>, whereas fonts are <em>data</em>. Markup languages indeed are yet unbeaten technology if we consider, well, markup — description of documents of mixed content and loose structure. But using a markup-like language for describing plain data is an overkill both syntactically and processing-wise. I suppose XML is being used almost instinctively because of its familiarity and the parsers available in most programming languages out there, but this doesn’t mean it’s always a best choice for a given problem domain. Think the XML vs. JSON debate from a few years back.</p>
+      <p>Given the open architecture of the <code>sfnt</code>, I can imagine a development format that would involve all the basic, or native, languages for each type of technology being used in a font. That would be:</p>
+      <ul>
+      <li>Type 2 Charstring for PostScript outlines</li>
+      <li>the feature file language for OpenType Layout</li>
+      <li>respective input files of AAT and Graphite technologies.</li>
+      </ul>
+      <p>They are all great for hand editing, machine parsing, versioning and storage, and they all compile directly and losslessly into the font binary. These files and their compilers could give a basic, very reliable and flexible workflow. Different kind of programs, either filter-like or more abstract editors, could be built on top of that and used interchangeably. In fact, that’s exactly what UFO got right originally: a set of separate, domain-specific files. But it fell short with GLIF and Property Lists: a weak outline format, and a can of worms in <em>ad hoc</em> plist data, respectively. Swap all this for a native “language” for the core TrueType tables, including the <code>glyf</code> data and the hinting bytecode, and the image above is complete.</p>
+  - id: 558013
+    user: 1133
+    date: 2013-06-23T05:30:00
+    date_raw: 23 Jun 2013 — 5:30am
+    votes: null
+    html: |-
+      <p>Grzegorz, </p>
+      <p>I hear what you're saying. However, I feel that you may be focusing too much on the color of the summer jacket. I mean, we're looking for a suitable piece of clothing for the right climate. Let's say SFNT is chilly summer weather. The .ttx format may have a somewhat out-of-fashion color or stylization, but at least it is a summer jacket. It's not a winter jacket nor a bathing suit. It is a good summer jacket, actually, it fits well and does the job. OK, it may be a bit out of fashion now — but is fashion a good criterion for making such choices?</p>
+      <p>.ttx was created in the time when XML was "the new thing" and was thought to be "a great method to express everything in human-readable text form". Sure, we do know now that it may not be a perfect fit for everything, and perhaps a different notation could be *marginally* better for a human-readable source form of SFNT. </p>
+      <p>But it really *is* good. When developing fontTools/TTX, Just van Rossum put *a lot* of thought into the best possible representation of various SFNT fields, and I agree with like 99.5% of his choices. I like .ttx much more than .ufo. I feel that .ufo overuses the .plist concept, which may be simpler to process but is not very readable. All those "key"/"array" alternations — they don't read well, and are just meaningless overhead. "Key key key key", "array array array array". That could be expressed much more elegantly in something simpler, like JSON. </p>
+      <p>But with .ttx, it's different. I do like the fact that the element names are meaningful, that in most cases data is expressed using elements rather than attributes, because it allows to visualize the ordering of various SFNT data structures very closely. </p>
+      <p>Let me put it this way: for years, I could not make sense of what SFNT looks like. I did not understand the format, I could not visualize it in my head. The moment I decompiled a .ttf into .ttx using fontTools/TTX, I had a revelation. I finally got it. Within an instance. I only had such a moment once before, when I understood how computers work after learning some simple 6502 assembler in Atari 130XE :) </p>
+      <p>.ttx has been used in many many projects by a large number of font developers. It's been tested with thousands of fonts (actually, tens of thousands). fontTools/TTX is practically bug-free and very, very stable. The data structure for each table is very well designed, it follows the SFNT structure quite natively, with just a few exceptions, where they actually make sense. </p>
+      <p>It even makes sense that it uses ISO 8859-1 rather than UTF-8 (really, it does). </p>
+      <p>It's certainly not a "self-compiling" format, i.e. it does not provide all the inherent structure within the data (so that the compiler could be completely "stupid" and the same routine could work for all tables). Perhaps you're looking for something like that? I don't know. </p>
+      <p>As I said, apart from some missing tables, for which support would be hugely welcome, and better documentation — both the fontTools/TTX and .ttx are actually close to perfection. Just van Rossum is a very modest man, but I think his development of fontTools/TTX and the .ttx format stand among the greatest achievements within font technology. Thanks to Python, it works everywhere, is easy and elegant to work with. In fact, the seemingly low maintenance of the code these days can really be attributed to its stability. Most "biggies" are done, all small things are also done, and it just works. </p>
+      <p>There are a few things that aren't done, they're all "biggies" — like AAT support. Since Apple is currently the largest computer company, the worldwide deployment of AAT "consuming" platforms is quite huge (especially due to iOS). When fontTools/TTX was started, the importance of AAT was marginal, and OpenType Layout was seemingly the only thing of interest. Today, it's much less so. So I'd be very grateful if anyone stepped up and contributed AAT support to fontTools/TTX. </p>
+      <p>But other than that — I personally think that developing "something completely different" from scratch to rival with .ttx is a waste of energy. Again, this is just my personal view. </p>
+      <p>.ttx does the job, is a very good low-level source format that compiles into SFNT natively, works well with versioning systems, is well designed, elegant, easily readable (among the easiest XML formats I know), solid, stable, and — in my personal opinion — rather beautiful. </p>
+      <p>If Just van Rossum is reading this — Just, I can say to you again what I've said several times: thank you, thank you, and once again, thank you. This piece of software you've written has allowed me to do things with fonts that I would have otherwise not been able to achieve. On countless occasions. </p>
+      <p>Roger,<br>
+      A.</p>
+    html_clean: |-
+      <p>Grzegorz, </p>
+      <p>I hear what you're saying. However, I feel that you may be focusing too much on the color of the summer jacket. I mean, we're looking for a suitable piece of clothing for the right climate. Let's say SFNT is chilly summer weather. The .ttx format may have a somewhat out-of-fashion color or stylization, but at least it is a summer jacket. It's not a winter jacket nor a bathing suit. It is a good summer jacket, actually, it fits well and does the job. OK, it may be a bit out of fashion now — but is fashion a good criterion for making such choices?</p>
+      <p>.ttx was created in the time when XML was "the new thing" and was thought to be "a great method to express everything in human-readable text form". Sure, we do know now that it may not be a perfect fit for everything, and perhaps a different notation could be *marginally* better for a human-readable source form of SFNT. </p>
+      <p>But it really *is* good. When developing fontTools/TTX, Just van Rossum put *a lot* of thought into the best possible representation of various SFNT fields, and I agree with like 99.5% of his choices. I like .ttx much more than .ufo. I feel that .ufo overuses the .plist concept, which may be simpler to process but is not very readable. All those "key"/"array" alternations — they don't read well, and are just meaningless overhead. "Key key key key", "array array array array". That could be expressed much more elegantly in something simpler, like JSON. </p>
+      <p>But with .ttx, it's different. I do like the fact that the element names are meaningful, that in most cases data is expressed using elements rather than attributes, because it allows to visualize the ordering of various SFNT data structures very closely. </p>
+      <p>Let me put it this way: for years, I could not make sense of what SFNT looks like. I did not understand the format, I could not visualize it in my head. The moment I decompiled a .ttf into .ttx using fontTools/TTX, I had a revelation. I finally got it. Within an instance. I only had such a moment once before, when I understood how computers work after learning some simple 6502 assembler in Atari 130XE :) </p>
+      <p>.ttx has been used in many many projects by a large number of font developers. It's been tested with thousands of fonts (actually, tens of thousands). fontTools/TTX is practically bug-free and very, very stable. The data structure for each table is very well designed, it follows the SFNT structure quite natively, with just a few exceptions, where they actually make sense. </p>
+      <p>It even makes sense that it uses ISO 8859-1 rather than UTF-8 (really, it does). </p>
+      <p>It's certainly not a "self-compiling" format, i.e. it does not provide all the inherent structure within the data (so that the compiler could be completely "stupid" and the same routine could work for all tables). Perhaps you're looking for something like that? I don't know. </p>
+      <p>As I said, apart from some missing tables, for which support would be hugely welcome, and better documentation — both the fontTools/TTX and .ttx are actually close to perfection. Just van Rossum is a very modest man, but I think his development of fontTools/TTX and the .ttx format stand among the greatest achievements within font technology. Thanks to Python, it works everywhere, is easy and elegant to work with. In fact, the seemingly low maintenance of the code these days can really be attributed to its stability. Most "biggies" are done, all small things are also done, and it just works. </p>
+      <p>There are a few things that aren't done, they're all "biggies" — like AAT support. Since Apple is currently the largest computer company, the worldwide deployment of AAT "consuming" platforms is quite huge (especially due to iOS). When fontTools/TTX was started, the importance of AAT was marginal, and OpenType Layout was seemingly the only thing of interest. Today, it's much less so. So I'd be very grateful if anyone stepped up and contributed AAT support to fontTools/TTX. </p>
+      <p>But other than that — I personally think that developing "something completely different" from scratch to rival with .ttx is a waste of energy. Again, this is just my personal view. </p>
+      <p>.ttx does the job, is a very good low-level source format that compiles into SFNT natively, works well with versioning systems, is well designed, elegant, easily readable (among the easiest XML formats I know), solid, stable, and — in my personal opinion — rather beautiful. </p>
+      <p>If Just van Rossum is reading this — Just, I can say to you again what I've said several times: thank you, thank you, and once again, thank you. This piece of software you've written has allowed me to do things with fonts that I would have otherwise not been able to achieve. On countless occasions. </p>
+      <p>Roger,<br>
+      A.</p>
+  - id: 558014
+    user: 1133
+    date: 2013-06-23T05:29:00
+    date_raw: 23 Jun 2013 — 5:29am
+    votes: null
+    html: |-
+      <p>Ps. Contrary to what you may believe, the Adobe FEA syntax is not at all a very good representation of the OpenType Layout tables. There are many things that aren't supported by the FEA syntax. There are aspects of FEA where it makes generalizations and unifications which obscure the underlying complexities of the binary font data. And there are many many cases where the same binary situation can be expressed in a huge number of ways using FEA. </p>
+      <p>Adobe's makeotf compiler adds additional limits, since it does not "understand" many aspects of FEA. FontForge's implementation is marginally better is some aspects, but worse in others. But that's a different point of discussion. </p>
+      <p>I use FEA all the time, and I love it, most of the time. But it's not an exhaustive format. It makes it easy to develop OTL in 95% of cases, but really hard in the remaining 5%. </p>
+      <p>.ttx is actually much better in that regard. It follows the OTL structure closely, and you can express more with it than with FEA. At the same time, of course, .ttx is more awkward to work with, well, because OTL is a bit awkward. :)</p>
+      <p>FEA has of course its merits. It gives simplicity to what is actually inside a rather complex structure (OTL binary tables, that is). But by allowing, or applying the simplification, it sometimes obscures or even malforms some of the complexities. </p>
+      <p>Admittedly, FEA got a bit better over the years. Initially, it was almost just a "prototyping" language for OTL. These days, it's allows for more control, but still leaves a large undefined area, which a tool needs to fill. In other words, it's not a fully explicit format. Different tools that compile FEA to OTL will yield different results. In that sense, it's more akin to UFO. </p>
+      <p>FEA is good for how it's being used today — but, truing to understand your rationale, I'd say it's not a good format for your purposes. Certainly it's not round-trip-safe.</p>
+    html_clean: |-
+      <p>Ps. Contrary to what you may believe, the Adobe FEA syntax is not at all a very good representation of the OpenType Layout tables. There are many things that aren't supported by the FEA syntax. There are aspects of FEA where it makes generalizations and unifications which obscure the underlying complexities of the binary font data. And there are many many cases where the same binary situation can be expressed in a huge number of ways using FEA. </p>
+      <p>Adobe's makeotf compiler adds additional limits, since it does not "understand" many aspects of FEA. FontForge's implementation is marginally better is some aspects, but worse in others. But that's a different point of discussion. </p>
+      <p>I use FEA all the time, and I love it, most of the time. But it's not an exhaustive format. It makes it easy to develop OTL in 95% of cases, but really hard in the remaining 5%. </p>
+      <p>.ttx is actually much better in that regard. It follows the OTL structure closely, and you can express more with it than with FEA. At the same time, of course, .ttx is more awkward to work with, well, because OTL is a bit awkward. :)</p>
+      <p>FEA has of course its merits. It gives simplicity to what is actually inside a rather complex structure (OTL binary tables, that is). But by allowing, or applying the simplification, it sometimes obscures or even malforms some of the complexities. </p>
+      <p>Admittedly, FEA got a bit better over the years. Initially, it was almost just a "prototyping" language for OTL. These days, it's allows for more control, but still leaves a large undefined area, which a tool needs to fill. In other words, it's not a fully explicit format. Different tools that compile FEA to OTL will yield different results. In that sense, it's more akin to UFO. </p>
+      <p>FEA is good for how it's being used today — but, truing to understand your rationale, I'd say it's not a good format for your purposes. Certainly it's not round-trip-safe.</p>
+  - id: 558017
+    user: 1133
+    date: 2013-06-23T06:17:00
+    date_raw: 23 Jun 2013 — 6:17am
+    votes: null
+    html: '<p>I just came up with a different way to express what I was trying to say about FEA: if the binary OTL is "data", then FEA is not a human-readable representation of that data. FEA is a clever and useful language that can be used to *generate* a very large subset of that data. On the other hand, the .ttx GSUB/GPOS table formats are a human-readable representation of that data.</p>'
+    html_clean: '<p>I just came up with a different way to express what I was trying to say about FEA: if the binary OTL is "data", then FEA is not a human-readable representation of that data. FEA is a clever and useful language that can be used to *generate* a very large subset of that data. On the other hand, the .ttx GSUB/GPOS table formats are a human-readable representation of that data.</p>'
+  - id: 558035
+    user: 1262
+    date: 2013-06-23T10:54:00
+    date_raw: 23 Jun 2013 — 10:54am
+    votes: null
+    html: |-
+      <p>Adam, thanks for the comments re. Adobe .fea syntax. I was about to make the same comment in response to Gregorz's characterisation of it as the 'basic, or native, language' for OpenType Layout.</p>
+      <p>In regard to which, it is worth remembering the point that Karsten made earlier in this thread: VOLT sources are also a text representation of the GSUB, GPOS and GDEF data, and we've been able to utilise this to script fairly sophisticated FontLab-VOLT workflows.</p>
+    html_clean: |-
+      <p>Adam, thanks for the comments re. Adobe .fea syntax. I was about to make the same comment in response to Gregorz's characterisation of it as the 'basic, or native, language' for OpenType Layout.</p>
+      <p>In regard to which, it is worth remembering the point that Karsten made earlier in this thread: VOLT sources are also a text representation of the GSUB, GPOS and GDEF data, and we've been able to utilise this to script fairly sophisticated FontLab-VOLT workflows.</p>
+  - id: 558106
+    user: 19493
+    date: 2013-06-24T08:43:00
+    date_raw: 24 Jun 2013 — 8:43am
+    votes: null
+    html: |-
+      <p>I’m, of course, not denying the great engineering effort behind the Font Tools and TTX, and what Adam says about its specifics is indeed true. But the very choice of XML at its core is arguable not only in terms of a particular hype, or aesthetics, or even the difference in readability, but also in terms of some syntactic problems.</p>
+      <p>XML is a tree-like structure, whereas font binaries are not: they are flat arrays with offsets and such. For example, there’s a common optimization method within <code>'cmap'</code> or <code>'name'</code> table, where two different entires make an offset to the same exact data (or even part of it) deeper in the table. Try representing that in XML without bending around the syntax at the level of a misuse. It’s just not adequate for the job and we end up with details that are lost in translation. That these are details doesn’t make it an issue that can easily be ignored, because you recompile a font, run a <code>diff</code>, see something has changed, and wonder what else could go wrong.</p>
+      <p>Now if we move away from an XML representation, Python doesn’t seem like an obvious choice any longer, either. Therefore my opinion is that putting effort to improve TTX is not so promising as it seems. This of course doesn’t mean it’s not good or usable, because it certainly is. It’s just not <em>good enough</em> in hard-core font production.</p>
+      <p>Regarding the feature file syntax, I must admit that I haven’t dug through OpenType Layout tables thoroughly enough, so I might be wrong about it after all. I’ve thought that using the syntax in its most explicit form (that is, defining rules in lookups of one kind, referring them in features, setting language systems to each feature, etc.) will translate pretty losslessly to the structures inside the tables, won’t it?</p>
+      <p>Restrictive syntax that’s close to the way binary itself is structured, and accompanying stupid compiler are worthy in general. More stupid compiler means more optimizations have to be made at the syntax level, resulting in better source files for you and others to employ. It would also mean that you would have to learn and understand the technology rather well, and that’s a good thing in the end. Making the compiler stupid would also make it more deterministic and thus more reliable. (Still, an ideal compiler would be just smart enough to give you some hints how to optimize your code, but sufficiently stupid not to do it on its own discretion.)</p>
+    html_clean: |-
+      <p>I’m, of course, not denying the great engineering effort behind the Font Tools and TTX, and what Adam says about its specifics is indeed true. But the very choice of XML at its core is arguable not only in terms of a particular hype, or aesthetics, or even the difference in readability, but also in terms of some syntactic problems.</p>
+      <p>XML is a tree-like structure, whereas font binaries are not: they are flat arrays with offsets and such. For example, there’s a common optimization method within <code>'cmap'</code> or <code>'name'</code> table, where two different entires make an offset to the same exact data (or even part of it) deeper in the table. Try representing that in XML without bending around the syntax at the level of a misuse. It’s just not adequate for the job and we end up with details that are lost in translation. That these are details doesn’t make it an issue that can easily be ignored, because you recompile a font, run a <code>diff</code>, see something has changed, and wonder what else could go wrong.</p>
+      <p>Now if we move away from an XML representation, Python doesn’t seem like an obvious choice any longer, either. Therefore my opinion is that putting effort to improve TTX is not so promising as it seems. This of course doesn’t mean it’s not good or usable, because it certainly is. It’s just not <em>good enough</em> in hard-core font production.</p>
+      <p>Regarding the feature file syntax, I must admit that I haven’t dug through OpenType Layout tables thoroughly enough, so I might be wrong about it after all. I’ve thought that using the syntax in its most explicit form (that is, defining rules in lookups of one kind, referring them in features, setting language systems to each feature, etc.) will translate pretty losslessly to the structures inside the tables, won’t it?</p>
+      <p>Restrictive syntax that’s close to the way binary itself is structured, and accompanying stupid compiler are worthy in general. More stupid compiler means more optimizations have to be made at the syntax level, resulting in better source files for you and others to employ. It would also mean that you would have to learn and understand the technology rather well, and that’s a good thing in the end. Making the compiler stupid would also make it more deterministic and thus more reliable. (Still, an ideal compiler would be just smart enough to give you some hints how to optimize your code, but sufficiently stupid not to do it on its own discretion.)</p>
+  - id: 558118
+    user: 1133
+    date: 2013-06-24T09:54:00
+    date_raw: 24 Jun 2013 — 9:54am
+    votes: null
+    html: |-
+      <p>Grzegorz, </p>
+      <p>OK, I now get where you're heading. You really want the "ultimate low-level" description, assembly-level. I think you're right that it would have value after all, and I agree that TTX is perhaps not the ideal approach for that. </p>
+      <p>Microsoft has produced some commandline tools: ttoasm.exe and ttodasm.exe, which work in a way that they're "stupid" compilers and decompilers. There is a set of .fmt format files (one per each SFNT tables supported by the tool, which is GSUB, GPOS, GDEF, JSTF and BASE). A format file for a given table defines the plain-text representation of that table, and at the same time provide information for the how the plain-text representation is to be transformed into binary, and vice versa. You can download it as a "Windows self-extracting EXE" archive from <a href="http://www.microsoft.com/typography/tools/tools.aspx" title="http://www.microsoft.com/typography/tools/tools.aspx">http://www.microsoft.com/typography/tools/tools.aspx</a></p>
+      <p>I recommend that you take a look at it. Inside, you'll find TTOAsm.zip and TTODasm.zip, which include the tools, some documentation, and the .fmt files for all five OTL tables. You can run the tools through Wine (cxstart) on any OS. </p>
+      <p>For example, the GSUB format file looks like this (it's an excerpt): </p>
+      <p><code>DEFINE ZERO=0<br>
+      DEFINE MAXCOUNT=0xFFFF<br>
+      ; **** GSUB Table ****<br>
+      GSUBHeader, HEAD {<br>
+      fixed32, 0x00010000                     ; GSUBHeader version<br>
+      Offset, ScriptList, NOTNULL<br>
+      Offset, FeatureList, NOTNULL<br>
+      Offset, LookupList, NOTNULL<br>
+      }<br>
+      ; **** Scripts ****<br>
+      ScriptList, TABLE {<br>
+      Count, 1, MAXCOUNT						; ScriptCount<br>
+      Array, $T1, ScriptRecord<br>
+      }<br>
+      ScriptRecord, RECORD {<br>
+      Tag                                     ; Tag<br>
+      Offset, Script, NOTNULL                 ; An offset to a Script table to be generated<br>
+      }<br>
+      [...]<br>
+      LookupList, TABLE {<br>
+      Count, 1, MAXLOOKUPCOUNT               ; LookupCount<br>
+      Array, $T1, Offset, Lookup, NOTNULL : $IGSUBLookupIndex<br>
+      }<br>
+      Lookup, TABLE {<br>
+      uint16, 1, 8             	            ; LookupType<br>
+      uint16                                  ; LookupFlag<br>
+      Count, 1, MAXCOUNT                     ; SubTableCount<br>
+      Array, $T3, Offset, SubstTable, NOTNULL, $T1<br>
+      }<br>
+      CoverageFormat1, TABLE {<br>
+      uint16, 1                               ; Format 1<br>
+      Count, 1, MAXCOUNT                     ; GlyphCount<br>
+      Array, $T2, GlyphID, 0, MAXGLYPHID<br>
+      }<br>
+      CoverageFormat2, TABLE {<br>
+      uint16, 2                               ; Format 2<br>
+      Count, 1, MAXCOUNT                   	; CoverageRangeCount<br>
+      Array, $T2, RangeRecord<br>
+      }<br>
+      [...]</code></p>
+      <p>So it essentially is a "schema" for the GSUB table in a plain-text form. And then, an actual example GSUB table definition would be (also an excerpt): </p>
+      <p><code>GSUBHeader theHeader<br>
+      0x00010000	;Version<br>
+      theScriptList	;Offset to ScriptList table<br>
+      theFeatureList	;Offset to FeatureList table<br>
+      theLookupList	;Offset to LookupList table<br>
+      ;****************************************<br>
+      DEFINE MAXLOOKUPCOUNT = 10<br>
+      DEFINE MAXFEATURECOUNT = 5<br>
+      ScriptList theScriptList<br>
+      1	;ScriptCount<br>
+      'arab'	;ScriptTag = "arab"<br>
+      Script1	;ffset to Script table<br>
+      Script Script1<br>
+      DefaultLangSys	;Offset to default LangSys<br>
+      0	;Number of LangSysRecords<br>
+      LangSys DefaultLangSys<br>
+      NULL 	;Lookup order = null<br>
+      0xFFFF	;No req'd Feature Index<br>
+      5	;Number of Feature Indices<br>
+      0	;Feature Indices<br>
+      1<br>
+      2<br>
+      3<br>
+      4<br>
+      ;****************************************<br>
+      FeatureList theFeatureList<br>
+      5	;FeatureCount<br>
+      'init'	;FeatureTag = 'init'<br>
+      FeatureInit  	;Offset to Feature table<br>
+      'medi'	;FeatureTag = 'medi'<br>
+      FeatureMedi	;Offset to Feature table<br>
+      'fina'	;FeatureTag = 'fina'<br>
+      FeatureFina	;Offset to Feature table<br>
+      'liga'	;FeatureTag = 'liga'<br>
+      FeatureLiga	;FeatureTag = 'mset'<br>
+      FeatureMset	;Offset to Feature table<br>
+      [...]<br>
+      ;*****  Arabic Ligature Sub Table  *****<br>
+      LigatureSubstFormat1 SubstTableLigaBase<br>
+      1	;Format<br>
+      CoverageLigaBase	;Offset to Coverage<br>
+      5	;Ligature Set Count<br>
+      LigatureSet1<br>
+      LigatureSet2<br>
+      LigatureSet3<br>
+      LigatureSet4<br>
+      LigatureSet5<br>
+      ;*****  0165	;'shaddamedial'<br>
+      LigatureSet LigatureSet1<br>
+      0x0003<br>
+      LigatureSet1Ligature1<br>
+      LigatureSet1Ligature2<br>
+      LigatureSet1Ligature3<br>
+      Ligature LigatureSet1Ligature1<br>
+      0x0154	;'shaddawithfathamedial'<br>
+      2<br>
+      0x015F	;'fathamedial'<br>
+      Ligature LigatureSet1Ligature2<br>
+      0x0155	;'shaddawithdammamedial'<br>
+      2<br>
+      0x0161	;'dammamedial'<br>
+      [...]</code><br>
+      and so on. </p>
+      <p>This is very low-level, in fact the assembly level. I don't know how many .fmt schemas Microsoft created and for how many tables, but this "language" that Microsoft created could be used and extended in an opensource tool. </p>
+      <p>An alternative might be an approach similar to Pomax's, who authored a generic "binary parser generator", and then defined a language for binary parsers, where, as one example, he created a parser spec for the OpenType font format:<br>
+      <a href="https://github.com/Pomax/A-binary-parser-generator" title="https://github.com/Pomax/A-binary-parser-generator">https://github.com/Pomax/A-binary-parser-generator</a><br>
+      <a href="https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType.spec" title="https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType.spec">https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType....</a></p>
+      <p>This approach could be refined and turned into a "converter", with text-to-binary and binary-to-text conversion. In a way, Pomax's OpenType.spec format description is rather similar to Microsoft's .fmt description for tools. </p>
+      <p>Of course the "big question" when inventing such a format is the typical one: what delimiters should be used, what to do with whitespace, etc. etc. I guess one reason why people choose XML these days is because there, these questions are simply ANSWERED (and very well specified). So even though XML may not be the best format for a particular usage scenario, it's a well-defined one and they don't need to start a debate about what the "ideal" format should be. :) With your project, a debate will surely start if you propose some kind of notation (e.g. similarly "looking" to Microsoft's TTOAsm, or to Pomax's parser format, or to the Adobe FEA structure or to the Adobe AFM structure or to the plain-text Type 1 form, or to Ikarus or to whatever else, or you come up with your own). Some people will "like it", others will "hate it", others will "like it but propose improvements", others will "like it as it was before the improvements but not now". :)</p>
+      <p>So, as it's often the case, the probably biggest value of XML is that it exists at all :D There is a big community of tools, schemas, workflows, "best practices" etc. around it, which people can cherry-pick rather than invent their own. The same can be said, I guess, about things like PHP. PHP is not a really good language, but it's easy to deploy because you don't have to invent a lot of things :)</p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Grzegorz, </p>
+      <p>OK, I now get where you're heading. You really want the "ultimate low-level" description, assembly-level. I think you're right that it would have value after all, and I agree that TTX is perhaps not the ideal approach for that. </p>
+      <p>Microsoft has produced some commandline tools: ttoasm.exe and ttodasm.exe, which work in a way that they're "stupid" compilers and decompilers. There is a set of .fmt format files (one per each SFNT tables supported by the tool, which is GSUB, GPOS, GDEF, JSTF and BASE). A format file for a given table defines the plain-text representation of that table, and at the same time provide information for the how the plain-text representation is to be transformed into binary, and vice versa. You can download it as a "Windows self-extracting EXE" archive from <a href="http://www.microsoft.com/typography/tools/tools.aspx" title="http://www.microsoft.com/typography/tools/tools.aspx" class="link-external">http://www.microsoft.com/typography/tools/tools.aspx</a></p>
+      <p>I recommend that you take a look at it. Inside, you'll find TTOAsm.zip and TTODasm.zip, which include the tools, some documentation, and the .fmt files for all five OTL tables. You can run the tools through Wine (cxstart) on any OS. </p>
+      <p>For example, the GSUB format file looks like this (it's an excerpt): </p>
+      <p><code>DEFINE ZERO=0<br>
+      DEFINE MAXCOUNT=0xFFFF<br>
+      ; **** GSUB Table ****<br>
+      GSUBHeader, HEAD {<br>
+      fixed32, 0x00010000                     ; GSUBHeader version<br>
+      Offset, ScriptList, NOTNULL<br>
+      Offset, FeatureList, NOTNULL<br>
+      Offset, LookupList, NOTNULL<br>
+      }<br>
+      ; **** Scripts ****<br>
+      ScriptList, TABLE {<br>
+      Count, 1, MAXCOUNT						; ScriptCount<br>
+      Array, $T1, ScriptRecord<br>
+      }<br>
+      ScriptRecord, RECORD {<br>
+      Tag                                     ; Tag<br>
+      Offset, Script, NOTNULL                 ; An offset to a Script table to be generated<br>
+      }<br>
+      [...]<br>
+      LookupList, TABLE {<br>
+      Count, 1, MAXLOOKUPCOUNT               ; LookupCount<br>
+      Array, $T1, Offset, Lookup, NOTNULL : $IGSUBLookupIndex<br>
+      }<br>
+      Lookup, TABLE {<br>
+      uint16, 1, 8             	            ; LookupType<br>
+      uint16                                  ; LookupFlag<br>
+      Count, 1, MAXCOUNT                     ; SubTableCount<br>
+      Array, $T3, Offset, SubstTable, NOTNULL, $T1<br>
+      }<br>
+      CoverageFormat1, TABLE {<br>
+      uint16, 1                               ; Format 1<br>
+      Count, 1, MAXCOUNT                     ; GlyphCount<br>
+      Array, $T2, GlyphID, 0, MAXGLYPHID<br>
+      }<br>
+      CoverageFormat2, TABLE {<br>
+      uint16, 2                               ; Format 2<br>
+      Count, 1, MAXCOUNT                   	; CoverageRangeCount<br>
+      Array, $T2, RangeRecord<br>
+      }<br>
+      [...]</code></p>
+      <p>So it essentially is a "schema" for the GSUB table in a plain-text form. And then, an actual example GSUB table definition would be (also an excerpt): </p>
+      <p><code>GSUBHeader theHeader<br>
+      0x00010000	;Version<br>
+      theScriptList	;Offset to ScriptList table<br>
+      theFeatureList	;Offset to FeatureList table<br>
+      theLookupList	;Offset to LookupList table<br>
+      ;****************************************<br>
+      DEFINE MAXLOOKUPCOUNT = 10<br>
+      DEFINE MAXFEATURECOUNT = 5<br>
+      ScriptList theScriptList<br>
+      1	;ScriptCount<br>
+      'arab'	;ScriptTag = "arab"<br>
+      Script1	;ffset to Script table<br>
+      Script Script1<br>
+      DefaultLangSys	;Offset to default LangSys<br>
+      0	;Number of LangSysRecords<br>
+      LangSys DefaultLangSys<br>
+      NULL 	;Lookup order = null<br>
+      0xFFFF	;No req'd Feature Index<br>
+      5	;Number of Feature Indices<br>
+      0	;Feature Indices<br>
+      1<br>
+      2<br>
+      3<br>
+      4<br>
+      ;****************************************<br>
+      FeatureList theFeatureList<br>
+      5	;FeatureCount<br>
+      'init'	;FeatureTag = 'init'<br>
+      FeatureInit  	;Offset to Feature table<br>
+      'medi'	;FeatureTag = 'medi'<br>
+      FeatureMedi	;Offset to Feature table<br>
+      'fina'	;FeatureTag = 'fina'<br>
+      FeatureFina	;Offset to Feature table<br>
+      'liga'	;FeatureTag = 'liga'<br>
+      FeatureLiga	;FeatureTag = 'mset'<br>
+      FeatureMset	;Offset to Feature table<br>
+      [...]<br>
+      ;*****  Arabic Ligature Sub Table  *****<br>
+      LigatureSubstFormat1 SubstTableLigaBase<br>
+      1	;Format<br>
+      CoverageLigaBase	;Offset to Coverage<br>
+      5	;Ligature Set Count<br>
+      LigatureSet1<br>
+      LigatureSet2<br>
+      LigatureSet3<br>
+      LigatureSet4<br>
+      LigatureSet5<br>
+      ;*****  0165	;'shaddamedial'<br>
+      LigatureSet LigatureSet1<br>
+      0x0003<br>
+      LigatureSet1Ligature1<br>
+      LigatureSet1Ligature2<br>
+      LigatureSet1Ligature3<br>
+      Ligature LigatureSet1Ligature1<br>
+      0x0154	;'shaddawithfathamedial'<br>
+      2<br>
+      0x015F	;'fathamedial'<br>
+      Ligature LigatureSet1Ligature2<br>
+      0x0155	;'shaddawithdammamedial'<br>
+      2<br>
+      0x0161	;'dammamedial'<br>
+      [...]</code><br>
+      and so on. </p>
+      <p>This is very low-level, in fact the assembly level. I don't know how many .fmt schemas Microsoft created and for how many tables, but this "language" that Microsoft created could be used and extended in an opensource tool. </p>
+      <p>An alternative might be an approach similar to Pomax's, who authored a generic "binary parser generator", and then defined a language for binary parsers, where, as one example, he created a parser spec for the OpenType font format:<br>
+      <a href="https://github.com/Pomax/A-binary-parser-generator" title="https://github.com/Pomax/A-binary-parser-generator" class="link-external">https://github.com/Pomax/A-binary-parser-generator</a><br>
+      <a href="https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType.spec" title="https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType.spec" class="link-external">https://github.com/Pomax/A-binary-parser-generator/blob/master/OpenType....</a></p>
+      <p>This approach could be refined and turned into a "converter", with text-to-binary and binary-to-text conversion. In a way, Pomax's OpenType.spec format description is rather similar to Microsoft's .fmt description for tools. </p>
+      <p>Of course the "big question" when inventing such a format is the typical one: what delimiters should be used, what to do with whitespace, etc. etc. I guess one reason why people choose XML these days is because there, these questions are simply ANSWERED (and very well specified). So even though XML may not be the best format for a particular usage scenario, it's a well-defined one and they don't need to start a debate about what the "ideal" format should be. :) With your project, a debate will surely start if you propose some kind of notation (e.g. similarly "looking" to Microsoft's TTOAsm, or to Pomax's parser format, or to the Adobe FEA structure or to the Adobe AFM structure or to the plain-text Type 1 form, or to Ikarus or to whatever else, or you come up with your own). Some people will "like it", others will "hate it", others will "like it but propose improvements", others will "like it as it was before the improvements but not now". :)</p>
+      <p>So, as it's often the case, the probably biggest value of XML is that it exists at all :D There is a big community of tools, schemas, workflows, "best practices" etc. around it, which people can cherry-pick rather than invent their own. The same can be said, I guess, about things like PHP. PHP is not a really good language, but it's easy to deploy because you don't have to invent a lot of things :)</p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 558123
+    user: 8664
+    date: 2013-06-24T10:34:00
+    date_raw: 24 Jun 2013 — 10:34am
+    votes: null
+    html: |-
+      <p>It really depends what you are planning to do. If you intend to catalog fonts in a readable form, or want to adjust a single value while leaving everything else intact, then a close-to-binary non-binary representation might be a good thing. But when making fonts, this is hardly relevant and may even turn out to be an obstacle, because a designer does not want to change a individual piece of information and rather do some design adjustment which causes a couple of pieces of information to change.</p>
+      <p>For example, is it really necessary that a non-binary representation of <em>glyf</em> precisely reflects how x, y and point type are packaged? I don't think so because, while using flags to save some space, the information relevant for rendering shapes remains the same. Similarly, whether you use PPF1 or PPF2 subtables to store metrics adjustments in <em>GPOS</em> is irrelevant as to the information they hold, though one my save some space compared to the other.</p>
+    html_clean: |-
+      <p>It really depends what you are planning to do. If you intend to catalog fonts in a readable form, or want to adjust a single value while leaving everything else intact, then a close-to-binary non-binary representation might be a good thing. But when making fonts, this is hardly relevant and may even turn out to be an obstacle, because a designer does not want to change a individual piece of information and rather do some design adjustment which causes a couple of pieces of information to change.</p>
+      <p>For example, is it really necessary that a non-binary representation of <em>glyf</em> precisely reflects how x, y and point type are packaged? I don't think so because, while using flags to save some space, the information relevant for rendering shapes remains the same. Similarly, whether you use PPF1 or PPF2 subtables to store metrics adjustments in <em>GPOS</em> is irrelevant as to the information they hold, though one my save some space compared to the other.</p>
+  - id: 558277
+    user: 19493
+    date: 2013-06-25T12:11:00
+    date_raw: 25 Jun 2013 — 12:11pm
+    votes: null
+    html: |-
+      <p>Thank you, Adam. That’s a lot of cool software I wasn’t aware of (Pomax simply never stops to amaze me). This indeed is low as it can be, lower and more verbose than anything I thought of, but it’s good to have it as an option, plus already mentioned VOLT sources, which I must look into.</p>
+      <p>Karsten, yes, such tools would be of questionable utility to many designers indeed. Still, they are intended primarily for post-production and engineering side of things, where all this could matter. It’s not only about space savings (though that’s important these days), but also about performance, and about doing tricks that push the technology to its extremes, either for testing purposes or for producing non-standard or special-purpose fonts. And, as Adam mentioned briefly, it’s often the best way to learn to think in terms of font internals, what I believe makes you build better fonts in general.</p>
+      <p>If I recall correctly, Dave Crossland once said that he would like to see a standard build environment for font development, a kind of <code>./configure; make; make install</code> for fonts. That would be another perspective why it would be really good to have some concise and effective, not too low-level, but still deterministic languages for font production.</p>
+    html_clean: |-
+      <p>Thank you, Adam. That’s a lot of cool software I wasn’t aware of (Pomax simply never stops to amaze me). This indeed is low as it can be, lower and more verbose than anything I thought of, but it’s good to have it as an option, plus already mentioned VOLT sources, which I must look into.</p>
+      <p>Karsten, yes, such tools would be of questionable utility to many designers indeed. Still, they are intended primarily for post-production and engineering side of things, where all this could matter. It’s not only about space savings (though that’s important these days), but also about performance, and about doing tricks that push the technology to its extremes, either for testing purposes or for producing non-standard or special-purpose fonts. And, as Adam mentioned briefly, it’s often the best way to learn to think in terms of font internals, what I believe makes you build better fonts in general.</p>
+      <p>If I recall correctly, Dave Crossland once said that he would like to see a standard build environment for font development, a kind of <code>./configure; make; make install</code> for fonts. That would be another perspective why it would be really good to have some concise and effective, not too low-level, but still deterministic languages for font production.</p>
+  - id: 561344
+    user: 16849
+    date: 2013-07-28T09:05:00
+    date_raw: 28 Jul 2013 — 9:05am
+    votes: null
+    html: <p>Yep that was me; but for my purposes UFO and FEA and a libre ufo2off processor is enough, and <a href="https://github.com/xen/fontbakery/" title="https://github.com/xen/fontbakery/">https://github.com/xen/fontbakery/</a> is proceeding.</p>
+    html_clean: <p>Yep that was me; but for my purposes UFO and FEA and a libre ufo2off processor is enough, and <a href="https://github.com/xen/fontbakery/" title="https://github.com/xen/fontbakery/" class="link-external">https://github.com/xen/fontbakery/</a> is proceeding.</p>

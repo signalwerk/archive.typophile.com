@@ -1,0 +1,301 @@
+node: 96396
+title: Kerning not working in Word
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150422023952"
+  captured_at: 2015-04-22T02:39:52Z
+  url: http://typophile.com:80/node/96396
+  digest: 3DBRBO3G3XP4O72IOSHI2LBJ56MSNCNK
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/96396.html
+  fingerprint: 4953c3b01a40f042
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150422023952"
+      digest: 3DBRBO3G3XP4O72IOSHI2LBJ56MSNCNK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/96396.html
+post:
+  id: 96396
+  user: 17947
+  date: 2012-09-15T14:13:00
+  date_raw: 15 Sep 2012 — 2:13pm
+  votes: null
+  html: |-
+    <p>We have a font created in FontLab, generated as an OpenType PS which is being used mainly in InDesign but also in Microsoft Word 2003 and 2010.</p>
+    <p>I have the FontLab option turn ON to generate the non-OpenType kern table but for some reason Word is not “seeing” the kerning. If I generate the font as TrueType or Type1 Word using the kerning just fine.</p>
+    <p>We have another font that is being used in exactly the same way and that one is fine.</p>
+    <p>The other oddity is that Word 2010 grays out all of its OpenType controls on the Font dialog for this problematic font. I’m guessing the two are related but I’m stuck as to what’s going on.</p>
+    <p>Any help would be greatly appreciated.</p>
+    <p>Thanks,<br>
+    Ken</p>
+  html_clean: |-
+    <p>We have a font created in FontLab, generated as an OpenType PS which is being used mainly in InDesign but also in Microsoft Word 2003 and 2010.</p>
+    <p>I have the FontLab option turn ON to generate the non-OpenType kern table but for some reason Word is not “seeing” the kerning. If I generate the font as TrueType or Type1 Word using the kerning just fine.</p>
+    <p>We have another font that is being used in exactly the same way and that one is fine.</p>
+    <p>The other oddity is that Word 2010 grays out all of its OpenType controls on the Font dialog for this problematic font. I’m guessing the two are related but I’m stuck as to what’s going on.</p>
+    <p>Any help would be greatly appreciated.</p>
+    <p>Thanks,<br>
+    Ken</p>
+comments:
+  - id: 522378
+    user: 1794
+    date: 2012-09-15T22:51:00
+    date_raw: 15 Sep 2012 — 10:51pm
+    votes: null
+    html: <p>You might try to add a digital signature.</p>
+    html_clean: <p>You might try to add a digital signature.</p>
+  - id: 522422
+    user: 17947
+    date: 2012-09-16T11:18:00
+    date_raw: 16 Sep 2012 — 11:18am
+    votes: null
+    html: |-
+      <p>Yeah, I saw that somewhere but I thought adding the DSIG was to help Word determine that it was a TTF with OpenType features, and we're generating an OTF.<br>
+      Might it help with the OTF?<br>
+      Oh, also forgot to mention that when we DO generate the TTF THAT WORKS! Oy.<br>
+      Thanks for taking the time to read and respond.<br>
+      Ken</p>
+    html_clean: |-
+      <p>Yeah, I saw that somewhere but I thought adding the DSIG was to help Word determine that it was a TTF with OpenType features, and we're generating an OTF.<br>
+      Might it help with the OTF?<br>
+      Oh, also forgot to mention that when we DO generate the TTF THAT WORKS! Oy.<br>
+      Thanks for taking the time to read and respond.<br>
+      Ken</p>
+  - id: 522427
+    user: 17947
+    date: 2012-09-16T13:13:00
+    date_raw: 16 Sep 2012 — 1:13pm
+    votes: null
+    html: "<p>For anyone who might be interested: Used sfntedit in AFDKO to add a \"dummy\" DSIG and regenerated the OTF but it didn't help.</p>"
+    html_clean: "<p>For anyone who might be interested: Used sfntedit in AFDKO to add a \"dummy\" DSIG and regenerated the OTF but it didn't help.</p>"
+  - id: 522496
+    user: 83217
+    date: 2012-09-17T06:10:00
+    date_raw: 17 Sep 2012 — 6:10am
+    votes: null
+    html: <p>Which table does Word use, 'GPOS' or 'kern', for kerning info?</p>
+    html_clean: <p>Which table does Word use, 'GPOS' or 'kern', for kerning info?</p>
+  - id: 522503
+    user: 17947
+    date: 2012-09-17T06:38:00
+    date_raw: 17 Sep 2012 — 6:38am
+    votes: null
+    html: |-
+      <p>2003 does not support OpenType at all so that definately uses the "kern" table. I'm not sure how 2010 works.<br>
+      Unfortunately we have need for use for the font in 2003 so I'm working with that now to try and see what's wrong.<br>
+      Thanks,<br>
+      Ken</p>
+    html_clean: |-
+      <p>2003 does not support OpenType at all so that definately uses the "kern" table. I'm not sure how 2010 works.<br>
+      Unfortunately we have need for use for the font in 2003 so I'm working with that now to try and see what's wrong.<br>
+      Thanks,<br>
+      Ken</p>
+  - id: 522518
+    user: 83217
+    date: 2012-09-17T11:04:00
+    date_raw: 17 Sep 2012 — 11:04am
+    votes: null
+    html: "<p>Hrmmff...! That explains it. Quoted from the MS OpenType spec v1.6: \"OpenType™ fonts containing CFF outlines are not supported by the 'kern' table and must use the 'GPOS' OpenType Layout table.\" Guess you're stuck  with TrueType-flavoured OpenType, then.</p>"
+    html_clean: "<p>Hrmmff...! That explains it. Quoted from the MS OpenType spec v1.6: \"OpenType™ fonts containing CFF outlines are not supported by the 'kern' table and must use the 'GPOS' OpenType Layout table.\" Guess you're stuck  with TrueType-flavoured OpenType, then.</p>"
+  - id: 522533
+    user: 17947
+    date: 2012-09-17T12:07:00
+    date_raw: 17 Sep 2012 — 12:07pm
+    votes: null
+    html: |-
+      <p>Hmmff is right! Thanks for the tid-bit! However, I have another font devised much the same way for which the kerning WORKS in Word 2003.</p>
+      <p>Both fonts are updates to other fonts. The one that works initially came from a TTF, the one that doesn't initially came from a Type1. Could there be something "hiding" that's causing one to work and one not?</p>
+      <p>Oy.</p>
+    html_clean: |-
+      <p>Hmmff is right! Thanks for the tid-bit! However, I have another font devised much the same way for which the kerning WORKS in Word 2003.</p>
+      <p>Both fonts are updates to other fonts. The one that works initially came from a TTF, the one that doesn't initially came from a Type1. Could there be something "hiding" that's causing one to work and one not?</p>
+      <p>Oy.</p>
+  - id: 522541
+    user: 83217
+    date: 2012-09-17T12:53:00
+    date_raw: 17 Sep 2012 — 12:53pm
+    votes: null
+    html: |-
+      <p>None too sure. If you have ttx (which requires Python), you could probably use that to dump the fonts to text and see what tables are there. It's possible, if short of likely, that the TTF child font has a remaining 'kern' table that never got thrown out. 'Course, there may be a checkmark somewhere deep inside the editor that lets it add a 'kern' table to a PS-flavoured OT font. Should be possible as long as there are some kerning pairs. 'kern' can only handle pairs, not classes, it seems.</p>
+      <p>Edit: FontForge can do it. Surely the big names can sneak in a 'kern' table, too.</p>
+    html_clean: |-
+      <p>None too sure. If you have ttx (which requires Python), you could probably use that to dump the fonts to text and see what tables are there. It's possible, if short of likely, that the TTF child font has a remaining 'kern' table that never got thrown out. 'Course, there may be a checkmark somewhere deep inside the editor that lets it add a 'kern' table to a PS-flavoured OT font. Should be possible as long as there are some kerning pairs. 'kern' can only handle pairs, not classes, it seems.</p>
+      <p>Edit: FontForge can do it. Surely the big names can sneak in a 'kern' table, too.</p>
+  - id: 522546
+    user: 2969
+    date: 2012-09-17T13:20:00
+    date_raw: 17 Sep 2012 — 1:20pm
+    votes: null
+    html: <p>Convert the Type1 font to TT, then try.</p>
+    html_clean: <p>Convert the Type1 font to TT, then try.</p>
+  - id: 522574
+    user: 29994
+    date: 2012-09-17T16:26:00
+    date_raw: 17 Sep 2012 — 4:26pm
+    votes: null
+    html: |-
+      <p>Is this perhaps related to the "no GSUB? Then no GPOS!" problem, as described in <a href="http://typophile.com/node/32929" rel="nofollow">this older thread</a>?</p>
+      <p>(Possibly I'm reading it backwards.)</p>
+    html_clean: |-
+      <p>Is this perhaps related to the "no GSUB? Then no GPOS!" problem, as described in <a href="/node/32929/" rel="nofollow" class="link-kept">this older thread</a>?</p>
+      <p>(Possibly I'm reading it backwards.)</p>
+  - id: 522989
+    user: 17947
+    date: 2012-09-21T06:24:00
+    date_raw: 21 Sep 2012 — 6:24am
+    votes: null
+    html: |-
+      <p>Thanks Theunis, but no, I don't think that's the problem. We do, indeed, have a liga feature in the font.</p>
+      <p>Té Rowan, I have actually used TTX on the OTF to make sure that kern table was still there as that is what Word would use. It looked to me like it WAS there so I'm still perplexed as to why Word would not be applying the kerning.</p>
+      <p>I did solve at least part of this. That being that Word 2010 was graying out its OpenType controls on the font dialog. I'm embarrassed to report that when Word 2010 opens a file created in an earlier version of Word by default it disables the OpenType features. In the Options, in the "Advanced" area, down at the bottom of the page is "Layout options." In that humungous list is the option to disable OpenType features.</p>
+      <p>In the little investigating I've managed to do with Word 2010 it definitely treats files created in an earlier version significantly different than doing a new document. I have, for instance, a document created in an earlier version of Word in which I can get NO kerning to work. However, do a new file, use the same font, in the same size and Word uses the class kerning. I've not looked very far into this one as of yet.</p>
+      <p>Thanks again guys for the help.</p>
+      <p>Ken</p>
+    html_clean: |-
+      <p>Thanks Theunis, but no, I don't think that's the problem. We do, indeed, have a liga feature in the font.</p>
+      <p>Té Rowan, I have actually used TTX on the OTF to make sure that kern table was still there as that is what Word would use. It looked to me like it WAS there so I'm still perplexed as to why Word would not be applying the kerning.</p>
+      <p>I did solve at least part of this. That being that Word 2010 was graying out its OpenType controls on the font dialog. I'm embarrassed to report that when Word 2010 opens a file created in an earlier version of Word by default it disables the OpenType features. In the Options, in the "Advanced" area, down at the bottom of the page is "Layout options." In that humungous list is the option to disable OpenType features.</p>
+      <p>In the little investigating I've managed to do with Word 2010 it definitely treats files created in an earlier version significantly different than doing a new document. I have, for instance, a document created in an earlier version of Word in which I can get NO kerning to work. However, do a new file, use the same font, in the same size and Word uses the class kerning. I've not looked very far into this one as of yet.</p>
+      <p>Thanks again guys for the help.</p>
+      <p>Ken</p>
+  - id: 523016
+    user: 2021
+    date: 2012-09-21T11:01:00
+    date_raw: 21 Sep 2012 — 11:01am
+    votes: null
+    html: |-
+      <p><em>Word is not “seeing” the kerning…</em></p>
+      <p>I always thought that was a feature, not a bug.</p>
+    html_clean: |-
+      <p><em>Word is not “seeing” the kerning…</em></p>
+      <p>I always thought that was a feature, not a bug.</p>
+  - id: 523279
+    user: 6470
+    date: 2012-09-23T11:10:00
+    date_raw: 23 Sep 2012 — 11:10am
+    votes: null
+    html: |-
+      <p>Well, while we're on the subject of TTX…</p>
+      <p>As some of you may know, one of the things that I would like to implement with my new LUV line (now a Registered Microsoft Vendor!) is a unique serial number for every font sold. Am I correct in assuming that this task could be accomplished at point of sale, simply by converting the font to XML, appending a ten-digit serial number to the Type 1 XUID field, converting the font back to OTF or TTF format, then delivering the finished product via download link? A separate database would, of course, tie the serial number to purchaser data.</p>
+      <p>Then, there's the separate issue of dsig. It would be nice to offer digitally signed fonts, but the mechanics of how to implement this element escape me at the moment. Big surprise.</p>
+    html_clean: |-
+      <p>Well, while we're on the subject of TTX…</p>
+      <p>As some of you may know, one of the things that I would like to implement with my new LUV line (now a Registered Microsoft Vendor!) is a unique serial number for every font sold. Am I correct in assuming that this task could be accomplished at point of sale, simply by converting the font to XML, appending a ten-digit serial number to the Type 1 XUID field, converting the font back to OTF or TTF format, then delivering the finished product via download link? A separate database would, of course, tie the serial number to purchaser data.</p>
+      <p>Then, there's the separate issue of dsig. It would be nice to offer digitally signed fonts, but the mechanics of how to implement this element escape me at the moment. Big surprise.</p>
+  - id: 523281
+    user: 83217
+    date: 2012-09-23T11:51:00
+    date_raw: 23 Sep 2012 — 11:51am
+    votes: null
+    html: |-
+      <p>'S okay, man; the DSIG is for the case where someone else is willing to take your money for agreeing with you that you are you.</p>
+      <p>Or, in a more boring way, it's a (paid-for) certificate that the file in question is an original one from your stall.</p>
+      <p><a class="freelinking external" href="http://www.microsoft.com/typography/developers/dsig/default.htm" rel="nofollow">http://www.microsoft.com/typography/developers/dsig/default.htm</a></p>
+    html_clean: |-
+      <p>'S okay, man; the DSIG is for the case where someone else is willing to take your money for agreeing with you that you are you.</p>
+      <p>Or, in a more boring way, it's a (paid-for) certificate that the file in question is an original one from your stall.</p>
+      <p><a class="freelinking external link-external" href="http://www.microsoft.com/typography/developers/dsig/default.htm" rel="nofollow">http://www.microsoft.com/typography/developers/dsig/default.htm</a></p>
+  - id: 523361
+    user: 6470
+    date: 2012-09-23T21:54:00
+    date_raw: 23 Sep 2012 — 9:54pm
+    votes: null
+    html: "<p>Wow: copyright date 2001. The W3C’s DSig project lapsed a few years ago. And…the mechanics STILL escape me.</p>"
+    html_clean: "<p>Wow: copyright date 2001. The W3C’s DSig project lapsed a few years ago. And…the mechanics STILL escape me.</p>"
+  - id: 523610
+    user: 6470
+    date: 2012-09-25T05:57:00
+    date_raw: 25 Sep 2012 — 5:57am
+    votes: null
+    html: |-
+      <p>And…everyone's still mum on TTX. So, nobody wants fonts with unique serial numbers?</p>
+      <p>Cool.</p>
+    html_clean: |-
+      <p>And…everyone's still mum on TTX. So, nobody wants fonts with unique serial numbers?</p>
+      <p>Cool.</p>
+  - id: 523616
+    user: 1250
+    date: 2012-09-25T06:34:00
+    date_raw: 25 Sep 2012 — 6:34am
+    votes: null
+    html: |-
+      <p>I've loved that idea for years.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I've loved that idea for years.</p>
+      <p>hhp</p>
+  - id: 523623
+    user: 6470
+    date: 2012-09-25T07:23:00
+    date_raw: 25 Sep 2012 — 7:23am
+    votes: null
+    html: <p>Yeah? Well, you're almost as marginalized as I am, so who listens to us, anyhow?</p>
+    html_clean: <p>Yeah? Well, you're almost as marginalized as I am, so who listens to us, anyhow?</p>
+  - id: 523638
+    user: 1250
+    date: 2012-09-25T08:57:00
+    date_raw: 25 Sep 2012 — 8:57am
+    votes: null
+    html: |-
+      <p>You can't be marginalized if you were never in it.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>You can't be marginalized if you were never in it.</p>
+      <p>hhp</p>
+  - id: 526320
+    user: 83217
+    date: 2012-10-15T06:17:00
+    date_raw: 15 Oct 2012 — 6:17am
+    votes: null
+    html: |-
+      <p><a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_digital_sig_guide.html" rel="nofollow">http://www.adobe.com/devnet/opentype/afdko/topic_digital_sig_guide.html</a> --a guide to digital signing, looks a bit more how-to than the MS oldie.</p>
+      <p>(I hate mispeelings, expecially mine!)</p>
+    html_clean: |-
+      <p><a class="freelinking external link-external" href="http://www.adobe.com/devnet/opentype/afdko/topic_digital_sig_guide.html" rel="nofollow">http://www.adobe.com/devnet/opentype/afdko/topic_digital_sig_guide.html</a> --a guide to digital signing, looks a bit more how-to than the MS oldie.</p>
+      <p>(I hate mispeelings, expecially mine!)</p>
+  - id: 526373
+    user: 1262
+    date: 2012-10-14T22:35:00
+    date_raw: 14 Oct 2012 — 10:35pm
+    votes: null
+    html: |-
+      <p>I believe some font vendors are already shipping fonts with serialisation, in custom tables, and have been for some time. Workflow is presumably something like this: generate the table, merge it into the font with something like TTX, then apply a digital signature.</p>
+      <p>The sfnt table structure enables one to put pretty much anything into a TTF or OTF binary. Even pictures of kittens.</p>
+    html_clean: |-
+      <p>I believe some font vendors are already shipping fonts with serialisation, in custom tables, and have been for some time. Workflow is presumably something like this: generate the table, merge it into the font with something like TTX, then apply a digital signature.</p>
+      <p>The sfnt table structure enables one to put pretty much anything into a TTF or OTF binary. Even pictures of kittens.</p>
+  - id: 526408
+    user: 1250
+    date: 2012-10-15T06:25:00
+    date_raw: 15 Oct 2012 — 6:25am
+    votes: null
+    html: |-
+      <p>Which vendors?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Which vendors?</p>
+      <p>hhp</p>
+  - id: 526421
+    user: 21687
+    date: 2012-10-15T08:10:00
+    date_raw: 15 Oct 2012 — 8:10am
+    votes: null
+    html: <p>Pictures of kittens is a nice idea. Or haikus. Anything that would count as an artistic work, thus strengthening the copyright protection of fonts ;)</p>
+    html_clean: <p>Pictures of kittens is a nice idea. Or haikus. Anything that would count as an artistic work, thus strengthening the copyright protection of fonts ;)</p>

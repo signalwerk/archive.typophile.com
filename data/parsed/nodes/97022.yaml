@@ -1,0 +1,167 @@
+node: 97022
+title: What does a subtable in GSUB exactly represent?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150414194235"
+  captured_at: 2015-04-14T19:42:35Z
+  url: http://typophile.com/node/97022
+  digest: BCGM3DC6IFPT62KBNN5WHPMNV5THSPEW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/97022.html
+  fingerprint: f64d2b6e61915368
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150414194235"
+      digest: BCGM3DC6IFPT62KBNN5WHPMNV5THSPEW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/97022.html
+post:
+  id: 97022
+  user: 92807
+  date: 2012-10-08T10:06:00
+  date_raw: 8 Oct 2012 — 10:06am
+  votes: null
+  html: <p>For which reason and when are 'subtables' created? Adobe's <em>OpenType Feature File Specification</em> does not help me any further understanding the structure of GPOS/GSUB.</p>
+  html_clean: <p>For which reason and when are 'subtables' created? Adobe's <em>OpenType Feature File Specification</em> does not help me any further understanding the structure of GPOS/GSUB.</p>
+comments:
+  - id: 525557
+    user: 29994
+    date: 2012-10-08T10:17:00
+    date_raw: 8 Oct 2012 — 10:17am
+    votes: null
+    html: |-
+      <p>The first match in a subtable is processed, then the rest of this subtable is skipped.<br>
+      .. can't find a good example right now ..</p>
+    html_clean: |-
+      <p>The first match in a subtable is processed, then the rest of this subtable is skipped.<br>
+      .. can't find a good example right now ..</p>
+  - id: 525818
+    user: 92807
+    date: 2012-10-10T03:54:00
+    date_raw: 10 Oct 2012 — 3:54am
+    votes: null
+    html: <p>Really? Nothing? Is it a more complicated question, or does in fact no one have the faintest idea? :'-(</p>
+    html_clean: <p>Really? Nothing? Is it a more complicated question, or does in fact no one have the faintest idea? :'-(</p>
+  - id: 525823
+    user: 48268
+    date: 2012-10-10T04:25:00
+    date_raw: 10 Oct 2012 — 4:25am
+    votes: null
+    html: |-
+      <p>Unfortunately I do not have first hand knowledge of GSUB tables, but you may find these links useful:</p>
+      <p>The <a class="freelinking external" href="http://www.microsoft.com/typography/tt/win95tt.aspx" rel="nofollow">Microsoft Typography overview of TrueType in Windows 95</a> includes the following:</p>
+      <dl><cite>The GSUB and GPOS tables define glyph substitution and positioning features. GSUB supplies five types of substitutions to support different kinds of character-to-glyph mappings, such as many-to-one ligature glyph substitution and one-to-many ligature decomposition.</cite></dl>
+      <p>You may also find the information on the FontForge site useful:</p>
+      <p><a href="http://fontforge.org/gposgsub.html" title="http://fontforge.org/gposgsub.html">http://fontforge.org/gposgsub.html</a></p>
+      <p>This also refers to the following page on Adobe's website:</p>
+      <p><a href="http://partners.adobe.com/public/developer/opentype/index_table_formats1.html" title="http://partners.adobe.com/public/developer/opentype/index_table_formats1.html">http://partners.adobe.com/public/developer/opentype/index_table_formats1...</a></p>
+    html_clean: |-
+      <p>Unfortunately I do not have first hand knowledge of GSUB tables, but you may find these links useful:</p>
+      <p>The <a class="freelinking external link-external" href="http://www.microsoft.com/typography/tt/win95tt.aspx" rel="nofollow">Microsoft Typography overview of TrueType in Windows 95</a> includes the following:</p>
+      <dl><cite>The GSUB and GPOS tables define glyph substitution and positioning features. GSUB supplies five types of substitutions to support different kinds of character-to-glyph mappings, such as many-to-one ligature glyph substitution and one-to-many ligature decomposition.</cite></dl>
+      <p>You may also find the information on the FontForge site useful:</p>
+      <p><a href="http://fontforge.org/gposgsub.html" title="http://fontforge.org/gposgsub.html" class="link-external">http://fontforge.org/gposgsub.html</a></p>
+      <p>This also refers to the following page on Adobe's website:</p>
+      <p><a href="http://partners.adobe.com/public/developer/opentype/index_table_formats1.html" title="http://partners.adobe.com/public/developer/opentype/index_table_formats1.html" class="link-external">http://partners.adobe.com/public/developer/opentype/index_table_formats1...</a></p>
+  - id: 525835
+    user: 29994
+    date: 2012-10-10T05:37:00
+    date_raw: 10 Oct 2012 — 5:37am
+    votes: null
+    html: |-
+      <blockquote><p>Really? Nothing?</p></blockquote>
+      <p>Uh, you got an answer, dintya?</p>
+      <p>Anyway, here is the promised example: 'frac' -- based on Tal Leming's <a href="http://talleming.com/2008/04/16/fraction-fever/" rel="nofollow">Fraction Fever</a> discussion.</p>
+      <p>feature frac {<br>
+          sub @figures slash' @figures by fraction;<br>
+          sub @figures' fraction by @numerators;<br>
+      }</p>
+      <p>The class '@figures' contains 'zero one two .. nine', and the first line will replace a simple default slash, preceded by a figure, with a proper 'fraction' slash. After that, individual figures should be replaced with superior/inferior forms, to create proper fractions.<br>
+      It will work as expected if you manually inserted a fraction slash (and the first line will not be used). However, because all sub-tables are terminated a.s.a.p., this code will stop if the first line was executed! So in this case you have to force a sub-table below the first line to make sure the second line is evaluated as well.</p>
+      <p>Tal Leming's code doesn't specifically mention a sub-table, but I think standard behavior for feature compilers is to automatically create them when deemed necessary. In my example, the first line contains a 'fraction' on the <em>right</em> side of a substitution (target) and the second line on the <em>left</em> side (source), so to be able to process both rules, the compiler creates a sub-table at the second line.</p>
+    html_clean: |-
+      <blockquote><p>Really? Nothing?</p></blockquote>
+      <p>Uh, you got an answer, dintya?</p>
+      <p>Anyway, here is the promised example: 'frac' -- based on Tal Leming's <a href="http://talleming.com/2008/04/16/fraction-fever/" rel="nofollow" class="link-external">Fraction Fever</a> discussion.</p>
+      <p>feature frac {<br>
+          sub @figures slash' @figures by fraction;<br>
+          sub @figures' fraction by @numerators;<br>
+      }</p>
+      <p>The class '@figures' contains 'zero one two .. nine', and the first line will replace a simple default slash, preceded by a figure, with a proper 'fraction' slash. After that, individual figures should be replaced with superior/inferior forms, to create proper fractions.<br>
+      It will work as expected if you manually inserted a fraction slash (and the first line will not be used). However, because all sub-tables are terminated a.s.a.p., this code will stop if the first line was executed! So in this case you have to force a sub-table below the first line to make sure the second line is evaluated as well.</p>
+      <p>Tal Leming's code doesn't specifically mention a sub-table, but I think standard behavior for feature compilers is to automatically create them when deemed necessary. In my example, the first line contains a 'fraction' on the <em>right</em> side of a substitution (target) and the second line on the <em>left</em> side (source), so to be able to process both rules, the compiler creates a sub-table at the second line.</p>
+  - id: 525836
+    user: 29994
+    date: 2012-10-10T05:47:00
+    date_raw: 10 Oct 2012 — 5:47am
+    votes: null
+    html: |-
+      <p>Another application is the 'ignore' rule, which is not really a feature file keyword. It works like this: every "ignore" rule and its "when not ignored" counterpart appear in a sub-table of their own.</p>
+      <p>ignore [a e m n r u]' [ @alpha ];<br>
+      subst [a e m n r u]' by [a.end e.end m.end n.end r.end u.en];</p>
+      <p>This is meant to replace 'a', 'e', etc. with a swashed 'end' form, but of course <em>not</em> if another alphabetic character follows. So the first line is internally compiled to</p>
+      <p>subst  [a e m n r u]' [ @alpha ] by [a e m n r u];</p>
+      <p>(i.e., it does "nothing"), and if this line <em>gets executed</em>, the next line is skipped. This particular sub-table must end after the next line, because there might be other lines that should be evaluated for the rest of the characters.</p>
+    html_clean: |-
+      <p>Another application is the 'ignore' rule, which is not really a feature file keyword. It works like this: every "ignore" rule and its "when not ignored" counterpart appear in a sub-table of their own.</p>
+      <p>ignore [a e m n r u]' [ @alpha ];<br>
+      subst [a e m n r u]' by [a.end e.end m.end n.end r.end u.en];</p>
+      <p>This is meant to replace 'a', 'e', etc. with a swashed 'end' form, but of course <em>not</em> if another alphabetic character follows. So the first line is internally compiled to</p>
+      <p>subst  [a e m n r u]' [ @alpha ] by [a e m n r u];</p>
+      <p>(i.e., it does "nothing"), and if this line <em>gets executed</em>, the next line is skipped. This particular sub-table must end after the next line, because there might be other lines that should be evaluated for the rest of the characters.</p>
+  - id: 525862
+    user: 92807
+    date: 2012-10-10T09:53:00
+    date_raw: 10 Oct 2012 — 9:53am
+    votes: null
+    html: |-
+      <p>Thank's Karl and Theunis, that were the elaborate answers I was hoping for!</p>
+      <blockquote><p>subst [a e m n r u]' [ @alpha ] by [a e m n r u];<br>
+      (i.e., it does "nothing")</p></blockquote>
+      <p>This is really enlightening. I've been using the ‘ignore’ keyword a few times and wasn't able to deduce such an evident fact.</p>
+      <blockquote><p>(...) standard behavior for (feature) compilers is to automatically create them when deemed necessary.</p></blockquote>
+      <p>I realize my problems to understand OpenType's syntax mostly arise from the fact that the compiler generates subtables behind the scenes.</p>
+      <p>Another issue is that the ‘subtable’ command is only supported for class kerning, so one must set up an entirely new lookup to avoid line ‘skipping’. I wonder why it hasn't been implemented yet...</p>
+      <p>One thing that has clarified many of my doubts, re-reading Adobe's <em>OpenType Feature File Specification</em>, is the following part about chaining contextual substitution:</p>
+      <blockquote><p>The entire sequence of glyphs – prefix plus input plus suffix – must match in the current context for the rule to be applied. The match sequence is aligned to the current context by aligning the first glyph of the input sequence with the current glyph of the text being processed. If the rule is matched, then the current context moves the current glyph pointer ahead in the original text <em>by the length of the input sequence</em>. Note that in the FDK syntax, the entire context string (backtrack sequence + input sequence + look-ahead sequence) are all written in the text string order. This is worth emphasis, as inside the lookup rule, <em>the glyphs of the backtrack sequence are written in reverse order from the text to be matched.</em> </p></blockquote>
+      <p>I've emphasized the mind-blowing parts.</p>
+    html_clean: |-
+      <p>Thank's Karl and Theunis, that were the elaborate answers I was hoping for!</p>
+      <blockquote><p>subst [a e m n r u]' [ @alpha ] by [a e m n r u];<br>
+      (i.e., it does "nothing")</p></blockquote>
+      <p>This is really enlightening. I've been using the ‘ignore’ keyword a few times and wasn't able to deduce such an evident fact.</p>
+      <blockquote><p>(...) standard behavior for (feature) compilers is to automatically create them when deemed necessary.</p></blockquote>
+      <p>I realize my problems to understand OpenType's syntax mostly arise from the fact that the compiler generates subtables behind the scenes.</p>
+      <p>Another issue is that the ‘subtable’ command is only supported for class kerning, so one must set up an entirely new lookup to avoid line ‘skipping’. I wonder why it hasn't been implemented yet...</p>
+      <p>One thing that has clarified many of my doubts, re-reading Adobe's <em>OpenType Feature File Specification</em>, is the following part about chaining contextual substitution:</p>
+      <blockquote><p>The entire sequence of glyphs – prefix plus input plus suffix – must match in the current context for the rule to be applied. The match sequence is aligned to the current context by aligning the first glyph of the input sequence with the current glyph of the text being processed. If the rule is matched, then the current context moves the current glyph pointer ahead in the original text <em>by the length of the input sequence</em>. Note that in the FDK syntax, the entire context string (backtrack sequence + input sequence + look-ahead sequence) are all written in the text string order. This is worth emphasis, as inside the lookup rule, <em>the glyphs of the backtrack sequence are written in reverse order from the text to be matched.</em> </p></blockquote>
+      <p>I've emphasized the mind-blowing parts.</p>
+  - id: 525866
+    user: 29994
+    date: 2012-10-10T10:08:00
+    date_raw: 10 Oct 2012 — 10:08am
+    votes: null
+    html: |-
+      <p>Possible further mind blowing-yet-enlightening may occur if you inspect a few ligature sets. I'd have to go through my font library to find a good example, but I think the text you copied from the specs also apply to sequences of "ff", "ffi", and "ffl" ligatures -- i.e., put them in the wrong order and/or without subtables, and some combo's will not work.<br>
+      Perhaps one of the OT-savvy techies can recall an appropriate thread from the past where one has to resort to manually inserting a 'subtable' clause in a GSUB feature.</p>
+      <p>A propos: I am <em>assuming</em> OTF compilers automatically generate subtables for GSUB features, because I can't find a concrete reference to them as well (or these references are very oblique), and the fonts I have are positively brimming with them.</p>
+    html_clean: |-
+      <p>Possible further mind blowing-yet-enlightening may occur if you inspect a few ligature sets. I'd have to go through my font library to find a good example, but I think the text you copied from the specs also apply to sequences of "ff", "ffi", and "ffl" ligatures -- i.e., put them in the wrong order and/or without subtables, and some combo's will not work.<br>
+      Perhaps one of the OT-savvy techies can recall an appropriate thread from the past where one has to resort to manually inserting a 'subtable' clause in a GSUB feature.</p>
+      <p>A propos: I am <em>assuming</em> OTF compilers automatically generate subtables for GSUB features, because I can't find a concrete reference to them as well (or these references are very oblique), and the fonts I have are positively brimming with them.</p>

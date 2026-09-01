@@ -54,18 +54,43 @@ function textAfterFirstBr($, container) {
   return out || null;
 }
 
+export function normaliseProfileHref(href) {
+  let value = String(href ?? "").trim();
+  if (!value) return null;
+
+  // Some captures rewrote a vanity profile through the Wayback replay path,
+  // for example `/web/20130816232648/http://typophile.com/readthetype`.
+  // Recover the original Typophile URL before deciding whether it is numeric
+  // or a genuine vanity path.
+  const replay = /^(?:https?:\/\/web\.archive\.org)?\/web\/\d+(?:[a-z_]+)?\/(https?:\/\/.*)$/i.exec(value);
+  if (replay) value = replay[1];
+
+  const absolute = /^https?:\/\/(?:www\.)?typophile\.com(?::\d+)?(\/.*)?$/i.exec(value);
+  if (absolute) value = absolute[1] || "/";
+  value = value.split(/[?#]/, 1)[0];
+
+  // Classic pages used `user/103`, whereas later pages used `/user/103`.
+  // They identify the same account and must produce the same numeric id.
+  if (!value.startsWith("/") && !/^[a-z][a-z0-9+.-]*:/i.test(value)) {
+    value = `/${value}`;
+  }
+  if (value.length > 1) value = value.replace(/\/+$/, "");
+  return value || null;
+}
+
 function userFromLink($, link) {
   if (!link || link.length === 0) return { id: null, name: null, path: null };
-  const href = link.attr("href") || "";
+  const href = normaliseProfileHref(link.attr("href"));
   // Matches both "/user/1258" and "http://typophile.com/user/1258".
-  const m = /\/user\/(\d+)/.exec(href);
+  // A short-lived deployment prefixed the same Drupal route with `/cms`.
+  const m = /^\/(?:cms\/)?user\/(\d+)$/.exec(href ?? "");
   return {
     id: m ? Number(m[1]) : null,
     name: (link.text() || "").trim().replace(/\s+/g, " ") || null,
     // Some members had a vanity profile path (e.g. "/readthetype") instead of
     // a numeric one. There is no id to recover, but the name and the path are
     // still worth keeping.
-    path: m ? null : href || null,
+    path: m ? null : href,
   };
 }
 

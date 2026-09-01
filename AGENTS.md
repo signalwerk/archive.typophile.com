@@ -38,6 +38,7 @@ Node v24. The only root dependencies are `cheerio` and `yaml`.
 | comments | 392,512 |
 | members | 25,573 files, 25,038 with numeric ids |
 | embedded files | 24,615 (`data/parsed/files/`, 2.7 GB) |
+| legacy-only discussions | 1,029 (`data/parsed/messages/<forum-id>-<old-id>.yaml`), 6,923 posts |
 | `data/parsed` total | 3.5 GB |
 
 Consequences that bite:
@@ -60,6 +61,7 @@ Whole pipeline, in order, resumable and safe to re-run: `sh get.sh`
 | 8 | `npm run clean` | produce `html_clean` from `html` | ~4 min |
 | 9 | `npm run threads` | write `nodes/_index.jsonl` | ~60 s cold, ~1 s warm |
 | 10 | `npm run old-urls` | match Discus URLs to nodes; write `old_url` + `old-urls.log` | ~20 s |
+| 11 | `npm run old-messages` | parse unmatched Discus threads and map migrated authors | ~20 s |
 
 Site, from `site/`: `npm run dev` (port 5173) and `npm run build`. The build
 renders all ~63k routes every time — there is no incremental build — and then
@@ -77,6 +79,7 @@ archives ──0-4──> data/archives/<archive>/files/…      raw captures, d
                      │
                      └──> site/  reads the two _index.jsonl files and one YAML per page
               10──> old_url added to matched thread YAML + data/parsed/old-urls.log
+              11──> data/parsed/messages/<forum-id>-<old-id>.yaml   legacy-only corpus
 ```
 
 ### Legacy thread URLs
@@ -104,6 +107,46 @@ modern nodes match uniquely, with 19 old moved-forum aliases folded onto their
 newest captured location; 1,029 old discussions are `MISSING`, and one is
 `AMBIGUOUS`. The earliest 58 discussions use malformed single-hyphen Discus
 markers (`<!-Post...-!>`) and are parsed alongside the later proper comments.
+
+Step 11 consumes only the `MISSING` lines and writes the ordinary raw thread
+shape (`node`, `title`, `old_url`, `forum`, `source`, `pages`, `post`, and
+`comments`) to `data/parsed/messages/<forum-id>-<old-message-id>.yaml`. Both ids
+are required: ten message ids survive at two forum paths, and every one of the
+1,029 old URLs must remain distinct. Query-string captures of the exact same
+forum/message URL are merged by Discus post id because later pages sometimes
+omit posts visible in earlier captures; the newest observation of an edited
+post wins. Moved-forum aliases are not merged. `source.content` says `merged
+snapshots` when this happened and `source.snapshots` records how many captures
+contributed. The current corpus merges 1,279 parseable snapshots into 6,923
+recovered entries (1,029 opening posts and 5,894 replies).
+
+Step 11 reconstructs the complete `messages/` directory in `messages.part/`
+and swaps it into place only after processing the current `MISSING` set. It
+copies fingerprint-current files into the staging directory, so it remains
+incremental. This full-directory publication is important: after a later
+archive run recovers a matching Drupal node, the no-longer-missing legacy YAML
+must disappear rather than linger in `messages/`.
+
+These files deliberately contain raw `html` but no `html_clean`: they have the
+same shape as step 6 output and are not yet a site input, while step 8 remains
+scoped to `parsed/nodes/`. Old Discus profiles had no Drupal numeric user id;
+the `user` field therefore uses the stable slug of the old profile key (or the
+display name when there was no profile link), just as regular guest/vanity
+authors use string ids. Step 11 learns the old-to-new author relation from the
+2,089 discussions already matched to nodes: opening posts align through the
+thread relation, while replies require an exact naive timestamp + normalised
+body match. It accepts an identity only when all evidence points to one id that
+exists in `users/_index.jsonl`; it never guesses from a display name. Conflicts
+remain legacy string ids and are logged as `AMBIGUOUS_USER`; identities with no
+migrated-post evidence are `UNRESOLVED_USER`. Log lines include the old profile
+key, names, candidate ids, entry count, and discussion count.
+
+The resolver currently learns 1,461 unambiguous mappings from 20,961 migrated
+posts. In the legacy-only corpus this resolves 537 identities / 5,878 entries;
+412 identities / 873 entries remain unresolved and five identities / 172
+entries are ambiguous. The mapping plus user-index content hash is part of each
+message fingerprint, so newly captured matched nodes or a changed user index
+invalidate affected output. `messages.meta.json` holds the totals.
 
 The site does **no** content processing at request time. It injects the stored
 `html_clean` string and nothing more — no sanitising, no link rewriting. All of
@@ -142,7 +185,7 @@ Styled in `site/src/pages/Thread/Thread.scss`; the `--kept` / `--lost` colour
 tokens are the only colour on an otherwise monochrome site
 (`site/src/styles.scss`).
 
-## Cache invalidation — three separate version hashes
+## Cache invalidation — five separate version hashes
 
 Each is a hash that invalidates derived data when the code that produced it
 changes. They differ in what they hash, and that difference matters enormously.
@@ -150,8 +193,10 @@ changes. They differ in what they hash, and that difference matters enormously.
 | where | hashes | cost when it changes |
 | --- | --- | --- |
 | `parserVersion()` in `src/006_parseNodes.js` | `lib/generations.js` **+ its own whole source** | re-parses all 62k nodes from archive HTML — very expensive |
+| `profileParserVersion()` in `src/007_users.js` | `lib/userProfile.js` | re-parses the downloaded `/user/` profile pages |
 | `cleanerVersion()` in `src/008_cleanHtml.js` | `lib/assets.js` + its own whole source | re-cleans all 62k threads, ~4 min |
 | `summaryVersion()` in `src/lib/summary.js` | **only `summarise.toString()`** | re-reads all 62k YAMLs, ~60 s |
+| `parserVersion()` in `src/011_oldMessages.js` | `lib/legacyThreads.js` + its own whole source | re-parses 1,029 legacy-only discussions after rebuilding the author map |
 
 **Trap:** editing `src/006_parseNodes.js` at all — even a comment — re-parses
 the entire corpus from archive HTML. This is why the thread index went into its
@@ -198,6 +243,11 @@ Measured after the current design: index 125 ms cold / 0 ms warm, thread page
   register. They use `--` rather than em dashes. No emoji anywhere.
 - Every step is incremental and re-runnable, writes atomically (`.part` then
   rename), and reports totals for the **whole corpus**, not just the increment.
+- Numeric profile links appeared as `/user/<id>`, relative `user/<id>`, and the
+  short-lived `/cms/user/<id>` route; all must resolve to the same numeric user.
+  Wayback-wrapped vanity links must be reduced to their original Typophile
+  path. Step 7 prunes user YAML and copied pictures that disappear after this
+  normalization.
 - Counts print through `formatCount`, aligned with dot leaders.
 
 ## Known problems

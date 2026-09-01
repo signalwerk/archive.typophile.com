@@ -1,0 +1,128 @@
+node: 96449
+title: Kerning Classes Stopped Working in All Files
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140724081625"
+  captured_at: 2014-07-24T08:16:25Z
+  url: http://typophile.com/node/96449
+  digest: JSENNUQYL4TI6F6QLJ6IENIALFWEQIIT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/96449.html
+  fingerprint: 25a3c338dfbd7b98
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140724081625"
+      digest: JSENNUQYL4TI6F6QLJ6IENIALFWEQIIT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/96449.html
+post:
+  id: 96449
+  user: 43853
+  date: 2012-09-17T21:27:00
+  date_raw: 17 Sep 2012 — 9:27pm
+  votes: null
+  html: |-
+    <p>I've upgraded Fontlab to 5.1.2 and my Mac to 10.8.1 and (now?) no kerning classes are working.</p>
+    <p>Existing files have stopped working; existing sets work for only the main glyph, and new/fresh attempts fail as well.</p>
+    <p>Typical sets look like this for my existing file left-side classes:<br>
+    _VW_L: V' W Wacute Wcircumflex Wdieresis Wgrave</p>
+    <p>This had been working perfectly for the last few years of development.</p>
+    <p>So I've tried this:</p>
+    <p>• Make a new file with only A, V, and W<br>
+    • Drew new shapes in each (no copy, all new info and shapes)<br>
+    • Built a kerning class called _V with _V: V' W as the class<br>
+    • Went to Kerning Mode and typed AVAWA<br>
+    • Dragged the second A towards the V</p>
+    <p>The A is closer to the V as I moved it, but the third A doesn't move closer to the W</p>
+    <p>Expanding the kerning classes fixes the missing pairs, but with errors so I cannot output successfully (and I shouldn't have to flatten to get this work, right?).</p>
+    <p>All existing classes do not work for previous files—so I'm a bit out of sorts.</p>
+    <p>Did I forget something? Miss the obvious code marker? Argh!</p>
+    <p>Thanks.</p>
+  html_clean: |-
+    <p>I've upgraded Fontlab to 5.1.2 and my Mac to 10.8.1 and (now?) no kerning classes are working.</p>
+    <p>Existing files have stopped working; existing sets work for only the main glyph, and new/fresh attempts fail as well.</p>
+    <p>Typical sets look like this for my existing file left-side classes:<br>
+    _VW_L: V' W Wacute Wcircumflex Wdieresis Wgrave</p>
+    <p>This had been working perfectly for the last few years of development.</p>
+    <p>So I've tried this:</p>
+    <p>• Make a new file with only A, V, and W<br>
+    • Drew new shapes in each (no copy, all new info and shapes)<br>
+    • Built a kerning class called _V with _V: V' W as the class<br>
+    • Went to Kerning Mode and typed AVAWA<br>
+    • Dragged the second A towards the V</p>
+    <p>The A is closer to the V as I moved it, but the third A doesn't move closer to the W</p>
+    <p>Expanding the kerning classes fixes the missing pairs, but with errors so I cannot output successfully (and I shouldn't have to flatten to get this work, right?).</p>
+    <p>All existing classes do not work for previous files—so I'm a bit out of sorts.</p>
+    <p>Did I forget something? Miss the obvious code marker? Argh!</p>
+    <p>Thanks.</p>
+comments:
+  - id: 522644
+    user: 2021
+    date: 2012-09-18T09:41:00
+    date_raw: 18 Sep 2012 — 9:41am
+    votes: null
+    html: |-
+      <p>Try inserting…</p>
+      <p><code>subtable;</code></p>
+      <p>…into the compiled kerning feature code, occasionally.</p>
+      <p>If the number of kerns gets too long in this table, they don’t all work, and the A_V is where it breaks down.<br>
+      At least, that’s what I recall from a similar issue I’ve come across in the past.</p>
+    html_clean: |-
+      <p>Try inserting…</p>
+      <p><code>subtable;</code></p>
+      <p>…into the compiled kerning feature code, occasionally.</p>
+      <p>If the number of kerns gets too long in this table, they don’t all work, and the A_V is where it breaks down.<br>
+      At least, that’s what I recall from a similar issue I’ve come across in the past.</p>
+  - id: 522651
+    user: 43853
+    date: 2012-09-18T11:18:00
+    date_raw: 18 Sep 2012 — 11:18am
+    votes: null
+    html: |-
+      <p>Thanks, Nick. The problem isn't with any particular set or class, it's all classes, in all cases now. The _V class was just a test example where the class had a set of five, for a total of five pairs in the entire test font, and it still failed.</p>
+      <p>Flattening out isn't what I'm after as I cannot check any class kerning for accuracy for diacritics or like-style glyphs—which is the point of class kerning. My final projects have been successful with 50,000+ pairs, no errors; now that effort is not working.</p>
+    html_clean: |-
+      <p>Thanks, Nick. The problem isn't with any particular set or class, it's all classes, in all cases now. The _V class was just a test example where the class had a set of five, for a total of five pairs in the entire test font, and it still failed.</p>
+      <p>Flattening out isn't what I'm after as I cannot check any class kerning for accuracy for diacritics or like-style glyphs—which is the point of class kerning. My final projects have been successful with 50,000+ pairs, no errors; now that effort is not working.</p>
+  - id: 522658
+    user: 31798
+    date: 2012-09-18T11:54:00
+    date_raw: 18 Sep 2012 — 11:54am
+    votes: null
+    html: |-
+      <p>Perhaps a stupid question, but in your metrics window do you have 'class kerning' rather than 'individual pair kerning' checked?</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Perhaps a stupid question, but in your metrics window do you have 'class kerning' rather than 'individual pair kerning' checked?</p>
+      <p>André</p>
+  - id: 522706
+    user: 43853
+    date: 2012-09-18T19:12:00
+    date_raw: 18 Sep 2012 — 7:12pm
+    votes: null
+    html: |-
+      <p>agisaak = genius</p>
+      <p>Whew! I'm so relieved I don't care that I look nuts. After years with this program, you'd think I'd know 'bout that switch.</p>
+      <p>Many, many thanks. I'd hoped it was just something I did.</p>
+      <p>Mcs</p>
+    html_clean: |-
+      <p>agisaak = genius</p>
+      <p>Whew! I'm so relieved I don't care that I look nuts. After years with this program, you'd think I'd know 'bout that switch.</p>
+      <p>Many, many thanks. I'd hoped it was just something I did.</p>
+      <p>Mcs</p>

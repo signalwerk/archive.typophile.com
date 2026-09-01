@@ -1,0 +1,189 @@
+node: 97097
+title: AFDKO, error occured on microsoft font validator
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140723191952"
+  captured_at: 2014-07-23T19:19:52Z
+  url: http://typophile.com/node/97097
+  digest: 7RMX73WC4GPIJW42JAQGROQY5WFGTOSL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/97097.html
+  fingerprint: 09b8d4d81a7270c6
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140723191952"
+      digest: 7RMX73WC4GPIJW42JAQGROQY5WFGTOSL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/97097.html
+post:
+  id: 97097
+  user: 35635
+  date: 2012-10-11T03:33:00
+  date_raw: 11 Oct 2012 — 3:33am
+  votes: null
+  html: |-
+    <p>Dear buddies</p>
+    <p>Some time ago I had tested trying to build a font using makeotf-afdko<br>
+    <code>(Font, Version 1.002;PS 1.001;hotconv 1.0.57;makeotf.lib2.0.21895 DEVELOPMENT)</code><br>
+    All of supporting data required has been edited from the source file example Adobe "minionpro". The process of generating fonts was successfully and font can be used at least in windows xp. But after I checked this font microsoft font validator, there are some pretty annoying error messages as follows:</p>
+    <p>into file: <strong>feature size </strong><br>
+    <em>actually I haven't yet understand about the values of parameter, So I put them with random value, and It is succesfully generating error into Microsoft Font Validator (MFV) reviews :)</em></p>
+    <p><code><br>
+    </code></p><dt><code>feature size {</code></dt><code>
+    <dd>parameters 150 3 65 84;<br>
+         sizemenuname "Regular";<br>
+         sizemenuname 1 "Italic";</dd>
+    <dt>} size;</dt>
+    <p></p></code><p></p>
+    <p>The MFV review as follow:<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/Fea-Size_4913.png"></div><p></p>
+    <p>into file: <strong>feature family</strong><br>
+    <em>I put these:</em><br>
+    <code><br>
+    </code></p><dt><code>feature ss01 { # Stylistic Set 1<br>
+     # Latin<br>
+    featureNames {</code></dt><code>
+    <dd>	name 3 "Windows descriptive name for stylistic set 01";<br>
+    	name 1 "Mac descriptive name for stylistic set 01";<br>
+    	name 3 1 0x40c "Windows descriptive name for stylistic set 01";<br>
+    	name 1 0 1 "Mac descriptive name for stylistic set 01";</dd>
+    <dt>};<br>
+    lookup ss012 {</dt>
+    <dd>    sub @salt1' [@allnum @all_lc @liga_lc @QUOTE @acute]  by @salt2;</dd>
+    <dt>} ss012;</dt>
+    <dd>    language AZE ; # Azeri ................</dd>
+    <dt>lookup ss012;<br>
+    } ss01;</dt>
+    <p></p></code><p></p>
+    <p>The MFV review as follow:<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/SS01_3459.png"></div><p></p>
+    <p>into file <strong>"features"</strong>:<br>
+    <em>I put these:</em><br>
+    <code><br>
+    </code></p><dt><code>table OS/2 {</code></dt><code>
+    <dd>	TypoAscender 750;	# Top of Ascenders<br>
+    	TypoDescender -250;	# TypoAscender UPM<br>
+    	XHeight 500;<br>
+    	CapHeight 680;<br>
+    	WeightClass 700;	# Bold<br>
+    	Vendor "camp";<br>
+    	FSType 8;		# Editable embedding<br>
+    	Panose 2 0 8 5 2 0 0 9 0 4;</dd>
+    <dt>} OS/2;</dt>
+    <p></p></code><p></p>
+    <p>(note: Previously I put the information "width 3;" below "CapHeight 680;", but failed to read by makeotf-afdko, so I treat with suspicion that afdko will give value automatically)</p>
+    <p>and here is the MFV error:<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/TableOS2_3921.png"></div><p></p>
+    <p>Can someone enlightening me?. Thank you in advance for your help and answers slightest.</p>
+    <p>Best Regards<br>
+    Andi aw. masry</p>
+  html_clean: |-
+    <p>Dear buddies</p>
+    <p>Some time ago I had tested trying to build a font using makeotf-afdko<br>
+    <code>(Font, Version 1.002;PS 1.001;hotconv 1.0.57;makeotf.lib2.0.21895 DEVELOPMENT)</code><br>
+    All of supporting data required has been edited from the source file example Adobe "minionpro". The process of generating fonts was successfully and font can be used at least in windows xp. But after I checked this font microsoft font validator, there are some pretty annoying error messages as follows:</p>
+    <p>into file: <strong>feature size </strong><br>
+    <em>actually I haven't yet understand about the values of parameter, So I put them with random value, and It is succesfully generating error into Microsoft Font Validator (MFV) reviews :)</em></p>
+    <p><code><br>
+    </code></p><dt><code>feature size {</code></dt><code>
+    <dd>parameters 150 3 65 84;<br>
+         sizemenuname "Regular";<br>
+         sizemenuname 1 "Italic";</dd>
+    <dt>} size;</dt>
+    <p></p></code><p></p>
+    <p>The MFV review as follow:<br>
+    </p><div class="imageWrap"><img src="/files/fea-size_4913.png"></div><p></p>
+    <p>into file: <strong>feature family</strong><br>
+    <em>I put these:</em><br>
+    <code><br>
+    </code></p><dt><code>feature ss01 { # Stylistic Set 1<br>
+     # Latin<br>
+    featureNames {</code></dt><code>
+    <dd>	name 3 "Windows descriptive name for stylistic set 01";<br>
+    	name 1 "Mac descriptive name for stylistic set 01";<br>
+    	name 3 1 0x40c "Windows descriptive name for stylistic set 01";<br>
+    	name 1 0 1 "Mac descriptive name for stylistic set 01";</dd>
+    <dt>};<br>
+    lookup ss012 {</dt>
+    <dd>    sub @salt1' [@allnum @all_lc @liga_lc @QUOTE @acute]  by @salt2;</dd>
+    <dt>} ss012;</dt>
+    <dd>    language AZE ; # Azeri ................</dd>
+    <dt>lookup ss012;<br>
+    } ss01;</dt>
+    <p></p></code><p></p>
+    <p>The MFV review as follow:<br>
+    </p><div class="imageWrap"><img src="/files/ss01_3459.png"></div><p></p>
+    <p>into file <strong>"features"</strong>:<br>
+    <em>I put these:</em><br>
+    <code><br>
+    </code></p><dt><code>table OS/2 {</code></dt><code>
+    <dd>	TypoAscender 750;	# Top of Ascenders<br>
+    	TypoDescender -250;	# TypoAscender UPM<br>
+    	XHeight 500;<br>
+    	CapHeight 680;<br>
+    	WeightClass 700;	# Bold<br>
+    	Vendor "camp";<br>
+    	FSType 8;		# Editable embedding<br>
+    	Panose 2 0 8 5 2 0 0 9 0 4;</dd>
+    <dt>} OS/2;</dt>
+    <p></p></code><p></p>
+    <p>(note: Previously I put the information "width 3;" below "CapHeight 680;", but failed to read by makeotf-afdko, so I treat with suspicion that afdko will give value automatically)</p>
+    <p>and here is the MFV error:<br>
+    </p><div class="imageWrap"><img src="/files/tableos2_3921.png"></div><p></p>
+    <p>Can someone enlightening me?. Thank you in advance for your help and answers slightest.</p>
+    <p>Best Regards<br>
+    Andi aw. masry</p>
+comments:
+  - id: 525986
+    user: 1262
+    date: 2012-10-11T10:11:00
+    date_raw: 11 Oct 2012 — 10:11am
+    votes: null
+    html: <p>I can comment on the last of these. Font Validator has not been updated since the version of the OT spec in which the most recent OS/2 version number was 3, so it simply doesn't recognise the version 4 string that the latest AFDKO uses as default.</p>
+    html_clean: <p>I can comment on the last of these. Font Validator has not been updated since the version of the OT spec in which the most recent OS/2 version number was 3, so it simply doesn't recognise the version 4 string that the latest AFDKO uses as default.</p>
+  - id: 525999
+    user: 9108
+    date: 2012-10-11T10:58:00
+    date_raw: 11 Oct 2012 — 10:58am
+    votes: null
+    html: |-
+      <p>I think FontValidator does not understand human readable names for ss01-ss20. (To be honest none application does)<br>
+      BTW  there is newer AFDKO see: <a href="http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html" title="http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html">http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html</a></p>
+    html_clean: |-
+      <p>I think FontValidator does not understand human readable names for ss01-ss20. (To be honest none application does)<br>
+      BTW  there is newer AFDKO see: <a href="http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html" title="http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html" class="link-external">http://blogs.adobe.com/typblography/2012/09/new-afdko-version.html</a></p>
+  - id: 526399
+    user: 35635
+    date: 2012-10-15T04:48:00
+    date_raw: 15 Oct 2012 — 4:48am
+    votes: null
+    html: |-
+      <p><strong>Thank you !!<br>
+      Apparently I missed the plane :)</strong><br>
+      on the feature size, can anyone explain the basis for determining parameters such as:<br>
+      <code>"parameters 150 3 65 84"</code><br>
+      As I was getting at above, the numbers I wrote with random parameter, but it turns out makeotf not give an error message. So it seems fine. But I want to make sure to count or basics of logic determining these figures. Can anyone help?<br>
+      Bst regards</p>
+    html_clean: |-
+      <p><strong>Thank you !!<br>
+      Apparently I missed the plane :)</strong><br>
+      on the feature size, can anyone explain the basis for determining parameters such as:<br>
+      <code>"parameters 150 3 65 84"</code><br>
+      As I was getting at above, the numbers I wrote with random parameter, but it turns out makeotf not give an error message. So it seems fine. But I want to make sure to count or basics of logic determining these figures. Can anyone help?<br>
+      Bst regards</p>

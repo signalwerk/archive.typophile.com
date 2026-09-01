@@ -1,0 +1,142 @@
+node: 94563
+title: Rendering crash in Mac OS X 10.6.8 with Cambria 5.97
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130819233528"
+  captured_at: 2013-08-19T23:35:28Z
+  url: http://typophile.com/node/94563
+  digest: X6XOKHTYMCP34STVETVWYRKERFIMMQKL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/94563.html
+  fingerprint: 18fb42a21f44970a
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130819233528"
+      digest: X6XOKHTYMCP34STVETVWYRKERFIMMQKL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/94563.html
+post:
+  id: 94563
+  user: 25436
+  date: 2012-07-09T11:49:00
+  date_raw: 9 Jul 2012 — 11:49am
+  votes: null
+  html: |-
+    <p>I’m looking for some help on reporting a crash bug in Mac OS X and/or Cambria. I don’t know whether it’s the font or the OS (CoreText) or both that are at fault here, and I have no idea where to report this problem other than here.</p>
+    <p>Here are the steps to repeat the bug:</p>
+    <ol>
+    <li>Open TextEdit (happens in other apps too).</li>
+    <li>⌘T, change font to Cambria (I have v. 5.97 installed).</li>
+    <li>Enter the following characters <em>in order</em>:
+    <ol>
+    <li>U+00F3 Latin small letter O with acute</li>
+    <li>U+0328 Combining ogonek</li>
+    </ol>
+    </li>
+    <li>???</li>
+    <li>Crash!</li>
+    </ol>
+    <p>The crash happens inside of CoreText. It blows up inside of TGlyphComposer::ComposeGlyphs() as can be seen from the top few calls on the stack dump.</p>
+    <p><code><br>
+    0   com.apple.CoreText            	0x00007fff830b6c9d TGlyphComposer::ComposeGlyphs(long, TStackBuffer const&amp;) + 1701<br>
+    1   com.apple.CoreText            	0x00007fff830b5e7c TCombiningEngine::ResolveCombiningMarks() + 602<br>
+    2   com.apple.CoreText            	0x00007fff8309e5d7 TTypesetterRunArray::DoAttachments(TLine&amp;) const + 73<br>
+    3   com.apple.CoreText            	0x00007fff8309e4c4 TTypesetterRunArray::TTypesetterRunArray(__CFArray const*, __CFString const*, void const* (*)(__CTRun const*, __CFString const*, void*), void*) + 228<br>
+    4   com.apple.CoreText            	0x00007fff8309e2d9 CTTypesetterCreateWithRunArray + 97<br>
+    </code></p>
+    <p>This only seems to happen with Cambria, and not with any other fonts. That’s why I’m not sure whether it’s an OS problem or a font problem. If it’s an OS problem, I have no idea where to report it. I guess can probably look forward to not hearing about it for a year or two, then being forced to upgrade to 10.7 or something. But If it’s a font problem, then maybe someone here can help. In either case, Apple has something to fix since a badly behaved font should still not cause a crash.</p>
+    <p>The workaround is fairly simple, just using the other possible combination of diacritic and base character: U+01EB Latin small letter O with ogonek + U+0301 Combining acute accent. It’s annoying to have to remember to enter things in one way and not another, and I am wary of other combinations of diacritics giving me problems...</p>
+  html_clean: |-
+    <p>I’m looking for some help on reporting a crash bug in Mac OS X and/or Cambria. I don’t know whether it’s the font or the OS (CoreText) or both that are at fault here, and I have no idea where to report this problem other than here.</p>
+    <p>Here are the steps to repeat the bug:</p>
+    <ol>
+    <li>Open TextEdit (happens in other apps too).</li>
+    <li>⌘T, change font to Cambria (I have v. 5.97 installed).</li>
+    <li>Enter the following characters <em>in order</em>:
+    <ol>
+    <li>U+00F3 Latin small letter O with acute</li>
+    <li>U+0328 Combining ogonek</li>
+    </ol>
+    </li>
+    <li>???</li>
+    <li>Crash!</li>
+    </ol>
+    <p>The crash happens inside of CoreText. It blows up inside of TGlyphComposer::ComposeGlyphs() as can be seen from the top few calls on the stack dump.</p>
+    <p><code><br>
+    0   com.apple.CoreText            	0x00007fff830b6c9d TGlyphComposer::ComposeGlyphs(long, TStackBuffer const&amp;) + 1701<br>
+    1   com.apple.CoreText            	0x00007fff830b5e7c TCombiningEngine::ResolveCombiningMarks() + 602<br>
+    2   com.apple.CoreText            	0x00007fff8309e5d7 TTypesetterRunArray::DoAttachments(TLine&amp;) const + 73<br>
+    3   com.apple.CoreText            	0x00007fff8309e4c4 TTypesetterRunArray::TTypesetterRunArray(__CFArray const*, __CFString const*, void const* (*)(__CTRun const*, __CFString const*, void*), void*) + 228<br>
+    4   com.apple.CoreText            	0x00007fff8309e2d9 CTTypesetterCreateWithRunArray + 97<br>
+    </code></p>
+    <p>This only seems to happen with Cambria, and not with any other fonts. That’s why I’m not sure whether it’s an OS problem or a font problem. If it’s an OS problem, I have no idea where to report it. I guess can probably look forward to not hearing about it for a year or two, then being forced to upgrade to 10.7 or something. But If it’s a font problem, then maybe someone here can help. In either case, Apple has something to fix since a badly behaved font should still not cause a crash.</p>
+    <p>The workaround is fairly simple, just using the other possible combination of diacritic and base character: U+01EB Latin small letter O with ogonek + U+0301 Combining acute accent. It’s annoying to have to remember to enter things in one way and not another, and I am wary of other combinations of diacritics giving me problems...</p>
+comments:
+  - id: 515123
+    user: 46071
+    date: 2012-07-09T12:46:00
+    date_raw: 9 Jul 2012 — 12:46pm
+    votes: null
+    html: <p>As far as I know, in order to report bugs for Apple software you need to register (for free) as an Apple developer (<a href="https://developer.apple.com/programs/register/" title="https://developer.apple.com/programs/register/">https://developer.apple.com/programs/register/</a>) and filing a “radar” bug report (<a href="https://bugreport.apple.com/" title="https://bugreport.apple.com/">https://bugreport.apple.com/</a>).</p>
+    html_clean: <p>As far as I know, in order to report bugs for Apple software you need to register (for free) as an Apple developer (<a href="https://developer.apple.com/programs/register/" title="https://developer.apple.com/programs/register/" class="link-external">https://developer.apple.com/programs/register/</a>) and filing a “radar” bug report (<a href="https://bugreport.apple.com/" title="https://bugreport.apple.com/" class="link-external">https://bugreport.apple.com/</a>).</p>
+  - id: 515134
+    user: 1262
+    date: 2012-07-09T14:52:00
+    date_raw: 9 Jul 2012 — 2:52pm
+    votes: null
+    html: |-
+      <p>This isn't a bug per se in the font, but I can take a guess as to why it occurs with Cambria but not with other fonts. In order to limit the size and complexity of GPOS mark positioning lookups, Cambria contextually decomposes diacritic glyphs when followed by combining marks, enabling mark-to-mark positioning to be useable for stacked marks above or below. This decomposition takes place in the GSUB 'ccmp' feature. So, for example, rather than having to provide GPOS mark positioning for /acutecomb/ to /adieresis/ and all other precomposed diacritic glyphs, the latter is decomposed to /a/dieresiscomb/ when followed by /acutecomb/ or any other combining mark glyph. For the sake of lookup simplicity, this decomposition applies to all precomposed diacritics regardless of whether the following mark is above or below. So what happens in the case you describe is that /oacute/ is being contextually decomposed to /o/acutecomb/, triggered by the following /ogonekcomb/. I presume this is causing some problem for Apple's CoreText engine.</p>
+      <p>Further evidence to support my presumption could be found by testing another font that is built in the same way as Cambria, e.g. <a href="http://www.brill.nl/promotions/brill-fonts-end-user-license-agreement" rel="nofollow">Brill Roman</a>.</p>
+      <p>[We've also identified and confirmed a bug with fonts that work in this way in Adobe's text handlers, although this doesn't result in a crash: the contextual lookups simply are not applied. Adobe have confirmed this is a bug, but were unable to get it fixed in time for the CS6 roll-out.]</p>
+    html_clean: |-
+      <p>This isn't a bug per se in the font, but I can take a guess as to why it occurs with Cambria but not with other fonts. In order to limit the size and complexity of GPOS mark positioning lookups, Cambria contextually decomposes diacritic glyphs when followed by combining marks, enabling mark-to-mark positioning to be useable for stacked marks above or below. This decomposition takes place in the GSUB 'ccmp' feature. So, for example, rather than having to provide GPOS mark positioning for /acutecomb/ to /adieresis/ and all other precomposed diacritic glyphs, the latter is decomposed to /a/dieresiscomb/ when followed by /acutecomb/ or any other combining mark glyph. For the sake of lookup simplicity, this decomposition applies to all precomposed diacritics regardless of whether the following mark is above or below. So what happens in the case you describe is that /oacute/ is being contextually decomposed to /o/acutecomb/, triggered by the following /ogonekcomb/. I presume this is causing some problem for Apple's CoreText engine.</p>
+      <p>Further evidence to support my presumption could be found by testing another font that is built in the same way as Cambria, e.g. <a href="http://www.brill.nl/promotions/brill-fonts-end-user-license-agreement" rel="nofollow" class="link-external">Brill Roman</a>.</p>
+      <p>[We've also identified and confirmed a bug with fonts that work in this way in Adobe's text handlers, although this doesn't result in a crash: the contextual lookups simply are not applied. Adobe have confirmed this is a bug, but were unable to get it fixed in time for the CS6 roll-out.]</p>
+  - id: 515280
+    user: 25436
+    date: 2012-07-10T16:40:00
+    date_raw: 10 Jul 2012 — 4:40pm
+    votes: null
+    html: |-
+      <p>Thanks for the detailed analysis! I verified that the same thing happens, in the exact same function, with Brill Roman.</p>
+      <p>John, would you be willing to file report this bug to Apple? I am not enthusiastic about setting up a developer account just to file one bug.</p>
+    html_clean: |-
+      <p>Thanks for the detailed analysis! I verified that the same thing happens, in the exact same function, with Brill Roman.</p>
+      <p>John, would you be willing to file report this bug to Apple? I am not enthusiastic about setting up a developer account just to file one bug.</p>
+  - id: 515288
+    user: 1262
+    date: 2012-07-10T18:32:00
+    date_raw: 10 Jul 2012 — 6:32pm
+    votes: null
+    html: <p>I'll bring this thread to someone's attention at Apple. I'm not a registered developer either, but have some friends there.</p>
+    html_clean: <p>I'll bring this thread to someone's attention at Apple. I'm not a registered developer either, but have some friends there.</p>
+  - id: 515299
+    user: 1262
+    date: 2012-07-10T21:25:00
+    date_raw: 10 Jul 2012 — 9:25pm
+    votes: null
+    html: <p>I've heard back from Apple. My contact thinks this bug has been fixed by some work they did on OpenType processing for the next OS; he tested that code with Cambria 5.97 and was unable to reproduce your crash behaviour.</p>
+    html_clean: <p>I've heard back from Apple. My contact thinks this bug has been fixed by some work they did on OpenType processing for the next OS; he tested that code with Cambria 5.97 and was unable to reproduce your crash behaviour.</p>
+  - id: 515407
+    user: 25436
+    date: 2012-07-12T01:24:00
+    date_raw: 12 Jul 2012 — 1:24am
+    votes: null
+    html: <p>Excellent. Hopefully the fix will be in a release soon. It’s kind of bothersome to have things crash because I typed the order of diacritics in wrong.</p>
+    html_clean: <p>Excellent. Hopefully the fix will be in a release soon. It’s kind of bothersome to have things crash because I typed the order of diacritics in wrong.</p>

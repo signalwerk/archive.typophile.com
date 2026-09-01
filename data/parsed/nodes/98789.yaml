@@ -1,0 +1,134 @@
+node: 98789
+title: Reducing .ttf-size ...
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419193457"
+  captured_at: 2015-04-19T19:34:57Z
+  url: http://typophile.com/node/98789
+  digest: Z2VMIM5XGUOMOMJZI3RXKURQYFVCMYNZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/98789.html
+  fingerprint: 5572081c833b4d19
+  parser: a85d4ab3500d11ea
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419193457"
+      digest: Z2VMIM5XGUOMOMJZI3RXKURQYFVCMYNZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/98789.html
+post:
+  id: 98789
+  user: 2642
+  date: 2012-12-10T08:53:00
+  date_raw: 10 Dec 2012 — 8:53am
+  votes: null
+  html: |-
+    <p>Hello,<br>
+    I have created some really big .ttf-fonts: About 2.2 MB each! The fonts are display/logofonts, with a lot of graphic-effects such as scratches,<br>
+    holes, etc. Are there any way to reduce the fontsizes? The goal is to make them ready also for webfont usage ...<br>
+    Thank you for any assistance in this case ;-)<br>
+    Best, Morten</p>
+  html_clean: |-
+    <p>Hello,<br>
+    I have created some really big .ttf-fonts: About 2.2 MB each! The fonts are display/logofonts, with a lot of graphic-effects such as scratches,<br>
+    holes, etc. Are there any way to reduce the fontsizes? The goal is to make them ready also for webfont usage ...<br>
+    Thank you for any assistance in this case ;-)<br>
+    Best, Morten</p>
+comments:
+  - id: 533653
+    user: 11578
+    date: 2012-12-10T09:32:00
+    date_raw: 10 Dec 2012 — 9:32am
+    votes: null
+    html: |-
+      <p>There are two possible problems, with different solutions. One is the overall font size which may be a factor in loading time as a webfont, and the other is glyph complexity.</p>
+      <p>Some older systems, with less computing power or memory, are not able to render over-complex fonts. If your glyph complexity is the result of scanning artifacts with superfluous nodes, etc., the solution is a lot of detail work to clean them up. FontLab's "optimize" function can sometimes help, but its results need to be reviewed.</p>
+      <p>The effect of the overall font size varies with your audience. Two megabytes over a relativel hi-speed internet connection isn't the worst thing in the world (the font is only downloaded once), but it could be very painful over slower connections. Reducing individual glyph complexity will help, but probably not significantly. </p>
+      <p>You can reduce the number of glyphs, use 'composed' glyphs (where parts of glyphs refer to parts of other glyphs instead of having separate outlines). This does NOT work for opentype fonts, but it does for TrueType. There are probably some other methods that I'm not aware of.</p>
+      <p>- Herb</p>
+    html_clean: |-
+      <p>There are two possible problems, with different solutions. One is the overall font size which may be a factor in loading time as a webfont, and the other is glyph complexity.</p>
+      <p>Some older systems, with less computing power or memory, are not able to render over-complex fonts. If your glyph complexity is the result of scanning artifacts with superfluous nodes, etc., the solution is a lot of detail work to clean them up. FontLab's "optimize" function can sometimes help, but its results need to be reviewed.</p>
+      <p>The effect of the overall font size varies with your audience. Two megabytes over a relativel hi-speed internet connection isn't the worst thing in the world (the font is only downloaded once), but it could be very painful over slower connections. Reducing individual glyph complexity will help, but probably not significantly. </p>
+      <p>You can reduce the number of glyphs, use 'composed' glyphs (where parts of glyphs refer to parts of other glyphs instead of having separate outlines). This does NOT work for opentype fonts, but it does for TrueType. There are probably some other methods that I'm not aware of.</p>
+      <p>- Herb</p>
+  - id: 533663
+    user: 1250
+    date: 2012-12-10T10:52:00
+    date_raw: 10 Dec 2012 — 10:52am
+    votes: null
+    html: |-
+      <p>Here's a trick I used in my Font Aid IV ampersand*: convert everything to straight lines. When you have a fine rough texture the removal of data for curves makes the file smaller without affecting the results much.</p>
+      <p>* <a href="http://www.flickr.com/photos/48413419@N00/4317579688" title="http://www.flickr.com/photos/48413419@N00/4317579688">http://www.flickr.com/photos/48413419@N00/4317579688</a></p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Here's a trick I used in my Font Aid IV ampersand*: convert everything to straight lines. When you have a fine rough texture the removal of data for curves makes the file smaller without affecting the results much.</p>
+      <p>* <a href="http://www.flickr.com/photos/48413419@N00/4317579688" title="http://www.flickr.com/photos/48413419@N00/4317579688" class="link-external">http://www.flickr.com/photos/48413419@N00/4317579688</a></p>
+      <p>hhp</p>
+  - id: 533688
+    user: 14568
+    date: 2012-12-10T13:02:00
+    date_raw: 10 Dec 2012 — 1:02pm
+    votes: null
+    html: |-
+      <p>When using the optime function in FontLab it is a good idea to first copy al the glyphs to the Mask layer. It makes it very clear if glyphs have changed (to much).<br>
+      And for web you can use other formats than TrueType, so you could start with OpenType CCF and see what filesize you get after conversion. EOT and WOFF will give you a reduced filesize.</p>
+      <p>@hrant. Very clever but reminds me much of the old converted TrueType's.... brrrr</p>
+    html_clean: |-
+      <p>When using the optime function in FontLab it is a good idea to first copy al the glyphs to the Mask layer. It makes it very clear if glyphs have changed (to much).<br>
+      And for web you can use other formats than TrueType, so you could start with OpenType CCF and see what filesize you get after conversion. EOT and WOFF will give you a reduced filesize.</p>
+      <p>@hrant. Very clever but reminds me much of the old converted TrueType's.... brrrr</p>
+  - id: 533750
+    user: 2642
+    date: 2012-12-11T00:14:00
+    date_raw: 11 Dec 2012 — 12:14am
+    votes: null
+    html: "<p>Thanks, guys, I'll make some try-outs! But: How do you convert to straight lines, Hrant? In FontLab?</p>"
+    html_clean: "<p>Thanks, guys, I'll make some try-outs! But: How do you convert to straight lines, Hrant? In FontLab?</p>"
+  - id: 533754
+    user: 1250
+    date: 2012-12-11T01:21:00
+    date_raw: 11 Dec 2012 — 1:21am
+    votes: null
+    html: |-
+      <p>In FontLab: select what you want, right-click and choose Retract BCPs.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>In FontLab: select what you want, right-click and choose Retract BCPs.</p>
+      <p>hhp</p>
+  - id: 533763
+    user: 21687
+    date: 2012-12-11T02:52:00
+    date_raw: 11 Dec 2012 — 2:52am
+    votes: null
+    html: '<p>If you have Robofab installed, you can use the FlattenPen or ThresholdPen to reduce outline detail. You can find some example code here: <a href="http://www.robofab.org/howto/usepens.html" title="http://www.robofab.org/howto/usepens.html">http://www.robofab.org/howto/usepens.html</a> (scroll down to "FlattenPen and flattenGlyph()")</p>'
+    html_clean: '<p>If you have Robofab installed, you can use the FlattenPen or ThresholdPen to reduce outline detail. You can find some example code here: <a href="http://www.robofab.org/howto/usepens.html" title="http://www.robofab.org/howto/usepens.html" class="link-external">http://www.robofab.org/howto/usepens.html</a> (scroll down to "FlattenPen and flattenGlyph()")</p>'
+  - id: 533783
+    user: 2642
+    date: 2012-12-11T06:38:00
+    date_raw: 11 Dec 2012 — 6:38am
+    votes: null
+    html: <p>OK, thanks. Well, I have now made a 'golden' solution, where I simply remove some characters + using FL's Optimize-function. That gives me 3 fonts that I now want to convert to .woff. Unfortunenately, I can't use the Online-converters ... are the font-files still too big? (860 KB, 1.1 MB, 721KB, .ttf)??</p>
+    html_clean: <p>OK, thanks. Well, I have now made a 'golden' solution, where I simply remove some characters + using FL's Optimize-function. That gives me 3 fonts that I now want to convert to .woff. Unfortunenately, I can't use the Online-converters ... are the font-files still too big? (860 KB, 1.1 MB, 721KB, .ttf)??</p>
+  - id: 533787
+    user: 48268
+    date: 2012-12-11T06:59:00
+    date_raw: 11 Dec 2012 — 6:59am
+    votes: null
+    html: <p>You may be able to reduce the file size further by removing unnecessary metadata using a tool such as TTX. <a class="freelinking external" href="http://processingjs.nihongoresources.com/the_smallest_font/" rel="nofollow">Mike Kamermans experimented with this</a> to see how small he could make a TrueType font while still conforming to certain web font standards.</p>
+    html_clean: <p>You may be able to reduce the file size further by removing unnecessary metadata using a tool such as TTX. <a class="freelinking external link-external" href="http://processingjs.nihongoresources.com/the_smallest_font/" rel="nofollow">Mike Kamermans experimented with this</a> to see how small he could make a TrueType font while still conforming to certain web font standards.</p>
