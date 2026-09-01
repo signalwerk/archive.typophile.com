@@ -31,7 +31,8 @@ Every step is resumable and safe to re-run. Nothing that is already correct on
 disk gets fetched twice, so you can interrupt with `Ctrl-C` at any point and
 start again where you left off.
 
-Steps can also be run on their own — all of them take `--archive=`:
+Steps can also be run on their own. The archive collection steps (0–4) take
+`--archive=`:
 
 | step | command | what it does |
 | --- | --- | --- |
@@ -40,6 +41,12 @@ Steps can also be run on their own — all of them take `--archive=`:
 | 2 | `npm run latest` | keep the newest good capture of every URL, per archive |
 | 3 | `npm run list` | turn those into download jobs with local target paths |
 | 4 | `npm run download` | download whatever is missing or outdated |
+| 5 | `npm run select` | choose the best archived copy of every `/node/` page |
+| 6 | `npm run parse` | parse the selected pages into one YAML per node |
+| 7 | `npm run users` | build member records from the recovered bylines |
+| 8 | `npm run clean` | derive cleaned HTML and repoint links at recovered files |
+| 9 | `npm run threads` | build the compact thread listing index |
+| 10 | `npm run old-urls` | match pre-Drupal discussion URLs to their node IDs |
 
 ## What step 0 re-fetches
 
@@ -226,6 +233,7 @@ as it appeared — nothing rewritten or stripped:
 ```yaml
 node: 109
 title: Bertrand
+old_url: http://www.typophile.com/forums/messages/29/10687.html
 forum: { id: 27, title: Serif }
 source:
   archive: commoncrawl.org
@@ -317,6 +325,22 @@ ERROR node 13987   post.html: empty post body
 ```
 
 Counts land in `data/parsed/parse.meta.json`.
+
+### Matching the pre-Drupal thread URLs
+
+Before `/node/<id>`, Typophile used Discus URLs shaped like
+`/forums/messages/<forum-id>/<thread-id>.html`. The migration assigned new,
+unrelated node IDs. Step 10 parses those recovered pages and matches them by
+decoded title and the local timestamp of the first post. When those collide,
+it uses the preserved opening-post body and reply count; a match that remains
+ambiguous is logged and not guessed.
+
+A successful match adds the canonical absolute address as `old_url` beside the
+node title. `data/parsed/old-urls.log` lists recovered old discussions that
+could not be assigned to a captured node as `MISSING`; these may have been
+dropped during migration, or their modern page may simply be absent from our
+captures. Genuine multiple-node matches are listed as `AMBIGUOUS`. Modern
+nodes without an old counterpart are deliberately not logged.
 
 ## The site
 

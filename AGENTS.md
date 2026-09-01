@@ -59,6 +59,7 @@ Whole pipeline, in order, resumable and safe to re-run: `sh get.sh`
 | 7 | `npm run users` | one file per member + `users/_index.jsonl` | |
 | 8 | `npm run clean` | produce `html_clean` from `html` | ~4 min |
 | 9 | `npm run threads` | write `nodes/_index.jsonl` | ~60 s cold, ~1 s warm |
+| 10 | `npm run old-urls` | match Discus URLs to nodes; write `old_url` + `old-urls.log` | ~20 s |
 
 Site, from `site/`: `npm run dev` (port 5173) and `npm run build`. The build
 renders all ~63k routes every time — there is no incremental build — and then
@@ -75,7 +76,34 @@ archives ──0-4──> data/archives/<archive>/files/…      raw captures, d
                9──> data/parsed/nodes/_index.jsonl      one summary line per thread
                      │
                      └──> site/  reads the two _index.jsonl files and one YAML per page
+              10──> old_url added to matched thread YAML + data/parsed/old-urls.log
 ```
+
+### Legacy thread URLs
+
+Before Drupal, discussion URLs were
+`/forums/messages/<forum-id>/<thread-id>.html`; those numbers have no numeric
+relationship to the later `/node/<id>`. Step 10 parses the downloaded Discus
+pages and joins them on decoded title + the first post's naive local timestamp.
+For collisions or damaged titles it also compares the preserved first-post
+body and reply count. It never assigns an ambiguous match.
+
+The canonical absolute address is stored as top-level `old_url` in the node
+YAML. `data/parsed/old-urls.log` is intentionally legacy-centric: `MISSING`
+means a recovered old discussion has no matching captured node (it may not
+have migrated, or the new page may simply be absent from our captures), and
+`AMBIGUOUS` records multiple plausible nodes. It does not list modern nodes
+without old counterparts. Multiple query-string captures of one Discus URL
+are collapsed to the snapshot with the most posts. Step 10 depends on the step
+9 index for the cheap title/date side of the join, but changing `old_url` does
+not invalidate that index because the summary shape does not include it.
+
+Verified on the current corpus: 14,021 legacy HTML files contain 4,536 thread
+snapshots representing 3,138 distinct old discussion URLs. Of those, 2,089
+modern nodes match uniquely, with 19 old moved-forum aliases folded onto their
+newest captured location; 1,029 old discussions are `MISSING`, and one is
+`AMBIGUOUS`. The earliest 58 discussions use malformed single-hyphen Discus
+markers (`<!-Post...-!>`) and are parsed alongside the later proper comments.
 
 The site does **no** content processing at request time. It injects the stored
 `html_clean` string and nothing more — no sanitising, no link rewriting. All of
@@ -174,16 +202,10 @@ Measured after the current design: index 125 ms cold / 0 ms warm, thread page
 
 ## Known problems
 
-- **`.gitignore` is corrupted** (committed that way). Lines 17–30 are a mangled
-  duplication of lines 8–14 and contain two nonsense paths,
-  `data/parsed/users/_profiles.json.log` and `…_profiles.json.meta.json`. The
-  intended negations for `parse.log` and `parse.meta.json` do survive at lines
-  15–16, so the behaviour is roughly right, but the file should be rewritten.
 - **`README.md` is partly stale.** It still describes ~11,227 threads (now
   62,469), a `site/lib/sanitize.mjs` that no longer exists (that work is step
   8), says embedded images "will not load" (step 8 now points them at our
-  copies), lists post-processing the HTML as still to do (done), and does not
-  mention steps 8 or 9.
+  copies), and lists post-processing the HTML as still to do (done).
 - **Repository size.** `data/parsed` (3.5 GB, including 2.7 GB of binary files)
   is committed so the GitHub Action can build without re-downloading. Any
   change that rewrites every thread YAML adds another full copy to git history,

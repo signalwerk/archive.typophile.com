@@ -56,3 +56,8 @@ node src/008_cleanHtml.js
 #    62,000 files. Keyed on the capture each thread came from, so step 8
 #    rewriting the files costs this nothing.
 node src/009_threadIndex.js
+
+# 10. Match the old /forums/messages/<forum>/<thread>.html discussions to the
+#     Drupal nodes they became, store that address, and log recovered old
+#     discussions with no captured node counterpart.
+node src/010_oldUrls.js
