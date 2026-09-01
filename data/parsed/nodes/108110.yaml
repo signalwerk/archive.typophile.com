@@ -1,0 +1,110 @@
+node: 108110
+title: How to add palt and vpal features?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419225314"
+  captured_at: 2015-04-19T22:53:14Z
+  url: http://typophile.com/node/108110
+  digest: DTLDHBMKXPCH6NKVSVF7B5SPBFSTJ2GV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/108110.html
+  fingerprint: e858b1e295c4b54c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419225314"
+      digest: DTLDHBMKXPCH6NKVSVF7B5SPBFSTJ2GV
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/108110.html
+post:
+  id: 108110
+  user: 216456
+  date: 2014-01-09T03:06:00
+  date_raw: 9 Jan 2014 — 3:06am
+  votes: null
+  html: <p>Does anybody know the syntaxes of these features (Proportional Alternate Halfwidths and Proportional Alternate Vertical Metrics)?</p>
+  html_clean: <p>Does anybody know the syntaxes of these features (Proportional Alternate Halfwidths and Proportional Alternate Vertical Metrics)?</p>
+comments:
+  - id: 568916
+    user: 9108
+    date: 2014-01-09T05:18:00
+    date_raw: 9 Jan 2014 — 5:18am
+    votes: null
+    html: |-
+      <p>It looks like they are "Single adjustment positioning"<br>
+      <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.a" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.a">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a><br>
+      So in .fea file:<br>
+      <code><br>
+      lookup vpalProportionalAlternateVertic {<br>
+        lookupflag 0;<br>
+          pos \A &lt;100 100 200 -300&gt;;<br>
+      } vpalProportionalAlternateVertic;</code></p>
+      <p><code>lookup paltProportionalAlternateMetric {<br>
+        lookupflag 0;<br>
+          pos \B &lt;-200 -300 0 0&gt;;<br>
+      } paltProportionalAlternateMetric;<br>
+      </code><br>
+      BTW palt is Proportional Alternate Widths not Halfwidths</p>
+    html_clean: |-
+      <p>It looks like they are "Single adjustment positioning"<br>
+      <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.a" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.a">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a><br>
+      So in .fea file:<br>
+      <code><br>
+      lookup vpalProportionalAlternateVertic {<br>
+        lookupflag 0;<br>
+          pos \A &lt;100 100 200 -300&gt;;<br>
+      } vpalProportionalAlternateVertic;</code></p>
+      <p><code>lookup paltProportionalAlternateMetric {<br>
+        lookupflag 0;<br>
+          pos \B &lt;-200 -300 0 0&gt;;<br>
+      } paltProportionalAlternateMetric;<br>
+      </code><br>
+      BTW palt is Proportional Alternate Widths not Halfwidths</p>
+  - id: 568948
+    user: 14653
+    date: 2014-01-09T12:03:00
+    date_raw: 9 Jan 2014 — 12:03pm
+    votes: null
+    html: |-
+      <p>This should help. Below are excerpts from the 'palt' and 'vpal' GPOS features in our KozGoPr6N-Medium OpenType font:</p>
+      <p>feature palt {<br>
+        position \634 &lt;-20 0 -500 0&gt;;<br>
+        position \638 &lt;-250 0 -500 0&gt;;<br>
+        position \674 &lt;-480 0 -500 0&gt;;<br>
+      } palt;</p>
+      <p>feature vpal {<br>
+        position \638 &lt;0 250 0 -500&gt;;<br>
+        position \7887 &lt;0 20 0 -500&gt;;<br>
+        position \7899 &lt;0 480 0 -500&gt;;<br>
+      } vpal;</p>
+      <p>The font is CID-keyed, so the glyph references are CIDs. CIDs 634, 638, and 674 correspond to U+3001, U+30FB, and U+FF08, respectively. These are good examples, because they represent a left-justified (U+3001), right-justified (U+FF08), and centered (U+30FB) glyph. The vertical form of CID+634 is CID+7887, and that of CID+674 is CID+7899. CID+638 is used for both horizontal and vertical writing, because it is centered in the em-box.</p>
+      <p>Although the new advance widths are 500 units, meaning half-width, there is no requirement that this be the case. We simply decided to implement them that way for this particular font.</p>
+    html_clean: |-
+      <p>This should help. Below are excerpts from the 'palt' and 'vpal' GPOS features in our KozGoPr6N-Medium OpenType font:</p>
+      <p>feature palt {<br>
+        position \634 &lt;-20 0 -500 0&gt;;<br>
+        position \638 &lt;-250 0 -500 0&gt;;<br>
+        position \674 &lt;-480 0 -500 0&gt;;<br>
+      } palt;</p>
+      <p>feature vpal {<br>
+        position \638 &lt;0 250 0 -500&gt;;<br>
+        position \7887 &lt;0 20 0 -500&gt;;<br>
+        position \7899 &lt;0 480 0 -500&gt;;<br>
+      } vpal;</p>
+      <p>The font is CID-keyed, so the glyph references are CIDs. CIDs 634, 638, and 674 correspond to U+3001, U+30FB, and U+FF08, respectively. These are good examples, because they represent a left-justified (U+3001), right-justified (U+FF08), and centered (U+30FB) glyph. The vertical form of CID+634 is CID+7887, and that of CID+674 is CID+7899. CID+638 is used for both horizontal and vertical writing, because it is centered in the em-box.</p>
+      <p>Although the new advance widths are 500 units, meaning half-width, there is no requirement that this be the case. We simply decided to implement them that way for this particular font.</p>

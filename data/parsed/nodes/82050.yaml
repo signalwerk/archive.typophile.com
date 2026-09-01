@@ -1,0 +1,213 @@
+node: 82050
+title: Multiple find & replace, at once
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20110517131542"
+  captured_at: 2011-05-17T13:15:42Z
+  url: http://www.typophile.com/node/82050
+  digest: 7Y5ZO6VS7JBDW2A6GDIH7OWXOALLTB47
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/82050.html
+  fingerprint: 9c7e5f3d3ed21ab5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20110517131542"
+      digest: 7Y5ZO6VS7JBDW2A6GDIH7OWXOALLTB47
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/82050.html
+post:
+  id: 82050
+  user: 19417
+  date: 2011-05-10T10:22:00
+  date_raw: 10.May.2011 10.22am
+  votes: null
+  html: <p>I have a long text document where I'd like to change few characters to a string of text. For example change "a" to "/a.alt" and "t" to "/t.alt". To do this properly, I need to execute the find&amp;replace commands at once. How to do it in a text editor? Can it be done with greps? If so, could you help me with the commands? Is there any MAC text editors that can do multiple f&amp;r commands automatically? I know there are workarounds for this in Fontlab and such, but I really need to do this in a text editor.</p>
+  html_clean: <p>I have a long text document where I'd like to change few characters to a string of text. For example change "a" to "/a.alt" and "t" to "/t.alt". To do this properly, I need to execute the find&amp;replace commands at once. How to do it in a text editor? Can it be done with greps? If so, could you help me with the commands? Is there any MAC text editors that can do multiple f&amp;r commands automatically? I know there are workarounds for this in Fontlab and such, but I really need to do this in a text editor.</p>
+comments:
+  - id: 463988
+    user: 6470
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>Problem: Search and replace a with a.alt, then search and replace t with t.alt yields a few <strong>a.alt.alt</strong> artifacts. I'm not sure that, even if there is such a thing, a simultaneous search and replace function would prevent this outcome. However, if you replace all your as and ts with different characters--say, dagger and daggerdbl--a subsequent search of † and replace with a.alt would avert the problem...</p>"
+    html_clean: "<p>Problem: Search and replace a with a.alt, then search and replace t with t.alt yields a few <strong>a.alt.alt</strong> artifacts. I'm not sure that, even if there is such a thing, a simultaneous search and replace function would prevent this outcome. However, if you replace all your as and ts with different characters--say, dagger and daggerdbl--a subsequent search of † and replace with a.alt would avert the problem...</p>"
+  - id: 463992
+    user: 14722
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I do this sort of thing with the GREP functionality of Indesign's find &amp; replace tool, which has a GUI for generating some of the regexp.</p>
+    html_clean: <p>I do this sort of thing with the GREP functionality of Indesign's find &amp; replace tool, which has a GUI for generating some of the regexp.</p>
+  - id: 464014
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>You need to state what text editor you are using. There is no such thing as "GREP" :-) There is a sort of basic functionality, but details in semantics and supported functionality differs wildly among GREP-aware editors.</p>
+      <p>Using InDesign's GREP syntax, something like this ought to work: search for</p>
+      <p><code>\b([at])\b</code></p>
+      <p>and replace with</p>
+      <p><code>$1.alt</code></p>
+      <p>-- note this will only change the two examples you provided, and "at the same time" as well. Somehow I don't think there is any text editor that allows you to specify a host of strings to change <em>at the same time</em> ...</p>
+    html_clean: |-
+      <p>You need to state what text editor you are using. There is no such thing as "GREP" :-) There is a sort of basic functionality, but details in semantics and supported functionality differs wildly among GREP-aware editors.</p>
+      <p>Using InDesign's GREP syntax, something like this ought to work: search for</p>
+      <p><code>\b([at])\b</code></p>
+      <p>and replace with</p>
+      <p><code>$1.alt</code></p>
+      <p>-- note this will only change the two examples you provided, and "at the same time" as well. Somehow I don't think there is any text editor that allows you to specify a host of strings to change <em>at the same time</em> ...</p>
+  - id: 464030
+    user: 18942
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><cite>I don't think there is any text editor that allows you to specify a host of strings to change at the same time ...</cite></p>
+      <p>As long as you <em>host of strings</em> can be specified by a regular expression, it seems to me that <a class="freelinking external" href="http://www.anybrowser.org/bbedit/grep.shtml" rel="nofollow">BBEdit GREP</a> can do it (I had almost forgotten BBEdit ever existed, this question just reminded me).</p>
+    html_clean: |-
+      <p><cite>I don't think there is any text editor that allows you to specify a host of strings to change at the same time ...</cite></p>
+      <p>As long as you <em>host of strings</em> can be specified by a regular expression, it seems to me that <a class="freelinking external" href="http://www.anybrowser.org/bbedit/grep.shtml" rel="nofollow">BBEdit GREP</a> can do it (I had almost forgotten BBEdit ever existed, this question just reminded me).</p>
+  - id: 464035
+    user: 18942
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>On the Mac, I use the line command <code>sed</code>. For instance, if the file <code>test</code> contains<br>
+      <code><br>
+      ccommaaccent<br>
+      gcommaaccent<br>
+      kcommaaccent<br>
+      scommaaccent<br>
+      tcommaaccent<br>
+      </code></p>
+      <p>then here is how one can match all those "one letter" followed by a commaaccent and generate a sub (this is a trace of execution, i.e. a copy-paste of what I get on in my shell window):<br>
+      <code><br>
+      586 % sed 's/\(.commaaccent\)/sub \1 by \1.alt ;/' test<br>
+      sub ccommaaccent by ccommaaccent.alt ;<br>
+      sub gcommaaccent by gcommaaccent.alt ;<br>
+      sub kcommaaccent by kcommaaccent.alt ;<br>
+      sub scommaaccent by scommaaccent.alt ;<br>
+      sub tcommaaccent by tcommaaccent.alt ;<br>
+      </code></p>
+      <p>Also, sed allows scripting. Very handy when many substitutions are to be done.</p>
+    html_clean: |-
+      <p>On the Mac, I use the line command <code>sed</code>. For instance, if the file <code>test</code> contains<br>
+      <code><br>
+      ccommaaccent<br>
+      gcommaaccent<br>
+      kcommaaccent<br>
+      scommaaccent<br>
+      tcommaaccent<br>
+      </code></p>
+      <p>then here is how one can match all those "one letter" followed by a commaaccent and generate a sub (this is a trace of execution, i.e. a copy-paste of what I get on in my shell window):<br>
+      <code><br>
+      586 % sed 's/\(.commaaccent\)/sub \1 by \1.alt ;/' test<br>
+      sub ccommaaccent by ccommaaccent.alt ;<br>
+      sub gcommaaccent by gcommaaccent.alt ;<br>
+      sub kcommaaccent by kcommaaccent.alt ;<br>
+      sub scommaaccent by scommaaccent.alt ;<br>
+      sub tcommaaccent by tcommaaccent.alt ;<br>
+      </code></p>
+      <p>Also, sed allows scripting. Very handy when many substitutions are to be done.</p>
+  - id: 464047
+    user: 18942
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Given an input file <code>in.txt</code> containing "a t a t", following Theunis' idea (with the <code>sed</code> syntax).</p>
+      <p><code> sed 's/\([at]\)/\1.alt/g' in.txt</code></p>
+      <p>gives the output <code>a.alt t.alt a.alt t.alt</code>; here there is just one rule. If there is more than one substitution rule, it gets more tricky; substitutions apply sequentially. Again with the <code>sed</code> syntax, if the letters are alone on their line (in this example blanks are not allowed) then </p>
+      <p><code> sed 's/^a$/a.alt/; s/^t$/t.alt/' in2.txt</code> </p>
+      <p>will do the job: for the substitution to apply, the rules for a and t specify that a and t must be at the beginning (^) and end ($) of line so that, if the input file <code>in2.txt</code> is</p>
+      <p><code>a<br>
+      t</code></p>
+      <p>the output will be</p>
+      <p><code>a.alt<br>
+      t.alt</code></p>
+    html_clean: |-
+      <p>Given an input file <code>in.txt</code> containing "a t a t", following Theunis' idea (with the <code>sed</code> syntax).</p>
+      <p><code> sed 's/\([at]\)/\1.alt/g' in.txt</code></p>
+      <p>gives the output <code>a.alt t.alt a.alt t.alt</code>; here there is just one rule. If there is more than one substitution rule, it gets more tricky; substitutions apply sequentially. Again with the <code>sed</code> syntax, if the letters are alone on their line (in this example blanks are not allowed) then </p>
+      <p><code> sed 's/^a$/a.alt/; s/^t$/t.alt/' in2.txt</code> </p>
+      <p>will do the job: for the substitution to apply, the rules for a and t specify that a and t must be at the beginning (^) and end ($) of line so that, if the input file <code>in2.txt</code> is</p>
+      <p><code>a<br>
+      t</code></p>
+      <p>the output will be</p>
+      <p><code>a.alt<br>
+      t.alt</code></p>
+  - id: 464070
+    user: 19417
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Theunis: I have no specific text editor in mind, however I'm ready invest few bucks if there is one that does the job. I found out that in Windows there is a program called wReplace that does this exact thing. </p>
+      <p>Michel: Well this is excellent! </p>
+      <p>sed 's/\([at]\)/\1.alt/g' in.txt</p>
+      <p>This command seems promising. There are no separate characters I need to replace, they are in long text with complete words, no linebreaks or anything like that. Only thing is that I can't get the slash to work! The output must be: /a.alt</p>
+    html_clean: |-
+      <p>Theunis: I have no specific text editor in mind, however I'm ready invest few bucks if there is one that does the job. I found out that in Windows there is a program called wReplace that does this exact thing. </p>
+      <p>Michel: Well this is excellent! </p>
+      <p>sed 's/\([at]\)/\1.alt/g' in.txt</p>
+      <p>This command seems promising. There are no separate characters I need to replace, they are in long text with complete words, no linebreaks or anything like that. Only thing is that I can't get the slash to work! The output must be: /a.alt</p>
+  - id: 464075
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>My personal favourite plain text editors are <a href="http://www.textpad.com/" rel="nofollow">TextPad</a> for Windows and <a href="http://www.barebones.com/products/textwrangler/" rel="nofollow">TextWrangler</a> for Mac.</p>
+      <p>With TP you can select between POSIX and Unix style GREP (although I have no idea what the difference is), and TW has very useful syntax coloring in its entry field.</p>
+    html_clean: |-
+      <p>My personal favourite plain text editors are <a href="http://www.textpad.com/" rel="nofollow">TextPad</a> for Windows and <a href="http://www.barebones.com/products/textwrangler/" rel="nofollow">TextWrangler</a> for Mac.</p>
+      <p>With TP you can select between POSIX and Unix style GREP (although I have no idea what the difference is), and TW has very useful syntax coloring in its entry field.</p>
+  - id: 464082
+    user: 18942
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>To get <code>/a.alt</code>, you need to "escape" the / in the resulting string, i.e. write <code>\/</code>; here is the trace on <code>in.txt</code> with the line <code>a t a t</code>:<br>
+      <code><br>
+      508 % sed 's/\([at]\)/\/\1.alt/g' in.txt<br>
+      /a.alt /t.alt /a.alt /t.alt<br>
+      </code></p>
+    html_clean: |-
+      <p>To get <code>/a.alt</code>, you need to "escape" the / in the resulting string, i.e. write <code>\/</code>; here is the trace on <code>in.txt</code> with the line <code>a t a t</code>:<br>
+      <code><br>
+      508 % sed 's/\([at]\)/\/\1.alt/g' in.txt<br>
+      /a.alt /t.alt /a.alt /t.alt<br>
+      </code></p>
+  - id: 464129
+    user: 19417
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Sweet. Works perfect, thanks Michel &amp; co for your help!</p>
+    html_clean: <p>Sweet. Works perfect, thanks Michel &amp; co for your help!</p>
+  - id: 464138
+    user: 18942
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Great! By the way, the pattern <code>\b</code> that matches a word boundary and was used by Theunis above is not available on the Mac sed. If you ever need it or one of the other <a class="freelinking external" href="http://www.gnu.org/software/sed/manual/sed.html#Escapes" rel="nofollow">GNU Sed extensions</a>, you can install <code>gsed</code> from <a class="freelinking external" href="http://www.macports.org/" rel="nofollow">MacPorts</a>, using the line command <code>sudo port install gsed</code>.</p>
+    html_clean: <p>Great! By the way, the pattern <code>\b</code> that matches a word boundary and was used by Theunis above is not available on the Mac sed. If you ever need it or one of the other <a class="freelinking external" href="http://www.gnu.org/software/sed/manual/sed.html#Escapes" rel="nofollow">GNU Sed extensions</a>, you can install <code>gsed</code> from <a class="freelinking external" href="http://www.macports.org/" rel="nofollow">MacPorts</a>, using the line command <code>sudo port install gsed</code>.</p>

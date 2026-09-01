@@ -1,0 +1,405 @@
+node: 59092
+title: OpenType feature to flip between two sets
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131010202713"
+  captured_at: 2013-10-10T20:27:13Z
+  url: http://typophile.com/node/59092
+  digest: ZJFFDIUHRGTYXGSIN6F3G7AOGCCK7MQO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/59092.html
+  fingerprint: 5d562162149713c9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131010202713"
+      digest: ZJFFDIUHRGTYXGSIN6F3G7AOGCCK7MQO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59092.html
+post:
+  id: 59092
+  user: 5585
+  date: 2009-06-16T09:21:00
+  date_raw: 16 Jun 2009 — 9:21am
+  votes: null
+  html: |-
+    <p>Hi all,</p>
+    <p>I'm working on a typeface with two versions of each character. I made two sets and called them @set1 and @set2. Every set has five characters after which I like to 'swap' to the other set. The characters are C E J S Z and c e j s z.<br>
+    For example. I like to go like this: ABCdeFGHIJklmnopqrsTUVWXYZabcDE etc<br>
+    I can't get the code working, can somebody help me?<br>
+    Thanks!</p>
+    <p>Pieter</p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>I'm working on a typeface with two versions of each character. I made two sets and called them @set1 and @set2. Every set has five characters after which I like to 'swap' to the other set. The characters are C E J S Z and c e j s z.<br>
+    For example. I like to go like this: ABCdeFGHIJklmnopqrsTUVWXYZabcDE etc<br>
+    I can't get the code working, can somebody help me?<br>
+    Thanks!</p>
+    <p>Pieter</p>
+comments:
+  - id: 352078
+    user: 5585
+    date: 2009-06-16T09:54:00
+    date_raw: 16 Jun 2009 — 9:54am
+    votes: null
+    html: |-
+      <p>This is the feature I wrote:</p>
+      <p><code><br>
+      feature liga {<br>
+      # Latin<br>
+      	sub C @set1' by @set2;<br>
+      	sub E @set1' by @set2;<br>
+      	sub J @set1' by @set2;<br>
+      	sub S @set1' by @set2;<br>
+      	sub Z @set1' by @set2;<br>
+      	sub c @set2' by @set1;<br>
+      	sub e @set2' by @set1;<br>
+      	sub j @set2' by @set1;<br>
+      	sub s @set2' by @set1;<br>
+      	sub z @set2' by @set1;<br>
+      	sub @set2 @set1' by @set2;<br>
+      	sub @set1 @set2' by @set1;<br>
+      } liga;<br>
+      </code></p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>This is the feature I wrote:</p>
+      <p><code><br>
+      feature liga {<br>
+      # Latin<br>
+      	sub C @set1' by @set2;<br>
+      	sub E @set1' by @set2;<br>
+      	sub J @set1' by @set2;<br>
+      	sub S @set1' by @set2;<br>
+      	sub Z @set1' by @set2;<br>
+      	sub c @set2' by @set1;<br>
+      	sub e @set2' by @set1;<br>
+      	sub j @set2' by @set1;<br>
+      	sub s @set2' by @set1;<br>
+      	sub z @set2' by @set1;<br>
+      	sub @set2 @set1' by @set2;<br>
+      	sub @set1 @set2' by @set1;<br>
+      } liga;<br>
+      </code></p>
+      <p>Pieter</p>
+  - id: 352082
+    user: 14650
+    date: 2009-06-16T10:10:00
+    date_raw: 16 Jun 2009 — 10:10am
+    votes: null
+    html: <p>You might need to show us what your classes are, but from the get go this doesn't look like it belongs in the liga feature, but rather calt.</p>
+    html_clean: <p>You might need to show us what your classes are, but from the get go this doesn't look like it belongs in the liga feature, but rather calt.</p>
+  - id: 352083
+    user: 4346
+    date: 2009-06-16T10:11:00
+    date_raw: 16 Jun 2009 — 10:11am
+    votes: null
+    html: <p>Are you saying you want to use those letters as a switch to change all the letters that appear after them?</p>
+    html_clean: <p>Are you saying you want to use those letters as a switch to change all the letters that appear after them?</p>
+  - id: 352095
+    user: 5585
+    date: 2009-06-16T10:53:00
+    date_raw: 16 Jun 2009 — 10:53am
+    votes: null
+    html: |-
+      <p>@ Stephen: I know, but I choose the liga feature because it's on at default in a few programs.</p>
+      <p>@ Jackson: Yes, that's what I like.</p>
+      <p>classes:<br>
+      <code><br>
+      @set1 = [A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];<br>
+      @set2 = [a b c d e f g h i j k l m n o p q r s t u v w x y z];<br>
+      </code></p>
+      <p>Thanks!<br>
+      Pieter</p>
+    html_clean: |-
+      <p>@ Stephen: I know, but I choose the liga feature because it's on at default in a few programs.</p>
+      <p>@ Jackson: Yes, that's what I like.</p>
+      <p>classes:<br>
+      <code><br>
+      @set1 = [A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];<br>
+      @set2 = [a b c d e f g h i j k l m n o p q r s t u v w x y z];<br>
+      </code></p>
+      <p>Thanks!<br>
+      Pieter</p>
+  - id: 352103
+    user: 4346
+    date: 2009-06-16T11:24:00
+    date_raw: 16 Jun 2009 — 11:24am
+    votes: null
+    html: |-
+      <p>The main problem is that the trigger glyphs were in the classes you were switching. Try this:</p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];<br>
+      @trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @trip1 @set1' by @set2;<br>
+      sub @trip1 @set2 @set1' by @set2;<br>
+      sub @set2 @set2 @set1' by @set2;<br>
+      sub @set2 @set2 @trip1' by @trip2;</p>
+      <p>sub @trip2 @set2' by @set1;<br>
+      sub @trip2 @set1 @set2' by @set1;<br>
+      sub @set1 @set1 @set2' by @set1;<br>
+      sub @set1 @set1 @trip2' by @trip1;</p>
+      <p>} CALT;</p>
+    html_clean: |-
+      <p>The main problem is that the trigger glyphs were in the classes you were switching. Try this:</p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];<br>
+      @trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @trip1 @set1' by @set2;<br>
+      sub @trip1 @set2 @set1' by @set2;<br>
+      sub @set2 @set2 @set1' by @set2;<br>
+      sub @set2 @set2 @trip1' by @trip2;</p>
+      <p>sub @trip2 @set2' by @set1;<br>
+      sub @trip2 @set1 @set2' by @set1;<br>
+      sub @set1 @set1 @set2' by @set1;<br>
+      sub @set1 @set1 @trip2' by @trip1;</p>
+      <p>} CALT;</p>
+  - id: 352135
+    user: 5585
+    date: 2009-06-16T13:23:00
+    date_raw: 16 Jun 2009 — 1:23pm
+    votes: null
+    html: |-
+      <p>Hello Jackson,</p>
+      <p>Thanks for the code, but unfortunately it's not working: ABCdefghijklmnopqrstuvwxyz<br>
+      It's not flipping back to @set1 anymore.</p>
+      <p>This is what I like to happen: ABCdeFGHIJklmnopqrsTUVWXYZabcDEfghijKLMNOPQRSTuvwxyzAB etc</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Jackson,</p>
+      <p>Thanks for the code, but unfortunately it's not working: ABCdefghijklmnopqrstuvwxyz<br>
+      It's not flipping back to @set1 anymore.</p>
+      <p>This is what I like to happen: ABCdeFGHIJklmnopqrsTUVWXYZabcDEfghijKLMNOPQRSTuvwxyzAB etc</p>
+      <p>Pieter</p>
+  - id: 352146
+    user: 4346
+    date: 2009-06-16T14:28:00
+    date_raw: 16 Jun 2009 — 2:28pm
+    votes: null
+    html: |-
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;</p>
+      <p>} CALT;</p>
+      <p>I should've paid more attention to your string...</p>
+    html_clean: |-
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;</p>
+      <p>} CALT;</p>
+      <p>I should've paid more attention to your string...</p>
+  - id: 352147
+    user: 4346
+    date: 2009-06-16T14:31:00
+    date_raw: 16 Jun 2009 — 2:31pm
+    votes: null
+    html: |-
+      <p>Err.. needed one more thing: </p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;<br>
+      sub @trip1 @set1' by @set2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;<br>
+      sub @trip2 @set2' by @set1;</p>
+      <p>} CALT;</p>
+    html_clean: |-
+      <p>Err.. needed one more thing: </p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;<br>
+      sub @trip1 @set1' by @set2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;<br>
+      sub @trip2 @set2' by @set1;</p>
+      <p>} CALT;</p>
+  - id: 352148
+    user: 4346
+    date: 2009-06-16T14:31:00
+    date_raw: 16 Jun 2009 — 2:31pm
+    votes: null
+    html: |-
+      <p>Err.. needed one more thing: </p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;<br>
+      sub @trip1 @set1' by @set2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;<br>
+      sub @trip2 @set2' by @set1;</p>
+      <p>} CALT;</p>
+    html_clean: |-
+      <p>Err.. needed one more thing: </p>
+      <p>feature CALT {</p>
+      <p>@set1 = [A B D F G H I K L M N O P Q R T U V W X Y];<br>
+      @set2 = [a b d f g h i k l m n o p q r t u v w x y];</p>
+      <p>@trip1 = [C E J S Z];<br>
+      @trip2 = [c e j s z];</p>
+      <p>sub @set1 @trip1 @set1' by @set2;<br>
+      sub @set2 @trip2 @set2' by @set1;</p>
+      <p>sub @trip1 @trip1' by @trip2;<br>
+      sub @trip2 @trip2' by @trip1;</p>
+      <p>sub @set2 @set1' by @set2;<br>
+      sub @set2 @trip1' by @trip2;<br>
+      sub @trip1 @set1' by @set2;</p>
+      <p>sub @set1 @set2' by @set1;<br>
+      sub @set1 @trip2' by @trip1;<br>
+      sub @trip2 @set2' by @set1;</p>
+      <p>} CALT;</p>
+  - id: 352216
+    user: 909
+    date: 2009-06-16T23:59:00
+    date_raw: 16 Jun 2009 — 11:59pm
+    votes: null
+    html: |-
+      <p>"@ Stephen: I know, but I choose the liga feature because it’s on at default in a few programs."</p>
+      <p>So is calt.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>"@ Stephen: I know, but I choose the liga feature because it’s on at default in a few programs."</p>
+      <p>So is calt.</p>
+      <p>T</p>
+  - id: 352219
+    user: 5585
+    date: 2009-06-17T00:31:00
+    date_raw: 17 Jun 2009 — 12:31am
+    votes: null
+    html: |-
+      <p>Hello Jackson,</p>
+      <p>It's working! Thank you very much! You made me a happy man.</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Jackson,</p>
+      <p>It's working! Thank you very much! You made me a happy man.</p>
+      <p>Pieter</p>
+  - id: 352220
+    user: 5585
+    date: 2009-06-17T00:32:00
+    date_raw: 17 Jun 2009 — 12:32am
+    votes: null
+    html: |-
+      <p>Hello Thomas,</p>
+      <p>I didn't know that. Thanks!</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Thomas,</p>
+      <p>I didn't know that. Thanks!</p>
+      <p>Pieter</p>
+  - id: 352238
+    user: 5585
+    date: 2009-06-17T05:20:00
+    date_raw: 17 Jun 2009 — 5:20am
+    votes: null
+    html: |-
+      <p>Hello Jackson,</p>
+      <p>I like to thank you again! :) It's perfect!</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Jackson,</p>
+      <p>I like to thank you again! :) It's perfect!</p>
+      <p>Pieter</p>
+  - id: 352243
+    user: 4346
+    date: 2009-06-17T06:23:00
+    date_raw: 17 Jun 2009 — 6:23am
+    votes: null
+    html: |-
+      <p>No problem, that was a fun distraction on a lazy working day.<br>
+      I'm curious how this is going to translate into a design, look forward to seeing it.</p>
+    html_clean: |-
+      <p>No problem, that was a fun distraction on a lazy working day.<br>
+      I'm curious how this is going to translate into a design, look forward to seeing it.</p>
+  - id: 352246
+    user: 5585
+    date: 2009-06-17T07:15:00
+    date_raw: 17 Jun 2009 — 7:15am
+    votes: null
+    html: |-
+      <p>Hello Jackson,</p>
+      <p>I will show you later. It's for a client and I'm not allowed to show it before the official introduction.</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Jackson,</p>
+      <p>I will show you later. It's for a client and I'm not allowed to show it before the official introduction.</p>
+      <p>Pieter</p>
+  - id: 352253
+    user: 4346
+    date: 2009-06-17T07:47:00
+    date_raw: 17 Jun 2009 — 7:47am
+    votes: null
+    html: <p>Awesome, good luck!</p>
+    html_clean: <p>Awesome, good luck!</p>
+  - id: 352470
+    user: 3135
+    date: 2009-06-18T08:24:00
+    date_raw: 18 Jun 2009 — 8:24am
+    votes: null
+    html: |-
+      <p>...<br>
+      ChrisL</p>
+    html_clean: |-
+      <p>...<br>
+      ChrisL</p>

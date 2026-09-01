@@ -1,0 +1,171 @@
+node: 17195
+title: null
+forum:
+  id: null
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20060115052133"
+  captured_at: 2006-01-15T05:21:33Z
+  url: http://typophile.com:80/node/17195
+  digest: 6XSPER5NWCOJFHIUF6CJINECIEBR6C4U
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/17195.html
+  fingerprint: 6755d5825e42896f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20060115052133"
+      digest: 6XSPER5NWCOJFHIUF6CJINECIEBR6C4U
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/17195.html
+post:
+  id: 17195
+  user: null
+  date: null
+  date_raw: 10 January, 2006 - 6:48pm
+  votes: null
+  html: |-
+    <p>Hello everyone</p>
+    <p>I am new to Typophile and this is my first post. I am glad to be here. I have an OpenType features related problem. I want to make the following substitutions:</p>
+    <p>1 + 0 with a glyph called 1_0<br>
+    1 + 0 + 0 with a glyph called 1_0_0 and<br>
+    1 + 0 + 0 + 0 with a glyph called 1_0_0_0</p>
+    <p>(1 and 0 can be replaced by any digit - see code below)</p>
+    <p>I work in Fontlab Studio 5 and I at first I wrote the following code:</p>
+    <p># glyph classes<br>
+    @digitsnozero=[one two three four five six seven eight nine];<br>
+    @digits=[zero one two three four five six seven eight nine];<br>
+    @twodigits=[X X_X X_X_X X_L L L_X L_X_X L_X_X_X X_C];<br>
+    @threedigits=[C C_C C_C_C C_C_C_C D D_C D_C_C D_C_C_C D_C_C_C_C];<br>
+    @fourdigits=[M M_M M_M_M M_M_M_M];</p>
+    <p>feature liga {<br>
+    # substitutions for two digits<br>
+    sub @digitsnozero’ @digits by @twodigits;<br>
+    # substitutions for three digits<br>
+    sub @digitsnozero’ [@digits @twodigits @threedigits] @digits by @threedigits;<br>
+    # substitutions for four digits<br>
+    sub [one two three four]’ [@digits @twodigits @threedigits]<br>
+    @digits @digits by @fourdigits;<br>
+    } liga;</p>
+    <p>The problem is that when the first rule is activated the other two are ignored. As a result I only get the first substitution (1 + 0 -&gt; 1_0)</p>
+    <p>I solved the problem by putting each rule in a different feature (the first in onum, the second in smcp and the third in liga - it works).</p>
+    <p>So now I have the following:</p>
+    <p>feature onum {<br>
+    # substitutions for two digits<br>
+    sub @digitsnozero’ @digits by @twodigits;<br>
+    } onum;</p>
+    <p>feature smcp {<br>
+    # substitutions for three digits<br>
+    sub @digitsnozero’ [@digits @twodigits @threedigits] @digits by @threedigits;<br>
+    } smcp;</p>
+    <p>feature liga {<br>
+    # substitutions for four digits<br>
+    sub [one two three four]’ [@digits @twodigits @threedigits] @digits @digits by @fourdigits;<br>
+    } liga;</p>
+    <p>I read in the OpenType specification about the Chaining Context Substitution but I did not understand how am I supposed to do it.</p>
+    <p>Can anyone tell me if I can put all the three rules in one feature (e.g. in a liga feature)? Can I do anything with ‘lookup’?</p>
+    <p>George Triantafyllakos - backpacker.gr</p>
+  html_clean: |-
+    <p>Hello everyone</p>
+    <p>I am new to Typophile and this is my first post. I am glad to be here. I have an OpenType features related problem. I want to make the following substitutions:</p>
+    <p>1 + 0 with a glyph called 1_0<br>
+    1 + 0 + 0 with a glyph called 1_0_0 and<br>
+    1 + 0 + 0 + 0 with a glyph called 1_0_0_0</p>
+    <p>(1 and 0 can be replaced by any digit - see code below)</p>
+    <p>I work in Fontlab Studio 5 and I at first I wrote the following code:</p>
+    <p># glyph classes<br>
+    @digitsnozero=[one two three four five six seven eight nine];<br>
+    @digits=[zero one two three four five six seven eight nine];<br>
+    @twodigits=[X X_X X_X_X X_L L L_X L_X_X L_X_X_X X_C];<br>
+    @threedigits=[C C_C C_C_C C_C_C_C D D_C D_C_C D_C_C_C D_C_C_C_C];<br>
+    @fourdigits=[M M_M M_M_M M_M_M_M];</p>
+    <p>feature liga {<br>
+    # substitutions for two digits<br>
+    sub @digitsnozero’ @digits by @twodigits;<br>
+    # substitutions for three digits<br>
+    sub @digitsnozero’ [@digits @twodigits @threedigits] @digits by @threedigits;<br>
+    # substitutions for four digits<br>
+    sub [one two three four]’ [@digits @twodigits @threedigits]<br>
+    @digits @digits by @fourdigits;<br>
+    } liga;</p>
+    <p>The problem is that when the first rule is activated the other two are ignored. As a result I only get the first substitution (1 + 0 -&gt; 1_0)</p>
+    <p>I solved the problem by putting each rule in a different feature (the first in onum, the second in smcp and the third in liga - it works).</p>
+    <p>So now I have the following:</p>
+    <p>feature onum {<br>
+    # substitutions for two digits<br>
+    sub @digitsnozero’ @digits by @twodigits;<br>
+    } onum;</p>
+    <p>feature smcp {<br>
+    # substitutions for three digits<br>
+    sub @digitsnozero’ [@digits @twodigits @threedigits] @digits by @threedigits;<br>
+    } smcp;</p>
+    <p>feature liga {<br>
+    # substitutions for four digits<br>
+    sub [one two three four]’ [@digits @twodigits @threedigits] @digits @digits by @fourdigits;<br>
+    } liga;</p>
+    <p>I read in the OpenType specification about the Chaining Context Substitution but I did not understand how am I supposed to do it.</p>
+    <p>Can anyone tell me if I can put all the three rules in one feature (e.g. in a liga feature)? Can I do anything with ‘lookup’?</p>
+    <p>George Triantafyllakos - backpacker.gr</p>
+comments:
+  - id: 103502
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I believe the solution is to reverse the order of your substitutions. Start with the longest (1_0_0_0) and work down.</p>
+    html_clean: <p>I believe the solution is to reverse the order of your substitutions. Start with the longest (1_0_0_0) and work down.</p>
+  - id: 103503
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Oh God! It worked …</p>
+      <p>I can’t believe it was so easy!! (I thought I tried it but I didn’t and I ‘ve been trying for the last 6 hours for a solution)</p>
+      <p>Mark, thank you very much!</p>
+      <p>George Triantafyllakos - backpacker.gr</p>
+    html_clean: |-
+      <p>Oh God! It worked …</p>
+      <p>I can’t believe it was so easy!! (I thought I tried it but I didn’t and I ‘ve been trying for the last 6 hours for a solution)</p>
+      <p>Mark, thank you very much!</p>
+      <p>George Triantafyllakos - backpacker.gr</p>
+  - id: 103512
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Writing OT features is a bit of a logic puzzle sometimes. The easy way is not always obvious.</p>
+    html_clean: <p>Writing OT features is a bit of a logic puzzle sometimes. The easy way is not always obvious.</p>
+  - id: 103525
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>Big hint: With any many-to-one substitutions, the longest string should go first, which is why “ffi” and “ffl” are before “ff”, “fi”, and “fl”. (Which is pretty much the opposite of what happens when you’re typing. Which is why you should always write OT code while drunk.)</p>"
+    html_clean: "<p>Big hint: With any many-to-one substitutions, the longest string should go first, which is why “ffi” and “ffl” are before “ff”, “fi”, and “fl”. (Which is pretty much the opposite of what happens when you’re typing. Which is why you should always write OT code while drunk.)</p>"
+  - id: 103832
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>“Which is why you should always write OT code while drunk”</p>
+      <p>So that is your secret :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>“Which is why you should always write OT code while drunk”</p>
+      <p>So that is your secret :-)</p>
+      <p>ChrisL</p>

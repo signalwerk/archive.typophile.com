@@ -1,0 +1,181 @@
+node: 42886
+title: Fontlab 4.6 how to create a random font ?
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20131218002103"
+  captured_at: 2013-12-18T00:21:03Z
+  url: http://www.typophile.com:80/node/42886
+  digest: YQ7STHHBTH5YIJBGT6BCCOPB43K3D5PB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/42886.html
+  fingerprint: 9554936d9289aaf5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131218002103"
+      digest: YQ7STHHBTH5YIJBGT6BCCOPB43K3D5PB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/42886.html
+post:
+  id: 42886
+  user: 28003
+  date: 2008-03-06T08:47:00
+  date_raw: 6 Mar 2008 — 8:47am
+  votes: null
+  html: |-
+    <p>Hello,</p>
+    <p>I'm a graphic designer and I'm trying to create a font where, while writing, each character will be randomly substituted by some other versions of the same character. So that for the "a" I'll have 3 different "a", for the "b" I'll have 3 different "b" and so on.</p>
+    <p>I found some scripts in Typophile where it seems this would work (<a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a>), but i actually don't know how to make it work in Fontlab... :/</p>
+    <p>I supose I have to create one class per character (in the "collection/classes" panel) where I put all the glyphs I want to use for the substitution and then (in the "opentype" panel) assign the script to each class. Is that it?</p>
+    <p>Based on another .otf font, I tried to roughly repeat the proceadure just to see if anything happens (just tried to assign some script to the first class I created - please see image attached), but when I try to generate the opentype font it gives me an error "ERROR: There was a problem while compiling OpenType font. Final .otf font is not saved. Please, check OpenType features definition for errors".<br>
+    I've checked, but apart from the UPM number, that I think has to be 1000, I have no clue of what I should be aware of...</p>
+    <p>Could you please give me some hints on how to make it work?<br>
+    I would really apreciate some help since I'm complete "new" on Fontlab and font design as well.</p>
+    <p>Thank you so much in advance!</p>
+    <p>Andreia</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Imagem2.png">Imagem2.png</a></td><td>102.75 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I'm a graphic designer and I'm trying to create a font where, while writing, each character will be randomly substituted by some other versions of the same character. So that for the "a" I'll have 3 different "a", for the "b" I'll have 3 different "b" and so on.</p>
+    <p>I found some scripts in Typophile where it seems this would work (<a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a>), but i actually don't know how to make it work in Fontlab... :/</p>
+    <p>I supose I have to create one class per character (in the "collection/classes" panel) where I put all the glyphs I want to use for the substitution and then (in the "opentype" panel) assign the script to each class. Is that it?</p>
+    <p>Based on another .otf font, I tried to roughly repeat the proceadure just to see if anything happens (just tried to assign some script to the first class I created - please see image attached), but when I try to generate the opentype font it gives me an error "ERROR: There was a problem while compiling OpenType font. Final .otf font is not saved. Please, check OpenType features definition for errors".<br>
+    I've checked, but apart from the UPM number, that I think has to be 1000, I have no clue of what I should be aware of...</p>
+    <p>Could you please give me some hints on how to make it work?<br>
+    I would really apreciate some help since I'm complete "new" on Fontlab and font design as well.</p>
+    <p>Thank you so much in advance!</p>
+    <p>Andreia</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Imagem2.png">Imagem2.png</a></td><td>102.75 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 264180
+    user: 28008
+    date: 2008-03-06T10:51:00
+    date_raw: 6 Mar 2008 — 10:51am
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      A very simple way to make alternates visible is to put a lookup with something like this into the liga feature:</p>
+      <p>sub [a c m s] a' by a.alt1;<br>
+      sub [e i o t] a' by a.alt2;</p>
+      <p>(means: after a c m s  glyph a is substituted by glyph a.alt1<br>
+              after e i o t  glyph a is substituted by glyph a.alt2 )</p>
+      <p>js</p>
+    html_clean: |-
+      <p>Hi,<br>
+      A very simple way to make alternates visible is to put a lookup with something like this into the liga feature:</p>
+      <p>sub [a c m s] a' by a.alt1;<br>
+      sub [e i o t] a' by a.alt2;</p>
+      <p>(means: after a c m s  glyph a is substituted by glyph a.alt1<br>
+              after e i o t  glyph a is substituted by glyph a.alt2 )</p>
+      <p>js</p>
+  - id: 264372
+    user: 28003
+    date: 2008-03-07T04:26:00
+    date_raw: 7 Mar 2008 — 4:26am
+    votes: null
+    html: |-
+      <p>Thanks for your quick answer :D!</p>
+      <p>I'll try it out and tell you how it worked!</p>
+      <p>a.</p>
+    html_clean: |-
+      <p>Thanks for your quick answer :D!</p>
+      <p>I'll try it out and tell you how it worked!</p>
+      <p>a.</p>
+  - id: 264375
+    user: 1215
+    date: 2008-03-07T04:59:00
+    date_raw: 7 Mar 2008 — 4:59am
+    votes: null
+    html: <p>The {liga} ligature feature is not a good place for this kind of substitution. Better to use {calt} contextual alternates feature instead, since that's the effect you're creating.</p>
+    html_clean: <p>The {liga} ligature feature is not a good place for this kind of substitution. Better to use {calt} contextual alternates feature instead, since that's the effect you're creating.</p>
+  - id: 264535
+    user: 19606
+    date: 2008-03-08T05:34:00
+    date_raw: 8 Mar 2008 — 5:34am
+    votes: null
+    html: <p>It's not Fontlab, but I think Metafont can do this.</p>
+    html_clean: <p>It's not Fontlab, but I think Metafont can do this.</p>
+  - id: 264558
+    user: 8664
+    date: 2008-03-08T10:07:00
+    date_raw: 8 Mar 2008 — 10:07am
+    votes: null
+    html: |-
+      <p>Connecting you with <a href="http://typophile.com/node/42950" title="http://typophile.com/node/42950">http://typophile.com/node/42950</a></p>
+      <p>Everybody making script typefaces now?&nbsp;&nbsp;;-)</p>
+    html_clean: |-
+      <p>Connecting you with <a href="/node/42950/" title="http://typophile.com/node/42950">http://typophile.com/node/42950</a></p>
+      <p>Everybody making script typefaces now?&nbsp;&nbsp;;-)</p>
+  - id: 264561
+    user: 3135
+    date: 2008-03-08T10:23:00
+    date_raw: 8 Mar 2008 — 10:23am
+    votes: null
+    html: |-
+      <p>"Everybody making script typefaces now?"</p>
+      <p>Some of us are still struggling with non-script faces, Karsten :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>"Everybody making script typefaces now?"</p>
+      <p>Some of us are still struggling with non-script faces, Karsten :-)</p>
+      <p>ChrisL</p>
+  - id: 264598
+    user: 8664
+    date: 2008-03-08T14:22:00
+    date_raw: 8 Mar 2008 — 2:22pm
+    votes: null
+    html: |-
+      <p>"Everybody" except me, I mean.&nbsp;&nbsp;;-)<br>
+      Hm, but why not? Something with nice connectors, without need for kerning. I'm weary of even thinking about kerning, best practices, economic kerning, kerning features, limited kerning interfaces and all that ...</p>
+    html_clean: |-
+      <p>"Everybody" except me, I mean.&nbsp;&nbsp;;-)<br>
+      Hm, but why not? Something with nice connectors, without need for kerning. I'm weary of even thinking about kerning, best practices, economic kerning, kerning features, limited kerning interfaces and all that ...</p>
+  - id: 264602
+    user: 3135
+    date: 2008-03-08T14:36:00
+    date_raw: 8 Mar 2008 — 2:36pm
+    votes: null
+    html: |-
+      <p>Karsten, There is no escape except for monowidth fonts :-)</p>
+      <p>I am finding that glyph drawing is the easiest and quickest part of type design. I have torn apart metrics and redone kerning a thousand times. With each redo, I learn something new and start again! The increments of change keep getting smaller as my vision gets more acute and my critical judgement becomes more unyielding--I feel I am getting closer to the carrot on the string but it is still not quite in my grasp :-/</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Karsten, There is no escape except for monowidth fonts :-)</p>
+      <p>I am finding that glyph drawing is the easiest and quickest part of type design. I have torn apart metrics and redone kerning a thousand times. With each redo, I learn something new and start again! The increments of change keep getting smaller as my vision gets more acute and my critical judgement becomes more unyielding--I feel I am getting closer to the carrot on the string but it is still not quite in my grasp :-/</p>
+      <p>ChrisL</p>
+  - id: 296563
+    user: 35656
+    date: 2008-08-19T06:40:00
+    date_raw: 19 Aug 2008 — 6:40am
+    votes: null
+    html: |-
+      <p>Hi! I'm trying to do the same as Andreia but I'm working with TypeTool. Can I make variable glyphs with this software? </p>
+      <p>Thank you!</p>
+    html_clean: |-
+      <p>Hi! I'm trying to do the same as Andreia but I'm working with TypeTool. Can I make variable glyphs with this software? </p>
+      <p>Thank you!</p>

@@ -1,0 +1,124 @@
+node: 63170
+title: How does one combine contextual gsub with gpos
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131015032127"
+  captured_at: 2013-10-15T03:21:27Z
+  url: http://typophile.com/node/63170
+  digest: DDF252VZRUSPMICXLLIKVO52XLUVLFA4
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/63170.html
+  fingerprint: 28d53f7836cdbc89
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131015032127"
+      digest: DDF252VZRUSPMICXLLIKVO52XLUVLFA4
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/63170.html
+post:
+  id: 63170
+  user: 13079
+  date: 2009-10-16T05:33:00
+  date_raw: 16 Oct 2009 — 5:33am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>I've tried but had no luck finding any references for what I'm trying to do: combining contextual gsub with gpos.</p>
+    <p>I know that the following code example doesn't work but it should illustrate what I'm aiming for.</p>
+    <p>feature calt {<br>
+       # if a is followed by by b, shift a 100u y direction<br>
+       sub a' b by pos a &lt;0 100 0 0&gt;;<br>
+    } calt;</p>
+    <p>Does anyone have a hint if/how this can be done.</p>
+    <p>Thanks,<br>
+    Martin</p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I've tried but had no luck finding any references for what I'm trying to do: combining contextual gsub with gpos.</p>
+    <p>I know that the following code example doesn't work but it should illustrate what I'm aiming for.</p>
+    <p>feature calt {<br>
+       # if a is followed by by b, shift a 100u y direction<br>
+       sub a' b by pos a &lt;0 100 0 0&gt;;<br>
+    } calt;</p>
+    <p>Does anyone have a hint if/how this can be done.</p>
+    <p>Thanks,<br>
+    Martin</p>
+comments:
+  - id: 373478
+    user: 1262
+    date: 2009-10-16T11:40:00
+    date_raw: 16 Oct 2009 — 11:40am
+    votes: null
+    html: |-
+      <p>GSUB and GPOS are independently processed, with all GSUB being performed before any GPOS is applied. It is technically possible to mix GSUB and GPOS lookups in the same feature, and to include GPOS lookups in a GSUB feature such as ‘calt’, but this is very strongly discouraged. You can't rely on layout engines applying GPOS lookups that occur in a GSUB feature, because if the engine considers e.g. ‘calt’ to be a GSUB feature, as the feature description in the OT spex appendix indicates it to be, then that feature might not be processed during GPOS operations.</p>
+      <p>What you seem to be describing is a GPOS operation involving a contextual single adjustment. I would experiment with putting this in the ‘kern’ feature, since it is fundamentally an adjustment involving the spatial relationship of two base glyphs. I don't use the Adobe FDK or FontLab for OTL work, so I don't know what limitations or assumptions might exist for the ‘kern’ feature in those tools, e.g. if they might presume all kerning lookups to be pair adjustments. I do know that in VOLT it is no problem to include any kind of GPOS lookup within ‘kern’, and I regularly use contextual single adjustments in that feature.</p>
+    html_clean: |-
+      <p>GSUB and GPOS are independently processed, with all GSUB being performed before any GPOS is applied. It is technically possible to mix GSUB and GPOS lookups in the same feature, and to include GPOS lookups in a GSUB feature such as ‘calt’, but this is very strongly discouraged. You can't rely on layout engines applying GPOS lookups that occur in a GSUB feature, because if the engine considers e.g. ‘calt’ to be a GSUB feature, as the feature description in the OT spex appendix indicates it to be, then that feature might not be processed during GPOS operations.</p>
+      <p>What you seem to be describing is a GPOS operation involving a contextual single adjustment. I would experiment with putting this in the ‘kern’ feature, since it is fundamentally an adjustment involving the spatial relationship of two base glyphs. I don't use the Adobe FDK or FontLab for OTL work, so I don't know what limitations or assumptions might exist for the ‘kern’ feature in those tools, e.g. if they might presume all kerning lookups to be pair adjustments. I do know that in VOLT it is no problem to include any kind of GPOS lookup within ‘kern’, and I regularly use contextual single adjustments in that feature.</p>
+  - id: 373481
+    user: 8664
+    date: 2009-10-16T12:30:00
+    date_raw: 16 Oct 2009 — 12:30pm
+    votes: null
+    html: |-
+      <p>Yes, like in VOLT you can add a separate lookup to the kern feature, but need to compile with either the new AFDKO (not from within FLS5) or OTMaster.</p>
+      <p>&nbsp;&nbsp;&nbsp;feature kern {</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup kern_jumpingGlyphs {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos a' &lt;0 100 0 0&gt; b;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} kern_jumpingGlyphs;</p>
+      <p>&nbsp;&nbsp;&nbsp;} kern;</p>
+      <p>The marked glyph is the input glyph to be repositioned, and the value record needs to follow immediately.</p>
+      <p>But you need to be careful: Substitution can be executed only once on an input glyph (after substitution it does not exist any more in the glyph string). But if you reposition the same glyph again in other lookups, all of these adjustments will add up.</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Yes, like in VOLT you can add a separate lookup to the kern feature, but need to compile with either the new AFDKO (not from within FLS5) or OTMaster.</p>
+      <p>&nbsp;&nbsp;&nbsp;feature kern {</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup kern_jumpingGlyphs {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos a' &lt;0 100 0 0&gt; b;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} kern_jumpingGlyphs;</p>
+      <p>&nbsp;&nbsp;&nbsp;} kern;</p>
+      <p>The marked glyph is the input glyph to be repositioned, and the value record needs to follow immediately.</p>
+      <p>But you need to be careful: Substitution can be executed only once on an input glyph (after substitution it does not exist any more in the glyph string). But if you reposition the same glyph again in other lookups, all of these adjustments will add up.</p>
+      <p>Karsten</p>
+  - id: 373664
+    user: 13079
+    date: 2009-10-18T08:52:00
+    date_raw: 18 Oct 2009 — 8:52am
+    votes: null
+    html: |-
+      <p>Hi John, Hi Karsten,</p>
+      <p>thanks for your very concise explanation.</p>
+      <p>Very much appreciated,<br>
+      Martin</p>
+    html_clean: |-
+      <p>Hi John, Hi Karsten,</p>
+      <p>thanks for your very concise explanation.</p>
+      <p>Very much appreciated,<br>
+      Martin</p>
+  - id: 373683
+    user: 3135
+    date: 2009-10-18T13:57:00
+    date_raw: 18 Oct 2009 — 1:57pm
+    votes: null
+    html: |-
+      <p>.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>.</p>
+      <p>ChrisL</p>

@@ -1,0 +1,196 @@
+node: 19365
+title: "newbie question: adding opentype feature (onum)..."
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20070808060537"
+  captured_at: 2007-08-08T06:05:37Z
+  url: http://typophile.com:80/node/19365
+  digest: XQQUAFSCH2HXA2EJIVE4EEVRVG4PY4ZO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/19365.html
+  fingerprint: b2d9fb2dfd3b6e3e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20070808060537"
+      digest: XQQUAFSCH2HXA2EJIVE4EEVRVG4PY4ZO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/19365.html
+post:
+  id: 19365
+  user: 1393
+  date: 2006-04-19T14:28:00
+  date_raw: 19.Apr.2006 2.28pm
+  votes: null
+  html: |-
+    <p>OK, so I have a font with all the lc and uc, lining numerals and old-style numerals designed. Lining numerals have their usual names, and I named the old-styles so that they have the “.onum” suffix (e.g. “one.onum”). </p>
+    <p>How do I go about implementing an open type feature for the old style numerals?  I’d assume that I go to the open type panel, hit “+”, and the new “xxxx” feature appears. But what next? When I try renaming the “xxxx” feature so that it says:</p>
+    <p>feature onum {<br>
+      sub by ;<br>
+    } onum;</p>
+    <p>I get compile errors. Where &amp; how do I add the numbers? I was checking the FL manual, but I’m not getting far with it. Can somebody point me to any resoruce or explain how adding an OT feature such as old-style numerals works in a nutshell?</p>
+    <p>I’m using FL 4.6 on a Mac<br>
+    Thanks</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/19434" class="topic-previous" title="Go to previous forum topic">‹ Batch Pagination Programs - why?</a> <a href="/node/17995" class="topic-next" title="Go to next forum topic">how to improve kerning and letterspacing in font lab ›</a></div>
+  html_clean: |-
+    <p>OK, so I have a font with all the lc and uc, lining numerals and old-style numerals designed. Lining numerals have their usual names, and I named the old-styles so that they have the “.onum” suffix (e.g. “one.onum”). </p>
+    <p>How do I go about implementing an open type feature for the old style numerals?  I’d assume that I go to the open type panel, hit “+”, and the new “xxxx” feature appears. But what next? When I try renaming the “xxxx” feature so that it says:</p>
+    <p>feature onum {<br>
+      sub by ;<br>
+    } onum;</p>
+    <p>I get compile errors. Where &amp; how do I add the numbers? I was checking the FL manual, but I’m not getting far with it. Can somebody point me to any resoruce or explain how adding an OT feature such as old-style numerals works in a nutshell?</p>
+    <p>I’m using FL 4.6 on a Mac<br>
+    Thanks</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/19434/" class="topic-previous" title="Go to previous forum topic">‹ Batch Pagination Programs - why?</a> <a href="/node/17995/" class="topic-next" title="Go to next forum topic">how to improve kerning and letterspacing in font lab ›</a></div>
+comments:
+  - id: 119104
+    user: 1844
+    date: 2006-04-19T17:23:00
+    date_raw: 19.Apr.2006 5.23pm
+    votes: null
+    html: |-
+      <p>Have a look at Minion Pro’s feature file<br>
+      <a href="http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628" title="http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628">http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628</a></p>
+    html_clean: |-
+      <p>Have a look at Minion Pro’s feature file<br>
+      <a href="http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628" title="http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628">http://www.adobeforums.com/cgi-bin/webx?50@@.3bb58628</a></p>
+  - id: 119114
+    user: 1043
+    date: 2006-04-19T18:48:00
+    date_raw: 19.Apr.2006 6.48pm
+    votes: null
+    html: |-
+      <p>The code that is inserted into the OpenType panel when you hit the “+” button is a stub—it’s incomplete and you are expected to complete it. You got halfway there by changing “xxxx” to “onum,” but you’ve got to finish the job. “sub by ;” needs to say something like “sub one by one.onum ;”. This is what is called a one-to-one substitution in OpenType feature speak. What it means is that the normal “one” will be substituted by “one.onum” when the user asks for old style numerals. You have to add a line like this for every number. It should look something like this:</p>
+      <p><code>feature onum {<br>
+      sub one by one.onum ;<br>
+      sub two by two.onum ;<br>
+      sub three by three.onum ;</code></p>
+      <p>and so on, finishing up with:</p>
+      <p><code>} onum;</code></p>
+      <p>It can get more complicated than this—for instance if you have both proportional and tabular figures—but that’s basically it. (It’s all covered in the manual, by the way.)</p>
+    html_clean: |-
+      <p>The code that is inserted into the OpenType panel when you hit the “+” button is a stub—it’s incomplete and you are expected to complete it. You got halfway there by changing “xxxx” to “onum,” but you’ve got to finish the job. “sub by ;” needs to say something like “sub one by one.onum ;”. This is what is called a one-to-one substitution in OpenType feature speak. What it means is that the normal “one” will be substituted by “one.onum” when the user asks for old style numerals. You have to add a line like this for every number. It should look something like this:</p>
+      <p><code>feature onum {<br>
+      sub one by one.onum ;<br>
+      sub two by two.onum ;<br>
+      sub three by three.onum ;</code></p>
+      <p>and so on, finishing up with:</p>
+      <p><code>} onum;</code></p>
+      <p>It can get more complicated than this—for instance if you have both proportional and tabular figures—but that’s basically it. (It’s all covered in the manual, by the way.)</p>
+  - id: 119242
+    user: 3135
+    date: 2006-04-20T14:11:00
+    date_raw: 20.Apr.2006 2.11pm
+    votes: null
+    html: |-
+      <p>Or make a class for num and a class for onum and sub the class.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Or make a class for num and a class for onum and sub the class.</p>
+      <p>ChrisL</p>
+  - id: 119243
+    user: 3135
+    date: 2006-04-20T14:14:00
+    date_raw: 20.Apr.2006 2.14pm
+    votes: null
+    html: |-
+      <p>Here is the code:</p>
+      <p>feature onum { # Old style numerals<br>
+        sub @num by @onum;<br>
+      } onum;</p>
+    html_clean: |-
+      <p>Here is the code:</p>
+      <p>feature onum { # Old style numerals<br>
+        sub @num by @onum;<br>
+      } onum;</p>
+  - id: 119789
+    user: 1393
+    date: 2006-04-22T22:04:00
+    date_raw: 22.Apr.2006 10.04pm
+    votes: null
+    html: |-
+      <p>Thanks a lot everyone. Figured it out. I would have had it earlier if I had only scrutinized the manual :).</p>
+      <p>And subing classes seems like THE way to go.</p>
+      <p>I posted Kaled Sans for the cirtique over <a href="http://typophile.com/node/19445">in the neighborhood</a>. You can see my old style’s feature at work <a href="http://ebukva.cidamon.com/type/Picture4.png">in this image</a>.</p>
+      <p>Now, one more question: Are there advantages to doing the kerning as an OT feature as opposed to the kerning table in metrics? Since I’m jsut starting to kern, should I just go for the OT kern feature?</p>
+      <p>Emir</p>
+    html_clean: |-
+      <p>Thanks a lot everyone. Figured it out. I would have had it earlier if I had only scrutinized the manual :).</p>
+      <p>And subing classes seems like THE way to go.</p>
+      <p>I posted Kaled Sans for the cirtique over <a href="/node/19445/">in the neighborhood</a>. You can see my old style’s feature at work <a href="http://ebukva.cidamon.com/type/Picture4.png">in this image</a>.</p>
+      <p>Now, one more question: Are there advantages to doing the kerning as an OT feature as opposed to the kerning table in metrics? Since I’m jsut starting to kern, should I just go for the OT kern feature?</p>
+      <p>Emir</p>
+  - id: 119826
+    user: 1043
+    date: 2006-04-23T07:56:00
+    date_raw: 23.Apr.2006 7.56am
+    votes: null
+    html: |-
+      <p>That depends. The spec for PostScript-flavored OT (CFF) fonts says that a kerning table is not supported, meaning you must use class kerning. TrueType-flavored OT (TTF) fonts may have either or both. In fact, FontLab will let you include either or both in both flavors of OT fonts.</p>
+      <p>That said, class kerning is the way to go. It takes a bit more planning, but it’s more efficient and thorough.</p>
+    html_clean: |-
+      <p>That depends. The spec for PostScript-flavored OT (CFF) fonts says that a kerning table is not supported, meaning you must use class kerning. TrueType-flavored OT (TTF) fonts may have either or both. In fact, FontLab will let you include either or both in both flavors of OT fonts.</p>
+      <p>That said, class kerning is the way to go. It takes a bit more planning, but it’s more efficient and thorough.</p>
+  - id: 119846
+    user: 8664
+    date: 2006-04-23T09:17:00
+    date_raw: 23.Apr.2006 9.17am
+    votes: null
+    html: |-
+      <p>It seems there was another aspect to your question:<br>
+      For direct visual control, you should use the Metrics Window for kerning. This also allows you to use classes. Then — whether you used classes or not — you go to the Metrics Assistance panel and hit the “update kern feature” button which generates a kern feature for you.<br>
+      This way, your plain kerning table and the kern feature are (or at least: could be) equivalent for one is generated from the other.</p>
+    html_clean: |-
+      <p>It seems there was another aspect to your question:<br>
+      For direct visual control, you should use the Metrics Window for kerning. This also allows you to use classes. Then — whether you used classes or not — you go to the Metrics Assistance panel and hit the “update kern feature” button which generates a kern feature for you.<br>
+      This way, your plain kerning table and the kern feature are (or at least: could be) equivalent for one is generated from the other.</p>
+  - id: 120083
+    user: 3135
+    date: 2006-04-24T18:14:00
+    date_raw: 24.Apr.2006 6.14pm
+    votes: null
+    html: |-
+      <p>I think you need both because some apps don’t read the opentype kern feature and need the table. That is why I think Karsten’s solution is best.  It gives you both and they are the same.  Also, you can see it well in the metrics window as you do it.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>I think you need both because some apps don’t read the opentype kern feature and need the table. That is why I think Karsten’s solution is best.  It gives you both and they are the same.  Also, you can see it well in the metrics window as you do it.</p>
+      <p>ChrisL</p>
+  - id: 120111
+    user: 1043
+    date: 2006-04-24T20:55:00
+    date_raw: 24.Apr.2006 8.55pm
+    votes: null
+    html: |-
+      <p>Here’s the deal, though: With CFF fonts, the old-style kern table will never get used. OT-savvy apps will use the kern feature; non-OT-savvy apps get a synthesized kern table based on the kern feature. So, even though you <em>can</em> include a kern table in an OT CFF font using FontLab, it will simply be taking up space.</p>
+      <p>Incidentally, there was recently a discussion about this on the OpenType list. Adam Twardoch was advocating that kern tables should be supported in OT CFF fonts just as they are in OT TTF fonts. Judging from the discussion, it doesn’t sound like it will likely happen.</p>
+    html_clean: |-
+      <p>Here’s the deal, though: With CFF fonts, the old-style kern table will never get used. OT-savvy apps will use the kern feature; non-OT-savvy apps get a synthesized kern table based on the kern feature. So, even though you <em>can</em> include a kern table in an OT CFF font using FontLab, it will simply be taking up space.</p>
+      <p>Incidentally, there was recently a discussion about this on the OpenType list. Adam Twardoch was advocating that kern tables should be supported in OT CFF fonts just as they are in OT TTF fonts. Judging from the discussion, it doesn’t sound like it will likely happen.</p>
+  - id: 120136
+    user: 8664
+    date: 2006-04-25T04:42:00
+    date_raw: 25.Apr.2006 4.42am
+    votes: null
+    html: |-
+      <p><cite>Here’s the deal, though: With CFF fonts, the old-style kern table will never get used. OT-savvy apps will use the kern feature; non-OT-savvy apps get a synthesized kern table based on the kern feature.</cite></p>
+      <p>Oh yes, I only addressed one question, how to get consistent results among kern table &amp; kern feature.</p>
+      <p>You are right, according to the current specs, only the kern feature should be present in PS-flavored OTFs. Personally, I stick to this. Too much redundant information in OTFs already ... (Also, in an earlier test I had the impression that some application ignored kerning completely if both table and feature were present, but forgot the details and cannot — nor do I want to — reproduce this.)</p>
+    html_clean: |-
+      <p><cite>Here’s the deal, though: With CFF fonts, the old-style kern table will never get used. OT-savvy apps will use the kern feature; non-OT-savvy apps get a synthesized kern table based on the kern feature.</cite></p>
+      <p>Oh yes, I only addressed one question, how to get consistent results among kern table &amp; kern feature.</p>
+      <p>You are right, according to the current specs, only the kern feature should be present in PS-flavored OTFs. Personally, I stick to this. Too much redundant information in OTFs already ... (Also, in an earlier test I had the impression that some application ignored kerning completely if both table and feature were present, but forgot the details and cannot — nor do I want to — reproduce this.)</p>

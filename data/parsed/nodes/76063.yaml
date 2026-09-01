@@ -1,0 +1,147 @@
+node: 76063
+title: script and language statements in OT features
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131013164555"
+  captured_at: 2013-10-13T16:45:55Z
+  url: http://typophile.com/node/76063
+  digest: N6GJKPN7JSUMYOYNGLXEBBTH3RVO6YSY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/76063.html
+  fingerprint: 0c389cb245a88a79
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131013164555"
+      digest: N6GJKPN7JSUMYOYNGLXEBBTH3RVO6YSY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/76063.html
+post:
+  id: 76063
+  user: 17947
+  date: 2010-11-07T19:46:00
+  date_raw: 7 Nov 2010 — 7:46pm
+  votes: null
+  html: |-
+    <p>Trying to learn more about features, focusing on the kerning feature at the moment.</p>
+    <p>In another post Jens Kutilek kindly offered the following feature as a suggestion to a problem I was trying to solve (<a href="http://typophile.com/node/72726" title="http://typophile.com/node/72726">http://typophile.com/node/72726</a>):</p>
+    <p>feature kern {<br>
+    script grek;<br>
+    language dflt;<br>
+    pos space &lt;50 0 100 0&gt;;<br>
+    } kern;</p>
+    <p>What I'm wondering about is the script and language statements. I've read about them a bit on Adobe's site but, admittedly, will have to back and revisit to better understand. One thing I didn't see is how these statements get used or activated.</p>
+    <p>Does the application call for them? If so the language statement makes some sense as most apps have a language setting. I don't, though, understand how the script command comes in to play. I've seen it in liga features without a language statement, but again, I don't understand how/when it is implemented.</p>
+    <p>Also, does anyone know of a source that would be the equivalent to "Features for Dummies?"</p>
+    <p>Thanks,<br>
+    Ken<br>
+    Dummy in Training</p>
+  html_clean: |-
+    <p>Trying to learn more about features, focusing on the kerning feature at the moment.</p>
+    <p>In another post Jens Kutilek kindly offered the following feature as a suggestion to a problem I was trying to solve (<a href="/node/72726/" title="http://typophile.com/node/72726">http://typophile.com/node/72726</a>):</p>
+    <p>feature kern {<br>
+    script grek;<br>
+    language dflt;<br>
+    pos space &lt;50 0 100 0&gt;;<br>
+    } kern;</p>
+    <p>What I'm wondering about is the script and language statements. I've read about them a bit on Adobe's site but, admittedly, will have to back and revisit to better understand. One thing I didn't see is how these statements get used or activated.</p>
+    <p>Does the application call for them? If so the language statement makes some sense as most apps have a language setting. I don't, though, understand how the script command comes in to play. I've seen it in liga features without a language statement, but again, I don't understand how/when it is implemented.</p>
+    <p>Also, does anyone know of a source that would be the equivalent to "Features for Dummies?"</p>
+    <p>Thanks,<br>
+    Ken<br>
+    Dummy in Training</p>
+comments:
+  - id: 438698
+    user: 31798
+    date: 2010-11-08T09:04:00
+    date_raw: 8 Nov 2010 — 9:04am
+    votes: null
+    html: |-
+      <p>To answer this, it's probably best to consider some hypothetical feature:<br>
+      <code><br>
+      feature test {<br>
+      &nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub X by Y;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub A by B;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language DEU exclude_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub C by D;<br>
+      &nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub E by F;<br>
+      } test;<br>
+      </code></p>
+      <p>When you compile the above, the font will actually include four different versions of the 'test' feature, and it will be up to the application to determine which of those versions to use when the user activates the 'test' feature (assuming this is a feature which the application allows the user to (de)activate).</p>
+      <p>The four versions of the feature are as follows:</p>
+      <p>1. a version which will substitute A by B and X by Y which is intended to be used for Turkish<br>
+      2. a version which will substitute C by D which is intended to be used for German.<br>
+      3. a version which will substitute X by Y and which is intended to be used by other languages which employ the Latin script.<br>
+      4. a version which will substitute E by F and which is intended to be used by languages which use the Cyrillic script.</p>
+      <p>You'll want to make sure to include appropriate <code> languagesystem </code> declarations at the beginning of your feature file if you want to make use of language tags. These are also described in the OT syntax spec.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>To answer this, it's probably best to consider some hypothetical feature:<br>
+      <code><br>
+      feature test {<br>
+      &nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub X by Y;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub A by B;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language DEU exclude_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub C by D;<br>
+      &nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub E by F;<br>
+      } test;<br>
+      </code></p>
+      <p>When you compile the above, the font will actually include four different versions of the 'test' feature, and it will be up to the application to determine which of those versions to use when the user activates the 'test' feature (assuming this is a feature which the application allows the user to (de)activate).</p>
+      <p>The four versions of the feature are as follows:</p>
+      <p>1. a version which will substitute A by B and X by Y which is intended to be used for Turkish<br>
+      2. a version which will substitute C by D which is intended to be used for German.<br>
+      3. a version which will substitute X by Y and which is intended to be used by other languages which employ the Latin script.<br>
+      4. a version which will substitute E by F and which is intended to be used by languages which use the Cyrillic script.</p>
+      <p>You'll want to make sure to include appropriate <code> languagesystem </code> declarations at the beginning of your feature file if you want to make use of language tags. These are also described in the OT syntax spec.</p>
+      <p>André</p>
+  - id: 438723
+    user: 17947
+    date: 2010-11-08T11:21:00
+    date_raw: 8 Nov 2010 — 11:21am
+    votes: null
+    html: |-
+      <p>I think I understand the intent of the code, the part I think I'm missing is when each peice of code gets used.</p>
+      <p>Where is the decision made as to which code gets used? Is it the norm that each peice only gets used when that language is selected in the application?</p>
+      <p>Thanks again</p>
+    html_clean: |-
+      <p>I think I understand the intent of the code, the part I think I'm missing is when each peice of code gets used.</p>
+      <p>Where is the decision made as to which code gets used? Is it the norm that each peice only gets used when that language is selected in the application?</p>
+      <p>Thanks again</p>
+  - id: 438727
+    user: 31798
+    date: 2010-11-08T11:31:00
+    date_raw: 8 Nov 2010 — 11:31am
+    votes: null
+    html: |-
+      <p>In the example which I give, it is the responsibility of the application to correctly decide which version of the 'test' feature to use. If the user selects a run of text which is marked as being Turkish and then activates the 'test' feature, the application should apply the first version of the feature. If they subsequently apply this feature to a run of text marked as being English, the third version should be applied.</p>
+      <p>How (or for that matter whether) an application allows a user to specify the language of a particular block of text isn't addressed by OpenType standard.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>In the example which I give, it is the responsibility of the application to correctly decide which version of the 'test' feature to use. If the user selects a run of text which is marked as being Turkish and then activates the 'test' feature, the application should apply the first version of the feature. If they subsequently apply this feature to a run of text marked as being English, the third version should be applied.</p>
+      <p>How (or for that matter whether) an application allows a user to specify the language of a particular block of text isn't addressed by OpenType standard.</p>
+      <p>André</p>

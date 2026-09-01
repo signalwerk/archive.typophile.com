@@ -1,0 +1,200 @@
+node: 88607
+title: Python script to find glyph vertical centers
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131015113530"
+  captured_at: 2013-10-15T11:35:30Z
+  url: http://typophile.com/node/88607
+  digest: DQPP7ZTQ4NA6GGSY2GSG2DSILSMFOJQ2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/88607.html
+  fingerprint: 1793efcb5262e46e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131015113530"
+      digest: DQPP7ZTQ4NA6GGSY2GSG2DSILSMFOJQ2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/88607.html
+post:
+  id: 88607
+  user: 4883
+  date: 2011-12-26T20:36:00
+  date_raw: 26 Dec 2011 — 8:36pm
+  votes: null
+  html: |-
+    <p>I managed to write a script that would give the vertical center of a single glyph. Now I have been trying to expand it to give the centers of a list of glyphs with no luck. The script below only gives the center of the last glyph in the list. So what am I doing wrong here?</p>
+    <pre>
+    # Find All Centers 
+
+    import os
+    from robofab.world import CurrentFont
+    from robofab.interface.all.dialogs import GetFolder
+
+    f = CurrentFont()
+
+    tString = "zero minus plus equal"
+    glyphList = tString.split(" ")
+
+    def collectData(f):
+    	path = GetFolder()
+    	if path:
+    		collectedData = []
+
+    		for i in glyphList:
+    			g = fl.font[fl.font.FindGlyph(i)]
+    			rect = g.GetBoundingRect()
+    			gcenter = str(rect.height / 2)
+    		collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+    		collectedData.sort()
+    		collectedData = "\n".join(collectedData)
+    		theFileName = os.path.basename(f.path) 
+    		theFileName = theFileName.split(".")[0] + ".txt" 
+    		thePath = os.path.join(path,theFileName) 
+    		theFile = open(thePath,"w")
+    		theFile.write(collectedData)
+    		theFile.close()
+    		print "Done with %s!" % f.info.fontName
+    		
+    if len(f) != 0:
+    	collectData(f)
+
+
+    George</pre>
+  html_clean: |-
+    <p>I managed to write a script that would give the vertical center of a single glyph. Now I have been trying to expand it to give the centers of a list of glyphs with no luck. The script below only gives the center of the last glyph in the list. So what am I doing wrong here?</p>
+    <pre># Find All Centers 
+
+    import os
+    from robofab.world import CurrentFont
+    from robofab.interface.all.dialogs import GetFolder
+
+    f = CurrentFont()
+
+    tString = "zero minus plus equal"
+    glyphList = tString.split(" ")
+
+    def collectData(f):
+    	path = GetFolder()
+    	if path:
+    		collectedData = []
+
+    		for i in glyphList:
+    			g = fl.font[fl.font.FindGlyph(i)]
+    			rect = g.GetBoundingRect()
+    			gcenter = str(rect.height / 2)
+    		collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+    		collectedData.sort()
+    		collectedData = "\n".join(collectedData)
+    		theFileName = os.path.basename(f.path) 
+    		theFileName = theFileName.split(".")[0] + ".txt" 
+    		thePath = os.path.join(path,theFileName) 
+    		theFile = open(thePath,"w")
+    		theFile.write(collectedData)
+    		theFile.close()
+    		print "Done with %s!" % f.info.fontName
+    		
+    if len(f) != 0:
+    	collectData(f)
+
+
+    George</pre>
+comments:
+  - id: 488692
+    user: 181984
+    date: 2011-12-26T23:54:00
+    date_raw: 26 Dec 2011 — 11:54pm
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      your script gives the center of only last glyph because the loop for glyphs in glyphList is incomplete.<br>
+      Try:</p>
+      <pre>...
+      for i in glyphList:
+      	g = fl.font[fl.font.FindGlyph(i)]
+      	rect = g.GetBoundingRect()
+      	gcenter = str(rect.height / 2)
+      	collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+      	collectedData.sort()
+      	collectedData = "\n".join(collectedData)
+      theFileName = os.path.basename(f.path) 
+      theFileName = theFileName.split(".")[0] + ".txt" 
+      ...
+      </pre><p>
+      regards,<br>
+      gluk</p>
+    html_clean: |-
+      <p>Hi,<br>
+      your script gives the center of only last glyph because the loop for glyphs in glyphList is incomplete.<br>
+      Try:</p>
+      <pre>...
+      for i in glyphList:
+      	g = fl.font[fl.font.FindGlyph(i)]
+      	rect = g.GetBoundingRect()
+      	gcenter = str(rect.height / 2)
+      	collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+      	collectedData.sort()
+      	collectedData = "\n".join(collectedData)
+      theFileName = os.path.basename(f.path) 
+      theFileName = theFileName.split(".")[0] + ".txt" 
+      ...
+      </pre><p>
+      regards,<br>
+      gluk</p>
+  - id: 488703
+    user: 4883
+    date: 2011-12-27T05:03:00
+    date_raw: 27 Dec 2011 — 5:03am
+    votes: null
+    html: |-
+      <p>Then I get an error message: AttributeError: 'str' object has no attribute 'append'</p>
+      <p>George</p>
+    html_clean: |-
+      <p>Then I get an error message: AttributeError: 'str' object has no attribute 'append'</p>
+      <p>George</p>
+  - id: 488705
+    user: 4883
+    date: 2011-12-27T05:13:00
+    date_raw: 27 Dec 2011 — 5:13am
+    votes: null
+    html: |-
+      <p>Finally got it! Thanks for your suggestion, it was an error in the indents.</p>
+      <pre>
+      for i in glyphList:
+      		g = fl.font[fl.font.FindGlyph(i)]
+      		rect = g.GetBoundingRect()
+      		gcenter = str(rect.height / 2)
+      		collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+      	collectedData.sort()
+      	collectedData = "\n".join(collectedData)</pre>
+    html_clean: |-
+      <p>Finally got it! Thanks for your suggestion, it was an error in the indents.</p>
+      <pre>for i in glyphList:
+      		g = fl.font[fl.font.FindGlyph(i)]
+      		rect = g.GetBoundingRect()
+      		gcenter = str(rect.height / 2)
+      		collectedData.append("g.name: "+g.name+", "+"gcenter: "+gcenter)
+      	collectedData.sort()
+      	collectedData = "\n".join(collectedData)</pre>
+  - id: 488707
+    user: 181984
+    date: 2011-12-27T05:36:00
+    date_raw: 27 Dec 2011 — 5:36am
+    votes: null
+    html: <p>right, my mistake :)</p>
+    html_clean: <p>right, my mistake :)</p>

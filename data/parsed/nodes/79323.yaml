@@ -1,0 +1,116 @@
+node: 79323
+title: Questions about custom encoding file
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130312001935"
+  captured_at: 2013-03-12T00:19:35Z
+  url: http://typophile.com/node/79323
+  digest: L6VMC2327AXWBAZSWDQWN6WVZINL7HAK
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/79323.html
+  fingerprint: 632df6527d5c57cc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130312001935"
+      digest: L6VMC2327AXWBAZSWDQWN6WVZINL7HAK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/79323.html
+post:
+  id: 79323
+  user: 25106
+  date: 2011-02-21T17:55:00
+  date_raw: 21 Feb 2011 — 5:55pm
+  votes: null
+  html: |-
+    <p>Hi all,</p>
+    <p>I've created the new .enc file which covers Latin, Greek, and Cyrillic and others.<br>
+    I have three questions about the file and how Fontlab behaves when generating a glyph.</p>
+    <p>1. I have smallcaps with the suffix .sc but the Fontlab does not assign Unicodes when I generate them.<br>
+    Is there any way to manually assign Unicode values beforehand?</p>
+    <p>2. When I generate Cyrillic A with the default encoding tables, Fontlab automatically pastes Latin A to them (which is good for me). However, it doesn't work for my encoding file. Does anybody know how to make it work?</p>
+    <p>3. Similar to Q2. When I generate fi ligature or aacute for example, it automatically puts correspondent components. However, it pastes decomposed Latin A when I generate Greek A (I want it as a component). Again, could you tell me how it works and how to change it?</p>
+    <p>Thank you.</p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>I've created the new .enc file which covers Latin, Greek, and Cyrillic and others.<br>
+    I have three questions about the file and how Fontlab behaves when generating a glyph.</p>
+    <p>1. I have smallcaps with the suffix .sc but the Fontlab does not assign Unicodes when I generate them.<br>
+    Is there any way to manually assign Unicode values beforehand?</p>
+    <p>2. When I generate Cyrillic A with the default encoding tables, Fontlab automatically pastes Latin A to them (which is good for me). However, it doesn't work for my encoding file. Does anybody know how to make it work?</p>
+    <p>3. Similar to Q2. When I generate fi ligature or aacute for example, it automatically puts correspondent components. However, it pastes decomposed Latin A when I generate Greek A (I want it as a component). Again, could you tell me how it works and how to change it?</p>
+    <p>Thank you.</p>
+comments:
+  - id: 452981
+    user: 14722
+    date: 2011-02-21T19:41:00
+    date_raw: 21 Feb 2011 — 7:41pm
+    votes: null
+    html: |-
+      <p><cite>Is there any way to manually assign Unicode values beforehand?</cite></p>
+      <p>There are no unicode values for stuff like small caps. That’s why we process them with suffixes and Opentype Scripts. But yes, you can encode unicode points and names in the encoding file. Read the manual or look at the included encoding files.</p>
+      <p><cite>However, it doesn't work for my encoding file. Does anybody know how to make it work?</cite></p>
+      <p>You probably need to make sure that your encoding file is using the same names Fontlab is checking for in aliases.dat. Or edit aliases.dat. Again, read the manual (or just look at the file, the syntax is fairly obvious).</p>
+    html_clean: |-
+      <p><cite>Is there any way to manually assign Unicode values beforehand?</cite></p>
+      <p>There are no unicode values for stuff like small caps. That’s why we process them with suffixes and Opentype Scripts. But yes, you can encode unicode points and names in the encoding file. Read the manual or look at the included encoding files.</p>
+      <p><cite>However, it doesn't work for my encoding file. Does anybody know how to make it work?</cite></p>
+      <p>You probably need to make sure that your encoding file is using the same names Fontlab is checking for in aliases.dat. Or edit aliases.dat. Again, read the manual (or just look at the file, the syntax is fairly obvious).</p>
+  - id: 453007
+    user: 25106
+    date: 2011-02-22T02:32:00
+    date_raw: 22 Feb 2011 — 2:32am
+    votes: null
+    html: |-
+      <p><cite>There are no unicode values for stuff like small caps.</cite><br>
+      I know that there are Unicode values for smallcaps (some are IPA smallcaps, and the others are in Latin extended ranges).<br>
+      Is it unusual to assign phonetic smallcap unicodes?</p>
+      <p><cite>Or edit aliases.dat.</cite><br>
+      That file is the one I was looking for! Thank you very much for the help.</p>
+    html_clean: |-
+      <p><cite>There are no unicode values for stuff like small caps.</cite><br>
+      I know that there are Unicode values for smallcaps (some are IPA smallcaps, and the others are in Latin extended ranges).<br>
+      Is it unusual to assign phonetic smallcap unicodes?</p>
+      <p><cite>Or edit aliases.dat.</cite><br>
+      That file is the one I was looking for! Thank you very much for the help.</p>
+  - id: 453012
+    user: 14556
+    date: 2011-02-22T02:58:00
+    date_raw: 22 Feb 2011 — 2:58am
+    votes: null
+    html: |-
+      <p>IPA small cap glyphs are used in a specific linguistic context and thus earned their Unicode slots. Ordinary typographic small caps are considered stylistic variants and therefore not granted separate Unicode positions. IPA small caps are also likely to be designed differently than the normal variety, as they are meant to harmonize among lowercase letters rather than as whole words or sentences on their own.</p>
+      <p>Adobe used to assign small caps to a portion of the Public Use Area, but that practice has been deprecated.</p>
+    html_clean: |-
+      <p>IPA small cap glyphs are used in a specific linguistic context and thus earned their Unicode slots. Ordinary typographic small caps are considered stylistic variants and therefore not granted separate Unicode positions. IPA small caps are also likely to be designed differently than the normal variety, as they are meant to harmonize among lowercase letters rather than as whole words or sentences on their own.</p>
+      <p>Adobe used to assign small caps to a portion of the Public Use Area, but that practice has been deprecated.</p>
+  - id: 453015
+    user: 46071
+    date: 2011-02-22T03:19:00
+    date_raw: 22 Feb 2011 — 3:19am
+    votes: null
+    html: |-
+      <p>Related:<br>
+      <a href="http://www.typophile.com/node/69083#comment-404836" title="http://www.typophile.com/node/69083#comment-404836">http://www.typophile.com/node/69083#comment-404836</a><br>
+      <a href="http://www.typophile.com/node/40431#comment-249764" title="http://www.typophile.com/node/40431#comment-249764">http://www.typophile.com/node/40431#comment-249764</a><br>
+      And surrounding threads.</p>
+    html_clean: |-
+      <p>Related:<br>
+      <a href="/node/69083/#comment-404836" title="http://www.typophile.com/node/69083#comment-404836">http://www.typophile.com/node/69083#comment-404836</a><br>
+      <a href="/node/40431/#comment-249764" title="http://www.typophile.com/node/40431#comment-249764">http://www.typophile.com/node/40431#comment-249764</a><br>
+      And surrounding threads.</p>

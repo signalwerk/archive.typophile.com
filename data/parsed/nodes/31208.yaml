@@ -1,0 +1,141 @@
+node: 31208
+title: null
+forum:
+  id: null
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20070217102113"
+  captured_at: 2007-02-17T10:21:13Z
+  url: http://typophile.com:80/node/31208
+  digest: E7FU5TPKATEV5V7HKOOGCDK4L6LUNDWT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/31208.html
+  fingerprint: d18678c658733566
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20070217102113"
+      digest: E7FU5TPKATEV5V7HKOOGCDK4L6LUNDWT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/31208.html
+post:
+  id: 31208
+  user: user-7730
+  date: null
+  date_raw: 6 February, 2007 - 2:32pm
+  votes: null
+  html: |-
+    <p>I’m designing a font with lots of alternate characters. While playing around with Brioso pro, I noticed a cool little pop-up menu (triangle symbol on each glyph square) in the glyphs palette in Illustrator CS2 that showed a selection of alternates for each character that had them. I want this for my font! I did a little research and read that it had something to do with all alternates (aalt). So I looked at Brioso’s OT coding and fumbled around with my own but alas, couldn’t get it to work. To complicate things even more, I opened it up in InDesign CS2 and it recognized my alternates and gave me the pop-up. But no go in Illustrator. Could someone inform me how exactly to get get this working? It would be much appreciated!<br>
+    Thanks!</p>
+    <p>Josh</p>
+  html_clean: |-
+    <p>I’m designing a font with lots of alternate characters. While playing around with Brioso pro, I noticed a cool little pop-up menu (triangle symbol on each glyph square) in the glyphs palette in Illustrator CS2 that showed a selection of alternates for each character that had them. I want this for my font! I did a little research and read that it had something to do with all alternates (aalt). So I looked at Brioso’s OT coding and fumbled around with my own but alas, couldn’t get it to work. To complicate things even more, I opened it up in InDesign CS2 and it recognized my alternates and gave me the pop-up. But no go in Illustrator. Could someone inform me how exactly to get get this working? It would be much appreciated!<br>
+    Thanks!</p>
+    <p>Josh</p>
+comments:
+  - id: 183169
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Whenever you define any features in your font that produce 1:1 substitutions by some alternates (salt, ss01-ss20, swsh, hist, smcp, c2sc etc.), you should link these features to aalt in the following way:</p>
+      <p>feature aalt {<br>
+        feature salt;<br>
+        feature ss01;<br>
+        feature ss02;<br>
+        feature hist;<br>
+        feature smcp;<br>
+        feature c2sc;<br>
+      } aalt; </p>
+      <p>All the substitutions from the original features that have been linked into “aalt” will become available in the little popup menus of the Illustrator and InDesign glyph palettes. </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Whenever you define any features in your font that produce 1:1 substitutions by some alternates (salt, ss01-ss20, swsh, hist, smcp, c2sc etc.), you should link these features to aalt in the following way:</p>
+      <p>feature aalt {<br>
+        feature salt;<br>
+        feature ss01;<br>
+        feature ss02;<br>
+        feature hist;<br>
+        feature smcp;<br>
+        feature c2sc;<br>
+      } aalt; </p>
+      <p>All the substitutions from the original features that have been linked into “aalt” will become available in the little popup menus of the Illustrator and InDesign glyph palettes. </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 183186
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Another tidbit from Adam!</p>
+      <p>Adam, does this follow the other alt features or does the order even matter?</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Another tidbit from Adam!</p>
+      <p>Adam, does this follow the other alt features or does the order even matter?</p>
+      <p>ChrisL</p>
+  - id: 183192
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thanks a lot Adam!!<br>
+      trying it now</p>
+      <p>Josh</p>
+    html_clean: |-
+      <p>Thanks a lot Adam!!<br>
+      trying it now</p>
+      <p>Josh</p>
+  - id: 183194
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>sweeet it works!!</p>
+    html_clean: <p>sweeet it works!!</p>
+  - id: 183249
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Plenty of great FontLab Q&amp;A these days! :)</p>
+    html_clean: <p>Plenty of great FontLab Q&amp;A these days! :)</p>
+  - id: 183268
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>The AFDKO feature syntax for “aalt” is special, unlike any other feature. Rather than duplicating all possible substitutions that are already defined in the font, Adobe created this shorthand notation for “aalt”: the AFDKO compiler looks at the “table of contents” defined under “feature aalt”, then checks all the feature definitions listed there, collects all the lookups associated with those features and maps them to “aalt”. In other words, through the special “aalt” syntax, the font developer decides which of the lookups that are already defined in his font and are associated with some features should be also associated with “aalt”. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>The AFDKO feature syntax for “aalt” is special, unlike any other feature. Rather than duplicating all possible substitutions that are already defined in the font, Adobe created this shorthand notation for “aalt”: the AFDKO compiler looks at the “table of contents” defined under “feature aalt”, then checks all the feature definitions listed there, collects all the lookups associated with those features and maps them to “aalt”. In other words, through the special “aalt” syntax, the font developer decides which of the lookups that are already defined in his font and are associated with some features should be also associated with “aalt”. </p>
+      <p>Adam</p>
+  - id: 183278
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Dziekuje!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Dziekuje!</p>
+      <p>ChrisL</p>

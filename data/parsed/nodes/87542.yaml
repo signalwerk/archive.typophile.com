@@ -1,0 +1,112 @@
+node: 87542
+title: useExtension and AFDKO 2.5
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130831060948"
+  captured_at: 2013-08-31T06:09:48Z
+  url: http://typophile.com/node/87542
+  digest: FC2XCPFQ27SZZURCZP6LFQWTPCS7DLJJ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/87542.html
+  fingerprint: 09d97c515b386a16
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130831060948"
+      digest: FC2XCPFQ27SZZURCZP6LFQWTPCS7DLJJ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/87542.html
+post:
+  id: 87542
+  user: 31798
+  date: 2011-11-18T12:05:00
+  date_raw: 18 Nov 2011 — 12:05pm
+  votes: null
+  html: |-
+    <p>I've run into a problem with GSUB coverage offset overflow errors in a largish font I have been working on. Adding useExtension to various lookups solves the problem when generating the font in FLS 5.0.4, but not in 5.1 where the error remains. Moreover, attempting to compile directly using AFDKO also fails, so I suspect that there is a bug in AFDKO 2.5 which is somehow causing the useExtension directive to be ignored.</p>
+    <p>I was wondering if anyone has successfully compiled code using this directive either in AFDKO 2.5 (or FLS 5.1 which relies on AFDKO 2.5). This would help me determine whether this is indeed the root of the problem or whether there is some other less obvious problem with my code which FLS 5.0.4 (ADFKO 1.6) accepts but which FLS 5.1 (AFDKO 2.5) does not.</p>
+    <p>(n.b. by 'successfully compiled' I mean compiled where the directive is actually necessary to prevent overflows -- not just where it is present).</p>
+    <p>André</p>
+  html_clean: |-
+    <p>I've run into a problem with GSUB coverage offset overflow errors in a largish font I have been working on. Adding useExtension to various lookups solves the problem when generating the font in FLS 5.0.4, but not in 5.1 where the error remains. Moreover, attempting to compile directly using AFDKO also fails, so I suspect that there is a bug in AFDKO 2.5 which is somehow causing the useExtension directive to be ignored.</p>
+    <p>I was wondering if anyone has successfully compiled code using this directive either in AFDKO 2.5 (or FLS 5.1 which relies on AFDKO 2.5). This would help me determine whether this is indeed the root of the problem or whether there is some other less obvious problem with my code which FLS 5.0.4 (ADFKO 1.6) accepts but which FLS 5.1 (AFDKO 2.5) does not.</p>
+    <p>(n.b. by 'successfully compiled' I mean compiled where the directive is actually necessary to prevent overflows -- not just where it is present).</p>
+    <p>André</p>
+comments:
+  - id: 484487
+    user: 14637
+    date: 2011-11-18T14:44:00
+    date_raw: 18 Nov 2011 — 2:44pm
+    votes: null
+    html: |-
+      <p>Hi André;</p>
+      <p>Older versions of the FDK are not posted for download. I could recover an installable version of 1.6, but I think it would be a lot less work to make your features file work with 2.5. I can guarantee that the useExtension directive does work under 2.5, and that if the font can be *correctly* built with 1.6, it can also be built with FDK 2.5. Please send me the error log from the makeotf run, and I'll see what I can figure out (<a href="mailto:rroberts@adobe.com">rroberts@adobe.com</a>).</p>
+      <p>- Read Roberts</p>
+    html_clean: |-
+      <p>Hi André;</p>
+      <p>Older versions of the FDK are not posted for download. I could recover an installable version of 1.6, but I think it would be a lot less work to make your features file work with 2.5. I can guarantee that the useExtension directive does work under 2.5, and that if the font can be *correctly* built with 1.6, it can also be built with FDK 2.5. Please send me the error log from the makeotf run, and I'll see what I can figure out (<a href="mailto:rroberts@adobe.com">rroberts@adobe.com</a>).</p>
+      <p>- Read Roberts</p>
+  - id: 484551
+    user: 31798
+    date: 2011-11-19T10:34:00
+    date_raw: 19 Nov 2011 — 10:34am
+    votes: null
+    html: |-
+      <p>After some additional hair-pulling I've discovered (fingers crossed) the source of my problem, though I'm still a bit mystified as to why FLS 5.0.4 and FLS 5.1 are behaving differently.</p>
+      <p>In my original font (begun pre FLS 5.1), I'd tried to get around the lack of standalone lookups in FDK 1.6 by defining all of my lookups in a single, unregistered dummy feature at the beginning of my feature list, and then simply using lookup references in all my actual feature definitions.</p>
+      <p>I've discovered that if I split this dummy feature into two (or more) dummy features, suddenly I can solve my offset overflow problems with useExtension. Apparently, FLS 5.1 chokes if the combined size of lookups *within a single feature block* exceeds a the size of a 16-bit offset.</p>
+      <p>I don't understand *why* it cares whether the lookups are declared within a single feature block or not, but apparently it does.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>After some additional hair-pulling I've discovered (fingers crossed) the source of my problem, though I'm still a bit mystified as to why FLS 5.0.4 and FLS 5.1 are behaving differently.</p>
+      <p>In my original font (begun pre FLS 5.1), I'd tried to get around the lack of standalone lookups in FDK 1.6 by defining all of my lookups in a single, unregistered dummy feature at the beginning of my feature list, and then simply using lookup references in all my actual feature definitions.</p>
+      <p>I've discovered that if I split this dummy feature into two (or more) dummy features, suddenly I can solve my offset overflow problems with useExtension. Apparently, FLS 5.1 chokes if the combined size of lookups *within a single feature block* exceeds a the size of a 16-bit offset.</p>
+      <p>I don't understand *why* it cares whether the lookups are declared within a single feature block or not, but apparently it does.</p>
+      <p>André</p>
+  - id: 484579
+    user: 8664
+    date: 2011-11-19T14:39:00
+    date_raw: 19 Nov 2011 — 2:39pm
+    votes: null
+    html: <p>(If I got you right, you're using FLS 5.1 now. Rather than using two dummy features instead of one, did you try to remove the <em>feature **** {</em> and <em>} ****;</em> wrapper around your lookup definitions entirely?)</p>
+    html_clean: <p>(If I got you right, you're using FLS 5.1 now. Rather than using two dummy features instead of one, did you try to remove the <em>feature **** {</em> and <em>} ****;</em> wrapper around your lookup definitions entirely?)</p>
+  - id: 485047
+    user: 31798
+    date: 2011-11-23T05:14:00
+    date_raw: 23 Nov 2011 — 5:14am
+    votes: null
+    html: |-
+      <p>It turns out that my original assessment was incorrect (Karsten's comment clued me into this since I'd already tried that to no avail, and if that didn't work, there's no reason to think breaking the feature up should matter).</p>
+      <p>It turns out I'd made a rather foolish mistake -- I'd performed this experiment on the *wrong* version of the font, and was dealing with a shorter set of code. Here, breaking up the container feature made a difference, but the reason for this turns out to be less than mysterious.</p>
+      <p>I'd started out with a single container feature, <code>AGIT</code>, which I'd broken into <code>AGIT</code> and <code>AGI2</code>, which contained roughly the same amount of code. I'd forgotten, though, that the feature file began with:</p>
+      <p><code>feature aalt {</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;feature AGIT;</code><br>
+      <code>} aalt;</code></p>
+      <p>Since <code>AGIT</code> was now roughly half as long, it's no wonder the GSUB table shrank.</p>
+      <p>When I return to the .vfb I'd intended to work with, I get the same problem -- a single <code>useExtension</code> is needed in FLS 5.0.4/FDK 1.6 but no amount of <code>useExtension</code>s will prevent overflows in FLS 5.1/FDK 2.5</p>
+      <p>However, this seems to be restricted to this one file. I'd thought it extended to some other files as well, but it turns out the problem was solvable in these. It seems that FDK 2.5 produces longer GSUB code than FDK 1.6 by around 25%. So, except for my single problematic .vfb, <code>useExtension</code> will correct overflows, but it needs to be added to more lookups. After finding the problem wouldn't go away in my one file, I gave up too easily on the others rather than continuing to add <code>useExtension</code> until I was able to compile.</p>
+    html_clean: |-
+      <p>It turns out that my original assessment was incorrect (Karsten's comment clued me into this since I'd already tried that to no avail, and if that didn't work, there's no reason to think breaking the feature up should matter).</p>
+      <p>It turns out I'd made a rather foolish mistake -- I'd performed this experiment on the *wrong* version of the font, and was dealing with a shorter set of code. Here, breaking up the container feature made a difference, but the reason for this turns out to be less than mysterious.</p>
+      <p>I'd started out with a single container feature, <code>AGIT</code>, which I'd broken into <code>AGIT</code> and <code>AGI2</code>, which contained roughly the same amount of code. I'd forgotten, though, that the feature file began with:</p>
+      <p><code>feature aalt {</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;feature AGIT;</code><br>
+      <code>} aalt;</code></p>
+      <p>Since <code>AGIT</code> was now roughly half as long, it's no wonder the GSUB table shrank.</p>
+      <p>When I return to the .vfb I'd intended to work with, I get the same problem -- a single <code>useExtension</code> is needed in FLS 5.0.4/FDK 1.6 but no amount of <code>useExtension</code>s will prevent overflows in FLS 5.1/FDK 2.5</p>
+      <p>However, this seems to be restricted to this one file. I'd thought it extended to some other files as well, but it turns out the problem was solvable in these. It seems that FDK 2.5 produces longer GSUB code than FDK 1.6 by around 25%. So, except for my single problematic .vfb, <code>useExtension</code> will correct overflows, but it needs to be added to more lookups. After finding the problem wouldn't go away in my one file, I gave up too easily on the others rather than continuing to add <code>useExtension</code> until I was able to compile.</p>

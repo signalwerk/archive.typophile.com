@@ -1,0 +1,129 @@
+node: 39898
+title: Can FontLab Scripts Manipulate Metrics/Kerning Classes?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131021073138"
+  captured_at: 2013-10-21T07:31:38Z
+  url: http://typophile.com/node/39898
+  digest: 57FJ3A5ZRXKKJG3FBGY4BYLSRJ3JTXQT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/39898.html
+  fingerprint: d16e74dfc9414595
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131021073138"
+      digest: 57FJ3A5ZRXKKJG3FBGY4BYLSRJ3JTXQT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/39898.html
+post:
+  id: 39898
+  user: 23823
+  date: 2007-12-08T21:58:00
+  date_raw: 8 Dec 2007 — 9:58pm
+  votes: null
+  html: |-
+    <p>I'm actually a little afraid to ask this question because there's so much riding on it, but I've been planning [read: counting] on using scripts to automate the process of creating classes for metrics and kerning.</p>
+    <p>Part of the reason is that I find the process painfully gruntwork-ish and would like to automate it for all future font projects, and second, because I've had bad experiences with FontLab thus far and on more than one occasion, have seen my metrics classes magically vanish without explanation and would like the ability to rebuild all classes the next time this happens.</p>
+    <p>Unfortunately, between the Unofficial FontLab Python API and the admittedly shallow official documentation, I can't find any real mention of metrics or kerning classes.</p>
+    <p>So, dare I ask? Is there any way to create/modify classes from a Python script in FontLab, or is the workflow I'm building doomed?</p>
+  html_clean: |-
+    <p>I'm actually a little afraid to ask this question because there's so much riding on it, but I've been planning [read: counting] on using scripts to automate the process of creating classes for metrics and kerning.</p>
+    <p>Part of the reason is that I find the process painfully gruntwork-ish and would like to automate it for all future font projects, and second, because I've had bad experiences with FontLab thus far and on more than one occasion, have seen my metrics classes magically vanish without explanation and would like the ability to rebuild all classes the next time this happens.</p>
+    <p>Unfortunately, between the Unofficial FontLab Python API and the admittedly shallow official documentation, I can't find any real mention of metrics or kerning classes.</p>
+    <p>So, dare I ask? Is there any way to create/modify classes from a Python script in FontLab, or is the workflow I'm building doomed?</p>
+comments:
+  - id: 245369
+    user: 14455
+    date: 2007-12-09T02:10:00
+    date_raw: 9 Dec 2007 — 2:10am
+    votes: null
+    html: |-
+      <p>Hello,</p>
+      <p>This may help:</p>
+      <p><em>Font Attribute:</em><br>
+      <code><br>
+      classes[string]</code><br>
+        list of glyph classes in Classes panel</p>
+      <p><em>Font Methods:</em><br>
+      <code><br>
+      SetClassFlags(int class_index, bool left, bool right)</code><br>
+        allows to set 'left' and 'right' properties of the kerning class<br>
+      <code><br>
+      SetClassFlags(int class_index, bool lsb, bool rsb, bool width)</code><br>
+        allows to set 'lsb', 'rsb' and 'width' properties of the metrics class<br>
+      <code><br>
+      GetClassLeft(int class_index)</code><br>
+        returns the 'left' property of the class<br>
+      <code><br>
+      GetClassRight(int class_index)</code><br>
+        returns the 'right' property of the class<br>
+      <code><br>
+      GetClassMetricsFlags(int class_index)</code><br>
+        returns the tuple containing LSB, RSB and Width flags of the metrics class </p>
+      <p>Regards<br>
+      Eigi</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p>This may help:</p>
+      <p><em>Font Attribute:</em><br>
+      <code><br>
+      classes[string]</code><br>
+        list of glyph classes in Classes panel</p>
+      <p><em>Font Methods:</em><br>
+      <code><br>
+      SetClassFlags(int class_index, bool left, bool right)</code><br>
+        allows to set 'left' and 'right' properties of the kerning class<br>
+      <code><br>
+      SetClassFlags(int class_index, bool lsb, bool rsb, bool width)</code><br>
+        allows to set 'lsb', 'rsb' and 'width' properties of the metrics class<br>
+      <code><br>
+      GetClassLeft(int class_index)</code><br>
+        returns the 'left' property of the class<br>
+      <code><br>
+      GetClassRight(int class_index)</code><br>
+        returns the 'right' property of the class<br>
+      <code><br>
+      GetClassMetricsFlags(int class_index)</code><br>
+        returns the tuple containing LSB, RSB and Width flags of the metrics class </p>
+      <p>Regards<br>
+      Eigi</p>
+  - id: 245370
+    user: 23823
+    date: 2007-12-09T02:20:00
+    date_raw: 9 Dec 2007 — 2:20am
+    votes: null
+    html: |-
+      <p>Oh thank god, this looks like something I can work with. Where did this come from? Do you have a larger reference of which this is part?</p>
+      <p>Thanks so much!</p>
+    html_clean: |-
+      <p>Oh thank god, this looks like something I can work with. Where did this come from? Do you have a larger reference of which this is part?</p>
+      <p>Thanks so much!</p>
+  - id: 245425
+    user: 14455
+    date: 2007-12-09T10:51:00
+    date_raw: 9 Dec 2007 — 10:51am
+    votes: null
+    html: |-
+      <p>Hello,</p>
+      <p><code>print Font().__doc__</code> </p>
+      <p>Eigi</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p><code>print Font().__doc__</code> </p>
+      <p>Eigi</p>

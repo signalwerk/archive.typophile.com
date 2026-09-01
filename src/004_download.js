@@ -175,9 +175,9 @@ async function runArchive(archive) {
       }
     }
 
-    ensureDirCached(path.dirname(target));
     const tmp = `${target}.part`;
     try {
+      ensureDirCached(path.dirname(target));
       fs.writeFileSync(tmp, got.body);
       fs.renameSync(tmp, target);
     } catch (err) {
@@ -227,7 +227,14 @@ async function runArchive(archive) {
     while (!stopping) {
       const i = cursor++;
       if (i >= jobs.length) return;
-      await handle(jobs[i]);
+      // Whatever goes wrong with one capture, the other 294,711 still want
+      // downloading -- record it and carry on rather than abandoning the run.
+      try {
+        await handle(jobs[i]);
+      } catch (err) {
+        stats.failed++;
+        recordFailure(jobs[i], err.message);
+      }
       done++;
       progress();
     }

@@ -1,0 +1,147 @@
+node: 80654
+title: FL Aliases File Bug? Commaaccent or Cedilla?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120203223011"
+  captured_at: 2012-02-03T22:30:11Z
+  url: http://typophile.com:80/node/80654
+  digest: NWUYLNO2KWYWKLV2AKMVQZ6G76FQTAH7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/80654.html
+  fingerprint: 4ad14c57eb84c00e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120203223011"
+      digest: NWUYLNO2KWYWKLV2AKMVQZ6G76FQTAH7
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/80654.html
+post:
+  id: 80654
+  user: 20652
+  date: 2011-03-30T15:37:00
+  date_raw: 30.Mar.2011 3.37pm
+  votes: null
+  html: |-
+    <p>I'm wondering what sort of bug this is. When I compose Ncommaaccent for example, FL puts a cedilla, rather than a commaaccent on the N base glyph. This happens for all commaaccent glyphs. I know there has been extensive discussion about Romanian/Moldavian S and T cedilla/commaaccent characters, but haven't seen anything about the G, K, N or R commaaccent characters.</p>
+    <p>So I'm wondering if this is a problem with the FL alias file which is telling the 'create glyph' command to look for U+0327 (cedilla) instead of U+0326 (commaaccent), or if it's a naming problem where the glyphs are supposed to be made with cedillas despite having commaaccent names?</p>
+  html_clean: |-
+    <p>I'm wondering what sort of bug this is. When I compose Ncommaaccent for example, FL puts a cedilla, rather than a commaaccent on the N base glyph. This happens for all commaaccent glyphs. I know there has been extensive discussion about Romanian/Moldavian S and T cedilla/commaaccent characters, but haven't seen anything about the G, K, N or R commaaccent characters.</p>
+    <p>So I'm wondering if this is a problem with the FL alias file which is telling the 'create glyph' command to look for U+0327 (cedilla) instead of U+0326 (commaaccent), or if it's a naming problem where the glyphs are supposed to be made with cedillas despite having commaaccent names?</p>
+comments:
+  - id: 457883
+    user: 1133
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>You are right! </p>
+      <p>alias.dat is buggy in that regard, it says: </p>
+      <p>Ncommaaccent N+~uni0327.case<br>
+      Ncommaaccent N+uni0327<br>
+      Ncommaaccent N+commaaccent</p>
+      <p>but it should say</p>
+      <p>Ncommaaccent N+~uni0326.case<br>
+      Ncommaaccent N+uni0326<br>
+      Ncommaaccent N+commaaccent</p>
+      <p>This is the result of the -- now considered errorneous -- canonical decomposition in the Unicode Standard, which decomposes U+0145 to U+004E U+0327. </p>
+      <p>Also, please note that in the meantime, we've changed the recommendation for glyph naming. Rather than "Ncommaaccent", the glyph should be named "uni0145". </p>
+      <p>(Of course this also applies to all the other "commaaccent"-related glyphs).</p>
+      <p>We'll rebuild alias.dat to improve this, but it will take some time, since building it is a kind of a complicated process. </p>
+      <p>Thank you for catching this!<br>
+      Adam</p>
+    html_clean: |-
+      <p>You are right! </p>
+      <p>alias.dat is buggy in that regard, it says: </p>
+      <p>Ncommaaccent N+~uni0327.case<br>
+      Ncommaaccent N+uni0327<br>
+      Ncommaaccent N+commaaccent</p>
+      <p>but it should say</p>
+      <p>Ncommaaccent N+~uni0326.case<br>
+      Ncommaaccent N+uni0326<br>
+      Ncommaaccent N+commaaccent</p>
+      <p>This is the result of the -- now considered errorneous -- canonical decomposition in the Unicode Standard, which decomposes U+0145 to U+004E U+0327. </p>
+      <p>Also, please note that in the meantime, we've changed the recommendation for glyph naming. Rather than "Ncommaaccent", the glyph should be named "uni0145". </p>
+      <p>(Of course this also applies to all the other "commaaccent"-related glyphs).</p>
+      <p>We'll rebuild alias.dat to improve this, but it will take some time, since building it is a kind of a complicated process. </p>
+      <p>Thank you for catching this!<br>
+      Adam</p>
+  - id: 457888
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Phew, I was hoping you'd respond, Adam :)</p>
+      <p>Glad the poking around inside FL dat files paid off!</p>
+    html_clean: |-
+      <p>Phew, I was hoping you'd respond, Adam :)</p>
+      <p>Glad the poking around inside FL dat files paid off!</p>
+  - id: 457890
+    user: 1133
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Actually, the funny thing is that you seem to have uni0327 (the combining cedilla, properly named) in your font (right?) -- which most people do not have. That's the reason why the problem was not discovered earlier. </p>
+      <p>As you may notice, after the "N+uni0327" recipe, the next in queue is "N+commaaccent". And the way alias.dat works is that FLS tries to find the best match by stepping through the entries with the same glyph name, until it finds the largest number of fitting composites. </p>
+      <p>Since most fonts don't have "uni0327" but they do have "commaaccent", the first rule got ignored, and the second one kicked in for most of them. So they did not experience your problem. </p>
+      <p>Anyhow, many thanks!<br>
+      A.</p>
+    html_clean: |-
+      <p>Actually, the funny thing is that you seem to have uni0327 (the combining cedilla, properly named) in your font (right?) -- which most people do not have. That's the reason why the problem was not discovered earlier. </p>
+      <p>As you may notice, after the "N+uni0327" recipe, the next in queue is "N+commaaccent". And the way alias.dat works is that FLS tries to find the best match by stepping through the entries with the same glyph name, until it finds the largest number of fitting composites. </p>
+      <p>Since most fonts don't have "uni0327" but they do have "commaaccent", the first rule got ignored, and the second one kicked in for most of them. So they did not experience your problem. </p>
+      <p>Anyhow, many thanks!<br>
+      A.</p>
+  - id: 457891
+    user: 1133
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Also, I shall mention that "uni0145" is a better name than "Ncommaaccent" because it will work in OTFs under Mac OS X 10.4, while "Ncommaaccent" won't. The "*commaaccent" names were removed from AGLFN (Adobe Glyph List for New Fonts), so the "uni****" names are the recommended form for them.</p>
+    html_clean: <p>Also, I shall mention that "uni0145" is a better name than "Ncommaaccent" because it will work in OTFs under Mac OS X 10.4, while "Ncommaaccent" won't. The "*commaaccent" names were removed from AGLFN (Adobe Glyph List for New Fonts), so the "uni****" names are the recommended form for them.</p>
+  - id: 457894
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Well, I only put in the combining cedilla at U+0327 to test my suspicion the aliases file was at fault...it took me several hours to figure out how FL builds the composites! My commaaccent must have had a weird name to start with, or FL would have found it without needing the unicode.</p>
+      <p>I'll make sure to call Ncommaaccent uni0145 henceforth. Thanks for your help.</p>
+    html_clean: |-
+      <p>Well, I only put in the combining cedilla at U+0327 to test my suspicion the aliases file was at fault...it took me several hours to figure out how FL builds the composites! My commaaccent must have had a weird name to start with, or FL would have found it without needing the unicode.</p>
+      <p>I'll make sure to call Ncommaaccent uni0145 henceforth. Thanks for your help.</p>
+  - id: 457895
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Is it me or is Ocaron not defined in the aliases?</p>
+    html_clean: <p>Is it me or is Ocaron not defined in the aliases?</p>
+  - id: 458026
+    user: 6470
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>If you're also using Fontographer in your workflow, the alias.dat file should also include</p>
+      <p><code>Ncommaaccent N+commasubnosp</code></p>
+    html_clean: |-
+      <p>If you're also using Fontographer in your workflow, the alias.dat file should also include</p>
+      <p><code>Ncommaaccent N+commasubnosp</code></p>

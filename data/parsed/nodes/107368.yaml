@@ -1,0 +1,171 @@
+node: 107368
+title: Why do these spacing characters exist in Unicode?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420003138"
+  captured_at: 2015-04-20T00:31:38Z
+  url: http://typophile.com/node/107368
+  digest: POHJHMMNQBPZZ2QO45AIHXOXV5RPIJ2W
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/107368.html
+  fingerprint: 8b5f399aa86074ff
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420003138"
+      digest: POHJHMMNQBPZZ2QO45AIHXOXV5RPIJ2W
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/107368.html
+post:
+  id: 107368
+  user: 99297
+  date: 2013-11-19T05:09:00
+  date_raw: 19 Nov 2013 — 5:09am
+  votes: null
+  html: |-
+    <p>I've found these <strong>spacing</strong> characters in Unicode. What are they for?</p>
+    <p>005E - CIRCUMFLEX ACCENT<br>
+    0060 - GRAVE ACCENT<br>
+    00A8 - DIARESIS<br>
+    00B4 - ACCUTE ACCENT</p>
+    <p>and others.</p>
+  html_clean: |-
+    <p>I've found these <strong>spacing</strong> characters in Unicode. What are they for?</p>
+    <p>005E - CIRCUMFLEX ACCENT<br>
+    0060 - GRAVE ACCENT<br>
+    00A8 - DIARESIS<br>
+    00B4 - ACCUTE ACCENT</p>
+    <p>and others.</p>
+comments:
+  - id: 567122
+    user: 99297
+    date: 2013-11-21T03:19:00
+    date_raw: 21 Nov 2013 — 3:19am
+    votes: null
+    html: "<p>I think I have the answer. Please correct me, if I'm wrong: these characters were already present in code pages (863, 850, 858 and Windows 1252) before 1991, when Unicode was first published.</p>"
+    html_clean: "<p>I think I have the answer. Please correct me, if I'm wrong: these characters were already present in code pages (863, 850, 858 and Windows 1252) before 1991, when Unicode was first published.</p>"
+  - id: 567282
+    user: 909
+    date: 2013-11-26T20:57:00
+    date_raw: 26 Nov 2013 — 8:57pm
+    votes: null
+    html: |-
+      <p>Presumably so. One of the Unicode principles is to have backwards compatibility with pretty much all pre-existing character sets. So plenty of things that would not otherwise be encoded, get encoded through that "back door" principle. Spacing versions of diacritics that don't dynamically combine are likely yet another example of this.</p>
+      <p>Precomposed accented characters are one such thing. So are ligatures. For both, only the ones that existed pre-Unicode got encoded.</p>
+      <p>There are fascinating political issues around this. For example, there are folks for whom Tamil is a native language, who want it to work without dynamic accent composition, with precomposed accented characters. But there wasn't a standard Tamil encoding prior to Unicode, so Unicode didn't do Tamil that way (and will never do so), hence standard text processing architectures based on Unicode require that Tamil be treated as a complex writing system, like Arabic or Tibetan. This means that antique apps that don't use the right APIs don't work with "proper" Unicode Tamil—but could have if it wasn't a complex writing system. Such old apps and operating systems are pretty nearly dead here in the USA, but are much more common in India and south Asia....</p>
+    html_clean: |-
+      <p>Presumably so. One of the Unicode principles is to have backwards compatibility with pretty much all pre-existing character sets. So plenty of things that would not otherwise be encoded, get encoded through that "back door" principle. Spacing versions of diacritics that don't dynamically combine are likely yet another example of this.</p>
+      <p>Precomposed accented characters are one such thing. So are ligatures. For both, only the ones that existed pre-Unicode got encoded.</p>
+      <p>There are fascinating political issues around this. For example, there are folks for whom Tamil is a native language, who want it to work without dynamic accent composition, with precomposed accented characters. But there wasn't a standard Tamil encoding prior to Unicode, so Unicode didn't do Tamil that way (and will never do so), hence standard text processing architectures based on Unicode require that Tamil be treated as a complex writing system, like Arabic or Tibetan. This means that antique apps that don't use the right APIs don't work with "proper" Unicode Tamil—but could have if it wasn't a complex writing system. Such old apps and operating systems are pretty nearly dead here in the USA, but are much more common in India and south Asia....</p>
+  - id: 567727
+    user: 99297
+    date: 2013-12-15T10:34:00
+    date_raw: 15 Dec 2013 — 10:34am
+    votes: null
+    html: <p>Thanks for the instructive answer</p>
+    html_clean: <p>Thanks for the instructive answer</p>
+  - id: 567757
+    user: 83217
+    date: 2013-12-16T09:50:00
+    date_raw: 16 Dec 2013 — 9:50am
+    votes: null
+    html: |-
+      <p>I believe they were intended for overprinting on printing terminals. Why else would there be a free-standing cedilla in Latin-1?</p>
+      <p>Current use? Well, the backtick (U0060) is used in Unix shells when you want to assign the output from a pipeline to a shell variable.</p>
+      <p>Words=`wc -w "$1" | cut -d " " -f 1`</p>
+    html_clean: |-
+      <p>I believe they were intended for overprinting on printing terminals. Why else would there be a free-standing cedilla in Latin-1?</p>
+      <p>Current use? Well, the backtick (U0060) is used in Unix shells when you want to assign the output from a pipeline to a shell variable.</p>
+      <p>Words=`wc -w "$1" | cut -d " " -f 1`</p>
+  - id: 567759
+    user: 3135
+    date: 2013-12-16T11:10:00
+    date_raw: 16 Dec 2013 — 11:10am
+    votes: null
+    html: <p>Could they not be used for over-layering to construct a given glyph that may not either be pre-made in the font or not currently in the standard encoding system?</p>
+    html_clean: <p>Could they not be used for over-layering to construct a given glyph that may not either be pre-made in the font or not currently in the standard encoding system?</p>
+  - id: 567795
+    user: 83217
+    date: 2013-12-17T08:14:00
+    date_raw: 17 Dec 2013 — 8:14am
+    votes: null
+    html: <p>Of which overprinting (on paper) is but a basic example.</p>
+    html_clean: <p>Of which overprinting (on paper) is but a basic example.</p>
+  - id: 567822
+    user: 5094
+    date: 2013-12-17T14:30:00
+    date_raw: 17 Dec 2013 — 2:30pm
+    votes: null
+    html: |-
+      <p>I too think they're legacy characters, for backwards compatibility. Since we only set books (new publications), I take them out of all the fonts we modify for our use (usual disclaimers about following the EULAs). However, I do make sure the spacing modifiers and combining diacriticals are populated, which is what Unicode expects for proper canonical composition/decomposition with diacriticals. BTW, I also remove any Unicode number from any ligatures.</p>
+      <p>By doing this, we do make sure the "legacy" doesn't continue with any manuscripts/files going out of our shop. I guess people making fonts for general use can't take this approach, someone would squawk.  Might be worth it, though. You'd get a .notdef for the removed accents, which could then be replaced by the proper Unicode character.</p>
+      <p>Sadly, another reason is very few font designers/publishers include the combining diacriticals and spacing modifiers. Maybe if these were actually included, the apps would be made to work as intended, and the problems Thomas mentions could gradually disappear.</p>
+      <p>Read the Unicode section on Combining diacriticals sometime. What they expected people to do and what is actually done are two different things. Which means the general mess will continue...</p>
+    html_clean: |-
+      <p>I too think they're legacy characters, for backwards compatibility. Since we only set books (new publications), I take them out of all the fonts we modify for our use (usual disclaimers about following the EULAs). However, I do make sure the spacing modifiers and combining diacriticals are populated, which is what Unicode expects for proper canonical composition/decomposition with diacriticals. BTW, I also remove any Unicode number from any ligatures.</p>
+      <p>By doing this, we do make sure the "legacy" doesn't continue with any manuscripts/files going out of our shop. I guess people making fonts for general use can't take this approach, someone would squawk.  Might be worth it, though. You'd get a .notdef for the removed accents, which could then be replaced by the proper Unicode character.</p>
+      <p>Sadly, another reason is very few font designers/publishers include the combining diacriticals and spacing modifiers. Maybe if these were actually included, the apps would be made to work as intended, and the problems Thomas mentions could gradually disappear.</p>
+      <p>Read the Unicode section on Combining diacriticals sometime. What they expected people to do and what is actually done are two different things. Which means the general mess will continue...</p>
+  - id: 568027
+    user: 32723
+    date: 2013-12-20T21:16:00
+    date_raw: 20 Dec 2013 — 9:16pm
+    votes: null
+    html: |-
+      <p>There are two reasons to have spacing accents in Unicode:</p>
+      <p>1. A spacing accent is needed as metainformation. Let's say you have to show how is a caron. The easiest way to do this is... with a caron, of course. Although you can also use the combining diacritic preceded by spaces, this would wrest the use Unicode attributes to combining characters.</p>
+      <p>2. Spacing accents are used as modifiers in linguistic and phonetic texts. They work to indicate tones, pauses, unions, stops, syllables, and other data to which the plain text is not enough.</p>
+      <p>Backward compatibility is only the reason why some modifiers are out of the spacing modifiers block (02B0–02FF), but even without any backward policy these modifiers would be necessary to address cases 1 and 2 above.</p>
+    html_clean: |-
+      <p>There are two reasons to have spacing accents in Unicode:</p>
+      <p>1. A spacing accent is needed as metainformation. Let's say you have to show how is a caron. The easiest way to do this is... with a caron, of course. Although you can also use the combining diacritic preceded by spaces, this would wrest the use Unicode attributes to combining characters.</p>
+      <p>2. Spacing accents are used as modifiers in linguistic and phonetic texts. They work to indicate tones, pauses, unions, stops, syllables, and other data to which the plain text is not enough.</p>
+      <p>Backward compatibility is only the reason why some modifiers are out of the spacing modifiers block (02B0–02FF), but even without any backward policy these modifiers would be necessary to address cases 1 and 2 above.</p>
+  - id: 568059
+    user: 5094
+    date: 2013-12-21T12:08:00
+    date_raw: 21 Dec 2013 — 12:08pm
+    votes: null
+    html: |-
+      <p>Yes. Spacing modifiers -- the characters under their own "name" -- are sometimes needed. Problem is, the assignments noted by Mr. Belloc are mis-located as spacing modifiers. They seem to have a legacy purpose only.</p>
+      <p>circumflex should be at 02C6, not 005E<br>
+      grave should be at 02CB, not 0060<br>
+      acute should be at 02CA, not 00B4<br>
+      macron should be at 02C9, not 00AF</p>
+      <p>Apparently 00A8 is all Unicode made available for the encoding of a "spacing" dieresis, the others I take out, for reasons given above.</p>
+    html_clean: |-
+      <p>Yes. Spacing modifiers -- the characters under their own "name" -- are sometimes needed. Problem is, the assignments noted by Mr. Belloc are mis-located as spacing modifiers. They seem to have a legacy purpose only.</p>
+      <p>circumflex should be at 02C6, not 005E<br>
+      grave should be at 02CB, not 0060<br>
+      acute should be at 02CA, not 00B4<br>
+      macron should be at 02C9, not 00AF</p>
+      <p>Apparently 00A8 is all Unicode made available for the encoding of a "spacing" dieresis, the others I take out, for reasons given above.</p>
+  - id: 568067
+    user: 32723
+    date: 2013-12-21T15:48:00
+    date_raw: 21 Dec 2013 — 3:48pm
+    votes: null
+    html: <p>Charles, we are actually agreeing. As I said, “Backward compatibility is only the reason why some modifiers are out of the spacing modifiers block (02B0–02FF)”.</p>
+    html_clean: <p>Charles, we are actually agreeing. As I said, “Backward compatibility is only the reason why some modifiers are out of the spacing modifiers block (02B0–02FF)”.</p>
+  - id: 568075
+    user: 5094
+    date: 2013-12-21T18:44:00
+    date_raw: 21 Dec 2013 — 6:44pm
+    votes: null
+    html: <p>Ah, Good. Now if people would only start populating the spacing modifiers and combining diacriticals, even if they feel it also necessary to include the glyphs in legacy character positions...</p>
+    html_clean: <p>Ah, Good. Now if people would only start populating the spacing modifiers and combining diacriticals, even if they feel it also necessary to include the glyphs in legacy character positions...</p>

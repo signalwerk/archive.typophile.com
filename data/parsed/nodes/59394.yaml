@@ -1,0 +1,82 @@
+node: 59394
+title: Supported codepages and OpenType fonts
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203092252"
+  captured_at: 2010-02-03T09:22:52Z
+  url: http://typophile.com/node/59394
+  digest: 3VJT7KQEGHQAPHARMWEUVQEM3NU3235Y
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/59394.html
+  fingerprint: 1dfd2399ad04d21d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203092252"
+      digest: 3VJT7KQEGHQAPHARMWEUVQEM3NU3235Y
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59394.html
+post:
+  id: 59394
+  user: 14722
+  date: 2009-06-25T20:03:00
+  date_raw: 25.Jun.2009 8.03pm
+  votes: null
+  html: <p>Do I need to set the supported codepages before generatin OpenType fonts, or is this a TrueType only feature?</p>
+  html_clean: <p>Do I need to set the supported codepages before generatin OpenType fonts, or is this a TrueType only feature?</p>
+comments:
+  - id: 353780
+    user: 909
+    date: 2009-06-26T00:27:00
+    date_raw: 26.Jun.2009 12.27am
+    votes: null
+    html: |-
+      <p>It's relevant for OpenType CFF as well.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>It's relevant for OpenType CFF as well.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 353820
+    user: 14722
+    date: 2009-06-26T06:51:00
+    date_raw: 26.Jun.2009 6.51am
+    votes: null
+    html: <p>Ok, so if I’m not completely supporting a codepage—I leave out some of the math characters in the “standards” do I not set the supported codepages, or do I set them for the codepages that I provide language support for and let applications throw in .notdef on the off chance someone tries to typeset equations with my fonts?</p>
+    html_clean: <p>Ok, so if I’m not completely supporting a codepage—I leave out some of the math characters in the “standards” do I not set the supported codepages, or do I set them for the codepages that I provide language support for and let applications throw in .notdef on the off chance someone tries to typeset equations with my fonts?</p>
+  - id: 353830
+    user: 19560
+    date: 2009-06-26T08:09:00
+    date_raw: 26.Jun.2009 8.09am
+    votes: null
+    html: |-
+      <p>Similar to the UnicodeRange fields, the <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/os2.htm#cpr">OpenType spec</a> is pretty vague on this:<br>
+      <cite>If the bit is set (1) then the code page is considered functional. If the bit is clear (0) then the code page is not considered functional. Each of the bits is treated as an independent flag and the bits can be set in any combination. The determination of “functional” is left up to the font designer, although character set selection should attempt to be functional by code pages if at all possible. </cite></p>
+      <p>Our practice has been to only set a given bit if *all* characters from the code page are present, except in the case when no code pages have all characters: then the Latin-1 bit is set. I am not sure whether it is still the case but I think this practice goes back to a recommendation by Microsoft for correct functionality under Windows...must have at least one CP bit set.</p>
+    html_clean: |-
+      <p>Similar to the UnicodeRange fields, the <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/os2.htm#cpr">OpenType spec</a> is pretty vague on this:<br>
+      <cite>If the bit is set (1) then the code page is considered functional. If the bit is clear (0) then the code page is not considered functional. Each of the bits is treated as an independent flag and the bits can be set in any combination. The determination of “functional” is left up to the font designer, although character set selection should attempt to be functional by code pages if at all possible. </cite></p>
+      <p>Our practice has been to only set a given bit if *all* characters from the code page are present, except in the case when no code pages have all characters: then the Latin-1 bit is set. I am not sure whether it is still the case but I think this practice goes back to a recommendation by Microsoft for correct functionality under Windows...must have at least one CP bit set.</p>
+  - id: 354483
+    user: 1344
+    date: 2009-06-30T15:36:00
+    date_raw: 30.Jun.2009 3.36pm
+    votes: null
+    html: <p>There is a bug or "feature" in some of the older versions of InDesign for Windows. If you don't set Central European Latin 2 codepage for fonts containing CE characters, you won't be available to type CE characters using your keyboard, although you will be able to apply the font on a text containing CE glyphs. I didn't test this issue with CS4 yet.</p>
+    html_clean: <p>There is a bug or "feature" in some of the older versions of InDesign for Windows. If you don't set Central European Latin 2 codepage for fonts containing CE characters, you won't be available to type CE characters using your keyboard, although you will be able to apply the font on a text containing CE glyphs. I didn't test this issue with CS4 yet.</p>

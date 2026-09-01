@@ -1,0 +1,119 @@
+node: 90095
+title: An odd (or perhaps even) problem with CALT coding
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130311130226"
+  captured_at: 2013-03-11T13:02:26Z
+  url: http://typophile.com/node/90095
+  digest: N4PIIPSQ4V6VKC56GEOKQGR72BW6VVMR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/90095.html
+  fingerprint: 9ddfd42a8e268a48
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130311130226"
+      digest: N4PIIPSQ4V6VKC56GEOKQGR72BW6VVMR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/90095.html
+post:
+  id: 90095
+  user: 76901
+  date: 2012-02-15T09:43:00
+  date_raw: 15 Feb 2012 — 9:43am
+  votes: null
+  html: |-
+    <p>I'm working with a student on some experimental font designs and learning to code Opentype features.<br>
+    <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a><br>
+    <a href="http://forums.adobe.com/thread/395648" title="http://forums.adobe.com/thread/395648">http://forums.adobe.com/thread/395648</a></p>
+    <p>While these two links were invaluable, we've got a simple snippet of code that is confusing when trying to sub many to one. The thinking was to swap out certain typed words with a single "word" glyph using more efficient coding than the letter at a time method Thomas described in his link. </p>
+    <p><code>feature calt {<br>
+    <em>sub t' e' s' t' by test.word;</em><br>
+    } calt;</code></p>
+    <p>The code below usually works fine except in the case that the word is immediately repeated. Then it appears to "oscillate" and only substitutes every other sequence of letters. Note that this happens whether a space is used or not to separate the repeating letter sequence. Our question is Why?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_6326.png"></div><p></p>
+  html_clean: |-
+    <p>I'm working with a student on some experimental font designs and learning to code Opentype features.<br>
+    <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a><br>
+    <a href="http://forums.adobe.com/thread/395648" title="http://forums.adobe.com/thread/395648">http://forums.adobe.com/thread/395648</a></p>
+    <p>While these two links were invaluable, we've got a simple snippet of code that is confusing when trying to sub many to one. The thinking was to swap out certain typed words with a single "word" glyph using more efficient coding than the letter at a time method Thomas described in his link. </p>
+    <p><code>feature calt {<br>
+    <em>sub t' e' s' t' by test.word;</em><br>
+    } calt;</code></p>
+    <p>The code below usually works fine except in the case that the word is immediately repeated. Then it appears to "oscillate" and only substitutes every other sequence of letters. Note that this happens whether a space is used or not to separate the repeating letter sequence. Our question is Why?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_6326.png"></div><p></p>
+comments:
+  - id: 495172
+    user: 21217
+    date: 2012-02-15T09:48:00
+    date_raw: 15 Feb 2012 — 9:48am
+    votes: null
+    html: |-
+      <p>Since this is a plain ligature, why using <code>calt</code> at all (I don't see you actually doing any contextual substitution), a plain <code>liga</code> should work just fine:</p>
+      <pre>feature liga {
+        sub t e s t by test.word;
+      } liga;
+      </pre>
+    html_clean: |-
+      <p>Since this is a plain ligature, why using <code>calt</code> at all (I don't see you actually doing any contextual substitution), a plain <code>liga</code> should work just fine:</p>
+      <pre>feature liga {
+        sub t e s t by test.word;
+      } liga;
+      </pre>
+  - id: 495180
+    user: 76901
+    date: 2012-02-15T10:15:00
+    date_raw: 15 Feb 2012 — 10:15am
+    votes: null
+    html: <p>Ha! thanks Khaled, we were so deep in <code>calt</code> experimentation we completely overlooked the obvious.</p>
+    html_clean: <p>Ha! thanks Khaled, we were so deep in <code>calt</code> experimentation we completely overlooked the obvious.</p>
+  - id: 495188
+    user: 29994
+    date: 2012-02-15T10:57:00
+    date_raw: 15 Feb 2012 — 10:57am
+    votes: null
+    html: |-
+      <p>Andy, probably this didn't work because 'calt' expects some context:</p>
+      <p><cite>A Chain Substitution rule target sequence has three parts: backtrack, input, and lookahead glyph sequences. A glyph sequence comprises one or more glyphs or glyph classes.</cite></p>
+      <p>(<a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f" rel="nofollow">5.f. [GSUB LookupType 6] Chaining contextual substitution</a>, from Adobe's "OTF Feature File Specs)</p>
+      <p>It appears to me you are replacing everything, always. Khaled is right, these are ligatures.</p>
+    html_clean: |-
+      <p>Andy, probably this didn't work because 'calt' expects some context:</p>
+      <p><cite>A Chain Substitution rule target sequence has three parts: backtrack, input, and lookahead glyph sequences. A glyph sequence comprises one or more glyphs or glyph classes.</cite></p>
+      <p>(<a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f" rel="nofollow">5.f. [GSUB LookupType 6] Chaining contextual substitution</a>, from Adobe's "OTF Feature File Specs)</p>
+      <p>It appears to me you are replacing everything, always. Khaled is right, these are ligatures.</p>
+  - id: 495189
+    user: 29994
+    date: 2012-02-15T10:58:00
+    date_raw: 15 Feb 2012 — 10:58am
+    votes: null
+    html: <p>(Holy Double Posting Syndrome, Batman!)</p>
+    html_clean: <p>(Holy Double Posting Syndrome, Batman!)</p>
+  - id: 495608
+    user: 3085
+    date: 2012-02-18T08:34:00
+    date_raw: 18 Feb 2012 — 8:34am
+    votes: null
+    html: |-
+      <p>Using ligature would be right choice in this case, but this doesn't explain why contextual substitution didn't work. </p>
+      <p>Having empty backtrack and lookaheasequenceses should be perfectly valid. In fact, empty contexts are used to implement 'ignore' keyword in AFDKO syntax or EXCEPT in VOLT.</p>
+      <p>If you have access to computer with Windows installed, you can try the same font and text in Notepad and see if it works there.</p>
+    html_clean: |-
+      <p>Using ligature would be right choice in this case, but this doesn't explain why contextual substitution didn't work. </p>
+      <p>Having empty backtrack and lookaheasequenceses should be perfectly valid. In fact, empty contexts are used to implement 'ignore' keyword in AFDKO syntax or EXCEPT in VOLT.</p>
+      <p>If you have access to computer with Windows installed, you can try the same font and text in Notepad and see if it works there.</p>

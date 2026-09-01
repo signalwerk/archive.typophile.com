@@ -1,0 +1,136 @@
+node: 86104
+title: "Help needed: Opentype multiple characters substitution workaround ?!"
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20131012081112"
+  captured_at: 2013-10-12T08:11:12Z
+  url: http://typophile.com/node/86104
+  digest: 5EA7ZRLY6BVWYEJQM3OYT7GKMZ2EHWGD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/86104.html
+  fingerprint: 4cdac786ac889b60
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131012081112"
+      digest: 5EA7ZRLY6BVWYEJQM3OYT7GKMZ2EHWGD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/86104.html
+post:
+  id: 86104
+  user: 18978
+  date: 2011-10-04T23:40:00
+  date_raw: 4 Oct 2011 — 11:40pm
+  votes: null
+  html: |-
+    <p>Help needed: Opentype multiple characters substitution workaround ?!<br>
+    Hi everybody,</p>
+    <p>I’m currently developing a revival of a cursive fat face, created by famous Bulgarian type designer Milka Peykova in the mid-70s. Her design was based on François Boltana’s Stilla, but feels a bit different (not to speak that it has complete Cyrillic character set, but no Latin, so it had to be ”interpolated/reimagined”). So as you all know the *F* *f* of Boltana’s script may cause some inconveniences, even in loose spacing, but Peykova’s design is much more tightly spaced. This creates a big disturbance in the font’s rhythm (ball terminal to next letter leaving a big hole...). So I had two choices, either to completely redesign the F,f (which didn’t wanted) or to rely heavily on f-ligatures (ff fi fl – being common and the uncommon fr ft fo fa fe fu fy …. etc.). </p>
+    <p>So to the problem… </p>
+    <p>After completing all the f-ligatures (plus all the Opentype coding) it all worked flawlessly until I faced another problem – (thus speaking a non-Latin language) I somehow “forgot” that combinations like ffo ffe ffu … etc. are possible.<br>
+    So I created a f_component - being the first f in the ligature ff(sometnig), trying to achieve all the possible combinations trough coding – f_comp + (some already-made f-lifgature). </p>
+    <p>I know that the liga function allows substitution of the following:</p>
+    <p>sub A B C by D<br>
+    or<br>
+    sub A by B C D</p>
+    <p>but can somebody show me a workaround for the following</p>
+    <p>sub A B C by D E<br>
+    ...menaning…<br>
+    sub f f f by f_component f_e</p>
+    <p>or do I have to make all the possible combinations again, thus creating many more new gliphs ?</p>
+    <p>Thank you in advance!</p>
+  html_clean: |-
+    <p>Help needed: Opentype multiple characters substitution workaround ?!<br>
+    Hi everybody,</p>
+    <p>I’m currently developing a revival of a cursive fat face, created by famous Bulgarian type designer Milka Peykova in the mid-70s. Her design was based on François Boltana’s Stilla, but feels a bit different (not to speak that it has complete Cyrillic character set, but no Latin, so it had to be ”interpolated/reimagined”). So as you all know the *F* *f* of Boltana’s script may cause some inconveniences, even in loose spacing, but Peykova’s design is much more tightly spaced. This creates a big disturbance in the font’s rhythm (ball terminal to next letter leaving a big hole...). So I had two choices, either to completely redesign the F,f (which didn’t wanted) or to rely heavily on f-ligatures (ff fi fl – being common and the uncommon fr ft fo fa fe fu fy …. etc.). </p>
+    <p>So to the problem… </p>
+    <p>After completing all the f-ligatures (plus all the Opentype coding) it all worked flawlessly until I faced another problem – (thus speaking a non-Latin language) I somehow “forgot” that combinations like ffo ffe ffu … etc. are possible.<br>
+    So I created a f_component - being the first f in the ligature ff(sometnig), trying to achieve all the possible combinations trough coding – f_comp + (some already-made f-lifgature). </p>
+    <p>I know that the liga function allows substitution of the following:</p>
+    <p>sub A B C by D<br>
+    or<br>
+    sub A by B C D</p>
+    <p>but can somebody show me a workaround for the following</p>
+    <p>sub A B C by D E<br>
+    ...menaning…<br>
+    sub f f f by f_component f_e</p>
+    <p>or do I have to make all the possible combinations again, thus creating many more new gliphs ?</p>
+    <p>Thank you in advance!</p>
+comments:
+  - id: 479617
+    user: 21217
+    date: 2011-10-04T23:52:00
+    date_raw: 4 Oct 2011 — 11:52pm
+    votes: null
+    html: |-
+      <p>OpenType does not support many to many substitution, but you can use contextual substitutions to achieve similar effect, something like:</p>
+      <pre>lookup f_1st {
+        sub f by f_component;
+      } f_1st
+
+      lookup f_2nd {
+        sub f by f_e;
+      } f_2nd;
+
+      feature calt { # or clig, support varies between engines
+        sub f' lookup f_1st
+            f' lookup f_2nd
+            f;
+      } calt;
+      </pre><p>
+      Which substitutes "fff" by "f_component f_e f".</p>
+    html_clean: |-
+      <p>OpenType does not support many to many substitution, but you can use contextual substitutions to achieve similar effect, something like:</p>
+      <pre>lookup f_1st {
+        sub f by f_component;
+      } f_1st
+
+      lookup f_2nd {
+        sub f by f_e;
+      } f_2nd;
+
+      feature calt { # or clig, support varies between engines
+        sub f' lookup f_1st
+            f' lookup f_2nd
+            f;
+      } calt;
+      </pre><p>
+      Which substitutes "fff" by "f_component f_e f".</p>
+  - id: 479620
+    user: 18978
+    date: 2011-10-05T01:05:00
+    date_raw: 5 Oct 2011 — 1:05am
+    votes: null
+    html: |-
+      <p>@Hosny Thank you! I'll try that out!</p>
+      <p>I have a second question, currently I'm reading the following post <a class="freelinking external" href="http://typophile.com/node/6638" rel="nofollow">http://typophile.com/node/6638</a>about a similar problem.</p>
+      <p>Could a ligature of ffe be achived in this way:<br>
+      if I have already build up a ligature of fe (f+e), culd it be that..</p>
+      <p>feature clig {<br>
+      sub f'fe by f_component;<br>
+      } clig; </p>
+      <p>thus changing only the first f int the ffe to f_component?</p>
+    html_clean: |-
+      <p>@Hosny Thank you! I'll try that out!</p>
+      <p>I have a second question, currently I'm reading the following post <a class="freelinking external" href="/node/6638/" rel="nofollow">http://typophile.com/node/6638</a>about a similar problem.</p>
+      <p>Could a ligature of ffe be achived in this way:<br>
+      if I have already build up a ligature of fe (f+e), culd it be that..</p>
+      <p>feature clig {<br>
+      sub f'fe by f_component;<br>
+      } clig; </p>
+      <p>thus changing only the first f int the ffe to f_component?</p>

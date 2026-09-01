@@ -1,0 +1,228 @@
+node: 82560
+title: OT features compile in FLS5 but don't work
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131013222016"
+  captured_at: 2013-10-13T22:20:16Z
+  url: http://typophile.com/node/82560
+  digest: VEN4ZCJE5OV6CVRHK4A4OFA7DNUA3S3P
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/82560.html
+  fingerprint: e8c6a6b45f851194
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131013222016"
+      digest: VEN4ZCJE5OV6CVRHK4A4OFA7DNUA3S3P
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/82560.html
+post:
+  id: 82560
+  user: 88380
+  date: 2011-05-26T22:56:00
+  date_raw: 26 May 2011 — 10:56pm
+  votes: null
+  html: |-
+    <p>In my current font project (a cursive conscript*), I have added the OpenType features [aalt], [init], [medi], [fina] and [liga] (along with the usual [kern]). These features compile without any errors and appear to work properly in the OpenType Features tab of the Preview panel (they don't preview properly on the Preview tab, but I've read on the FontLab forums that [init], [medi] and [fina] don't preview at all in FontLab Studio, but still work in applications), but when I generate the font (as a .ttf), none of them work in the applications I use this font in (Photoshop and Word '07-'10). It's as if they're not there. However, they appear in the relevant tabs when I open the .ttf in Studio, exactly as they are in my project file.</p>
+    <p>I read in another topic at FontLab that Studio 5.0.4 doesn't work on 64-bit Windows Vista (which I use), but I want to be sure I haven't done something wrong in writing the features before I ask about replacing Studio 5.0.4 with v5.0.2.</p>
+    <p>A few notes on the font itself, as well as the features as I've written them: I've put the contextual forms of each character in the Plane 1 PUA while using the basic Latin/ASCII codepoints for the nominal forms to make entering text easier. The features are in the reverse order from what is recommended for Arabic fonts (i.e. [init] is first instead of [fina]), and there is no [isol] feature.</p>
+    <p>I should mention that I'm a font creation newbie, not a professional. There's plenty I don't know about making fonts, especially ones with OpenType features. There's a pretty good chance my feature definitions contain an error that slipped past FontLab Studio, especially since VOLT can't compile these features (the error message it gives me is very vague - "Compilation failed"). Your help will be much appreciated.</p>
+    <p>*I.e. a constructed writing system, if you aren't familiar with the term</p>
+  html_clean: |-
+    <p>In my current font project (a cursive conscript*), I have added the OpenType features [aalt], [init], [medi], [fina] and [liga] (along with the usual [kern]). These features compile without any errors and appear to work properly in the OpenType Features tab of the Preview panel (they don't preview properly on the Preview tab, but I've read on the FontLab forums that [init], [medi] and [fina] don't preview at all in FontLab Studio, but still work in applications), but when I generate the font (as a .ttf), none of them work in the applications I use this font in (Photoshop and Word '07-'10). It's as if they're not there. However, they appear in the relevant tabs when I open the .ttf in Studio, exactly as they are in my project file.</p>
+    <p>I read in another topic at FontLab that Studio 5.0.4 doesn't work on 64-bit Windows Vista (which I use), but I want to be sure I haven't done something wrong in writing the features before I ask about replacing Studio 5.0.4 with v5.0.2.</p>
+    <p>A few notes on the font itself, as well as the features as I've written them: I've put the contextual forms of each character in the Plane 1 PUA while using the basic Latin/ASCII codepoints for the nominal forms to make entering text easier. The features are in the reverse order from what is recommended for Arabic fonts (i.e. [init] is first instead of [fina]), and there is no [isol] feature.</p>
+    <p>I should mention that I'm a font creation newbie, not a professional. There's plenty I don't know about making fonts, especially ones with OpenType features. There's a pretty good chance my feature definitions contain an error that slipped past FontLab Studio, especially since VOLT can't compile these features (the error message it gives me is very vague - "Compilation failed"). Your help will be much appreciated.</p>
+    <p>*I.e. a constructed writing system, if you aren't familiar with the term</p>
+comments:
+  - id: 466039
+    user: 21687
+    date: 2011-05-27T06:46:00
+    date_raw: 27 May 2011 — 6:46am
+    votes: null
+    html: |-
+      <p>Photoshop doesn't support init, medi, fina at all; Word 2010 only supports OT features in TTFs when there's a digital signature table present in the font.</p>
+      <p>So I'd start by testing in an application that actually supports the features, e.g. InDesign :)</p>
+    html_clean: |-
+      <p>Photoshop doesn't support init, medi, fina at all; Word 2010 only supports OT features in TTFs when there's a digital signature table present in the font.</p>
+      <p>So I'd start by testing in an application that actually supports the features, e.g. InDesign :)</p>
+  - id: 466706
+    user: 88380
+    date: 2011-06-01T19:39:00
+    date_raw: 1 Jun 2011 — 7:39pm
+    votes: null
+    html: <p>Thanks for the help, Jens. Unfortunately, I don't have InDesign or the money for it, and my attempts to find out what other applications support my features have so far turned up nothing. I've just tried testing my font in Word as an OTF, but my features still don't work. Do you know if Word 2010 supports OT features in OTFs without needing a signature?</p>
+    html_clean: <p>Thanks for the help, Jens. Unfortunately, I don't have InDesign or the money for it, and my attempts to find out what other applications support my features have so far turned up nothing. I've just tried testing my font in Word as an OTF, but my features still don't work. Do you know if Word 2010 supports OT features in OTFs without needing a signature?</p>
+  - id: 467025
+    user: 88380
+    date: 2011-06-03T21:49:00
+    date_raw: 3 Jun 2011 — 9:49pm
+    votes: null
+    html: |-
+      <p>Since I can't find any way to edit the above reply, a new post will have to suffice...</p>
+      <p>After doing some more research and editing/reordering my font's features, I was able to unlock the OpenType options in Word's Font window with text in my font selected. However, my features (now with fina first) still don't work. I have a feeling that it might be due to my inclusion of aalt, which I now know Word 2010 doesn't support. The next step, then, should probably be to remove it and test the font again. Thoughts, anyone?</p>
+    html_clean: |-
+      <p>Since I can't find any way to edit the above reply, a new post will have to suffice...</p>
+      <p>After doing some more research and editing/reordering my font's features, I was able to unlock the OpenType options in Word's Font window with text in my font selected. However, my features (now with fina first) still don't work. I have a feeling that it might be due to my inclusion of aalt, which I now know Word 2010 doesn't support. The next step, then, should probably be to remove it and test the font again. Thoughts, anyone?</p>
+  - id: 467331
+    user: 88380
+    date: 2011-06-06T21:54:00
+    date_raw: 6 Jun 2011 — 9:54pm
+    votes: null
+    html: <p>Latest progress report... After looking at arabtype.ttf and Times New Roman, I no longer think that my inclusion of aalt is the cause of my feature troubles, since both fonts have that feature and work fine with it. That leaves me with no further ideas on what ideas to try out, since my features still don't work (not even [kern]). I've tried enabling OpenType features in Word, but they still don't work, not even now that the font is an OTF. So, if you have any suggestions, I'd love to hear them...</p>
+    html_clean: <p>Latest progress report... After looking at arabtype.ttf and Times New Roman, I no longer think that my inclusion of aalt is the cause of my feature troubles, since both fonts have that feature and work fine with it. That leaves me with no further ideas on what ideas to try out, since my features still don't work (not even [kern]). I've tried enabling OpenType features in Word, but they still don't work, not even now that the font is an OTF. So, if you have any suggestions, I'd love to hear them...</p>
+  - id: 467344
+    user: 21687
+    date: 2011-06-07T03:39:00
+    date_raw: 7 Jun 2011 — 3:39am
+    votes: null
+    html: |-
+      <p><em>there is no [isol] feature.</em></p>
+      <p>Perhaps try to include an isol feature. Word may be checking the presence of all four positional features before activating them. But that's just a guess. Another possibility is that Word supports init, medi, fina only for some complex scripts like Arabic, but not for Latin.</p>
+    html_clean: |-
+      <p><em>there is no [isol] feature.</em></p>
+      <p>Perhaps try to include an isol feature. Word may be checking the presence of all four positional features before activating them. But that's just a guess. Another possibility is that Word supports init, medi, fina only for some complex scripts like Arabic, but not for Latin.</p>
+  - id: 488583
+    user: 88380
+    date: 2011-12-25T15:31:00
+    date_raw: 25 Dec 2011 — 3:31pm
+    votes: null
+    html: |-
+      <p>Time to dust this thread off...</p>
+      <p>I just received InDesign CS5.5 and can now test my font's OT features properly. Here's what I found:</p>
+      <p>InDesign knows that my features exist, and it substitutes the contextual forms in most of the appropriate situations (after selecting Automatic Forms via the Character panel). However, it tries to apply init, medi and fina to every character it recognizes as a letter instead of using the classes I specified in the features. In other words, it tries to apply e.g. init and medi to non-joining characters (which lack initial and medial forms, so it defaults to the isolated form). It also doesn't seem to be applying isol at all, so glyphs following a non-joining character are replaced with medial and final forms instead of initial and isolated forms. These problems lead me to believe that InDesign is ignoring my OT classes, possibly even the entire feature set.</p>
+      <p>It's worth mentioning that I added an aalt feature and have isol ordered before fina/medi/init, so it's possible that InDesign is either overriding the results of isol (which shouldn't happen, based on how I wrote isol) or ignoring isol entirely.</p>
+    html_clean: |-
+      <p>Time to dust this thread off...</p>
+      <p>I just received InDesign CS5.5 and can now test my font's OT features properly. Here's what I found:</p>
+      <p>InDesign knows that my features exist, and it substitutes the contextual forms in most of the appropriate situations (after selecting Automatic Forms via the Character panel). However, it tries to apply init, medi and fina to every character it recognizes as a letter instead of using the classes I specified in the features. In other words, it tries to apply e.g. init and medi to non-joining characters (which lack initial and medial forms, so it defaults to the isolated form). It also doesn't seem to be applying isol at all, so glyphs following a non-joining character are replaced with medial and final forms instead of initial and isolated forms. These problems lead me to believe that InDesign is ignoring my OT classes, possibly even the entire feature set.</p>
+      <p>It's worth mentioning that I added an aalt feature and have isol ordered before fina/medi/init, so it's possible that InDesign is either overriding the results of isol (which shouldn't happen, based on how I wrote isol) or ignoring isol entirely.</p>
+  - id: 488654
+    user: 63394
+    date: 2011-12-26T13:48:00
+    date_raw: 26 Dec 2011 — 1:48pm
+    votes: null
+    html: <p>The OT code of your font -- is it a secret?</p>
+    html_clean: <p>The OT code of your font -- is it a secret?</p>
+  - id: 488659
+    user: 1250
+    date: 2011-12-26T14:51:00
+    date_raw: 26 Dec 2011 — 2:51pm
+    votes: null
+    html: |-
+      <p>I've been commissioned to make a font for a "conscript".<br>
+      It's more than half done, and I expect to finish in January.</p>
+      <p>I'd be curious to see:<br>
+      - What yours looks like.<br>
+      - What code you've had to make.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I've been commissioned to make a font for a "conscript".<br>
+      It's more than half done, and I expect to finish in January.</p>
+      <p>I'd be curious to see:<br>
+      - What yours looks like.<br>
+      - What code you've had to make.</p>
+      <p>hhp</p>
+  - id: 488665
+    user: 88380
+    date: 2011-12-26T15:31:00
+    date_raw: 26 Dec 2011 — 3:31pm
+    votes: null
+    html: |-
+      <p>Przemysław: No. What parts of it do you specifically want to see? Or would you prefer it if I simply uploaded it (what file format?) and let you download it?</p>
+      <p>hrant: Cool. What kind of conscript is it? You can look at my font in <a class="freelinking external" href="http://www.aanhrush.com/gomain/Pekrif%20Intro.pdf" rel="nofollow">this PDF</a>. As for the code, I've had to write OT features for contextual forms (which I've had trouble with, hence this thread). I coded the input forms of each letter in the Latin codepages (mostly A-z) and put the contextual forms in the PUA. Anything else you'd like to know?</p>
+      <p>I'd be interested to see your conscript font in action, if you're not required to keep it under wraps.</p>
+    html_clean: |-
+      <p>Przemysław: No. What parts of it do you specifically want to see? Or would you prefer it if I simply uploaded it (what file format?) and let you download it?</p>
+      <p>hrant: Cool. What kind of conscript is it? You can look at my font in <a class="freelinking external" href="http://www.aanhrush.com/gomain/Pekrif%20Intro.pdf" rel="nofollow">this PDF</a>. As for the code, I've had to write OT features for contextual forms (which I've had trouble with, hence this thread). I coded the input forms of each letter in the Latin codepages (mostly A-z) and put the contextual forms in the PUA. Anything else you'd like to know?</p>
+      <p>I'd be interested to see your conscript font in action, if you're not required to keep it under wraps.</p>
+  - id: 488666
+    user: 1250
+    date: 2011-12-26T15:43:00
+    date_raw: 26 Dec 2011 — 3:43pm
+    votes: null
+    html: |-
+      <p>The site for the script is public, but let me check if<br>
+      the author (who has special encoding software instead<br>
+      of relying on OT*) is planning on announcing the font<br>
+      himself once it's all done.</p>
+      <p>* I'd just like to see how feasible it might be<br>
+      to one day replicate the functionality via OT.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>The site for the script is public, but let me check if<br>
+      the author (who has special encoding software instead<br>
+      of relying on OT*) is planning on announcing the font<br>
+      himself once it's all done.</p>
+      <p>* I'd just like to see how feasible it might be<br>
+      to one day replicate the functionality via OT.</p>
+      <p>hhp</p>
+  - id: 488671
+    user: 31798
+    date: 2011-12-26T17:39:00
+    date_raw: 26 Dec 2011 — 5:39pm
+    votes: null
+    html: |-
+      <p>For init, medi, fina, and isol, it is up to the application to determine which of these features is to be applied based on its own algorithm for determining whether a character is in initial, medial, or final position. This isn't likely to work for a constructed script since the application will have no knowledge of how that script works and or even of which characters in your script are alphabetic characters (assuming you are using a PUA encoding).</p>
+      <p>You'll probably want to rewrite your code using the calt feature.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>For init, medi, fina, and isol, it is up to the application to determine which of these features is to be applied based on its own algorithm for determining whether a character is in initial, medial, or final position. This isn't likely to work for a constructed script since the application will have no knowledge of how that script works and or even of which characters in your script are alphabetic characters (assuming you are using a PUA encoding).</p>
+      <p>You'll probably want to rewrite your code using the calt feature.</p>
+      <p>André</p>
+  - id: 488693
+    user: 88380
+    date: 2011-12-27T00:33:00
+    date_raw: 27 Dec 2011 — 12:33am
+    votes: null
+    html: |-
+      <blockquote><p>You'll probably want to rewrite your code using the calt feature.</p></blockquote>
+      <p>After doing this and going through several rounds of trial and error, my features now work properly in ID. Thank you very much for your solution!</p>
+    html_clean: |-
+      <blockquote><p>You'll probably want to rewrite your code using the calt feature.</p></blockquote>
+      <p>After doing this and going through several rounds of trial and error, my features now work properly in ID. Thank you very much for your solution!</p>
+  - id: 488704
+    user: 63394
+    date: 2011-12-27T05:09:00
+    date_raw: 27 Dec 2011 — 5:09am
+    votes: null
+    html: |-
+      <p><em>What parts of it do you specifically want to see? Or would you prefer it if I simply uploaded it (what file format?) and let you download it?</em></p>
+      <p>All of it, in the Adobe (.fea) format, if you can.</p>
+      <p><em>After doing this and going through several rounds of trial and error, my features now work properly in ID.</em></p>
+      <p>Does it work in Word 2010?</p>
+    html_clean: |-
+      <p><em>What parts of it do you specifically want to see? Or would you prefer it if I simply uploaded it (what file format?) and let you download it?</em></p>
+      <p>All of it, in the Adobe (.fea) format, if you can.</p>
+      <p><em>After doing this and going through several rounds of trial and error, my features now work properly in ID.</em></p>
+      <p>Does it work in Word 2010?</p>
+  - id: 488742
+    user: 88380
+    date: 2011-12-27T11:53:00
+    date_raw: 27 Dec 2011 — 11:53am
+    votes: null
+    html: |-
+      <blockquote><p>All of it, in the Adobe (.fea) format, if you can.</p></blockquote>
+      <p><a class="freelinking external" href="http://dl.dropbox.com/u/54771042/new_pkrf.fea" rel="nofollow">Here you go.</a></p>
+      <blockquote><p>Does it work in Word 2010?</p></blockquote>
+      <p>Yes, as well as in Photoshop CS5.1 (although I'll have to turn my rlig feature into liga to make it compatible with Photoshop). There's just one glitch in calt where solitary glyphs become finals instead of isolated forms, which should be easy for me to fix.</p>
+    html_clean: |-
+      <blockquote><p>All of it, in the Adobe (.fea) format, if you can.</p></blockquote>
+      <p><a class="freelinking external" href="http://dl.dropbox.com/u/54771042/new_pkrf.fea" rel="nofollow">Here you go.</a></p>
+      <blockquote><p>Does it work in Word 2010?</p></blockquote>
+      <p>Yes, as well as in Photoshop CS5.1 (although I'll have to turn my rlig feature into liga to make it compatible with Photoshop). There's just one glitch in calt where solitary glyphs become finals instead of isolated forms, which should be easy for me to fix.</p>

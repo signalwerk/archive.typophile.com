@@ -1,0 +1,118 @@
+node: 84653
+title: Controlling spacing with TT hints
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20110914163918"
+  captured_at: 2011-09-14T16:39:18Z
+  url: http://typophile.com/node/84653
+  digest: NLGL5SHQWVZXAYEOCNXCGKJKSX744NNH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/84653.html
+  fingerprint: 27a359c7ef42dc0f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20110914163918"
+      digest: NLGL5SHQWVZXAYEOCNXCGKJKSX744NNH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84653.html
+post:
+  id: 84653
+  user: 17101
+  date: 2011-08-17T06:47:00
+  date_raw: 17.Aug.2011 6.47am
+  votes: null
+  html: |-
+    <p>Hinting in the x-direction have a tendency to introduce a lot of problems (rounding errors?) with the spacing. Things turn out very uneven, and unfortunately also uneven between the Standard rendering and Cleartype. </p>
+    <p>From what Beat told me, the best method is to round the left sidebearing with a single link tied to the left edge of the first stem, and leave the right sidebearing free. This yields relatively good results in CT, but looks like horseshit in greyscaled or bitmapped rendering.</p>
+    <p>I could always go nuts with delta’s, but they have the same effect on all rendering outputs, so <em>I’m left with no way to fix something in Standard and keep it as is in Cleartype.</em></p>
+    <p>Can anyone shed some light on this? </p>
+    <p>I’m hinting with Fontlab, yes. I realize VTT is the next logical step, but is FL really that bad?</p>
+  html_clean: |-
+    <p>Hinting in the x-direction have a tendency to introduce a lot of problems (rounding errors?) with the spacing. Things turn out very uneven, and unfortunately also uneven between the Standard rendering and Cleartype. </p>
+    <p>From what Beat told me, the best method is to round the left sidebearing with a single link tied to the left edge of the first stem, and leave the right sidebearing free. This yields relatively good results in CT, but looks like horseshit in greyscaled or bitmapped rendering.</p>
+    <p>I could always go nuts with delta’s, but they have the same effect on all rendering outputs, so <em>I’m left with no way to fix something in Standard and keep it as is in Cleartype.</em></p>
+    <p>Can anyone shed some light on this? </p>
+    <p>I’m hinting with Fontlab, yes. I realize VTT is the next logical step, but is FL really that bad?</p>
+comments:
+  - id: 474417
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Standard example<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/gs_4199.png"></div><p></p>
+      <p>Cleartype example<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/ct_5310.png"></div><p></p>
+    html_clean: |-
+      <p>Standard example<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/gs_4199.png"></div><p></p>
+      <p>Cleartype example<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/ct_5310.png"></div><p></p>
+  - id: 474431
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>In FontLab at least, I don't think there is a solution you could apply to the Standard rendering that wouldn't also have some affect on the ClearType. But it seems to me from your screenshots that the places where you have spacing problems in Standard rendering are also problematic in the ClearType.</p>
+      <p>As you note, you can delta the right sidebearing, but if you put x hints on the stem distances too, which I thought you would be doing for Standard rendering, then you have the option of putting a rounded link from the right side of the letter to the sidebearing.</p>
+      <p>So, for example, you could do something like this (greyscale rendering, font smoothing on at all sizes):</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/nhint_5202.png"></div><p></p>
+    html_clean: |-
+      <p>In FontLab at least, I don't think there is a solution you could apply to the Standard rendering that wouldn't also have some affect on the ClearType. But it seems to me from your screenshots that the places where you have spacing problems in Standard rendering are also problematic in the ClearType.</p>
+      <p>As you note, you can delta the right sidebearing, but if you put x hints on the stem distances too, which I thought you would be doing for Standard rendering, then you have the option of putting a rounded link from the right side of the letter to the sidebearing.</p>
+      <p>So, for example, you could do something like this (greyscale rendering, font smoothing on at all sizes):</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/nhint_5202.png"></div><p></p>
+  - id: 474446
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>The thing with the loose right edges (thank you db!) is not only a rendering that is more similar to the <em>real</em> weight in other environments (CT, Quartz), but also a counteract against the thinning you tend to see in rounds and circular glyphs with greyscale rendering. </p>
+      <p>Anyway, from how I understand the rounded single/double link logic in Truetype. I would get roughly the same results if I linked it to the right edge of the right stem, no? I’ll see if I can post examples of this later when I’m on the other PC, but it does not become any better. Just worse, for CT. Btw, most of my glyphs look like your n, only without the rounding on the stems. My n however looks just the same without them, and file size is crucial for web fonts.</p>
+      <p>If you for example look at the a’s and n’s at 14 ppm, you’ll see the unconsistent results.</p>
+    html_clean: |-
+      <p>The thing with the loose right edges (thank you db!) is not only a rendering that is more similar to the <em>real</em> weight in other environments (CT, Quartz), but also a counteract against the thinning you tend to see in rounds and circular glyphs with greyscale rendering. </p>
+      <p>Anyway, from how I understand the rounded single/double link logic in Truetype. I would get roughly the same results if I linked it to the right edge of the right stem, no? I’ll see if I can post examples of this later when I’m on the other PC, but it does not become any better. Just worse, for CT. Btw, most of my glyphs look like your n, only without the rounding on the stems. My n however looks just the same without them, and file size is crucial for web fonts.</p>
+      <p>If you for example look at the a’s and n’s at 14 ppm, you’ll see the unconsistent results.</p>
+  - id: 474514
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>If you for example look at the a’s and n’s at 14 ppm, you’ll see the unconsistent results.</em></p>
+      <p>Actually, I think the inconsistency is in the h's and n's; the a's look comparable. Either your CT h and n counters are too wide or your greyscale h and n counters are too narrow. So one way to fix this would be to delta the right stem to make these counters wider in the greyscale, presuming these deltas are ignored by the CT renderers.</p>
+      <p><em>I would get roughly the same results if I linked it to the right edge of the right stem, no?</em></p>
+      <p>You probably want to avoid hinting inwards from both sides, because this will tend to squish letters at sizes where the sidebearings round inwards. This is why I always hint from left to right across the glyph. So if you link from the right edge of the right stem to the right sidebearing, you want the stem to be the origin of that link.</p>
+      <p><em>...a counteract against the thinning you tend to see in rounds and circular glyphs with greyscale rendering.</em></p>
+      <p>Your smaller sizes are much greyer than what I was achieving at those sizes by adding stem hints.</p>
+      <p><em>a rendering that is more similar to the real weight in other environments</em></p>
+      <p>I don't usually consider 'real weight' to be a hinting goal. Hinting is a means to adjust outlines to make them size specific in crude resolutions. Stem weight is one of the factors of type design that is properly size specific, so I use hints to try to achieve the best weight in terms of legibility, stem density and contrast for each size. Subpixel rendering environments take this ability away to a considerable extent (in the x direction in CT and in both directions in Quartz at most sizes), but so long as you are trying to target XP greyscale too, I would consider x stem hints important.</p>
+    html_clean: |-
+      <p><em>If you for example look at the a’s and n’s at 14 ppm, you’ll see the unconsistent results.</em></p>
+      <p>Actually, I think the inconsistency is in the h's and n's; the a's look comparable. Either your CT h and n counters are too wide or your greyscale h and n counters are too narrow. So one way to fix this would be to delta the right stem to make these counters wider in the greyscale, presuming these deltas are ignored by the CT renderers.</p>
+      <p><em>I would get roughly the same results if I linked it to the right edge of the right stem, no?</em></p>
+      <p>You probably want to avoid hinting inwards from both sides, because this will tend to squish letters at sizes where the sidebearings round inwards. This is why I always hint from left to right across the glyph. So if you link from the right edge of the right stem to the right sidebearing, you want the stem to be the origin of that link.</p>
+      <p><em>...a counteract against the thinning you tend to see in rounds and circular glyphs with greyscale rendering.</em></p>
+      <p>Your smaller sizes are much greyer than what I was achieving at those sizes by adding stem hints.</p>
+      <p><em>a rendering that is more similar to the real weight in other environments</em></p>
+      <p>I don't usually consider 'real weight' to be a hinting goal. Hinting is a means to adjust outlines to make them size specific in crude resolutions. Stem weight is one of the factors of type design that is properly size specific, so I use hints to try to achieve the best weight in terms of legibility, stem density and contrast for each size. Subpixel rendering environments take this ability away to a considerable extent (in the x direction in CT and in both directions in Quartz at most sizes), but so long as you are trying to target XP greyscale too, I would consider x stem hints important.</p>

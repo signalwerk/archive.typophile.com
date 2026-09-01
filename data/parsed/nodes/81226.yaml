@@ -1,0 +1,112 @@
+node: 81226
+title: Bogus FontLab error = table overflow?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131019181411"
+  captured_at: 2013-10-19T18:14:11Z
+  url: http://typophile.com/node/81226
+  digest: B4FFZPRU5RQST3JTWYHWAUBMZGZEN3XL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/81226.html
+  fingerprint: ae580744d0c600ce
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131019181411"
+      digest: B4FFZPRU5RQST3JTWYHWAUBMZGZEN3XL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/81226.html
+post:
+  id: 81226
+  user: 909
+  date: 2011-04-14T20:05:00
+  date_raw: 14 Apr 2011 — 8:05pm
+  votes: null
+  html: |-
+    <p>I get the interesting error below when I try to compile features in an OT script font. The notable things are that the claimed number of elements is absurdly large, and the error message is claiming that a number is not equal to itself. The only features in the font are calt and maybe kern.</p>
+    <p>It seems to me that I have seen this error before, and it does mean something, but as the error message itslf is bogus, I can't recall for sure what that is. Is it related to overflow of the 64K size limit on a subtable in OpenType? That rings a bell for me....</p>
+    <p>[ERROR]  Target glyph class in sub-rule doesn't have the same number of elements as the replacement class; the target has 87747800, the replacement, 87747800 [//vmware-host/Shared Folders/My Documents/Shared Data/FontLab/Studio 5/fontlab.fea 133]</p>
+  html_clean: |-
+    <p>I get the interesting error below when I try to compile features in an OT script font. The notable things are that the claimed number of elements is absurdly large, and the error message is claiming that a number is not equal to itself. The only features in the font are calt and maybe kern.</p>
+    <p>It seems to me that I have seen this error before, and it does mean something, but as the error message itslf is bogus, I can't recall for sure what that is. Is it related to overflow of the 64K size limit on a subtable in OpenType? That rings a bell for me....</p>
+    <p>[ERROR]  Target glyph class in sub-rule doesn't have the same number of elements as the replacement class; the target has 87747800, the replacement, 87747800 [//vmware-host/Shared Folders/My Documents/Shared Data/FontLab/Studio 5/fontlab.fea 133]</p>
+comments:
+  - id: 460225
+    user: 909
+    date: 2011-04-14T23:32:00
+    date_raw: 14 Apr 2011 — 11:32pm
+    votes: null
+    html: |-
+      <p>Of course, another possibility is that although the information about the number of elements is bogus, there really is a mismatch. This is probably the most likely possibility....</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Of course, another possibility is that although the information about the number of elements is bogus, there really is a mismatch. This is probably the most likely possibility....</p>
+      <p>T</p>
+  - id: 460227
+    user: 2438
+    date: 2011-04-15T00:52:00
+    date_raw: 15 Apr 2011 — 12:52am
+    votes: null
+    html: <p>If you save out the features file and open in a text editor, is there anything on line 133 that might provide a clue?</p>
+    html_clean: <p>If you save out the features file and open in a text editor, is there anything on line 133 that might provide a clue?</p>
+  - id: 460288
+    user: 31798
+    date: 2011-04-15T07:52:00
+    date_raw: 15 Apr 2011 — 7:52am
+    votes: null
+    html: |-
+      <p>Whenever I get errors of this type in FL5, the numbers reported are *always* wrong, but the error itself is real. I'd definitely check that possibility first.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Whenever I get errors of this type in FL5, the numbers reported are *always* wrong, but the error itself is real. I'd definitely check that possibility first.</p>
+      <p>André</p>
+  - id: 460293
+    user: 909
+    date: 2011-04-15T08:33:00
+    date_raw: 15 Apr 2011 — 8:33am
+    votes: null
+    html: |-
+      <p>Thanks André.  :)</p>
+      <p>It is distinctly possible that there is a mismatch. We'll dig into it.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Thanks André.  :)</p>
+      <p>It is distinctly possible that there is a mismatch. We'll dig into it.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 460295
+    user: 3135
+    date: 2011-04-15T08:45:00
+    date_raw: 15 Apr 2011 — 8:45am
+    votes: null
+    html: <p>I remember getting this error a few times.  I don't recall the REAL reason but I do recall that the error message had nothing logical to do with the solution. It may have something to do with kerning classes but I can't be sure. Try rebuilding the kern feature from the "Kerning Assistance" window and then save quit, and restart FontLab.</p>
+    html_clean: <p>I remember getting this error a few times.  I don't recall the REAL reason but I do recall that the error message had nothing logical to do with the solution. It may have something to do with kerning classes but I can't be sure. Try rebuilding the kern feature from the "Kerning Assistance" window and then save quit, and restart FontLab.</p>
+  - id: 460504
+    user: 909
+    date: 2011-04-16T23:25:00
+    date_raw: 16 Apr 2011 — 11:25pm
+    votes: null
+    html: |-
+      <p>Actually did turn out to be what it claimed... just had to ignore the bogus parts of the error message.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Actually did turn out to be what it claimed... just had to ignore the bogus parts of the error message.</p>
+      <p>Cheers,</p>
+      <p>T</p>

@@ -1,0 +1,72 @@
+node: 106001
+title: GSUB with PUA glyphs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419180758"
+  captured_at: 2015-04-19T18:07:58Z
+  url: http://typophile.com/node/106001
+  digest: ZXE52JDCKOEKMA77F2BNBW4NWVK3RK4G
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106001.html
+  fingerprint: b28a38fec60a6cd3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419180758"
+      digest: ZXE52JDCKOEKMA77F2BNBW4NWVK3RK4G
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106001.html
+post:
+  id: 106001
+  user: 199771
+  date: 2013-09-02T10:50:00
+  date_raw: 2 Sep 2013 — 10:50am
+  votes: null
+  html: |-
+    <p>I am trying to modify a font by adding 'ccmp' basic ligature-type substitutions of the form:</p>
+    <p>  sub a uniE151 by uni0061E151;  # uniE151 has unicode value 0xE151 (PUA)</p>
+    <p>However, it doesn't seem to work except in Indesign CS6 and Mellel, not MSWord or TextEdit (on the Mac, by the way).  However, if I do a substitution such as:</p>
+    <p>  sub a uni02F9 by uni0061E151; # uni0279 has unicode value 0x02F9 (Non-PUA)</p>
+    <p>then it works as expected.  I have tried this with several fonts and the same result is observed, it works in Indesign and Mellel but not in MS Word or TextEdit.</p>
+    <p>Is there something about using an PUA glyph in a substitution lookup that renders it ambiguous or illegal?</p>
+    <p>Many Thanks!<br>
+      -- Steve.</p>
+  html_clean: |-
+    <p>I am trying to modify a font by adding 'ccmp' basic ligature-type substitutions of the form:</p>
+    <p>  sub a uniE151 by uni0061E151;  # uniE151 has unicode value 0xE151 (PUA)</p>
+    <p>However, it doesn't seem to work except in Indesign CS6 and Mellel, not MSWord or TextEdit (on the Mac, by the way).  However, if I do a substitution such as:</p>
+    <p>  sub a uni02F9 by uni0061E151; # uni0279 has unicode value 0x02F9 (Non-PUA)</p>
+    <p>then it works as expected.  I have tried this with several fonts and the same result is observed, it works in Indesign and Mellel but not in MS Word or TextEdit.</p>
+    <p>Is there something about using an PUA glyph in a substitution lookup that renders it ambiguous or illegal?</p>
+    <p>Many Thanks!<br>
+      -- Steve.</p>
+comments:
+  - id: 563977
+    user: 1262
+    date: 2013-09-02T11:03:00
+    date_raw: 2 Sep 2013 — 11:03am
+    votes: null
+    html: <p>Have you tried putting the lookups under the 'DFLT' script tag? This might make a difference for Uniscribe apps such as MS Word, although I have not tested this. Layout engines normally determine how to process glyphs in a run based first on their cmap entries; in the case of PUA codepoints, there doesn't seem to be any standard about how OTL processing is expected to proceed.</p>
+    html_clean: <p>Have you tried putting the lookups under the 'DFLT' script tag? This might make a difference for Uniscribe apps such as MS Word, although I have not tested this. Layout engines normally determine how to process glyphs in a run based first on their cmap entries; in the case of PUA codepoints, there doesn't seem to be any standard about how OTL processing is expected to proceed.</p>
+  - id: 563979
+    user: 199771
+    date: 2013-09-02T12:00:00
+    date_raw: 2 Sep 2013 — 12:00pm
+    votes: null
+    html: <p>Thanks, John.  I gave that a try and didn't observe anything different.  I haven't seen anything in the documentation that singles out PUA glyphs but it hasn't been an exhaustive reading, either.  I checked the cmap entries (via ttx) and the glyph is present for both Mac and Windows.  It seems that it doesn't work on the in Word for Windows, either.  Hmmm.</p>
+    html_clean: <p>Thanks, John.  I gave that a try and didn't observe anything different.  I haven't seen anything in the documentation that singles out PUA glyphs but it hasn't been an exhaustive reading, either.  I checked the cmap entries (via ttx) and the glyph is present for both Mac and Windows.  It seems that it doesn't work on the in Word for Windows, either.  Hmmm.</p>

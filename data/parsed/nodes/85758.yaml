@@ -1,0 +1,206 @@
+node: 85758
+title: "Truetype hinting: CVT/Stem not responding"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20111229210902"
+  captured_at: 2011-12-29T21:09:02Z
+  url: http://typophile.com:80/node/85758
+  digest: GC6G4YWDH3VPO4UQDUYYDXONYJGUDQ6J
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/85758.html
+  fingerprint: 30351ec3f74bc02c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20111229210902"
+      digest: GC6G4YWDH3VPO4UQDUYYDXONYJGUDQ6J
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/85758.html
+post:
+  id: 85758
+  user: 17101
+  date: 2011-09-23T13:28:00
+  date_raw: 23.Sep.2011 1.28pm
+  votes: null
+  html: |-
+    <p>So, my CVT (actually stem value in Fontlab) says 3 px, but neither Greyscale nor Cleartype will return 3 px. What, why? </p>
+    <p>Edit: More search friendly title for the next Truetype wrangler to come along.</p>
+  html_clean: |-
+    <p>So, my CVT (actually stem value in Fontlab) says 3 px, but neither Greyscale nor Cleartype will return 3 px. What, why? </p>
+    <p>Edit: More search friendly title for the next Truetype wrangler to come along.</p>
+comments:
+  - id: 478416
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Is this an x-direction distance or a y-direction distance? Are you anchoring to the grid? Screenshots would help.</p>
+    html_clean: <p>Is this an x-direction distance or a y-direction distance? Are you anchoring to the grid? Screenshots would help.</p>
+  - id: 478417
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>This is x-direction. Y-direction is a smooth ride.</p>
+    html_clean: <p>This is x-direction. Y-direction is a smooth ride.</p>
+  - id: 478419
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot1_6702.png"></div><p></p>
+      <p>This is even more dramatic. Here the "round right" stem is defined as 4 px, but the output is only 2.</p>
+    html_clean: |-
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot1_6702.png"></div><p></p>
+      <p>This is even more dramatic. Here the "round right" stem is defined as 4 px, but the output is only 2.</p>
+  - id: 478430
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>That's sort of a weird way of hinting that situation (although I realise this doesn't answer your question of why the distance is not 4 pixels). A more typical strategy would hint from the outside of the bowl to the sidebearing.</p>
+      <p>Are you aligning the destination to the grid? How?</p>
+    html_clean: |-
+      <p>That's sort of a weird way of hinting that situation (although I realise this doesn't answer your question of why the distance is not 4 pixels). A more typical strategy would hint from the outside of the bowl to the sidebearing.</p>
+      <p>Are you aligning the destination to the grid? How?</p>
+  - id: 478442
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>Are you aligning the destination to the grid? How?</em><br>
+      Yes. The stems build upon each other, so their starting and ending points are all aligned to the grid.</p>
+    html_clean: |-
+      <p><em>Are you aligning the destination to the grid? How?</em><br>
+      Yes. The stems build upon each other, so their starting and ending points are all aligned to the grid.</p>
+  - id: 478462
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Do you get the full four pixel distance in b/w bitmap mode?</p>
+    html_clean: <p>Do you get the full four pixel distance in b/w bitmap mode?</p>
+  - id: 478481
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>The grey circles and the grid in the screenshot is the binary rendering. I know this is not a typical hinting method, but that’s not the point here (as you already said). I’d like to know why they don’t behave as instructed.</p>
+    html_clean: <p>The grey circles and the grid in the screenshot is the binary rendering. I know this is not a typical hinting method, but that’s not the point here (as you already said). I’d like to know why they don’t behave as instructed.</p>
+  - id: 478505
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>The grey circles and the grid in the screenshot is the binary rendering.</em></p>
+      <p>Doh! Of course.</p>
+      <p>I'm really not sure why it is behaving this way. My guess would be some kind of tolerance relative to the natural outline that prevents hints from radical distortion, but I don't know if this is something peculiar to FontLab or to the kinds of hints that it writes.</p>
+    html_clean: |-
+      <p><em>The grey circles and the grid in the screenshot is the binary rendering.</em></p>
+      <p>Doh! Of course.</p>
+      <p>I'm really not sure why it is behaving this way. My guess would be some kind of tolerance relative to the natural outline that prevents hints from radical distortion, but I don't know if this is something peculiar to FontLab or to the kinds of hints that it writes.</p>
+  - id: 478520
+    user: 9636
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>I'm guessing you've got the equivalent of a CVT cutIn issue here, but I don't know how to fix that in FontLab. In VTT it's just a setting you need to increase in the CVT.</p>
+      <p>Jason</p>
+    html_clean: |-
+      <p>I'm guessing you've got the equivalent of a CVT cutIn issue here, but I don't know how to fix that in FontLab. In VTT it's just a setting you need to increase in the CVT.</p>
+      <p>Jason</p>
+  - id: 478543
+    user: 23037
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Fontlab has internal tolerances set to prevent large* jumps in either CVTs or deltas. So for this instance, your jumps are still limited to 8/8s for deltas (ie. you can only delta move a point 1 pixel or 1/8 fractions thereof), but you can increase the tolerance for CVTs by opening TT Hinting Options &gt; General &gt; (increase) Stem snap precision to 32/16 of the pixel. This will allow doubling of the stem value. Note you're asking to get both 3 and 4 pixels above. The above solution could get you up to 4 pixels, but I think as long as your stem has a reasonably accurate value entered you should still be able to get 3 pixels @ 20ppm without fudging the Snap Stem much**, ie. check your measurement from the inside of the stem to the sidebearing point and make sure the 'round right' CVT entry corresponds closely to that value.</p>
+      <p>*or small, for that matter, as you can make much smaller adjustments the 1/8 pixel in TrueType, if you were so inclined, just not in Fontlab.</p>
+      <p>**otherwise, keeping the Snap Stem at 17/16 may be the best bet, but you may still find yourself fiddling with the value occasionally to achieve certain results</p>
+    html_clean: |-
+      <p>Fontlab has internal tolerances set to prevent large* jumps in either CVTs or deltas. So for this instance, your jumps are still limited to 8/8s for deltas (ie. you can only delta move a point 1 pixel or 1/8 fractions thereof), but you can increase the tolerance for CVTs by opening TT Hinting Options &gt; General &gt; (increase) Stem snap precision to 32/16 of the pixel. This will allow doubling of the stem value. Note you're asking to get both 3 and 4 pixels above. The above solution could get you up to 4 pixels, but I think as long as your stem has a reasonably accurate value entered you should still be able to get 3 pixels @ 20ppm without fudging the Snap Stem much**, ie. check your measurement from the inside of the stem to the sidebearing point and make sure the 'round right' CVT entry corresponds closely to that value.</p>
+      <p>*or small, for that matter, as you can make much smaller adjustments the 1/8 pixel in TrueType, if you were so inclined, just not in Fontlab.</p>
+      <p>**otherwise, keeping the Snap Stem at 17/16 may be the best bet, but you may still find yourself fiddling with the value occasionally to achieve certain results</p>
+  - id: 478558
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Thanks. This is just the answer I was looking for.</p>
+    html_clean: <p>Thanks. This is just the answer I was looking for.</p>
+  - id: 478590
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Any way you chose to stack it, the best waay to get a bold weight Is to start with a a bold outline. ;)</p>
+    html_clean: <p>Any way you chose to stack it, the best waay to get a bold weight Is to start with a a bold outline. ;)</p>
+  - id: 478654
+    user: 23037
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>He was trying to increase the sidebearing distance, not the weight of the outline. Admittedly, doing this from the inside is somewhat odd, but the stem of the 'o' here is unrounded (again a bit odd, but not without precedence).</p>
+    html_clean: <p>He was trying to increase the sidebearing distance, not the weight of the outline. Admittedly, doing this from the inside is somewhat odd, but the stem of the 'o' here is unrounded (again a bit odd, but not without precedence).</p>
+  - id: 478720
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Funny title  for a tracking-by-hinting thread... A bit odd? how many user agents employ the hdmx table in composition?</p>
+    html_clean: <p>Funny title  for a tracking-by-hinting thread... A bit odd? how many user agents employ the hdmx table in composition?</p>
+  - id: 478723
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>David: I’m not going to add more tracking with hinting. This would be an undesirable effect. As I’m sure you understand, what I want to acheive is control over the spacing to be able to correct any rounding errors introduced by the rasterizer. My question is really simply put: “I told the rasterizer to do a certain thing but it didn’t listen. Why?”</p>
+      <p><em>how many user agents employ the hdmx table in composition?</em><br>
+      I have been looking for an explanation for what this does. From what I (think I) understand, the numbers listed in the hdmx table are the ones where delta hints are effective. Correct? But why is it necessary in the first place?</p>
+    html_clean: |-
+      <p>David: I’m not going to add more tracking with hinting. This would be an undesirable effect. As I’m sure you understand, what I want to acheive is control over the spacing to be able to correct any rounding errors introduced by the rasterizer. My question is really simply put: “I told the rasterizer to do a certain thing but it didn’t listen. Why?”</p>
+      <p><em>how many user agents employ the hdmx table in composition?</em><br>
+      I have been looking for an explanation for what this does. From what I (think I) understand, the numbers listed in the hdmx table are the ones where delta hints are effective. Correct? But why is it necessary in the first place?</p>
+  - id: 478733
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Frank: “I told the rasterizer to do a certain thing but it didn’t listen."</p>
+      <p>It "hears" three things on the Mac and 8 things on Windows...</p>
+      <p>Frank: "Why?”</p>
+      <p>Competition!</p>
+      <p>Frank: "But why is it necessary in the first place?"</p>
+      <p>There are two sources of metrics for a font rasterized at any ppm, the integer values in the hdmx table and the unrounded widths of the outlines. </p>
+      <p>Together with the subpixel positioning, you get a lot of different results.</p>
+    html_clean: |-
+      <p>Frank: “I told the rasterizer to do a certain thing but it didn’t listen."</p>
+      <p>It "hears" three things on the Mac and 8 things on Windows...</p>
+      <p>Frank: "Why?”</p>
+      <p>Competition!</p>
+      <p>Frank: "But why is it necessary in the first place?"</p>
+      <p>There are two sources of metrics for a font rasterized at any ppm, the integer values in the hdmx table and the unrounded widths of the outlines. </p>
+      <p>Together with the subpixel positioning, you get a lot of different results.</p>

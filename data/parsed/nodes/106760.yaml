@@ -1,0 +1,141 @@
+node: 106760
+title: Interpolating OT kerning
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141012030649"
+  captured_at: 2014-10-12T03:06:49Z
+  url: http://typophile.com:80/node/106760
+  digest: WEBCFX7BVEPU2BICBI7MQMNHC2UMCEE5
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106760.html
+  fingerprint: c7acfc61d9027867
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141012030649"
+      digest: WEBCFX7BVEPU2BICBI7MQMNHC2UMCEE5
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106760.html
+post:
+  id: 106760
+  user: 19417
+  date: 2013-10-13T23:34:00
+  date_raw: 13 Oct 2013 — 11:34pm
+  votes: null
+  html: <p>I’ve kerned two weights in MetricsMachine. These weights are being Superpolated, but I just found out that Superpolator ignores the OT kerning. So, how do you interpolate the kerning between the two? There’s 6000 pairs in both master weights.</p>
+  html_clean: <p>I’ve kerned two weights in MetricsMachine. These weights are being Superpolated, but I just found out that Superpolator ignores the OT kerning. So, how do you interpolate the kerning between the two? There’s 6000 pairs in both master weights.</p>
+comments:
+  - id: 565595
+    user: 19417
+    date: 2013-10-14T05:00:00
+    date_raw: 14 Oct 2013 — 5:00am
+    votes: null
+    html: <p>Working in Fontlab, by the way.</p>
+    html_clean: <p>Working in Fontlab, by the way.</p>
+  - id: 565598
+    user: 21687
+    date: 2013-10-14T06:47:00
+    date_raw: 14 Oct 2013 — 6:47am
+    votes: null
+    html: <p>How do you use MetricsMachine/Superpolator in FontLab?</p>
+    html_clean: <p>How do you use MetricsMachine/Superpolator in FontLab?</p>
+  - id: 565607
+    user: 19417
+    date: 2013-10-14T07:56:00
+    date_raw: 14 Oct 2013 — 7:56am
+    votes: null
+    html: <p>Sounds like a trick question... but I drew both weights in FL. Then built the groups in MeMa and kerned both weights there. Copied all groups and OT kern data to FL. Exported the UFO to Superpolator, where I generated an instance to notice the OT kerns were not right.</p>
+    html_clean: <p>Sounds like a trick question... but I drew both weights in FL. Then built the groups in MeMa and kerned both weights there. Copied all groups and OT kern data to FL. Exported the UFO to Superpolator, where I generated an instance to notice the OT kerns were not right.</p>
+  - id: 565609
+    user: 21687
+    date: 2013-10-14T08:08:00
+    date_raw: 14 Oct 2013 — 8:08am
+    votes: null
+    html: |-
+      <p>No trick question intended ;)</p>
+      <p>Perhaps try to save the kerning from MetricsMachine directly into the UFO (as a kern feature) which you then open in Superpolator. It’s really hard to get the kerning from MetricsMachine into FontLab accurately and completely. So try to avoid going through FontLab a second time.</p>
+      <p>FontLab → UFO → MetricsMachine → UFO → Superpolator</p>
+    html_clean: |-
+      <p>No trick question intended ;)</p>
+      <p>Perhaps try to save the kerning from MetricsMachine directly into the UFO (as a kern feature) which you then open in Superpolator. It’s really hard to get the kerning from MetricsMachine into FontLab accurately and completely. So try to avoid going through FontLab a second time.</p>
+      <p>FontLab → UFO → MetricsMachine → UFO → Superpolator</p>
+  - id: 565625
+    user: 19417
+    date: 2013-10-14T10:42:00
+    date_raw: 14 Oct 2013 — 10:42am
+    votes: null
+    html: <p>Thanks Jens, I'll try this. But isn't the data in MeMa UFO just similar OT kern feature code? Do you know if the master's pairs have to be identical? To reduce the number of pairs, I've decided to leave the zero kern pairs out.</p>
+    html_clean: <p>Thanks Jens, I'll try this. But isn't the data in MeMa UFO just similar OT kern feature code? Do you know if the master's pairs have to be identical? To reduce the number of pairs, I've decided to leave the zero kern pairs out.</p>
+  - id: 565638
+    user: 19417
+    date: 2013-10-14T13:11:00
+    date_raw: 14 Oct 2013 — 1:11pm
+    votes: null
+    html: <p>Ok, it works if I take the superpolated UFO back to MeMa and export the feature file to FL. Nice workflow!</p>
+    html_clean: <p>Ok, it works if I take the superpolated UFO back to MeMa and export the feature file to FL. Nice workflow!</p>
+  - id: 565680
+    user: 21687
+    date: 2013-10-15T07:03:00
+    date_raw: 15 Oct 2013 — 7:03am
+    votes: null
+    html: |-
+      <blockquote><p>But isn't the data in MeMa UFO just similar OT kern feature code?</p></blockquote>
+      <p>I think they are similar, but FontLab will not work well with kern feature code that is copied into its OpenType panel. It is likely to get removed or replaced with kerning data from its Metrics window (which may contain no kerning data, resulting in an empty kern feature) when generating fonts or exporting to UFO.</p>
+    html_clean: |-
+      <blockquote><p>But isn't the data in MeMa UFO just similar OT kern feature code?</p></blockquote>
+      <p>I think they are similar, but FontLab will not work well with kern feature code that is copied into its OpenType panel. It is likely to get removed or replaced with kerning data from its Metrics window (which may contain no kerning data, resulting in an empty kern feature) when generating fonts or exporting to UFO.</p>
+  - id: 565681
+    user: 1043
+    date: 2013-10-15T07:59:00
+    date_raw: 15 Oct 2013 — 7:59am
+    votes: null
+    html: |-
+      <p>It is possible to work with OT kern feature data from Metrics Machine in FontLab if you have pasted it into the OT window in FontLab if you say "no" to any attempt by FontLab to "update" the kern feature (it always asks first).</p>
+      <p>A better way is to use an "include" statement in the lower right pane of FontLab's OT window linked to an external text file containing the kern feature from Metrics Machine. That way, even if FontLab "updates" the kern feature, it won't do any harm. You can just delete it.</p>
+    html_clean: |-
+      <p>It is possible to work with OT kern feature data from Metrics Machine in FontLab if you have pasted it into the OT window in FontLab if you say "no" to any attempt by FontLab to "update" the kern feature (it always asks first).</p>
+      <p>A better way is to use an "include" statement in the lower right pane of FontLab's OT window linked to an external text file containing the kern feature from Metrics Machine. That way, even if FontLab "updates" the kern feature, it won't do any harm. You can just delete it.</p>
+  - id: 566384
+    user: 1137
+    date: 2013-10-27T10:06:00
+    date_raw: 27 Oct 2013 — 10:06am
+    votes: null
+    html: "<p>@Mark: Can you post an example of such 'include' statement? Thanks in advance.</p>"
+    html_clean: "<p>@Mark: Can you post an example of such 'include' statement? Thanks in advance.</p>"
+  - id: 566386
+    user: 1137
+    date: 2013-10-27T10:09:00
+    date_raw: 27 Oct 2013 — 10:09am
+    votes: null
+    html: "<p>@Mark: Can you post an example of such 'include' statement? Thanks in advance.</p>"
+    html_clean: "<p>@Mark: Can you post an example of such 'include' statement? Thanks in advance.</p>"
+  - id: 566522
+    user: 1043
+    date: 2013-10-31T19:44:00
+    date_raw: 31 Oct 2013 — 7:44pm
+    votes: null
+    html: |-
+      <p>Like this:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/include_6358.png"></div><p></p>
+      <p>In this case, I've got two feature files, "common.fea" and "italic.fea" because there are some exceptions with the italic styles. I also have a "roman.fea" for the romans. The "../../" is because the feature files happen to be two folder levels up from the .vfb files. </p>
+      <p>The same thing works with kerning feature files from Metrics Machine.</p>
+    html_clean: |-
+      <p>Like this:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/include_6358.png"></div><p></p>
+      <p>In this case, I've got two feature files, "common.fea" and "italic.fea" because there are some exceptions with the italic styles. I also have a "roman.fea" for the romans. The "../../" is because the feature files happen to be two folder levels up from the .vfb files. </p>
+      <p>The same thing works with kerning feature files from Metrics Machine.</p>

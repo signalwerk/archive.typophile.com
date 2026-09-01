@@ -1,0 +1,245 @@
+node: 84162
+title: Using fontlab to create a type that substitutes the first letter of a sentence with a different glyph.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20110915172428"
+  captured_at: 2011-09-15T17:24:28Z
+  url: http://typophile.com/node/84162
+  digest: LM6J35XI6VHJHWBOLBC5GRKAXW3YWOQA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/84162.html
+  fingerprint: 42b71a87f3252ea2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20110915172428"
+      digest: LM6J35XI6VHJHWBOLBC5GRKAXW3YWOQA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84162.html
+post:
+  id: 84162
+  user: 173898
+  date: 2011-07-29T18:43:00
+  date_raw: 29.Jul.2011 6.43pm
+  votes: null
+  html: |-
+    <p>I don't know much about the use of conditions in creating a font. To try and get this to work I generated a glyph for the letter A and called it A.begin. I then changed the glyph and added this rule in the Open Type console:</p>
+    <p>feature diff {<br>
+     substitute period space A' by A.begin;<br>
+    } diff;</p>
+    <p>But it didn't work.</p>
+    <p>I'm a programmer so I get logical conditions but I just can't find the documentation for this. Any pointers will be much appreciated.</p>
+  html_clean: |-
+    <p>I don't know much about the use of conditions in creating a font. To try and get this to work I generated a glyph for the letter A and called it A.begin. I then changed the glyph and added this rule in the Open Type console:</p>
+    <p>feature diff {<br>
+     substitute period space A' by A.begin;<br>
+    } diff;</p>
+    <p>But it didn't work.</p>
+    <p>I'm a programmer so I get logical conditions but I just can't find the documentation for this. Any pointers will be much appreciated.</p>
+comments:
+  - id: 472475
+    user: 14722
+    date: null
+    date_raw: null
+    votes: null
+    html: '<p>Use CALT: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>'
+    html_clean: '<p>Use CALT: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>'
+  - id: 472478
+    user: 173898
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Wow, I take it back, that documentation is like a different language.</p>
+    html_clean: <p>Wow, I take it back, that documentation is like a different language.</p>
+  - id: 472481
+    user: 14722
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Sorry, I didn't realize that the feature file spec doesn't explain CALT specifically. Here's what your code should be:</p>
+      <p>feature calt {<br>
+          sub period space A' by A.begin;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>Sorry, I didn't realize that the feature file spec doesn't explain CALT specifically. Here's what your code should be:</p>
+      <p>feature calt {<br>
+          sub period space A' by A.begin;<br>
+      } calt;</p>
+  - id: 472482
+    user: 14722
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>And the sub line needs to be indented, but typophile kills my spaces.</p>
+    html_clean: <p>And the sub line needs to be indented, but typophile kills my spaces.</p>
+  - id: 472484
+    user: 173898
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Thanks for that! Is there something to indicate the beginning of a paragraph? Because obviously there is no period space for those cases....</p>
+    html_clean: <p>Thanks for that! Is there something to indicate the beginning of a paragraph? Because obviously there is no period space for those cases....</p>
+  - id: 472511
+    user: 6470
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>And the sub line needs to be indented, but typophile kills my spaces.</em></p>
+      <p>Enclose the code within the html tags</p>
+      <p><code>&lt;code&gt;<br>
+        &nbsp;   &nbsp; spaces&lt;/code&gt;</code></p>
+      <p>and pad with non-breaking spaces, i.e., &amp;nbsp;</p>
+    html_clean: |-
+      <p><em>And the sub line needs to be indented, but typophile kills my spaces.</em></p>
+      <p>Enclose the code within the html tags</p>
+      <p><code>&lt;code&gt;<br>
+        &nbsp;   &nbsp; spaces&lt;/code&gt;</code></p>
+      <p>and pad with non-breaking spaces, i.e., &amp;nbsp;</p>
+  - id: 472513
+    user: 1043
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>It's not possible to test for things like paragraphs and sentences in OT feature code. You can only test for glyphs or runs of glyphs. This makes it possible to test for words because they usually only contain letters and are surrounded by non-letters. Paragraphs and sentences are not as clear cut, plus you can't test for return or line feeds.</p>
+    html_clean: <p>It's not possible to test for things like paragraphs and sentences in OT feature code. You can only test for glyphs or runs of glyphs. This makes it possible to test for words because they usually only contain letters and are surrounded by non-letters. Paragraphs and sentences are not as clear cut, plus you can't test for return or line feeds.</p>
+  - id: 472523
+    user: 173898
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Is there a way of saying always substitute A' with A.begin unless there is 'any character' space A' ?</p>
+    html_clean: <p>Is there a way of saying always substitute A' with A.begin unless there is 'any character' space A' ?</p>
+  - id: 472528
+    user: 2021
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Use "ignore".<br>
+      It's in the FontLab manual.</p>
+    html_clean: |-
+      <p>Use "ignore".<br>
+      It's in the FontLab manual.</p>
+  - id: 472542
+    user: 1043
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>James, you must be thinking of Python. Indents don't matter in (AFDKO) feature syntax, except to make it easier to follow for humans. In fact, you can lay it out any way you like as long as you get your curly braces and semicolons in the right places.</p>
+    html_clean: <p>James, you must be thinking of Python. Indents don't matter in (AFDKO) feature syntax, except to make it easier to follow for humans. In fact, you can lay it out any way you like as long as you get your curly braces and semicolons in the right places.</p>
+  - id: 472543
+    user: 173898
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>nailed it</p>
+      <p><code><br>
+      feature calt {<br>
+      &nbsp;&nbsp;&nbsp;	@IGNORE = [A-Z a-z A.begin - Z.begin ampersand quotedbl numbersign dollar percent ampersand |craploads more here| ];<br>
+      &nbsp;&nbsp;&nbsp;	@CAPS = [A-Z];<br>
+      &nbsp;&nbsp;&nbsp;	ignore sub @IGNORE @CAPS';<br>
+      &nbsp;&nbsp;&nbsp;	ignore sub @IGNORE space @CAPS';<br>
+      &nbsp;&nbsp;&nbsp;	sub A' by A.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub B' by B.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub C' by C.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub D' by D.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub E' by E.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub F' by F.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub G' by G.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub H' by H.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub I' by I.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub J' by J.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub K' by K.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub L' by L.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub M' by M.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub N' by N.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub O' by O.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub P' by P.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Q' by Q.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub R' by R.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub S' by S.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub T' by T.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub U' by U.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub V' by V.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub W' by W.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub X' by X.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Y' by Y.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Z' by Z.begin;<br>
+      } calt;</code></p>
+    html_clean: |-
+      <p>nailed it</p>
+      <p><code><br>
+      feature calt {<br>
+      &nbsp;&nbsp;&nbsp;	@IGNORE = [A-Z a-z A.begin - Z.begin ampersand quotedbl numbersign dollar percent ampersand |craploads more here| ];<br>
+      &nbsp;&nbsp;&nbsp;	@CAPS = [A-Z];<br>
+      &nbsp;&nbsp;&nbsp;	ignore sub @IGNORE @CAPS';<br>
+      &nbsp;&nbsp;&nbsp;	ignore sub @IGNORE space @CAPS';<br>
+      &nbsp;&nbsp;&nbsp;	sub A' by A.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub B' by B.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub C' by C.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub D' by D.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub E' by E.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub F' by F.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub G' by G.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub H' by H.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub I' by I.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub J' by J.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub K' by K.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub L' by L.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub M' by M.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub N' by N.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub O' by O.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub P' by P.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Q' by Q.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub R' by R.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub S' by S.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub T' by T.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub U' by U.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub V' by V.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub W' by W.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub X' by X.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Y' by Y.begin;<br>
+      &nbsp;&nbsp;&nbsp;	sub Z' by Z.begin;<br>
+      } calt;</code></p>
+  - id: 472669
+    user: 909
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>You know, if you are careful to keep each block of GIDs contiguous, you can shorten 26 lines of that code to:</p>
+      <p>sub [A - Z]' by [A.begin - Z.begin];</p>
+      <p>See: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.i" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.i">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>You know, if you are careful to keep each block of GIDs contiguous, you can shorten 26 lines of that code to:</p>
+      <p>sub [A - Z]' by [A.begin - Z.begin];</p>
+      <p>See: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.i" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.g.i">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 472673
+    user: 1043
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>By the way: If you post OT feature code here and use non-breaking spaces (i.e., &amp;nbsp;) to force display of indents, the code will not compile if it is copied and used as is.</p>"
+    html_clean: "<p>By the way: If you post OT feature code here and use non-breaking spaces (i.e., &amp;nbsp;) to force display of indents, the code will not compile if it is copied and used as is.</p>"

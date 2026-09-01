@@ -1,0 +1,96 @@
+node: 102563
+title: Contextual alternate feature – confusion
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420022407"
+  captured_at: 2015-04-20T02:24:07Z
+  url: http://typophile.com/node/102563
+  digest: IEC7JWLPMKJWEQWDTB3EHLBUBP67OZUR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/102563.html
+  fingerprint: 806aae8b107ad3a4
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420022407"
+      digest: IEC7JWLPMKJWEQWDTB3EHLBUBP67OZUR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/102563.html
+post:
+  id: 102563
+  user: 211019
+  date: 2013-04-26T07:56:00
+  date_raw: 26 Apr 2013 — 7:56am
+  votes: null
+  html: |-
+    <p>Hello,</p>
+    <p>I have a font that i'd like to utilise the calt feature, and have found Thomas Phinney's article [http://forums.adobe.com/thread/395648], among others [http://typophile.com/node/19625] to be most helpful. YET I still can't get my head around writing the feature so that it creates a more 'random' outcome.</p>
+    <p>The details are:<br>
+    – x3 variants for all characters<br>
+    – x3 classes [00 / 01 / 02] including one of each character, 79 characters in total [A–Z, a–z, 0-9, punctuation]<br>
+    – feature currently looks like:</p>
+    <p>feature calt {<br>
+    lookup calt_one {<br>
+    sub @set_00 @set_00' by @set_01;<br>
+    sub @set_01 @set_00' by @set_02;<br>
+    } calt_one;</p>
+    <p>lookup calt_two {<br>
+    sub @set_02 @set_00' by @set_02;<br>
+    sub @set_01 @set_02' by @set_00;<br>
+    sub @set_01 @set_00' by @set_02;<br>
+    sub @set_00 @set_01' by @set_02;<br>
+    } calt_two;</p>
+    <p>sub @set_00 space @set_00' by @set_01;<br>
+    sub @set_01 space @set_00' by @set_02;<br>
+    } calt;</p>
+    <p>– the result being:</p>
+    <p>00  02  02  02  01  00  00  02  02  02  01  00 ...</p>
+    <p>+ after a 'space' the pattern resets</p>
+    <p>– I also have a fourth alternate for a handful of characters. I've not yet put them into the equation, is this something that is possible or do I have to have the same number of alternates for each character regarding this contextual random feature?</p>
+    <p>I just wondered if it's seemingly obvious what the mistake is that i'm making, and if anyone could possible help...?!</p>
+    <p>Thanks,</p>
+    <p>emma</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I have a font that i'd like to utilise the calt feature, and have found Thomas Phinney's article [http://forums.adobe.com/thread/395648], among others [http://typophile.com/node/19625] to be most helpful. YET I still can't get my head around writing the feature so that it creates a more 'random' outcome.</p>
+    <p>The details are:<br>
+    – x3 variants for all characters<br>
+    – x3 classes [00 / 01 / 02] including one of each character, 79 characters in total [A–Z, a–z, 0-9, punctuation]<br>
+    – feature currently looks like:</p>
+    <p>feature calt {<br>
+    lookup calt_one {<br>
+    sub @set_00 @set_00' by @set_01;<br>
+    sub @set_01 @set_00' by @set_02;<br>
+    } calt_one;</p>
+    <p>lookup calt_two {<br>
+    sub @set_02 @set_00' by @set_02;<br>
+    sub @set_01 @set_02' by @set_00;<br>
+    sub @set_01 @set_00' by @set_02;<br>
+    sub @set_00 @set_01' by @set_02;<br>
+    } calt_two;</p>
+    <p>sub @set_00 space @set_00' by @set_01;<br>
+    sub @set_01 space @set_00' by @set_02;<br>
+    } calt;</p>
+    <p>– the result being:</p>
+    <p>00  02  02  02  01  00  00  02  02  02  01  00 ...</p>
+    <p>+ after a 'space' the pattern resets</p>
+    <p>– I also have a fourth alternate for a handful of characters. I've not yet put them into the equation, is this something that is possible or do I have to have the same number of alternates for each character regarding this contextual random feature?</p>
+    <p>I just wondered if it's seemingly obvious what the mistake is that i'm making, and if anyone could possible help...?!</p>
+    <p>Thanks,</p>
+    <p>emma</p>
+comments: []

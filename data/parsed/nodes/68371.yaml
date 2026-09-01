@@ -1,0 +1,516 @@
+node: 68371
+title: Trouble getting Contextual Alternates to alternate
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100323041155"
+  captured_at: 2010-03-23T04:11:55Z
+  url: http://www.typophile.com:80/node/68371
+  digest: 7XQ3TQGJEJRODCN3YSGJM3YV7E77ABMH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/68371.html
+  fingerprint: c50fa86e6a943f7e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100323041155"
+      digest: 7XQ3TQGJEJRODCN3YSGJM3YV7E77ABMH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/68371.html
+post:
+  id: 68371
+  user: 27336
+  date: 2010-03-13T02:38:00
+  date_raw: 13.Mar.2010 2.38am
+  votes: null
+  html: |-
+    <p>I am working on a script font where several letters have 2 versions: one swashed (main) and one plain (alternate). When the same letter comes twice in a row I want to switch one of them around - to avoid colliding swashes.</p>
+    <p>I mainly use the calt feature like this: sub l l' by l.calt;<br>
+    This works as expected, and if I keep repeating the letter the two versions alternate all the way.</p>
+    <p>But sometimes I want to switch the first letter: sub g' g by g.calt;<br>
+    When I now keep repeating the letter I just get a long row of the switched glyph with the original glyph at the end - no continous alternation. How do I write the code to avoid this?</p>
+    <p>For simple letter pairs this is just a minor niggle (I really don't expect text to be set with many identical letters in a row), but as I want to group/class similar letters to also avoid collisions between different letters, I need to get this sorted.</p>
+    <p>I would really appreciate some input from someone with a better grasp on OpenType feature programming than myself ;)</p>
+  html_clean: |-
+    <p>I am working on a script font where several letters have 2 versions: one swashed (main) and one plain (alternate). When the same letter comes twice in a row I want to switch one of them around - to avoid colliding swashes.</p>
+    <p>I mainly use the calt feature like this: sub l l' by l.calt;<br>
+    This works as expected, and if I keep repeating the letter the two versions alternate all the way.</p>
+    <p>But sometimes I want to switch the first letter: sub g' g by g.calt;<br>
+    When I now keep repeating the letter I just get a long row of the switched glyph with the original glyph at the end - no continous alternation. How do I write the code to avoid this?</p>
+    <p>For simple letter pairs this is just a minor niggle (I really don't expect text to be set with many identical letters in a row), but as I want to group/class similar letters to also avoid collisions between different letters, I need to get this sorted.</p>
+    <p>I would really appreciate some input from someone with a better grasp on OpenType feature programming than myself ;)</p>
+comments:
+  - id: 401128
+    user: 45774
+    date: 2010-03-13T03:54:00
+    date_raw: 13.Mar.2010 3.54am
+    votes: null
+    html: |-
+      <p>Continues alternation, second one of each pair replaced:</p>
+      <p>sub g g' g by g.calt;<br>
+      sub g.calt g g' by g.calt;</p>
+      <p>Continues alternation, first one of each pair replaced:</p>
+      <p>sub g by g.calt;<br>
+      sub g.calt g.calt' g.calt by g;<br>
+      sub g g.calt g.calt' by g;</p>
+      <p>Both successfully tested in FontLab. Is this that, what you were searching for?</p>
+    html_clean: |-
+      <p>Continues alternation, second one of each pair replaced:</p>
+      <p>sub g g' g by g.calt;<br>
+      sub g.calt g g' by g.calt;</p>
+      <p>Continues alternation, first one of each pair replaced:</p>
+      <p>sub g by g.calt;<br>
+      sub g.calt g.calt' g.calt by g;<br>
+      sub g g.calt g.calt' by g;</p>
+      <p>Both successfully tested in FontLab. Is this that, what you were searching for?</p>
+  - id: 401130
+    user: 27336
+    date: 2010-03-13T04:41:00
+    date_raw: 13.Mar.2010 4.41am
+    votes: null
+    html: |-
+      <p>Thanks for your input! :)</p>
+      <p>Your first block: well, this was never a problem - it worked with a simple "sub l l' by l.calt;". They way you suggest it it looks like only three-letter repeats will be changed, and not double-letters...? I haven't tried it out, though - as I already had a working solution.</p>
+      <p>Your second block: will not the first sub change every single-letter occurrence of the letter to the alternate form, too? Wouldn't want that...</p>
+      <p>After some experimentation I have almost sussed it - using lookups! :)<br>
+      This is very close to working:</p>
+      <p>lookup calt1 {<br>
+         sub g' g by g.calt;<br>
+      } calt1 ;<br>
+      lookup calt2 {<br>
+         sub g.calt g.calt' by g;<br>
+      } calt2 ;</p>
+      <p>Only caveat is that with odd repeats of letters the last two in the sequence will be the colliding main forms. Hmm... My head hurts from trying to find a perfect solution to this... ;)</p>
+    html_clean: |-
+      <p>Thanks for your input! :)</p>
+      <p>Your first block: well, this was never a problem - it worked with a simple "sub l l' by l.calt;". They way you suggest it it looks like only three-letter repeats will be changed, and not double-letters...? I haven't tried it out, though - as I already had a working solution.</p>
+      <p>Your second block: will not the first sub change every single-letter occurrence of the letter to the alternate form, too? Wouldn't want that...</p>
+      <p>After some experimentation I have almost sussed it - using lookups! :)<br>
+      This is very close to working:</p>
+      <p>lookup calt1 {<br>
+         sub g' g by g.calt;<br>
+      } calt1 ;<br>
+      lookup calt2 {<br>
+         sub g.calt g.calt' by g;<br>
+      } calt2 ;</p>
+      <p>Only caveat is that with odd repeats of letters the last two in the sequence will be the colliding main forms. Hmm... My head hurts from trying to find a perfect solution to this... ;)</p>
+  - id: 401134
+    user: 45774
+    date: 2010-03-13T05:40:00
+    date_raw: 13.Mar.2010 5.40am
+    votes: null
+    html: |-
+      <p>let’s stay with the g.</p>
+      <p>sub g g' by g.calt;</p>
+      <p>results in:</p>
+      <p>g  g.calt g.calt g.calt  g.calt …</p>
+      <p>if followed by</p>
+      <p>sub g.calt g.calt' by g;</p>
+      <p>the result is probably:</p>
+      <p>g g.calt g g g g …</p>
+      <p>M Y  P R O P O S A L</p>
+      <p>sub g g' g by g.calt;<br>
+      sub g.calt g g' by g.calt;</p>
+      <p>results in</p>
+      <p>g g.calt g g.calt g g.calt g g.calt …</p>
+      <p>and</p>
+      <p>sub g by g.calt;<br>
+      sub g.calt g.calt' g.calt by g;<br>
+      sub g g.calt g.calt' by g;</p>
+      <p>results in</p>
+      <p>g.calt g g.calt g g.calt g g.calt g …</p>
+      <p>I think, I would understand your wish better, if you post the output, that you want to have.</p>
+      <p>Would you like to have one of the following outputs?:</p>
+      <p>g g g g g g g g.calt</p>
+      <p>or</p>
+      <p>g g g g g g g.calt g</p>
+      <p>The first one probably works in this way:</p>
+      <p>ignore sub g' g;<br>
+      sub g' by g.calt;</p>
+      <p>The second one should work in this way:</p>
+      <p>ignore sub g' g g;<br>
+      sub g' by g.calt;<br>
+      sub g.calt g.calt' by g;</p>
+      <p>or</p>
+      <p>ignore sub g' g g;<br>
+      sub g' g by g.calt;</p>
+      <p>This time untested.</p>
+    html_clean: |-
+      <p>let’s stay with the g.</p>
+      <p>sub g g' by g.calt;</p>
+      <p>results in:</p>
+      <p>g  g.calt g.calt g.calt  g.calt …</p>
+      <p>if followed by</p>
+      <p>sub g.calt g.calt' by g;</p>
+      <p>the result is probably:</p>
+      <p>g g.calt g g g g …</p>
+      <p>M Y  P R O P O S A L</p>
+      <p>sub g g' g by g.calt;<br>
+      sub g.calt g g' by g.calt;</p>
+      <p>results in</p>
+      <p>g g.calt g g.calt g g.calt g g.calt …</p>
+      <p>and</p>
+      <p>sub g by g.calt;<br>
+      sub g.calt g.calt' g.calt by g;<br>
+      sub g g.calt g.calt' by g;</p>
+      <p>results in</p>
+      <p>g.calt g g.calt g g.calt g g.calt g …</p>
+      <p>I think, I would understand your wish better, if you post the output, that you want to have.</p>
+      <p>Would you like to have one of the following outputs?:</p>
+      <p>g g g g g g g g.calt</p>
+      <p>or</p>
+      <p>g g g g g g g.calt g</p>
+      <p>The first one probably works in this way:</p>
+      <p>ignore sub g' g;<br>
+      sub g' by g.calt;</p>
+      <p>The second one should work in this way:</p>
+      <p>ignore sub g' g g;<br>
+      sub g' by g.calt;<br>
+      sub g.calt g.calt' by g;</p>
+      <p>or</p>
+      <p>ignore sub g' g g;<br>
+      sub g' g by g.calt;</p>
+      <p>This time untested.</p>
+  - id: 401140
+    user: 27336
+    date: 2010-03-13T05:39:00
+    date_raw: 13.Mar.2010 5.39am
+    votes: null
+    html: |-
+      <p>sub g g' by g.calt;<br>
+      actually results in g g.calt g g.calt g g.calt ... just as I want it to when the second letter in a pair should be switched. Easy. ;)</p>
+      <p>The problem is when I want to sub the first letter in a pair (because the combination alt/main looks better that way).<br>
+      For repeated letters the perfect solution would be code that generates the result:<br>
+      g.calt g g.calt g .... when there are even repetitions, and<br>
+      g g.calt g g.calt g ... when there are odd repetitions<br>
+      But that would probably take some sort of backwards changing in the text string that I'm not even sure is possible...</p>
+    html_clean: |-
+      <p>sub g g' by g.calt;<br>
+      actually results in g g.calt g g.calt g g.calt ... just as I want it to when the second letter in a pair should be switched. Easy. ;)</p>
+      <p>The problem is when I want to sub the first letter in a pair (because the combination alt/main looks better that way).<br>
+      For repeated letters the perfect solution would be code that generates the result:<br>
+      g.calt g g.calt g .... when there are even repetitions, and<br>
+      g g.calt g g.calt g ... when there are odd repetitions<br>
+      But that would probably take some sort of backwards changing in the text string that I'm not even sure is possible...</p>
+  - id: 401142
+    user: 45774
+    date: 2010-03-13T06:11:00
+    date_raw: 13.Mar.2010 6.11am
+    votes: null
+    html: |-
+      <p>Looks like a loop would be required after</p>
+      <p>ignore sub g' g g;<br>
+      sub g' g by g.calt;</p>
+      <p>But actually I don’t have an idea. But I am tired. Maybe I find an elegant solution later.</p>
+      <p><cite>sub g g' by g.calt;<br>
+      actually results in g g.calt g g.calt g g.calt</cite></p>
+      <p>Sure? I thought, that I had unsuccessfully tested it in FontLab. Normally all letters g, that are successors of letters g should be substituted. But again I am tired. Maybe I am actually messing it up.</p>
+    html_clean: |-
+      <p>Looks like a loop would be required after</p>
+      <p>ignore sub g' g g;<br>
+      sub g' g by g.calt;</p>
+      <p>But actually I don’t have an idea. But I am tired. Maybe I find an elegant solution later.</p>
+      <p><cite>sub g g' by g.calt;<br>
+      actually results in g g.calt g g.calt g g.calt</cite></p>
+      <p>Sure? I thought, that I had unsuccessfully tested it in FontLab. Normally all letters g, that are successors of letters g should be substituted. But again I am tired. Maybe I am actually messing it up.</p>
+  - id: 401143
+    user: 27336
+    date: 2010-03-13T06:33:00
+    date_raw: 13.Mar.2010 6.33am
+    votes: null
+    html: |-
+      <p>Yeah, it is straining my brain, too... ;)<br>
+      But I suddenly noticed that you have used "ignore" on some subs. I'll study up on what that syntax can do...<br>
+      (and it is a bit confusing when you edit your posts after I have read them ;)<br>
+      Thanks again for the input. :)</p>
+    html_clean: |-
+      <p>Yeah, it is straining my brain, too... ;)<br>
+      But I suddenly noticed that you have used "ignore" on some subs. I'll study up on what that syntax can do...<br>
+      (and it is a bit confusing when you edit your posts after I have read them ;)<br>
+      Thanks again for the input. :)</p>
+  - id: 401154
+    user: 45774
+    date: 2010-03-13T08:15:00
+    date_raw: 13.Mar.2010 8.15am
+    votes: null
+    html: |-
+      <p>Actually I only see a step by step solution, but no way to program a kind of backwards loop – a substitution beginning with the end of a string. The contradiction of elegance.</p>
+      <p>Maybe the problem would not appear, if the alternates would be your standard letters and the actual standard letters the alternates.</p>
+    html_clean: |-
+      <p>Actually I only see a step by step solution, but no way to program a kind of backwards loop – a substitution beginning with the end of a string. The contradiction of elegance.</p>
+      <p>Maybe the problem would not appear, if the alternates would be your standard letters and the actual standard letters the alternates.</p>
+  - id: 401196
+    user: 27336
+    date: 2010-03-13T12:41:00
+    date_raw: 13.Mar.2010 12.41pm
+    votes: null
+    html: |-
+      <p>The basic letters have looped ascenders/descenders. When there are two consecutive loops (overlapping) I want to switch one letter to a straight form "piercing" the (other) loop. So for the ascenders the loop goes to the right, and the right letter has to switch. Easy. But the descenders are looped to the left, so the left letter has to switch. Which looks to be difficult to program for alternate substitution for multiple loops. Bummer.<br>
+      I think I have to compromise a bit... Perhaps it is possible to program it (for odd numbers of loops) so that I get the sequence "g.calt g g.calt g ... g.calt g g.calt g.calt g"? So ending the sequence with two consecutive straighs and one final loop? Can that be done?</p>
+    html_clean: |-
+      <p>The basic letters have looped ascenders/descenders. When there are two consecutive loops (overlapping) I want to switch one letter to a straight form "piercing" the (other) loop. So for the ascenders the loop goes to the right, and the right letter has to switch. Easy. But the descenders are looped to the left, so the left letter has to switch. Which looks to be difficult to program for alternate substitution for multiple loops. Bummer.<br>
+      I think I have to compromise a bit... Perhaps it is possible to program it (for odd numbers of loops) so that I get the sequence "g.calt g g.calt g ... g.calt g g.calt g.calt g"? So ending the sequence with two consecutive straighs and one final loop? Can that be done?</p>
+  - id: 401201
+    user: 6470
+    date: 2010-03-13T14:50:00
+    date_raw: 13.Mar.2010 2.50pm
+    votes: null
+    html: <p>I don't know if this is relevant, but apparently there isn't a single word in the English language containing three gs in a row...</p>
+    html_clean: <p>I don't know if this is relevant, but apparently there isn't a single word in the English language containing three gs in a row...</p>
+  - id: 401204
+    user: 27336
+    date: 2010-03-13T15:35:00
+    date_raw: 13.Mar.2010 3.35pm
+    votes: null
+    html: |-
+      <p>It is just an example - to keep it simple while discussing... ;)<br>
+      The plan is to expand the feature so that ANY sequence of overlapping looped letters will have the switching!<br>
+      There are MANY words that contain more than two of the letters "b d h k l" or "g j p y" in a row, and I want the calt feature to fix all these...</p>
+    html_clean: |-
+      <p>It is just an example - to keep it simple while discussing... ;)<br>
+      The plan is to expand the feature so that ANY sequence of overlapping looped letters will have the switching!<br>
+      There are MANY words that contain more than two of the letters "b d h k l" or "g j p y" in a row, and I want the calt feature to fix all these...</p>
+  - id: 401237
+    user: 45774
+    date: 2010-03-14T00:00:00
+    date_raw: 14.Mar.2010 12.00am
+    votes: null
+    html: |-
+      <p>Okay, here is the dirty solution. (Personally I hate those solutions.) You can extend it. Actually it is enough to cover a string with a maximum of 32 letters, that have an alternate. If the string is broken by a letter, that does not have an alternate, the feature applies to both parts of the string and both parts can consist of a maximum of 32 letters. (For those ones, that have not read the whole thread: g and g.calt need to be replaced by classes.)</p>
+      <p>feature calt {<br>
+      ignore sub g' g;<br>
+      sub g' by g.calt;<br>
+      lookup CALT_1 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_1;<br>
+      lookup CALT_2 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_2;<br>
+      lookup CALT_3 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_3;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>Okay, here is the dirty solution. (Personally I hate those solutions.) You can extend it. Actually it is enough to cover a string with a maximum of 32 letters, that have an alternate. If the string is broken by a letter, that does not have an alternate, the feature applies to both parts of the string and both parts can consist of a maximum of 32 letters. (For those ones, that have not read the whole thread: g and g.calt need to be replaced by classes.)</p>
+      <p>feature calt {<br>
+      ignore sub g' g;<br>
+      sub g' by g.calt;<br>
+      lookup CALT_1 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_1;<br>
+      lookup CALT_2 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_2;<br>
+      lookup CALT_3 {<br>
+      sub g' g g.calt by g.calt;<br>
+      sub g' g g g g.calt by g.calt;<br>
+      sub g' g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g.calt by g.calt;<br>
+      sub g' g g g g g g g g g g.calt by g.calt;<br>
+      } CALT_3;<br>
+      } calt;</p>
+  - id: 401253
+    user: 27336
+    date: 2010-03-14T06:45:00
+    date_raw: 14.Mar.2010 6.45am
+    votes: null
+    html: |-
+      <p>wow, that was some routine! Impressive! :)<br>
+      How do I shorten it a bit? I don't foresee the use of 32 consecutive looped letters, maybe 6-8 tops? ;)<br>
+      This routine elegantly solves the odd/even "switched" sequences.<br>
+      The only problem that remains is that this routine switches any standalone g to its alternate form, whereas I want the single occurrences to remain in their basic looped form. Do you know how to fix that as well?</p>
+    html_clean: |-
+      <p>wow, that was some routine! Impressive! :)<br>
+      How do I shorten it a bit? I don't foresee the use of 32 consecutive looped letters, maybe 6-8 tops? ;)<br>
+      This routine elegantly solves the odd/even "switched" sequences.<br>
+      The only problem that remains is that this routine switches any standalone g to its alternate form, whereas I want the single occurrences to remain in their basic looped form. Do you know how to fix that as well?</p>
+  - id: 401255
+    user: 27336
+    date: 2010-03-14T07:30:00
+    date_raw: 14.Mar.2010 7.30am
+    votes: null
+    html: |-
+      <p>On closer inspection ALL sequences are completely switched!<br>
+      It gives alternate glyphs wherever I want plain, and plain wherever I want alternate ;)</p>
+    html_clean: |-
+      <p>On closer inspection ALL sequences are completely switched!<br>
+      It gives alternate glyphs wherever I want plain, and plain wherever I want alternate ;)</p>
+  - id: 401258
+    user: 45774
+    date: 2010-03-14T08:16:00
+    date_raw: 14.Mar.2010 8.16am
+    votes: null
+    html: |-
+      <p>Here it is the other way around:</p>
+      <p>feature calt {<br>
+      sub g by g.calt;<br>
+      ignore sub g.calt' g.calt;<br>
+      sub g.calt' by g;<br>
+      lookup CALT {<br>
+      sub g.calt' g.calt g.calt g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g by g;<br>
+      } CALT;<br>
+      } calt;</p>
+      <p>Results in</p>
+      <p>g<br>
+      g.calt g<br>
+      g g.calt g<br>
+      g.calt g g.calt g<br>
+      g g.calt g g.calt g<br>
+      g.calt g g.calt g g.calt g<br>
+      g g.calt g g.calt g g.calt g<br>
+      g.calt g g.calt g g.calt g g.calt g</p>
+      <p>g.calt g.calt g g.calt g g.calt g g.calt g<br>
+      g.calt g.calt g.calt g g.calt g g.calt g g.calt g</p>
+      <p>But now I am not sure, if you want to have a single letter replaced.</p>
+    html_clean: |-
+      <p>Here it is the other way around:</p>
+      <p>feature calt {<br>
+      sub g by g.calt;<br>
+      ignore sub g.calt' g.calt;<br>
+      sub g.calt' by g;<br>
+      lookup CALT {<br>
+      sub g.calt' g.calt g.calt g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g by g;<br>
+      } CALT;<br>
+      } calt;</p>
+      <p>Results in</p>
+      <p>g<br>
+      g.calt g<br>
+      g g.calt g<br>
+      g.calt g g.calt g<br>
+      g g.calt g g.calt g<br>
+      g.calt g g.calt g g.calt g<br>
+      g g.calt g g.calt g g.calt g<br>
+      g.calt g g.calt g g.calt g g.calt g</p>
+      <p>g.calt g.calt g g.calt g g.calt g g.calt g<br>
+      g.calt g.calt g.calt g g.calt g g.calt g g.calt g</p>
+      <p>But now I am not sure, if you want to have a single letter replaced.</p>
+  - id: 401260
+    user: 27336
+    date: 2010-03-14T07:44:00
+    date_raw: 14.Mar.2010 7.44am
+    votes: null
+    html: |-
+      <p>I think I got it! :D</p>
+      <p>This routine will make up to 8 letters in sequence alternate - and always ending with the base letter:</p>
+      <p>feature calt {<br>
+      sub g' g by g.calt;<br>
+      lookup CALT_1 {<br>
+      sub g.calt' g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g.calt g.calt g by g;<br>
+      } CALT_1;<br>
+      } calt;</p>
+      <p>Thanks for the valuable input, Arno! I would never had sussed this in a million years on my own...</p>
+    html_clean: |-
+      <p>I think I got it! :D</p>
+      <p>This routine will make up to 8 letters in sequence alternate - and always ending with the base letter:</p>
+      <p>feature calt {<br>
+      sub g' g by g.calt;<br>
+      lookup CALT_1 {<br>
+      sub g.calt' g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g by g;<br>
+      sub g.calt' g.calt g.calt g.calt g.calt g.calt g by g;<br>
+      } CALT_1;<br>
+      } calt;</p>
+      <p>Thanks for the valuable input, Arno! I would never had sussed this in a million years on my own...</p>
+  - id: 401263
+    user: 45774
+    date: 2010-03-14T08:19:00
+    date_raw: 14.Mar.2010 8.19am
+    votes: null
+    html: <p>Yours seems to result in the same, but it is shorter and therefore better.</p>
+    html_clean: <p>Yours seems to result in the same, but it is shorter and therefore better.</p>
+  - id: 401272
+    user: 45774
+    date: 2010-03-14T08:46:00
+    date_raw: 14.Mar.2010 8.46am
+    votes: null
+    html: |-
+      <p>By the way, there is also the command "reversesub", but I think FontLab cannot compile it. The actual AFDKO can and with the help of batch files it easy to handle. And you can use both, the AFDKO and FontLab. The GPOS and the GSUB table of a font can be extracted with TTX and merged into the OTF, that was generated with FontLab. You even can avoid, that TTX changes anything, if you temporarily remove the following files from the FontTools directory (in your Python directory):</p>
+      <p>C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_P_O_S_.py<br>
+      C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_S_U_B_.py</p>
+      <p>and</p>
+      <p>C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_P_O_S_.pyc<br>
+      C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_S_U_B_.pyc</p>
+      <p>Then TTX extracts the tables as hexdata! (TTX is unable to dump the FeatureParams-Tags correctly [TTX empties them], if they are present in the GSUB table.)</p>
+      <p>The AFDKO and TTX are really cool! And for free.</p>
+    html_clean: |-
+      <p>By the way, there is also the command "reversesub", but I think FontLab cannot compile it. The actual AFDKO can and with the help of batch files it easy to handle. And you can use both, the AFDKO and FontLab. The GPOS and the GSUB table of a font can be extracted with TTX and merged into the OTF, that was generated with FontLab. You even can avoid, that TTX changes anything, if you temporarily remove the following files from the FontTools directory (in your Python directory):</p>
+      <p>C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_P_O_S_.py<br>
+      C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_S_U_B_.py</p>
+      <p>and</p>
+      <p>C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_P_O_S_.pyc<br>
+      C:\Python26\Lib\site-packages\FontTools\fontTools\ttLib\tables\G_S_U_B_.pyc</p>
+      <p>Then TTX extracts the tables as hexdata! (TTX is unable to dump the FeatureParams-Tags correctly [TTX empties them], if they are present in the GSUB table.)</p>
+      <p>The AFDKO and TTX are really cool! And for free.</p>
+  - id: 401484
+    user: 14650
+    date: 2010-03-15T13:55:00
+    date_raw: 15.Mar.2010 1.55pm
+    votes: null
+    html: |-
+      <p>If you are looking for a way to have any single letter to alternate every other instance of it appearing;  that is way more complex.<br>
+      I think Paul Hunt knows how to do this by setting up classes and alternating back and forth. I'm not sure, but this may only work if all letters have alternates so you substitute one class by another repeatedly. I may be fuzzy on that, but maybe he can tell you more.</p>
+    html_clean: |-
+      <p>If you are looking for a way to have any single letter to alternate every other instance of it appearing;  that is way more complex.<br>
+      I think Paul Hunt knows how to do this by setting up classes and alternating back and forth. I'm not sure, but this may only work if all letters have alternates so you substitute one class by another repeatedly. I may be fuzzy on that, but maybe he can tell you more.</p>
+  - id: 401535
+    user: 2021
+    date: 2010-03-15T18:54:00
+    date_raw: 15.Mar.2010 6.54pm
+    votes: null
+    html: |-
+      <p>That's right.<br>
+      You need to have alternates of every character, including punctuation and space, for the pseudo-random effect.<br>
+      I've done it in a couple of typefaces.<br>
+      In Duffy Script, I made three alternates of every character, but for Fontesque Pro, only one alternate, because it's very rare that you get three of the same character in a row, in any language. (That's the subject of another thread!)</p>
+    html_clean: |-
+      <p>That's right.<br>
+      You need to have alternates of every character, including punctuation and space, for the pseudo-random effect.<br>
+      I've done it in a couple of typefaces.<br>
+      In Duffy Script, I made three alternates of every character, but for Fontesque Pro, only one alternate, because it's very rare that you get three of the same character in a row, in any language. (That's the subject of another thread!)</p>
+  - id: 401572
+    user: 50399
+    date: 2010-03-16T01:14:00
+    date_raw: 16.Mar.2010 1.14am
+    votes: null
+    html: <p>…</p>
+    html_clean: <p>…</p>

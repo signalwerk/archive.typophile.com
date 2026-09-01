@@ -1,0 +1,228 @@
+node: 106887
+title: New Microsoft size-specific design selection mechanism
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140720083856"
+  captured_at: 2014-07-20T08:38:56Z
+  url: http://typophile.com/node/106887
+  digest: C5GBTE3FRRPO35BYXSQINYHBBDOXAKII
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106887.html
+  fingerprint: da2a444aeb342341
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140720083856"
+      digest: C5GBTE3FRRPO35BYXSQINYHBBDOXAKII
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106887.html
+post:
+  id: 106887
+  user: 1262
+  date: 2013-10-18T19:42:00
+  date_raw: 18 Oct 2013 — 7:42pm
+  votes: null
+  html: |-
+    <p>[Originally posted earlier today on Typedrawers. This information seems significant enough to warrant cross-posting. Comment in the forum of your choice.]</p>
+    <p>Matthew Carter's new Sitka* typeface family ships as 24 fonts with Windows 8.1. The standard Windows 4-style family is implemented in six different size-specific designs (Small, Text, Subhead, Heading, Display, Banner). After Ross and I got involved in the project, we spent a lot of time at Microsoft discussing options for software selection of size-specific designs. I think we probably hit all the possibilities in one way or another -- everything from new GSUB features to Composite Font Representation wrapper --, and some of the funkier options were quite attractive. In the end, Microsoft opted for a very simple mechanism: two new data values in the OS/2 table, one indicating the lower size range limit for the individual font and one the upper size range limit. The relationship of the fonts is established via existing name table entries.</p>
+    <p>A formal spec for the new OS/2 table version should be forthcoming from Microsoft in the next few weeks, and will be submitted for inclusion in the ISO MPEG Open Font Format. Here are the basics:</p>
+    <p>The OS/2 table is updated to version 5.</p>
+    <p>The two new data fields are<br>
+    usLowerPointSize<br>
+    usUpperPointSize</p>
+    <p>The unit used in defining these values is a twip, i.e. a twentieth of a point. This enables size use ranges to break at fractional point sizes without getting unreasonably fiddly.</p>
+    <p>The usLowerPointSize value is inclusive; the usUpperPointSize value is exclusive. In other words, the lower value indicates the size at which the font starts to be used, and the upper value indicates the size at which it is no longer used.</p>
+    <p>EXAMPLE: The Sitka Text font is intended to be used from 9.7 point up to any size below 13.5 point. Therefore, the usLowerPointSize value is set to 194 twips (9.7×20) and the usUpperPointSize value is set to 270 twips (13.5×20).</p>
+    <p>NOTES:</p>
+    <p>1. The size selection mechanism is based on the computer point (1/72 inch). This means that selection is made relative to nominal point size, and is not device dependent. This may be controversial (hello, David), and while I think it is reasonable in the long-term -- given device resolution increases, pinch-zoom behaviour, etc. -- there are current situations in which one might well want device dependent size selection that calls for different outlines for the same nominal point size at different resolutions. Folks who want to join in making a case for such should engage with the ISO MPEG specification process once MS submit the draft spec.</p>
+    <p>2. It should go without saying that this new mechanism is intended to replace the existing GPOS {size} feature mechanism, which has mostly languished unimplemented since it was first specified about 15 years ago. Hacking the GPOS data structure to put font selection information in a table normally accessed only at the end of glyph processing was always counter-intuitive, and I'm not surprised it turned out to be pretty much dead-on-arrival.</p>
+    <p>3. In order to implement the new data in the Sitka fonts, we wanted to be able to integrate the new OS/2 table version support in our existing workflow. Thanks to Frank Blokland at DTL and the OTMaster developers at URW for quickly adding this functionality for us, which I believe will be available in the next version of OTMaster, which Frank anounced at ATypI.</p>
+    <p>_____</p>
+    <p>* At ATypI Amsterdam, Matthew gave a presentation with Kevin Larson on the Sitka design process, which used iterative legibility testing to refine letter shapes.</p>
+  html_clean: |-
+    <p>[Originally posted earlier today on Typedrawers. This information seems significant enough to warrant cross-posting. Comment in the forum of your choice.]</p>
+    <p>Matthew Carter's new Sitka* typeface family ships as 24 fonts with Windows 8.1. The standard Windows 4-style family is implemented in six different size-specific designs (Small, Text, Subhead, Heading, Display, Banner). After Ross and I got involved in the project, we spent a lot of time at Microsoft discussing options for software selection of size-specific designs. I think we probably hit all the possibilities in one way or another -- everything from new GSUB features to Composite Font Representation wrapper --, and some of the funkier options were quite attractive. In the end, Microsoft opted for a very simple mechanism: two new data values in the OS/2 table, one indicating the lower size range limit for the individual font and one the upper size range limit. The relationship of the fonts is established via existing name table entries.</p>
+    <p>A formal spec for the new OS/2 table version should be forthcoming from Microsoft in the next few weeks, and will be submitted for inclusion in the ISO MPEG Open Font Format. Here are the basics:</p>
+    <p>The OS/2 table is updated to version 5.</p>
+    <p>The two new data fields are<br>
+    usLowerPointSize<br>
+    usUpperPointSize</p>
+    <p>The unit used in defining these values is a twip, i.e. a twentieth of a point. This enables size use ranges to break at fractional point sizes without getting unreasonably fiddly.</p>
+    <p>The usLowerPointSize value is inclusive; the usUpperPointSize value is exclusive. In other words, the lower value indicates the size at which the font starts to be used, and the upper value indicates the size at which it is no longer used.</p>
+    <p>EXAMPLE: The Sitka Text font is intended to be used from 9.7 point up to any size below 13.5 point. Therefore, the usLowerPointSize value is set to 194 twips (9.7×20) and the usUpperPointSize value is set to 270 twips (13.5×20).</p>
+    <p>NOTES:</p>
+    <p>1. The size selection mechanism is based on the computer point (1/72 inch). This means that selection is made relative to nominal point size, and is not device dependent. This may be controversial (hello, David), and while I think it is reasonable in the long-term -- given device resolution increases, pinch-zoom behaviour, etc. -- there are current situations in which one might well want device dependent size selection that calls for different outlines for the same nominal point size at different resolutions. Folks who want to join in making a case for such should engage with the ISO MPEG specification process once MS submit the draft spec.</p>
+    <p>2. It should go without saying that this new mechanism is intended to replace the existing GPOS {size} feature mechanism, which has mostly languished unimplemented since it was first specified about 15 years ago. Hacking the GPOS data structure to put font selection information in a table normally accessed only at the end of glyph processing was always counter-intuitive, and I'm not surprised it turned out to be pretty much dead-on-arrival.</p>
+    <p>3. In order to implement the new data in the Sitka fonts, we wanted to be able to integrate the new OS/2 table version support in our existing workflow. Thanks to Frank Blokland at DTL and the OTMaster developers at URW for quickly adding this functionality for us, which I believe will be available in the next version of OTMaster, which Frank anounced at ATypI.</p>
+    <p>_____</p>
+    <p>* At ATypI Amsterdam, Matthew gave a presentation with Kevin Larson on the Sitka design process, which used iterative legibility testing to refine letter shapes.</p>
+comments:
+  - id: 565984
+    user: 1250
+    date: 2013-10-19T10:33:00
+    date_raw: 19 Oct 2013 — 10:33am
+    votes: null
+    html: <p>{To Follow}</p>
+    html_clean: <p>{To Follow}</p>
+  - id: 565995
+    user: 1551
+    date: 2013-10-19T14:20:00
+    date_raw: 19 Oct 2013 — 2:20pm
+    votes: null
+    html: <p>Can we see a sample of the different sizes?</p>
+    html_clean: <p>Can we see a sample of the different sizes?</p>
+  - id: 565998
+    user: 1262
+    date: 2013-10-19T15:33:00
+    date_raw: 19 Oct 2013 — 3:33pm
+    votes: null
+    html: |-
+      <p><a href="http://www.tiro.com/John/Sitka_Size_Specimen2.pdf" title="http://www.tiro.com/John/Sitka_Size_Specimen2.pdf">http://www.tiro.com/John/Sitka_Size_Specimen2.pdf</a></p>
+      <p>See also the 'MS Sitka' thread in the General Discussion area. I think it would be more useful to maintain discussion of this particular typeface family there, and use this thread to talk about the size-specific selection data model.</p>
+    html_clean: |-
+      <p><a href="http://www.tiro.com/John/Sitka_Size_Specimen2.pdf" title="http://www.tiro.com/John/Sitka_Size_Specimen2.pdf">http://www.tiro.com/John/Sitka_Size_Specimen2.pdf</a></p>
+      <p>See also the 'MS Sitka' thread in the General Discussion area. I think it would be more useful to maintain discussion of this particular typeface family there, and use this thread to talk about the size-specific selection data model.</p>
+  - id: 566008
+    user: 29994
+    date: 2013-10-20T02:39:00
+    date_raw: 20 Oct 2013 — 2:39am
+    votes: null
+    html: |-
+      <p>InDesign has a checkbox for "Automatically use correct Optical Sizes" in its General Preferences, but I don't think it ever did <em>anything</em> :-)</p>
+      <p>While awaiting applications to support this new feature:<br>
+      Is changing the optical size an application operation? Can you manually override to another size? And if so, does the text need recomposing?</p>
+    html_clean: |-
+      <p>InDesign has a checkbox for "Automatically use correct Optical Sizes" in its General Preferences, but I don't think it ever did <em>anything</em> :-)</p>
+      <p>While awaiting applications to support this new feature:<br>
+      Is changing the optical size an application operation? Can you manually override to another size? And if so, does the text need recomposing?</p>
+  - id: 566031
+    user: 1262
+    date: 2013-10-20T10:44:00
+    date_raw: 20 Oct 2013 — 10:44am
+    votes: null
+    html: |-
+      <p>InDesign's preference for Optical Sizes is, I believe, a legacy Multiple Master function, i.e. it doesn't work with OpenType. Adobe is one of the few font foundries that actually include GPOS {size} feature data in their OT 'Optical' fonts -- terrible term, by the way --, but have not implemented support for it in any apps, to my knowledge.</p>
+      <p><em>Is changing the optical size an application operation? Can you manually override to another size? And if so, does the text need recomposing?</em></p>
+      <p>Good questions all. I'm not sure anyone has fully worked out how this should work at the level of interaction between automated selection and user discretion. Given Microsoft's tendency to specify data formats but not implementation, I expect it will be up to the wider type and design community to think about this and determine what we'd expect from different kinds of applications (as was the case with, e.g. determining whether Stylistic Set features should be treated as additive or exclusive).</p>
+    html_clean: |-
+      <p>InDesign's preference for Optical Sizes is, I believe, a legacy Multiple Master function, i.e. it doesn't work with OpenType. Adobe is one of the few font foundries that actually include GPOS {size} feature data in their OT 'Optical' fonts -- terrible term, by the way --, but have not implemented support for it in any apps, to my knowledge.</p>
+      <p><em>Is changing the optical size an application operation? Can you manually override to another size? And if so, does the text need recomposing?</em></p>
+      <p>Good questions all. I'm not sure anyone has fully worked out how this should work at the level of interaction between automated selection and user discretion. Given Microsoft's tendency to specify data formats but not implementation, I expect it will be up to the wider type and design community to think about this and determine what we'd expect from different kinds of applications (as was the case with, e.g. determining whether Stylistic Set features should be treated as additive or exclusive).</p>
+  - id: 566058
+    user: 1688
+    date: 2013-10-21T01:14:00
+    date_raw: 21 Oct 2013 — 1:14am
+    votes: null
+    html: |-
+      <p>John: ‘<em>[…] this functionality […] will be available in the next version of OTMaster […]</em>’</p>
+      <p>Yes, and OTM 3 will become available around the end of this week.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>John: ‘<em>[…] this functionality […] will be available in the next version of OTMaster […]</em>’</p>
+      <p>Yes, and OTM 3 will become available around the end of this week.</p>
+      <p>FEB</p>
+  - id: 566115
+    user: 2021
+    date: 2013-10-21T10:39:00
+    date_raw: 21 Oct 2013 — 10:39am
+    votes: null
+    html: |-
+      <p>Ideally, the foundry would set the default values for optical size ranges, but the layout application would have a slider so that typographers could adjust the ranges*. The foundry would certainly consider target device or demographics in deciding where to put the boundaries.</p>
+      <p>Typographer manual over-ride is necessary because size (degree of arc) is not the only thing that effects readability, because apart from device and demographics, there are also color (of text/background) and brightness of the document design to be considered.</p>
+      <p>In some cases, the adjustment may be better as grading/weight change, rather than size-specific.</p>
+      <p>*Quark has something like that for editing tracking tables.</p>
+    html_clean: |-
+      <p>Ideally, the foundry would set the default values for optical size ranges, but the layout application would have a slider so that typographers could adjust the ranges*. The foundry would certainly consider target device or demographics in deciding where to put the boundaries.</p>
+      <p>Typographer manual over-ride is necessary because size (degree of arc) is not the only thing that effects readability, because apart from device and demographics, there are also color (of text/background) and brightness of the document design to be considered.</p>
+      <p>In some cases, the adjustment may be better as grading/weight change, rather than size-specific.</p>
+      <p>*Quark has something like that for editing tracking tables.</p>
+  - id: 566380
+    user: 1688
+    date: 2013-10-27T07:47:00
+    date_raw: 27 Oct 2013 — 7:47am
+    votes: null
+    html: |-
+      <p>Prior to the new OTM-release end of this week, a must-read <a href="http://www.fontmaster.nl/Downloads/OTM/OTM_Manual_3.6.zip" rel="nofollow">manual</a> by Karsten Lücke, which contains a lot of info on the production and editing of OpenType fonts, is available for download now.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Prior to the new OTM-release end of this week, a must-read <a href="http://www.fontmaster.nl/Downloads/OTM/OTM_Manual_3.6.zip" rel="nofollow">manual</a> by Karsten Lücke, which contains a lot of info on the production and editing of OpenType fonts, is available for download now.</p>
+      <p>FEB</p>
+  - id: 566393
+    user: 16849
+    date: 2013-10-27T12:15:00
+    date_raw: 27 Oct 2013 — 12:15pm
+    votes: null
+    html: <p>When will the specs be released? FontForge is ready to go on this :)</p>
+    html_clean: <p>When will the specs be released? FontForge is ready to go on this :)</p>
+  - id: 566905
+    user: 1688
+    date: 2013-11-09T08:01:00
+    date_raw: 9 Nov 2013 — 8:01am
+    votes: null
+    html: |-
+      <p>John: ‘<em>[…] which I believe will be available in the next version of OTMaster, which Frank anounced at ATypI</em>.’</p>
+      <p>OTM 3.7 is available directly from DTL (see also the <a href="http://www.dtl.nl" rel="nofollow">Latest DTL News</a> section) now, and will be very shortly from FontLab Ltd.</p>
+      <p><strong>New in version 3.7.0</strong>:<br>
+      — Import/export of Ideographic Variation Sequences (IVS)<br>
+      — Extensively enhanced Glyph Editor<br>
+      — Switch for Subroutinization in CFF<br>
+      — Support OS/2 Table V5<br>
+      — Side-by-side viewer (for multiple fonts)<br>
+      — Change table view with ( + )<br>
+      — Editing of Feature Parameters<br>
+      — Enhanced Consistency Checker<br>
+      — Export of IK/II/BE/IB formats (plus export of all formats, i.e., plus UFM, CHA, FEA)<br>
+      — Support for COLR+CPAL tables<br>
+      — Autohinter for edited or newly added glyphs </p>
+      <p>Karsten Lücke’s manual on OT-format production/editing is available as <a href="http://www.fontmaster.nl/Downloads/OTM/OTM_Manual_3.6.zip" rel="nofollow">PDF</a>, or can be ordered as <a href="http://www.lulu.com/shop/karsten-l%C3%BCcke/dtl-otmaster-manual/paperback/product-21278612.html" rel="nofollow">printed edition</a> directly against production costs.</p>
+    html_clean: |-
+      <p>John: ‘<em>[…] which I believe will be available in the next version of OTMaster, which Frank anounced at ATypI</em>.’</p>
+      <p>OTM 3.7 is available directly from DTL (see also the <a href="http://www.dtl.nl" rel="nofollow">Latest DTL News</a> section) now, and will be very shortly from FontLab Ltd.</p>
+      <p><strong>New in version 3.7.0</strong>:<br>
+      — Import/export of Ideographic Variation Sequences (IVS)<br>
+      — Extensively enhanced Glyph Editor<br>
+      — Switch for Subroutinization in CFF<br>
+      — Support OS/2 Table V5<br>
+      — Side-by-side viewer (for multiple fonts)<br>
+      — Change table view with ( + )<br>
+      — Editing of Feature Parameters<br>
+      — Enhanced Consistency Checker<br>
+      — Export of IK/II/BE/IB formats (plus export of all formats, i.e., plus UFM, CHA, FEA)<br>
+      — Support for COLR+CPAL tables<br>
+      — Autohinter for edited or newly added glyphs </p>
+      <p>Karsten Lücke’s manual on OT-format production/editing is available as <a href="http://www.fontmaster.nl/Downloads/OTM/OTM_Manual_3.6.zip" rel="nofollow">PDF</a>, or can be ordered as <a href="http://www.lulu.com/shop/karsten-l%C3%BCcke/dtl-otmaster-manual/paperback/product-21278612.html" rel="nofollow">printed edition</a> directly against production costs.</p>
+  - id: 568099
+    user: 4019
+    date: 2013-12-22T10:58:00
+    date_raw: 22 Dec 2013 — 10:58am
+    votes: null
+    html: |-
+      <p>I could hardly believe that the Indy pref for optical size works only with old MMs and not with (as John points out) the ill-denominated 'opticals' (which always sounds to me like a nominally health-giving breakfast dish composed of stale rusk, eggy stuff, and brewer's yeast, preferably served on a recycled floptical). But he is completely correct that the feature has no effect on the 'opticals'. You must wonder what Adobe's point in publishing the fonts is, if no software, not even their own, supports the hapless fonts. </p>
+      <p>For the record, Microsoft was the first software publisher to support correct optical size automatically. There was a Windows-only version of MSW in the mid-1990s that automatically selected the right optical instance of an MM font that contained an optical instance. </p>
+      <p>So it is great that MS software will be supporting the sizes. Since Sitka is the best thing to happen to type since Sumner Stone's Cycles family, I believe, thanks to MS support, that it will eventually be compulsory for other software publishers to support the font family fully, whether they like it or not. It is so heartening to see a font project like this - - for once, everything has been done right. It is just extraordinary to think that there will in future years be a lot of really good typesetting being produced automatically by people who don't know and don't care that they are doing it. That's the way to do it!</p>
+    html_clean: |-
+      <p>I could hardly believe that the Indy pref for optical size works only with old MMs and not with (as John points out) the ill-denominated 'opticals' (which always sounds to me like a nominally health-giving breakfast dish composed of stale rusk, eggy stuff, and brewer's yeast, preferably served on a recycled floptical). But he is completely correct that the feature has no effect on the 'opticals'. You must wonder what Adobe's point in publishing the fonts is, if no software, not even their own, supports the hapless fonts. </p>
+      <p>For the record, Microsoft was the first software publisher to support correct optical size automatically. There was a Windows-only version of MSW in the mid-1990s that automatically selected the right optical instance of an MM font that contained an optical instance. </p>
+      <p>So it is great that MS software will be supporting the sizes. Since Sitka is the best thing to happen to type since Sumner Stone's Cycles family, I believe, thanks to MS support, that it will eventually be compulsory for other software publishers to support the font family fully, whether they like it or not. It is so heartening to see a font project like this - - for once, everything has been done right. It is just extraordinary to think that there will in future years be a lot of really good typesetting being produced automatically by people who don't know and don't care that they are doing it. That's the way to do it!</p>
+  - id: 569444
+    user: 5882
+    date: 2014-01-16T13:20:00
+    date_raw: 16 Jan 2014 — 1:20pm
+    votes: null
+    html: <p>Thanks for the comments Bill</p>
+    html_clean: <p>Thanks for the comments Bill</p>

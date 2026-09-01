@@ -1,0 +1,156 @@
+node: 86205
+title: Duplicating kerning classes in Fontlab via script
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120717190805"
+  captured_at: 2012-07-17T19:08:05Z
+  url: http://typophile.com/node/86205
+  digest: 5WB4WXEIQG2TNC2AC3KRE2UF3VDP2BLS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/86205.html
+  fingerprint: ba19af033ff55b73
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120717190805"
+      digest: 5WB4WXEIQG2TNC2AC3KRE2UF3VDP2BLS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/86205.html
+post:
+  id: 86205
+  user: 46471
+  date: 2011-10-08T09:23:00
+  date_raw: 8 Oct 2011 — 9:23am
+  votes: null
+  html: |-
+    <p>So I see that a FL font object has a "classes" attribute that's a list of the classes in the font.</p>
+    <p>1) Is there a way to filter this list to only see kerning classes?</p>
+    <p>2) When I try to copy kerning classes via script, e.g. —&nbsp;</p>
+    <p>fl.font2.classes = fl.font1.classes</p>
+    <p>This will copy the class members properly, but it loses the state of the left glyph / right glyph checkboxes in the class panel. Where does that data live?</p>
+  html_clean: |-
+    <p>So I see that a FL font object has a "classes" attribute that's a list of the classes in the font.</p>
+    <p>1) Is there a way to filter this list to only see kerning classes?</p>
+    <p>2) When I try to copy kerning classes via script, e.g. —&nbsp;</p>
+    <p>fl.font2.classes = fl.font1.classes</p>
+    <p>This will copy the class members properly, but it loses the state of the left glyph / right glyph checkboxes in the class panel. Where does that data live?</p>
+comments:
+  - id: 480048
+    user: 2438
+    date: 2011-10-08T15:13:00
+    date_raw: 8 Oct 2011 — 3:13pm
+    votes: null
+    html: |-
+      <p>Filter for kerning classes by matching the first character of each class with an underscore:</p>
+      <pre>classes = fl.font.classes
+      for c in range( len(classes) ):
+        class_text = classes[c]
+        if class_text[0] == "_":
+          print class_text
+      </pre>
+    html_clean: |-
+      <p>Filter for kerning classes by matching the first character of each class with an underscore:</p>
+      <pre>classes = fl.font.classes
+      for c in range( len(classes) ):
+        class_text = classes[c]
+        if class_text[0] == "_":
+          print class_text
+      </pre>
+  - id: 480051
+    user: 3135
+    date: 2011-10-08T15:41:00
+    date_raw: 8 Oct 2011 — 3:41pm
+    votes: null
+    html: <p>You can also save a copy of your classes as a text file from the "Classes" menu.  In the upper left corner of the window is a tiny icon which when clicked reveals the option to "Save classes".  You can  either import this file completely as a replacement classes file, append some parts of it, or copy paste from a text editor the things you want.</p>
+    html_clean: <p>You can also save a copy of your classes as a text file from the "Classes" menu.  In the upper left corner of the window is a tiny icon which when clicked reveals the option to "Save classes".  You can  either import this file completely as a replacement classes file, append some parts of it, or copy paste from a text editor the things you want.</p>
+  - id: 480076
+    user: 14455
+    date: 2011-10-09T00:45:00
+    date_raw: 9 Oct 2011 — 12:45am
+    votes: null
+    html: |-
+      <p>The FontLab Font object offers the folowing methods to access class attributes:</p>
+      <dl>
+      <dt><strong>SetClassFlags</strong>(int class_index, bool left, bool right)</dt>
+      <dd>allows to set 'left' and 'right' properties of the kerning class</dd>
+      <dt><strong>SetClassFlags</strong>(int class_index, bool lsb, bool rsb, bool width)</dt>
+      <dd>allows to set 'lsb', 'rsb' and 'width' properties of the metrics class</dd>
+      <dt><strong>GetClassLeft</strong>(int class_index)</dt>
+      <dd>returns the 'left' property of the class</dd>
+      <dt><strong>GetClassRight</strong>(int class_index)</dt>
+      <dd>returns the 'right' property of the class</dd>
+      <dt><strong>GetClassMetricsFlags</strong>(int class_index)</dt>
+      <dd>returns the tuple containing LSB, RSB and Width flags of the metrics class</dd>
+      </dl>
+    html_clean: |-
+      <p>The FontLab Font object offers the folowing methods to access class attributes:</p>
+      <dl>
+      <dt><strong>SetClassFlags</strong>(int class_index, bool left, bool right)</dt>
+      <dd>allows to set 'left' and 'right' properties of the kerning class</dd>
+      <dt><strong>SetClassFlags</strong>(int class_index, bool lsb, bool rsb, bool width)</dt>
+      <dd>allows to set 'lsb', 'rsb' and 'width' properties of the metrics class</dd>
+      <dt><strong>GetClassLeft</strong>(int class_index)</dt>
+      <dd>returns the 'left' property of the class</dd>
+      <dt><strong>GetClassRight</strong>(int class_index)</dt>
+      <dd>returns the 'right' property of the class</dd>
+      <dt><strong>GetClassMetricsFlags</strong>(int class_index)</dt>
+      <dd>returns the tuple containing LSB, RSB and Width flags of the metrics class</dd>
+      </dl>
+  - id: 480113
+    user: 46471
+    date: 2011-10-09T08:17:00
+    date_raw: 9 Oct 2011 — 8:17am
+    votes: null
+    html: |-
+      <p>Thanks Eigi. Mission accomplished</p>
+      <pre># copy kern class information from source
+      kernClasses = []
+      kernClassesToBooleans = {}
+      for index, glyphClass in enumerate(sourceFLFont.classes):
+          if glyphClass.startswith("_"):
+              kernClasses.append(glyphClass)
+              kernClassesToBooleans[glyphClass] = (sourceFLFont.GetClassLeft(index), sourceFLFont.GetClassRight(index))
+
+      # clear target; copy classes
+      targetFLFont.classes = []
+      targetFLFont.classes = kernClasses
+
+      # copy booleans into target
+      for index, kernClass in enumerate(targetFLFont.classes):
+          leftBool, rightBool = kernClassesToBooleans[kernClass]
+          targetFLFont.SetClassFlags(index, leftBool, rightBool)
+      </pre>
+    html_clean: |-
+      <p>Thanks Eigi. Mission accomplished</p>
+      <pre># copy kern class information from source
+      kernClasses = []
+      kernClassesToBooleans = {}
+      for index, glyphClass in enumerate(sourceFLFont.classes):
+          if glyphClass.startswith("_"):
+              kernClasses.append(glyphClass)
+              kernClassesToBooleans[glyphClass] = (sourceFLFont.GetClassLeft(index), sourceFLFont.GetClassRight(index))
+
+      # clear target; copy classes
+      targetFLFont.classes = []
+      targetFLFont.classes = kernClasses
+
+      # copy booleans into target
+      for index, kernClass in enumerate(targetFLFont.classes):
+          leftBool, rightBool = kernClassesToBooleans[kernClass]
+          targetFLFont.SetClassFlags(index, leftBool, rightBool)
+      </pre>

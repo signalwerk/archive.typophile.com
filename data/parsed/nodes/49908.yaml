@@ -1,0 +1,183 @@
+node: 49908
+title: InDesign CS3 strange line break problem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081028162553"
+  captured_at: 2008-10-28T16:25:53Z
+  url: http://www.typophile.com:80/node/49908
+  digest: 7CW5MCITUZZZJLQEYLRH27LBWLFZR2QM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/49908.html
+  fingerprint: 17e4412bdd263c47
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081028162553"
+      digest: 7CW5MCITUZZZJLQEYLRH27LBWLFZR2QM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/49908.html
+post:
+  id: 49908
+  user: 37331
+  date: 2008-09-27T06:13:00
+  date_raw: 27.Sep.2008 6.13am
+  votes: null
+  html: |-
+    <p>Windows XP/SP3. InDesign CS3.</p>
+    <p>In a text I am setting, there are strings of characters that include the / (forward slash) character, such as “a3e/cf6” (without the quotes). I want these character strings to be treated like a single word, without any breaks at line ends (hyphenation is off). Unfortunately, ID, in its wisdom, breaks the string thus “a3e/” with “cf6” wrapping to the next line. </p>
+    <p>How can I restrict ID to breaking lines only at spaces and at no other character? These strings appear several times in the text and any solution should ideally be global; it would be too much to manually process each of these occurences.</p>
+    <p>And, apart from the forward slash, are there any other non-space characters at which ID breaks lines?</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/33893" class="topic-previous" title="Go to previous forum topic">‹ GDF file format</a> <a href="/node/48519" class="topic-next" title="Go to next forum topic">How to increase zoom factor in Fontlab ›</a></div>
+  html_clean: |-
+    <p>Windows XP/SP3. InDesign CS3.</p>
+    <p>In a text I am setting, there are strings of characters that include the / (forward slash) character, such as “a3e/cf6” (without the quotes). I want these character strings to be treated like a single word, without any breaks at line ends (hyphenation is off). Unfortunately, ID, in its wisdom, breaks the string thus “a3e/” with “cf6” wrapping to the next line. </p>
+    <p>How can I restrict ID to breaking lines only at spaces and at no other character? These strings appear several times in the text and any solution should ideally be global; it would be too much to manually process each of these occurences.</p>
+    <p>And, apart from the forward slash, are there any other non-space characters at which ID breaks lines?</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/33893/" class="topic-previous" title="Go to previous forum topic">‹ GDF file format</a> <a href="/node/48519/" class="topic-next" title="Go to next forum topic">How to increase zoom factor in Fontlab ›</a></div>
+comments:
+  - id: 303546
+    user: 7908
+    date: 2008-09-27T06:55:00
+    date_raw: 27.Sep.2008 6.55am
+    votes: null
+    html: |-
+      <p>Under the character window there’s a “No Break”. Select first the part you don’t want to break and then “No Break”.</p>
+      <p>Another option is to insert a discretionary hyphen before the word.</p>
+      <p>Hope this helps.</p>
+    html_clean: |-
+      <p>Under the character window there’s a “No Break”. Select first the part you don’t want to break and then “No Break”.</p>
+      <p>Another option is to insert a discretionary hyphen before the word.</p>
+      <p>Hope this helps.</p>
+  - id: 303597
+    user: 37331
+    date: 2008-09-27T16:57:00
+    date_raw: 27.Sep.2008 4.57pm
+    votes: null
+    html: |-
+      <p>Thanks, the discretionary hyphen solution did not work, perhaps because ID is assuming these to be two different words.</p>
+      <p>But selecting the whole string and applying “No Break” worked. Is there a way I can use a macro or find-and-replace command to apply No Break to any character string that has the “/” character in it? This is a 300-page book!</p>
+      <p>The / can appear anywhere in the string, even at the beginning. The string length can be up to 20 characters long. The source is in MS Word. I don’t mind running a macro in Word before pasting in ID but can an ID “No Break” command even be pre-applied in Word?</p>
+      <p>Ideally, ID should have a non-break “/”. Much like a non-break space. Or a way of restricting the characters that should be allowed to break the line.</p>
+    html_clean: |-
+      <p>Thanks, the discretionary hyphen solution did not work, perhaps because ID is assuming these to be two different words.</p>
+      <p>But selecting the whole string and applying “No Break” worked. Is there a way I can use a macro or find-and-replace command to apply No Break to any character string that has the “/” character in it? This is a 300-page book!</p>
+      <p>The / can appear anywhere in the string, even at the beginning. The string length can be up to 20 characters long. The source is in MS Word. I don’t mind running a macro in Word before pasting in ID but can an ID “No Break” command even be pre-applied in Word?</p>
+      <p>Ideally, ID should have a non-break “/”. Much like a non-break space. Or a way of restricting the characters that should be allowed to break the line.</p>
+  - id: 303848
+    user: 19133
+    date: 2008-09-29T11:26:00
+    date_raw: 29.Sep.2008 11.26am
+    votes: null
+    html: |-
+      <p>I agree that having a non-breaking “/” would help. We started breaking at slashes because of URLs. Other breaking characters are: slash(/), back-slash(\), underscore(_), ellipse(...), commercial-at(@), any dash (en-dash, em-dash, etc). We also have some heuristics that allow breaks at periods that try to break URLs but not abbreviations.<br>
+      You can use find/change to do the application of no-break (but you have to use GREP).<br>
+      In the “Find what:” field of the GREP panel in Find-Change type these 5 chars: (./.)<br>
+      This means “an expression containing any character followed by / followed by any character”.<br>
+      In the “Change to:” field enter: $1<br>
+      This means “use the first expression that was found”.<br>
+      Now, next to the “Change Format:” area, click the magnifier and choose “no break” from “Basic Character Formats”<br>
+      You can hit the buttons “Find”, “Change”, “Find Next”, “Change”, ... until you feel comfortable enough to hit “Change All”</p>
+      <p>BTW, in CS4 you can dynamically apply character formatting (like no-break) to GREP expressions. Powerful but somewhat daunting.</p>
+      <p>eric</p>
+    html_clean: |-
+      <p>I agree that having a non-breaking “/” would help. We started breaking at slashes because of URLs. Other breaking characters are: slash(/), back-slash(\), underscore(_), ellipse(...), commercial-at(@), any dash (en-dash, em-dash, etc). We also have some heuristics that allow breaks at periods that try to break URLs but not abbreviations.<br>
+      You can use find/change to do the application of no-break (but you have to use GREP).<br>
+      In the “Find what:” field of the GREP panel in Find-Change type these 5 chars: (./.)<br>
+      This means “an expression containing any character followed by / followed by any character”.<br>
+      In the “Change to:” field enter: $1<br>
+      This means “use the first expression that was found”.<br>
+      Now, next to the “Change Format:” area, click the magnifier and choose “no break” from “Basic Character Formats”<br>
+      You can hit the buttons “Find”, “Change”, “Find Next”, “Change”, ... until you feel comfortable enough to hit “Change All”</p>
+      <p>BTW, in CS4 you can dynamically apply character formatting (like no-break) to GREP expressions. Powerful but somewhat daunting.</p>
+      <p>eric</p>
+  - id: 303935
+    user: 37331
+    date: 2008-09-29T21:34:00
+    date_raw: 29.Sep.2008 9.34pm
+    votes: null
+    html: |-
+      <p>Thanks, Eric. Your solution worked. That’s one more project that I can now migrate to ID from Ventura!</p>
+      <p>You mention that under some conditions lines also break at periods. What would be the solution to absolutely avoid this?</p>
+      <p>I tried using the GREP solution you proposed by changing (./.) to (...) in the “Find What” field, but that did not work. The middle period was not interpreted literally but as a wildcard character.</p>
+    html_clean: |-
+      <p>Thanks, Eric. Your solution worked. That’s one more project that I can now migrate to ID from Ventura!</p>
+      <p>You mention that under some conditions lines also break at periods. What would be the solution to absolutely avoid this?</p>
+      <p>I tried using the GREP solution you proposed by changing (./.) to (...) in the “Find What” field, but that did not work. The middle period was not interpreted literally but as a wildcard character.</p>
+  - id: 304650
+    user: 29994
+    date: 2008-10-03T14:21:00
+    date_raw: 3.Oct.2008 2.21pm
+    votes: null
+    html: |-
+      <p>Kimag, in case you haven’t figured it out by now:</p>
+      <p><cite>The middle period was not interpreted literally but as a wildcard character.</cite></p>
+      <p>Well, not just that middle period! The period “.” is always a wildcard character, but in <em>Search</em> only. To search for a literal period, prefix it with a backspace. This must be used on <em>every</em> “special” character in the “Search” box as well as in the “Replace” box. An important note: the specials are different for Search and for Replace, i.e., while you can <em>Search</em> for a wildcard character, you cannot just <em>replace</em> it again with that “same” wildcard (“.” to “.”). The period in the replacement field is just that, a period.</p>
+      <p>So, to search for three periods in GREP mode, enter “(\.\.\.)”. (That would find three periods.) To search for ’any character period any character”, it gets slightly so complicated. If you grok the previous paragraph, you might think “.\..” does the trick. Well ... almost. The <em>space</em> also matches “any character” (as does, IIRC, the paragraph return), which would put “No Break” onto every last character plus period plus the next space. You might want to search here for a “word” character on the left and right of the period — that’s alphabetics plus numerics plus perhaps some loose change, and its wildcard in search mode is “\w”. Putting it together, that makes the Search “(\w\.\w)” and the Replace “$1”.</p>
+      <p>But wait! You don’t have to put “$1” in the Replace field (which means “the first parenthesized found expression), as there is only one item in the Search field that you want replaced entirely. You can remove the parentheses and use “$0” instead (which means “the entire found expression”) [*]. But again, hey, all you want to change are <em>attributes</em>, so it is enough to entirely clear the Replace field, and just select “No Break” in the Replace with Format box. (Additional notes: if there is <em>no</em> text in the “Replace With” box and <em>no</em> formatting in the “Replace with Formatting” box, all found occurrences will be deleted. Also, be sure there is not a single —invisible— space in the Replace With box!)</p>
+      <p>So we end up with “\w\.\w” in Search, nothing at all in Replace, and No Break in Replace with Format.</p>
+      <p>[*] In case you are wondering how to use “$1” properly, this works nicely. Notice the escaped parentheses.</p>
+      <p>Search: “\((\d+)\)”<br>
+      Replace: “[$1]”</p>
+      <p>This will search for “(“, any sequence of numbers, then “)”, and replace it with Found Expression #1 — which is the “\d+” part —, surrounded by square brackets. In case you want to experiment with this any further, look up any standard GREP reference on the web (as InDesign is for the largest part compliant). For any variations on the above, remember the square brackets are ’special’ in Search but not in Replace.</p>
+      <p>To have a little fun, try this. Search for “(\w\w\w) \w+\1\&gt;”. It will find any consecutive words with the same three ending characters (“present management”, “secure pressure”; “matter transmitter” has four). Also try this one: “(\w)(\w)(\w)\3\2\1” — this will find ’partly palindromes’ — words with the same three characters double in reverse order (“dif” in “diffident”, “tal” in “installation”).</p>
+    html_clean: |-
+      <p>Kimag, in case you haven’t figured it out by now:</p>
+      <p><cite>The middle period was not interpreted literally but as a wildcard character.</cite></p>
+      <p>Well, not just that middle period! The period “.” is always a wildcard character, but in <em>Search</em> only. To search for a literal period, prefix it with a backspace. This must be used on <em>every</em> “special” character in the “Search” box as well as in the “Replace” box. An important note: the specials are different for Search and for Replace, i.e., while you can <em>Search</em> for a wildcard character, you cannot just <em>replace</em> it again with that “same” wildcard (“.” to “.”). The period in the replacement field is just that, a period.</p>
+      <p>So, to search for three periods in GREP mode, enter “(\.\.\.)”. (That would find three periods.) To search for ’any character period any character”, it gets slightly so complicated. If you grok the previous paragraph, you might think “.\..” does the trick. Well ... almost. The <em>space</em> also matches “any character” (as does, IIRC, the paragraph return), which would put “No Break” onto every last character plus period plus the next space. You might want to search here for a “word” character on the left and right of the period — that’s alphabetics plus numerics plus perhaps some loose change, and its wildcard in search mode is “\w”. Putting it together, that makes the Search “(\w\.\w)” and the Replace “$1”.</p>
+      <p>But wait! You don’t have to put “$1” in the Replace field (which means “the first parenthesized found expression), as there is only one item in the Search field that you want replaced entirely. You can remove the parentheses and use “$0” instead (which means “the entire found expression”) [*]. But again, hey, all you want to change are <em>attributes</em>, so it is enough to entirely clear the Replace field, and just select “No Break” in the Replace with Format box. (Additional notes: if there is <em>no</em> text in the “Replace With” box and <em>no</em> formatting in the “Replace with Formatting” box, all found occurrences will be deleted. Also, be sure there is not a single —invisible— space in the Replace With box!)</p>
+      <p>So we end up with “\w\.\w” in Search, nothing at all in Replace, and No Break in Replace with Format.</p>
+      <p>[*] In case you are wondering how to use “$1” properly, this works nicely. Notice the escaped parentheses.</p>
+      <p>Search: “\((\d+)\)”<br>
+      Replace: “[$1]”</p>
+      <p>This will search for “(“, any sequence of numbers, then “)”, and replace it with Found Expression #1 — which is the “\d+” part —, surrounded by square brackets. In case you want to experiment with this any further, look up any standard GREP reference on the web (as InDesign is for the largest part compliant). For any variations on the above, remember the square brackets are ’special’ in Search but not in Replace.</p>
+      <p>To have a little fun, try this. Search for “(\w\w\w) \w+\1\&gt;”. It will find any consecutive words with the same three ending characters (“present management”, “secure pressure”; “matter transmitter” has four). Also try this one: “(\w)(\w)(\w)\3\2\1” — this will find ’partly palindromes’ — words with the same three characters double in reverse order (“dif” in “diffident”, “tal” in “installation”).</p>
+  - id: 304706
+    user: 37331
+    date: 2008-10-04T03:05:00
+    date_raw: 4.Oct.2008 3.05am
+    votes: null
+    html: |-
+      <p>Theunis, thanks for taking the time to explain. Yes, I did figure out that preceding the character with a backslash (not “backspace” as you mistakenly typed) works by “turning off the special meaning of the following character”.</p>
+      <p>Thanks too for pointing out the special case of anychar-period-space. I had completely overlooked it.</p>
+      <p>And, yes, I did spend several hours reading up on GREP. Fascinating!</p>
+    html_clean: |-
+      <p>Theunis, thanks for taking the time to explain. Yes, I did figure out that preceding the character with a backslash (not “backspace” as you mistakenly typed) works by “turning off the special meaning of the following character”.</p>
+      <p>Thanks too for pointing out the special case of anychar-period-space. I had completely overlooked it.</p>
+      <p>And, yes, I did spend several hours reading up on GREP. Fascinating!</p>
+  - id: 304733
+    user: 29994
+    date: 2008-10-04T09:39:00
+    date_raw: 4.Oct.2008 9.39am
+    votes: null
+    html: |-
+      <p><cite>backslash (not “backspace”)</cite></p>
+      <p>Euh ...</p>
+      <p>While I’m waiting for CS4, I’m thinking of smart things to do with the paragraph style linked GREP searches. So far, I’ve come up with two things that we now do manually:</p>
+      <p>1. We regularly use old fonts, with its medieval numbers in a separate font. Naturally, we insert them as character styles with some search&amp;replacing. Now, all we have to do is saying “\d” -&gt; “Oldstyle” character style in the style for our body text. Yippeee!</p>
+      <p>2. It’s quite handy to see figure and table references marked in color while doing page layout. How about “([Ff]igure|[Tt]able)\s\d+)” -&gt; “Highlite”, where the “Highlite” character style contains a big fat underline in some brilliant color. When done, de-select “Underline” in the highlite style, and the marks disappear. Need them again? Set “Underline” back on, and there they are again.</p>
+      <p>(A provisional #3 would be to automatically format all caps words with small caps — I could use that for <em>some</em> of my styles.)</p>
+      <p>Anyone else? ;-)</p>
+    html_clean: |-
+      <p><cite>backslash (not “backspace”)</cite></p>
+      <p>Euh ...</p>
+      <p>While I’m waiting for CS4, I’m thinking of smart things to do with the paragraph style linked GREP searches. So far, I’ve come up with two things that we now do manually:</p>
+      <p>1. We regularly use old fonts, with its medieval numbers in a separate font. Naturally, we insert them as character styles with some search&amp;replacing. Now, all we have to do is saying “\d” -&gt; “Oldstyle” character style in the style for our body text. Yippeee!</p>
+      <p>2. It’s quite handy to see figure and table references marked in color while doing page layout. How about “([Ff]igure|[Tt]able)\s\d+)” -&gt; “Highlite”, where the “Highlite” character style contains a big fat underline in some brilliant color. When done, de-select “Underline” in the highlite style, and the marks disappear. Need them again? Set “Underline” back on, and there they are again.</p>
+      <p>(A provisional #3 would be to automatically format all caps words with small caps — I could use that for <em>some</em> of my styles.)</p>
+      <p>Anyone else? ;-)</p>

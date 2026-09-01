@@ -1,0 +1,110 @@
+node: 78808
+title: ttf_problem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120617045821"
+  captured_at: 2012-06-17T04:58:21Z
+  url: http://typophile.com/node/78808
+  digest: ISN7C75UCCN5PTNU7P3W6ANRHAHFPVSF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/78808.html
+  fingerprint: 9d84487b46955bd7
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120617045821"
+      digest: ISN7C75UCCN5PTNU7P3W6ANRHAHFPVSF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/78808.html
+post:
+  id: 78808
+  user: 14650
+  date: 2011-02-06T13:09:00
+  date_raw: 6 Feb 2011 — 1:09pm
+  votes: null
+  html: |-
+    <p>I've been reworking some old proprietary PS fonts for someone who needed the character sets filled out and will be using in Flash as well as other apps. The first one came out fine. Then I worked on one that is a formal script. All seemed well until I had a peek at it for the first time in Illustrator. OUCH! In the glyph palette (see below) you'll notice that some letters are extremely distorted. </p>
+    <p>I thought maybe it might be some kind of hinting error. I don't know how to hint ttf fonts so I tried removing hinting, autohinting, etc. No matter what I seem to do I get the same results. Not sure why C is fine but Ç is not. When I type it looks fine until I zoom out a ways. Then I get the same distortions as the glyph palette. I tried the old PS version in Illustrator with no problems. Any ideas how to resolve this?<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/Glyph_palette_4354.gif"></div><p></p>
+  html_clean: |-
+    <p>I've been reworking some old proprietary PS fonts for someone who needed the character sets filled out and will be using in Flash as well as other apps. The first one came out fine. Then I worked on one that is a formal script. All seemed well until I had a peek at it for the first time in Illustrator. OUCH! In the glyph palette (see below) you'll notice that some letters are extremely distorted. </p>
+    <p>I thought maybe it might be some kind of hinting error. I don't know how to hint ttf fonts so I tried removing hinting, autohinting, etc. No matter what I seem to do I get the same results. Not sure why C is fine but Ç is not. When I type it looks fine until I zoom out a ways. Then I get the same distortions as the glyph palette. I tried the old PS version in Illustrator with no problems. Any ideas how to resolve this?<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/Glyph_palette_4354.gif"></div><p></p>
+comments:
+  - id: 450912
+    user: 2021
+    date: 2011-02-06T13:23:00
+    date_raw: 6 Feb 2011 — 1:23pm
+    votes: null
+    html: |-
+      <p>Decompose<br>
+      Merge Contours<br>
+      Make sure all PostScript curves have a "handle" at both ends<br>
+      Convert Curves to TrueType<br>
+      Set TT direction<br>
+      Check for duplicate paths (double click on path segments/count number of points visible and compare with number listed).</p>
+    html_clean: |-
+      <p>Decompose<br>
+      Merge Contours<br>
+      Make sure all PostScript curves have a "handle" at both ends<br>
+      Convert Curves to TrueType<br>
+      Set TT direction<br>
+      Check for duplicate paths (double click on path segments/count number of points visible and compare with number listed).</p>
+  - id: 450913
+    user: 14650
+    date: 2011-02-06T13:26:00
+    date_raw: 6 Feb 2011 — 1:26pm
+    votes: null
+    html: <p>Thanks, Nick. I will go through your list and see what happens.</p>
+    html_clean: <p>Thanks, Nick. I will go through your list and see what happens.</p>
+  - id: 450924
+    user: 14650
+    date: 2011-02-06T13:58:00
+    date_raw: 6 Feb 2011 — 1:58pm
+    votes: null
+    html: |-
+      <p>I had already decomposed and merged contours. I'm not seeing any duplicate paths on the ones that show up bad. I hadn't reset to TT curves and direction because I thought that when you generated it as a Windows TrueType/OpenType font that conversion was automatically made. Anyway… I went ahead and tried that and still had the same problem. On the Ç I had a change. On that particular character I had copied from the old PS version. Then this time around I went back and put in the new C and cedilla (with cleaned up outlines). The Ç was better, but not right. The cedilla seemed to show as a heavy spot on the curve rather than hanging below. It was merged and showed no bad points in Font Audit.</p>
+      <p>I'm wondering if scaling the font up to 2048 from the 1000 would help. Also… is it best to remove hinting, autohint, or maybe leave only horizontal hints since the verticals have nothing to align to?</p>
+    html_clean: |-
+      <p>I had already decomposed and merged contours. I'm not seeing any duplicate paths on the ones that show up bad. I hadn't reset to TT curves and direction because I thought that when you generated it as a Windows TrueType/OpenType font that conversion was automatically made. Anyway… I went ahead and tried that and still had the same problem. On the Ç I had a change. On that particular character I had copied from the old PS version. Then this time around I went back and put in the new C and cedilla (with cleaned up outlines). The Ç was better, but not right. The cedilla seemed to show as a heavy spot on the curve rather than hanging below. It was merged and showed no bad points in Font Audit.</p>
+      <p>I'm wondering if scaling the font up to 2048 from the 1000 would help. Also… is it best to remove hinting, autohint, or maybe leave only horizontal hints since the verticals have nothing to align to?</p>
+  - id: 450933
+    user: 6470
+    date: 2011-02-06T14:35:00
+    date_raw: 6 Feb 2011 — 2:35pm
+    votes: null
+    html: <p>Occasionally, I have encountered some kind of voodoo in a .vfb file that defies any fix I can throw at it. In such instances, I have generated a PS Type 1 font, then opened the generated font in FontLab, and the problems have gone away. This process may not solve your problems, but it's worth a shot...</p>
+    html_clean: <p>Occasionally, I have encountered some kind of voodoo in a .vfb file that defies any fix I can throw at it. In such instances, I have generated a PS Type 1 font, then opened the generated font in FontLab, and the problems have gone away. This process may not solve your problems, but it's worth a shot...</p>
+  - id: 450937
+    user: 14650
+    date: 2011-02-06T14:45:00
+    date_raw: 6 Feb 2011 — 2:45pm
+    votes: null
+    html: <p>I'm wondering if I just copy everything into a new font window including kerning data and see if that might do it. The first font that I reworked I did this way and had no problems. This one I just opened in FL and reworked directly. The font was a very old proprietary PS font and had some weird things to start with. Like… whoever put together composite characters just used any random dicritic slot. So there was a tilde in the circumflex cell and they used dotaccent in place of dieresis. I might see if that helps fix it.</p>
+    html_clean: <p>I'm wondering if I just copy everything into a new font window including kerning data and see if that might do it. The first font that I reworked I did this way and had no problems. This one I just opened in FL and reworked directly. The font was a very old proprietary PS font and had some weird things to start with. Like… whoever put together composite characters just used any random dicritic slot. So there was a tilde in the circumflex cell and they used dotaccent in place of dieresis. I might see if that helps fix it.</p>
+  - id: 450961
+    user: 14650
+    date: 2011-02-06T17:30:00
+    date_raw: 6 Feb 2011 — 5:30pm
+    votes: null
+    html: |-
+      <p>Fixed it. The font was very old with many updates, but still had diacritics mapped incorrectly, no extremes on curves, etc. After fixing all that and pasting in a new font window using the paste special command to avoid carrying any unnecessary legacy data I managed to get it working. Also followed Mr. Shinn's notes.:-)</p>
+      <p>Thanks guys.</p>
+    html_clean: |-
+      <p>Fixed it. The font was very old with many updates, but still had diacritics mapped incorrectly, no extremes on curves, etc. After fixing all that and pasting in a new font window using the paste special command to avoid carrying any unnecessary legacy data I managed to get it working. Also followed Mr. Shinn's notes.:-)</p>
+      <p>Thanks guys.</p>

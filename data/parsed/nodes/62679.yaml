@@ -1,0 +1,236 @@
+node: 62679
+title: Check glyph compatibility script ?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120111122547"
+  captured_at: 2012-01-11T12:25:47Z
+  url: http://typophile.com:80/node/62679
+  digest: UFIOTELM7NZNR7Q5PWRDEQE3FFTWIS6C
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/62679.html
+  fingerprint: c3a544101350873b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120111122547"
+      digest: UFIOTELM7NZNR7Q5PWRDEQE3FFTWIS6C
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/62679.html
+post:
+  id: 62679
+  user: 48062
+  date: 2009-10-03T03:35:00
+  date_raw: 3.Oct.2009 3.35am
+  votes: null
+  html: |-
+    <p>I'm trying to write a script that checks the compatibility of glyphs before generating a MM font.</p>
+    <p>I wrote this which works for single glyphs </p>
+    <p><code><br>
+    ========================<br>
+    from robofab.world import OpenFont<br>
+    lightFont = OpenFont(None)<br>
+    boldFont = OpenFont(None)<br>
+    #<br>
+    #<br>
+    print lightFont.info.fullName,"/",boldFont.info.fullName</code></p>
+    <p>print lightFont["A"].isCompatible(boldFont["A"], True)<br>
+    ========================<br>
+     </p>
+    <p>I really wanted to do it with a loop, and loop through the whole font. </p>
+    <p>I tired this, but it gives me a list saying all the glyphs are compatible but I know they are not. </p>
+    <p><code><br>
+    ========================<br>
+    from robofab.world import OpenFont<br>
+    lightFont = OpenFont(None)<br>
+    boldFont = OpenFont(None)<br>
+    #<br>
+    #<br>
+    print lightFont.info.fullName,"/",boldFont.info.fullName</code></p>
+    <p>for glyph in lightFont:<br>
+    	print lightFont["glyph"].isCompatible(boldFont["glyph"], True)</p>
+    <p>print lightFont["B"].isCompatible(boldFont["B"], True)</p>
+    <p>========================<br>
+     </p>
+    <p>I changed the outline of the "B" and tested the compatibility after the loop and it tells me they are not compatible but the loops tells me they are </p>
+    <p>How can I loop through both fonts and test there compatibility ?</p>
+  html_clean: |-
+    <p>I'm trying to write a script that checks the compatibility of glyphs before generating a MM font.</p>
+    <p>I wrote this which works for single glyphs </p>
+    <p><code><br>
+    ========================<br>
+    from robofab.world import OpenFont<br>
+    lightFont = OpenFont(None)<br>
+    boldFont = OpenFont(None)<br>
+    #<br>
+    #<br>
+    print lightFont.info.fullName,"/",boldFont.info.fullName</code></p>
+    <p>print lightFont["A"].isCompatible(boldFont["A"], True)<br>
+    ========================<br>
+     </p>
+    <p>I really wanted to do it with a loop, and loop through the whole font. </p>
+    <p>I tired this, but it gives me a list saying all the glyphs are compatible but I know they are not. </p>
+    <p><code><br>
+    ========================<br>
+    from robofab.world import OpenFont<br>
+    lightFont = OpenFont(None)<br>
+    boldFont = OpenFont(None)<br>
+    #<br>
+    #<br>
+    print lightFont.info.fullName,"/",boldFont.info.fullName</code></p>
+    <p>for glyph in lightFont:<br>
+    	print lightFont["glyph"].isCompatible(boldFont["glyph"], True)</p>
+    <p>print lightFont["B"].isCompatible(boldFont["B"], True)</p>
+    <p>========================<br>
+     </p>
+    <p>I changed the outline of the "B" and tested the compatibility after the loop and it tells me they are not compatible but the loops tells me they are </p>
+    <p>How can I loop through both fonts and test there compatibility ?</p>
+comments:
+  - id: 371029
+    user: 17208
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>I would suggest to loop through the *glyph names* instead of the *glyph objects*:<br>
+      <code><br>
+      from robofab.world import OpenFont<br>
+      lightFont = OpenFont()<br>
+      boldFont = OpenFont()</code></p>
+      <p>print lightFont.info.fullName, "/", boldFont.info.fullName</p>
+      <p>for glyphName in lightFont.keys():<br>
+      &gt; lightGlyph = lightFont['glyphName']<br>
+      &gt; boldGlyph = boldFont['glyphName']<br>
+      &gt; print lightGlyph.isCompatible(boldGlyph, True)<br>
+      </p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+    html_clean: |-
+      <p>I would suggest to loop through the *glyph names* instead of the *glyph objects*:<br>
+      <code><br>
+      from robofab.world import OpenFont<br>
+      lightFont = OpenFont()<br>
+      boldFont = OpenFont()</code></p>
+      <p>print lightFont.info.fullName, "/", boldFont.info.fullName</p>
+      <p>for glyphName in lightFont.keys():<br>
+      &gt; lightGlyph = lightFont['glyphName']<br>
+      &gt; boldGlyph = boldFont['glyphName']<br>
+      &gt; print lightGlyph.isCompatible(boldGlyph, True)<br>
+      </p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+  - id: 371066
+    user: 48062
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>PvdL</p>
+      <p>Thank you for the code</p>
+      <p>How reliable is the isCompatible() method in RoboFab ?</p>
+      <p>To test it I put in some extra points so they the outlines would be incompatible, but the script still says they are compatible.</p>
+    html_clean: |-
+      <p>PvdL</p>
+      <p>Thank you for the code</p>
+      <p>How reliable is the isCompatible() method in RoboFab ?</p>
+      <p>To test it I put in some extra points so they the outlines would be incompatible, but the script still says they are compatible.</p>
+  - id: 371067
+    user: 48062
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>PvdL</p>
+      <p>Thank you for the code</p>
+      <p>How reliable is the isCompatible() method in RoboFab ?</p>
+      <p>To test it I put in some extra points so they the outlines would be incompatible, but the script still says they are compatible.</p>
+    html_clean: |-
+      <p>PvdL</p>
+      <p>Thank you for the code</p>
+      <p>How reliable is the isCompatible() method in RoboFab ?</p>
+      <p>To test it I put in some extra points so they the outlines would be incompatible, but the script still says they are compatible.</p>
+  - id: 371086
+    user: 16123
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Unless you have a glyph named "glyphName" the script above should toss you an error:<br>
+      <code><br>
+      for glyphName in lightFont.keys():<br>
+      &gt; lightGlyph = lightFont[glyphName]<br>
+      &gt; boldGlyph = boldFont[glyphName]<br>
+      &gt; print lightGlyph.isCompatible(boldGlyph, True)<br>
+      </code></p>
+    html_clean: |-
+      <p>Unless you have a glyph named "glyphName" the script above should toss you an error:<br>
+      <code><br>
+      for glyphName in lightFont.keys():<br>
+      &gt; lightGlyph = lightFont[glyphName]<br>
+      &gt; boldGlyph = boldFont[glyphName]<br>
+      &gt; print lightGlyph.isCompatible(boldGlyph, True)<br>
+      </code></p>
+  - id: 371088
+    user: 48062
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I don't know if it's working as I aspected it to, but I'm not getting an error.</p>
+    html_clean: <p>I don't know if it's working as I aspected it to, but I'm not getting an error.</p>
+  - id: 371104
+    user: 16123
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>The only difference between the chunk of script I posted and Paul's is that you don't have to call a particular glyph called glyphName each time but you just have to refer to the item in the font.keys() iterable. So no '' in the square brackets.</p>
+    html_clean: <p>The only difference between the chunk of script I posted and Paul's is that you don't have to call a particular glyph called glyphName each time but you just have to refer to the item in the font.keys() iterable. So no '' in the square brackets.</p>
+  - id: 371144
+    user: 17208
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>That should teach me never to post code without testing it... :)</p>
+      <p>Indeed folengo is right, there should be no quotes:<br>
+      <code><br>
+      &gt; lightGlyph = lightFont[glyphName]<br>
+      &gt; boldGlyph = boldFont[glyphName]<br>
+      </code></p>
+      <p>I just tested the script with two of my own files and it works fine here - it happily reports any incompatibility errors.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+    html_clean: |-
+      <p>That should teach me never to post code without testing it... :)</p>
+      <p>Indeed folengo is right, there should be no quotes:<br>
+      <code><br>
+      &gt; lightGlyph = lightFont[glyphName]<br>
+      &gt; boldGlyph = boldFont[glyphName]<br>
+      </code></p>
+      <p>I just tested the script with two of my own files and it works fine here - it happily reports any incompatibility errors.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+  - id: 371145
+    user: 48062
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thank you forlengo and PvdL</p>
+      <p>I didn't notice the quotes where removed from forlengo's code - Yes it does now work</p>
+    html_clean: |-
+      <p>Thank you forlengo and PvdL</p>
+      <p>I didn't notice the quotes where removed from forlengo's code - Yes it does now work</p>

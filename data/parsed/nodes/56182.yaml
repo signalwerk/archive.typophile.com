@@ -1,0 +1,151 @@
+node: 56182
+title: "Arabic ligatures"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809015939"
+  captured_at: 2014-08-09T01:59:39Z
+  url: http://typophile.com/node/56182
+  digest: QWQOD6C3B3FQXJQYFGX3RFWJLIHAHPBE
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/56182.html
+  fingerprint: 3964ec3c34493765
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809015939"
+      digest: QWQOD6C3B3FQXJQYFGX3RFWJLIHAHPBE
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56182.html
+post:
+  id: 56182
+  user: 16708
+  date: 2009-03-23T18:10:00
+  date_raw: 23 Mar 2009 — 6:10pm
+  votes: null
+  html: |-
+    <p>What is the optimal way to handle the lam_alef ligatures?</p>
+    <p>No matter how I do it, the ligature doesn't show up, although all my Latin/Greek ligatures do.  If I type lam, then alef, they connect as if they were any other letters in the alphabet.  In FontForge everything shows up okay.</p>
+    <p>I admit it may be my program to edit with (TextEdit) since I don't have InDesign ME, but the ligature substitution seems to work okay for other OTF fonts in TextEdit.  All other substitutions appear okay.</p>
+  html_clean: |-
+    <p>What is the optimal way to handle the lam_alef ligatures?</p>
+    <p>No matter how I do it, the ligature doesn't show up, although all my Latin/Greek ligatures do.  If I type lam, then alef, they connect as if they were any other letters in the alphabet.  In FontForge everything shows up okay.</p>
+    <p>I admit it may be my program to edit with (TextEdit) since I don't have InDesign ME, but the ligature substitution seems to work okay for other OTF fonts in TextEdit.  All other substitutions appear okay.</p>
+comments:
+  - id: 337369
+    user: 1262
+    date: 2009-03-23T19:37:00
+    date_raw: 23 Mar 2009 — 7:37pm
+    votes: null
+    html: |-
+      <p>Since the lam_alif ‘ligature’ is a required form, the lookup should be located in the Required Ligatures {rlig} feature.</p>
+      <p>In Arabic OT shaping, positional form substitutions are applied first, so ligature input glyphs need to be appropriate positional forms:</p>
+      <p>lam.init alif.fina -&gt; lam_alif<br>
+      lam.medi alif.fina -&gt; lam_alif.fina</p>
+      <p>If you've done the above and it doesn't work in your test app, then your test app doesn't support Arabic OpenType.</p>
+    html_clean: |-
+      <p>Since the lam_alif ‘ligature’ is a required form, the lookup should be located in the Required Ligatures {rlig} feature.</p>
+      <p>In Arabic OT shaping, positional form substitutions are applied first, so ligature input glyphs need to be appropriate positional forms:</p>
+      <p>lam.init alif.fina -&gt; lam_alif<br>
+      lam.medi alif.fina -&gt; lam_alif.fina</p>
+      <p>If you've done the above and it doesn't work in your test app, then your test app doesn't support Arabic OpenType.</p>
+  - id: 337432
+    user: 16708
+    date: 2009-03-24T05:06:00
+    date_raw: 24 Mar 2009 — 5:06am
+    votes: null
+    html: |-
+      <p>How might the other Arabic OT fonts be working?  Is there another way I'm not aware of to do this substitution?</p>
+      <p>I'm downloading Mellel since it claims it has its own OTF extensions.  Is there any other good (free or inexpensive) programs to use to test the Arabic OT fonts?  Mac or PC, as I could probably swipe my roommate's PC if need be.  </p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+    html_clean: |-
+      <p>How might the other Arabic OT fonts be working?  Is there another way I'm not aware of to do this substitution?</p>
+      <p>I'm downloading Mellel since it claims it has its own OTF extensions.  Is there any other good (free or inexpensive) programs to use to test the Arabic OT fonts?  Mac or PC, as I could probably swipe my roommate's PC if need be.  </p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+  - id: 337522
+    user: 1262
+    date: 2009-03-24T10:54:00
+    date_raw: 24 Mar 2009 — 10:54am
+    votes: null
+    html: |-
+      <p>What are the other Arabic OT fonts? Are you sure they are using OTL tables and not AAT tables?</p>
+      <p>Mellel should work well for you. The OpenOffice.org apps should work too, but I've never tried the Mac version.</p>
+      <p>On Windows, you can test in Wordpad and NotePad.</p>
+    html_clean: |-
+      <p>What are the other Arabic OT fonts? Are you sure they are using OTL tables and not AAT tables?</p>
+      <p>Mellel should work well for you. The OpenOffice.org apps should work too, but I've never tried the Mac version.</p>
+      <p>On Windows, you can test in Wordpad and NotePad.</p>
+  - id: 337541
+    user: 12518
+    date: 2009-03-24T11:53:00
+    date_raw: 24 Mar 2009 — 11:53am
+    votes: null
+    html: <p>TextEdit on OS X 10.5 forms the lam_alif ligature correctly in Adobe Arabic. This one just has the OT tables, doesn't it?</p>
+    html_clean: <p>TextEdit on OS X 10.5 forms the lam_alif ligature correctly in Adobe Arabic. This one just has the OT tables, doesn't it?</p>
+  - id: 337565
+    user: 1262
+    date: 2009-03-24T12:57:00
+    date_raw: 24 Mar 2009 — 12:57pm
+    votes: null
+    html: |-
+      <p>Yes, Adobe Arabic uses OT.</p>
+      <p>Matthew, are you using FontLab Studio for OTL work? If so, can you perhaps post the FDK syntax code you are using for the ligatures? </p>
+      <p>I use VOLT for OTL work, so I might not be able to spot a problem, but perhaps someone will be able to.</p>
+      <p>If you are using VOLT, you could send me your source font, and I could troubleshoot it for you.</p>
+    html_clean: |-
+      <p>Yes, Adobe Arabic uses OT.</p>
+      <p>Matthew, are you using FontLab Studio for OTL work? If so, can you perhaps post the FDK syntax code you are using for the ligatures? </p>
+      <p>I use VOLT for OTL work, so I might not be able to spot a problem, but perhaps someone will be able to.</p>
+      <p>If you are using VOLT, you could send me your source font, and I could troubleshoot it for you.</p>
+  - id: 337617
+    user: 16708
+    date: 2009-03-24T16:40:00
+    date_raw: 24 Mar 2009 — 4:40pm
+    votes: null
+    html: |-
+      <p>*takes out dunce hat and places on head while walking to the corner stool*  </p>
+      <p>The tutorial I was following had </p>
+      <p>feature rlig { # Required Ligatures<br>
+      script arab; # Arabic<br>
+      lookupflag IgnoreMarks, RightToLeft;<br>
+      sub lam.isol alef.isol by lam_alef.isol;<br>
+      ...<br>
+      sub lam.fina alef.isol by lam_alef.fina;<br>
+      ...<br>
+      } rlig;</p>
+      <p>Even though you mentioned it should be media it just slipped right by me.  Now I've got it working.  Now as to whether I got everything properly designed, that's another question haha.  BTW, I'm actually using FontForge, it's not too hard to convert the syntax.  For posting for a critique on an arabic font is the critique section better or the special interest group?</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+    html_clean: |-
+      <p>*takes out dunce hat and places on head while walking to the corner stool*  </p>
+      <p>The tutorial I was following had </p>
+      <p>feature rlig { # Required Ligatures<br>
+      script arab; # Arabic<br>
+      lookupflag IgnoreMarks, RightToLeft;<br>
+      sub lam.isol alef.isol by lam_alef.isol;<br>
+      ...<br>
+      sub lam.fina alef.isol by lam_alef.fina;<br>
+      ...<br>
+      } rlig;</p>
+      <p>Even though you mentioned it should be media it just slipped right by me.  Now I've got it working.  Now as to whether I got everything properly designed, that's another question haha.  BTW, I'm actually using FontForge, it's not too hard to convert the syntax.  For posting for a critique on an arabic font is the critique section better or the special interest group?</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+  - id: 337619
+    user: 1262
+    date: 2009-03-24T16:44:00
+    date_raw: 24 Mar 2009 — 4:44pm
+    votes: null
+    html: <p>You could post the images in the critique section, and then post an announcement on the Arabic SIG.</p>
+    html_clean: <p>You could post the images in the critique section, and then post an announcement on the Arabic SIG.</p>

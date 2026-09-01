@@ -1,0 +1,66 @@
+node: 7327
+title: OpenType alternate substitutions &#40;FLab&#41;
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131016044341"
+  captured_at: 2013-10-16T04:43:41Z
+  url: http://typophile.com/node/7327
+  digest: TGZEM2JJSOYBMIUDVGKQP26UQKDASIDQ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/7327.html
+  fingerprint: f4408e599aacb817
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131016044341"
+      digest: TGZEM2JJSOYBMIUDVGKQP26UQKDASIDQ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/7327.html
+post:
+  id: 7327
+  user: 869
+  date: 2004-10-25T06:29:00
+  date_raw: 25 Oct 2004 — 6:29am
+  votes: null
+  html: <p>I have a feeling this is either very easy or very hard/impossible. <br> <br>I am in the middle of building a unicase typeface that is designed to use alternative adjacent characters. Currently, Set 1 is mapped to the uppercase and Set 2 is lowercase, but they will need to be re-ordered for the system to work correctly. <br> <br>What I would like to be able to achieve in FontLab is to be able to alternate these on the fly, rather than the user having to swap on the fly by hand.  <br> <br>So, if I type "Thomas Phinney may know", then the substitutions would be "ThOmAs PhInNeY mAy KnOw" - the very first character is the 'seed', so to speak, and all characters after that alternate. <br> <br>I'm a tad out of my depth. After reading the manual and consulting with a very nice Frenchman, it seems likely that I need to set up a context-dependent substitution - the FLab manual gives the example of replacing a smallcap with a lowercase letter if preceeded by a capital, but that technique isn't 'chaining' (for want of a better word) a whole series of substitutions. <br> <br>Can anyone help? Is this even possible?</p>
+  html_clean: <p>I have a feeling this is either very easy or very hard/impossible. <br> <br>I am in the middle of building a unicase typeface that is designed to use alternative adjacent characters. Currently, Set 1 is mapped to the uppercase and Set 2 is lowercase, but they will need to be re-ordered for the system to work correctly. <br> <br>What I would like to be able to achieve in FontLab is to be able to alternate these on the fly, rather than the user having to swap on the fly by hand.  <br> <br>So, if I type "Thomas Phinney may know", then the substitutions would be "ThOmAs PhInNeY mAy KnOw" - the very first character is the 'seed', so to speak, and all characters after that alternate. <br> <br>I'm a tad out of my depth. After reading the manual and consulting with a very nice Frenchman, it seems likely that I need to set up a context-dependent substitution - the FLab manual gives the example of replacing a smallcap with a lowercase letter if preceeded by a capital, but that technique isn't 'chaining' (for want of a better word) a whole series of substitutions. <br> <br>Can anyone help? Is this even possible?</p>
+comments:
+  - id: 50116
+    user: 909
+    date: 2004-10-25T09:18:00
+    date_raw: 25 Oct 2004 — 9:18am
+    votes: null
+    html: |-
+      <p>This is actually not very hard at all to program, although (in my quick formulation at least) it requires you use placeholder glyphs for intermediate processing, and multiple lookups. Actually, FontLab will automatically break this into multiple lookups if you don't, so you can ignore that part in my sample code; I just put it in there for those who need/want to understand an extra level "under the hood." <br> <br>So here's my solution, expressed in FontLab/FDK syntax. I tested a first version of this, so I'm pretty sure it works. The only thing that needs to be done is define and add a set of placeholder glyphs and enumerate them, where I have referred to [@placeholders]. <br> <br>feature calt { # Connection Forms <br> # Latin <br> <br>lookup calt1 { <br><br>
+      </p><blockquote>sub [A-Z] [A-Z]' by [@placeholders] ; <br>sub [a-z] [a-z]' by [A-Z] ;</blockquote><p></p>
+      <p>} calt1; <br> <br>lookup calt2 {<br>
+      </p><blockquote>sub [@placeholders] by [a-z];</blockquote><p></p>
+      <p>} calt2; <br> <br>} calt;</p>
+    html_clean: |-
+      <p>This is actually not very hard at all to program, although (in my quick formulation at least) it requires you use placeholder glyphs for intermediate processing, and multiple lookups. Actually, FontLab will automatically break this into multiple lookups if you don't, so you can ignore that part in my sample code; I just put it in there for those who need/want to understand an extra level "under the hood." <br> <br>So here's my solution, expressed in FontLab/FDK syntax. I tested a first version of this, so I'm pretty sure it works. The only thing that needs to be done is define and add a set of placeholder glyphs and enumerate them, where I have referred to [@placeholders]. <br> <br>feature calt { # Connection Forms <br> # Latin <br> <br>lookup calt1 { <br><br>
+      </p><blockquote>sub [A-Z] [A-Z]' by [@placeholders] ; <br>sub [a-z] [a-z]' by [A-Z] ;</blockquote><p></p>
+      <p>} calt1; <br> <br>lookup calt2 {<br>
+      </p><blockquote>sub [@placeholders] by [a-z];</blockquote><p></p>
+      <p>} calt2; <br> <br>} calt;</p>
+  - id: 50117
+    user: 869
+    date: 2004-10-25T09:38:00
+    date_raw: 25 Oct 2004 — 9:38am
+    votes: null
+    html: <p>You are truly a king amongst men, Thomas. My laptop's battery is dead so I'm going to run to Piccadilly Circus tube to get home as soon as possible and try this out. <br> <br>Many many many thanks! <br> <br>David</p>
+    html_clean: <p>You are truly a king amongst men, Thomas. My laptop's battery is dead so I'm going to run to Piccadilly Circus tube to get home as soon as possible and try this out. <br> <br>Many many many thanks! <br> <br>David</p>

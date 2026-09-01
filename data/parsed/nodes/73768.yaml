@@ -1,0 +1,99 @@
+node: 73768
+title: Acrobat Font Rendering Question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131108050925"
+  captured_at: 2013-11-08T05:09:25Z
+  url: http://typophile.com/node/73768
+  digest: N4SOLMBPMKZVJJDOSGXPQKJ2PTARFFLT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/73768.html
+  fingerprint: 3576a2e9f960f7da
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131108050925"
+      digest: N4SOLMBPMKZVJJDOSGXPQKJ2PTARFFLT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/73768.html
+post:
+  id: 73768
+  user: 11245
+  date: 2010-09-01T12:49:00
+  date_raw: 1 Sep 2010 — 12:49pm
+  votes: null
+  html: |-
+    <p>I've been using Acrobat to show lecture slides, and I've noticed that the typeface I'm using (Adobe Chaparral Pro) doesn't rasterize in the best way in Acrobat. To my eye, it looks much better either using evince in Linux or GhostView in Windows. I've included two images below, with the one on the left Acrobat's rendering and the one on the right evince's render. I assume it's something like a font hinting issue, but the rendering options under Edit-&gt; Preferences in Acrobat don't help. Thanks in advance for any insight you can provide.</p>
+    <p>st</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/chap_cap_acrobat_cropped.png">Acrobat's Rendering</a></td><td>3.52 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/chap_cap_linux_cropped.png">Rendering in Linux (evince)</a></td><td>3.64 KB</td> </tr>
+     <tr class="odd"><td><a href="http://typophile.com/files/test_7.pdf">test.pdf</a></td><td>12.55 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>I've been using Acrobat to show lecture slides, and I've noticed that the typeface I'm using (Adobe Chaparral Pro) doesn't rasterize in the best way in Acrobat. To my eye, it looks much better either using evince in Linux or GhostView in Windows. I've included two images below, with the one on the left Acrobat's rendering and the one on the right evince's render. I assume it's something like a font hinting issue, but the rendering options under Edit-&gt; Preferences in Acrobat don't help. Thanks in advance for any insight you can provide.</p>
+    <p>st</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/chap_cap_acrobat_cropped.png">Acrobat's Rendering</a></td><td>3.52 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/chap_cap_linux_cropped.png">Rendering in Linux (evince)</a></td><td>3.64 KB</td> </tr>
+     <tr class="odd"><td><a href="http://typophile.com/files/test_7.pdf">test.pdf</a></td><td>12.55 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 427812
+    user: 29994
+    date: 2010-09-01T13:12:00
+    date_raw: 1 Sep 2010 — 1:12pm
+    votes: null
+    html: |-
+      <p>For one, evince uses <a href="http://www.freetype.org/" rel="nofollow">FreeType</a>. Acrobat uses Adobe's own proprietary algorithms.</p>
+      <p>It's funny, because you'd think Adobe should have done <em>better</em> than Any Old Open Source project ...</p>
+    html_clean: |-
+      <p>For one, evince uses <a href="http://www.freetype.org/" rel="nofollow">FreeType</a>. Acrobat uses Adobe's own proprietary algorithms.</p>
+      <p>It's funny, because you'd think Adobe should have done <em>better</em> than Any Old Open Source project ...</p>
+  - id: 427817
+    user: 11245
+    date: 2010-09-01T13:46:00
+    date_raw: 1 Sep 2010 — 1:46pm
+    votes: null
+    html: |-
+      <p>Some possible contributing factors:<br>
+      - I made the slides using the beamer class in xeTeX, which creates relatively small documents (smaller than letter size) that are then enlarged.<br>
+      - Further tests show that it's worst with the Subhead optical size of Chaparral. The other cuts rasterize better.  I notice that the regular variant has hinting on the cross of the 't', but the optical sizes don't. This may have something to do with it. I know that xeTeX does use optical sizes when appropriate.<br>
+      - Could Freetype be auto-hinting, whereas Acrobat is trying to use hints, but not doing it so well for on-screen rendering?</p>
+      <p>So, a more specific question: Does anyone know if there is any way to change the way that Acrobat uses hinting in order to test this hypothesis?</p>
+      <p>st</p>
+    html_clean: |-
+      <p>Some possible contributing factors:<br>
+      - I made the slides using the beamer class in xeTeX, which creates relatively small documents (smaller than letter size) that are then enlarged.<br>
+      - Further tests show that it's worst with the Subhead optical size of Chaparral. The other cuts rasterize better.  I notice that the regular variant has hinting on the cross of the 't', but the optical sizes don't. This may have something to do with it. I know that xeTeX does use optical sizes when appropriate.<br>
+      - Could Freetype be auto-hinting, whereas Acrobat is trying to use hints, but not doing it so well for on-screen rendering?</p>
+      <p>So, a more specific question: Does anyone know if there is any way to change the way that Acrobat uses hinting in order to test this hypothesis?</p>
+      <p>st</p>
+  - id: 427847
+    user: 17099
+    date: 2010-09-01T18:56:00
+    date_raw: 1 Sep 2010 — 6:56pm
+    votes: null
+    html: <p>Yes, it's nice to see others bring up the fact that Acrobat font rendering sucks.</p>
+    html_clean: <p>Yes, it's nice to see others bring up the fact that Acrobat font rendering sucks.</p>

@@ -1,0 +1,98 @@
+node: 87787
+title: How to delete ligatures from an existing font in Fontlab
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20150122084339"
+  captured_at: 2015-01-22T08:43:39Z
+  url: http://www.typophile.com:80/node/87787
+  digest: AC2KPRNYM3OUTG7MAP2GV6CYFD5JJ5PD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/87787.html
+  fingerprint: 5ca3d034e940d4a2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150122084339"
+      digest: AC2KPRNYM3OUTG7MAP2GV6CYFD5JJ5PD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/87787.html
+post:
+  id: 87787
+  user: 179632
+  date: 2011-11-27T11:19:00
+  date_raw: 27 Nov 2011 — 11:19am
+  votes: null
+  html: |-
+    <p>Hello, can anyone tell me how I remove existing ligatures in a font completely?<br>
+    I have tried to delete the relevant glyph cells and then delete the 'liga' from the OT panel. The only problem is that the font has already been kerned for use and it's as though it still sees the coding for the deleted glyphs which means it won't let me re-generate it. ANy ideas?</p>
+    <p>Thank you</p>
+    <p>Stimopo</p>
+  html_clean: |-
+    <p>Hello, can anyone tell me how I remove existing ligatures in a font completely?<br>
+    I have tried to delete the relevant glyph cells and then delete the 'liga' from the OT panel. The only problem is that the font has already been kerned for use and it's as though it still sees the coding for the deleted glyphs which means it won't let me re-generate it. ANy ideas?</p>
+    <p>Thank you</p>
+    <p>Stimopo</p>
+comments:
+  - id: 485347
+    user: 14722
+    date: 2011-11-27T11:33:00
+    date_raw: 27 Nov 2011 — 11:33am
+    votes: null
+    html: |-
+      <p>Open a metrics window, switch to kern mode, open the kern pair table, set it to show pairs in order of the left glyph, and delete every instance of the ligature. Then switch to order by the right glyph and delete every instance of the ligature. That should fix it.</p>
+      <p>Alternately you could generate a kern feature, copy/paste it to a text file, and strip all lines referencing the ligature with a good text editor like Textwrangler or command-line tools like sed. Then just dump the fix feature in and don’t allow Fontlab to generate a new feature later.</p>
+    html_clean: |-
+      <p>Open a metrics window, switch to kern mode, open the kern pair table, set it to show pairs in order of the left glyph, and delete every instance of the ligature. Then switch to order by the right glyph and delete every instance of the ligature. That should fix it.</p>
+      <p>Alternately you could generate a kern feature, copy/paste it to a text file, and strip all lines referencing the ligature with a good text editor like Textwrangler or command-line tools like sed. Then just dump the fix feature in and don’t allow Fontlab to generate a new feature later.</p>
+  - id: 485395
+    user: 179632
+    date: 2011-11-28T03:53:00
+    date_raw: 28 Nov 2011 — 3:53am
+    votes: null
+    html: |-
+      <p>Hi, thanks for your advice. I tried option one – I am not sure whether I should delete the individual glyph cells first before deleting the kerning code or vice versa? The ligature codes only seem to display when the glyph cells still exist, but then it won't let me delete the code (I highlight the kerning numbers and press 'delete'). Any ideas?</p>
+      <p>Many thanks</p>
+      <p>Stimopo</p>
+    html_clean: |-
+      <p>Hi, thanks for your advice. I tried option one – I am not sure whether I should delete the individual glyph cells first before deleting the kerning code or vice versa? The ligature codes only seem to display when the glyph cells still exist, but then it won't let me delete the code (I highlight the kerning numbers and press 'delete'). Any ideas?</p>
+      <p>Many thanks</p>
+      <p>Stimopo</p>
+  - id: 485417
+    user: 31798
+    date: 2011-11-28T07:28:00
+    date_raw: 28 Nov 2011 — 7:28am
+    votes: null
+    html: |-
+      <p>Maybe this is a dumb question, but why is it crucial to delete them ompletely? If you remove them from the liga (or dlig) feature, they won't be accessed unless you explicitly select them from the glyph panel. So if you don't like the ligatures, why not simply remove them from the opentype layout features, but leave the glyphs intact. This has the advantage that if you change your mind later it will be much easier to restore them.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Maybe this is a dumb question, but why is it crucial to delete them ompletely? If you remove them from the liga (or dlig) feature, they won't be accessed unless you explicitly select them from the glyph panel. So if you don't like the ligatures, why not simply remove them from the opentype layout features, but leave the glyphs intact. This has the advantage that if you change your mind later it will be much easier to restore them.</p>
+      <p>André</p>
+  - id: 485464
+    user: 179632
+    date: 2011-11-28T14:15:00
+    date_raw: 28 Nov 2011 — 2:15pm
+    votes: null
+    html: |-
+      <p>Hi André,</p>
+      <p>No, it's not a dumb question, and I just tried it. It works!!! (Originally I deleted the actual glyph cells and then the liga feature, but Fontlab was still seeing the code and wouldn't let me re-generate it).</p>
+      <p>Thank you :)</p>
+    html_clean: |-
+      <p>Hi André,</p>
+      <p>No, it's not a dumb question, and I just tried it. It works!!! (Originally I deleted the actual glyph cells and then the liga feature, but Fontlab was still seeing the code and wouldn't let me re-generate it).</p>
+      <p>Thank you :)</p>

@@ -1,0 +1,74 @@
+node: 81010
+title: aLtErNaTiNg CaSe?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120614153419"
+  captured_at: 2012-06-14T15:34:19Z
+  url: http://www.typophile.com/node/81010
+  digest: POP24PTIBVBMPATLPUUJCOQODM6EFMY4
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/81010.html
+  fingerprint: cd8b9d8e21064048
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120614153419"
+      digest: POP24PTIBVBMPATLPUUJCOQODM6EFMY4
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/81010.html
+post:
+  id: 81010
+  user: 6470
+  date: 2011-04-09T13:35:00
+  date_raw: 9 Apr 2011 — 1:35pm
+  votes: null
+  html: <p>I received a request from an OEM to resurrect one of my old freeware fonts, Pleasingly Plump NF, in 21st-century TrueType format. The font, originally designed in 1999, had an uppercase that leaned to the left and a lowercase that leaned to the right. By typing alternating upper- and lowercase letters, the user could add a decided bounce to the type. Given the advances in OpenType programming, it would seem that there ought to be some calt code that could do the heavy lifting of double-clutching the shift key...but perhaps not. Has anyone found an elegant solution to this problem?</p>
+  html_clean: <p>I received a request from an OEM to resurrect one of my old freeware fonts, Pleasingly Plump NF, in 21st-century TrueType format. The font, originally designed in 1999, had an uppercase that leaned to the left and a lowercase that leaned to the right. By typing alternating upper- and lowercase letters, the user could add a decided bounce to the type. Given the advances in OpenType programming, it would seem that there ought to be some calt code that could do the heavy lifting of double-clutching the shift key...but perhaps not. Has anyone found an elegant solution to this problem?</p>
+comments:
+  - id: 459448
+    user: 2021
+    date: 2011-04-09T14:37:00
+    date_raw: 9 Apr 2011 — 2:37pm
+    votes: null
+    html: |-
+      <p>Make a class "All"<br>
+      These will be the default characters, leaning right.<br>
+      Make a class "Allalt"<br>
+      These will be the corresponding glyphs, leaning the other way.</p>
+      <p><code>feature calt {<br>
+      sub @All @All' by @Allalt ;<br>
+      } calt;<br>
+      </code></p>
+      <p>This replaces every instance of a member of "All" following itself (marked with '), by the corresponding alternate.</p>
+    html_clean: |-
+      <p>Make a class "All"<br>
+      These will be the default characters, leaning right.<br>
+      Make a class "Allalt"<br>
+      These will be the corresponding glyphs, leaning the other way.</p>
+      <p><code>feature calt {<br>
+      sub @All @All' by @Allalt ;<br>
+      } calt;<br>
+      </code></p>
+      <p>This replaces every instance of a member of "All" following itself (marked with '), by the corresponding alternate.</p>
+  - id: 459452
+    user: 6470
+    date: 2011-04-09T14:52:00
+    date_raw: 9 Apr 2011 — 2:52pm
+    votes: null
+    html: "<p>Many thanks, Nick: works like a charm!</p>"
+    html_clean: "<p>Many thanks, Nick: works like a charm!</p>"

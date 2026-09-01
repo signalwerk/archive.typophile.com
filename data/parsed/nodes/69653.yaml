@@ -1,0 +1,140 @@
+node: 69653
+title: Python and codepoints above FFFF
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150414112451"
+  captured_at: 2015-04-14T11:24:51Z
+  url: http://typophile.com/node/69653
+  digest: OFQ5J6BBF2KEO3TRONGJ4CCJ2ABGNJAU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/69653.html
+  fingerprint: e3422008786a9df2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150414112451"
+      digest: OFQ5J6BBF2KEO3TRONGJ4CCJ2ABGNJAU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/69653.html
+post:
+  id: 69653
+  user: 18942
+  date: 2010-04-20T11:05:00
+  date_raw: 20 Apr 2010 — 11:05am
+  votes: null
+  html: |-
+    <p>Here is a Python script that dumps to the output a utf-8 input file. The script works fine on Linux but if the input contains characters above U+FFFF it does not behave as expected on the Mac with whatever version of Python I use (I tried with Python 2.5, and 2.6 on OS X 10.5, and with Python 2.5, 2.6 and 3.1 on OS X 10.6).</p>
+    <p>Here is the <code>dumpchars</code> script:<br>
+    <code>---<br>
+    import sys, codecs, unicodedata<br>
+    infile=codecs.open(sys.argv[1],"r","utf-8")<br>
+    text=infile.read(); infile.close()<br>
+    &nbsp;<br>
+    def dump(char):<br>
+    &nbsp;&nbsp; try:<br>
+    &nbsp; &nbsp; &nbsp; print('%04X %s' % (ord(char), unicodedata.name(char)))<br>
+    &nbsp;&nbsp; except:<br>
+    &nbsp; &nbsp; &nbsp; print('%04X' % (ord(char)))<br>
+    &nbsp;&nbsp;<br>
+    for char in text:<br>
+    &nbsp;&nbsp; dump(char)<br>
+    ---</code><br>
+    If, on Linux, (even on the <a href="http://laptop.org/en/laptop/index.shtml" rel="nofollow">OPLC</a>) I run <code>python dumpchars in.txt</code> on the file <code>in.txt</code> containing a line with the characters a, b and a CJK unified ideograph (that makes Typophile's editor crash, so I had to remove the following line)</p>
+    <p>I get<br>
+    <code><br>
+    0061 LATIN SMALL LETTER A<br>
+    0062 LATIN SMALL LETTER B<br>
+    230B7 CJK UNIFIED IDEOGRAPH-230B7<br>
+    000A<br>
+    </code><br>
+    as expected. If I do the same on a Mac with any version of Python, from 2.5 to 3.1, I get this:<br>
+    <code><br>
+    0061 LATIN SMALL LETTER A<br>
+    0062 LATIN SMALL LETTER B<br>
+    D84C<br>
+    DCB7<br>
+    000A<br>
+    </code><br>
+    Characters above FFFF are not handled properly. I get that same output on a PC (I tried with python2.6)</p>
+    <p>Does anyone know of a solution to this problem aside from always having to rely on a "Linux box" ? </p>
+    <p>Michel</p>
+  html_clean: |-
+    <p>Here is a Python script that dumps to the output a utf-8 input file. The script works fine on Linux but if the input contains characters above U+FFFF it does not behave as expected on the Mac with whatever version of Python I use (I tried with Python 2.5, and 2.6 on OS X 10.5, and with Python 2.5, 2.6 and 3.1 on OS X 10.6).</p>
+    <p>Here is the <code>dumpchars</code> script:<br>
+    <code>---<br>
+    import sys, codecs, unicodedata<br>
+    infile=codecs.open(sys.argv[1],"r","utf-8")<br>
+    text=infile.read(); infile.close()<br>
+    &nbsp;<br>
+    def dump(char):<br>
+    &nbsp;&nbsp; try:<br>
+    &nbsp; &nbsp; &nbsp; print('%04X %s' % (ord(char), unicodedata.name(char)))<br>
+    &nbsp;&nbsp; except:<br>
+    &nbsp; &nbsp; &nbsp; print('%04X' % (ord(char)))<br>
+    &nbsp;&nbsp;<br>
+    for char in text:<br>
+    &nbsp;&nbsp; dump(char)<br>
+    ---</code><br>
+    If, on Linux, (even on the <a href="http://laptop.org/en/laptop/index.shtml" rel="nofollow">OPLC</a>) I run <code>python dumpchars in.txt</code> on the file <code>in.txt</code> containing a line with the characters a, b and a CJK unified ideograph (that makes Typophile's editor crash, so I had to remove the following line)</p>
+    <p>I get<br>
+    <code><br>
+    0061 LATIN SMALL LETTER A<br>
+    0062 LATIN SMALL LETTER B<br>
+    230B7 CJK UNIFIED IDEOGRAPH-230B7<br>
+    000A<br>
+    </code><br>
+    as expected. If I do the same on a Mac with any version of Python, from 2.5 to 3.1, I get this:<br>
+    <code><br>
+    0061 LATIN SMALL LETTER A<br>
+    0062 LATIN SMALL LETTER B<br>
+    D84C<br>
+    DCB7<br>
+    000A<br>
+    </code><br>
+    Characters above FFFF are not handled properly. I get that same output on a PC (I tried with python2.6)</p>
+    <p>Does anyone know of a solution to this problem aside from always having to rely on a "Linux box" ? </p>
+    <p>Michel</p>
+comments:
+  - id: 407736
+    user: 1133
+    date: 2010-04-20T12:03:00
+    date_raw: 20 Apr 2010 — 12:03pm
+    votes: null
+    html: |-
+      <p>Michel, </p>
+      <p>unfortunately, by default Python is compiled in the UCS-2 version so it only supports Unicode BMP. It's possible to install Python from sources in the UCS-4 mode, but it means you need to do some compilation. It's also possible to install the UCS-4 version of Python from MacPorts (using Porticus). </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>Michel, </p>
+      <p>unfortunately, by default Python is compiled in the UCS-2 version so it only supports Unicode BMP. It's possible to install Python from sources in the UCS-4 mode, but it means you need to do some compilation. It's also possible to install the UCS-4 version of Python from MacPorts (using Porticus). </p>
+      <p>Adam</p>
+  - id: 407750
+    user: 18942
+    date: 2010-04-20T13:13:00
+    date_raw: 20 Apr 2010 — 1:13pm
+    votes: null
+    html: |-
+      <p>Adam</p>
+      <p> I now have a Macports version of python2.6 that works as I expected. </p>
+      <p>Thanks,</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>Adam</p>
+      <p> I now have a Macports version of python2.6 that works as I expected. </p>
+      <p>Thanks,</p>
+      <p>Michel</p>

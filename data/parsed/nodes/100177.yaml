@@ -1,0 +1,108 @@
+node: 100177
+title: fixing kerning
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150421045838"
+  captured_at: 2015-04-21T04:58:38Z
+  url: http://typophile.com/node/100177
+  digest: 5X6COS2S7LEVWDZSINT467OR2GPEYQYG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/100177.html
+  fingerprint: 1112b1eca4a0a95c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150421045838"
+      digest: 5X6COS2S7LEVWDZSINT467OR2GPEYQYG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/100177.html
+post:
+  id: 100177
+  user: 30114
+  date: 2013-01-29T13:32:00
+  date_raw: 29 Jan 2013 — 1:32pm
+  votes: null
+  html: |-
+    <p>Hey,</p>
+    <p>I've got some red values amongst my kerning, which I'm assuming means they don't match what class 'leader's value. Could this be solved by expanding, and then compressing kerning, using fontlab's kerning assistance? Or will this cause new problems?</p>
+    <p>And, what exactly does 'keep existing pairs' in the 'expand kerning' window mean? It seems quite logical to me that I wan't to keep my existing pairs, but apparantly it isn't?</p>
+    <p>Thanks in advance,<br>
+    Jasper</p>
+  html_clean: |-
+    <p>Hey,</p>
+    <p>I've got some red values amongst my kerning, which I'm assuming means they don't match what class 'leader's value. Could this be solved by expanding, and then compressing kerning, using fontlab's kerning assistance? Or will this cause new problems?</p>
+    <p>And, what exactly does 'keep existing pairs' in the 'expand kerning' window mean? It seems quite logical to me that I wan't to keep my existing pairs, but apparantly it isn't?</p>
+    <p>Thanks in advance,<br>
+    Jasper</p>
+comments:
+  - id: 541455
+    user: 2021
+    date: 2013-01-29T19:45:00
+    date_raw: 29 Jan 2013 — 7:45pm
+    votes: null
+    html: |-
+      <p>Just delete them.<br>
+      The values for those kern pairs will be replaced by class kerning values.</p>
+      <p>If they persist, then you know that there are conﬂicts, with a glyph appearing in more than one class.</p>
+      <p>For instance, you may have a class for (V' W), and another for (T' Y), but at some point have the bright idea that Y is quite similar to V and W, and decide to put it in that class, for (V' W Y)</p>
+      <p>So if VA is kerned -80, and TA is kerned -100, then Y will be embarrassed, not knowing exactly how intimate it should be with A.</p>
+    html_clean: |-
+      <p>Just delete them.<br>
+      The values for those kern pairs will be replaced by class kerning values.</p>
+      <p>If they persist, then you know that there are conﬂicts, with a glyph appearing in more than one class.</p>
+      <p>For instance, you may have a class for (V' W), and another for (T' Y), but at some point have the bright idea that Y is quite similar to V and W, and decide to put it in that class, for (V' W Y)</p>
+      <p>So if VA is kerned -80, and TA is kerned -100, then Y will be embarrassed, not knowing exactly how intimate it should be with A.</p>
+  - id: 541456
+    user: 44740
+    date: 2013-01-29T19:46:00
+    date_raw: 29 Jan 2013 — 7:46pm
+    votes: null
+    html: <p>I wouldn't expand the kerning. The red values are, as you said, exceptions to the class rules, and if you meant them to be exceptions, it's fine to leave them there. If you've made exceptions by accident (by kerning in class kerning with exceptions mode instead of just class kerning mode) just go through and delete the red kern pairs. Exceptions are useful - for example, the /i/ class will probably contain all i diacritic glyphs, and the vast majority of the time they'll kern the same as i, but for certain situations different kerning is needed. It's easier to control these as exceptions rather than have a specific idiacritic kerning class.</p>
+    html_clean: <p>I wouldn't expand the kerning. The red values are, as you said, exceptions to the class rules, and if you meant them to be exceptions, it's fine to leave them there. If you've made exceptions by accident (by kerning in class kerning with exceptions mode instead of just class kerning mode) just go through and delete the red kern pairs. Exceptions are useful - for example, the /i/ class will probably contain all i diacritic glyphs, and the vast majority of the time they'll kern the same as i, but for certain situations different kerning is needed. It's easier to control these as exceptions rather than have a specific idiacritic kerning class.</p>
+  - id: 541565
+    user: 30114
+    date: 2013-01-30T12:35:00
+    date_raw: 30 Jan 2013 — 12:35pm
+    votes: null
+    html: <p>Thanks both. So if I undertand you correctly there is no harm in having class exceptions. Baring filesize in mind though (especially considering webfonts) it seems better to compress kerning. Is there a risk of losing kern pairs there, or does fontlab do the job as it should?</p>
+    html_clean: <p>Thanks both. So if I undertand you correctly there is no harm in having class exceptions. Baring filesize in mind though (especially considering webfonts) it seems better to compress kerning. Is there a risk of losing kern pairs there, or does fontlab do the job as it should?</p>
+  - id: 541567
+    user: 30114
+    date: 2013-01-30T12:44:00
+    date_raw: 30 Jan 2013 — 12:44pm
+    votes: null
+    html: "<p>Ohh, and btw: This might be a stupid question, but what's the use of the apostrophe after the first glyph of a class (as in nick shinn's example)? The classes seem to work fine without it...</p>"
+    html_clean: "<p>Ohh, and btw: This might be a stupid question, but what's the use of the apostrophe after the first glyph of a class (as in nick shinn's example)? The classes seem to work fine without it...</p>"
+  - id: 541571
+    user: 2021
+    date: 2013-01-30T13:38:00
+    date_raw: 30 Jan 2013 — 1:38pm
+    votes: null
+    html: |-
+      <p>That indicates the key glyph.<br>
+      It can be in any position the class.</p>
+    html_clean: |-
+      <p>That indicates the key glyph.<br>
+      It can be in any position the class.</p>
+  - id: 541658
+    user: 30114
+    date: 2013-01-31T06:02:00
+    date_raw: 31 Jan 2013 — 6:02am
+    votes: null
+    html: <p>That's what I assumed. Without an apostrophe, though, fontlab just takes the first glyph in the row as the key glyph, which works fine for me.</p>
+    html_clean: <p>That's what I assumed. Without an apostrophe, though, fontlab just takes the first glyph in the row as the key glyph, which works fine for me.</p>

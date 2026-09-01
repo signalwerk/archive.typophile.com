@@ -1,0 +1,328 @@
+node: 84563
+title: How many of those "extended" characters do you really need?
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20140730081633"
+  captured_at: 2014-07-30T08:16:33Z
+  url: http://typophile.com/node/84563
+  digest: MD6HJQAJP32NZA5YD35ILQZUSY5D75NT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/84563.html
+  fingerprint: c037a43cceb7690c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140730081633"
+      digest: MD6HJQAJP32NZA5YD35ILQZUSY5D75NT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84563.html
+post:
+  id: 84563
+  user: 89324
+  date: 2011-08-14T14:21:00
+  date_raw: 14 Aug 2011 — 2:21pm
+  votes: null
+  html: |-
+    <p>I'm in the process of planning out a new type family and I'd like it to cover as much of the Latin, Greek, and Cyrillic scripts as is practical (i.e. in modern use - I'm not too worried about ancient or archaic languages). Looking through the Unicode Standard, I realize just how little I really know about the Latin script alone! So I'm trying to sort through the various code charts to figure out which characters I need.</p>
+    <p>I already know to include all the characters in Basic Latin, Latin-1 Supplement, and Latin Extended-A. I know the basic diacritics, punctuation, "letterlike symbols," etc. I can identify the basic necessities for the Greek and Cyrillic scripts. But beyond that I'm lost. The following is a list of Unicode pages I'm interested in. Any advice on which to include and which to ignore would be great.</p>
+    <p>Latin Extended-B, -C, -D, &amp; Additional<br>
+    IPA Extensions<br>
+    Spacing Modifier Letters (besides the basic diacritics)<br>
+    Combining Diacritical Marks (besides the basics)<br>
+    Greek and Coptic (beyond the basic alphabet)<br>
+    Cyrillic (same)<br>
+    Cyrillic Supplement<br>
+    Phonetic Extensions &amp; Supplement<br>
+    Comb. Diacritics Supp.<br>
+    Greek Ext.<br>
+    General Punctuation, Supp. Punctuation<br>
+    Superscripts and Subscripts<br>
+    Currency Symbols<br>
+    Letterlike Symbols<br>
+    Cyrillic Ext.-A &amp; -B</p>
+  html_clean: |-
+    <p>I'm in the process of planning out a new type family and I'd like it to cover as much of the Latin, Greek, and Cyrillic scripts as is practical (i.e. in modern use - I'm not too worried about ancient or archaic languages). Looking through the Unicode Standard, I realize just how little I really know about the Latin script alone! So I'm trying to sort through the various code charts to figure out which characters I need.</p>
+    <p>I already know to include all the characters in Basic Latin, Latin-1 Supplement, and Latin Extended-A. I know the basic diacritics, punctuation, "letterlike symbols," etc. I can identify the basic necessities for the Greek and Cyrillic scripts. But beyond that I'm lost. The following is a list of Unicode pages I'm interested in. Any advice on which to include and which to ignore would be great.</p>
+    <p>Latin Extended-B, -C, -D, &amp; Additional<br>
+    IPA Extensions<br>
+    Spacing Modifier Letters (besides the basic diacritics)<br>
+    Combining Diacritical Marks (besides the basics)<br>
+    Greek and Coptic (beyond the basic alphabet)<br>
+    Cyrillic (same)<br>
+    Cyrillic Supplement<br>
+    Phonetic Extensions &amp; Supplement<br>
+    Comb. Diacritics Supp.<br>
+    Greek Ext.<br>
+    General Punctuation, Supp. Punctuation<br>
+    Superscripts and Subscripts<br>
+    Currency Symbols<br>
+    Letterlike Symbols<br>
+    Cyrillic Ext.-A &amp; -B</p>
+comments:
+  - id: 474046
+    user: 32723
+    date: 2011-08-14T16:13:00
+    date_raw: 14 Aug 2011 — 4:13pm
+    votes: null
+    html: |-
+      <p>Tucker,</p>
+      <p>some of your doubts were mine some time ago.</p>
+      <p>Do the contrary: define which languages you want to support and then include the proper characters. Unicode blocks are heterogeneous and the Latin ones brings together glyphs needed to less common European languages besides Asian languages, Medieval characters and even Roman signs.</p>
+      <p>For example: Latin Extended Additional includes 1E9E, the German uppercase double S. It seems ok to include that. In the same block you find the Vietnamese accented and double-accented vowels. Of course, you would ignore them if Vietnamese support is out of your target. This Unicode block also adds several precomposed combinations to support Indic, Hebrew and Cyrillic transliterations. Again, you must chose if transliterations would be supported.</p>
+      <p>A similar definition must be made about Phonetic alphabets, currency and letterlike symbols. This will take some research, but you will not include unnecessary glyphs.</p>
+      <p>Some basic information about the blocks you did mention:</p>
+      <p><strong>01. Latin B</strong> has mostly glyphs to African languages, but also mix rarely used European glyphs and Pinyin transliteration.</p>
+      <p><strong>02. Latin C</strong> brings glyphs to Cyrillic transliterations and old African orthographies. 2C6D and 2C70 are needed to complete African support, the remaining probably are out of your scope.</p>
+      <p><strong>03. Latin D</strong> has many Medieval additions and support for old orthographies. Probably the whole block is unnecessary to you.</p>
+      <p><strong>04. Latin Additional</strong> is a mess. Define the languages and look in detail this block.</p>
+      <p><strong>05. IPA and Phonetic block</strong>. Just needed to phonetic support.</p>
+      <p><strong>06. Super and subscripts</strong>. Add the whole block.</p>
+      <p><strong>07. Currencies</strong>. The very basic set is: dollar, cent, pound, yen, currency (generic) and euro. An improved set also includes thai, cólon, naira, won, new sheqel, kruvinia (hryvnia), tenge, new rupee (20B9) and tugrik. Most of others are historical.</p>
+      <p><strong>08. Letterlike</strong>. nº, liter, estimated, TM, and Ohm are basic. Others may be included or not according to your scope, but are not essential.</p>
+      <p><strong>09. Punctuation</strong>. Basic: 2002, 2003, 2013, 2014, 2018 to 2022, 2026, 2027, 2032, 2033, 2039, 203A, and 2044, </p>
+      <p>The thread where I <a class="freelinking external" href="http://typophile.com/node/67787#comment-402703" rel="nofollow">presented</a> my own font project has some good information about this, kindly gave by fellow typophilers. The link above points to where this discussion begun.</p>
+      <p>Other threads I also begun may be useful:<br>
+      <a class="freelinking external" href="http://typophile.com/node/74164" rel="nofollow">Unicode and diacritics</a><br>
+      <a class="freelinking external" href="http://typophile.com/node/78082" rel="nofollow">Eng and hooked N</a><br>
+      <a class="freelinking external" href="http://typophile.com/node/73886" rel="nofollow">Currencies and others</a><br>
+      <a class="freelinking external" href="http://typophile.com/node/71504" rel="nofollow">Greek and Cyrillic</a><br>
+      <a class="freelinking external" href="http://typophile.com/node/78088" rel="nofollow">Slashed letters</a></p>
+    html_clean: |-
+      <p>Tucker,</p>
+      <p>some of your doubts were mine some time ago.</p>
+      <p>Do the contrary: define which languages you want to support and then include the proper characters. Unicode blocks are heterogeneous and the Latin ones brings together glyphs needed to less common European languages besides Asian languages, Medieval characters and even Roman signs.</p>
+      <p>For example: Latin Extended Additional includes 1E9E, the German uppercase double S. It seems ok to include that. In the same block you find the Vietnamese accented and double-accented vowels. Of course, you would ignore them if Vietnamese support is out of your target. This Unicode block also adds several precomposed combinations to support Indic, Hebrew and Cyrillic transliterations. Again, you must chose if transliterations would be supported.</p>
+      <p>A similar definition must be made about Phonetic alphabets, currency and letterlike symbols. This will take some research, but you will not include unnecessary glyphs.</p>
+      <p>Some basic information about the blocks you did mention:</p>
+      <p><strong>01. Latin B</strong> has mostly glyphs to African languages, but also mix rarely used European glyphs and Pinyin transliteration.</p>
+      <p><strong>02. Latin C</strong> brings glyphs to Cyrillic transliterations and old African orthographies. 2C6D and 2C70 are needed to complete African support, the remaining probably are out of your scope.</p>
+      <p><strong>03. Latin D</strong> has many Medieval additions and support for old orthographies. Probably the whole block is unnecessary to you.</p>
+      <p><strong>04. Latin Additional</strong> is a mess. Define the languages and look in detail this block.</p>
+      <p><strong>05. IPA and Phonetic block</strong>. Just needed to phonetic support.</p>
+      <p><strong>06. Super and subscripts</strong>. Add the whole block.</p>
+      <p><strong>07. Currencies</strong>. The very basic set is: dollar, cent, pound, yen, currency (generic) and euro. An improved set also includes thai, cólon, naira, won, new sheqel, kruvinia (hryvnia), tenge, new rupee (20B9) and tugrik. Most of others are historical.</p>
+      <p><strong>08. Letterlike</strong>. nº, liter, estimated, TM, and Ohm are basic. Others may be included or not according to your scope, but are not essential.</p>
+      <p><strong>09. Punctuation</strong>. Basic: 2002, 2003, 2013, 2014, 2018 to 2022, 2026, 2027, 2032, 2033, 2039, 203A, and 2044, </p>
+      <p>The thread where I <a class="freelinking external" href="/node/67787/#comment-402703" rel="nofollow">presented</a> my own font project has some good information about this, kindly gave by fellow typophilers. The link above points to where this discussion begun.</p>
+      <p>Other threads I also begun may be useful:<br>
+      <a class="freelinking external" href="/node/74164/" rel="nofollow">Unicode and diacritics</a><br>
+      <a class="freelinking external" href="/node/78082/" rel="nofollow">Eng and hooked N</a><br>
+      <a class="freelinking external" href="/node/73886/" rel="nofollow">Currencies and others</a><br>
+      <a class="freelinking external" href="/node/71504/" rel="nofollow">Greek and Cyrillic</a><br>
+      <a class="freelinking external" href="/node/78088/" rel="nofollow">Slashed letters</a></p>
+  - id: 474048
+    user: 14133
+    date: 2011-08-14T16:26:00
+    date_raw: 14 Aug 2011 — 4:26pm
+    votes: null
+    html: |-
+      <p><em>I already know to include all the characters in Basic Latin, Latin-1 Supplement, and Latin Extended-A.</em></p>
+      <p>Here are few never-gonna-get-used-outside-of-a-historical-context Latin ext glyphs you can skip.</p>
+      <p>Aringacute 01FA<br>
+      aringacute 01FB<br>
+      kgreenlandic 0138<br>
+      napostrophe 0149<br>
+      longs 017F</p>
+    html_clean: |-
+      <p><em>I already know to include all the characters in Basic Latin, Latin-1 Supplement, and Latin Extended-A.</em></p>
+      <p>Here are few never-gonna-get-used-outside-of-a-historical-context Latin ext glyphs you can skip.</p>
+      <p>Aringacute 01FA<br>
+      aringacute 01FB<br>
+      kgreenlandic 0138<br>
+      napostrophe 0149<br>
+      longs 017F</p>
+  - id: 474061
+    user: 89324
+    date: 2011-08-14T19:41:00
+    date_raw: 14 Aug 2011 — 7:41pm
+    votes: null
+    html: |-
+      <p>Freiberger: Thanks for your thorough information and useful links. Having read (or at least skimmed through) a dozen or so threads, I am thinking I'll probably cut back on my original plans and stick to a more standard set of characters. Unfortunately, I do not have your skill nor your dedication! (Given how long you've been working on Palimpsest, I'd probably need at least ten years to do a project that size!)</p>
+      <p>Fortunately, there seem to be plenty of good examples for "semi-extended" character sets in Latin, Greek, and Cyrillic. And if I ever become ambitious enough to attempt full Latin support, I will certainly look to your Palimpsest and Mr. Stötzner's Andron to get a better idea of the glyphs I would need.</p>
+      <p>typodermic: Thanks for the heads-up on those characters.</p>
+    html_clean: |-
+      <p>Freiberger: Thanks for your thorough information and useful links. Having read (or at least skimmed through) a dozen or so threads, I am thinking I'll probably cut back on my original plans and stick to a more standard set of characters. Unfortunately, I do not have your skill nor your dedication! (Given how long you've been working on Palimpsest, I'd probably need at least ten years to do a project that size!)</p>
+      <p>Fortunately, there seem to be plenty of good examples for "semi-extended" character sets in Latin, Greek, and Cyrillic. And if I ever become ambitious enough to attempt full Latin support, I will certainly look to your Palimpsest and Mr. Stötzner's Andron to get a better idea of the glyphs I would need.</p>
+      <p>typodermic: Thanks for the heads-up on those characters.</p>
+  - id: 474064
+    user: 32723
+    date: 2011-08-14T20:24:00
+    date_raw: 14 Aug 2011 — 8:24pm
+    votes: null
+    html: |-
+      <p>For a "semi-extended" character set, the one from Minion Pro seems to be excellent –and already a huge project. Just note the position used in Minion for Vietnamese circumflex+grave (e.g., 1EA6) is not the preferred one.</p>
+      <p>Thanks for your kind reference to PProject. Actually, it did born much smaller, but the curiosity did not let me stop at a proper size. It would be more logical to start with a narrow target and slowly make it wider –as you plan to do.</p>
+      <p>You already identified a wonderful source of research: Andron is a masterpiece and its support (including a large medieval set still not present in Unicode) is the result of a deep knowledge. Other good source is Gentium, from SIL.</p>
+      <p>Hope to hear good news about your font in a near future.</p>
+    html_clean: |-
+      <p>For a "semi-extended" character set, the one from Minion Pro seems to be excellent –and already a huge project. Just note the position used in Minion for Vietnamese circumflex+grave (e.g., 1EA6) is not the preferred one.</p>
+      <p>Thanks for your kind reference to PProject. Actually, it did born much smaller, but the curiosity did not let me stop at a proper size. It would be more logical to start with a narrow target and slowly make it wider –as you plan to do.</p>
+      <p>You already identified a wonderful source of research: Andron is a masterpiece and its support (including a large medieval set still not present in Unicode) is the result of a deep knowledge. Other good source is Gentium, from SIL.</p>
+      <p>Hope to hear good news about your font in a near future.</p>
+  - id: 474086
+    user: 89324
+    date: 2011-08-15T05:22:00
+    date_raw: 15 Aug 2011 — 5:22am
+    votes: null
+    html: <p>I'll definitely look into Minion and Gentium (I think I have both of those around here somewhere). I'll post some more once the actual design has gotten underway.</p>
+    html_clean: <p>I'll definitely look into Minion and Gentium (I think I have both of those around here somewhere). I'll post some more once the actual design has gotten underway.</p>
+  - id: 474124
+    user: 12495
+    date: 2011-08-15T12:00:00
+    date_raw: 15 Aug 2011 — 12:00pm
+    votes: null
+    html: |-
+      <p><cite>define which languages you want to support and then include the proper characters</cite></p>
+      <p>Therefor check this: <a href="http://www.eki.ee/letter/" title="http://www.eki.ee/letter/">http://www.eki.ee/letter/</a></p>
+    html_clean: |-
+      <p><cite>define which languages you want to support and then include the proper characters</cite></p>
+      <p>Therefor check this: <a href="http://www.eki.ee/letter/" title="http://www.eki.ee/letter/">http://www.eki.ee/letter/</a></p>
+  - id: 474170
+    user: 14133
+    date: 2011-08-16T00:00:00
+    date_raw: 16 Aug 2011 — 12:00am
+    votes: null
+    html: |-
+      <p>and . . .</p>
+      <p>01FC AEacute<br>
+      01FD aeacute<br>
+      01FE Oslashacute<br>
+      01FF oslashacute</p>
+    html_clean: |-
+      <p>and . . .</p>
+      <p>01FC AEacute<br>
+      01FD aeacute<br>
+      01FE Oslashacute<br>
+      01FF oslashacute</p>
+  - id: 474174
+    user: 17101
+    date: 2011-08-16T01:54:00
+    date_raw: 16 Aug 2011 — 1:54am
+    votes: null
+    html: <p>The Saami people still use oslashacute!</p>
+    html_clean: <p>The Saami people still use oslashacute!</p>
+  - id: 474192
+    user: 89324
+    date: 2011-08-16T04:58:00
+    date_raw: 16 Aug 2011 — 4:58am
+    votes: null
+    html: |-
+      <p>Obviously I'm going to have to do a bit more research than I had expected when I began this journey - so thanks, everyone, for your advice.</p>
+      <p>By the way, I started a new thread <a class="freelinking external" href="http://typophile.com/node/84581" rel="nofollow">here</a> sharing several Fontlab-compatible encodings and codepages I compiled for handling large character sets. There are Adobe Latin-3, -4, and -5 encoding (.enc) files, and some double-byte codepages (.cpg) that support whole Unicode planes.</p>
+      <p>Freiberger, I'd be interested to know how much of (or more than) Adobe Latin-5 your current project covers.</p>
+    html_clean: |-
+      <p>Obviously I'm going to have to do a bit more research than I had expected when I began this journey - so thanks, everyone, for your advice.</p>
+      <p>By the way, I started a new thread <a class="freelinking external" href="/node/84581/" rel="nofollow">here</a> sharing several Fontlab-compatible encodings and codepages I compiled for handling large character sets. There are Adobe Latin-3, -4, and -5 encoding (.enc) files, and some double-byte codepages (.cpg) that support whole Unicode planes.</p>
+      <p>Freiberger, I'd be interested to know how much of (or more than) Adobe Latin-5 your current project covers.</p>
+  - id: 474196
+    user: 1215
+    date: 2011-08-16T05:45:00
+    date_raw: 16 Aug 2011 — 5:45am
+    votes: null
+    html: |-
+      <p><cite> &gt; The Saami people still use oslashacute!</cite></p>
+      <p>Yes, didn’t we just have someone on these forums asking how he could achieve an /oslashacute/ because it appeared in a name in a magazine and his font didn’t include this glyph?</p>
+      <p>Ah, here it is: <a href="http://typophile.com/node/84287" title="http://typophile.com/node/84287">http://typophile.com/node/84287</a></p>
+    html_clean: |-
+      <p><cite> &gt; The Saami people still use oslashacute!</cite></p>
+      <p>Yes, didn’t we just have someone on these forums asking how he could achieve an /oslashacute/ because it appeared in a name in a magazine and his font didn’t include this glyph?</p>
+      <p>Ah, here it is: <a href="/node/84287/" title="http://typophile.com/node/84287">http://typophile.com/node/84287</a></p>
+  - id: 474223
+    user: 17101
+    date: 2011-08-16T08:32:00
+    date_raw: 16 Aug 2011 — 8:32am
+    votes: null
+    html: <p>How <em>she</em> ...</p>
+    html_clean: <p>How <em>she</em> ...</p>
+  - id: 474250
+    user: 1215
+    date: 2011-08-16T11:07:00
+    date_raw: 16 Aug 2011 — 11:07am
+    votes: null
+    html: <p>[ Frode — Really? I thought Riku was a masculine name. But you would know better. My mistake. ]</p>
+    html_clean: <p>[ Frode — Really? I thought Riku was a masculine name. But you would know better. My mistake. ]</p>
+  - id: 474288
+    user: 17101
+    date: 2011-08-16T14:55:00
+    date_raw: 16 Aug 2011 — 2:55pm
+    votes: null
+    html: <p>I know a girl named Rikke (his/hers nickname), so I just made that connection.</p>
+    html_clean: <p>I know a girl named Rikke (his/hers nickname), so I just made that connection.</p>
+  - id: 474306
+    user: 32723
+    date: 2011-08-16T18:12:00
+    date_raw: 16 Aug 2011 — 6:12pm
+    votes: null
+    html: |-
+      <p><cite>Freiberger, I'd be interested to know how much of (or more than) Adobe Latin-5 your current project covers.</cite></p>
+      <p>The font includes the whole Adobe Latin-5 plus additional glyphs to support less known languages (African, native American). A number of tricky diacritical combinations were also added as precomposed glyphs (for example: letters with line below, 0332, where the line is variable to fit the letter width).</p>
+      <p>If you plan to take Latin-5 as a reference, note that one third of that table refers to IPA/APA alphabets. If you cut phonetic support in your first version, it becomes a lot easier.</p>
+    html_clean: |-
+      <p><cite>Freiberger, I'd be interested to know how much of (or more than) Adobe Latin-5 your current project covers.</cite></p>
+      <p>The font includes the whole Adobe Latin-5 plus additional glyphs to support less known languages (African, native American). A number of tricky diacritical combinations were also added as precomposed glyphs (for example: letters with line below, 0332, where the line is variable to fit the letter width).</p>
+      <p>If you plan to take Latin-5 as a reference, note that one third of that table refers to IPA/APA alphabets. If you cut phonetic support in your first version, it becomes a lot easier.</p>
+  - id: 474355
+    user: 89324
+    date: 2011-08-17T04:08:00
+    date_raw: 17 Aug 2011 — 4:08am
+    votes: null
+    html: <p>I'm not planning on Latin-5 support, but as you have said, curiosity may well get the best of me and I'll wind up finishing it off anyway. Thanks again!</p>
+    html_clean: <p>I'm not planning on Latin-5 support, but as you have said, curiosity may well get the best of me and I'll wind up finishing it off anyway. Thanks again!</p>
+  - id: 474442
+    user: 14133
+    date: 2011-08-17T17:10:00
+    date_raw: 17 Aug 2011 — 5:10pm
+    votes: null
+    html: |-
+      <p>Frode: I couldn't find a Sami language where oslashacute was still in regular use. I'd be interested in learning more about this.</p>
+      <p><a href="http://en.wikipedia.org/wiki/Sami_languages" title="http://en.wikipedia.org/wiki/Sami_languages">http://en.wikipedia.org/wiki/Sami_languages</a></p>
+    html_clean: |-
+      <p>Frode: I couldn't find a Sami language where oslashacute was still in regular use. I'd be interested in learning more about this.</p>
+      <p><a href="http://en.wikipedia.org/wiki/Sami_languages" title="http://en.wikipedia.org/wiki/Sami_languages">http://en.wikipedia.org/wiki/Sami_languages</a></p>
+  - id: 474444
+    user: 14722
+    date: 2011-08-17T17:35:00
+    date_raw: 17 Aug 2011 — 5:35pm
+    votes: null
+    html: <p>Maybe oslashacute is another theoretical Danish accented letter like Aringacute.</p>
+    html_clean: <p>Maybe oslashacute is another theoretical Danish accented letter like Aringacute.</p>
+  - id: 474447
+    user: 17101
+    date: 2011-08-17T17:50:00
+    date_raw: 17 Aug 2011 — 5:50pm
+    votes: null
+    html: "<p>Ray: Have a look at that linked thread! Also, when my type buddy and lingomaniac Sindre is back from his holidays, I’m sure he can elaborate. (I also suspect he’s got a thing or two to say about those language support lists most foundries have.)</p>"
+    html_clean: "<p>Ray: Have a look at that linked thread! Also, when my type buddy and lingomaniac Sindre is back from his holidays, I’m sure he can elaborate. (I also suspect he’s got a thing or two to say about those language support lists most foundries have.)</p>"
+  - id: 474451
+    user: 18942
+    date: 2011-08-17T18:56:00
+    date_raw: 17 Aug 2011 — 6:56pm
+    votes: null
+    html: |-
+      <p>While you wait for Sindre, you can read comments he and others made on that subject in an earlier thread</p>
+      <p><a href="http://typophile.com/node/61141" title="http://typophile.com/node/61141">http://typophile.com/node/61141</a></p>
+    html_clean: |-
+      <p>While you wait for Sindre, you can read comments he and others made on that subject in an earlier thread</p>
+      <p><a href="/node/61141/" title="http://typophile.com/node/61141">http://typophile.com/node/61141</a></p>
+  - id: 474452
+    user: 17101
+    date: 2011-08-17T19:42:00
+    date_raw: 17 Aug 2011 — 7:42pm
+    votes: null
+    html: <p>Yeah :) That's about how our tiny typostammtisches in Oslo play out.</p>
+    html_clean: <p>Yeah :) That's about how our tiny typostammtisches in Oslo play out.</p>

@@ -1,0 +1,157 @@
+node: 68743
+title: Interpolation curve for multiple weights
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150414223640"
+  captured_at: 2015-04-14T22:36:40Z
+  url: http://typophile.com/node/68743
+  digest: VGML2GSMBFWHF5KPU3C63WZHJNICEXFB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/68743.html
+  fingerprint: 0a35cfd78511929e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150414223640"
+      digest: VGML2GSMBFWHF5KPU3C63WZHJNICEXFB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/68743.html
+post:
+  id: 68743
+  user: 10256
+  date: 2010-03-24T10:27:00
+  date_raw: 24 Mar 2010 — 10:27am
+  votes: null
+  html: |-
+    <p>Hello everyone!</p>
+    <p>I've already read Luc de Groot's stuff and these forum's related topics, but I'm still wondering about this.</p>
+    <p>What's the best way to calculate the values between two <a href="/wiki/weight" class="freelinking" rel="nofollow">weights</a>?</p>
+    <p>For instance: I have a Harline and a Heavy cut as my two extremes and I want to generate instances for the other weights. The thing is that I was these instances to be optically appealing.</p>
+    <p>Thank you in advance.</p>
+  html_clean: |-
+    <p>Hello everyone!</p>
+    <p>I've already read Luc de Groot's stuff and these forum's related topics, but I'm still wondering about this.</p>
+    <p>What's the best way to calculate the values between two <a href="/wiki/weight" class="freelinking" rel="nofollow">weights</a>?</p>
+    <p>For instance: I have a Harline and a Heavy cut as my two extremes and I want to generate instances for the other weights. The thing is that I was these instances to be optically appealing.</p>
+    <p>Thank you in advance.</p>
+comments:
+  - id: 403050
+    user: 14722
+    date: 2010-03-24T10:39:00
+    date_raw: 24 Mar 2010 — 10:39am
+    votes: null
+    html: |-
+      <p>First, you aren’t going to interpolate optically appealing weights between two such extremes; you’ll need a properly balanced regular weight in there somewhere or the horizontals and curves coming from them are going to be a mess. The upside is that if your extremes are well-drawn you can get pretty close by using anisotropic interpolation to start a regular master and finishing it manually. </p>
+      <p>As for determining your in-between weights, it comes down to how you want the final fonts to work. If you want a more contemporary feel create a lot of instances based on whatever mathematical relationship that you like (Lucas math, or just ten or twenty even steps, etc) and start testing them against each other to see what works. Then tweak/refine/repeat. Or you can study the proportions in older typefaces, compare them (spreadsheets work well) and then start calculating what would work well in your design. In the latter case you won’t get the smooth stepping that comes from the former, but there’s nothing wrong with that if it’s what you desire.</p>
+    html_clean: |-
+      <p>First, you aren’t going to interpolate optically appealing weights between two such extremes; you’ll need a properly balanced regular weight in there somewhere or the horizontals and curves coming from them are going to be a mess. The upside is that if your extremes are well-drawn you can get pretty close by using anisotropic interpolation to start a regular master and finishing it manually. </p>
+      <p>As for determining your in-between weights, it comes down to how you want the final fonts to work. If you want a more contemporary feel create a lot of instances based on whatever mathematical relationship that you like (Lucas math, or just ten or twenty even steps, etc) and start testing them against each other to see what works. Then tweak/refine/repeat. Or you can study the proportions in older typefaces, compare them (spreadsheets work well) and then start calculating what would work well in your design. In the latter case you won’t get the smooth stepping that comes from the former, but there’s nothing wrong with that if it’s what you desire.</p>
+  - id: 403052
+    user: 10256
+    date: 2010-03-24T10:51:00
+    date_raw: 24 Mar 2010 — 10:51am
+    votes: null
+    html: |-
+      <p>@James<br>
+      Thank you for replying. In the first process you mention, how can I get that regular master? Can you describe it?</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>@James<br>
+      Thank you for replying. In the first process you mention, how can I get that regular master? Can you describe it?</p>
+      <p>Cheers!</p>
+  - id: 403058
+    user: 14722
+    date: 2010-03-24T11:03:00
+    date_raw: 24 Mar 2010 — 11:03am
+    votes: null
+    html: |-
+      <p>Interpolate your regular master with the vertical stem weights set to whatever weight would be appropriate for your typeface (if you don’t know what weight to use, get an appropriate height/width ratio from a similar design). Use anisotropic interpolation to get horizontals as close as they can be without being too screwed up (read the software documentation for more on anisotropic interpolation, or google the Superpolator video from Robothon). Depending on how different your extremes are you may need to do this multiple times to get the uppercase, lowercase, figures, etc.. Put the resulting fonts back together, refine the forms and proof them as you would normally. From there either add the regular master to Superpolator or create two new MM fonts, one for light extremes and one for heavy extremes. </p>
+      <p>You’ll also probably find that certain characters, such as <strong>y</strong> need to be draw differently on the extremes. If using multiple MM fonts you can use the appropriate design for light/heavy versions, in Superpolator just create alternates that will interpolate and use them to replace the missing incompatible glyphs.</p>
+    html_clean: |-
+      <p>Interpolate your regular master with the vertical stem weights set to whatever weight would be appropriate for your typeface (if you don’t know what weight to use, get an appropriate height/width ratio from a similar design). Use anisotropic interpolation to get horizontals as close as they can be without being too screwed up (read the software documentation for more on anisotropic interpolation, or google the Superpolator video from Robothon). Depending on how different your extremes are you may need to do this multiple times to get the uppercase, lowercase, figures, etc.. Put the resulting fonts back together, refine the forms and proof them as you would normally. From there either add the regular master to Superpolator or create two new MM fonts, one for light extremes and one for heavy extremes. </p>
+      <p>You’ll also probably find that certain characters, such as <strong>y</strong> need to be draw differently on the extremes. If using multiple MM fonts you can use the appropriate design for light/heavy versions, in Superpolator just create alternates that will interpolate and use them to replace the missing incompatible glyphs.</p>
+  - id: 403063
+    user: 7006
+    date: 2010-03-24T11:13:00
+    date_raw: 24 Mar 2010 — 11:13am
+    votes: null
+    html: |-
+      <p><em>The thing is that I was these instances to be optically appealing.</em></p>
+      <p>if you want to make something optically appealing, use your eyes.</p>
+    html_clean: |-
+      <p><em>The thing is that I was these instances to be optically appealing.</em></p>
+      <p>if you want to make something optically appealing, use your eyes.</p>
+  - id: 403064
+    user: 10256
+    date: 2010-03-24T11:20:00
+    date_raw: 24 Mar 2010 — 11:20am
+    votes: null
+    html: |-
+      <p>@James<br>
+      Too bad that Superpolator is a Mac-only software. I'll try to get a way around.</p>
+      <p>@Paul<br>
+      I do, Paul, I'm just interested on the best automated approximation possible.</p>
+    html_clean: |-
+      <p>@James<br>
+      Too bad that Superpolator is a Mac-only software. I'll try to get a way around.</p>
+      <p>@Paul<br>
+      I do, Paul, I'm just interested on the best automated approximation possible.</p>
+  - id: 403067
+    user: 4763
+    date: 2010-03-24T11:29:00
+    date_raw: 24 Mar 2010 — 11:29am
+    votes: null
+    html: |-
+      <p>Some of these questions have been discussed here:<br>
+      <a href="http://typophile.com/node/39376" title="http://typophile.com/node/39376">http://typophile.com/node/39376</a></p>
+    html_clean: |-
+      <p>Some of these questions have been discussed here:<br>
+      <a href="/node/39376/" title="http://typophile.com/node/39376">http://typophile.com/node/39376</a></p>
+  - id: 403070
+    user: 4763
+    date: 2010-03-24T11:45:00
+    date_raw: 24 Mar 2010 — 11:45am
+    votes: null
+    html: |-
+      <p>This one also deals with the subject:<br>
+      <a href="http://typophile.com/node/32313" title="http://typophile.com/node/32313">http://typophile.com/node/32313</a></p>
+    html_clean: |-
+      <p>This one also deals with the subject:<br>
+      <a href="/node/32313/" title="http://typophile.com/node/32313">http://typophile.com/node/32313</a></p>
+  - id: 403080
+    user: 3135
+    date: 2010-03-24T12:21:00
+    date_raw: 24 Mar 2010 — 12:21pm
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 403219
+    user: 10256
+    date: 2010-03-25T05:41:00
+    date_raw: 25 Mar 2010 — 5:41am
+    votes: null
+    html: |-
+      <p>@Tim<br>
+      Thanks, but I've already read the first one.<br>
+      The second seems interesting, I'll read it now and I'll notice back here any doubts.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>@Tim<br>
+      Thanks, but I've already read the first one.<br>
+      The second seems interesting, I'll read it now and I'll notice back here any doubts.</p>
+      <p>Cheers!</p>

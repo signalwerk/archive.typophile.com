@@ -1,0 +1,155 @@
+node: 52033
+title: Puzzling problem with CALT feature in VOLT
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081208063856"
+  captured_at: 2008-12-08T06:38:56Z
+  url: http://typophile.com:80/node/52033
+  digest: QO77K7CM3FNOZE5XBDUTMGONOFIOQ5XS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/52033.html
+  fingerprint: fa76db50ef9a3432
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081208063856"
+      digest: QO77K7CM3FNOZE5XBDUTMGONOFIOQ5XS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/52033.html
+post:
+  id: 52033
+  user: 4579
+  date: 2008-11-24T12:01:00
+  date_raw: 24.Nov.2008 12.01pm
+  votes: null
+  html: |-
+    <p>Hi,<br>
+    I am currently building an arabic font with a number of contextual alternates lookups.<br>
+    In some of the lookups, I use groups as substitution targets and/or context.</p>
+    <p>All my lookups and groups seem to follow the appropriate syntax; the font compiles just fine.<br>
+    However the “substitution behaviour” of those lookups which use groups (instead of a list of individual substitutions) is completely erratic. Per ex, in a lookup where I have:</p>
+    <p>&lt; Group1a &gt; -&gt; &lt; Group1b &gt; in the context of being followed by &lt; Group99 &gt;</p>
+    <p>in which the elements of Group1a are: A and B (in that order)<br>
+    the elements of Group1b are: A.alt  and B.alt (in that order)</p>
+    <p>We would normally expect A to be replaced with A.alt  and B with B.alt</p>
+    <p>However it is not what is happening. Instead, A is replaced with B.alt and B is replaced with A.alt.<br>
+    It is not simply an inversion [which itself would also be puzzling]; with larger groups, elements A, B, C, D are replaced randomly (ex: A by C.alt, B by A.alt, C by D.alt, D by B.alt)</p>
+    <p>The randomness does not come from the glyph order in the classes. The glyphs in each respective class are enumerated to match the position of the substitute glyph in the other class. In the vtl and vtg files:</p>
+    <p>DEF_GROUP “Group1a”<br>
+     ENUM GLYPH “A” GLYPH “B” END_ENUM<br>
+    END_GROUP<br>
+    END</p>
+    <p>—</p>
+    <p>DEF_GROUP “Group1b”<br>
+     ENUM GLYPH “A.alt” GLYPH “B.alt” END_ENUM<br>
+    END_GROUP<br>
+    END</p>
+    <p>—</p>
+    <p>DEF_LOOKUP “Calt01” PROCESS_BASE SKIP_MARKS DIRECTION RTL  [#this is an arabic script font]<br>
+    IN_CONTEXT<br>
+     RIGHT GROUP “Group99”<br>
+    END_CONTEXT<br>
+    AS_SUBSTITUTION<br>
+    SUB GROUP “Group1a”<br>
+    WITH GROUP “Group1b”<br>
+    END_SUB<br>
+    END_SUBSTITUTION<br>
+    END</p>
+    <p>——-</p>
+    <p>The random substitution happens for a given lookup even when I delete all the other substitution lookups to make sure there is no unforeseen “interference” or problem of substitution order/sequence.</p>
+    <p>Clearly if this is not working I must be doing something wrong, but I’ve checked again and again, notably by comparing with “Arabtype.volt.ttf”, and I can’t find where I’m erring.</p>
+    <p>An inelegant way around this would be of course to explicitely enumerate each ’glyph to glyph’ substitution individually (and it does work that way for the few lookups I’ve converted) but using groups *should* work and there are lookups which contain 30+ glyphs to substitute in the context of 6+ glyphs so I would not want to have to enumerate each combination individually.</p>
+    <p>Any help would be much appreciated! Thanks,<br>
+    Patrick</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/49832" class="topic-previous" title="Go to previous forum topic">‹ Does Indesign CS4 support Indic scripts?</a> <a href="/node/52025" class="topic-next" title="Go to next forum topic">Kerning/Metrics settings not saving to font file (Fontographer 4.7 Issue) ›</a></div>
+  html_clean: |-
+    <p>Hi,<br>
+    I am currently building an arabic font with a number of contextual alternates lookups.<br>
+    In some of the lookups, I use groups as substitution targets and/or context.</p>
+    <p>All my lookups and groups seem to follow the appropriate syntax; the font compiles just fine.<br>
+    However the “substitution behaviour” of those lookups which use groups (instead of a list of individual substitutions) is completely erratic. Per ex, in a lookup where I have:</p>
+    <p>&lt; Group1a &gt; -&gt; &lt; Group1b &gt; in the context of being followed by &lt; Group99 &gt;</p>
+    <p>in which the elements of Group1a are: A and B (in that order)<br>
+    the elements of Group1b are: A.alt  and B.alt (in that order)</p>
+    <p>We would normally expect A to be replaced with A.alt  and B with B.alt</p>
+    <p>However it is not what is happening. Instead, A is replaced with B.alt and B is replaced with A.alt.<br>
+    It is not simply an inversion [which itself would also be puzzling]; with larger groups, elements A, B, C, D are replaced randomly (ex: A by C.alt, B by A.alt, C by D.alt, D by B.alt)</p>
+    <p>The randomness does not come from the glyph order in the classes. The glyphs in each respective class are enumerated to match the position of the substitute glyph in the other class. In the vtl and vtg files:</p>
+    <p>DEF_GROUP “Group1a”<br>
+     ENUM GLYPH “A” GLYPH “B” END_ENUM<br>
+    END_GROUP<br>
+    END</p>
+    <p>—</p>
+    <p>DEF_GROUP “Group1b”<br>
+     ENUM GLYPH “A.alt” GLYPH “B.alt” END_ENUM<br>
+    END_GROUP<br>
+    END</p>
+    <p>—</p>
+    <p>DEF_LOOKUP “Calt01” PROCESS_BASE SKIP_MARKS DIRECTION RTL  [#this is an arabic script font]<br>
+    IN_CONTEXT<br>
+     RIGHT GROUP “Group99”<br>
+    END_CONTEXT<br>
+    AS_SUBSTITUTION<br>
+    SUB GROUP “Group1a”<br>
+    WITH GROUP “Group1b”<br>
+    END_SUB<br>
+    END_SUBSTITUTION<br>
+    END</p>
+    <p>——-</p>
+    <p>The random substitution happens for a given lookup even when I delete all the other substitution lookups to make sure there is no unforeseen “interference” or problem of substitution order/sequence.</p>
+    <p>Clearly if this is not working I must be doing something wrong, but I’ve checked again and again, notably by comparing with “Arabtype.volt.ttf”, and I can’t find where I’m erring.</p>
+    <p>An inelegant way around this would be of course to explicitely enumerate each ’glyph to glyph’ substitution individually (and it does work that way for the few lookups I’ve converted) but using groups *should* work and there are lookups which contain 30+ glyphs to substitute in the context of 6+ glyphs so I would not want to have to enumerate each combination individually.</p>
+    <p>Any help would be much appreciated! Thanks,<br>
+    Patrick</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/49832/" class="topic-previous" title="Go to previous forum topic">‹ Does Indesign CS4 support Indic scripts?</a> <a href="/node/52025" class="topic-next" title="Go to next forum topic">Kerning/Metrics settings not saving to font file (Fontographer 4.7 Issue) ›</a></div>
+comments:
+  - id: 314525
+    user: 8664
+    date: 2008-11-24T16:10:00
+    date_raw: 24.Nov.2008 4.10pm
+    votes: null
+    html: |-
+      <p>The <a href="http://www.microsoft.com/typography/VOLT%20Release%20Notes/gsub.mspx" target="_blank">VOLT Release Notes</a> (bottom of the page) say:</p>
+      <p><cite>NOTE: Glyphs in groups are always ordered by their glyph IDs and not by the order implied from the way a group is described.</cite></p>
+      <p>So what matters is not the order of glyph names in group definitions, but the order of glyphs in the font. The glyph order should be <cite>A B C ...</cite> and <cite>A.alt B.alt C.alt ...</cite></p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>The <a href="http://www.microsoft.com/typography/VOLT%20Release%20Notes/gsub.mspx" target="_blank">VOLT Release Notes</a> (bottom of the page) say:</p>
+      <p><cite>NOTE: Glyphs in groups are always ordered by their glyph IDs and not by the order implied from the way a group is described.</cite></p>
+      <p>So what matters is not the order of glyph names in group definitions, but the order of glyphs in the font. The glyph order should be <cite>A B C ...</cite> and <cite>A.alt B.alt C.alt ...</cite></p>
+      <p>Karsten</p>
+  - id: 314580
+    user: 1262
+    date: 2008-11-24T21:38:00
+    date_raw: 24.Nov.2008 9.38pm
+    votes: null
+    html: "<p>Yes, Karsten has it right: the GID orders of the two groups need to be cardinal. This limits the use of groups in substitution lookups. Generally, I recommend against the use of groups in this way anyway, since it doesn’t provide any visual feedback on the substitutions in the lookup.</p>"
+    html_clean: "<p>Yes, Karsten has it right: the GID orders of the two groups need to be cardinal. This limits the use of groups in substitution lookups. Generally, I recommend against the use of groups in this way anyway, since it doesn’t provide any visual feedback on the substitutions in the lookup.</p>"
+  - id: 314609
+    user: 4579
+    date: 2008-11-25T02:27:00
+    date_raw: 25.Nov.2008 2.27am
+    votes: null
+    html: |-
+      <p>D’oh! </p>
+      <p>Thank you very much Karsten and John for your help</p>
+      <p>Patrick</p>
+    html_clean: |-
+      <p>D’oh! </p>
+      <p>Thank you very much Karsten and John for your help</p>
+      <p>Patrick</p>

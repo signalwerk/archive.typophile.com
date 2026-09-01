@@ -1,0 +1,91 @@
+node: 101633
+title: Pasting Text into Metrics Windows Sometimes Turns into Chinese
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20130823135703"
+  captured_at: 2013-08-23T13:57:03Z
+  url: http://typophile.com/node/101633
+  digest: 2YSZLQNH4ONK6TEUJLEDWPDMUQGZBM7D
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/101633.html
+  fingerprint: 1daebb773dc0b508
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130823135703"
+      digest: 2YSZLQNH4ONK6TEUJLEDWPDMUQGZBM7D
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/101633.html
+post:
+  id: 101633
+  user: 703
+  date: 2013-03-22T08:22:00
+  date_raw: 22 Mar 2013 — 8:22am
+  votes: null
+  html: |-
+    <p>It's weird. It doesn't happen all the time but enough to be really frustrating. When I paste a string of latin text into the metrics window, about 30% of the time that text will paste in as a string of chinese text instead. </p>
+    <p>I am using FL 5.1.2 on a mac running OS 10.6.8. This never happened in the older FL version. </p>
+    <p>Does this happen to anybody else? Can I make it stop??</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/chinese_6525.png"></div><p></p>
+  html_clean: |-
+    <p>It's weird. It doesn't happen all the time but enough to be really frustrating. When I paste a string of latin text into the metrics window, about 30% of the time that text will paste in as a string of chinese text instead. </p>
+    <p>I am using FL 5.1.2 on a mac running OS 10.6.8. This never happened in the older FL version. </p>
+    <p>Does this happen to anybody else? Can I make it stop??</p>
+    <p></p><div class="imageWrap"><img src="/files/chinese_6525.png"></div><p></p>
+comments:
+  - id: 548117
+    user: 9636
+    date: 2013-03-22T20:18:00
+    date_raw: 22 Mar 2013 — 8:18pm
+    votes: null
+    html: <p>where did you copy the text from when this happens? was it utf-8?</p>
+    html_clean: <p>where did you copy the text from when this happens? was it utf-8?</p>
+  - id: 548119
+    user: 1262
+    date: 2013-03-22T20:59:00
+    date_raw: 22 Mar 2013 — 8:59pm
+    votes: null
+    html: <p>My guess is that you are pasting 8-bit encoded text into a 16-bit environment. Hence each sequence of two single byte character codes are being interpreted as one double byte code, which happens to result in Chinese characters.</p>
+    html_clean: <p>My guess is that you are pasting 8-bit encoded text into a 16-bit environment. Hence each sequence of two single byte character codes are being interpreted as one double byte code, which happens to result in Chinese characters.</p>
+  - id: 548149
+    user: 30499
+    date: 2013-03-23T08:47:00
+    date_raw: 23 Mar 2013 — 8:47am
+    votes: null
+    html: <p>This kind of thing is typical of utf-8 text being read as if it were utf-16.  I don't know why it would happen, but see if there is any difference between copying from TextEdit and Word, for example.</p>
+    html_clean: <p>This kind of thing is typical of utf-8 text being read as if it were utf-16.  I don't know why it would happen, but see if there is any difference between copying from TextEdit and Word, for example.</p>
+  - id: 548154
+    user: 703
+    date: 2013-03-23T09:30:00
+    date_raw: 23 Mar 2013 — 9:30am
+    votes: null
+    html: |-
+      <p>In this case, I was copying a glyph (solidus) from the metrics window itself to paste between a couple figures. But it happens occasionally when I copy a name from the glyph properties pallet too. </p>
+      <p>I will try a few experiments with word and textedit. </p>
+      <p>It only happens sporadically. Some days worse than others.</p>
+    html_clean: |-
+      <p>In this case, I was copying a glyph (solidus) from the metrics window itself to paste between a couple figures. But it happens occasionally when I copy a name from the glyph properties pallet too. </p>
+      <p>I will try a few experiments with word and textedit. </p>
+      <p>It only happens sporadically. Some days worse than others.</p>
+  - id: 548967
+    user: 1947
+    date: 2013-03-30T06:06:00
+    date_raw: 30 Mar 2013 — 6:06am
+    votes: null
+    html: <p>This was a know bug. I experienced it continually pasting text into the font header. Upgrade to FL 5.1.3 build 4692 and the problem goes away.</p>
+    html_clean: <p>This was a know bug. I experienced it continually pasting text into the font header. Upgrade to FL 5.1.3 build 4692 and the problem goes away.</p>

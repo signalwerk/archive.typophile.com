@@ -153,9 +153,11 @@ data/
 Local paths come from the CDX url key, so `/node/3687` lands at
 `files/typophile.com/node/3687.html`. An extension is only added when the URL
 has none, query strings become a `__q_` suffix, and the rare case of two URLs
-normalising onto one filename is resolved with a short hash. The same URL gets
-the same relative path in every archive, which makes the archives directly
-comparable.
+normalising onto one filename is resolved with a short hash. Directory segments
+give up their dots (`/index.php/member/register` becomes
+`index%2Ephp/member/register.html`) so that a path can never be a file and a
+folder at once. The same URL gets the same relative path in every archive,
+which makes the archives directly comparable.
 
 ## Archive quirks worth knowing
 

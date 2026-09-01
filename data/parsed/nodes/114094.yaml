@@ -1,0 +1,285 @@
+node: 114094
+title: Fractional Advance Widths vs. Advance Phantom Point
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809204832"
+  captured_at: 2014-08-09T20:48:32Z
+  url: http://typophile.com/node/114094
+  digest: 7QO6KJQAL62EM6LNS624SIFL5BWXVCO5
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/114094.html
+  fingerprint: e101cccaaeed7148
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809204832"
+      digest: 7QO6KJQAL62EM6LNS624SIFL5BWXVCO5
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/114094.html
+post:
+  id: 114094
+  user: 217571
+  date: 2014-02-11T01:39:00
+  date_raw: 11 Feb 2014 — 1:39am
+  votes: null
+  html: |-
+    <p>Hello Typophiles,</p>
+    <p>Apologies for the nerdiness on a first post.</p>
+    <p>In the midst of some last checks before releasing my first real font, I noticed an unpleasant beating frequency effect on repeated characters at smallish ppems when testing on Windows 7 with the "Natural" mode of DirectWrite ClearType rendering (tested via Firefox with the Anti-aliasing Tuner add-on).  The characters phase in and out of different degrees of bluriness.</p>
+    <p>With a bit of investigation, it looks like this is due to fractional advance widths.  I was hoping to be able to control for this by slightly adjusting the advance width phantom point via TrueType hinting.  However, it looks like Windows is ignoring that in this rendering mode and using only the designed width instead.</p>
+    <p>Attached is an extremely simple test case (TTX format, renamed to .txt) that shows this.  In the lower case x glyph slot it has a pointed cross occupying a 1000 font unit square, with a width set to 1000 font units (no sidebearings).  The glyph program is the following:</p>
+    <pre>SVTCA[x-axis]
+    PUSHB_2
+     17            // Advance width phantom point (16 points in curve)
+     0             // CVT 0 (2000 font units)
+    MIAP[no-rnd]</pre><p>
+    The test font also has the following simple preprogram:</p>
+    <pre>PUSHB_2        // New font with ClearType support
+     4
+     3
+    INSTCTRL
+    PUSHW_1        // 64 pixel cut-in (i.e., not a factor)
+     4096
+    SCVTCI</pre><p>
+    Testing this out, I see that DirectWrite's GDI Classic and GDI Natural rendering modes correctly handle this; a string of xxxxx shows the expected double spacing between the glyphs.  However, this is missing from the Natural and Natural Symmetric modes and they render with something closer to the designed widths instead:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/widthtest_4207.gif"></div><p></p>
+    <p>So this brings me to the following questions:</p>
+    <p>1) Is there any voodoo that I can do to get it to honor hints that adjust the width?  Or am I simply stuck with the beat pattern here?</p>
+    <p>2) I notice that in the documentation for <code>DWRITE_RENDERING_MODE</code> for Windows 8 and later, the descriptions for Natural and Natural Symmetric mention that the glyph advances are rounded to whole pixels.  However, no such mention is made of this in the corresponding documentation for earlier versions of Windows.  Does Windows 8 therefore not have the same beat problem?</p>
+    <p>Thanks!</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/widthtest.txt">widthtest.txt</a></td><td>20.16 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hello Typophiles,</p>
+    <p>Apologies for the nerdiness on a first post.</p>
+    <p>In the midst of some last checks before releasing my first real font, I noticed an unpleasant beating frequency effect on repeated characters at smallish ppems when testing on Windows 7 with the "Natural" mode of DirectWrite ClearType rendering (tested via Firefox with the Anti-aliasing Tuner add-on).  The characters phase in and out of different degrees of bluriness.</p>
+    <p>With a bit of investigation, it looks like this is due to fractional advance widths.  I was hoping to be able to control for this by slightly adjusting the advance width phantom point via TrueType hinting.  However, it looks like Windows is ignoring that in this rendering mode and using only the designed width instead.</p>
+    <p>Attached is an extremely simple test case (TTX format, renamed to .txt) that shows this.  In the lower case x glyph slot it has a pointed cross occupying a 1000 font unit square, with a width set to 1000 font units (no sidebearings).  The glyph program is the following:</p>
+    <pre>SVTCA[x-axis]
+    PUSHB_2
+     17            // Advance width phantom point (16 points in curve)
+     0             // CVT 0 (2000 font units)
+    MIAP[no-rnd]</pre><p>
+    The test font also has the following simple preprogram:</p>
+    <pre>PUSHB_2        // New font with ClearType support
+     4
+     3
+    INSTCTRL
+    PUSHW_1        // 64 pixel cut-in (i.e., not a factor)
+     4096
+    SCVTCI</pre><p>
+    Testing this out, I see that DirectWrite's GDI Classic and GDI Natural rendering modes correctly handle this; a string of xxxxx shows the expected double spacing between the glyphs.  However, this is missing from the Natural and Natural Symmetric modes and they render with something closer to the designed widths instead:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/widthtest_4207.gif"></div><p></p>
+    <p>So this brings me to the following questions:</p>
+    <p>1) Is there any voodoo that I can do to get it to honor hints that adjust the width?  Or am I simply stuck with the beat pattern here?</p>
+    <p>2) I notice that in the documentation for <code>DWRITE_RENDERING_MODE</code> for Windows 8 and later, the descriptions for Natural and Natural Symmetric mention that the glyph advances are rounded to whole pixels.  However, no such mention is made of this in the corresponding documentation for earlier versions of Windows.  Does Windows 8 therefore not have the same beat problem?</p>
+    <p>Thanks!</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/widthtest.txt">widthtest.txt</a></td><td>20.16 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 571187
+    user: 1262
+    date: 2014-02-11T16:14:00
+    date_raw: 11 Feb 2014 — 4:14pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>.</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>.</p>
+      </div>
+  - id: 571213
+    user: 1262
+    date: 2014-02-11T16:14:00
+    date_raw: 11 Feb 2014 — 4:14pm
+    votes: null
+    html: |-
+      <p>Alas, the answer is that no, there isn't any voodoo you can do to get DWrite to respect the width hints.</p>
+      <p>Shortly after fractional width rendering (subpixel positioning) was introduced, I suggested to some people at MS that it would be good if there were a flag in the font that one could set to indicate to DWrite that one wanted full pixel spacing to be used. [The context for this is that we were designing some fonts for specific ppem sizes on full pixel grids, but when they were preceded on the line by other fonts they were getting knocked off the grid in DWrite environments.] The folks I spoke to agreed that such a flag would have been a useful thing, but thought it was too late to introduce it.</p>
+    html_clean: |-
+      <p>Alas, the answer is that no, there isn't any voodoo you can do to get DWrite to respect the width hints.</p>
+      <p>Shortly after fractional width rendering (subpixel positioning) was introduced, I suggested to some people at MS that it would be good if there were a flag in the font that one could set to indicate to DWrite that one wanted full pixel spacing to be used. [The context for this is that we were designing some fonts for specific ppem sizes on full pixel grids, but when they were preceded on the line by other fonts they were getting knocked off the grid in DWrite environments.] The folks I spoke to agreed that such a flag would have been a useful thing, but thought it was too late to introduce it.</p>
+  - id: 571220
+    user: 1250
+    date: 2014-02-11T19:13:00
+    date_raw: 11 Feb 2014 — 7:13pm
+    votes: null
+    html: |-
+      <p>I'm curious, why did you delete your first post?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I'm curious, why did you delete your first post?</p>
+      <p>hhp</p>
+  - id: 571228
+    user: 217571
+    date: 2014-02-12T01:03:00
+    date_raw: 12 Feb 2014 — 1:03am
+    votes: null
+    html: |-
+      <p>Hi John,</p>
+      <p>Thanks for looking into that for me.  It's a shame to hear that, but I can't say I'm suprised.</p>
+      <p>It's too bad that they seemed to go to such trouble to preserve backward compatibility with the various ClearType rendering options, but didn't provide a way for forward compatibility.  I'd have thought that some combination of the GASP table and <code>INSTCTRL</code> (beyond just the 4 3 flag and selector) would be ideal.</p>
+      <p>I realize that the world is generally moving away from hinting, but from my experience as an enthusiastic amateur in font design, it still seems like carefully chosen TrueType instructions have every bit as much to say as the raw splines about the visual character of a font at lower resolutions.  Likewise, I feel feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves (at least for fonts new enough to be aware of such things).</p>
+      <p>Oh well.  Thanks again.</p>
+    html_clean: |-
+      <p>Hi John,</p>
+      <p>Thanks for looking into that for me.  It's a shame to hear that, but I can't say I'm suprised.</p>
+      <p>It's too bad that they seemed to go to such trouble to preserve backward compatibility with the various ClearType rendering options, but didn't provide a way for forward compatibility.  I'd have thought that some combination of the GASP table and <code>INSTCTRL</code> (beyond just the 4 3 flag and selector) would be ideal.</p>
+      <p>I realize that the world is generally moving away from hinting, but from my experience as an enthusiastic amateur in font design, it still seems like carefully chosen TrueType instructions have every bit as much to say as the raw splines about the visual character of a font at lower resolutions.  Likewise, I feel feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves (at least for fonts new enough to be aware of such things).</p>
+      <p>Oh well.  Thanks again.</p>
+  - id: 571263
+    user: 1262
+    date: 2014-02-12T11:51:00
+    date_raw: 12 Feb 2014 — 11:51am
+    votes: null
+    html: |-
+      <blockquote><p>I feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves</p></blockquote>
+      <p>I entirely agree.</p>
+    html_clean: |-
+      <blockquote><p>I feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves</p></blockquote>
+      <p>I entirely agree.</p>
+  - id: 571264
+    user: 1262
+    date: 2014-02-12T11:53:00
+    date_raw: 12 Feb 2014 — 11:53am
+    votes: null
+    html: <p>Hrant, because it was administrative rather than informational.</p>
+    html_clean: <p>Hrant, because it was administrative rather than informational.</p>
+  - id: 571266
+    user: 1250
+    date: 2014-02-12T12:59:00
+    date_raw: 12 Feb 2014 — 12:59pm
+    votes: null
+    html: |-
+      <p>I think the deleted post did provide a certain kind of information: that you needed to consult somebody for the answer. I can't think of a good reason to have deleted it. Anyway, no huge deal.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I think the deleted post did provide a certain kind of information: that you needed to consult somebody for the answer. I can't think of a good reason to have deleted it. Anyway, no huge deal.</p>
+      <p>hhp</p>
+  - id: 571344
+    user: 2969
+    date: 2014-02-13T17:01:00
+    date_raw: 13 Feb 2014 — 5:01pm
+    votes: null
+    html: |-
+      <p>"..., it still seems like carefully chosen TrueType instructions have every bit as much to say as the raw splines about the visual character of a font at lower resolutions"</p>
+      <p>This is a great observation, but it has been so long since the instructions were reliable. The proof is now out that only the rich can make viable solutions for the web, to a great extent, because of this windows rendering. And the bottleneck it has created is not just Google fonts opportunity.</p>
+      <p>"Likewise, I feel feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves (at least for fonts new enough to be aware of such things)."</p>
+      <p>This goes back to the gasp table's invention which is not so new either. What is new here is that so many more people understand the issue, and that the fonts MS was afraid of rendering because of evil hints, must be dead and gone by now?</p>
+      <p>My favorite comment, is that you'd a thought MS would make Some Way forward for excellence in hinting. Can we have x back on windows now? Is the x box done hogging it?;)</p>
+    html_clean: |-
+      <p>"..., it still seems like carefully chosen TrueType instructions have every bit as much to say as the raw splines about the visual character of a font at lower resolutions"</p>
+      <p>This is a great observation, but it has been so long since the instructions were reliable. The proof is now out that only the rich can make viable solutions for the web, to a great extent, because of this windows rendering. And the bottleneck it has created is not just Google fonts opportunity.</p>
+      <p>"Likewise, I feel feel strongly that the choice between whole pixel grids, subpixel grids, and lack of grids ought to be a design decision that belongs in the fonts themselves (at least for fonts new enough to be aware of such things)."</p>
+      <p>This goes back to the gasp table's invention which is not so new either. What is new here is that so many more people understand the issue, and that the fonts MS was afraid of rendering because of evil hints, must be dead and gone by now?</p>
+      <p>My favorite comment, is that you'd a thought MS would make Some Way forward for excellence in hinting. Can we have x back on windows now? Is the x box done hogging it?;)</p>
+  - id: 571366
+    user: 5882
+    date: 2014-02-14T07:35:00
+    date_raw: 14 Feb 2014 — 7:35am
+    votes: null
+    html: |-
+      <p>hi Bitblt<br>
+      as John mentioned this is the situation right now. I am Mike Duggan by the way. Is it possible for you to introduce yourself?</p>
+      <p>cheers<br>
+      mike</p>
+    html_clean: |-
+      <p>hi Bitblt<br>
+      as John mentioned this is the situation right now. I am Mike Duggan by the way. Is it possible for you to introduce yourself?</p>
+      <p>cheers<br>
+      mike</p>
+  - id: 571404
+    user: 9636
+    date: 2014-02-14T16:52:00
+    date_raw: 14 Feb 2014 — 4:52pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>.</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>.</p>
+      </div>
+  - id: 571449
+    user: 1262
+    date: 2014-02-15T11:32:00
+    date_raw: 15 Feb 2014 — 11:32am
+    votes: null
+    html: |-
+      <p>David: <em>...and that the fonts MS was afraid of rendering because of evil hints, must be dead and gone by now?</em></p>
+      <p>The fonts are not dead and gone, but the rendering environments at which their heavy delta hinting was targeted have died and gone, so the obvious solution would be to rehint those fonts for modern rendering environments.</p>
+    html_clean: |-
+      <p>David: <em>...and that the fonts MS was afraid of rendering because of evil hints, must be dead and gone by now?</em></p>
+      <p>The fonts are not dead and gone, but the rendering environments at which their heavy delta hinting was targeted have died and gone, so the obvious solution would be to rehint those fonts for modern rendering environments.</p>
+  - id: 571456
+    user: 217571
+    date: 2014-02-15T13:37:00
+    date_raw: 15 Feb 2014 — 1:37pm
+    votes: null
+    html: |-
+      <p>Hi Mike,</p>
+      <p>Sure.  I'm coming at things from the technical side.  I'm a professional software developer with an expertise in graphics algorithms.</p>
+      <p>I spend a lot of time reading code on screen and several years ago I found myself not completely happy with any of the available typefaces.  So I set out to make one I'd like to use.  Working on it soon became a hobby and I got a bit crazy with it (to the point of teaching myself to write TT hinting instructions).  What can I say? I'm very demanding of my pixels, both at work and at home.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Hi Mike,</p>
+      <p>Sure.  I'm coming at things from the technical side.  I'm a professional software developer with an expertise in graphics algorithms.</p>
+      <p>I spend a lot of time reading code on screen and several years ago I found myself not completely happy with any of the available typefaces.  So I set out to make one I'd like to use.  Working on it soon became a hobby and I got a bit crazy with it (to the point of teaching myself to write TT hinting instructions).  What can I say? I'm very demanding of my pixels, both at work and at home.</p>
+      <p>Cheers!</p>
+  - id: 571492
+    user: 5882
+    date: 2014-02-16T03:42:00
+    date_raw: 16 Feb 2014 — 3:42am
+    votes: null
+    html: |-
+      <p>Damien? :-)</p>
+      <p>looking forward to seeing the font when its released. Please let us know when that happens.</p>
+    html_clean: |-
+      <p>Damien? :-)</p>
+      <p>looking forward to seeing the font when its released. Please let us know when that happens.</p>
+  - id: 571567
+    user: 2969
+    date: 2014-02-17T05:03:00
+    date_raw: 17 Feb 2014 — 5:03am
+    votes: null
+    html: |-
+      <p>JoHn:"The fonts are not dead and gone, "</p>
+      <p>I think they are. The instructions you are talking about, only make CT fonts blue, while the instructions I was talking about, were said to make whole computer screens blue. </p>
+      <p>" so the obvious solution would be to rehint those fonts for modern rendering environments."</p>
+      <p>I think that's all done. As I should have said, the fonts that concerned MS in the transition from aliased to CT, are dead and rehinted. </p>
+      <p>Free Damien.;)</p>
+    html_clean: |-
+      <p>JoHn:"The fonts are not dead and gone, "</p>
+      <p>I think they are. The instructions you are talking about, only make CT fonts blue, while the instructions I was talking about, were said to make whole computer screens blue. </p>
+      <p>" so the obvious solution would be to rehint those fonts for modern rendering environments."</p>
+      <p>I think that's all done. As I should have said, the fonts that concerned MS in the transition from aliased to CT, are dead and rehinted. </p>
+      <p>Free Damien.;)</p>
+  - id: 573146
+    user: 217571
+    date: 2014-03-08T12:04:00
+    date_raw: 8 Mar 2014 — 12:04pm
+    votes: null
+    html: <p>Hello, again.  This perhaps deserves its own post under Release, but just to follow up on this thread I made the font in question, <a href="http://eastfarthing.com/luculent" rel="nofollow">Luculent</a>, available as of yesterday.</p>
+    html_clean: <p>Hello, again.  This perhaps deserves its own post under Release, but just to follow up on this thread I made the font in question, <a href="http://eastfarthing.com/luculent" rel="nofollow">Luculent</a>, available as of yesterday.</p>

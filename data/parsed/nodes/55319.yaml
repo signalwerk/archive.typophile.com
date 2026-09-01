@@ -1,0 +1,146 @@
+node: 55319
+title: FontBook Kern Table Validation
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150428155752"
+  captured_at: 2015-04-28T15:57:52Z
+  url: http://typophile.com:80/node/55319
+  digest: UC6NB6G3MPZX2HB5BQXTMX3ZC7TQ4BXM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/55319.html
+  fingerprint: bac2be24eb1a04e3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150428155752"
+      digest: UC6NB6G3MPZX2HB5BQXTMX3ZC7TQ4BXM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/55319.html
+post:
+  id: 55319
+  user: 8555
+  date: 2009-02-27T14:25:00
+  date_raw: 27 Feb 2009 — 2:25pm
+  votes: null
+  html: |-
+    <p>FontBook in Mac OS 10.5 is reporting an improperly structured kern table upon installation of Aviano. I recently overhauled the entire family, including the kerning, and it is now based off of a Multiple Master. All font generated from the master are affected. Class based kerning is used extensively, and I expand kerning upon export. The export expands the kerning to about 1000 pairs. Microsoft Font Validator reports no issues, and Fontlab reports no issues with the structure upon export, and the Kerning Assistance dialog reports no problems. I have filed reports with Fontlab.</p>
+    <p>Is anyone familiar with this issue? What additional information can I provide to help solve the issue?</p>
+    <p>Thank you for the help,</p>
+    <p>JDooley<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/Picture 8_3633.png"></div><p></p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/55168" class="topic-previous" title="Go to previous forum topic">‹ Aligning the ordmasculine/feminine with sups, numerators, or ordinals?</a>
+                  <a href="/node/55141" class="topic-next" title="Go to next forum topic">Is it possible? ›</a>
+          </div>
+  html_clean: |-
+    <p>FontBook in Mac OS 10.5 is reporting an improperly structured kern table upon installation of Aviano. I recently overhauled the entire family, including the kerning, and it is now based off of a Multiple Master. All font generated from the master are affected. Class based kerning is used extensively, and I expand kerning upon export. The export expands the kerning to about 1000 pairs. Microsoft Font Validator reports no issues, and Fontlab reports no issues with the structure upon export, and the Kerning Assistance dialog reports no problems. I have filed reports with Fontlab.</p>
+    <p>Is anyone familiar with this issue? What additional information can I provide to help solve the issue?</p>
+    <p>Thank you for the help,</p>
+    <p>JDooley<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/Picture 8_3633.png"></div><p></p>
+      <div class="forum-topic-navigation clear-block">
+              <a href="/node/55168/" class="topic-previous" title="Go to previous forum topic">‹ Aligning the ordmasculine/feminine with sups, numerators, or ordinals?</a>
+                  <a href="/node/55141/" class="topic-next" title="Go to next forum topic">Is it possible? ›</a>
+          </div>
+comments:
+  - id: 332060
+    user: 1844
+    date: 2009-02-27T15:40:00
+    date_raw: 27 Feb 2009 — 3:40pm
+    votes: null
+    html: <p>OT-CFF fonts should not have a 'kern' table. The kerning in OT-CFF fonts is handled by the 'kern' feature found in the 'GPOS' table.</p>
+    html_clean: <p>OT-CFF fonts should not have a 'kern' table. The kerning in OT-CFF fonts is handled by the 'kern' feature found in the 'GPOS' table.</p>
+  - id: 332062
+    user: 8664
+    date: 2009-02-27T15:50:00
+    date_raw: 27 Feb 2009 — 3:50pm
+    votes: null
+    html: |-
+      <p>Miguel made a good point.<br>
+      But whatever FontBook's validation criteria are, both the declaration as "serious error" and "structure and content" are misleading except if the kern table is really built incorrectly.</p>
+    html_clean: |-
+      <p>Miguel made a good point.<br>
+      But whatever FontBook's validation criteria are, both the declaration as "serious error" and "structure and content" are misleading except if the kern table is really built incorrectly.</p>
+  - id: 332063
+    user: 8555
+    date: 2009-02-27T15:59:00
+    date_raw: 27 Feb 2009 — 3:59pm
+    votes: null
+    html: |-
+      <p>I turned off the expansion of the class based kerning upon export and FontBook validated the font as correctly formed.</p>
+      <p>This creates another problem, as some applications still don't support class based kerning. I have passed this information onto FontLab support.</p>
+      <p>Thank you for the assistance and insight.</p>
+      <p>JDooley</p>
+    html_clean: |-
+      <p>I turned off the expansion of the class based kerning upon export and FontBook validated the font as correctly formed.</p>
+      <p>This creates another problem, as some applications still don't support class based kerning. I have passed this information onto FontLab support.</p>
+      <p>Thank you for the assistance and insight.</p>
+      <p>JDooley</p>
+  - id: 332067
+    user: 1133
+    date: 2009-02-27T16:13:00
+    date_raw: 27 Feb 2009 — 4:13pm
+    votes: null
+    html: |-
+      <p>The OpenType specification does not permit the "kern" table in PostScript-flavored OpenType fonts, though the Apple specification does. But this obviously is not the problem since FontBook permits some OTF fonts with a "kern" table but chokes on others. </p>
+      <p>FontBook has been known for false-flagging many situations, and this seems like one of them. </p>
+      <p>I believe this is an Apple problem, not a problem with your font. You might want to install the Apple FontTools from<br>
+      <a href="http://developer.apple.com/textfonts/Fonttools/" title="http://developer.apple.com/textfonts/Fonttools/">http://developer.apple.com/textfonts/Fonttools/</a><br>
+      and check your font with ftxvalidator, and see what it reports. </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>The OpenType specification does not permit the "kern" table in PostScript-flavored OpenType fonts, though the Apple specification does. But this obviously is not the problem since FontBook permits some OTF fonts with a "kern" table but chokes on others. </p>
+      <p>FontBook has been known for false-flagging many situations, and this seems like one of them. </p>
+      <p>I believe this is an Apple problem, not a problem with your font. You might want to install the Apple FontTools from<br>
+      <a href="http://developer.apple.com/textfonts/Fonttools/" title="http://developer.apple.com/textfonts/Fonttools/">http://developer.apple.com/textfonts/Fonttools/</a><br>
+      and check your font with ftxvalidator, and see what it reports. </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 332456
+    user: 8555
+    date: 2009-03-02T09:20:00
+    date_raw: 2 Mar 2009 — 9:20am
+    votes: null
+    html: |-
+      <p>Thank you Adam, I will check into that.</p>
+      <p>Although I agree that it is probably an error with FontBook validation and not FontLab, since users rely so heavily on FontBook, FontLab might want to look into the error or coordinate with Apple on this issue. I doubt that my font is the only one effected.</p>
+      <p>Thanks again,</p>
+      <p>Jeremy Dooley<br>
+      <a href="http://www.insignedesign.com" title="www.insignedesign.com">www.insignedesign.com</a></p>
+    html_clean: |-
+      <p>Thank you Adam, I will check into that.</p>
+      <p>Although I agree that it is probably an error with FontBook validation and not FontLab, since users rely so heavily on FontBook, FontLab might want to look into the error or coordinate with Apple on this issue. I doubt that my font is the only one effected.</p>
+      <p>Thanks again,</p>
+      <p>Jeremy Dooley<br>
+      <a href="http://www.insignedesign.com" title="www.insignedesign.com">www.insignedesign.com</a></p>
+  - id: 332941
+    user: 1133
+    date: 2009-03-04T14:11:00
+    date_raw: 4 Mar 2009 — 2:11pm
+    votes: null
+    html: |-
+      <p>Jeremy, </p>
+      <p>as far as I can tell, this problem has been fixed in more recent versions of Mac OS X. I just tested your font in Mac OS X 10.5.6 and FontBook did not complain at all. </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Jeremy, </p>
+      <p>as far as I can tell, this problem has been fixed in more recent versions of Mac OS X. I just tested your font in Mac OS X 10.5.6 and FontBook did not complain at all. </p>
+      <p>Regards,<br>
+      Adam</p>

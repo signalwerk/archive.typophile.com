@@ -1,0 +1,105 @@
+node: 83847
+title: optical kerning from indesign
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20150416160407"
+  captured_at: 2015-04-16T16:04:07Z
+  url: http://typophile.com/node/83847
+  digest: R2TRH6SDEYUGKVKTHDM7EGU33Z7XIERA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/83847.html
+  fingerprint: f9c73f0b18941251
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416160407"
+      digest: R2TRH6SDEYUGKVKTHDM7EGU33Z7XIERA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/83847.html
+post:
+  id: 83847
+  user: 27455
+  date: 2011-07-17T05:36:00
+  date_raw: 17 Jul 2011 — 5:36am
+  votes: null
+  html: |-
+    <p>hello all,<br>
+    i am working on a project and I need to send one of my typefaces to several people<br>
+    who are not so familiar with InDesign. I do not have time at the moment to kern the<br>
+    typeface. Does anyone know a python script that can import optical kerning<br>
+    values from InDesign to Fontlab?<br>
+    Thanks.</p>
+  html_clean: |-
+    <p>hello all,<br>
+    i am working on a project and I need to send one of my typefaces to several people<br>
+    who are not so familiar with InDesign. I do not have time at the moment to kern the<br>
+    typeface. Does anyone know a python script that can import optical kerning<br>
+    values from InDesign to Fontlab?<br>
+    Thanks.</p>
+comments:
+  - id: 471282
+    user: 1551
+    date: 2011-07-17T06:38:00
+    date_raw: 17 Jul 2011 — 6:38am
+    votes: null
+    html: <p>If you do a search on Adobe's optical kerning here, you will find that there are a lot of problems with it. If it is spaced well, you are probably better off with no kerning, or lightly kerning a few characters like fVWT, and letting it go at that. Some people have successfully used the <a class="freelinking external" href="http://ikern.com/k1/" rel="nofollow">ikern service</a>.</p>
+    html_clean: <p>If you do a search on Adobe's optical kerning here, you will find that there are a lot of problems with it. If it is spaced well, you are probably better off with no kerning, or lightly kerning a few characters like fVWT, and letting it go at that. Some people have successfully used the <a class="freelinking external" href="http://ikern.com/k1/" rel="nofollow">ikern service</a>.</p>
+  - id: 471285
+    user: 27455
+    date: 2011-07-17T06:49:00
+    date_raw: 17 Jul 2011 — 6:49am
+    votes: null
+    html: <p>i am aware of the problems. i know how indesign optical spacing works. my question is simply if anyone knows a script that can take the kerning values from indesign to fontlab. let us not waste time by discussing what good spacing is, etc... thanks.</p>
+    html_clean: <p>i am aware of the problems. i know how indesign optical spacing works. my question is simply if anyone knows a script that can take the kerning values from indesign to fontlab. let us not waste time by discussing what good spacing is, etc... thanks.</p>
+  - id: 471425
+    user: 30114
+    date: 2011-07-18T06:57:00
+    date_raw: 18 Jul 2011 — 6:57am
+    votes: null
+    html: <p>I don't think it exists, but that's just a guess. Igino Marini from iKern can create quite good spacing and kerning in a matter of days.</p>
+    html_clean: <p>I don't think it exists, but that's just a guess. Igino Marini from iKern can create quite good spacing and kerning in a matter of days.</p>
+  - id: 471426
+    user: 32723
+    date: 2011-07-18T07:10:00
+    date_raw: 18 Jul 2011 — 7:10am
+    votes: null
+    html: <p>IIRC, InDesign optical kerning is, like the paragraph composer engine, based on complex, patented algorithms. Due to this, I don't think it could be translated into a script.</p>
+    html_clean: <p>IIRC, InDesign optical kerning is, like the paragraph composer engine, based on complex, patented algorithms. Due to this, I don't think it could be translated into a script.</p>
+  - id: 471461
+    user: 1215
+    date: 2011-07-18T10:48:00
+    date_raw: 18 Jul 2011 — 10:48am
+    votes: null
+    html: |-
+      <p>I seem to remember something like this.</p>
+      <p>See if this script from Georg Siefert might help with you have in mind:</p>
+      <p><a href="http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml" title="http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml">http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml</a></p>
+      <p>It’s not Python. It’s Javascript that you have to run in InDesign on a single text frame (can be threaded over many pages) and output an AFM file. But you might be able to press it into service for your needs, if you don’t find anything else more direct.</p>
+      <p>I don’t think it’ll read out the Optical Metrics values directly. And, of course, you have to provide the kern-pair strings. What I think you’d have to do is go through your kerning text string and manually override and reset each value in order to have the script pull them out to AFM.</p>
+      <p>What I mean by that is that you’d have to advance your cursor between each kern pair and hit option-leftarrow to override the Optical value, then immediately hit option-rightarrow to return to the value determined by Optical metrics, but now as a manual kern that the script will detect and harvest. (Maybe you could script that action locally just to speed things up.)</p>
+      <p>I don’t know if that description made sense, or if this will help you.</p>
+      <p>(I’m sparing you my considerable rant against the Adobe Optical Kerning routine. ;-)</p>
+    html_clean: |-
+      <p>I seem to remember something like this.</p>
+      <p>See if this script from Georg Siefert might help with you have in mind:</p>
+      <p><a href="http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml" title="http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml">http://mac.softpedia.com/get/Graphics/Make-Kern-File.shtml</a></p>
+      <p>It’s not Python. It’s Javascript that you have to run in InDesign on a single text frame (can be threaded over many pages) and output an AFM file. But you might be able to press it into service for your needs, if you don’t find anything else more direct.</p>
+      <p>I don’t think it’ll read out the Optical Metrics values directly. And, of course, you have to provide the kern-pair strings. What I think you’d have to do is go through your kerning text string and manually override and reset each value in order to have the script pull them out to AFM.</p>
+      <p>What I mean by that is that you’d have to advance your cursor between each kern pair and hit option-leftarrow to override the Optical value, then immediately hit option-rightarrow to return to the value determined by Optical metrics, but now as a manual kern that the script will detect and harvest. (Maybe you could script that action locally just to speed things up.)</p>
+      <p>I don’t know if that description made sense, or if this will help you.</p>
+      <p>(I’m sparing you my considerable rant against the Adobe Optical Kerning routine. ;-)</p>

@@ -1,0 +1,118 @@
+node: 114298
+title: Copying Unicode Names From A Font / & Color Component Glyphs In A VFB?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140701193453"
+  captured_at: 2014-07-01T19:34:53Z
+  url: http://typophile.com/node/114298
+  digest: KBQLHYQ4BXKCLKVO3GLMOBGPZ4OYQR6P
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/114298.html
+  fingerprint: 8961799f20ef1019
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140701193453"
+      digest: KBQLHYQ4BXKCLKVO3GLMOBGPZ4OYQR6P
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/114298.html
+post:
+  id: 114298
+  user: 23584
+  date: 2014-02-18T22:48:00
+  date_raw: 18 Feb 2014 — 10:48pm
+  votes: null
+  html: |-
+    <p>As the Beatles sang: Help!<br>
+    I have two font weights with the same number of glyphs, same encoding, and  glyph names, but the unicode entries are incomplete or missing in one of them.  How do I either:<br>
+    Copy the good unicode names from one font to the other without changing the outline, bearings or anything else?<br>
+    or<br>
+    Copy the outline and side-bearings to the font with the good unicode names?<br>
+    Another question: is there a quick method to sort and color all the component glyphs of a font in Fontlab?<br>
+    Many thanks.<br>
+    Vladimir</p>
+  html_clean: |-
+    <p>As the Beatles sang: Help!<br>
+    I have two font weights with the same number of glyphs, same encoding, and  glyph names, but the unicode entries are incomplete or missing in one of them.  How do I either:<br>
+    Copy the good unicode names from one font to the other without changing the outline, bearings or anything else?<br>
+    or<br>
+    Copy the outline and side-bearings to the font with the good unicode names?<br>
+    Another question: is there a quick method to sort and color all the component glyphs of a font in Fontlab?<br>
+    Many thanks.<br>
+    Vladimir</p>
+comments:
+  - id: 571772
+    user: 1262
+    date: 2014-02-19T16:08:00
+    date_raw: 19 Feb 2014 — 4:08pm
+    votes: null
+    html: |-
+      <p>The easiest way to do this would be to simply copy the cmap table from the good font to the other one. I would use DTL OTMaster for this, which is a simple copy/paste operation, but if you want a no-cost option you could use TTX: dump cmap table from one font and merge it to the other.</p>
+      <p>Note that this relies on the glyph ordering of the two fonts being identical.</p>
+      <p>Another way to do this, in FontLab, is to save a .nam name-to-unicode file of the good font, and then use it to Apply Unicodes to the other font.</p>
+    html_clean: |-
+      <p>The easiest way to do this would be to simply copy the cmap table from the good font to the other one. I would use DTL OTMaster for this, which is a simple copy/paste operation, but if you want a no-cost option you could use TTX: dump cmap table from one font and merge it to the other.</p>
+      <p>Note that this relies on the glyph ordering of the two fonts being identical.</p>
+      <p>Another way to do this, in FontLab, is to save a .nam name-to-unicode file of the good font, and then use it to Apply Unicodes to the other font.</p>
+  - id: 571780
+    user: 9636
+    date: 2014-02-19T16:59:00
+    date_raw: 19 Feb 2014 — 4:59pm
+    votes: null
+    html: <p>What John says makes the most sense, but it would be a pretty simple python script to write through as well.</p>
+    html_clean: <p>What John says makes the most sense, but it would be a pretty simple python script to write through as well.</p>
+  - id: 571922
+    user: 23584
+    date: 2014-02-20T22:18:00
+    date_raw: 20 Feb 2014 — 10:18pm
+    votes: null
+    html: |-
+      <p>Thank you John I have installed TTX and will be trying to implement the steps you kindly described.<br>
+      jasonc - I tried to learn Python a while back, trying to simulate physics ideas, but it was hard to remember the commands unless one uses it constantly.</p>
+    html_clean: |-
+      <p>Thank you John I have installed TTX and will be trying to implement the steps you kindly described.<br>
+      jasonc - I tried to learn Python a while back, trying to simulate physics ideas, but it was hard to remember the commands unless one uses it constantly.</p>
+  - id: 571947
+    user: 23584
+    date: 2014-02-21T05:36:00
+    date_raw: 21 Feb 2014 — 5:36am
+    votes: null
+    html: |-
+      <p>John I have managed to install TTX on the Mac and to create .tx versions of my fonts, and to edit the cmap there. The reverse process of recreating a .ttf file  (In Terminal type ttx and drag the .ttx file there/ ) is not working. Any other way to use TTX i.e syntax to copy cmap from A to B directly?  </p>
+      <p>Thanks</p>
+    html_clean: |-
+      <p>John I have managed to install TTX on the Mac and to create .tx versions of my fonts, and to edit the cmap there. The reverse process of recreating a .ttf file  (In Terminal type ttx and drag the .ttx file there/ ) is not working. Any other way to use TTX i.e syntax to copy cmap from A to B directly?  </p>
+      <p>Thanks</p>
+  - id: 571949
+    user: 21309
+    date: 2014-02-21T06:11:00
+    date_raw: 21 Feb 2014 — 6:11am
+    votes: null
+    html: |-
+      <p>Too bad you are on a Mac, as with <a class="freelinking external" href="http://www.high-logic.com/font-editor/fontcreator.html" rel="nofollow">FontCreator</a> it can be done in a split second.</p>
+      <p>Select all glyphs from the source font, and then copy and paste the codepoints (paste special) to the destination font.</p>
+    html_clean: |-
+      <p>Too bad you are on a Mac, as with <a class="freelinking external" href="http://www.high-logic.com/font-editor/fontcreator.html" rel="nofollow">FontCreator</a> it can be done in a split second.</p>
+      <p>Select all glyphs from the source font, and then copy and paste the codepoints (paste special) to the destination font.</p>
+  - id: 571987
+    user: 23584
+    date: 2014-02-21T18:27:00
+    date_raw: 21 Feb 2014 — 6:27pm
+    votes: null
+    html: <p>Tak erwindenissen. I remember FontCreator the can-do little software fondly from my first experiments with handwriting font  years ago. Glad it seems to be developing well.  I did download the PC  trial but the fonts I wish to deal with are in different encodings. In Fontlab I could rearrange the glyphs, but on the Mac the paste-special command there changes some Unicode names in the target font.</p>
+    html_clean: <p>Tak erwindenissen. I remember FontCreator the can-do little software fondly from my first experiments with handwriting font  years ago. Glad it seems to be developing well.  I did download the PC  trial but the fonts I wish to deal with are in different encodings. In Fontlab I could rearrange the glyphs, but on the Mac the paste-special command there changes some Unicode names in the target font.</p>

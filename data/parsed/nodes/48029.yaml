@@ -1,0 +1,68 @@
+node: 48029
+title: Adding an instance in FL removes all OT features
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131022052423"
+  captured_at: 2013-10-22T05:24:23Z
+  url: http://typophile.com/node/48029
+  digest: IBS4B7H5G32FFS22YWZST6IFSIJ25A4F
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/48029.html
+  fingerprint: 54883e042723587f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131022052423"
+      digest: IBS4B7H5G32FFS22YWZST6IFSIJ25A4F
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/48029.html
+post:
+  id: 48029
+  user: 1021
+  date: 2008-08-03T04:22:00
+  date_raw: 3 Aug 2008 — 4:22am
+  votes: null
+  html: |-
+    <p>When opening/generating an instance in FL5.0.4 with Python like this:</p>
+    <p><code>fl.Add(Font(Font('/foo/bar/font.vfb'), (400, 400)))</code></p>
+    <p>all the OT features from the MM VFB are lost. That is not the case if you apply the Generate Instance on an open MM using the menu command. </p>
+    <p>Is this a feature or a bug?</p>
+  html_clean: |-
+    <p>When opening/generating an instance in FL5.0.4 with Python like this:</p>
+    <p><code>fl.Add(Font(Font('/foo/bar/font.vfb'), (400, 400)))</code></p>
+    <p>all the OT features from the MM VFB are lost. That is not the case if you apply the Generate Instance on an open MM using the menu command. </p>
+    <p>Is this a feature or a bug?</p>
+comments:
+  - id: 293097
+    user: 8664
+    date: 2008-08-03T05:34:00
+    date_raw: 3 Aug 2008 — 5:34am
+    votes: null
+    html: <p>A "feature". You need to transfer font.features (a list, transfer items one by one), font.ot_classes (text) and possibly font.classes (list) separately. Karsten</p>
+    html_clean: <p>A "feature". You need to transfer font.features (a list, transfer items one by one), font.ot_classes (text) and possibly font.classes (list) separately. Karsten</p>
+  - id: 293101
+    user: 1021
+    date: 2008-08-03T05:56:00
+    date_raw: 3 Aug 2008 — 5:56am
+    votes: null
+    html: |-
+      <p>Thanks for the workaround Karsten.</p>
+      <p><code>font.classes</code> from the MM font are preserved when using the Add instance method and I can't see a reason why the OT features shouldn't be passed to single master like they do when you are using the Generate Instance menu command. Re-attach them (transfer from MM to the new instance) like you describe works fine though.</p>
+    html_clean: |-
+      <p>Thanks for the workaround Karsten.</p>
+      <p><code>font.classes</code> from the MM font are preserved when using the Add instance method and I can't see a reason why the OT features shouldn't be passed to single master like they do when you are using the Generate Instance menu command. Re-attach them (transfer from MM to the new instance) like you describe works fine though.</p>

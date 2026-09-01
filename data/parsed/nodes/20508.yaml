@@ -4,35 +4,41 @@ forum:
   id: 6
   title: Build
 source:
-  archive: commoncrawl.org
-  timestamp: "20150427142200"
-  captured_at: 2015-04-27T14:22:00Z
-  url: http://www.typophile.com/node/20508
-  digest: GZI5RJ4VPTJNWRSVULZOAGP7HIDBYICH
+  archive: web.archive.org
+  timestamp: "20150420220857"
+  captured_at: 2015-04-20T22:08:57Z
+  url: http://typophile.com/node/20508
+  digest: 5G3QDSL2ML2J3WLCKLGTO74SLCBSMDUW
   verified: true
-  truncated: true
-  sound: false
+  truncated: false
+  sound: true
   content: original
   generation: sidebars
-  file: data/archives/commoncrawl.org/files/typophile.com/node/20508.html
-  fingerprint: d6620beb069c7b82
+  file: data/archives/web.archive.org/files/typophile.com/node/20508.html
+  fingerprint: 0941e47332aa30a4
   parser: 94e5e8fd0094d753
 pages:
   total: 2
-  recovered: 1
-  complete: false
+  recovered: 2
+  complete: true
   have:
     - 0
-  missing:
     - 1
   parts:
     - page: 0
-      archive: commoncrawl.org
-      timestamp: "20150427142200"
-      digest: GZI5RJ4VPTJNWRSVULZOAGP7HIDBYICH
+      archive: web.archive.org
+      timestamp: "20150420220857"
+      digest: 5G3QDSL2ML2J3WLCKLGTO74SLCBSMDUW
       verified: true
-      truncated: true
-      file: data/archives/commoncrawl.org/files/typophile.com/node/20508.html
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/20508.html
+    - page: 1
+      archive: web.archive.org
+      timestamp: "20140809180259"
+      digest: KZLCHCDTKL7ICDHX4ACH2IKFRXP33ADG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/20508__q_page=1.html
 post:
   id: 20508
   user: 3135
@@ -245,7 +251,7 @@ comments:
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/russian_4109.jpg"></div><p></p>
     html_clean: |-
       <p>Here you go Chris...</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/russian_4109.jpg"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/russian_4109.jpg"></div><p></p>
   - id: 127831
     user: 3135
     date: 2006-06-08T07:34:00
@@ -720,3 +726,133 @@ comments:
     votes: null
     html: <p>Thanks, Thomas! So I think it's still unsafe to leave custom glyph names in a final font.</p>
     html_clean: <p>Thanks, Thomas! So I think it's still unsafe to leave custom glyph names in a final font.</p>
+  - id: 581583
+    user: 31798
+    date: 2014-06-27T07:38:00
+    date_raw: 27 Jun 2014 — 7:38am
+    votes: null
+    html: |-
+      <p>One thing I'm curious about is why Adobe has never actually remedied this since it would avoid a lot of headaches associated with CFF opentype fonts. Apart from the inconvenience of being forced to use the rather non-intuitive names defined by the AGL discussed in this thread, we are stuck with the need to duplicate certain glyphs (e.g. small capitals), to avoid various double-encodings which would simplify some fonts, etc. all to satisfy the limitations of a single program (Acrobat), and only in a fairly limited number of cases.</p>
+      <p>If Adobe were to update their PostScript drivers to embed cmap data into postscript files and distiller to make use of such data, these would all become non-issues.</p>
+      <p>The syntax adopted for including cmaps could use % delimiters, in which case older software would assume they were simply dealing with a lengthy comment and ignore the new data which would help ensure backwards compatibility with existing applications.</p>
+    html_clean: |-
+      <p>One thing I'm curious about is why Adobe has never actually remedied this since it would avoid a lot of headaches associated with CFF opentype fonts. Apart from the inconvenience of being forced to use the rather non-intuitive names defined by the AGL discussed in this thread, we are stuck with the need to duplicate certain glyphs (e.g. small capitals), to avoid various double-encodings which would simplify some fonts, etc. all to satisfy the limitations of a single program (Acrobat), and only in a fairly limited number of cases.</p>
+      <p>If Adobe were to update their PostScript drivers to embed cmap data into postscript files and distiller to make use of such data, these would all become non-issues.</p>
+      <p>The syntax adopted for including cmaps could use % delimiters, in which case older software would assume they were simply dealing with a lengthy comment and ignore the new data which would help ensure backwards compatibility with existing applications.</p>
+  - id: 581596
+    user: 909
+    date: 2014-06-27T10:06:00
+    date_raw: 27 Jun 2014 — 10:06am
+    votes: null
+    html: |-
+      <p>People use old software sometimes. The issue would not go away for many years even if Adobe did update their PostScript drivers. Plus, one often hears that if people want to make the best and most reliable PDFs, they should be made with the source fonts available.</p>
+      <p>I started to write that still, it was not a bad idea, but then I thought about it more....</p>
+      <p>One problem is, it is not just the cmap. That is fine for one-to-one mappings of default glyphs, but not for alternates, ligatures, etc. There is all sorts of stuff that does not cover.</p>
+      <p>So for full reliability, you'd need to inject a LOT more info into the print stream. Possibly the rest of the font (the part beyond the CFF table), and that rest not subsetted down to just the glyphs used in printing. This would make for a much fatter and slower print stream, so it couldn't be on by default, because the normal users who just want to print can't get hit with a big performance penalty.</p>
+      <p>In which case, you would be in exactly the same boat as today, that sometimes things would go wrong, as long as people make PDFs from print streams. Even in a perfect future where that fatter print stream was an option.</p>
+      <p>I expect this is why it was never done.  :(</p>
+    html_clean: |-
+      <p>People use old software sometimes. The issue would not go away for many years even if Adobe did update their PostScript drivers. Plus, one often hears that if people want to make the best and most reliable PDFs, they should be made with the source fonts available.</p>
+      <p>I started to write that still, it was not a bad idea, but then I thought about it more....</p>
+      <p>One problem is, it is not just the cmap. That is fine for one-to-one mappings of default glyphs, but not for alternates, ligatures, etc. There is all sorts of stuff that does not cover.</p>
+      <p>So for full reliability, you'd need to inject a LOT more info into the print stream. Possibly the rest of the font (the part beyond the CFF table), and that rest not subsetted down to just the glyphs used in printing. This would make for a much fatter and slower print stream, so it couldn't be on by default, because the normal users who just want to print can't get hit with a big performance penalty.</p>
+      <p>In which case, you would be in exactly the same boat as today, that sometimes things would go wrong, as long as people make PDFs from print streams. Even in a perfect future where that fatter print stream was an option.</p>
+      <p>I expect this is why it was never done.  :(</p>
+  - id: 581610
+    user: 31798
+    date: 2014-06-27T11:35:00
+    date_raw: 27 Jun 2014 — 11:35am
+    votes: null
+    html: |-
+      <p>OK. I see your points. However, I still think its a bit annoying that unicode fonts should be perpetually hampered by the fact that PS Type 1 fonts predate unicode (which is essentially where the PDF problem stems from). Another option would be to create a postscript driver which embeds the underlying character stream (at least when writing to a file rather than an actual printer), but I don't know enough about printing architecture to know if that's even possible. Even if it took years before the problem went away, it would at least become less and less of an issue over time.</p>
+      <p>I vacillate back and forth on the issue of whether I should adopt Adobe's strategy of ensuring that glyphs can be uniquely mapped back to characters or not. Having separate glyphs for (e.g.) A.sc and a.sc or onesuperior and one.sups isn't a big deal for simple fonts, but if you have a large character set and/or lots of alternate glyphs kerning becomes more complicated and the glyph window starts getting rather cluttered.</p>
+      <p>Also there are some cases (albeit not that many) where descriptive glyphs names might be useful for the end user. Pi fonts come immediately to mind -- Adobe Carta uses names like 'lookout' which are far more informative than 'uniE041' would be (though admittedly the ability to reconstruct PUA codepoints isn't exactly crucial since they're not meaningful unless you're using some standard like MUFI which fonts on the users system also adhere to).</p>
+      <p>André</p>
+    html_clean: |-
+      <p>OK. I see your points. However, I still think its a bit annoying that unicode fonts should be perpetually hampered by the fact that PS Type 1 fonts predate unicode (which is essentially where the PDF problem stems from). Another option would be to create a postscript driver which embeds the underlying character stream (at least when writing to a file rather than an actual printer), but I don't know enough about printing architecture to know if that's even possible. Even if it took years before the problem went away, it would at least become less and less of an issue over time.</p>
+      <p>I vacillate back and forth on the issue of whether I should adopt Adobe's strategy of ensuring that glyphs can be uniquely mapped back to characters or not. Having separate glyphs for (e.g.) A.sc and a.sc or onesuperior and one.sups isn't a big deal for simple fonts, but if you have a large character set and/or lots of alternate glyphs kerning becomes more complicated and the glyph window starts getting rather cluttered.</p>
+      <p>Also there are some cases (albeit not that many) where descriptive glyphs names might be useful for the end user. Pi fonts come immediately to mind -- Adobe Carta uses names like 'lookout' which are far more informative than 'uniE041' would be (though admittedly the ability to reconstruct PUA codepoints isn't exactly crucial since they're not meaningful unless you're using some standard like MUFI which fonts on the users system also adhere to).</p>
+      <p>André</p>
+  - id: 581620
+    user: 3135
+    date: 2014-06-27T14:16:00
+    date_raw: 27 Jun 2014 — 2:16pm
+    votes: null
+    html: <p>Adobe won't even put a glyph palette in Photoshop or properly UI Stylistic Sets,  why would they give a tinkers damn about fixing this?  Adobe died and morphed into Quark.  They just don't care about type users or designers.</p>
+    html_clean: <p>Adobe won't even put a glyph palette in Photoshop or properly UI Stylistic Sets,  why would they give a tinkers damn about fixing this?  Adobe died and morphed into Quark.  They just don't care about type users or designers.</p>
+  - id: 581629
+    user: 1250
+    date: 2014-06-27T18:04:00
+    date_raw: 27 Jun 2014 — 6:04pm
+    votes: null
+    html: |-
+      <p>What? Adobe continues to make some of the best type out there.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>What? Adobe continues to make some of the best type out there.</p>
+      <p>hhp</p>
+  - id: 581633
+    user: 909
+    date: 2014-06-27T18:52:00
+    date_raw: 27 Jun 2014 — 6:52pm
+    votes: null
+    html: |-
+      <p>I think talking about Adobe as a single monolithic entity is a mistake.  :)</p>
+      <p>It is a big company. It has different teams with different priorities, and their handling of things that are other than massive company priorities will differ. This is normal, albeit unfortunate, for any big company.</p>
+      <p>For the kinds of issues under discussion, pretend there is no “Adobe,”&nbsp;but rather a PostScript printers and driver team, an Acrobat team, a Photoshop team, a type team, and so on. This maps more closely to the way things actually work, in my experience.</p>
+      <p>Of course there is discussion and cross-pollination. But the silo effect is pretty huge.</p>
+    html_clean: |-
+      <p>I think talking about Adobe as a single monolithic entity is a mistake.  :)</p>
+      <p>It is a big company. It has different teams with different priorities, and their handling of things that are other than massive company priorities will differ. This is normal, albeit unfortunate, for any big company.</p>
+      <p>For the kinds of issues under discussion, pretend there is no “Adobe,”&nbsp;but rather a PostScript printers and driver team, an Acrobat team, a Photoshop team, a type team, and so on. This maps more closely to the way things actually work, in my experience.</p>
+      <p>Of course there is discussion and cross-pollination. But the silo effect is pretty huge.</p>
+  - id: 581637
+    user: 3135
+    date: 2014-06-27T20:55:00
+    date_raw: 27 Jun 2014 — 8:55pm
+    votes: null
+    html: <p>Which is the "team" that won't let the Type Team do its job? The Scheme Team?</p>
+    html_clean: <p>Which is the "team" that won't let the Type Team do its job? The Scheme Team?</p>
+  - id: 581648
+    user: 1133
+    date: 2014-06-28T05:06:00
+    date_raw: 28 Jun 2014 — 5:06am
+    votes: null
+    html: |-
+      <p>The issue about PDF creation isnt’t about Adobe. PDF is an ISO standard, and there are dozens of OSes, libraries and apps which create PDFs directly, using their own software:<br>
+      — Quartz, the OS X graphic subsystem<br>
+      — Ghostscript, a popular opensource package<br>
+      — Qt, a cross-platform application development kit<br>
+      — Cairo, an opensource graphic rendering subsystem<br>
+      — Apache PDFBox<br>
+      — libHaru<br>
+      — Apache FOP<br>
+      — GnuPDF<br>
+      — Global Graphics<br>
+      and many more.</p>
+      <p>PDF documents are written directly, or through an intermediate PostScript file, from desktop applications on various OSes but also from various libraries that are used on various web frameworks. PDF creation libraries are available in a large number of programming languages: C#/.NET, C++, C, Java, PHP, Python, Ruby, and others (in each of these languages, there is a large number of libraries available). </p>
+      <p>Hell, even some photocopiers allow you to scan a document, OCR it and save it as a PDF to a USB stick. </p>
+      <p>Since font embedding has always been a fairly complex issue, some of these libraries have solved it in as simple way as only possible. </p>
+      <p>All kinds of versions of these libraries are deployed on all kinds of devices, websites, server software, desktop apps etc. on different OSes worldwide. A fair number of these doesn’t even support OTF at all (just TTF), others support OTF but have gone a simple shortcut and treat them the same way as Type 1 (or more specifically, they just extract the CFF table from the OTF font file and put it directly into the PDF, without any parsing or subsetting, because it actually is the simplest way — but the only thing that at that time gets written into the PDF is the CFF table which relies on glyph names only. </p>
+      <p>So no matter what Adobe would do, it won't "fix the problem". Seriously — how many of you OS X users out there regularly use Adobe Acrobat to create PDF files, rather than using the PDF creation built-in into OS X? That PDF creation is not Adobe's, that's Apple's. And it's severely limited, too. :) </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>The issue about PDF creation isnt’t about Adobe. PDF is an ISO standard, and there are dozens of OSes, libraries and apps which create PDFs directly, using their own software:<br>
+      — Quartz, the OS X graphic subsystem<br>
+      — Ghostscript, a popular opensource package<br>
+      — Qt, a cross-platform application development kit<br>
+      — Cairo, an opensource graphic rendering subsystem<br>
+      — Apache PDFBox<br>
+      — libHaru<br>
+      — Apache FOP<br>
+      — GnuPDF<br>
+      — Global Graphics<br>
+      and many more.</p>
+      <p>PDF documents are written directly, or through an intermediate PostScript file, from desktop applications on various OSes but also from various libraries that are used on various web frameworks. PDF creation libraries are available in a large number of programming languages: C#/.NET, C++, C, Java, PHP, Python, Ruby, and others (in each of these languages, there is a large number of libraries available). </p>
+      <p>Hell, even some photocopiers allow you to scan a document, OCR it and save it as a PDF to a USB stick. </p>
+      <p>Since font embedding has always been a fairly complex issue, some of these libraries have solved it in as simple way as only possible. </p>
+      <p>All kinds of versions of these libraries are deployed on all kinds of devices, websites, server software, desktop apps etc. on different OSes worldwide. A fair number of these doesn’t even support OTF at all (just TTF), others support OTF but have gone a simple shortcut and treat them the same way as Type 1 (or more specifically, they just extract the CFF table from the OTF font file and put it directly into the PDF, without any parsing or subsetting, because it actually is the simplest way — but the only thing that at that time gets written into the PDF is the CFF table which relies on glyph names only. </p>
+      <p>So no matter what Adobe would do, it won't "fix the problem". Seriously — how many of you OS X users out there regularly use Adobe Acrobat to create PDF files, rather than using the PDF creation built-in into OS X? That PDF creation is not Adobe's, that's Apple's. And it's severely limited, too. :) </p>
+      <p>Best,<br>
+      Adam</p>

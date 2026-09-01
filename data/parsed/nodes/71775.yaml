@@ -1,0 +1,653 @@
+node: 71775
+title: Questions regarding to lookups
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100708205042"
+  captured_at: 2010-07-08T20:50:42Z
+  url: http://typophile.com:80/node/71775
+  digest: D7UVMMZS7S5PYROTVD3HCWQNDITD7ODS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/71775.html
+  fingerprint: 18b9fd047a005833
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100708205042"
+      digest: D7UVMMZS7S5PYROTVD3HCWQNDITD7ODS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71775.html
+post:
+  id: 71775
+  user: 45774
+  date: 2010-06-29T10:33:00
+  date_raw: 29.Jun.2010 10.33am
+  votes: null
+  html: |-
+    <p>When I was coding features for Frode (<strong><a href="http://typophile.com/node/71588" rel="nofollow">Automatic indexed numerals</a></strong>), I have noted, that they only work, if I put the substitution rules into lookups. In case of the ss01 feature, I need at least one lookup, because I wanted to make use of the same rules in the ss02 feature. But I absolutely don’t know, why it was required to create more than one lookup in the ss01 feature. And in case of the calt feature my consideration was, that I don’t need lookups at all. So I would like to know, why the ss01 and the calt feature don’t work without lookups and how I can determine, how many lookups I need and how many rules I can put into a lookup. With regard to the lookups the three feature files are the result of try and error, but this is not an effective working method, because it costs time and additionally I am not sure, whether my lookups are the best way with regard to the compilation or compression of the font (the aesthetic of the code).</p>
+    <p>And another thing, that I don’t understand is, why I cannot call a lookup more than one time (where the one time is the definition itself) in a feature. With regard to that question have a view into <a href="http://typophile.com/files/2_Features%20%5Balternative%20ss01%20and%20ss02%5D.fea_.txt" rel="nofollow">2_Features [alternative ss01 and ss02].fea_.txt</a>.</p>
+    <p>Here are all the three files (They work exactly as intended; tested in FLS.):</p>
+    <ul>
+    <li><a href="http://typophile.com/files/1_Features%20%5Bss01%20and%20ss02%5D.fea_.txt" rel="nofollow">1_Features [ss01 and ss02].fea_.txt</a></li>
+    <li><a href="http://typophile.com/files/2_Features%20%5Balternative%20ss01%20and%20ss02%5D.fea_.txt" rel="nofollow">2_Features [alternative ss01 and ss02].fea_.txt</a></li>
+    <li><a href="http://typophile.com/files/3_Features%20%5Bcalt%5D%20%5Bbased%20on%201%5D.fea_.txt" rel="nofollow">3_Features [calt] [based on 1].fea_.txt</a></li>
+    </ul>
+  html_clean: |-
+    <p>When I was coding features for Frode (<strong><a href="/node/71588/" rel="nofollow">Automatic indexed numerals</a></strong>), I have noted, that they only work, if I put the substitution rules into lookups. In case of the ss01 feature, I need at least one lookup, because I wanted to make use of the same rules in the ss02 feature. But I absolutely don’t know, why it was required to create more than one lookup in the ss01 feature. And in case of the calt feature my consideration was, that I don’t need lookups at all. So I would like to know, why the ss01 and the calt feature don’t work without lookups and how I can determine, how many lookups I need and how many rules I can put into a lookup. With regard to the lookups the three feature files are the result of try and error, but this is not an effective working method, because it costs time and additionally I am not sure, whether my lookups are the best way with regard to the compilation or compression of the font (the aesthetic of the code).</p>
+    <p>And another thing, that I don’t understand is, why I cannot call a lookup more than one time (where the one time is the definition itself) in a feature. With regard to that question have a view into <a href="http://typophile.com/files/2_Features%20%5Balternative%20ss01%20and%20ss02%5D.fea_.txt" rel="nofollow">2_Features [alternative ss01 and ss02].fea_.txt</a>.</p>
+    <p>Here are all the three files (They work exactly as intended; tested in FLS.):</p>
+    <ul>
+    <li><a href="http://typophile.com/files/1_Features%20%5Bss01%20and%20ss02%5D.fea_.txt" rel="nofollow">1_Features [ss01 and ss02].fea_.txt</a></li>
+    <li><a href="http://typophile.com/files/2_Features%20%5Balternative%20ss01%20and%20ss02%5D.fea_.txt" rel="nofollow">2_Features [alternative ss01 and ss02].fea_.txt</a></li>
+    <li><a href="http://typophile.com/files/3_Features%20%5Bcalt%5D%20%5Bbased%20on%201%5D.fea_.txt" rel="nofollow">3_Features [calt] [based on 1].fea_.txt</a></li>
+    </ul>
+comments:
+  - id: 418187
+    user: 45774
+    date: 2010-06-30T08:19:00
+    date_raw: 30.Jun.2010 8.19am
+    votes: null
+    html: |-
+      <p>Okay, I am simplifying my questions.</p>
+      <p>Why is the lookup needed in the following code?:</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      sub one' A by A;<br>
+      } calt;</code></p>
+      <p>[11] is replaced by [AA] as intended.</p>
+      <p><code>feature calt {<br>
+      #lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      #} alpha;<br>
+      sub one' A by A;<br>
+      } calt;</code></p>
+      <p>But with the code above [11] results in [1A].</p>
+      <p>Second question: Why can’t I call a lookup registered with the same languagesystem statement?</p>
+      <p>I cannot code …</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one' bracketright by A;<br>
+      sub bracketleft one one one' bracketright by A;<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup beta;<br>
+      } calt;</code></p>
+      <p>… but I have to code</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one' bracketright by A;<br>
+      sub bracketleft one one one' bracketright by A; #The first one will be substituted in lookup gamma, the second one in beta.<br>
+      sub bracketleft one one' bracketright by A; #The first one will be substituted in lookup beta.<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup gamma {<br>
+      sub one' A by A;<br>
+      } gamma;<br>
+      } calt;</code></p>
+      <p>How can I make out, that I manually have to add a lookup without testing?</p>
+    html_clean: |-
+      <p>Okay, I am simplifying my questions.</p>
+      <p>Why is the lookup needed in the following code?:</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      sub one' A by A;<br>
+      } calt;</code></p>
+      <p>[11] is replaced by [AA] as intended.</p>
+      <p><code>feature calt {<br>
+      #lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      #} alpha;<br>
+      sub one' A by A;<br>
+      } calt;</code></p>
+      <p>But with the code above [11] results in [1A].</p>
+      <p>Second question: Why can’t I call a lookup registered with the same languagesystem statement?</p>
+      <p>I cannot code …</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one' bracketright by A;<br>
+      sub bracketleft one one one' bracketright by A;<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup beta;<br>
+      } calt;</code></p>
+      <p>… but I have to code</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one' bracketright by A;<br>
+      sub bracketleft one one one' bracketright by A; #The first one will be substituted in lookup gamma, the second one in beta.<br>
+      sub bracketleft one one' bracketright by A; #The first one will be substituted in lookup beta.<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup gamma {<br>
+      sub one' A by A;<br>
+      } gamma;<br>
+      } calt;</code></p>
+      <p>How can I make out, that I manually have to add a lookup without testing?</p>
+  - id: 418268
+    user: 1133
+    date: 2010-06-30T16:45:00
+    date_raw: 30.Jun.2010 4.45pm
+    votes: null
+    html: |-
+      <p>Arno, </p>
+      <p>I think what you're really asking for is when to put substitutions into one lookup vs. separate lookups. After all, </p>
+      <p><code>feature ss01 {<br>
+      sub a by a.ss01;<br>
+      } ss01;</code></p>
+      <p>really is equivalent to</p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      } ss01;</code></p>
+      <p>On the other hand, </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      sub b by b.ss01;<br>
+      } ss01;</code></p>
+      <p>is equivalent to: </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      lookup ss01_02 {<br>
+      sub b by b.ss01;<br>
+      } ss01_02;<br>
+      } ss01;</code></p>
+      <p>The statement <code>lookup</code> in the AFDKO syntax can be omitted for brevity — then all substitutions within one feature definition (or those before an explicit <code>lookup</code> opening or after an explicit closing of a lookup) are treated as one lookup. However, I recommend always at least thinking in terms of lookups, i.e. as if the <code>lookup</code> statements were always there. </p>
+      <p>&gt; How can I make out, that I manually have to add a lookup without testing?</p>
+      <p>That's very easy. </p>
+      <p>1. The OpenType Layout engine splits the line into "runs" of glyphs of the same font formatting (family, style, size, color etc.), script (writing system) and directionality (LTR, RTL). For continuous Latin-script text set in the same font, one line is one run. </p>
+      <p>2. Within each run of glyphs, all lookups associated with the features that are being applied to the run, are executed in the order defined within the font (the ordering of the lookups, or in the AFDKO syntax, the order of the feature definitions and the lookup definitions within them). </p>
+      <p>3. Each lookup is executed in one pass through the current run of glyphs. </p>
+      <p>4. Each pass proceeds through the run glyph by glyph. The substitutions defined in the lookup are searched for the "best match" for the current glyph, and if found, that best match is executed. This modifies the run and proceeds to the next unprocessed glyph. If no best match is found, it proceeds to the next glyph (without modifying the run).  </p>
+      <p>5. After one lookup has been executed, the next lookup is executed in the next pass on the *output* run of the previous lookup. </p>
+      <p>So if you have the code</p>
+      <p><code>feature calt {<br>
+      lookup calt_01 {<br>
+      sub A by B;<br>
+      sub B by C;<br>
+      sub C by D;<br>
+      } calt_01;<br>
+      lookup calt_02 {<br>
+      sub B by E;<br>
+      } calt_02;<br>
+      } calt;</code></p>
+      <p>and you have the glyph run</p>
+      <p><code>A B A B A B A B</code></p>
+      <p>and the <code>calt</code> feature is being applied, then first the <code>calt_01</code> lookup is executed on the input glyph run, so the output glyph run is: </p>
+      <p><code>B C B C B C B C</code></p>
+      <p>and then that output glyph run becomes the input glyph run of the <code>calt_02</code> lookup, which is executed and the final output glyph run is: </p>
+      <p><code>E C E C E C E C</code></p>
+      <p>In short: <strong>Each lookup is one “pass” through the text. Within one lookup, the “best match” is found for each glyph, and then the next glyph is processed, until the end of the text. The next lookup is executed on the text that comes out of the previous lookup</strong>. </p>
+      <p>To make a very rough analogy, substitutions within one lookup are mutually exclusive when stepping through each glyph, while substitutions in separate lookups are executed one after another so that the next lookup takes notion of the modifications done by the previous one. </p>
+      <p>I hope this helps,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Arno, </p>
+      <p>I think what you're really asking for is when to put substitutions into one lookup vs. separate lookups. After all, </p>
+      <p><code>feature ss01 {<br>
+      sub a by a.ss01;<br>
+      } ss01;</code></p>
+      <p>really is equivalent to</p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      } ss01;</code></p>
+      <p>On the other hand, </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      sub b by b.ss01;<br>
+      } ss01;</code></p>
+      <p>is equivalent to: </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01_01 {<br>
+      sub a by a.ss01;<br>
+      } ss01_01;<br>
+      lookup ss01_02 {<br>
+      sub b by b.ss01;<br>
+      } ss01_02;<br>
+      } ss01;</code></p>
+      <p>The statement <code>lookup</code> in the AFDKO syntax can be omitted for brevity — then all substitutions within one feature definition (or those before an explicit <code>lookup</code> opening or after an explicit closing of a lookup) are treated as one lookup. However, I recommend always at least thinking in terms of lookups, i.e. as if the <code>lookup</code> statements were always there. </p>
+      <p>&gt; How can I make out, that I manually have to add a lookup without testing?</p>
+      <p>That's very easy. </p>
+      <p>1. The OpenType Layout engine splits the line into "runs" of glyphs of the same font formatting (family, style, size, color etc.), script (writing system) and directionality (LTR, RTL). For continuous Latin-script text set in the same font, one line is one run. </p>
+      <p>2. Within each run of glyphs, all lookups associated with the features that are being applied to the run, are executed in the order defined within the font (the ordering of the lookups, or in the AFDKO syntax, the order of the feature definitions and the lookup definitions within them). </p>
+      <p>3. Each lookup is executed in one pass through the current run of glyphs. </p>
+      <p>4. Each pass proceeds through the run glyph by glyph. The substitutions defined in the lookup are searched for the "best match" for the current glyph, and if found, that best match is executed. This modifies the run and proceeds to the next unprocessed glyph. If no best match is found, it proceeds to the next glyph (without modifying the run).  </p>
+      <p>5. After one lookup has been executed, the next lookup is executed in the next pass on the *output* run of the previous lookup. </p>
+      <p>So if you have the code</p>
+      <p><code>feature calt {<br>
+      lookup calt_01 {<br>
+      sub A by B;<br>
+      sub B by C;<br>
+      sub C by D;<br>
+      } calt_01;<br>
+      lookup calt_02 {<br>
+      sub B by E;<br>
+      } calt_02;<br>
+      } calt;</code></p>
+      <p>and you have the glyph run</p>
+      <p><code>A B A B A B A B</code></p>
+      <p>and the <code>calt</code> feature is being applied, then first the <code>calt_01</code> lookup is executed on the input glyph run, so the output glyph run is: </p>
+      <p><code>B C B C B C B C</code></p>
+      <p>and then that output glyph run becomes the input glyph run of the <code>calt_02</code> lookup, which is executed and the final output glyph run is: </p>
+      <p><code>E C E C E C E C</code></p>
+      <p>In short: <strong>Each lookup is one “pass” through the text. Within one lookup, the “best match” is found for each glyph, and then the next glyph is processed, until the end of the text. The next lookup is executed on the text that comes out of the previous lookup</strong>. </p>
+      <p>To make a very rough analogy, substitutions within one lookup are mutually exclusive when stepping through each glyph, while substitutions in separate lookups are executed one after another so that the next lookup takes notion of the modifications done by the previous one. </p>
+      <p>I hope this helps,<br>
+      Adam</p>
+  - id: 418271
+    user: 1133
+    date: 2010-06-30T17:07:00
+    date_raw: 30.Jun.2010 5.07pm
+    votes: null
+    html: |-
+      <p><code>&gt; feature calt {<br>
+      &gt; sub bracketleft one one' bracketright by A;<br>
+      &gt; sub one' A by A;<br>
+      &gt; } calt;</code></p>
+      <p>&gt; But with the code above [11] results in [1A].</p>
+      <p>There is one lookup defined in your <code>calt</code> feature (implicitly). Your feature definition is equivalent to: </p>
+      <p><code>feature calt {<br>
+      lookup delta {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      sub one' A by A;<br>
+      } delta;<br>
+      } calt;</code></p>
+      <p>You have the input glyph run <code>[11]</code>.</p>
+      <p>The lookup <code>delta</code> steps through the glyphs one by one: </p>
+      <p>1. First, the glyph <code>[</code> is "current". The lookup is searched for the best match, and finds none. </p>
+      <p>2. Then, the first glyph <code>1</code> is current. The lookup is searched for the best match, and finds none. </p>
+      <p>3. Then, the second glyph <code>1</code> is current. The lookup is searched for the best match, and finds the match in the rule <code>sub bracketleft one one' bracketright by A;</code>, so it executes it. The current glyph is substituted by <code>A</code>. </p>
+      <p>4. Finally, the glyph <code>]</code> is current, and no match is found. </p>
+      <p>So the output run is <code>[1A]</code>. </p>
+      <p>The code</p>
+      <p><code>&gt; feature calt {<br>
+      &gt; lookup alpha {<br>
+      &gt; sub bracketleft one one' bracketright by A;<br>
+      &gt; } alpha;<br>
+      &gt; sub one' A by A;<br>
+      &gt; } calt;</code></p>
+      <p>defines two lookups, so it's equivalent to</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      } calt;</code></p>
+      <p>You have the text run <code>[11]</code>. </p>
+      <p>First the lookup <code>alpha</code> is executed, and after skipping the first two glyphs, the second <code>1</code> gets a match for the rule <code>sub bracketleft one one' bracketright by A;</code>, so it's executed. At the end of the lookup execution, the output run is <code>[1A]</code>. </p>
+      <p>Then the lookup <code>beta</code> is executed on the <strong>output run</strong> of the previous lookup, i.e. on the glyph run <code>[1A]</code>. After skipping the glyph <code>[</code>, the glyph <code>1</code> hits a match for the rule <code>sub one' A by A;</code>, so the rule is executed, and the glyph gets substituted by <code>A</code>. So the final output run is <code>[AA]</code>. </p>
+      <p>Very simple and logical. But only if you remember that the <code>lookup</code> statement in the AFDKO syntax is always implied if it is not defined. In fact, I recommend using it explicitly, especially in contextual substitutions, to keep track what's going on. </p>
+      <p>It's kind of similar to our previous discussion about languagesystems, when I recommended to always spell out <code>script latn</code>, <code>language dflt</code> and <code>include_dflt</code> in feature definitions that define different behaviors for different languagesystems, rather than relying on the implied use of those statements. </p>
+      <p>The general rule is: the implicit definitions are useful for simple situations, when you mean to say "all languagesystems" (in case of languagesystems) or "one lookup" (in case of lookup definitions within feature definitions). But mixing explicit and implicit definitions is a road to hell when it comes to debugging, so it's always better to spell everything out explicitly if your code becomes more complex. </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p><code>&gt; feature calt {<br>
+      &gt; sub bracketleft one one' bracketright by A;<br>
+      &gt; sub one' A by A;<br>
+      &gt; } calt;</code></p>
+      <p>&gt; But with the code above [11] results in [1A].</p>
+      <p>There is one lookup defined in your <code>calt</code> feature (implicitly). Your feature definition is equivalent to: </p>
+      <p><code>feature calt {<br>
+      lookup delta {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      sub one' A by A;<br>
+      } delta;<br>
+      } calt;</code></p>
+      <p>You have the input glyph run <code>[11]</code>.</p>
+      <p>The lookup <code>delta</code> steps through the glyphs one by one: </p>
+      <p>1. First, the glyph <code>[</code> is "current". The lookup is searched for the best match, and finds none. </p>
+      <p>2. Then, the first glyph <code>1</code> is current. The lookup is searched for the best match, and finds none. </p>
+      <p>3. Then, the second glyph <code>1</code> is current. The lookup is searched for the best match, and finds the match in the rule <code>sub bracketleft one one' bracketright by A;</code>, so it executes it. The current glyph is substituted by <code>A</code>. </p>
+      <p>4. Finally, the glyph <code>]</code> is current, and no match is found. </p>
+      <p>So the output run is <code>[1A]</code>. </p>
+      <p>The code</p>
+      <p><code>&gt; feature calt {<br>
+      &gt; lookup alpha {<br>
+      &gt; sub bracketleft one one' bracketright by A;<br>
+      &gt; } alpha;<br>
+      &gt; sub one' A by A;<br>
+      &gt; } calt;</code></p>
+      <p>defines two lookups, so it's equivalent to</p>
+      <p><code>feature calt {<br>
+      lookup alpha {<br>
+      sub bracketleft one one' bracketright by A;<br>
+      } alpha;<br>
+      lookup beta {<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      } calt;</code></p>
+      <p>You have the text run <code>[11]</code>. </p>
+      <p>First the lookup <code>alpha</code> is executed, and after skipping the first two glyphs, the second <code>1</code> gets a match for the rule <code>sub bracketleft one one' bracketright by A;</code>, so it's executed. At the end of the lookup execution, the output run is <code>[1A]</code>. </p>
+      <p>Then the lookup <code>beta</code> is executed on the <strong>output run</strong> of the previous lookup, i.e. on the glyph run <code>[1A]</code>. After skipping the glyph <code>[</code>, the glyph <code>1</code> hits a match for the rule <code>sub one' A by A;</code>, so the rule is executed, and the glyph gets substituted by <code>A</code>. So the final output run is <code>[AA]</code>. </p>
+      <p>Very simple and logical. But only if you remember that the <code>lookup</code> statement in the AFDKO syntax is always implied if it is not defined. In fact, I recommend using it explicitly, especially in contextual substitutions, to keep track what's going on. </p>
+      <p>It's kind of similar to our previous discussion about languagesystems, when I recommended to always spell out <code>script latn</code>, <code>language dflt</code> and <code>include_dflt</code> in feature definitions that define different behaviors for different languagesystems, rather than relying on the implied use of those statements. </p>
+      <p>The general rule is: the implicit definitions are useful for simple situations, when you mean to say "all languagesystems" (in case of languagesystems) or "one lookup" (in case of lookup definitions within feature definitions). But mixing explicit and implicit definitions is a road to hell when it comes to debugging, so it's always better to spell everything out explicitly if your code becomes more complex. </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 418273
+    user: 1133
+    date: 2010-06-30T17:21:00
+    date_raw: 30.Jun.2010 5.21pm
+    votes: null
+    html: |-
+      <p>To answer your original question: </p>
+      <p>In AFDKO 1.6 (and 2.5) syntax, which works in FLS5, you can write: </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>but you cannot write</p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } salt;</code></p>
+      <p>i.e. at the first occurance of a lookup, you need to <strong>define and use it</strong>, and in later occurances, you can just <strong>use</strong> it by referring to it by its name. But you cannot just "use" a lookup before defining it. </p>
+      <p>In AFDKO 2.5 syntax (but not in 1.6), which will work in FOG5 and FLS6 but not in FLS5, you can also write: </p>
+      <p><code>lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;</code></p>
+      <p><code>lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>so you "just define" the lookups first — outside of any feature definitions —, and then you "just use" them within the feature definitions. Using this form, you don't have to worry about the ordering of your feature definitions — because the <strong>ordering of the lookups</strong> is always the only thing that matters. </p>
+      <p>In the AFDKO 1.6 syntax, the ordering of lookups was implied by the ordering of the feature definitions, but in some cases it was impractical: imagine that you have three lookups: <code>alpha</code>, <code>beta</code> and <code>gamma</code>, and that the lookups <code>alpha</code> and <code>gamma</code> are associated with the <code>smcp</code> feature, while the lookup <code>beta</code> is associated with the <code>ss01</code> feature. When only <code>smcp</code> is applied, then the lookups <code>alpha</code> and <code>gamma</code> should be executed, when only <code>ss01</code> is applied, then the lookup <code>beta</code> should be executed, but if both features are applied at the same time, the lookups should be executed in the order <code>alpha</code> (that is associated with the <code>smcp</code> feature), then <code>beta</code> (that is associated with the <code>ss01</code> feature), and then <code>gamma</code> (that is associated with the <code>smcp</code> feature). With the AFDKO 1.6 syntax, where you can only define lookups inside of feature definitions, it was impossible to order the feature definitions in such a way that could achieve such a goal. This is why I asked Adobe to allow lookup definitions to be written outside of feature definitions in AFDKO 2, and they so did — which is handy.</p>
+    html_clean: |-
+      <p>To answer your original question: </p>
+      <p>In AFDKO 1.6 (and 2.5) syntax, which works in FLS5, you can write: </p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>but you cannot write</p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } salt;</code></p>
+      <p>i.e. at the first occurance of a lookup, you need to <strong>define and use it</strong>, and in later occurances, you can just <strong>use</strong> it by referring to it by its name. But you cannot just "use" a lookup before defining it. </p>
+      <p>In AFDKO 2.5 syntax (but not in 1.6), which will work in FOG5 and FLS6 but not in FLS5, you can also write: </p>
+      <p><code>lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;</code></p>
+      <p><code>lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>so you "just define" the lookups first — outside of any feature definitions —, and then you "just use" them within the feature definitions. Using this form, you don't have to worry about the ordering of your feature definitions — because the <strong>ordering of the lookups</strong> is always the only thing that matters. </p>
+      <p>In the AFDKO 1.6 syntax, the ordering of lookups was implied by the ordering of the feature definitions, but in some cases it was impractical: imagine that you have three lookups: <code>alpha</code>, <code>beta</code> and <code>gamma</code>, and that the lookups <code>alpha</code> and <code>gamma</code> are associated with the <code>smcp</code> feature, while the lookup <code>beta</code> is associated with the <code>ss01</code> feature. When only <code>smcp</code> is applied, then the lookups <code>alpha</code> and <code>gamma</code> should be executed, when only <code>ss01</code> is applied, then the lookup <code>beta</code> should be executed, but if both features are applied at the same time, the lookups should be executed in the order <code>alpha</code> (that is associated with the <code>smcp</code> feature), then <code>beta</code> (that is associated with the <code>ss01</code> feature), and then <code>gamma</code> (that is associated with the <code>smcp</code> feature). With the AFDKO 1.6 syntax, where you can only define lookups inside of feature definitions, it was impossible to order the feature definitions in such a way that could achieve such a goal. This is why I asked Adobe to allow lookup definitions to be written outside of feature definitions in AFDKO 2, and they so did — which is handy.</p>
+  - id: 418274
+    user: 1133
+    date: 2010-06-30T17:29:00
+    date_raw: 30.Jun.2010 5.29pm
+    votes: null
+    html: |-
+      <p>If you're paying close attention, you might ask why I wrote</p>
+      <p><code># Variant 1</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>when I could have just written: </p>
+      <p><code># Variant 2</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      sub a by a.ss01;<br>
+      sub b by b.ss02;<br>
+      } salt;</code></p>
+      <p>which would be equivalent to</p>
+      <p><code># Variant 2 explicit</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup saltab {<br>
+      sub a by a.ss01;<br>
+      sub b by b.ss02;<br>
+      } saltab;<br>
+      } salt;</code></p>
+      <p>In other words: why did I choose to use two lookups in <code>salt</code> (in Variant 1), when the output run of the first lookup is not related to the input run of the second lookup. Indeed, I could have used Variant 2. </p>
+      <p>Basically, Variant 1 means that I save a little bit of space in the font (because I only define two lookups instead of three), but it means that I lose a tiny bit of performance, because the <code>salt</code> feature executes two lookups one after another, rather than just one. On the other hand, Variant 2 menas that I speed up the performance a tiny bit, but I lose a few bytes of space in the font size. </p>
+      <p>The differences are so minute that I wouldn't worry. It's just a matter of code optimization vs. code brevity. If I want code that is simpler to read and edit, I choose Variant 1. If I want perfect speed optimization, I choose Variant 2. </p>
+      <p>Hope this helps,<br>
+      Adam</p>
+    html_clean: |-
+      <p>If you're paying close attention, you might ask why I wrote</p>
+      <p><code># Variant 1</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup ss01a;<br>
+      lookup ss02b;<br>
+      } salt;</code></p>
+      <p>when I could have just written: </p>
+      <p><code># Variant 2</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      sub a by a.ss01;<br>
+      sub b by b.ss02;<br>
+      } salt;</code></p>
+      <p>which would be equivalent to</p>
+      <p><code># Variant 2 explicit</code></p>
+      <p><code>feature ss01 {<br>
+      lookup ss01a {<br>
+      sub a by a.ss01;<br>
+      } ss01a;<br>
+      } ss01;</code></p>
+      <p><code>feature ss02 {<br>
+      lookup ss02b {<br>
+      sub b by b.ss02;<br>
+      } ss02b;<br>
+      } ss02;</code></p>
+      <p><code>feature salt {<br>
+      lookup saltab {<br>
+      sub a by a.ss01;<br>
+      sub b by b.ss02;<br>
+      } saltab;<br>
+      } salt;</code></p>
+      <p>In other words: why did I choose to use two lookups in <code>salt</code> (in Variant 1), when the output run of the first lookup is not related to the input run of the second lookup. Indeed, I could have used Variant 2. </p>
+      <p>Basically, Variant 1 means that I save a little bit of space in the font (because I only define two lookups instead of three), but it means that I lose a tiny bit of performance, because the <code>salt</code> feature executes two lookups one after another, rather than just one. On the other hand, Variant 2 menas that I speed up the performance a tiny bit, but I lose a few bytes of space in the font size. </p>
+      <p>The differences are so minute that I wouldn't worry. It's just a matter of code optimization vs. code brevity. If I want code that is simpler to read and edit, I choose Variant 1. If I want perfect speed optimization, I choose Variant 2. </p>
+      <p>Hope this helps,<br>
+      Adam</p>
+  - id: 418276
+    user: 1133
+    date: 2010-06-30T17:31:00
+    date_raw: 30.Jun.2010 5.31pm
+    votes: null
+    html: |-
+      <p>Arno, </p>
+      <p>I should bill you for 1 hour of work now :)</p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Arno, </p>
+      <p>I should bill you for 1 hour of work now :)</p>
+      <p>A.</p>
+  - id: 418284
+    user: 17101
+    date: 2010-06-30T19:51:00
+    date_raw: 30.Jun.2010 7.51pm
+    votes: null
+    html: <p>I guess I’m the one you should bill :p</p>
+    html_clean: <p>I guess I’m the one you should bill :p</p>
+  - id: 418342
+    user: 45774
+    date: 2010-07-01T07:40:00
+    date_raw: 1.Jul.2010 7.40am
+    votes: null
+    html: |-
+      <p>Thank you, Adam! I want to avoid questions, that you (or anybody else) have not already answered. So I need a bit time for translating your text to German, understanding and checking, whether your explanations are satisfying explanations for the whole behavior of the code with regard to the number and the content of lookups. (There is something in the behavior of the lookups in comparison to to the absence of explicit lookups), which is still enigmatic for me. But I want to try making out, whether I can enlighten that by myself first.</p>
+      <p>With regard to the need, to define a lookup, before it is called: That is clear. But in case of my code it was defined (and implicit called) in the feature, but could not be explicit called one more time. But Maybe I can also enlighten that or you have explained it and I did not see it.</p>
+    html_clean: |-
+      <p>Thank you, Adam! I want to avoid questions, that you (or anybody else) have not already answered. So I need a bit time for translating your text to German, understanding and checking, whether your explanations are satisfying explanations for the whole behavior of the code with regard to the number and the content of lookups. (There is something in the behavior of the lookups in comparison to to the absence of explicit lookups), which is still enigmatic for me. But I want to try making out, whether I can enlighten that by myself first.</p>
+      <p>With regard to the need, to define a lookup, before it is called: That is clear. But in case of my code it was defined (and implicit called) in the feature, but could not be explicit called one more time. But Maybe I can also enlighten that or you have explained it and I did not see it.</p>
+  - id: 418415
+    user: 45774
+    date: 2010-07-01T14:23:00
+    date_raw: 1.Jul.2010 2.23pm
+    votes: null
+    html: |-
+      <p>@ Adam</p>
+      <p>Well, the principle seems to be indeed simple, but it can be hard, not to loose the overview. In case of the lookups "Index 1" and "Index 2" from <strong><a href="http://typophile.com/files/3_Features%20%5Bcalt%5D%20%5Bbased%20on%201%5D.fea_.txt" rel="nofollow">the calt feature</a>,</strong> that I have coded for Frode, the comprehension was much harder. I really had to comprehend step by step, why the one and only rule of lookup Index 2 cannot be put into the end of lookup Index 1, although the last rule of lookup Index 1 can be put in the begin of lookup Index 2.</p>
+      <p>(Notice to myself: Check, if only lines can be commented in code [with the number sign] or also whole blocks with begin and end markers.)</p>
+      <p>I think, that I meanwhile understand the very most of your explanations and extra information except from the problem, about which I was talking in the second paragraph of my previous message.</p>
+      <p>The first call of the lookup beta is the definition of the lookup beta and it cannot be called more than one time with the same languagesystem statement.</p>
+      <p><code>feature calt {<br>
+      lookup beta { #Definition of lookup beta AND call of lookup beta.<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup beta; #unsuccessful call of lookup beta, that was defined above.<br>
+      } calt;</code></p>
+      <p>The substitution is not well chosen, but that is unimportant in this context. There are cases, in which it would be useful to call a lookup a second time in the same feature and under the same languagesystem statement without defining it a second time. Not only with regard to the comprehension of the own code, but probably also with regard to the file size.</p>
+    html_clean: |-
+      <p>@ Adam</p>
+      <p>Well, the principle seems to be indeed simple, but it can be hard, not to loose the overview. In case of the lookups "Index 1" and "Index 2" from <strong><a href="http://typophile.com/files/3_Features%20%5Bcalt%5D%20%5Bbased%20on%201%5D.fea_.txt" rel="nofollow">the calt feature</a>,</strong> that I have coded for Frode, the comprehension was much harder. I really had to comprehend step by step, why the one and only rule of lookup Index 2 cannot be put into the end of lookup Index 1, although the last rule of lookup Index 1 can be put in the begin of lookup Index 2.</p>
+      <p>(Notice to myself: Check, if only lines can be commented in code [with the number sign] or also whole blocks with begin and end markers.)</p>
+      <p>I think, that I meanwhile understand the very most of your explanations and extra information except from the problem, about which I was talking in the second paragraph of my previous message.</p>
+      <p>The first call of the lookup beta is the definition of the lookup beta and it cannot be called more than one time with the same languagesystem statement.</p>
+      <p><code>feature calt {<br>
+      lookup beta { #Definition of lookup beta AND call of lookup beta.<br>
+      sub one' A by A;<br>
+      } beta;<br>
+      lookup beta; #unsuccessful call of lookup beta, that was defined above.<br>
+      } calt;</code></p>
+      <p>The substitution is not well chosen, but that is unimportant in this context. There are cases, in which it would be useful to call a lookup a second time in the same feature and under the same languagesystem statement without defining it a second time. Not only with regard to the comprehension of the own code, but probably also with regard to the file size.</p>

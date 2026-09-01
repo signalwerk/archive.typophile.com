@@ -1,0 +1,152 @@
+node: 102205
+title: Unicode Reserved Codepoints
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20140809150443"
+  captured_at: 2014-08-09T15:04:43Z
+  url: http://typophile.com/node/102205
+  digest: FRRYXMGJCN7IUARPZMAMU52FCYUWY57Q
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/102205.html
+  fingerprint: 4658a0d9d513032c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809150443"
+      digest: FRRYXMGJCN7IUARPZMAMU52FCYUWY57Q
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/102205.html
+post:
+  id: 102205
+  user: 31798
+  date: 2013-04-11T04:31:00
+  date_raw: 11 Apr 2013 — 4:31am
+  votes: null
+  html: |-
+    <p>While there are many unallocated codepoints in the Unicode Standard, some codepoints are specifically listed as "reserved" in the code charts.</p>
+    <p>Since AFAIK all unallocated codepoints are effectively reserved, I was wondering if anyone knows why some codepoints are explicitly indicated as such. I can't find anything in the unicode documentation (<cite>The Unicode Standard v6.2</cite>).</p>
+    <p>Just curious,</p>
+    <p>André</p>
+  html_clean: |-
+    <p>While there are many unallocated codepoints in the Unicode Standard, some codepoints are specifically listed as "reserved" in the code charts.</p>
+    <p>Since AFAIK all unallocated codepoints are effectively reserved, I was wondering if anyone knows why some codepoints are explicitly indicated as such. I can't find anything in the unicode documentation (<cite>The Unicode Standard v6.2</cite>).</p>
+    <p>Just curious,</p>
+    <p>André</p>
+comments:
+  - id: 550513
+    user: 29994
+    date: 2013-04-11T04:49:00
+    date_raw: 11 Apr 2013 — 4:49am
+    votes: null
+    html: |-
+      <p>There are 2 different types of "Reserved". From "2.13 Special Characters and Noncharacters":</p>
+      <blockquote><p>The Unicode Standard contains a number of code points that are intentionally not used to represent assigned characters. These code points are known as noncharacters. They are permanently reserved for internal use and should never be used for open interchange of Unicode<br>
+      text.</p></blockquote>
+      <p>(Note the <em>permanently reserved</em> here.) This is used for 'internal use only', for codes that would *never* indicate a displayable glyph, such as the BOM and the codes for switching RTL/LTR.</p>
+      <p>The other kind of "reserved" is simply 'not (yet) in use'. Most blocks contain some reserved -- unassigned -- codes at the end, which is probably just to align the start of the <em>next</em> code block on a round hexadecimal number. Also, this free space can be used to add one or two useful characters to an existing block.</p>
+    html_clean: |-
+      <p>There are 2 different types of "Reserved". From "2.13 Special Characters and Noncharacters":</p>
+      <blockquote><p>The Unicode Standard contains a number of code points that are intentionally not used to represent assigned characters. These code points are known as noncharacters. They are permanently reserved for internal use and should never be used for open interchange of Unicode<br>
+      text.</p></blockquote>
+      <p>(Note the <em>permanently reserved</em> here.) This is used for 'internal use only', for codes that would *never* indicate a displayable glyph, such as the BOM and the codes for switching RTL/LTR.</p>
+      <p>The other kind of "reserved" is simply 'not (yet) in use'. Most blocks contain some reserved -- unassigned -- codes at the end, which is probably just to align the start of the <em>next</em> code block on a round hexadecimal number. Also, this free space can be used to add one or two useful characters to an existing block.</p>
+  - id: 550514
+    user: 31798
+    date: 2013-04-11T04:48:00
+    date_raw: 11 Apr 2013 — 4:48am
+    votes: null
+    html: |-
+      <p>Hi Theunis,</p>
+      <p>Thanks for the response.</p>
+      <p>I wasn't actually thinking of noncharacters here. As an example, within the Greek block, there are some characters listed as "reserved" (e.g. U+03A2) and other characters which are not so listed, but which are still unassigned (e.g. U+0378).</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Hi Theunis,</p>
+      <p>Thanks for the response.</p>
+      <p>I wasn't actually thinking of noncharacters here. As an example, within the Greek block, there are some characters listed as "reserved" (e.g. U+03A2) and other characters which are not so listed, but which are still unassigned (e.g. U+0378).</p>
+      <p>André</p>
+  - id: 550515
+    user: 29994
+    date: 2013-04-11T04:59:00
+    date_raw: 11 Apr 2013 — 4:59am
+    votes: null
+    html: |-
+      <p>It seems the committee had been contemplating a possible future use for "U+03A2":</p>
+      <blockquote><p>From: Michael Everson (<a href="mailto:xxx@xxx.com">xxx@xxx.com</a>)<br>
+       Date: Fri Aug 02 2002 - 19:12:46 EDT<br>
+      At 11:13 +0200 2002-08-01, Otto Stolz wrote: </p>
+      <p>&gt;I have selected U+03A2 with care: this code point covers the place<br>
+      &gt;of a non-existing "Greek capital letter final sigma". I think that<br>
+      &gt;this code-point -- while, admittedly, unsafe as any other unassigned<br>
+      &gt;one -- is rather unlikely to get assigned a character, in the fore-<br>
+      &gt;seeable future.<br>
+      &gt;<br>
+      &gt;Please do not promote an assignation to U+03A2 just do make a point :-) </p>
+      <p>Do not tempt us. Oh, do not tempt us. If ever GREEK CAPITAL LUNATE<br>
+      SIGMA needed a place to hang its curvy hat, it is surely U+03A2. </p></blockquote>
+      <p>There is no rhyme or reason to individual glyph assignments. In this case, someone thought it might be possible for a valid character to appear -- an uppercase equivalent of the lowercase pair "final sigma/regular sigma". In other cases, code points may simply have been removed from the specification.</p>
+    html_clean: |-
+      <p>It seems the committee had been contemplating a possible future use for "U+03A2":</p>
+      <blockquote><p>From: Michael Everson (<a href="mailto:xxx@xxx.com">xxx@xxx.com</a>)<br>
+       Date: Fri Aug 02 2002 - 19:12:46 EDT<br>
+      At 11:13 +0200 2002-08-01, Otto Stolz wrote: </p>
+      <p>&gt;I have selected U+03A2 with care: this code point covers the place<br>
+      &gt;of a non-existing "Greek capital letter final sigma". I think that<br>
+      &gt;this code-point -- while, admittedly, unsafe as any other unassigned<br>
+      &gt;one -- is rather unlikely to get assigned a character, in the fore-<br>
+      &gt;seeable future.<br>
+      &gt;<br>
+      &gt;Please do not promote an assignation to U+03A2 just do make a point :-) </p>
+      <p>Do not tempt us. Oh, do not tempt us. If ever GREEK CAPITAL LUNATE<br>
+      SIGMA needed a place to hang its curvy hat, it is surely U+03A2. </p></blockquote>
+      <p>There is no rhyme or reason to individual glyph assignments. In this case, someone thought it might be possible for a valid character to appear -- an uppercase equivalent of the lowercase pair "final sigma/regular sigma". In other cases, code points may simply have been removed from the specification.</p>
+  - id: 550517
+    user: 29994
+    date: 2013-04-11T05:04:00
+    date_raw: 11 Apr 2013 — 5:04am
+    votes: null
+    html: |-
+      <p>Ah, wait: you are wondering when a code points is "officially <em>declared</em> reserved"!</p>
+      <p>Well ... in the example of U+03A2 above, the codes clearly run parallel from uppercase to lowercase, per design. So the code point U+03A2 would <em>logically</em> be 'uppercase terminal sigma'; but, because there is no such beast (as yet), the code point is "reserved for (possible) future use". Whereas other code points are simply 'left over' and could be used for anything.</p>
+    html_clean: |-
+      <p>Ah, wait: you are wondering when a code points is "officially <em>declared</em> reserved"!</p>
+      <p>Well ... in the example of U+03A2 above, the codes clearly run parallel from uppercase to lowercase, per design. So the code point U+03A2 would <em>logically</em> be 'uppercase terminal sigma'; but, because there is no such beast (as yet), the code point is "reserved for (possible) future use". Whereas other code points are simply 'left over' and could be used for anything.</p>
+  - id: 550519
+    user: 31798
+    date: 2013-04-11T05:19:00
+    date_raw: 11 Apr 2013 — 5:19am
+    votes: null
+    html: |-
+      <p>OK, that makes sense.</p>
+      <p>Thanks,<br>
+      André</p>
+    html_clean: |-
+      <p>OK, that makes sense.</p>
+      <p>Thanks,<br>
+      André</p>
+  - id: 550548
+    user: 210314
+    date: 2013-04-11T09:24:00
+    date_raw: 11 Apr 2013 — 9:24am
+    votes: null
+    html: |-
+      <p>&gt; (Note the <em>permanently reserved</em> here.) This is used for 'internal use only', for codes that would *never* indicate a displayable glyph, such as the BOM and the codes for switching RTL/LTR.</p>
+      <p>A minor correction: Unicode “reservation” has nothing to do with whether the <em>glyph</em> (I would say <em>character</em>) is “displayable”.  The codes for switching RTL/LTR are just “normal” Unicode characters.</p>
+    html_clean: |-
+      <p>&gt; (Note the <em>permanently reserved</em> here.) This is used for 'internal use only', for codes that would *never* indicate a displayable glyph, such as the BOM and the codes for switching RTL/LTR.</p>
+      <p>A minor correction: Unicode “reservation” has nothing to do with whether the <em>glyph</em> (I would say <em>character</em>) is “displayable”.  The codes for switching RTL/LTR are just “normal” Unicode characters.</p>

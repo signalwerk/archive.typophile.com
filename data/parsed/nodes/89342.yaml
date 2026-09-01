@@ -1,0 +1,158 @@
+node: 89342
+title: Managing kerning across weights in FontLab?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130311140723"
+  captured_at: 2013-03-11T14:07:23Z
+  url: http://typophile.com/node/89342
+  digest: PY2XDHTK43UTKVR76JN2ERTYSDGMONTO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/89342.html
+  fingerprint: cdb2325aa144591f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130311140723"
+      digest: PY2XDHTK43UTKVR76JN2ERTYSDGMONTO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/89342.html
+post:
+  id: 89342
+  user: 174309
+  date: 2012-01-22T09:33:00
+  date_raw: 22 Jan 2012 — 9:33am
+  votes: null
+  html: |-
+    <p>Hi there. This is my first post on Typophile so please excuse me if this topic has been answered elsewhere or if I'm in the wrong place.</p>
+    <p>My question is about managing kerning across interpolated fonts in FontLab. I have no experience in this area and I am just trying to understand how it is handled.</p>
+    <p><strong>An example:</strong></p>
+    <blockquote><p>Say I have a light and a bold. I have kerned both. I then interpolate (using Blend Fonts?) a regular in-between. The regular would have kern values averaging the light and bold.</p></blockquote>
+    <p><strong>Where I'm having trouble:</strong></p>
+    <blockquote><p>If I were to throw out the light weight's values and re-kern it from scratch there would dozens of pairs rewritten. I want those changes to factor into the regular's kern values, but those, once interpolated, seem to be static.</p>
+    <p>I've also fixed some broken glyphs in the regular weight and I don't want that work to be overwritten.</p></blockquote>
+    <p>Would I interpolate kern pairs without interpolating my glyphs? What method do you recommend? Am I asking the right question?</p>
+    <p>Thanks in advance.</p>
+  html_clean: |-
+    <p>Hi there. This is my first post on Typophile so please excuse me if this topic has been answered elsewhere or if I'm in the wrong place.</p>
+    <p>My question is about managing kerning across interpolated fonts in FontLab. I have no experience in this area and I am just trying to understand how it is handled.</p>
+    <p><strong>An example:</strong></p>
+    <blockquote><p>Say I have a light and a bold. I have kerned both. I then interpolate (using Blend Fonts?) a regular in-between. The regular would have kern values averaging the light and bold.</p></blockquote>
+    <p><strong>Where I'm having trouble:</strong></p>
+    <blockquote><p>If I were to throw out the light weight's values and re-kern it from scratch there would dozens of pairs rewritten. I want those changes to factor into the regular's kern values, but those, once interpolated, seem to be static.</p>
+    <p>I've also fixed some broken glyphs in the regular weight and I don't want that work to be overwritten.</p></blockquote>
+    <p>Would I interpolate kern pairs without interpolating my glyphs? What method do you recommend? Am I asking the right question?</p>
+    <p>Thanks in advance.</p>
+comments:
+  - id: 492254
+    user: 14722
+    date: 2012-01-22T11:48:00
+    date_raw: 22 Jan 2012 — 11:48am
+    votes: null
+    html: |-
+      <p>Interpolate the new kern pairs for regular in a new file. Then replace the existing regular kerns with the new ones that you just interpolated. Unfortunately FontLab has problems with importing kerning, so it may be better and easier to split your final production fonts into individual files that import their kerning tables from OpenType feature files during compilation. That’s how I keep this stuff straight, but I’m also jumping between three other programs to do this stuff. </p>
+      <p>Read this thread for more on the subject: <a href="http://typophile.com/node/71250" title="http://typophile.com/node/71250">http://typophile.com/node/71250</a></p>
+    html_clean: |-
+      <p>Interpolate the new kern pairs for regular in a new file. Then replace the existing regular kerns with the new ones that you just interpolated. Unfortunately FontLab has problems with importing kerning, so it may be better and easier to split your final production fonts into individual files that import their kerning tables from OpenType feature files during compilation. That’s how I keep this stuff straight, but I’m also jumping between three other programs to do this stuff. </p>
+      <p>Read this thread for more on the subject: <a href="/node/71250/" title="http://typophile.com/node/71250">http://typophile.com/node/71250</a></p>
+  - id: 492271
+    user: 174309
+    date: 2012-01-22T14:34:00
+    date_raw: 22 Jan 2012 — 2:34pm
+    votes: null
+    html: <p>That sounds like the solution. I'm reading that thread now. Thanks, James!</p>
+    html_clean: <p>That sounds like the solution. I'm reading that thread now. Thanks, James!</p>
+  - id: 492274
+    user: 909
+    date: 2012-01-22T15:14:00
+    date_raw: 22 Jan 2012 — 3:14pm
+    votes: null
+    html: |-
+      <p>If you do everything in multiple master space in the first place, instead of using the blend function, you can keep everything in sync with no additional effort.</p>
+      <p>Of course, working in MMs has its own complications, but it also has a lot of advantages. This is one of them.</p>
+    html_clean: |-
+      <p>If you do everything in multiple master space in the first place, instead of using the blend function, you can keep everything in sync with no additional effort.</p>
+      <p>Of course, working in MMs has its own complications, but it also has a lot of advantages. This is one of them.</p>
+  - id: 492294
+    user: 4763
+    date: 2012-01-23T00:52:00
+    date_raw: 23 Jan 2012 — 12:52am
+    votes: null
+    html: |-
+      <p><cite>I then interpolate (using Blend Fonts?) a regular in-between.</cite></p>
+      <p>If you have two single fonts and want to interpolate them, I’d recommend to define an MM axis in one of them and then use the Assign Master command to get the other one in. Then use Generate Instance. Assign Master is more reliable than Blend Fonts or Mask to Master.</p>
+      <p><cite>Would I interpolate kern pairs without interpolating my glyphs?</cite></p>
+      <p>I would interpolate the whole font, then export the kerning as pfa file and re-import it into your final Regular. This method works quite realiably for me.</p>
+    html_clean: |-
+      <p><cite>I then interpolate (using Blend Fonts?) a regular in-between.</cite></p>
+      <p>If you have two single fonts and want to interpolate them, I’d recommend to define an MM axis in one of them and then use the Assign Master command to get the other one in. Then use Generate Instance. Assign Master is more reliable than Blend Fonts or Mask to Master.</p>
+      <p><cite>Would I interpolate kern pairs without interpolating my glyphs?</cite></p>
+      <p>I would interpolate the whole font, then export the kerning as pfa file and re-import it into your final Regular. This method works quite realiably for me.</p>
+  - id: 492461
+    user: 174309
+    date: 2012-01-24T05:35:00
+    date_raw: 24 Jan 2012 — 5:35am
+    votes: null
+    html: |-
+      <p>@Thomas, I've tried blending with "Build the Multiple Master font" selected and the created font seems to inherit only from one parent. I've also tried "Generate Instance" with the same results. Both my weight and width axes are defined in both fonts. I must be missing a step. I'll continue to explore this direction.</p>
+      <p>@Tim, I haven't tried the "Assign Master" command. I'll give this a shot. I'll also try your .pfa method. Is this comparable to the .fea method that Adam Twardoch describes in the thread James linked to? (<a href="http://typophile.com/node/71250" title="http://typophile.com/node/71250">http://typophile.com/node/71250</a>)</p>
+      <p>Thanks again, James, Thomas, and Tim.</p>
+    html_clean: |-
+      <p>@Thomas, I've tried blending with "Build the Multiple Master font" selected and the created font seems to inherit only from one parent. I've also tried "Generate Instance" with the same results. Both my weight and width axes are defined in both fonts. I must be missing a step. I'll continue to explore this direction.</p>
+      <p>@Tim, I haven't tried the "Assign Master" command. I'll give this a shot. I'll also try your .pfa method. Is this comparable to the .fea method that Adam Twardoch describes in the thread James linked to? (<a href="/node/71250/" title="http://typophile.com/node/71250">http://typophile.com/node/71250</a>)</p>
+      <p>Thanks again, James, Thomas, and Tim.</p>
+  - id: 492466
+    user: 21687
+    date: 2012-01-24T06:08:00
+    date_raw: 24 Jan 2012 — 6:08am
+    votes: null
+    html: <p>I think you need exactly the same kerning pairs in all masters for the blending to work. All kerns that exist in other masters must be set to 0 explicitly before blending.</p>
+    html_clean: <p>I think you need exactly the same kerning pairs in all masters for the blending to work. All kerns that exist in other masters must be set to 0 explicitly before blending.</p>
+  - id: 492894
+    user: 13406
+    date: 2012-01-27T06:48:00
+    date_raw: 27 Jan 2012 — 6:48am
+    votes: null
+    html: |-
+      <p>Tim (or anybody else): when you bring one font into MM using Assign Master, it gets the kerning of the "first" MM font right? At least that's what happened to me recently when I brought two separate fonts together into MM. I realized that once I generated an interpolated instance, and the kerning was not interpolated.</p>
+      <p>I had to export the metrics data of my second font and reimport it in the MM font.</p>
+      <p>Any way to avoid that, or was it a mistake from my part?</p>
+    html_clean: |-
+      <p>Tim (or anybody else): when you bring one font into MM using Assign Master, it gets the kerning of the "first" MM font right? At least that's what happened to me recently when I brought two separate fonts together into MM. I realized that once I generated an interpolated instance, and the kerning was not interpolated.</p>
+      <p>I had to export the metrics data of my second font and reimport it in the MM font.</p>
+      <p>Any way to avoid that, or was it a mistake from my part?</p>
+  - id: 492910
+    user: 4763
+    date: 2012-01-27T08:50:00
+    date_raw: 27 Jan 2012 — 8:50am
+    votes: null
+    html: <p>I was not aware that FL omits the kerning when using Assign Master. You need to use .pfa to get it in into the MM font, it seems.</p>
+    html_clean: <p>I was not aware that FL omits the kerning when using Assign Master. You need to use .pfa to get it in into the MM font, it seems.</p>
+  - id: 492912
+    user: 3135
+    date: 2012-01-27T09:09:00
+    date_raw: 27 Jan 2012 — 9:09am
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 492955
+    user: 1947
+    date: 2012-01-27T19:21:00
+    date_raw: 27 Jan 2012 — 7:21pm
+    votes: null
+    html: <p>I use Mask-to-Master to create the MM data, then I import the afm data for each instance from the original and go from there. It has worked fine all of these years. Never had a problem.</p>
+    html_clean: <p>I use Mask-to-Master to create the MM data, then I import the afm data for each instance from the original and go from there. It has worked fine all of these years. Never had a problem.</p>

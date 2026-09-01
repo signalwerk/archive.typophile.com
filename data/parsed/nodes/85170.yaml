@@ -1,0 +1,178 @@
+node: 85170
+title: Convert text to glyph names
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150415202013"
+  captured_at: 2015-04-15T20:20:13Z
+  url: http://typophile.com/node/85170
+  digest: GHADT3CL45PENZPF23P2PWU55KGJRJXX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/85170.html
+  fingerprint: 3fd37b6162d746d1
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150415202013"
+      digest: GHADT3CL45PENZPF23P2PWU55KGJRJXX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/85170.html
+post:
+  id: 85170
+  user: 16942
+  date: 2011-09-05T22:00:00
+  date_raw: 5 Sep 2011 — 10:00pm
+  votes: null
+  html: |-
+    <p>Hello<br>
+    I use Fontlab for create digital typefaces and when I want to test my font in metrics window I need to type every glyph name and in some scripts (like arabic) it's not easy.<br>
+    I need a utility to convert my text (it could be in a PDF) to glyph names of the font used in the text file. I did a comprehensive search and I couldn't find anything useful. is there anything out there that could do such a thing? or maybe convert text to Unicode values so I can convert them to glyph names?</p>
+    <p>any suggestions are appreciated,<br>
+    Thanks.</p>
+  html_clean: |-
+    <p>Hello<br>
+    I use Fontlab for create digital typefaces and when I want to test my font in metrics window I need to type every glyph name and in some scripts (like arabic) it's not easy.<br>
+    I need a utility to convert my text (it could be in a PDF) to glyph names of the font used in the text file. I did a comprehensive search and I couldn't find anything useful. is there anything out there that could do such a thing? or maybe convert text to Unicode values so I can convert them to glyph names?</p>
+    <p>any suggestions are appreciated,<br>
+    Thanks.</p>
+comments:
+  - id: 476372
+    user: 2462
+    date: 2011-09-05T23:30:00
+    date_raw: 5 Sep 2011 — 11:30pm
+    votes: null
+    html: <p>You should be able to paste the text directly into the Metrics window in text mode. The text field at the bottom of the window will then show it with all the characters above Basic Latin converted into glyph names or Unicode numbers depending on what mode your Font window was in when you opened the Metrics window.</p>
+    html_clean: <p>You should be able to paste the text directly into the Metrics window in text mode. The text field at the bottom of the window will then show it with all the characters above Basic Latin converted into glyph names or Unicode numbers depending on what mode your Font window was in when you opened the Metrics window.</p>
+  - id: 476441
+    user: 16942
+    date: 2011-09-06T09:47:00
+    date_raw: 6 Sep 2011 — 9:47am
+    votes: null
+    html: |-
+      <p>Hi Kevin,<br>
+      thanks for the reply,<br>
+      It does work for Latin texts, but when I paste an Arabic text, it replaces the text with question marks, no matter which mode my font window was in. I use Mac osx, in windows it pastes a mangled text and no glyph shows up. I use fontlab 5.0.4 on mac. In Arabic situation is more complicated compared to latin, because when I copy the text, Os just copies the text without considering the initial or medial forms (they are rendered using OpentType features). so I think only way for me is converting text to unicode values or glyph names. or maybe there is something that I'm missing? did any glyph show up when you pasted an arabic text?</p>
+    html_clean: |-
+      <p>Hi Kevin,<br>
+      thanks for the reply,<br>
+      It does work for Latin texts, but when I paste an Arabic text, it replaces the text with question marks, no matter which mode my font window was in. I use Mac osx, in windows it pastes a mangled text and no glyph shows up. I use fontlab 5.0.4 on mac. In Arabic situation is more complicated compared to latin, because when I copy the text, Os just copies the text without considering the initial or medial forms (they are rendered using OpentType features). so I think only way for me is converting text to unicode values or glyph names. or maybe there is something that I'm missing? did any glyph show up when you pasted an arabic text?</p>
+  - id: 476446
+    user: 1262
+    date: 2011-09-06T10:09:00
+    date_raw: 6 Sep 2011 — 10:09am
+    votes: null
+    html: <p>I needed to convert Cyrillic text to glyph names once, and ended up creating a Word macro to run through text and convert Unicode characters to glyph name strings.</p>
+    html_clean: <p>I needed to convert Cyrillic text to glyph names once, and ended up creating a Word macro to run through text and convert Unicode characters to glyph name strings.</p>
+  - id: 476534
+    user: 16942
+    date: 2011-09-06T23:18:00
+    date_raw: 6 Sep 2011 — 11:18pm
+    votes: null
+    html: |-
+      <p>Hi john,<br>
+      How did you got Unicode values in the first place? Your macro reads unicode value of characters? could I have the code?<br>
+      Thanks</p>
+    html_clean: |-
+      <p>Hi john,<br>
+      How did you got Unicode values in the first place? Your macro reads unicode value of characters? could I have the code?<br>
+      Thanks</p>
+  - id: 476638
+    user: 1262
+    date: 2011-09-07T16:10:00
+    date_raw: 7 Sep 2011 — 4:10pm
+    votes: null
+    html: |-
+      <p>I didn't need the Unicode values, since I was mapping to human-friendly glyph names, not uniXXXX format. So I just had a list of characters and my own corresponding glyph names.</p>
+      <p>You could use Word's ToggleCharacterCode function, which converts a character to its Unicode hex value or vice versa (manually, you can do this with alt+X after a character or code). So what you want a macro to do is to step through the text one character at a time and convert each character to its Unicode value preceded by 'uni'. I'm not a good enough programmer to figure out how to do this, but someone here probably is. Note also that you'll want to try to control the length of the Unicode hex, if that is possible, since Word by default does not include preceding 0s; so, for instance, converting 'A' to Unicode hex produces '41' not '0041'.</p>
+    html_clean: |-
+      <p>I didn't need the Unicode values, since I was mapping to human-friendly glyph names, not uniXXXX format. So I just had a list of characters and my own corresponding glyph names.</p>
+      <p>You could use Word's ToggleCharacterCode function, which converts a character to its Unicode hex value or vice versa (manually, you can do this with alt+X after a character or code). So what you want a macro to do is to step through the text one character at a time and convert each character to its Unicode value preceded by 'uni'. I'm not a good enough programmer to figure out how to do this, but someone here probably is. Note also that you'll want to try to control the length of the Unicode hex, if that is possible, since Word by default does not include preceding 0s; so, for instance, converting 'A' to Unicode hex produces '41' not '0041'.</p>
+  - id: 476640
+    user: 18942
+    date: 2011-09-07T17:02:00
+    date_raw: 7 Sep 2011 — 5:02pm
+    votes: null
+    html: |-
+      <p>If you save the following lines </p>
+      <pre>import sys, codecs
+      infile=codecs.open(sys.argv[1],"r","utf-8")
+      text=infile.read(); infile.close()
+      for char in text:
+         print 'uni%04x ' % (ord(char)),
+      </pre><p>to a file named <code>dmptxt.py</code>, then</p>
+      <pre>python dmptxt.py file.txt
+      </pre><p>will take take a utf8 encoded file <code>file.txt</code> and output the list of corresponding uniXXXX.</p>
+    html_clean: |-
+      <p>If you save the following lines </p>
+      <pre>import sys, codecs
+      infile=codecs.open(sys.argv[1],"r","utf-8")
+      text=infile.read(); infile.close()
+      for char in text:
+         print 'uni%04x ' % (ord(char)),
+      </pre><p>to a file named <code>dmptxt.py</code>, then</p>
+      <pre>python dmptxt.py file.txt
+      </pre><p>will take take a utf8 encoded file <code>file.txt</code> and output the list of corresponding uniXXXX.</p>
+  - id: 476659
+    user: 1262
+    date: 2011-09-07T22:25:00
+    date_raw: 7 Sep 2011 — 10:25pm
+    votes: null
+    html: <p>Brilliant. Thanks, Michel.</p>
+    html_clean: <p>Brilliant. Thanks, Michel.</p>
+  - id: 476660
+    user: 16942
+    date: 2011-09-07T22:34:00
+    date_raw: 7 Sep 2011 — 10:34pm
+    votes: null
+    html: <p>Awesome, Thank you Michel &amp; John.</p>
+    html_clean: <p>Awesome, Thank you Michel &amp; John.</p>
+  - id: 476884
+    user: 1078
+    date: 2011-09-10T01:20:00
+    date_raw: 10 Sep 2011 — 1:20am
+    votes: null
+    html: "<p>With a font open, in python, make a dict with unicode: glyphname pairs. A cmap. Then iterate through the string, lookup the name for each character, add to a new list?</p>"
+    html_clean: "<p>With a font open, in python, make a dict with unicode: glyphname pairs. A cmap. Then iterate through the string, lookup the name for each character, add to a new list?</p>"
+  - id: 476894
+    user: 18942
+    date: 2011-09-10T04:49:00
+    date_raw: 10 Sep 2011 — 4:49am
+    votes: null
+    html: |-
+      <p>Python dictionaries are indeed fantastic for that type of processing. I have a small Python script, using the FontForge python module, that takes a font as input and produces a dictionary unicode:glyphname that can then be imported to output glyphnames instead of uniXXXX (<code>print charname[ord(char)],</code>). </p>
+      <pre>import fontforge,sys
+      fnt=fontforge.open(sys.argv[1],1)
+
+      print 'charname = {',
+      for g in fnt.glyphs():
+         if (g.unicode &gt;= 0x21):
+            print "  0x%04X:'%s'," % (
+                    g.unicode,g.glyphname)
+      print '}'
+      </pre>
+    html_clean: |-
+      <p>Python dictionaries are indeed fantastic for that type of processing. I have a small Python script, using the FontForge python module, that takes a font as input and produces a dictionary unicode:glyphname that can then be imported to output glyphnames instead of uniXXXX (<code>print charname[ord(char)],</code>). </p>
+      <pre>import fontforge,sys
+      fnt=fontforge.open(sys.argv[1],1)
+
+      print 'charname = {',
+      for g in fnt.glyphs():
+         if (g.unicode &gt;= 0x21):
+            print "  0x%04X:'%s'," % (
+                    g.unicode,g.glyphname)
+      print '}'
+      </pre>

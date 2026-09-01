@@ -1,0 +1,138 @@
+node: 37976
+title: "'Two sided' OpenType Script Question (Calt)"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420074316"
+  captured_at: 2015-04-20T07:43:16Z
+  url: http://typophile.com/node/37976
+  digest: IDYXGEAU5EECTOX4653MVC4NF2U7ACCY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/37976.html
+  fingerprint: a10e8414772eb78c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420074316"
+      digest: IDYXGEAU5EECTOX4653MVC4NF2U7ACCY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/37976.html
+post:
+  id: 37976
+  user: 2942
+  date: 2007-10-10T18:40:00
+  date_raw: 10 Oct 2007 — 6:40pm
+  votes: null
+  html: |-
+    <p>I have started to experiment with code to support special glyph forms based on shapes of neighboring glyphs. For example:</p>
+    <p>Round Left, x, Round Right<br>
+    Round Left, x, Flat Right<br>
+    Flat Left, x, Round Right<br>
+    Flat Left, x, Flat Right<br>
+    Diagonal Left, x, Round Right<br>
+    Diagonal Left, x, Flat Right<br>
+    Diagonal Left, x, Diagonal Right<br>
+    Round Left, x, Diagonal Right<br>
+    Flat Left, x, Diagonal Right</p>
+    <p>Note: x= is the glyph to be modified</p>
+    <p>Note:<br>
+    Round Right = o,b,e etc<br>
+    Round left = o,d,q etc<br>
+    Flat Right = n,d,u etc<br>
+    Flat Left = n,b,u<br>
+    Diagonal Right= v,w,y<br>
+    Diagonal Left= v,w,y</p>
+    <p>I understand how to do the classes now but I am not sure in a calt expression how you would best order things. I suspect that you would pick a standard say for instanace 'Flat' and make that the default. Then it's a matter of making the class' for Round, Diagonal, and for ligatures and special cases. That is fine.</p>
+    <p>What I don't seem to be able to do is to effectively figure out is what is the smart way of doing this.</p>
+    <p>This is what I did so far was this. I did it for an 'f' whose crossbar I am altering gently. It seems to be working. </p>
+    <p>sub @rnd.rt f' @rnd.lft by f.rnd.bth;<br>
+    sub @rnd.rt f' @flat.lft by f.rnd.lft;<br>
+    sub @flat.rt f' @rnd.lft by f.rnd.rt;</p>
+  html_clean: |-
+    <p>I have started to experiment with code to support special glyph forms based on shapes of neighboring glyphs. For example:</p>
+    <p>Round Left, x, Round Right<br>
+    Round Left, x, Flat Right<br>
+    Flat Left, x, Round Right<br>
+    Flat Left, x, Flat Right<br>
+    Diagonal Left, x, Round Right<br>
+    Diagonal Left, x, Flat Right<br>
+    Diagonal Left, x, Diagonal Right<br>
+    Round Left, x, Diagonal Right<br>
+    Flat Left, x, Diagonal Right</p>
+    <p>Note: x= is the glyph to be modified</p>
+    <p>Note:<br>
+    Round Right = o,b,e etc<br>
+    Round left = o,d,q etc<br>
+    Flat Right = n,d,u etc<br>
+    Flat Left = n,b,u<br>
+    Diagonal Right= v,w,y<br>
+    Diagonal Left= v,w,y</p>
+    <p>I understand how to do the classes now but I am not sure in a calt expression how you would best order things. I suspect that you would pick a standard say for instanace 'Flat' and make that the default. Then it's a matter of making the class' for Round, Diagonal, and for ligatures and special cases. That is fine.</p>
+    <p>What I don't seem to be able to do is to effectively figure out is what is the smart way of doing this.</p>
+    <p>This is what I did so far was this. I did it for an 'f' whose crossbar I am altering gently. It seems to be working. </p>
+    <p>sub @rnd.rt f' @rnd.lft by f.rnd.bth;<br>
+    sub @rnd.rt f' @flat.lft by f.rnd.lft;<br>
+    sub @flat.rt f' @rnd.lft by f.rnd.rt;</p>
+comments:
+  - id: 232935
+    user: 14829
+    date: 2007-10-11T09:38:00
+    date_raw: 11 Oct 2007 — 9:38am
+    votes: null
+    html: |-
+      <p>On first read, what you have there seems fine. Once you get all your variations in there, maybe some trouble would reveal itself -- but I think what you're sketching out here is basically simple.</p>
+      <p><em>But</em>... things will get squirrely pretty fast if you're going to change the third glyph after the second one changes. Will the third glyph's change affect what the second glyph should be? Then you'll have a sort of reverse cascade. Ow. My head is hurting now.</p>
+      <p>This is the kind of thing that can drive one crazy when figuring out contextual substitution. Perhaps you don't intend to get that sophisticated about it, which would save you a lot of trouble!</p>
+      <p>As a general remark, I once read something about programming (which might be elementary to any programmer, but maybe not so obvious to font developers): Concentrate first on writing code that just works, without worrying about efficiency or elegance. Once you have something that does what you want, you can then turn to distilling the code into something more efficient or less messy.</p>
+    html_clean: |-
+      <p>On first read, what you have there seems fine. Once you get all your variations in there, maybe some trouble would reveal itself -- but I think what you're sketching out here is basically simple.</p>
+      <p><em>But</em>... things will get squirrely pretty fast if you're going to change the third glyph after the second one changes. Will the third glyph's change affect what the second glyph should be? Then you'll have a sort of reverse cascade. Ow. My head is hurting now.</p>
+      <p>This is the kind of thing that can drive one crazy when figuring out contextual substitution. Perhaps you don't intend to get that sophisticated about it, which would save you a lot of trouble!</p>
+      <p>As a general remark, I once read something about programming (which might be elementary to any programmer, but maybe not so obvious to font developers): Concentrate first on writing code that just works, without worrying about efficiency or elegance. Once you have something that does what you want, you can then turn to distilling the code into something more efficient or less messy.</p>
+  - id: 232974
+    user: 2942
+    date: 2007-10-11T12:46:00
+    date_raw: 11 Oct 2007 — 12:46pm
+    votes: null
+    html: |-
+      <p>Thanks Christopher! Happily there are only a few glyphs that I think benefit from this kind of treatment but yes, it is the combinations that could get me. Things like a the double o where the second o changes and is followed by for instance an f. I think that probably just expanding the class' members should sort out any problems but I can imagine an unforeseen circumstance biting me later. Next time I will probably sketch out a list of likely targets/combinations ahead of time!</p>
+      <p>Has anybody else been down this road already?</p>
+    html_clean: |-
+      <p>Thanks Christopher! Happily there are only a few glyphs that I think benefit from this kind of treatment but yes, it is the combinations that could get me. Things like a the double o where the second o changes and is followed by for instance an f. I think that probably just expanding the class' members should sort out any problems but I can imagine an unforeseen circumstance biting me later. Next time I will probably sketch out a list of likely targets/combinations ahead of time!</p>
+      <p>Has anybody else been down this road already?</p>
+  - id: 232992
+    user: 2021
+    date: 2007-10-11T13:29:00
+    date_raw: 11 Oct 2007 — 1:29pm
+    votes: null
+    html: |-
+      <p>Did I send you a pdf on the Calt workshop I gave at TypeCon Boston?</p>
+      <p>It might be good to make "round left" the default, as that will come in handy for when there is no lower case letter to the left-- e.g. following a capital, figure, punctuation or space.</p>
+    html_clean: |-
+      <p>Did I send you a pdf on the Calt workshop I gave at TypeCon Boston?</p>
+      <p>It might be good to make "round left" the default, as that will come in handy for when there is no lower case letter to the left-- e.g. following a capital, figure, punctuation or space.</p>
+  - id: 233030
+    user: 2942
+    date: 2007-10-11T16:55:00
+    date_raw: 11 Oct 2007 — 4:55pm
+    votes: null
+    html: |-
+      <p>Yes you did. Thanks for the reminder! This thing is not actually a script but I imagine the code there will be useful all the same.</p>
+      <p>I will post some examples when it's starting to gel enough to make sense.</p>
+    html_clean: |-
+      <p>Yes you did. Thanks for the reminder! This thing is not actually a script but I imagine the code there will be useful all the same.</p>
+      <p>I will post some examples when it's starting to gel enough to make sense.</p>

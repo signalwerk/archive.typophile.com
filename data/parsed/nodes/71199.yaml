@@ -1,0 +1,85 @@
+node: 71199
+title: Python search & replace script (for commenting TTX-dump)
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20101104062157"
+  captured_at: 2010-11-04T06:21:57Z
+  url: http://typophile.com:80/node/71199
+  digest: Z3OLH3AGDPSFS5SHRHQAXZHMGLF2GWLG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/71199.html
+  fingerprint: ea1886cb1e5bfde5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20101104062157"
+      digest: Z3OLH3AGDPSFS5SHRHQAXZHMGLF2GWLG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71199.html
+post:
+  id: 71199
+  user: 45774
+  date: 2010-06-09T13:53:00
+  date_raw: 9.Jun.2010 1.53pm
+  votes: null
+  html: <p>Does anybody know a Python search &amp; replace script, with the help of which I can comment the output of TTX, the name table for example? It should understand regular expressions and keywords for new lines.</p>
+  html_clean: <p>Does anybody know a Python search &amp; replace script, with the help of which I can comment the output of TTX, the name table for example? It should understand regular expressions and keywords for new lines.</p>
+comments:
+  - id: 415321
+    user: 18942
+    date: 2010-06-10T10:13:00
+    date_raw: 10.Jun.2010 10.13am
+    votes: null
+    html: |-
+      <p>To comment out the name table, you need only  replace <code>&lt;name&gt;</code> with <code>&lt;!-- &lt;name&gt;</code> and <code>&lt;/name&gt;</code> with <code>&lt;/name&gt; --&gt;</code>. If <code>fin</code> is the input file and <code>fout</code> the output, then<br>
+      <code><br>
+      intext=fin.read()<br>
+      fout.write("%s" % intext.replace('&lt;name&gt;', '&lt;!-- &lt;name&gt;').replace('&lt;/name&gt;', '&lt;/name&gt; --&gt;'))<br>
+      </code><br>
+      does the job.</p>
+      <p>If you have many substitutions and you want to perform them in one pass, then regular expressions may be useful indeed. <a href="http://code.activestate.com/recipes/81330-single-pass-multiple-replace/" rel="nofollow"><strong>This link</strong></a> discusses how that can be done.</p>
+      <p>Michel</p>
+      <p>Added: you need <code>from string import replace</code>.</p>
+    html_clean: |-
+      <p>To comment out the name table, you need only  replace <code>&lt;name&gt;</code> with <code>&lt;!-- &lt;name&gt;</code> and <code>&lt;/name&gt;</code> with <code>&lt;/name&gt; --&gt;</code>. If <code>fin</code> is the input file and <code>fout</code> the output, then<br>
+      <code><br>
+      intext=fin.read()<br>
+      fout.write("%s" % intext.replace('&lt;name&gt;', '&lt;!-- &lt;name&gt;').replace('&lt;/name&gt;', '&lt;/name&gt; --&gt;'))<br>
+      </code><br>
+      does the job.</p>
+      <p>If you have many substitutions and you want to perform them in one pass, then regular expressions may be useful indeed. <a href="http://code.activestate.com/recipes/81330-single-pass-multiple-replace/" rel="nofollow"><strong>This link</strong></a> discusses how that can be done.</p>
+      <p>Michel</p>
+      <p>Added: you need <code>from string import replace</code>.</p>
+  - id: 415338
+    user: 45774
+    date: 2010-06-10T11:20:00
+    date_raw: 10.Jun.2010 11.20am
+    votes: null
+    html: |-
+      <p>@ Michel</p>
+      <p>Thanks. I want to explain the meaning of the namerecords and a few other things in the dumped TTX file. And remember, I don’t know anything about Python. I am searching for a script like this: "http://sourceforge.net/projects/csart/". But it does not support regular expressions. And I also need a keyword for inserting new lines. The Python script shall be started from a batch file, in which is defined, what shall be replaced by what.</p>
+    html_clean: |-
+      <p>@ Michel</p>
+      <p>Thanks. I want to explain the meaning of the namerecords and a few other things in the dumped TTX file. And remember, I don’t know anything about Python. I am searching for a script like this: "http://sourceforge.net/projects/csart/". But it does not support regular expressions. And I also need a keyword for inserting new lines. The Python script shall be started from a batch file, in which is defined, what shall be replaced by what.</p>
+  - id: 415345
+    user: 18942
+    date: 2010-06-10T11:36:00
+    date_raw: 10.Jun.2010 11.36am
+    votes: null
+    html: <p>I am unaware of ready to use scripts. I normally write my own bash scripts with <code>sed</code>, <code>awk</code> and now also <code>python</code> for such tasks. If you find anything, let us know.</p>
+    html_clean: <p>I am unaware of ready to use scripts. I normally write my own bash scripts with <code>sed</code>, <code>awk</code> and now also <code>python</code> for such tasks. If you find anything, let us know.</p>

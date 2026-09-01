@@ -1,0 +1,272 @@
+node: 52555
+title: How to create a class with all glyphs exept one?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131023225127"
+  captured_at: 2013-10-23T22:51:27Z
+  url: http://typophile.com/node/52555
+  digest: IBB4TFBUEKUQZFJU5IXABHQ7VDSMEACA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/52555.html
+  fingerprint: dea709fa8644c223
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131023225127"
+      digest: IBB4TFBUEKUQZFJU5IXABHQ7VDSMEACA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/52555.html
+post:
+  id: 52555
+  user: 40349
+  date: 2008-12-10T22:49:00
+  date_raw: 10 Dec 2008 — 10:49pm
+  votes: null
+  html: |-
+    <p>Hi all!</p>
+    <p>Does anyone know how can I create class that will contain ALL glyphs exept a particular one? (lowercase s in my case)</p>
+    <p>I have googled for hours and studied the FontLab manual a lot, but I can't find an answer.</p>
+    <p>I could perhaps do it with character ranges, but which ones should I use? Based on which encoding?</p>
+    <p>Sorry if its a stupid question, I'm quite a beginner in all this...</p>
+    <p>Thanks in advance!</p>
+  html_clean: |-
+    <p>Hi all!</p>
+    <p>Does anyone know how can I create class that will contain ALL glyphs exept a particular one? (lowercase s in my case)</p>
+    <p>I have googled for hours and studied the FontLab manual a lot, but I can't find an answer.</p>
+    <p>I could perhaps do it with character ranges, but which ones should I use? Based on which encoding?</p>
+    <p>Sorry if its a stupid question, I'm quite a beginner in all this...</p>
+    <p>Thanks in advance!</p>
+comments:
+  - id: 317457
+    user: 1262
+    date: 2008-12-10T23:27:00
+    date_raw: 10 Dec 2008 — 11:27pm
+    votes: null
+    html: <p>You can make classes in FontLab by first creating a new class in the Classes panel and then simply selecting the glyphs you want to include from the Font Window and dragging them into the top right portion of the Classes panel. So, create a new class, then use Ctrl+A (or Mac equivalent) to select all the glyphs in the Font Window, then use Ctrl click to unselect the one that you do not want in the class, then drag and drop all the selected glyphs into the Classes panel.</p>
+    html_clean: <p>You can make classes in FontLab by first creating a new class in the Classes panel and then simply selecting the glyphs you want to include from the Font Window and dragging them into the top right portion of the Classes panel. So, create a new class, then use Ctrl+A (or Mac equivalent) to select all the glyphs in the Font Window, then use Ctrl click to unselect the one that you do not want in the class, then drag and drop all the selected glyphs into the Classes panel.</p>
+  - id: 317458
+    user: 40349
+    date: 2008-12-10T23:34:00
+    date_raw: 10 Dec 2008 — 11:34pm
+    votes: null
+    html: |-
+      <p>Thanks for your reply John.<br>
+      I thought about this (and its my last resort), but what happens when I add new glyphs? :/<br>
+      What I'm looking for is some kind of [not s] definition for a class. If I have to add the glyphs manually, I know how to do it...</p>
+      <p>Also, adding the glyphs manually doesn't account for the case of start or end of the text...</p>
+    html_clean: |-
+      <p>Thanks for your reply John.<br>
+      I thought about this (and its my last resort), but what happens when I add new glyphs? :/<br>
+      What I'm looking for is some kind of [not s] definition for a class. If I have to add the glyphs manually, I know how to do it...</p>
+      <p>Also, adding the glyphs manually doesn't account for the case of start or end of the text...</p>
+  - id: 317466
+    user: 29994
+    date: 2008-12-11T01:17:00
+    date_raw: 11 Dec 2008 — 1:17am
+    votes: null
+    html: <p>Would the 'ignore sub' option work for you? You might want to expand on what you are attempting to do.</p>
+    html_clean: <p>Would the 'ignore sub' option work for you? You might want to expand on what you are attempting to do.</p>
+  - id: 317525
+    user: 40349
+    date: 2008-12-11T09:37:00
+    date_raw: 11 Dec 2008 — 9:37am
+    votes: null
+    html: |-
+      <p>I tried the ignore sub with many ways, but it doesn't seem to work for what I want it to do.</p>
+      <p>What I want to do is:<br>
+      I have 2 alternate s, that change based to the preceding or next character.<br>
+      I also have two different s that are used when the next or preceding character (respectively) is also an s, and another s to be used when both the preceding and next character is an s.<br>
+      This totals to 1 normal s and 7 contextual alternates. </p>
+      <p>The code from the calt feature that has to do with any of them is the below (irrelevant subs removed):<br>
+      <code><br>
+        @not_s = [a-r t-z e.alt s.alt2 space period .notdef CR ];<br>
+        @is_s = [s s.alt s.alt1 s.alt11 s.alt2 s.alt21 s.alt22 s.alt3];<br>
+        sub @not_s s' [a f t z w u y b] by s.alt;<br>
+        sub @is_s s' [a f t z w u y b] by s.alt22;<br>
+        sub @not_s s' s by s.alt1;<br>
+        sub @not_s s.alt2' s by s.alt11;<br>
+        sub [s.alt1 s.alt11 s.alt3] s' s by s.alt3;<br>
+        sub @is_s s' @not_s by s.alt21;<br>
+        sub s.alt3 s.alt' by s.alt22;<br>
+        # fresset!<br>
+        sub f.alt r.alt e.alt s.alt11 s.alt21 e' t' by s_t.logo;<br>
+      </code></p>
+      <p>Of course the @not_s class is completely temporary and doesn't contain lots of glyphs. What I want it to contain is every glyph that is not a lowercase s (including start and end of lines, even though they aren't glyphs, although I doubt its possible :( ).<br>
+      If that isn't possible, can anyone think of a way to do it with ignore sub? I have a strong feeling that ignore sub is the way to go, but everything I tried with it doesn't work :(<br>
+      This is troubling me for several hours but I can't figure out a more complete solution... :(</p>
+    html_clean: |-
+      <p>I tried the ignore sub with many ways, but it doesn't seem to work for what I want it to do.</p>
+      <p>What I want to do is:<br>
+      I have 2 alternate s, that change based to the preceding or next character.<br>
+      I also have two different s that are used when the next or preceding character (respectively) is also an s, and another s to be used when both the preceding and next character is an s.<br>
+      This totals to 1 normal s and 7 contextual alternates. </p>
+      <p>The code from the calt feature that has to do with any of them is the below (irrelevant subs removed):<br>
+      <code><br>
+        @not_s = [a-r t-z e.alt s.alt2 space period .notdef CR ];<br>
+        @is_s = [s s.alt s.alt1 s.alt11 s.alt2 s.alt21 s.alt22 s.alt3];<br>
+        sub @not_s s' [a f t z w u y b] by s.alt;<br>
+        sub @is_s s' [a f t z w u y b] by s.alt22;<br>
+        sub @not_s s' s by s.alt1;<br>
+        sub @not_s s.alt2' s by s.alt11;<br>
+        sub [s.alt1 s.alt11 s.alt3] s' s by s.alt3;<br>
+        sub @is_s s' @not_s by s.alt21;<br>
+        sub s.alt3 s.alt' by s.alt22;<br>
+        # fresset!<br>
+        sub f.alt r.alt e.alt s.alt11 s.alt21 e' t' by s_t.logo;<br>
+      </code></p>
+      <p>Of course the @not_s class is completely temporary and doesn't contain lots of glyphs. What I want it to contain is every glyph that is not a lowercase s (including start and end of lines, even though they aren't glyphs, although I doubt its possible :( ).<br>
+      If that isn't possible, can anyone think of a way to do it with ignore sub? I have a strong feeling that ignore sub is the way to go, but everything I tried with it doesn't work :(<br>
+      This is troubling me for several hours but I can't figure out a more complete solution... :(</p>
+  - id: 317778
+    user: 40349
+    date: 2008-12-12T17:24:00
+    date_raw: 12 Dec 2008 — 5:24pm
+    votes: null
+    html: |-
+      <p>Okay, lets simplify the problem a bit.<br>
+      Lets suppose I only have s.alt1 which I want to place instead of s before every lowercase s and s.alt3 which I want to place instead of s when s is between two other s (sss). The problem is that in the second case, the middle s would be substituted by s.alt1 because it also precedes an s.</p>
+      <p>This does not work:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>This neither:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s.alt1 s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>but this does:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub [a-z space] s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s.alt1 s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>The reason I don't want the latter solution is that I have to create a class with every glyph, and it would still be incomplete, because I would also have to match somehow the start and end of the text.<br>
+      What seems to be the problem, is that ignore sub does not work if the pattern given to it is not an exact subcase of the substitution below. In the first case, since ignore sub had s s' s and the pattern was s' s, it didn't work. When we converted the substitution pattern to [a-z space] s' s it worked, as s s' s is a subcase of that.<br>
+      However this behavior conflicts with the Adobe <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f.ii" rel="nofollow">specification</a> (see example 1, even though the pattern is [a e n] d' and the exceptions f [a e] d' and a d' d, they are supposed to work.</p>
+      <p>So, the possibilities are two:<br>
+      1. I'm not grasping something correctly<br>
+      2. Its a FontLab bug (?!)</p>
+      <p>My bet would be on 1. So what am I missing? :(</p>
+    html_clean: |-
+      <p>Okay, lets simplify the problem a bit.<br>
+      Lets suppose I only have s.alt1 which I want to place instead of s before every lowercase s and s.alt3 which I want to place instead of s when s is between two other s (sss). The problem is that in the second case, the middle s would be substituted by s.alt1 because it also precedes an s.</p>
+      <p>This does not work:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>This neither:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s.alt1 s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>but this does:<br>
+      <code><br>
+      lookup calt_s1 {<br>
+        	ignore substitute s s' s;<br>
+        	sub [a-z space] s' s by s.alt1;<br>
+        } calt_s1;<br>
+      </code><code><br>
+        lookup calt_s3 {<br>
+        	sub s.alt1 s' s by s.alt3;<br>
+        } calt_s3;<br>
+      </code></p>
+      <p>The reason I don't want the latter solution is that I have to create a class with every glyph, and it would still be incomplete, because I would also have to match somehow the start and end of the text.<br>
+      What seems to be the problem, is that ignore sub does not work if the pattern given to it is not an exact subcase of the substitution below. In the first case, since ignore sub had s s' s and the pattern was s' s, it didn't work. When we converted the substitution pattern to [a-z space] s' s it worked, as s s' s is a subcase of that.<br>
+      However this behavior conflicts with the Adobe <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f.ii" rel="nofollow">specification</a> (see example 1, even though the pattern is [a e n] d' and the exceptions f [a e] d' and a d' d, they are supposed to work.</p>
+      <p>So, the possibilities are two:<br>
+      1. I'm not grasping something correctly<br>
+      2. Its a FontLab bug (?!)</p>
+      <p>My bet would be on 1. So what am I missing? :(</p>
+  - id: 317845
+    user: 40349
+    date: 2008-12-13T07:04:00
+    date_raw: 13 Dec 2008 — 7:04am
+    votes: null
+    html: <p>Nevermind, I figured it out with a weird way and lots of lines of code that even I don't understand or can reproduce :P</p>
+    html_clean: <p>Nevermind, I figured it out with a weird way and lots of lines of code that even I don't understand or can reproduce :P</p>
+  - id: 317861
+    user: 2021
+    date: 2008-12-13T10:16:00
+    date_raw: 13 Dec 2008 — 10:16am
+    votes: null
+    html: |-
+      <p>Here's my code for long s.<br>
+      For words like "scissors", "satisfaction" and "offside".<br>
+      <code><br>
+      sub s by longs;<br>
+      sub longs' f by s;<br>
+      sub longs longs' by s;<br>
+      sub f longs' by s;<br>
+      ignore sub longs' @letter;<br>
+      sub longs' by s;</code></p>
+    html_clean: |-
+      <p>Here's my code for long s.<br>
+      For words like "scissors", "satisfaction" and "offside".<br>
+      <code><br>
+      sub s by longs;<br>
+      sub longs' f by s;<br>
+      sub longs longs' by s;<br>
+      sub f longs' by s;<br>
+      ignore sub longs' @letter;<br>
+      sub longs' by s;</code></p>
+  - id: 317863
+    user: 2021
+    date: 2008-12-13T10:17:00
+    date_raw: 13 Dec 2008 — 10:17am
+    votes: null
+    html: |-
+      <p>I had to play around with the sequence to get it to function correctly.<br>
+      It seems to me that designing according to a logical understanding of how software is supposed to work often falls short.<br>
+      So I proceed by trial and error and try to get an effect to work in the FontLab preview panel, and then test it in InDesign.<br>
+      Seems like Lea does similar.</p>
+    html_clean: |-
+      <p>I had to play around with the sequence to get it to function correctly.<br>
+      It seems to me that designing according to a logical understanding of how software is supposed to work often falls short.<br>
+      So I proceed by trial and error and try to get an effect to work in the FontLab preview panel, and then test it in InDesign.<br>
+      Seems like Lea does similar.</p>

@@ -1,0 +1,157 @@
+node: 121540
+title: Mimicking old print
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150317234413"
+  captured_at: 2015-03-17T23:44:13Z
+  url: http://typophile.com/node/121540
+  digest: VC2BGIVKJLVWDNU3P5DJA322ZIUK3JU7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/121540.html
+  fingerprint: 02104011dccc7964
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150317234413"
+      digest: VC2BGIVKJLVWDNU3P5DJA322ZIUK3JU7
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/121540.html
+post:
+  id: 121540
+  user: 9108
+  date: 2014-11-24T07:50:00
+  date_raw: 24 Nov 2014 — 7:50am
+  votes: null
+  html: |-
+    <p>In this thread <a href="http://typophile.com/node/121385" title="http://typophile.com/node/121385">http://typophile.com/node/121385</a> OP put a scanned page from a 1961 book. Used types have somewhat twitched appearance. As I made earlier an OT feature which does that effect I modified a font (in that case Plantin) to recreate that look.</p>
+    <p>1. FEA file:<br>
+    @class_alt1 contains UC and lc letters, space, comma, etc<br>
+    @class_alt2 contains as above, slightly displaced, names with .alt2<br>
+    etc up to @class_alt10 ( .alt10)</p>
+    <p>2. I made new glyphs - and copied the references of original glyphs and add the .alt1 to their names<br>
+    3. Again the same with .alt2 names<br>
+    etc up to .alt10</p>
+    <p>4. I moved glyphs of every class slightly up or down<br>
+    <code><br>
+    feature calt { # contextual Alternates<br>
+    sub @class_alt1 @class_alt1' by @class_alt2;<br>
+    sub @class_alt2 @class_alt1' by @class_alt3;<br>
+    sub @class_alt3 @class_alt1' by @class_alt4;<br>
+    sub @class_alt4 @class_alt1' by @class_alt5;<br>
+    sub @class_alt5 @class_alt1' by @class_alt6;<br>
+    sub @class_alt6 @class_alt1' by @class_alt7;<br>
+    sub @class_alt7 @class_alt1' by @class_alt8;<br>
+    sub @class_alt8 @class_alt1' by @class_alt9;<br>
+    sub @class_alt9 @class_alt1' by @class_alt10;<br>
+    sub @class_alt10 @class_alt1' by @class_alt1;<br>
+    } calt;<code></code></code></p>
+    <p>As feature calt is applied, letters (and spaces, commas etc) are substituted and in effect their sequence is:<br>
+    x1, x2, x3, (etc), x10, x1, x2, x3 ...<br>
+    so every next letter belongs to the group moved in slightly different way.<br>
+    Because font is slightly thinner (and more contrasty) than lead types used I added some black stroke and - to compensate inter letter space - some tracking.<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/book_3673.jpg"></div><br>
+    <div class="imageWrap"><img src="http://typophile.com/files/idd_5284.jpg"></div><p></p>
+    <p>Advantage: -calt works almost everywhere<br>
+    Drawback:<br>
+    - in InD tracking about 40 switches off calt (why?!)<br>
+    - when you repeat lines the letters are moved in the same way (doesn't happen frequently in books)</p>
+    <p>Special thanks to Adam Twardoch<br>
+    <a class="freelinking external" href="http://typedrawers.com/discussion/comment/10641/#Comment_10641" rel="nofollow">1</a><br>
+    <a class="freelinking external" href="http://sites.twardoch.com/typography/font-tech/gpos-stylistic-sets" rel="nofollow">2</a></p>
+  html_clean: |-
+    <p>In this thread <a href="http://typophile.com/node/121385" title="http://typophile.com/node/121385">http://typophile.com/node/121385</a> OP put a scanned page from a 1961 book. Used types have somewhat twitched appearance. As I made earlier an OT feature which does that effect I modified a font (in that case Plantin) to recreate that look.</p>
+    <p>1. FEA file:<br>
+    @class_alt1 contains UC and lc letters, space, comma, etc<br>
+    @class_alt2 contains as above, slightly displaced, names with .alt2<br>
+    etc up to @class_alt10 ( .alt10)</p>
+    <p>2. I made new glyphs - and copied the references of original glyphs and add the .alt1 to their names<br>
+    3. Again the same with .alt2 names<br>
+    etc up to .alt10</p>
+    <p>4. I moved glyphs of every class slightly up or down<br>
+    <code><br>
+    feature calt { # contextual Alternates<br>
+    sub @class_alt1 @class_alt1' by @class_alt2;<br>
+    sub @class_alt2 @class_alt1' by @class_alt3;<br>
+    sub @class_alt3 @class_alt1' by @class_alt4;<br>
+    sub @class_alt4 @class_alt1' by @class_alt5;<br>
+    sub @class_alt5 @class_alt1' by @class_alt6;<br>
+    sub @class_alt6 @class_alt1' by @class_alt7;<br>
+    sub @class_alt7 @class_alt1' by @class_alt8;<br>
+    sub @class_alt8 @class_alt1' by @class_alt9;<br>
+    sub @class_alt9 @class_alt1' by @class_alt10;<br>
+    sub @class_alt10 @class_alt1' by @class_alt1;<br>
+    } calt;<code></code></code></p>
+    <p>As feature calt is applied, letters (and spaces, commas etc) are substituted and in effect their sequence is:<br>
+    x1, x2, x3, (etc), x10, x1, x2, x3 ...<br>
+    so every next letter belongs to the group moved in slightly different way.<br>
+    Because font is slightly thinner (and more contrasty) than lead types used I added some black stroke and - to compensate inter letter space - some tracking.<br>
+    </p><div class="imageWrap"><img src="/files/book_3673.jpg"></div><br>
+    <div class="imageWrap"><img src="/files/idd_5284.jpg"></div><p></p>
+    <p>Advantage: -calt works almost everywhere<br>
+    Drawback:<br>
+    - in InD tracking about 40 switches off calt (why?!)<br>
+    - when you repeat lines the letters are moved in the same way (doesn't happen frequently in books)</p>
+    <p>Special thanks to Adam Twardoch<br>
+    <a class="freelinking external" href="http://typedrawers.com/discussion/comment/10641/#Comment_10641" rel="nofollow">1</a><br>
+    <a class="freelinking external" href="http://sites.twardoch.com/typography/font-tech/gpos-stylistic-sets" rel="nofollow">2</a></p>
+comments:
+  - id: 594255
+    user: 31798
+    date: 2014-11-24T18:49:00
+    date_raw: 24 Nov 2014 — 6:49pm
+    votes: null
+    html: |-
+      <p>InDesign turns off contextual features and ligatures for tracked text above a certain value, and in many, but unfortunately not all cases, this makes sense, since contextual substitutions are often used to avoid clashing letterforms or to effect better joins in script faces (though such faces probably shouldn't be tracked in the first place). However, InDesign's threshold is arbitrary and I've often felt it would be better if it were left to the designer to turn these features off.</p>
+      <p>Andre</p>
+    html_clean: |-
+      <p>InDesign turns off contextual features and ligatures for tracked text above a certain value, and in many, but unfortunately not all cases, this makes sense, since contextual substitutions are often used to avoid clashing letterforms or to effect better joins in script faces (though such faces probably shouldn't be tracked in the first place). However, InDesign's threshold is arbitrary and I've often felt it would be better if it were left to the designer to turn these features off.</p>
+      <p>Andre</p>
+  - id: 594278
+    user: 9108
+    date: 2015-02-03T16:35:00
+    date_raw: 3 Feb 2015 — 4:35pm
+    votes: null
+    html: |-
+      <p>Agree, André.<br>
+      Stylistic Set can be used in that case - ssXX's are not turned off by tracking. But support is not that wide and in some environments only GSUB ssXX are allowed. See: <a href="https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx" title="https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx">https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx</a> "Each ssXX feature uses one-to-one (GSUB lookup type 1) substitutions."<br>
+      So precise adjusting of glyph's widths will help.</p>
+      <p>[edit]<br>
+      I made an error in first post (and can't edit it)</p>
+      <p>"2. I made new glyphs - and copied the references of original glyphs and add the .alt1 to their names"<br>
+      I did not change their names, the first class:<br>
+      <code>@class_alt1=[space exclam comma hyphen period colon semicolon question a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];<code></code></code></p>
+    html_clean: |-
+      <p>Agree, André.<br>
+      Stylistic Set can be used in that case - ssXX's are not turned off by tracking. But support is not that wide and in some environments only GSUB ssXX are allowed. See: <a href="https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx" title="https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx">https://www.microsoft.com/typography/otspec/features_pt.htm#ssxx</a> "Each ssXX feature uses one-to-one (GSUB lookup type 1) substitutions."<br>
+      So precise adjusting of glyph's widths will help.</p>
+      <p>[edit]<br>
+      I made an error in first post (and can't edit it)</p>
+      <p>"2. I made new glyphs - and copied the references of original glyphs and add the .alt1 to their names"<br>
+      I did not change their names, the first class:<br>
+      <code>@class_alt1=[space exclam comma hyphen period colon semicolon question a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];<code></code></code></p>
+  - id: 599080
+    user: 1262
+    date: 2015-02-08T19:02:00
+    date_raw: 8 Feb 2015 — 7:02pm
+    votes: null
+    html: |-
+      <blockquote><p>However, InDesign's threshold is arbitrary and I've often felt it would be better if it were left to the designer to turn these features off.</p></blockquote>
+      <p>Not quite arbitrary: it is based on a percentage of the /space/ glyph width in a font, which means that the tracking unit at which ligatures and contextual alternates is turned off is proportional to the width of the font: lower for a condensed font and higher for an expanded font.</p>
+    html_clean: |-
+      <blockquote><p>However, InDesign's threshold is arbitrary and I've often felt it would be better if it were left to the designer to turn these features off.</p></blockquote>
+      <p>Not quite arbitrary: it is based on a percentage of the /space/ glyph width in a font, which means that the tracking unit at which ligatures and contextual alternates is turned off is proportional to the width of the font: lower for a condensed font and higher for an expanded font.</p>

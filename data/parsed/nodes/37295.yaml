@@ -1,0 +1,190 @@
+node: 37295
+title: kern subtable overflow
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141115074551"
+  captured_at: 2014-11-15T07:45:51Z
+  url: http://www.typophile.com:80/node/37295
+  digest: ONKASZ77C2MUJFV723VMGJH5HSQKB3B3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/37295.html
+  fingerprint: 573674a93d68b58a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141115074551"
+      digest: ONKASZ77C2MUJFV723VMGJH5HSQKB3B3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/37295.html
+post:
+  id: 37295
+  user: 19831
+  date: 2007-09-20T06:41:00
+  date_raw: 20 Sep 2007 — 6:41am
+  votes: null
+  html: |-
+    <p>Dear forum,</p>
+    <p>I'm getting a subtable overflow while trying to compile my features within FL Studio.<br>
+    Now I tried building the kern feature with FDK, but still I'm getting an overflow. No mixing up different scripts within the classes and also kerning should not be too much (3400 pairs, when expanded 152k).<br>
+    <em>GPOS feature 'kern' causes overflow of offset to a subtable (0x11a00)</em></p>
+    <p>Also there's quite a lot of this stuff:<br>
+    <em>Pair positioning has two different values in 'kern' feature; choosing the smaller absolute value: Q comma</em><br>
+    which seem to be my exceptions.</p>
+    <p>Any idea?</p>
+    <p>Thank you,</p>
+    <p>Chris</p>
+  html_clean: |-
+    <p>Dear forum,</p>
+    <p>I'm getting a subtable overflow while trying to compile my features within FL Studio.<br>
+    Now I tried building the kern feature with FDK, but still I'm getting an overflow. No mixing up different scripts within the classes and also kerning should not be too much (3400 pairs, when expanded 152k).<br>
+    <em>GPOS feature 'kern' causes overflow of offset to a subtable (0x11a00)</em></p>
+    <p>Also there's quite a lot of this stuff:<br>
+    <em>Pair positioning has two different values in 'kern' feature; choosing the smaller absolute value: Q comma</em><br>
+    which seem to be my exceptions.</p>
+    <p>Any idea?</p>
+    <p>Thank you,</p>
+    <p>Chris</p>
+comments:
+  - id: 228609
+    user: 655
+    date: 2007-09-21T08:31:00
+    date_raw: 21 Sep 2007 — 8:31am
+    votes: null
+    html: |-
+      <p>For exceptions use single kern pairs at the top of the kerning file.</p>
+      <p>#exceptions<br>
+      pos Q by comma -20; </p>
+      <p>#you can use "enum" to work with classes for exceptions - enum spiltes the classes into singles during compilation</p>
+      <p>enum pos @_kern_Q by @_kern_... -20;</p>
+      <p>Be sure, no glyph is part of two or more classes!</p>
+      <p>--<a href="http://www.astype.de" target="_blank" rel="nofollow">astype.de</a>--</p>
+    html_clean: |-
+      <p>For exceptions use single kern pairs at the top of the kerning file.</p>
+      <p>#exceptions<br>
+      pos Q by comma -20; </p>
+      <p>#you can use "enum" to work with classes for exceptions - enum spiltes the classes into singles during compilation</p>
+      <p>enum pos @_kern_Q by @_kern_... -20;</p>
+      <p>Be sure, no glyph is part of two or more classes!</p>
+      <p>--<a href="http://www.astype.de" target="_blank" rel="nofollow">astype.de</a>--</p>
+  - id: 228631
+    user: 8664
+    date: 2007-09-21T09:17:00
+    date_raw: 21 Sep 2007 — 9:17am
+    votes: null
+    html: |-
+      <p><cite>pos Q by comma -20;</cite></p>
+      <p>Andreas, you were dreaming of substitution -- no 'by' in pos commands.&nbsp;&nbsp;;-)</p>
+      <p><cite>which seem to be my exceptions</cite></p>
+      <p>Looks like there is something wrong with classes: one glyph appearing in more than one leftside class, or in more than one rightside class. I think you should check your class definitions first.<br>
+      About 3400 kerning pairs <cite>may be</cite> (but not necessarily are) critical. If you generate fonts with AFDKO 2, you can also try to kick out lines with "subtable break" and add an explicit lookup definition with 'useExtension', so your kern feature looks like this (please exchange parentheses by braces):</p>
+      <p>feature kern (<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup kern0 useExtension (<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos A B 12;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos B C 32;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;) kern0;<br>
+      ) kern;</p>
+      <p>But mind that FLS5 cannot compile this, and that such a kern feature will be interpreted only by a few OT-savvy applications like those of Creative Suite.</p>
+    html_clean: |-
+      <p><cite>pos Q by comma -20;</cite></p>
+      <p>Andreas, you were dreaming of substitution -- no 'by' in pos commands.&nbsp;&nbsp;;-)</p>
+      <p><cite>which seem to be my exceptions</cite></p>
+      <p>Looks like there is something wrong with classes: one glyph appearing in more than one leftside class, or in more than one rightside class. I think you should check your class definitions first.<br>
+      About 3400 kerning pairs <cite>may be</cite> (but not necessarily are) critical. If you generate fonts with AFDKO 2, you can also try to kick out lines with "subtable break" and add an explicit lookup definition with 'useExtension', so your kern feature looks like this (please exchange parentheses by braces):</p>
+      <p>feature kern (<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup kern0 useExtension (<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos A B 12;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos B C 32;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;) kern0;<br>
+      ) kern;</p>
+      <p>But mind that FLS5 cannot compile this, and that such a kern feature will be interpreted only by a few OT-savvy applications like those of Creative Suite.</p>
+  - id: 228701
+    user: 655
+    date: 2007-09-21T12:25:00
+    date_raw: 21 Sep 2007 — 12:25pm
+    votes: null
+    html: |-
+      <p>yes, I'm dreaming...</p>
+      <p>#exceptions</p>
+      <p>pos Q comma -20;</p>
+      <p>enum pos @_kern_Q @_kern_comma -20;<br>
+      #or<br>
+      enum pos [Q Q.alt] [comma colon] -20; </p>
+      <p>and this works in Fontlab - but do it on the top of your kern list.</p>
+      <p>--<a href="http://www.astype.de" target="_blank" rel="nofollow">astype.de</a>--</p>
+    html_clean: |-
+      <p>yes, I'm dreaming...</p>
+      <p>#exceptions</p>
+      <p>pos Q comma -20;</p>
+      <p>enum pos @_kern_Q @_kern_comma -20;<br>
+      #or<br>
+      enum pos [Q Q.alt] [comma colon] -20; </p>
+      <p>and this works in Fontlab - but do it on the top of your kern list.</p>
+      <p>--<a href="http://www.astype.de" target="_blank" rel="nofollow">astype.de</a>--</p>
+  - id: 228741
+    user: 2021
+    date: 2007-09-21T15:21:00
+    date_raw: 21 Sep 2007 — 3:21pm
+    votes: null
+    html: |-
+      <p>If you are having problems resolving class conflicts, here's what works for me.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Kern1_5402.png"></div><br>
+      First, select "class kerning" in the metrics panel.<br>
+      .<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/kern3_3773.png"></div><br>
+      This has several benefits, one of which is to highlight class conflicts in red.<br>
+      Here, v and c are the master characters in their classes, and y is included in the "v" class.<br>
+      Therefore, when I attempt to apply a different kern value between y and c, FontLab marks it with a red number warning.<br>
+      .<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/Picture3_3947.jpg"></div><br>
+      This value is also listed in red in the kern pair table at the right of the metrics window, enabling one to scroll throught the entire kern pairs in a font, looking for conflicts.<p></p>
+    html_clean: |-
+      <p>If you are having problems resolving class conflicts, here's what works for me.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Kern1_5402.png"></div><br>
+      First, select "class kerning" in the metrics panel.<br>
+      .<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/kern3_3773.png"></div><br>
+      This has several benefits, one of which is to highlight class conflicts in red.<br>
+      Here, v and c are the master characters in their classes, and y is included in the "v" class.<br>
+      Therefore, when I attempt to apply a different kern value between y and c, FontLab marks it with a red number warning.<br>
+      .<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/Picture3_3947.jpg"></div><br>
+      This value is also listed in red in the kern pair table at the right of the metrics window, enabling one to scroll throught the entire kern pairs in a font, looking for conflicts.<p></p>
+  - id: 229225
+    user: 19831
+    date: 2007-09-24T06:44:00
+    date_raw: 24 Sep 2007 — 6:44am
+    votes: null
+    html: |-
+      <p>Thank you all.<br>
+      I usually check my classes via FL Studio's kerning assistance, which seems to work quite well(?).<br>
+      Unfortunately I have to generate via FontLab and cannot write all the kern-featurecode by hand ...</p>
+    html_clean: |-
+      <p>Thank you all.<br>
+      I usually check my classes via FL Studio's kerning assistance, which seems to work quite well(?).<br>
+      Unfortunately I have to generate via FontLab and cannot write all the kern-featurecode by hand ...</p>
+  - id: 229226
+    user: 3135
+    date: 2007-09-24T06:49:00
+    date_raw: 24 Sep 2007 — 6:49am
+    votes: null
+    html: |-
+      <p>Thanks for the info, all!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Thanks for the info, all!</p>
+      <p>ChrisL</p>

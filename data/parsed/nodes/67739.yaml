@@ -1,0 +1,101 @@
+node: 67739
+title: Using Unregistered Opentype Features
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100226141641"
+  captured_at: 2010-02-26T14:16:41Z
+  url: http://www.typophile.com:80/node/67739
+  digest: RFKDPYDJC26ZVJZAHYAXKDRR5DZGDONZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/67739.html
+  fingerprint: 6ad17171c77b3c4d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100226141641"
+      digest: RFKDPYDJC26ZVJZAHYAXKDRR5DZGDONZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/67739.html
+post:
+  id: 67739
+  user: 31798
+  date: 2010-02-23T11:15:00
+  date_raw: 23.Feb.2010 11.15am
+  votes: null
+  html: |-
+    <p>I've run into a bit of a feature-ordering dilemma, where two features can't be consistently ordered to produce the desired results. I'd thought of a rather ad-hoc hack to solve this, but was wondering whether this might potentially cause problems.</p>
+    <p>What I'd thought of doing was something along the lines of the following, where a 'dummy' feature is declared simply as a placeholder for a lookup:</p>
+    <p><code> feature QRXC { # dummy feature</code></p>
+    <p>&nbsp;&nbsp;&nbsp;lookup X {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do X<br>
+    &nbsp;&nbsp;&nbsp;} X;</p>
+    <p>} QRXC;</p>
+    <p>feature ss01 {<br>
+    &nbsp;&nbsp;&nbsp;# do Y<br>
+    } ss01;</p>
+    <p>feature ss02 {</p>
+    <p>&nbsp;&nbsp;&nbsp;lookup X;<br>
+    &nbsp;&nbsp;# do Z</p>
+    <p>} ss02; </p>
+    <p>This would force the relevant lookups to be ordered such that feature 'ss02' would be able to do some stuff both before and after feature 'ss01' is applied. Feature 'QRXC' presumably would never be activated on its own since 'QRXC' isn't a registered feature and presumably therefore no application will be aware of it.</p>
+    <p>Has anyone ever made use of this approach? Are there potential problems which might arise from using 'dummy' features (apart from the obvious problem that someone might someday register such a feature)?</p>
+    <p>André</p>
+  html_clean: |-
+    <p>I've run into a bit of a feature-ordering dilemma, where two features can't be consistently ordered to produce the desired results. I'd thought of a rather ad-hoc hack to solve this, but was wondering whether this might potentially cause problems.</p>
+    <p>What I'd thought of doing was something along the lines of the following, where a 'dummy' feature is declared simply as a placeholder for a lookup:</p>
+    <p><code> feature QRXC { # dummy feature</code></p>
+    <p>&nbsp;&nbsp;&nbsp;lookup X {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do X<br>
+    &nbsp;&nbsp;&nbsp;} X;</p>
+    <p>} QRXC;</p>
+    <p>feature ss01 {<br>
+    &nbsp;&nbsp;&nbsp;# do Y<br>
+    } ss01;</p>
+    <p>feature ss02 {</p>
+    <p>&nbsp;&nbsp;&nbsp;lookup X;<br>
+    &nbsp;&nbsp;# do Z</p>
+    <p>} ss02; </p>
+    <p>This would force the relevant lookups to be ordered such that feature 'ss02' would be able to do some stuff both before and after feature 'ss01' is applied. Feature 'QRXC' presumably would never be activated on its own since 'QRXC' isn't a registered feature and presumably therefore no application will be aware of it.</p>
+    <p>Has anyone ever made use of this approach? Are there potential problems which might arise from using 'dummy' features (apart from the obvious problem that someone might someday register such a feature)?</p>
+    <p>André</p>
+comments:
+  - id: 397691
+    user: 1262
+    date: 2010-02-23T14:18:00
+    date_raw: 23.Feb.2010 2.18pm
+    votes: null
+    html: <p>Why not use a tool like VOLT that allows you to order lookups independently of features? This is how the GSUB and GPOS table architecture is actually arranged, so tools that force you to order features discreetly are putting a limitation on OpenType fonts that are not part of the format.</p>
+    html_clean: <p>Why not use a tool like VOLT that allows you to order lookups independently of features? This is how the GSUB and GPOS table architecture is actually arranged, so tools that force you to order features discreetly are putting a limitation on OpenType fonts that are not part of the format.</p>
+  - id: 397752
+    user: 31798
+    date: 2010-02-23T19:08:00
+    date_raw: 23.Feb.2010 7.08pm
+    votes: null
+    html: |-
+      <p>I'm on a Mac, so VOLT isn't really an option (I tried to get it to run once under Darwine (a Mac version of wine), but without success). I'm aware that I can do this if I compile my features directly under the most recent AFDKO, but I'm more comfortable working within FontLab. As I said, the solution above is a cheap hack -- it works, but it results in a superfluous feature hanging around inside the font.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>I'm on a Mac, so VOLT isn't really an option (I tried to get it to run once under Darwine (a Mac version of wine), but without success). I'm aware that I can do this if I compile my features directly under the most recent AFDKO, but I'm more comfortable working within FontLab. As I said, the solution above is a cheap hack -- it works, but it results in a superfluous feature hanging around inside the font.</p>
+      <p>André</p>
+  - id: 397780
+    user: 45774
+    date: 2010-02-24T01:43:00
+    date_raw: 24.Feb.2010 1.43am
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>

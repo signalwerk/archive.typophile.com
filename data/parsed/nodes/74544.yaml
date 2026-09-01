@@ -1,0 +1,137 @@
+node: 74544
+title: "InDesign & Illustrator: contextual alternates at the end of a line"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131020073950"
+  captured_at: 2013-10-20T07:39:50Z
+  url: http://www.typophile.com/node/74544
+  digest: G2OCEDOKWM32WFDSCMTIOW247RPF3JAJ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/74544.html
+  fingerprint: 4a6ca4a1c54ebb78
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131020073950"
+      digest: G2OCEDOKWM32WFDSCMTIOW247RPF3JAJ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/74544.html
+post:
+  id: 74544
+  user: 1133
+  date: 2010-09-23T14:58:00
+  date_raw: 23 Sep 2010 — 2:58pm
+  votes: null
+  html: |-
+    <p>Guys, </p>
+    <p>I just ran into a problem in InDesign and Illustrator. In short: at the end of the line InDesign and Illustrator <strong>imply</strong> a space glyph. That's pretty annoying. </p>
+    <p>So I had this portion of code: </p>
+    <p><code>@WORDSEPA = [space period comma];<br>
+    @ALLTEXT = [...all glyphs <strong>including</strong> space...];</code></p>
+    <p><code>feature calt {<br>
+    	lookup calt.linefina {<br>
+    		ignore sub @linefina0' @ALLTEXT;<br>
+    		sub @linefina0' by @linefina1;<br>
+    	} calt.linefina;</code></p>
+    <p><code>	lookup calt.wordfina {<br>
+    		sub @wordfina0' @WORDSEPA by @wordfina1;<br>
+    	} calt.wordfina;<br>
+    } calt;</code></p>
+    <p>which worked fine in TextEdit or Word 2010. At the end of a <strong>word</strong>, the <code>@wordfina0</code> class was substituted by the <code>@wordfina1</code> class, while at the end of a <strong>line</strong>, the <code>@linefina0</code> class was substituted by the <code>@linefina1</code> class. But in InDesign, the second lookup (<code>calt.wordfina</code>) kicked in, not the first. </p>
+    <p>So I discovered that InDesign and Illustrator (CS4 and CS5) imply a <code>space</code> glyph at the end of every line (including the last line in a text frame).  </p>
+    <p>I developed a workaround that looks like the following: </p>
+    <p><code>@WORDSEPA = [space period comma];<br>
+    @ALLTEXT = [...all glyphs <strong>not including</strong> space...];</code></p>
+    <p><code>feature calt {<br>
+    	lookup calt.linefina {<br>
+    		ignore sub @linefina0' @ALLTEXT;<br>
+    		ignore sub @linefina0' space @ALLTEXT;<br>
+    		sub @linefina0' by @linefina1;<br>
+    	} calt.linefina;</code></p>
+    <p><code>	lookup calt.wordfina {<br>
+    		sub @wordfina0' @WORDSEPA by @wordfina1;<br>
+    	} calt.wordfina;<br>
+    } calt;</code></p>
+    <p>This now works in TextEdit and Word 2010 (where the first <code>ignore sub</code> rule kicks in), as well as in InDesign and Illustrator (where the second <code>ignore sub</code> rule is used). Of course, a side-effect of this is that typing two spaces will make the <code>calt.linefina</code> lookup kick in instead of the <code>calt.wordfina</code> lookup, but I think it's an acceptable price to pay. </p>
+    <p>However, I believe this is a bug in InDesign and Illustrator (I've informed Adobe about this). </p>
+    <p>Best,<br>
+    Adam</p>
+  html_clean: |-
+    <p>Guys, </p>
+    <p>I just ran into a problem in InDesign and Illustrator. In short: at the end of the line InDesign and Illustrator <strong>imply</strong> a space glyph. That's pretty annoying. </p>
+    <p>So I had this portion of code: </p>
+    <p><code>@WORDSEPA = [space period comma];<br>
+    @ALLTEXT = [...all glyphs <strong>including</strong> space...];</code></p>
+    <p><code>feature calt {<br>
+    	lookup calt.linefina {<br>
+    		ignore sub @linefina0' @ALLTEXT;<br>
+    		sub @linefina0' by @linefina1;<br>
+    	} calt.linefina;</code></p>
+    <p><code>	lookup calt.wordfina {<br>
+    		sub @wordfina0' @WORDSEPA by @wordfina1;<br>
+    	} calt.wordfina;<br>
+    } calt;</code></p>
+    <p>which worked fine in TextEdit or Word 2010. At the end of a <strong>word</strong>, the <code>@wordfina0</code> class was substituted by the <code>@wordfina1</code> class, while at the end of a <strong>line</strong>, the <code>@linefina0</code> class was substituted by the <code>@linefina1</code> class. But in InDesign, the second lookup (<code>calt.wordfina</code>) kicked in, not the first. </p>
+    <p>So I discovered that InDesign and Illustrator (CS4 and CS5) imply a <code>space</code> glyph at the end of every line (including the last line in a text frame).  </p>
+    <p>I developed a workaround that looks like the following: </p>
+    <p><code>@WORDSEPA = [space period comma];<br>
+    @ALLTEXT = [...all glyphs <strong>not including</strong> space...];</code></p>
+    <p><code>feature calt {<br>
+    	lookup calt.linefina {<br>
+    		ignore sub @linefina0' @ALLTEXT;<br>
+    		ignore sub @linefina0' space @ALLTEXT;<br>
+    		sub @linefina0' by @linefina1;<br>
+    	} calt.linefina;</code></p>
+    <p><code>	lookup calt.wordfina {<br>
+    		sub @wordfina0' @WORDSEPA by @wordfina1;<br>
+    	} calt.wordfina;<br>
+    } calt;</code></p>
+    <p>This now works in TextEdit and Word 2010 (where the first <code>ignore sub</code> rule kicks in), as well as in InDesign and Illustrator (where the second <code>ignore sub</code> rule is used). Of course, a side-effect of this is that typing two spaces will make the <code>calt.linefina</code> lookup kick in instead of the <code>calt.wordfina</code> lookup, but I think it's an acceptable price to pay. </p>
+    <p>However, I believe this is a bug in InDesign and Illustrator (I've informed Adobe about this). </p>
+    <p>Best,<br>
+    Adam</p>
+comments:
+  - id: 430926
+    user: 1844
+    date: 2010-09-23T15:09:00
+    date_raw: 23 Sep 2010 — 3:09pm
+    votes: null
+    html: |-
+      <p>Is this related with this other post?<br>
+      <a href="http://typophile.com/node/74468" title="http://typophile.com/node/74468">http://typophile.com/node/74468</a></p>
+    html_clean: |-
+      <p>Is this related with this other post?<br>
+      <a href="http://typophile.com/node/74468" title="http://typophile.com/node/74468">http://typophile.com/node/74468</a></p>
+  - id: 430944
+    user: 29994
+    date: 2010-09-23T16:52:00
+    date_raw: 23 Sep 2010 — 4:52pm
+    votes: null
+    html: |-
+      <p>Miguel, if you apply underlining to an entire paragraph, the "final" space at the end of each line also gets underlined ... Much to the dismay of fans of underlining.</p>
+      <p>I'm not sure if that has been true for all versions of InDesign.</p>
+    html_clean: |-
+      <p>Miguel, if you apply underlining to an entire paragraph, the "final" space at the end of each line also gets underlined ... Much to the dismay of fans of underlining.</p>
+      <p>I'm not sure if that has been true for all versions of InDesign.</p>
+  - id: 430947
+    user: 3135
+    date: 2010-09-23T17:05:00
+    date_raw: 23 Sep 2010 — 5:05pm
+    votes: null
+    html: <p>Thanks, Wielce Szanowny Panie Adamie</p>
+    html_clean: <p>Thanks, Wielce Szanowny Panie Adamie</p>

@@ -1,0 +1,150 @@
+node: 69087
+title: How to prevent Lam and Alif from getting tatwil between?
+forum:
+  id: 366
+  title: Arabic Typography & Type Design
+source:
+  archive: web.archive.org
+  timestamp: "20150317105648"
+  captured_at: 2015-03-17T10:56:48Z
+  url: http://typophile.com/node/69087
+  digest: G5COSOHSRZ2VQ77EOIM7BRF5BUGFEYN3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/69087.html
+  fingerprint: 43f0b5b1dd413606
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150317105648"
+      digest: G5COSOHSRZ2VQ77EOIM7BRF5BUGFEYN3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/69087.html
+post:
+  id: 69087
+  user: 59250
+  date: 2010-04-03T13:56:00
+  date_raw: 3 Apr 2010 — 1:56pm
+  votes: null
+  html: |-
+    <p>Hi all,<br>
+    For a long time I follow posts of this site, and learn a lot about <a href="/wiki/Arabic" class="freelinking" rel="nofollow">Arabic</a> typography. this is my first post in this interest group.<br>
+    I'm designing <a href="/wiki/nastaliq" class="freelinking" rel="nofollow">nastaliq</a> and badr fonts. i have some problems with <a href="/wiki/kashida" class="freelinking" rel="nofollow">kashida</a> (tatweel) appeared automatically when justifying; especially with MS Word some other famous fonts have same problem (font of image is Scheherazade):<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/tatweel_5071.JPG"></div><br>
+    How can i prevent? should i use cswh?<p></p>
+  html_clean: |-
+    <p>Hi all,<br>
+    For a long time I follow posts of this site, and learn a lot about <a href="/wiki/Arabic" class="freelinking" rel="nofollow">Arabic</a> typography. this is my first post in this interest group.<br>
+    I'm designing <a href="/wiki/nastaliq" class="freelinking" rel="nofollow">nastaliq</a> and badr fonts. i have some problems with <a href="/wiki/kashida" class="freelinking" rel="nofollow">kashida</a> (tatweel) appeared automatically when justifying; especially with MS Word some other famous fonts have same problem (font of image is Scheherazade):<br>
+    </p><div class="imageWrap"><img src="/files/tatweel_5071.jpg"></div><br>
+    How can i prevent? should i use cswh?<p></p>
+comments:
+  - id: 404800
+    user: 1262
+    date: 2010-04-03T19:58:00
+    date_raw: 3 Apr 2010 — 7:58pm
+    votes: null
+    html: <p>Ack! If software is doing this, then that's a bug in the software kashida insertion logic. It isn't something you can fix at the font level. You need to report this problem to the software maker.</p>
+    html_clean: <p>Ack! If software is doing this, then that's a bug in the software kashida insertion logic. It isn't something you can fix at the font level. You need to report this problem to the software maker.</p>
+  - id: 404809
+    user: 59250
+    date: 2010-04-04T01:08:00
+    date_raw: 4 Apr 2010 — 1:08am
+    votes: null
+    html: |-
+      <p>?!?<br>
+      I thought Tatweel Insertion, is a specific algorithm designed by unicode, like as bi-directional algorithm. isn't?<br>
+      so, if Microsoft office Word 2007 don't implement a correct algorithm, do you know another typesetting system do? i don't know anything about TeX based Arabic systems, but i'm pretty sure that XePersian justifies text by adding more space between words.<br>
+      Another way: is OpenType Turing-Complete or Turing-Consistent?<br>
+      for example in this situation control follow of text rendering engine (used with Justification algorithm) can be fall into an infinite loop:<br>
+      <code>Liga: semiLam tatweel semiAlif -&gt; semiLam semiAlif</code><br>
+      and again in the Justification algorithm:<br>
+      <code>Justify: semiLam semiAlif -&gt; semiLam tatweel semiAlif</code><br>
+      what will happen?</p>
+    html_clean: |-
+      <p>?!?<br>
+      I thought Tatweel Insertion, is a specific algorithm designed by unicode, like as bi-directional algorithm. isn't?<br>
+      so, if Microsoft office Word 2007 don't implement a correct algorithm, do you know another typesetting system do? i don't know anything about TeX based Arabic systems, but i'm pretty sure that XePersian justifies text by adding more space between words.<br>
+      Another way: is OpenType Turing-Complete or Turing-Consistent?<br>
+      for example in this situation control follow of text rendering engine (used with Justification algorithm) can be fall into an infinite loop:<br>
+      <code>Liga: semiLam tatweel semiAlif -&gt; semiLam semiAlif</code><br>
+      and again in the Justification algorithm:<br>
+      <code>Justify: semiLam semiAlif -&gt; semiLam tatweel semiAlif</code><br>
+      what will happen?</p>
+  - id: 404845
+    user: 1262
+    date: 2010-04-04T10:31:00
+    date_raw: 4 Apr 2010 — 10:31am
+    votes: null
+    html: |-
+      <p>As far as I know, tatweel insertion is not a Unicode algorithm, since it is a page layout feature not a plain text requirement.</p>
+      <p>The middle East version of InDesign supports quite good tatweel justification using its 'Naskh' justification setting.</p>
+      <p><em>what will happen?</em></p>
+      <p>The problem is that justification typically takes place by inserting a tatweel character (in a buffered state, not affecting the underlying text string) <em>after</em> glyph processing is complete, because that is the stage at which the page layout app knows how long the unjustified lines are and hence how much to widen them. This results in a couple of problems: one is that automatically inserted tatweels are outside glyph processing and hence won't be processed as part of GSUB or GPOS lookups; the other is that their use is effectively limited to flat styles of Arabic type, since curved elongations typical of all the traditional styles except Kufic require GSUB and GPOS handling. [I am meeting with some people from the MS Office team this coming week to discuss this limitation and look at ways in which it might be overcome.]</p>
+      <p>Note that if tatweel characters are manually inserted in the text string, then they will be processed during text shaping. Only automatically inserted tatweels will not.</p>
+      <p>It is interesting that your illustration shows Scheherazade, which does not use ligature glyphs but, rather, employs contextual substitution to render even the lam+alif form wth two glyphs. My guess is that because the tatweel insertion takes place after text shaping, Word will not normally insert a tatweel within a ligature (in the process ignoring some situations in which an elongation might legitimately occur), but they might be assuming that lam+alif will always be rendered using a ligature, which is an erroneous assumption as Scheherazade demonstrates. If their algorithm permits an elongation following a lam, but doesn't take into account the possibility that lam+alif might be represented by two separate glyphs, then that would produce the result you show.</p>
+    html_clean: |-
+      <p>As far as I know, tatweel insertion is not a Unicode algorithm, since it is a page layout feature not a plain text requirement.</p>
+      <p>The middle East version of InDesign supports quite good tatweel justification using its 'Naskh' justification setting.</p>
+      <p><em>what will happen?</em></p>
+      <p>The problem is that justification typically takes place by inserting a tatweel character (in a buffered state, not affecting the underlying text string) <em>after</em> glyph processing is complete, because that is the stage at which the page layout app knows how long the unjustified lines are and hence how much to widen them. This results in a couple of problems: one is that automatically inserted tatweels are outside glyph processing and hence won't be processed as part of GSUB or GPOS lookups; the other is that their use is effectively limited to flat styles of Arabic type, since curved elongations typical of all the traditional styles except Kufic require GSUB and GPOS handling. [I am meeting with some people from the MS Office team this coming week to discuss this limitation and look at ways in which it might be overcome.]</p>
+      <p>Note that if tatweel characters are manually inserted in the text string, then they will be processed during text shaping. Only automatically inserted tatweels will not.</p>
+      <p>It is interesting that your illustration shows Scheherazade, which does not use ligature glyphs but, rather, employs contextual substitution to render even the lam+alif form wth two glyphs. My guess is that because the tatweel insertion takes place after text shaping, Word will not normally insert a tatweel within a ligature (in the process ignoring some situations in which an elongation might legitimately occur), but they might be assuming that lam+alif will always be rendered using a ligature, which is an erroneous assumption as Scheherazade demonstrates. If their algorithm permits an elongation following a lam, but doesn't take into account the possibility that lam+alif might be represented by two separate glyphs, then that would produce the result you show.</p>
+  - id: 404863
+    user: 59250
+    date: 2010-04-04T14:14:00
+    date_raw: 4 Apr 2010 — 2:14pm
+    votes: null
+    html: |-
+      <p>I see.</p>
+      <p>Tatweel insertion algorithm of Word 2007 (and earlier versions) is published with them and cannot be modified. so, in order to maintain consistence with that versions, do you think designers are fated to use ligatures instead of contextual substitution? it could be a little boring :-)</p>
+      <p>I design ALL of my Alifs and Lams by contextual sub, so write a python macro for making them composed by AlifLam ligature (+and additional marks) to make changes easy. but there is tons of work to do.</p>
+      <p>before any wasting time and effort, do you have a better idea to help?</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/New Bitmap Image_3881.JPG"></div><p></p>
+      <p><em>I know some of them will never appear in real texts, but think all of possible compositions should be supported by font (perhaps for educational using, or just for fun).</em></p>
+    html_clean: |-
+      <p>I see.</p>
+      <p>Tatweel insertion algorithm of Word 2007 (and earlier versions) is published with them and cannot be modified. so, in order to maintain consistence with that versions, do you think designers are fated to use ligatures instead of contextual substitution? it could be a little boring :-)</p>
+      <p>I design ALL of my Alifs and Lams by contextual sub, so write a python macro for making them composed by AlifLam ligature (+and additional marks) to make changes easy. but there is tons of work to do.</p>
+      <p>before any wasting time and effort, do you have a better idea to help?</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/New Bitmap Image_3881.JPG"></div><p></p>
+      <p><em>I know some of them will never appear in real texts, but think all of possible compositions should be supported by font (perhaps for educational using, or just for fun).</em></p>
+  - id: 405879
+    user: 1262
+    date: 2010-04-09T11:46:00
+    date_raw: 9 Apr 2010 — 11:46am
+    votes: null
+    html: |-
+      <p>I met with some MS Office and shaping engine developers this week. There's general acknowledgement that kashida insertion is very buggy and needs to be improved. I'm working on this with them now, but my guess is that it will be a long time before improvements are coded, tested and rolled into shipping software.</p>
+      <p>Unfortunately, using ligatures doesn't really help much, because in some situations the kashida insertion loging will try to put a kashida between two letters that are ligated, but Word loses track of the relationship of glyphs to characters and the kashida is displayed after the ligature:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/morekashidaproblems_4523.gif"></div><p></p>
+      <p>For now, my advice to users is simply not to use kashida justification at all.</p>
+    html_clean: |-
+      <p>I met with some MS Office and shaping engine developers this week. There's general acknowledgement that kashida insertion is very buggy and needs to be improved. I'm working on this with them now, but my guess is that it will be a long time before improvements are coded, tested and rolled into shipping software.</p>
+      <p>Unfortunately, using ligatures doesn't really help much, because in some situations the kashida insertion loging will try to put a kashida between two letters that are ligated, but Word loses track of the relationship of glyphs to characters and the kashida is displayed after the ligature:<br>
+      </p><div class="imageWrap"><img src="/files/morekashidaproblems_4523.gif"></div><p></p>
+      <p>For now, my advice to users is simply not to use kashida justification at all.</p>
+  - id: 571698
+    user: 187995
+    date: 2014-02-18T18:21:00
+    date_raw: 18 Feb 2014 — 6:21pm
+    votes: null
+    html: |-
+      <p>I've just become aware of this issue and it still seems to be a problem with Office 2013. </p>
+      <p>Is there a known solution? Something I should implement in Scheherazade?</p>
+      <p>I also note that with the Amiri font Word seems to do only white-space justification. Amiri implements lam-alef as separate glyphs like Scheherazade, but something in the logic seems to prevent Word from inserting kashidas.</p>
+    html_clean: |-
+      <p>I've just become aware of this issue and it still seems to be a problem with Office 2013. </p>
+      <p>Is there a known solution? Something I should implement in Scheherazade?</p>
+      <p>I also note that with the Amiri font Word seems to do only white-space justification. Amiri implements lam-alef as separate glyphs like Scheherazade, but something in the logic seems to prevent Word from inserting kashidas.</p>

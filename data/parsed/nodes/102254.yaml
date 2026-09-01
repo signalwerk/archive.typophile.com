@@ -1,0 +1,174 @@
+node: 102254
+title: Compare side-bearing of two fonts
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809075543"
+  captured_at: 2014-08-09T07:55:43Z
+  url: http://typophile.com/node/102254
+  digest: YXEVU3ZFL3GKCJPU3OQW4MMIZ3YNBJ7O
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/102254.html
+  fingerprint: 23f0de1a6c816e5a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809075543"
+      digest: YXEVU3ZFL3GKCJPU3OQW4MMIZ3YNBJ7O
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/102254.html
+post:
+  id: 102254
+  user: 48056
+  date: 2013-04-13T05:54:00
+  date_raw: 13 Apr 2013 — 5:54am
+  votes: null
+  html: |-
+    <p>Hi</p>
+    <p>Is it possible to compare the side-bearings of two separate fonts and mark any differences.</p>
+    <p>I have been trying to do it with a macro. I can open the two fonts but how do I loop through the glyphs of the fonts. It would be nice it it skips any glyphs that aren't present in both fonts as well.</p>
+    <p><code><br>
+    from robofab.world import OpenFont<br>
+    fontOne = OpenFont(None)<br>
+    fontTwo = OpenFont(None)<br>
+    print fontOne.info.fullName,"/",fontTwo.info.fullName<br>
+    print " "<br>
+    for g in fontOne:<br>
+    	if fontOne[g].leftMargin != fontTwo[g].leftMargin or fontOne[g].rightMargin != fontTwo[g].rightMargin:<br>
+    	  print fontOne[g].leftMargin,"-",g,"-",fontOne[g].rightMargin<br>
+    	  print fontTwo[g].leftMargin,"-",g,"-",fontTwo[g].rightMargin<br>
+    	  print fontOne[g].leftMargin - fontTwo[g].leftMargin,"----",fontOne[g].rightMargin - fontTwo[g].rightMargin<br>
+    	  print "------------------"<br>
+    	  print " "<br>
+    	fontOne[g].mark += 10<br>
+    </code></p>
+  html_clean: |-
+    <p>Hi</p>
+    <p>Is it possible to compare the side-bearings of two separate fonts and mark any differences.</p>
+    <p>I have been trying to do it with a macro. I can open the two fonts but how do I loop through the glyphs of the fonts. It would be nice it it skips any glyphs that aren't present in both fonts as well.</p>
+    <p><code><br>
+    from robofab.world import OpenFont<br>
+    fontOne = OpenFont(None)<br>
+    fontTwo = OpenFont(None)<br>
+    print fontOne.info.fullName,"/",fontTwo.info.fullName<br>
+    print " "<br>
+    for g in fontOne:<br>
+    	if fontOne[g].leftMargin != fontTwo[g].leftMargin or fontOne[g].rightMargin != fontTwo[g].rightMargin:<br>
+    	  print fontOne[g].leftMargin,"-",g,"-",fontOne[g].rightMargin<br>
+    	  print fontTwo[g].leftMargin,"-",g,"-",fontTwo[g].rightMargin<br>
+    	  print fontOne[g].leftMargin - fontTwo[g].leftMargin,"----",fontOne[g].rightMargin - fontTwo[g].rightMargin<br>
+    	  print "------------------"<br>
+    	  print " "<br>
+    	fontOne[g].mark += 10<br>
+    </code></p>
+comments:
+  - id: 550833
+    user: 9636
+    date: 2013-04-13T19:27:00
+    date_raw: 13 Apr 2013 — 7:27pm
+    votes: null
+    html: |-
+      <p>You just have some syntax issues, mostly.<br>
+      - just 'cause Python is loosely typed doesn't mean you can ignore variable type. In order to print the left margin, which is an integer, you need to cast it as a string.<br>
+      - In order to specify a glyph, you need to pass it the glyph name, not the glyph itself, like:  font[glyphname"]<br>
+      - to add things to a print line, use the plus sign, not comma.</p>
+      <p>So try this:</p>
+      <p>from robofab.world import OpenFont<br>
+      fontOne = OpenFont(None)<br>
+      fontTwo = OpenFont(None)<br>
+      print fontOne.info.postscriptFullName + " / " + fontTwo.info.postscriptFullName<br>
+      print " "<br>
+      for g in fontOne:<br>
+          if fontOne[g.name].leftMargin != fontTwo[g.name].leftMargin or fontOne[g.name].rightMargin != fontTwo[g.name].rightMargin:<br>
+              print str(fontOne[g.name].leftMargin) + "-" + g.name + "-" + str(fontOne[g.name].rightMargin)<br>
+              print str(fontTwo[g.name].leftMargin) + "-" + g.name + "-" + str(fontTwo[g.name].rightMargin)<br>
+              print str(fontOne[g.name].leftMargin - fontTwo[g.name].leftMargin) + "----" + str(fontOne[g.name].rightMargin - fontTwo[g.name].rightMargin)<br>
+              print "------------------"<br>
+              print " "<br>
+              fontOne[g.name].mark += 10</p>
+    html_clean: |-
+      <p>You just have some syntax issues, mostly.<br>
+      - just 'cause Python is loosely typed doesn't mean you can ignore variable type. In order to print the left margin, which is an integer, you need to cast it as a string.<br>
+      - In order to specify a glyph, you need to pass it the glyph name, not the glyph itself, like:  font[glyphname"]<br>
+      - to add things to a print line, use the plus sign, not comma.</p>
+      <p>So try this:</p>
+      <p>from robofab.world import OpenFont<br>
+      fontOne = OpenFont(None)<br>
+      fontTwo = OpenFont(None)<br>
+      print fontOne.info.postscriptFullName + " / " + fontTwo.info.postscriptFullName<br>
+      print " "<br>
+      for g in fontOne:<br>
+          if fontOne[g.name].leftMargin != fontTwo[g.name].leftMargin or fontOne[g.name].rightMargin != fontTwo[g.name].rightMargin:<br>
+              print str(fontOne[g.name].leftMargin) + "-" + g.name + "-" + str(fontOne[g.name].rightMargin)<br>
+              print str(fontTwo[g.name].leftMargin) + "-" + g.name + "-" + str(fontTwo[g.name].rightMargin)<br>
+              print str(fontOne[g.name].leftMargin - fontTwo[g.name].leftMargin) + "----" + str(fontOne[g.name].rightMargin - fontTwo[g.name].rightMargin)<br>
+              print "------------------"<br>
+              print " "<br>
+              fontOne[g.name].mark += 10</p>
+  - id: 550834
+    user: 9636
+    date: 2013-04-13T19:28:00
+    date_raw: 13 Apr 2013 — 7:28pm
+    votes: null
+    html: <p>[duplicate post]</p>
+    html_clean: <p>[duplicate post]</p>
+  - id: 550937
+    user: 48056
+    date: 2013-04-15T01:51:00
+    date_raw: 15 Apr 2013 — 1:51am
+    votes: null
+    html: |-
+      <p>Thanks for that jasonc</p>
+      <p>It starts to work but then stops with no error output. I think it might be because the fonts might have slightly different glyphs included.</p>
+      <p>They are both variants of the same font but one has been updated slightly and I wanted to make sure the spacing hand't been changed.</p>
+      <p>Is there a log i can check to see why it stops?</p>
+    html_clean: |-
+      <p>Thanks for that jasonc</p>
+      <p>It starts to work but then stops with no error output. I think it might be because the fonts might have slightly different glyphs included.</p>
+      <p>They are both variants of the same font but one has been updated slightly and I wanted to make sure the spacing hand't been changed.</p>
+      <p>Is there a log i can check to see why it stops?</p>
+  - id: 551037
+    user: 9636
+    date: 2013-04-15T17:07:00
+    date_raw: 15 Apr 2013 — 5:07pm
+    votes: null
+    html: |-
+      <p>Really? IN my testing it works when the glyph sets are not the same, it simply reports zeros for both sidebearings. Not an elegant solution but it works. </p>
+      <p>Did you adjust the indents before running it? Typophile edits out the indents, so you need to do that in order for it to work</p>
+    html_clean: |-
+      <p>Really? IN my testing it works when the glyph sets are not the same, it simply reports zeros for both sidebearings. Not an elegant solution but it works. </p>
+      <p>Did you adjust the indents before running it? Typophile edits out the indents, so you need to do that in order for it to work</p>
+  - id: 551052
+    user: 48056
+    date: 2013-04-16T00:17:00
+    date_raw: 16 Apr 2013 — 12:17am
+    votes: null
+    html: |-
+      <p>Yes I replaced the indents.</p>
+      <p>It starts so I'm assuming it works but then stops.</p>
+      <p>Is there a log somewhere I could check?</p>
+    html_clean: |-
+      <p>Yes I replaced the indents.</p>
+      <p>It starts so I'm assuming it works but then stops.</p>
+      <p>Is there a log somewhere I could check?</p>
+  - id: 551184
+    user: 9636
+    date: 2013-04-16T20:59:00
+    date_raw: 16 Apr 2013 — 8:59pm
+    votes: null
+    html: <p>Not really. You can try adding print statements at different places so you can see where it's at. If you're not seeing any print lines, then you know it's stuck at the beginning, of course.</p>
+    html_clean: <p>Not really. You can try adding print statements at different places so you can see where it's at. If you're not seeing any print lines, then you know it's stuck at the beginning, of course.</p>

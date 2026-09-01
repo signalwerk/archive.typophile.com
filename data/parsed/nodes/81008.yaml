@@ -1,0 +1,205 @@
+node: 81008
+title: Slight inelegance or real problem with two calt blocks?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131017023240"
+  captured_at: 2013-10-17T02:32:40Z
+  url: http://typophile.com/node/81008
+  digest: S5UDJJXQRRM47STOMEUA7G5NUAWHKZ4Q
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/81008.html
+  fingerprint: 7628d71485d86f8c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131017023240"
+      digest: S5UDJJXQRRM47STOMEUA7G5NUAWHKZ4Q
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/81008.html
+post:
+  id: 81008
+  user: 96799
+  date: 2011-04-09T10:43:00
+  date_raw: 9 Apr 2011 — 10:43am
+  votes: null
+  html: <p>I found myself having to use two different calt blocks, one upstream of a salt block and one downstream from the salt block. This is admittedly inelegant, but can it cause any real problems?</p>
+  html_clean: <p>I found myself having to use two different calt blocks, one upstream of a salt block and one downstream from the salt block. This is admittedly inelegant, but can it cause any real problems?</p>
+comments:
+  - id: 459431
+    user: 1262
+    date: 2011-04-09T11:16:00
+    date_raw: 9 Apr 2011 — 11:16am
+    votes: null
+    html: <p>There's nothing wrong with this, and I wouldn't assume it to be inelegant. The OpenType Layout model explicitly allows this, and in some cases it may be the most elegant solution to a layout challenge. I regularly make fonts with staggered lookups.</p>
+    html_clean: <p>There's nothing wrong with this, and I wouldn't assume it to be inelegant. The OpenType Layout model explicitly allows this, and in some cases it may be the most elegant solution to a layout challenge. I regularly make fonts with staggered lookups.</p>
+  - id: 460552
+    user: 96799
+    date: 2011-04-17T11:46:00
+    date_raw: 17 Apr 2011 — 11:46am
+    votes: null
+    html: <p>Thanks John. I feel less inelegant now. Can I get away with an extra liga feature bloc as well?</p>
+    html_clean: <p>Thanks John. I feel less inelegant now. Can I get away with an extra liga feature bloc as well?</p>
+  - id: 460668
+    user: 1262
+    date: 2011-04-17T19:34:00
+    date_raw: 17 Apr 2011 — 7:34pm
+    votes: null
+    html: <p>You can have whatever arrangement of lookups achieves your purpose. You should try to be efficient, bearing in mind that the more lookups you have the greater the processing required during layout, but that doesn't always imply lumping all the lookups for one feature together; sometimes, staggering the lookups gains you efficiencies elsewhere.</p>
+    html_clean: <p>You can have whatever arrangement of lookups achieves your purpose. You should try to be efficient, bearing in mind that the more lookups you have the greater the processing required during layout, but that doesn't always imply lumping all the lookups for one feature together; sometimes, staggering the lookups gains you efficiencies elsewhere.</p>
+  - id: 461169
+    user: 1133
+    date: 2011-04-20T12:11:00
+    date_raw: 20 Apr 2011 — 12:11pm
+    votes: null
+    html: |-
+      <p>Damn! </p>
+      <p>Scriptor, thanks for that. I've spent many years writing feature definitions code, and hit this problem several times, and never realized this simple solution. </p>
+      <p>I have always assumed that in AFDKO syntax, it's not possible to write: </p>
+      <p><code>feature ss01 {<br>
+        sub A by B;<br>
+      } ss01;<br>
+      feature liga {<br>
+        sub B by C;<br>
+      } liga;<br>
+      feature ss01 {<br>
+        sub C by D;<br>
+      } ss01;</code></p>
+      <p>But actually, your post made me realize that it is possible, and correct. The AFDKO compiler (in FontLab Studio) will issue a warning (feature already defined: ss01) but it'll still compile. </p>
+      <p>What this code does is, when expressed in AFDKO 2.5 format, which is closer to what happens in the real font, it will produce three lookups: </p>
+      <p><code>lookup L1 {<br>
+        sub A by B;<br>
+      } L1;<br>
+      lookup L2 {<br>
+        sub B by C;<br>
+      } L2;<br>
+      lookup L3 {<br>
+        sub C by D;<br>
+      } L3;</code></p>
+      <p>and will map those lookups to two features: </p>
+      <p><code>feature liga {<br>
+        lookup L2;<br>
+      } liga;<br>
+      feature ss01 {<br>
+        lookup L1;<br>
+        lookup L3;<br>
+      } ss01;</code></p>
+      <p>Since in the font, the it is the order of lookups that defines the order of processing of the glyph stream, this will have the effect that if only "liga" is active, only the lookup L2 will be executed, if only "ss01" is active, the lookup L1, and then L3, will be executed, and if both features are active, then the lookups will be executed in the order L1, then L2, then L3. </p>
+      <p>Brilliant. I never thought that this was actually possible to do in the AFDKO 1.6 syntax that FontLab Studio 5 is using. (In AFDKO 2.5, which is used by Fontographer 5 and DTL OTMaster, and will also be used by FontLab Studio 5.5, I assumed that this was only possible by placing the lookup definitions outside of the feature definitions. But I was wrong. The method shown above is also valid, and it works in AFDKO 1.6 already. Cool!)</p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Damn! </p>
+      <p>Scriptor, thanks for that. I've spent many years writing feature definitions code, and hit this problem several times, and never realized this simple solution. </p>
+      <p>I have always assumed that in AFDKO syntax, it's not possible to write: </p>
+      <p><code>feature ss01 {<br>
+        sub A by B;<br>
+      } ss01;<br>
+      feature liga {<br>
+        sub B by C;<br>
+      } liga;<br>
+      feature ss01 {<br>
+        sub C by D;<br>
+      } ss01;</code></p>
+      <p>But actually, your post made me realize that it is possible, and correct. The AFDKO compiler (in FontLab Studio) will issue a warning (feature already defined: ss01) but it'll still compile. </p>
+      <p>What this code does is, when expressed in AFDKO 2.5 format, which is closer to what happens in the real font, it will produce three lookups: </p>
+      <p><code>lookup L1 {<br>
+        sub A by B;<br>
+      } L1;<br>
+      lookup L2 {<br>
+        sub B by C;<br>
+      } L2;<br>
+      lookup L3 {<br>
+        sub C by D;<br>
+      } L3;</code></p>
+      <p>and will map those lookups to two features: </p>
+      <p><code>feature liga {<br>
+        lookup L2;<br>
+      } liga;<br>
+      feature ss01 {<br>
+        lookup L1;<br>
+        lookup L3;<br>
+      } ss01;</code></p>
+      <p>Since in the font, the it is the order of lookups that defines the order of processing of the glyph stream, this will have the effect that if only "liga" is active, only the lookup L2 will be executed, if only "ss01" is active, the lookup L1, and then L3, will be executed, and if both features are active, then the lookups will be executed in the order L1, then L2, then L3. </p>
+      <p>Brilliant. I never thought that this was actually possible to do in the AFDKO 1.6 syntax that FontLab Studio 5 is using. (In AFDKO 2.5, which is used by Fontographer 5 and DTL OTMaster, and will also be used by FontLab Studio 5.5, I assumed that this was only possible by placing the lookup definitions outside of the feature definitions. But I was wrong. The method shown above is also valid, and it works in AFDKO 1.6 already. Cool!)</p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 461171
+    user: 1133
+    date: 2011-04-20T12:07:00
+    date_raw: 20 Apr 2011 — 12:07pm
+    votes: null
+    html: |-
+      <p>Basically, this finding also means that the syntax: </p>
+      <p><code>feature ss01 {<br>
+        lookup L1 {<br>
+        sub A by B;<br>
+        } L1;<br>
+        lookup L2 {<br>
+        sub B by C;<br>
+        } L2;<br>
+      } ss01;</code></p>
+      <p>can be equivalently expressed as</p>
+      <p><code>feature ss01 {<br>
+        sub A by B;<br>
+      } ss01;<br>
+      feature ss01 {<br>
+        sub B by C;<br>
+      } ss01;</code></p>
+      <p>Very interesting!</p>
+    html_clean: |-
+      <p>Basically, this finding also means that the syntax: </p>
+      <p><code>feature ss01 {<br>
+        lookup L1 {<br>
+        sub A by B;<br>
+        } L1;<br>
+        lookup L2 {<br>
+        sub B by C;<br>
+        } L2;<br>
+      } ss01;</code></p>
+      <p>can be equivalently expressed as</p>
+      <p><code>feature ss01 {<br>
+        sub A by B;<br>
+      } ss01;<br>
+      feature ss01 {<br>
+        sub B by C;<br>
+      } ss01;</code></p>
+      <p>Very interesting!</p>
+  - id: 461260
+    user: 96799
+    date: 2011-04-21T04:37:00
+    date_raw: 21 Apr 2011 — 4:37am
+    votes: null
+    html: <p>My concern is about the two or three recompilations that might occur before it all comes up on an end user programme. How is one to know that a 'warning' such as you mention does not mean that a subsequent piece of programming might be too clever by half and decide to bring all the 'calt' coding together into one block so that all of it ends up upstream of the 'salt' feature anyway?</p>
+    html_clean: <p>My concern is about the two or three recompilations that might occur before it all comes up on an end user programme. How is one to know that a 'warning' such as you mention does not mean that a subsequent piece of programming might be too clever by half and decide to bring all the 'calt' coding together into one block so that all of it ends up upstream of the 'salt' feature anyway?</p>
+  - id: 461384
+    user: 1133
+    date: 2011-04-21T15:26:00
+    date_raw: 21 Apr 2011 — 3:26pm
+    votes: null
+    html: |-
+      <p>Scriptor, </p>
+      <p>there is just one compilation of the code, and what is in the font, gets executed by the OpenType Layout engine. The "blocks" are lookups. I've written about what they are and how they work here:<br>
+      <a href="http://typophile.com/node/29898#comment-171706" title="http://typophile.com/node/29898#comment-171706">http://typophile.com/node/29898#comment-171706</a></p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Scriptor, </p>
+      <p>there is just one compilation of the code, and what is in the font, gets executed by the OpenType Layout engine. The "blocks" are lookups. I've written about what they are and how they work here:<br>
+      <a href="/node/29898/#comment-171706" title="http://typophile.com/node/29898#comment-171706">http://typophile.com/node/29898#comment-171706</a></p>
+      <p>Best,<br>
+      Adam</p>

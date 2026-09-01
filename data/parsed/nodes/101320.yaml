@@ -1,0 +1,156 @@
+node: 101320
+title: "FontLab fatal, yet another compilation error:"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809101719"
+  captured_at: 2014-08-09T10:17:19Z
+  url: http://typophile.com/node/101320
+  digest: GB7IMVMGTY46MCE3BS62RU4RUEMCGZER
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/101320.html
+  fingerprint: 2697adcaac429aff
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809101719"
+      digest: GB7IMVMGTY46MCE3BS62RU4RUEMCGZER
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/101320.html
+post:
+  id: 101320
+  user: 17347
+  date: 2013-03-12T09:13:00
+  date_raw: 12 Mar 2013 — 9:13am
+  votes: null
+  html: |-
+    <p>[FATAL]  aborting because of errors:<br>
+    syntax error at "-"<br>
+    [/Users/andreasstotzner/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 24]</p>
+    <p>This is the message I get when compiling.<br>
+    Does anyone understand this? Help very much appreciated.</p>
+  html_clean: |-
+    <p>[FATAL]  aborting because of errors:<br>
+    syntax error at "-"<br>
+    [/Users/andreasstotzner/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 24]</p>
+    <p>This is the message I get when compiling.<br>
+    Does anyone understand this? Help very much appreciated.</p>
+comments:
+  - id: 546804
+    user: 17347
+    date: 2013-03-12T09:43:00
+    date_raw: 12 Mar 2013 — 9:43am
+    votes: null
+    html: |-
+      <p>I added the <strong>ccmp</strong> to the existing feature code. Now I wonder if the hyphens in my special glyphs names may have caused the trouble. The beginning looks as follows:<br>
+      <code><br>
+      feature ccmp {# Dania Akzentkombinationen<br>
+        sub uni0252 uni0324 by d-a2-1;<br>
+        sub d-a4 uni030A by d-a4-1;<br>
+        sub d-ae-1 uni030A by d-ae1-1;<br>
+        sub d-ae-1 gravecomb by d-ae1-2;<br>
+        sub d-ae2 uni030A by d-ae2-1;<br>
+        sub d-c2 uni0307 by d-c2-1;<br>
+      </code></p>
+      <p><strong>d-a4-1</strong> and the like are special custom glyphs in the font.</p>
+    html_clean: |-
+      <p>I added the <strong>ccmp</strong> to the existing feature code. Now I wonder if the hyphens in my special glyphs names may have caused the trouble. The beginning looks as follows:<br>
+      <code><br>
+      feature ccmp {# Dania Akzentkombinationen<br>
+        sub uni0252 uni0324 by d-a2-1;<br>
+        sub d-a4 uni030A by d-a4-1;<br>
+        sub d-ae-1 uni030A by d-ae1-1;<br>
+        sub d-ae-1 gravecomb by d-ae1-2;<br>
+        sub d-ae2 uni030A by d-ae2-1;<br>
+        sub d-c2 uni0307 by d-c2-1;<br>
+      </code></p>
+      <p><strong>d-a4-1</strong> and the like are special custom glyphs in the font.</p>
+  - id: 546807
+    user: 1262
+    date: 2013-03-12T09:51:00
+    date_raw: 12 Mar 2013 — 9:51am
+    votes: null
+    html: |-
+      <p>Yes, hyphens in glyph names could well be a problem. See section 4 of the relevant Adobe developer document:<br>
+      <a href="http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html" title="http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html">http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html</a></p>
+    html_clean: |-
+      <p>Yes, hyphens in glyph names could well be a problem. See section 4 of the relevant Adobe developer document:<br>
+      <a href="http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html" title="http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html">http://www.adobe.com/devnet-archive/opentype/archives/glyphnamelimits.html</a></p>
+  - id: 546825
+    user: 17347
+    date: 2013-03-12T10:56:00
+    date_raw: 12 Mar 2013 — 10:56am
+    votes: null
+    html: |-
+      <p>I did an alternative try out with all the hyphens in names eliminated.<br>
+      The same error.<br>
+      – ?</p>
+    html_clean: |-
+      <p>I did an alternative try out with all the hyphens in names eliminated.<br>
+      The same error.<br>
+      – ?</p>
+  - id: 546829
+    user: 3254
+    date: 2013-03-12T11:25:00
+    date_raw: 12 Mar 2013 — 11:25am
+    votes: null
+    html: <p>Names changed not only in the glyphs but in any classes and OT features referencing them?</p>
+    html_clean: <p>Names changed not only in the glyphs but in any classes and OT features referencing them?</p>
+  - id: 546840
+    user: 5094
+    date: 2013-03-12T14:01:00
+    date_raw: 12 Mar 2013 — 2:01pm
+    votes: null
+    html: |-
+      <p>Don't do things like this. </p>
+      <p>Maybe, if your font is intended for dilettantes' only -- an author who will not ever make use of an editor, designer, or compositor, and whose work will <strong>never, ever</strong> be rendered in any font other than yours, and where no XML document will ever be needed, it is passable, but not really.</p>
+      <p>Unicode is suppose to end all the nonsense of special encodings -- what character you get depends on what font you're in -- and that means ccmp should allow decompiling to canonical Unicode. Look up the proper form.</p>
+      <p>And take some pity on the poor editor, designer, typesetter, too.  The author will supply his/her text in Times, (or Gentium if everyone's terribly lucky), and someone's going to have to figure out how to use your font with the text string supplied. </p>
+      <p>With that in mind, what does </p>
+      <p>sub d-ae-1 uni030A by d-ae1-1;</p>
+      <p>involve? </p>
+      <p>a <strong>d</strong>, ligatured with an <strong>ash</strong> character (variant 1) with a <strong>ring accent</strong>?</p>
+      <p>If that's the case, I'd make up the ash with a ring &amp; substitute variant one in the same set where I substituted the variant ash character, then lig it with the d.</p>
+      <p>And if ae is a ligature rather than the ash character, make that clear (work), too.</p>
+      <p>Everything should all work seamlessly with your font if the (original) text stream is in canonically correct Unicode, with the designer/typesetter having to figure out only which character variant to select. And once a pdf is made, extracting text should be seamless, too.</p>
+      <p>* * *</p>
+      <p>As for debugging, the old rule is get something that works, and add one thing until that works, too. Then add the next. In a play file. You've got my sympathy here -- been there.</p>
+    html_clean: |-
+      <p>Don't do things like this. </p>
+      <p>Maybe, if your font is intended for dilettantes' only -- an author who will not ever make use of an editor, designer, or compositor, and whose work will <strong>never, ever</strong> be rendered in any font other than yours, and where no XML document will ever be needed, it is passable, but not really.</p>
+      <p>Unicode is suppose to end all the nonsense of special encodings -- what character you get depends on what font you're in -- and that means ccmp should allow decompiling to canonical Unicode. Look up the proper form.</p>
+      <p>And take some pity on the poor editor, designer, typesetter, too.  The author will supply his/her text in Times, (or Gentium if everyone's terribly lucky), and someone's going to have to figure out how to use your font with the text string supplied. </p>
+      <p>With that in mind, what does </p>
+      <p>sub d-ae-1 uni030A by d-ae1-1;</p>
+      <p>involve? </p>
+      <p>a <strong>d</strong>, ligatured with an <strong>ash</strong> character (variant 1) with a <strong>ring accent</strong>?</p>
+      <p>If that's the case, I'd make up the ash with a ring &amp; substitute variant one in the same set where I substituted the variant ash character, then lig it with the d.</p>
+      <p>And if ae is a ligature rather than the ash character, make that clear (work), too.</p>
+      <p>Everything should all work seamlessly with your font if the (original) text stream is in canonically correct Unicode, with the designer/typesetter having to figure out only which character variant to select. And once a pdf is made, extracting text should be seamless, too.</p>
+      <p>* * *</p>
+      <p>As for debugging, the old rule is get something that works, and add one thing until that works, too. Then add the next. In a play file. You've got my sympathy here -- been there.</p>
+  - id: 546864
+    user: 17347
+    date: 2013-03-12T16:00:00
+    date_raw: 12 Mar 2013 — 4:00pm
+    votes: null
+    html: |-
+      <p>&gt; Names changed not only in the glyphs but in any classes and OT features referencing them?</p>
+      <p>no classes involved but names changed for glyphs *and* in OT features.</p>
+    html_clean: |-
+      <p>&gt; Names changed not only in the glyphs but in any classes and OT features referencing them?</p>
+      <p>no classes involved but names changed for glyphs *and* in OT features.</p>

@@ -1,0 +1,100 @@
+node: 87494
+title: Pyphon command for setting left and right bearings
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20111206121350"
+  captured_at: 2011-12-06T12:13:50Z
+  url: http://typophile.com:80/node/87494
+  digest: TSJL466GFULHH4AYWFXSSKAUULT63VJN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/87494.html
+  fingerprint: ddeeceaca5aec8c6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20111206121350"
+      digest: TSJL466GFULHH4AYWFXSSKAUULT63VJN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/87494.html
+post:
+  id: 87494
+  user: 17947
+  date: 2011-11-17T17:21:00
+  date_raw: 17.Nov.2011 5.21pm
+  votes: null
+  html: |-
+    <p>Sorry, desperately posting here. We recently enlarged a bunch of glyphs and discovered the wonderful Fontlab bug of negative side bearings. Fontlab changed all the negative bearings in a wrong direction.</p>
+    <p>I've writtin a Python script to help me fix them and I'm able to read old bearings on a glyph (from a previous version of the Fontlab file) change to my font in progress, read the bearings there and calculate the numbers I need.</p>
+    <p>The only thing I can't find is how to set the bearings to my new numbers.</p>
+    <p>I'm sure there is something I'm missing something and any help would be greatly appreciated.</p>
+    <p>Ken</p>
+  html_clean: |-
+    <p>Sorry, desperately posting here. We recently enlarged a bunch of glyphs and discovered the wonderful Fontlab bug of negative side bearings. Fontlab changed all the negative bearings in a wrong direction.</p>
+    <p>I've writtin a Python script to help me fix them and I'm able to read old bearings on a glyph (from a previous version of the Fontlab file) change to my font in progress, read the bearings there and calculate the numbers I need.</p>
+    <p>The only thing I can't find is how to set the bearings to my new numbers.</p>
+    <p>I'm sure there is something I'm missing something and any help would be greatly appreciated.</p>
+    <p>Ken</p>
+comments:
+  - id: 484391
+    user: 14455
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>You can do something like this:<br>
+      <code></code></p>
+      <pre>from FL import *
+
+      def setSidebearing(glyph, lsb=0, rsb=0, mask=False, composites=False):
+        code = 19
+        text = '%d %d 0 0 0 0 0 %d %d' % (lsb, rsb, mask, composites)
+        fl.TransformGlyph(glyph, code, text)
+        glyph.modified = 1
+      	
+      setSidebearing(fl.font[fl.iglyph], 22, 25, True, True)
+      fl.UpdateGlyph(fl.iglyph)
+      </pre><p></p>
+      <p>Best<br>
+      Eigi</p>
+    html_clean: |-
+      <p>You can do something like this:<br>
+      <code></code></p>
+      <pre>from FL import *
+
+      def setSidebearing(glyph, lsb=0, rsb=0, mask=False, composites=False):
+        code = 19
+        text = '%d %d 0 0 0 0 0 %d %d' % (lsb, rsb, mask, composites)
+        fl.TransformGlyph(glyph, code, text)
+        glyph.modified = 1
+      	
+      setSidebearing(fl.font[fl.iglyph], 22, 25, True, True)
+      fl.UpdateGlyph(fl.iglyph)
+      </pre><p></p>
+      <p>Best<br>
+      Eigi</p>
+  - id: 484559
+    user: 17947
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thanks Eigi, worked just right.</p>
+      <p>Ken</p>
+    html_clean: |-
+      <p>Thanks Eigi, worked just right.</p>
+      <p>Ken</p>

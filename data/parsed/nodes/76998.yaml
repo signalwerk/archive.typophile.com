@@ -1,0 +1,78 @@
+node: 76998
+title: question regarding lookupflags
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20101208043347"
+  captured_at: 2010-12-08T04:33:47Z
+  url: http://typophile.com:80/node/76998
+  digest: O3ZKABXOIFIEB6SPLDUEZANOSLCTME4B
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/76998.html
+  fingerprint: 9ba1a05598d37f89
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20101208043347"
+      digest: O3ZKABXOIFIEB6SPLDUEZANOSLCTME4B
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/76998.html
+post:
+  id: 76998
+  user: 31798
+  date: 2010-12-06T14:57:00
+  date_raw: 6.Dec.2010 2.57pm
+  votes: null
+  html: |-
+    <p>I think I may not understand correctly how lookupflags and glyph types work, and was hoping someone might be able to clarify this for me.</p>
+    <p>I have a piece of code like the following in a font:</p>
+    <p><code>lookup A { </code></p>
+    <p><code>&nbsp;&nbsp;lookupflag IgnoreMarks; </code></p>
+    <p><code>&nbsp;&nbsp;sub @X' @Y by @Z; </code></p>
+    <p><code>} A; </code></p>
+    <p>In the glyph properties window in FLS5 I've assigned all of the combining diacritics to the 'marks' class and in my FLS5 preferences I've made sure that the 'generate GDEF table' option is set. I'd assumed that the above code would work effectively the same as the following pseudocode, but apparently not.</p>
+    <p><code>lookup A { </code></p>
+    <p><code>&nbsp;&nbsp;sub @X' @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;sub @X' @CombiningDiacritics @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;sub @X' @CombiningDiacritics @CombiningDiacritics @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code></p>
+    <p><code>} A; </code></p>
+    <p>As far as I can tell, the presence of <code> lookupflag IgnoreMarks </code> has no affect whatsoever on the behaviour of the font. What am I missing here?</p>
+    <p>Thanks,</p>
+    <p>André</p>
+  html_clean: |-
+    <p>I think I may not understand correctly how lookupflags and glyph types work, and was hoping someone might be able to clarify this for me.</p>
+    <p>I have a piece of code like the following in a font:</p>
+    <p><code>lookup A { </code></p>
+    <p><code>&nbsp;&nbsp;lookupflag IgnoreMarks; </code></p>
+    <p><code>&nbsp;&nbsp;sub @X' @Y by @Z; </code></p>
+    <p><code>} A; </code></p>
+    <p>In the glyph properties window in FLS5 I've assigned all of the combining diacritics to the 'marks' class and in my FLS5 preferences I've made sure that the 'generate GDEF table' option is set. I'd assumed that the above code would work effectively the same as the following pseudocode, but apparently not.</p>
+    <p><code>lookup A { </code></p>
+    <p><code>&nbsp;&nbsp;sub @X' @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;sub @X' @CombiningDiacritics @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;sub @X' @CombiningDiacritics @CombiningDiacritics @Y by @Z; </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code><br>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;. </code></p>
+    <p><code>} A; </code></p>
+    <p>As far as I can tell, the presence of <code> lookupflag IgnoreMarks </code> has no affect whatsoever on the behaviour of the font. What am I missing here?</p>
+    <p>Thanks,</p>
+    <p>André</p>
+comments: []

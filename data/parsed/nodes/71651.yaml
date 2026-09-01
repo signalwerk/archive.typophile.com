@@ -1,0 +1,92 @@
+node: 71651
+title: Contextual Alternates Question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100626213046"
+  captured_at: 2010-06-26T21:30:46Z
+  url: http://typophile.com:80/node/71651
+  digest: X2CMFPTNYWBK2IGVV77JK3RL2B3W4QKT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/71651.html
+  fingerprint: 3079927f31cbc5e3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100626213046"
+      digest: X2CMFPTNYWBK2IGVV77JK3RL2B3W4QKT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71651.html
+post:
+  id: 71651
+  user: 6470
+  date: 2010-06-24T18:11:00
+  date_raw: 24.Jun.2010 6.11pm
+  votes: null
+  html: |-
+    <p>I don't get out much, so pretty much everything I know about OpenType programming, I've learned here. Ergo...</p>
+    <p>I'm working on a font that requires contextual alternates for certain characters (A, H, I, M, N, T, X and any accented characters associated with same) preceding EVERY instance of S, X, Z, s, x and z. I'm not sure what the easiest way to accomplish this is, and how to avoid recursive problems with X.</p>
+    <p>Any suggestions would be greatly appreciated.</p>
+  html_clean: |-
+    <p>I don't get out much, so pretty much everything I know about OpenType programming, I've learned here. Ergo...</p>
+    <p>I'm working on a font that requires contextual alternates for certain characters (A, H, I, M, N, T, X and any accented characters associated with same) preceding EVERY instance of S, X, Z, s, x and z. I'm not sure what the easiest way to accomplish this is, and how to avoid recursive problems with X.</p>
+    <p>Any suggestions would be greatly appreciated.</p>
+comments:
+  - id: 417389
+    user: 7006
+    date: 2010-06-24T20:08:00
+    date_raw: 24.Jun.2010 8.08pm
+    votes: null
+    html: |-
+      <p>Make three classes, for example</p>
+      <p>@pre = [A H I M N T X]; # the glyphs you want to substitute out<br>
+      @post = [A.alt H.alt I.alt M.alt N.alt T.alt X.alt]; # the glyphs you want to substitute in go here<br>
+      @context = [S X Z s x z]; # the glyphs that trigger your substitution go here</p>
+      <p>Then in your Contextual Alternates (calt) feature use the following code</p>
+      <p>feature calt {<br>
+         sub @pre' @context by @post;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>Make three classes, for example</p>
+      <p>@pre = [A H I M N T X]; # the glyphs you want to substitute out<br>
+      @post = [A.alt H.alt I.alt M.alt N.alt T.alt X.alt]; # the glyphs you want to substitute in go here<br>
+      @context = [S X Z s x z]; # the glyphs that trigger your substitution go here</p>
+      <p>Then in your Contextual Alternates (calt) feature use the following code</p>
+      <p>feature calt {<br>
+         sub @pre' @context by @post;<br>
+      } calt;</p>
+  - id: 417479
+    user: 6470
+    date: 2010-06-25T09:23:00
+    date_raw: 25.Jun.2010 9.23am
+    votes: null
+    html: "<p>Thanks, Paul: that's an elegant solution, and it works like a charm.</p>"
+    html_clean: "<p>Thanks, Paul: that's an elegant solution, and it works like a charm.</p>"
+  - id: 417497
+    user: 7006
+    date: 2010-06-25T10:49:00
+    date_raw: 25.Jun.2010 10.49am
+    votes: null
+    html: <p>you're quite welcome. This may not be all the code you need, but it provides the most basic functionality for what you were asking about.</p>
+    html_clean: <p>you're quite welcome. This may not be all the code you need, but it provides the most basic functionality for what you were asking about.</p>
+  - id: 417498
+    user: 3135
+    date: 2010-06-25T10:54:00
+    date_raw: 25.Jun.2010 10.54am
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>

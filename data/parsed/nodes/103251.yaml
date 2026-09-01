@@ -1,0 +1,327 @@
+node: 103251
+title: Change UnderlineThickness in compiled font via fontTools
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809214345"
+  captured_at: 2014-08-09T21:43:45Z
+  url: http://typophile.com/node/103251
+  digest: AUC5VW43R5E7MIECM3X5UX4WFRYMGZHZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/103251.html
+  fingerprint: 6151aa5a71610cf9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809214345"
+      digest: AUC5VW43R5E7MIECM3X5UX4WFRYMGZHZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/103251.html
+post:
+  id: 103251
+  user: 24931
+  date: 2013-05-23T06:07:00
+  date_raw: 23 May 2013 — 6:07am
+  votes: null
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I'd like to change the underline thickness in a compiled OT font automatically, since the AFDKO seems to have no keywords for this.<br>
+    My tool of choice is fontTools.</p>
+    <p>When decompiling the font to XML via ttx, this is setting that at least InDesign reads the value from:<br>
+    <code><br>
+    &lt;CFF&gt;<br>
+      &lt;CFFFont name="Antithesis-Regular"&gt;<br>
+        &lt;UnderlineThickness value="90"/&gt;<br>
+    </code></p>
+    <p>How to reach this setting via Python+fontTools?<br>
+    I've come as far as this:<br>
+    <code><br>
+    ttf = TTFont(path)<br>
+    ttf['CFF '].cff<br>
+    </code></p>
+    <p>Ant now what? I can't find out how to reach the said setting.<br>
+    Thank you.</p>
+  html_clean: |-
+    <p>Hi everyone,</p>
+    <p>I'd like to change the underline thickness in a compiled OT font automatically, since the AFDKO seems to have no keywords for this.<br>
+    My tool of choice is fontTools.</p>
+    <p>When decompiling the font to XML via ttx, this is setting that at least InDesign reads the value from:<br>
+    <code><br>
+    &lt;CFF&gt;<br>
+      &lt;CFFFont name="Antithesis-Regular"&gt;<br>
+        &lt;UnderlineThickness value="90"/&gt;<br>
+    </code></p>
+    <p>How to reach this setting via Python+fontTools?<br>
+    I've come as far as this:<br>
+    <code><br>
+    ttf = TTFont(path)<br>
+    ttf['CFF '].cff<br>
+    </code></p>
+    <p>Ant now what? I can't find out how to reach the said setting.<br>
+    Thank you.</p>
+comments:
+  - id: 555104
+    user: 14455
+    date: 2013-05-23T10:26:00
+    date_raw: 23 May 2013 — 10:26am
+    votes: null
+    html: |-
+      <p>Hello,<br>
+      I found it here:</p>
+      <pre>ttf['CFF '].cff.topDictIndex.items[0].UnderlineThickness</pre><p>
+      Eigi</p>
+    html_clean: |-
+      <p>Hello,<br>
+      I found it here:</p>
+      <pre>ttf['CFF '].cff.topDictIndex.items[0].UnderlineThickness</pre><p>
+      Eigi</p>
+  - id: 555107
+    user: 24931
+    date: 2013-05-23T11:06:00
+    date_raw: 23 May 2013 — 11:06am
+    votes: null
+    html: |-
+      <p>Eigi, you’re the man!</p>
+      <p>It worked immediately on my interactive python session that was still open.</p>
+      <p>But when I run this as a script from the beginning, unfortunately I can’t reproduce this funtionality.<br>
+      Then, <code>ttf['CFF '].cff.topDictIndex.items[0]</code> is <code>None</code>, and therefore also has no attributes.<br>
+      There must be some intermediate step to load/decompile something that I unknowingly typed and now can't reproduce. And now that previous session is gone, so I can't look up the steps that I made.<br>
+      I tried to load just <code>ttf['CFF ']</code> into a variable, to no effect.</p>
+      <p>Thank you!</p>
+    html_clean: |-
+      <p>Eigi, you’re the man!</p>
+      <p>It worked immediately on my interactive python session that was still open.</p>
+      <p>But when I run this as a script from the beginning, unfortunately I can’t reproduce this funtionality.<br>
+      Then, <code>ttf['CFF '].cff.topDictIndex.items[0]</code> is <code>None</code>, and therefore also has no attributes.<br>
+      There must be some intermediate step to load/decompile something that I unknowingly typed and now can't reproduce. And now that previous session is gone, so I can't look up the steps that I made.<br>
+      I tried to load just <code>ttf['CFF ']</code> into a variable, to no effect.</p>
+      <p>Thank you!</p>
+  - id: 555146
+    user: 18942
+    date: 2013-05-23T18:34:00
+    date_raw: 23 May 2013 — 6:34pm
+    votes: null
+    html: |-
+      <p>You must just have made a typo or inadvertently switched from one installation of python to another. The version of fonttools that comes with AFDKO 2.5 works just fine for me. With the following bash script made executable and in your path, which I'll call <code>chthickns</code> (for short)</p>
+      <pre>-------
+      #!/usr/bin/env AFDKOPython
+
+      from fontTools.ttLib import TTFont
+      import sys
+
+      f=TTFont(sys.argv[1])
+      d=f['CFF '].cff.topDictIndex[0]
+      d.UnderlineThickness = int(sys.argv[2])
+      f.save(sys.argv[3])
+      --------
+      </pre><p>the line command, after the % prompt,</p>
+      <pre>% chthickns Myfont.otf 90 newfont.otf
+      </pre><p>replaces UnderlineThickness of MyFont.otf by 90 and saves the result in newfont.otf. For <em>in situ</em> modification, cf <a href="http://typophile.com/node/102671" title="http://typophile.com/node/102671">http://typophile.com/node/102671</a> <em>mutatis mutandis</em>.</p>
+    html_clean: |-
+      <p>You must just have made a typo or inadvertently switched from one installation of python to another. The version of fonttools that comes with AFDKO 2.5 works just fine for me. With the following bash script made executable and in your path, which I'll call <code>chthickns</code> (for short)</p>
+      <pre>-------
+      #!/usr/bin/env AFDKOPython
+
+      from fontTools.ttLib import TTFont
+      import sys
+
+      f=TTFont(sys.argv[1])
+      d=f['CFF '].cff.topDictIndex[0]
+      d.UnderlineThickness = int(sys.argv[2])
+      f.save(sys.argv[3])
+      --------
+      </pre><p>the line command, after the % prompt,</p>
+      <pre>% chthickns Myfont.otf 90 newfont.otf
+      </pre><p>replaces UnderlineThickness of MyFont.otf by 90 and saves the result in newfont.otf. For <em>in situ</em> modification, cf <a href="/node/102671/" title="http://typophile.com/node/102671">http://typophile.com/node/102671</a> <em>mutatis mutandis</em>.</p>
+  - id: 555154
+    user: 1688
+    date: 2013-05-24T01:16:00
+    date_raw: 24 May 2013 — 1:16am
+    votes: null
+    html: |-
+      <p>Editing this kind of stuff (and a lot of other things too) in .otf and .ttf fonts is IMHO <strong>much</strong> simpler with DTL OTMaster. And no, it's not for free, but it will save you a lot of time.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Editing this kind of stuff (and a lot of other things too) in .otf and .ttf fonts is IMHO <strong>much</strong> simpler with DTL OTMaster. And no, it's not for free, but it will save you a lot of time.</p>
+      <p>FEB</p>
+  - id: 555162
+    user: 24931
+    date: 2013-05-24T02:47:00
+    date_raw: 24 May 2013 — 2:47am
+    votes: null
+    html: |-
+      <p>Thank you, Frank.<br>
+      But it can’t be automated, or can it, and is therefore not saving any time.</p>
+      <p>So the <code>.items</code> was superfluous in Eigi’s line.<br>
+      It works with just <code>ttf['CFF '].cff.topDictIndex[0].UnderlineThickness</code>.</p>
+      <p>Thanks, everyone.</p>
+    html_clean: |-
+      <p>Thank you, Frank.<br>
+      But it can’t be automated, or can it, and is therefore not saving any time.</p>
+      <p>So the <code>.items</code> was superfluous in Eigi’s line.<br>
+      It works with just <code>ttf['CFF '].cff.topDictIndex[0].UnderlineThickness</code>.</p>
+      <p>Thanks, everyone.</p>
+  - id: 555174
+    user: 18942
+    date: 2013-05-24T04:55:00
+    date_raw: 24 May 2013 — 4:55am
+    votes: null
+    html: |-
+      <blockquote><p>
+      So the <code>.items</code>  was superfluous [yanone]
+      </p></blockquote>
+      <p>Oh, my bad, I had not even seen it (weird, since you repeat it in your post!). I should have read [more carefully].</p>
+    html_clean: |-
+      <blockquote><p>
+      So the <code>.items</code>  was superfluous [yanone]
+      </p></blockquote>
+      <p>Oh, my bad, I had not even seen it (weird, since you repeat it in your post!). I should have read [more carefully].</p>
+  - id: 555175
+    user: 18942
+    date: 2013-05-24T05:11:00
+    date_raw: 24 May 2013 — 5:11am
+    votes: null
+    html: <p>@blokland   &nbsp; &nbsp; &nbsp; Can you batch process with DTL OTMaster?</p>
+    html_clean: <p>@blokland   &nbsp; &nbsp; &nbsp; Can you batch process with DTL OTMaster?</p>
+  - id: 555253
+    user: 24931
+    date: 2013-05-25T04:36:00
+    date_raw: 25 May 2013 — 4:36am
+    votes: null
+    html: |-
+      <p>Should anyone be interested, here are all the values I’d like to see changed in compiled fonts that are impossible to influence through makeOTF. I didn’t find that any application would ever care about the first four values, which is a shame. But hey, they’re there.<br>
+      The last two lines overwrite this dreadful version string that the recent FDK creates.<br>
+      Are there any more suggestions?</p>
+      <p>Lines may be soft-wrapped.<br>
+      <code><br>
+      from fontTools.ttLib import TTFont<br>
+      ttf = TTFont(ttpath)<br>
+      ttf['post'].underlinePosition = int(instance.customParameters['underlinePosition'])<br>
+      ttf['post'].underlineThickness = int(instance.customParameters['underlineThickness'])<br>
+      ttf['OS/2'].yStrikeoutPosition = int(instance.customParameters['strikeoutPosition'])<br>
+      ttf['OS/2'].yStrikeoutSize = int(instance.customParameters['strikeoutThickness'])<br>
+      ttf['CFF '].cff.topDictIndex[0].UnderlineThickness = int(instance.customParameters['underlineThickness'])<br>
+      ttf['name'].getName(5, 1, 0).string = "Version %s.%s" % (f.versionMajor, f.versionMinor)<br>
+      ttf['name'].getName(5, 3, 1).string = "Version %s.%s" % (f.versionMajor, f.versionMinor)<br>
+      </code></p>
+    html_clean: |-
+      <p>Should anyone be interested, here are all the values I’d like to see changed in compiled fonts that are impossible to influence through makeOTF. I didn’t find that any application would ever care about the first four values, which is a shame. But hey, they’re there.<br>
+      The last two lines overwrite this dreadful version string that the recent FDK creates.<br>
+      Are there any more suggestions?</p>
+      <p>Lines may be soft-wrapped.<br>
+      <code><br>
+      from fontTools.ttLib import TTFont<br>
+      ttf = TTFont(ttpath)<br>
+      ttf['post'].underlinePosition = int(instance.customParameters['underlinePosition'])<br>
+      ttf['post'].underlineThickness = int(instance.customParameters['underlineThickness'])<br>
+      ttf['OS/2'].yStrikeoutPosition = int(instance.customParameters['strikeoutPosition'])<br>
+      ttf['OS/2'].yStrikeoutSize = int(instance.customParameters['strikeoutThickness'])<br>
+      ttf['CFF '].cff.topDictIndex[0].UnderlineThickness = int(instance.customParameters['underlineThickness'])<br>
+      ttf['name'].getName(5, 1, 0).string = "Version %s.%s" % (f.versionMajor, f.versionMinor)<br>
+      ttf['name'].getName(5, 3, 1).string = "Version %s.%s" % (f.versionMajor, f.versionMinor)<br>
+      </code></p>
+  - id: 555272
+    user: 18942
+    date: 2013-05-25T09:32:00
+    date_raw: 25 May 2013 — 9:32am
+    votes: null
+    html: <p>Using DTL OTM Light I see, for ArnoPro-Regular.otf version 1.000, a value of -100 for float UnderlinePosition in the CFF table and the comment is "Underline stroke center y coordinate"; I see nothing similar in the ttx output. I also see in the post table, with DTL OTM Light, a value of -75 for FWORD underlinePosition with comment "Distance top of underline from baseline (negative = below baseline)". Is the value in the CFF table a calculated value derived from other parameters?</p>
+    html_clean: <p>Using DTL OTM Light I see, for ArnoPro-Regular.otf version 1.000, a value of -100 for float UnderlinePosition in the CFF table and the comment is "Underline stroke center y coordinate"; I see nothing similar in the ttx output. I also see in the post table, with DTL OTM Light, a value of -75 for FWORD underlinePosition with comment "Distance top of underline from baseline (negative = below baseline)". Is the value in the CFF table a calculated value derived from other parameters?</p>
+  - id: 555289
+    user: 18942
+    date: 2013-05-25T13:14:00
+    date_raw: 25 May 2013 — 1:14pm
+    votes: null
+    html: |-
+      <p>This text from the <a href="http://www.microsoft.com/typography/OTSpec/post.htm" rel="nofollow">Microsoft spec of the post table</a> appears to answer my question</p>
+      <blockquote><p>
+      FWord	underlinePosition<br>
+      This is the suggested distance of the top of the underline from the baseline (negative values indicate below baseline).<br>
+      The PostScript definition of this FontInfo dictionary key (the y coordinate of the center of the stroke) is not used for historical reasons. The value of the PostScript key may be calculated by subtracting half the underlineThickness from the value of this field.
+      </p></blockquote>
+      <p>The value -100 is indeed ttf['post'].underlinePosition - ttf['post'].underlineThickness /2.0</p>
+    html_clean: |-
+      <p>This text from the <a href="http://www.microsoft.com/typography/OTSpec/post.htm" rel="nofollow">Microsoft spec of the post table</a> appears to answer my question</p>
+      <blockquote><p>
+      FWord	underlinePosition<br>
+      This is the suggested distance of the top of the underline from the baseline (negative values indicate below baseline).<br>
+      The PostScript definition of this FontInfo dictionary key (the y coordinate of the center of the stroke) is not used for historical reasons. The value of the PostScript key may be calculated by subtracting half the underlineThickness from the value of this field.
+      </p></blockquote>
+      <p>The value -100 is indeed ttf['post'].underlinePosition - ttf['post'].underlineThickness /2.0</p>
+  - id: 555313
+    user: 18942
+    date: 2013-05-25T19:49:00
+    date_raw: 25 May 2013 — 7:49pm
+    votes: null
+    html: |-
+      <blockquote><p>
+      I didn’t find that any application would ever care about the first four values, which is a shame. &nbsp; [yanone]
+      </p></blockquote>
+      <p>The fact is that FontForge cares about those values but 'underlinePosition' is interpreted differently. Here is the correspondence </p>
+      <pre>import fontforge
+      f=fontforge.open(path)
+      f.os2_strikeypos     % ttf['OS/2'].yStrikeoutPosition
+      f.os2_strikeysize    % ttf['OS/2'].yStrikeoutSize
+      f.uwidth             % ttf['post'].underlineThickness
+      </pre><p>The additional parameter handled by FontForge and corresponding to [Uu]nderlinePosition (I did not look at the source, I just experimented with values), is</p>
+      <pre>f.upos   % ttf['post'].underlinePosition + ttf['post'].underlineThickness/2
+      </pre><p>in the cases I have tested (and the updates are correctly made with that interpretation). The interpretation of the Microsoft spec above may not, indeed, be crystal clear. The value of f.upos given by FontForge for ArnoPro-Regular.otf is neither -100 nor -75 but -50. (I am running the July 2012 version)</p>
+    html_clean: |-
+      <blockquote><p>
+      I didn’t find that any application would ever care about the first four values, which is a shame. &nbsp; [yanone]
+      </p></blockquote>
+      <p>The fact is that FontForge cares about those values but 'underlinePosition' is interpreted differently. Here is the correspondence </p>
+      <pre>import fontforge
+      f=fontforge.open(path)
+      f.os2_strikeypos     % ttf['OS/2'].yStrikeoutPosition
+      f.os2_strikeysize    % ttf['OS/2'].yStrikeoutSize
+      f.uwidth             % ttf['post'].underlineThickness
+      </pre><p>The additional parameter handled by FontForge and corresponding to [Uu]nderlinePosition (I did not look at the source, I just experimented with values), is</p>
+      <pre>f.upos   % ttf['post'].underlinePosition + ttf['post'].underlineThickness/2
+      </pre><p>in the cases I have tested (and the updates are correctly made with that interpretation). The interpretation of the Microsoft spec above may not, indeed, be crystal clear. The value of f.upos given by FontForge for ArnoPro-Regular.otf is neither -100 nor -75 but -50. (I am running the July 2012 version)</p>
+  - id: 555326
+    user: 24931
+    date: 2013-05-26T01:35:00
+    date_raw: 26 May 2013 — 1:35am
+    votes: null
+    html: |-
+      <p>I meant applications as in word processing, text setting applications. Only few seem to care to read the values from the fonts and apply them.<br>
+      Thanks for your investigations. Will need a few days to experiment and implement.</p>
+    html_clean: |-
+      <p>I meant applications as in word processing, text setting applications. Only few seem to care to read the values from the fonts and apply them.<br>
+      Thanks for your investigations. Will need a few days to experiment and implement.</p>
+  - id: 557009
+    user: 1688
+    date: 2013-06-11T12:30:00
+    date_raw: 11 Jun 2013 — 12:30pm
+    votes: null
+    html: |-
+      <p>Michel: <em>Can you batch process with DTL OTMaster?</em><br>
+      &nbsp;<br>
+      Not really. OTM is basically a highly convenient tool for editing single fonts. The batch-stuff is in our production tools.<br>
+      &nbsp;<br>
+      At the coming ATypI conference in Amsterdam DTL/URW++ will release a new edition of DTL OTMaster. Also there will be a new OTM <em>Light</em> version. For € 49.95 this version will allow the editing of OpenType and TrueType  fonts, but the ‘import’/‘export’ (OT Layout features, Character Layout ﬁles, et cetera) and the glyph-editing functions will be only available in the <em>full</em> version.<br>
+      &nbsp;<br>
+      FEB</p>
+    html_clean: |-
+      <p>Michel: <em>Can you batch process with DTL OTMaster?</em><br>
+      &nbsp;<br>
+      Not really. OTM is basically a highly convenient tool for editing single fonts. The batch-stuff is in our production tools.<br>
+      &nbsp;<br>
+      At the coming ATypI conference in Amsterdam DTL/URW++ will release a new edition of DTL OTMaster. Also there will be a new OTM <em>Light</em> version. For € 49.95 this version will allow the editing of OpenType and TrueType  fonts, but the ‘import’/‘export’ (OT Layout features, Character Layout ﬁles, et cetera) and the glyph-editing functions will be only available in the <em>full</em> version.<br>
+      &nbsp;<br>
+      FEB</p>

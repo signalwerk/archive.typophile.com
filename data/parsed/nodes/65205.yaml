@@ -1,0 +1,152 @@
+node: 65205
+title: How can I assign a key combination?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20110527132809"
+  captured_at: 2011-05-27T13:28:09Z
+  url: http://www.typophile.com:80/node/65205
+  digest: BCQWEGTMHWIPHRTIYL2VAXF6FNO5EEPR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/65205.html
+  fingerprint: 0d716bcdb4e95b71
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20110527132809"
+      digest: BCQWEGTMHWIPHRTIYL2VAXF6FNO5EEPR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/65205.html
+post:
+  id: 65205
+  user: 51101
+  date: 2009-12-09T09:13:00
+  date_raw: 9.Dec.2009 9.13am
+  votes: null
+  html: |-
+    <p>Hi to everyone,<br>
+    I'm new in this forum but I found many useful informations on Typographic world on it.</p>
+    <p>I wrote because I have a problem...<br>
+    I'm modifing an existing font and I have to insert some new glyphs that I should recall by a key combination (like "mblogo"), is it possible? How can I do that?</p>
+    <p>I use FontLab Studio 5.</p>
+    <p>Thanks a lot!<br>
+    Sorry for my english!</p>
+    <p>Stefano</p>
+  html_clean: |-
+    <p>Hi to everyone,<br>
+    I'm new in this forum but I found many useful informations on Typographic world on it.</p>
+    <p>I wrote because I have a problem...<br>
+    I'm modifing an existing font and I have to insert some new glyphs that I should recall by a key combination (like "mblogo"), is it possible? How can I do that?</p>
+    <p>I use FontLab Studio 5.</p>
+    <p>Thanks a lot!<br>
+    Sorry for my english!</p>
+    <p>Stefano</p>
+comments:
+  - id: 383041
+    user: 108
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I've moved your question to the BUILD area where the techies tend to reside.</p>
+    html_clean: <p>I've moved your question to the BUILD area where the techies tend to reside.</p>
+  - id: 383368
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Piece of cake.<br>
+      You <em>do</em> need to add some OpenType magic to the font, though.</p>
+      <p>Using 'liga' code for ligatures:</p>
+      <p><code>feature liga {<br>
+       # Latin<br>
+         sub T e s t by T_e_s_t;<br>
+      } liga;</code></p>
+      <p>If the program you are using supports ligatures, typing "Test" will automatically be changed to my quick-and-dirty "Test" glyph:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/ligatures_4216.PNG"></div><br>
+      (Left is Ligatures Off, right is On.)<p></p>
+      <p>Of course, you are free to use any of the other OTF features, if you don't want to mess with 'standard' ligatures (e.g., put them in a stylistic set or in 'calt' -- contextual ligatures). Use the Opentype feature preview in FontLab to check if it works.</p>
+      <p>I don't think the sequence "mblogo" could pop up in the middle of a regular English word. However, if you need to use a phrase that <em>can</em>, either don't use ligatures (as these are usually 'on' for all text), or check the OTF Feature File description on how to limit it to a single word. (Sorry -- can't recall, altho' I used to be able to recite it from memory.)</p>
+      <p>It is considered 'proper usage' if your new glyph name is composed of the singular characters that make it up, separated by underscores. I think this is best seen in PDFs; selecting and copying the "Test" glyph yields the <em>plain text</em> "Test" again. You can also search a PDF for 'test', and it'll find both variants.</p>
+    html_clean: |-
+      <p>Piece of cake.<br>
+      You <em>do</em> need to add some OpenType magic to the font, though.</p>
+      <p>Using 'liga' code for ligatures:</p>
+      <p><code>feature liga {<br>
+       # Latin<br>
+         sub T e s t by T_e_s_t;<br>
+      } liga;</code></p>
+      <p>If the program you are using supports ligatures, typing "Test" will automatically be changed to my quick-and-dirty "Test" glyph:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/ligatures_4216.PNG"></div><br>
+      (Left is Ligatures Off, right is On.)<p></p>
+      <p>Of course, you are free to use any of the other OTF features, if you don't want to mess with 'standard' ligatures (e.g., put them in a stylistic set or in 'calt' -- contextual ligatures). Use the Opentype feature preview in FontLab to check if it works.</p>
+      <p>I don't think the sequence "mblogo" could pop up in the middle of a regular English word. However, if you need to use a phrase that <em>can</em>, either don't use ligatures (as these are usually 'on' for all text), or check the OTF Feature File description on how to limit it to a single word. (Sorry -- can't recall, altho' I used to be able to recite it from memory.)</p>
+      <p>It is considered 'proper usage' if your new glyph name is composed of the singular characters that make it up, separated by underscores. I think this is best seen in PDFs; selecting and copying the "Test" glyph yields the <em>plain text</em> "Test" again. You can also search a PDF for 'test', and it'll find both variants.</p>
+  - id: 383534
+    user: 2462
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>To make it easy on yourself, throw a symbol into the string you use for replacement. Something like "=mblogo=" (The lookups use character names, so that would be "equal m b l o g o equal") will protect you from unforeseen surprises if you ever have to write about something like "tourismblogoftheday.com".</p>
+    html_clean: <p>To make it easy on yourself, throw a symbol into the string you use for replacement. Something like "=mblogo=" (The lookups use character names, so that would be "equal m b l o g o equal") will protect you from unforeseen surprises if you ever have to write about something like "tourismblogoftheday.com".</p>
+  - id: 384111
+    user: 51101
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thank you!<br>
+      I used both of your solutions.<br>
+      The font works fine.<br>
+      But I have a little question...<br>
+      Did you have some books about the font realization to suggest me?<br>
+      I studied the Fontlab manual but I didn' find anything like "opentype programming language".<br>
+      Thank you!!<br>
+      Bye<br>
+      S</p>
+    html_clean: |-
+      <p>Thank you!<br>
+      I used both of your solutions.<br>
+      The font works fine.<br>
+      But I have a little question...<br>
+      Did you have some books about the font realization to suggest me?<br>
+      I studied the Fontlab manual but I didn' find anything like "opentype programming language".<br>
+      Thank you!!<br>
+      Bye<br>
+      S</p>
+  - id: 384162
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>That can best be read from the source: <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">Adobe / OTF / Feature Files</a></p>
+      <p>There are a few enhancements as of this year that do not work (yet!) in FontLab, but I doubt you'd use these anyway for a beginners' project.</p>
+    html_clean: |-
+      <p>That can best be read from the source: <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">Adobe / OTF / Feature Files</a></p>
+      <p>There are a few enhancements as of this year that do not work (yet!) in FontLab, but I doubt you'd use these anyway for a beginners' project.</p>
+  - id: 384169
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Chapter 11 of the FontLab manual covers OpenType. The section on substitution lookups starts at p864 in the Mac PDF manual, p854 for Windows.</p>
+      <p>The League of Movable Type also has <a href="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab" rel="nofollow">a nice tutorial</a>.</p>
+    html_clean: |-
+      <p>Chapter 11 of the FontLab manual covers OpenType. The section on substitution lookups starts at p864 in the Mac PDF manual, p854 for Windows.</p>
+      <p>The League of Movable Type also has <a href="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab" rel="nofollow">a nice tutorial</a>.</p>

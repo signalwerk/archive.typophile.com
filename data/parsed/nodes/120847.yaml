@@ -1,0 +1,123 @@
+node: 120847
+title: Copying Figure Kerning Information
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150317224224"
+  captured_at: 2015-03-17T22:42:24Z
+  url: http://typophile.com/node/120847
+  digest: V3W4T57TE3QXKOWTKIXVXYCOX6W3YWBV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/120847.html
+  fingerprint: a6d6ef477c1ef4ae
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150317224224"
+      digest: V3W4T57TE3QXKOWTKIXVXYCOX6W3YWBV
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/120847.html
+post:
+  id: 120847
+  user: 703
+  date: 2014-10-26T09:56:00
+  date_raw: 26 Oct 2014 — 9:56am
+  votes: null
+  html: |-
+    <p>I am editing an existing font family that had proportional old style figures as the default and a feature for tabular lining. My client wants those switched so that tabular lining is the default and proportional old style the feature.</p>
+    <p>Seems simple… I set up a new encoding file with figure.oldstyle replacing the old figure.lnum glyphs and, copied the glyphs into the new locations and set up the features to work properly.</p>
+    <p>That just leaves the kerning… right now I am laboriously copying the kerning info onto paper, deleting it all then carefully inputting it all back into the new old style glyphs. It seems like this approach will take forever with 16 individual fonts and is prone to accidental mistakes.</p>
+    <p>I couldn't get "Paste Special" to work as all the figures have new names. Can you guys think of an easier way to handle this kerning problem?</p>
+  html_clean: |-
+    <p>I am editing an existing font family that had proportional old style figures as the default and a feature for tabular lining. My client wants those switched so that tabular lining is the default and proportional old style the feature.</p>
+    <p>Seems simple… I set up a new encoding file with figure.oldstyle replacing the old figure.lnum glyphs and, copied the glyphs into the new locations and set up the features to work properly.</p>
+    <p>That just leaves the kerning… right now I am laboriously copying the kerning info onto paper, deleting it all then carefully inputting it all back into the new old style glyphs. It seems like this approach will take forever with 16 individual fonts and is prone to accidental mistakes.</p>
+    <p>I couldn't get "Paste Special" to work as all the figures have new names. Can you guys think of an easier way to handle this kerning problem?</p>
+comments:
+  - id: 591740
+    user: 3320
+    date: 2014-10-26T18:23:00
+    date_raw: 26 Oct 2014 — 6:23pm
+    votes: null
+    html: |-
+      <p>If you are using FontLab:</p>
+      <p>Export the AFM Metrics file.<br>
+      Open it in a text editor.<br>
+      In the 'Kerns' section rename the glyphs in turn (e.g. one  to  one.oldstyle) with Find &amp; Replace and save as a new file with the AFM extension.<br>
+      Back in FontLab, delete all the kerning, move the figures into the correct encoding slots .<br>
+      Open a Metrics window and open the new AFM file.<br>
+      Select 'Import kerning data into current font.</p>
+    html_clean: |-
+      <p>If you are using FontLab:</p>
+      <p>Export the AFM Metrics file.<br>
+      Open it in a text editor.<br>
+      In the 'Kerns' section rename the glyphs in turn (e.g. one  to  one.oldstyle) with Find &amp; Replace and save as a new file with the AFM extension.<br>
+      Back in FontLab, delete all the kerning, move the figures into the correct encoding slots .<br>
+      Open a Metrics window and open the new AFM file.<br>
+      Select 'Import kerning data into current font.</p>
+  - id: 591758
+    user: 703
+    date: 2014-10-27T04:55:00
+    date_raw: 27 Oct 2014 — 4:55am
+    votes: null
+    html: |-
+      <p>That is brilliant, Malcolm! I have worked with Fontlab for a few years and never thought to try editing amf files with a text editor. This bit of information will come in very handy down the road.</p>
+      <p>Thanks!</p>
+    html_clean: |-
+      <p>That is brilliant, Malcolm! I have worked with Fontlab for a few years and never thought to try editing amf files with a text editor. This bit of information will come in very handy down the road.</p>
+      <p>Thanks!</p>
+  - id: 594888
+    user: 703
+    date: 2014-12-04T07:49:00
+    date_raw: 4 Dec 2014 — 7:49am
+    votes: null
+    html: |-
+      <p>As brilliant as it sounded, I can not get this process to work.</p>
+      <p>I have edited the old afm file in Word and TextEdit (mac). I just changed all the figure names from zero to zero.oldstyle throughout. The new font has all the figures in position and renamed in the encoding file. </p>
+      <p>When I import the new afm back into the new font with the new figure names, it only applies changes to glyphs that were in the original font. Any glyph with a new name get no new kerning.</p>
+      <p>Any ideas on what might be happening?</p>
+    html_clean: |-
+      <p>As brilliant as it sounded, I can not get this process to work.</p>
+      <p>I have edited the old afm file in Word and TextEdit (mac). I just changed all the figure names from zero to zero.oldstyle throughout. The new font has all the figures in position and renamed in the encoding file. </p>
+      <p>When I import the new afm back into the new font with the new figure names, it only applies changes to glyphs that were in the original font. Any glyph with a new name get no new kerning.</p>
+      <p>Any ideas on what might be happening?</p>
+  - id: 595689
+    user: 703
+    date: 2014-12-16T05:42:00
+    date_raw: 16 Dec 2014 — 5:42am
+    votes: null
+    html: |-
+      <p>It was great to learn I can edit .afm in a text editor. Disappointing that search and replace would not work as described…</p>
+      <p>I think it had something to do with the new figures being in the wrong order after their names were changed. The Update [kern] feature would not reorder them properly to work either.</p>
+      <p>The most streamlined workflow I could figure out was to export the old .afm, open it in a text editor and do searches for the figures. As I found them, I cut them from the old .afm and pasted them into a new blank doc.</p>
+      <p>I imported the .afm, now with no figure info, into my new .vfb with the new the figures with new names and positions.</p>
+      <p>Using the new text file with all figure info, I copied and pasted the data into the new figures by hand.</p>
+      <p>A little tedious but it worked. I am still thinking there is probably a better way...</p>
+    html_clean: |-
+      <p>It was great to learn I can edit .afm in a text editor. Disappointing that search and replace would not work as described…</p>
+      <p>I think it had something to do with the new figures being in the wrong order after their names were changed. The Update [kern] feature would not reorder them properly to work either.</p>
+      <p>The most streamlined workflow I could figure out was to export the old .afm, open it in a text editor and do searches for the figures. As I found them, I cut them from the old .afm and pasted them into a new blank doc.</p>
+      <p>I imported the .afm, now with no figure info, into my new .vfb with the new the figures with new names and positions.</p>
+      <p>Using the new text file with all figure info, I copied and pasted the data into the new figures by hand.</p>
+      <p>A little tedious but it worked. I am still thinking there is probably a better way...</p>
+  - id: 595783
+    user: 16338
+    date: 2014-12-17T10:18:00
+    date_raw: 17 Dec 2014 — 10:18am
+    votes: null
+    html: <p>I do quite a bit of website coding that often involves conditional search and replace patterns that extend over hundreds of documents. For these kinds of complex changes to text, learning Regular Expressions can literally save thousands of hours of manual deletes, copying, pasting, reordering and adding things. Combine it with a scripting language, like Perl or, even, Applescript and magical sorts of mass changes can be done. The big drawback, of course, is the learning curve, which probably wouldn't be cost-effective for a one-off juggling of text in a few .afm files.</p>
+    html_clean: <p>I do quite a bit of website coding that often involves conditional search and replace patterns that extend over hundreds of documents. For these kinds of complex changes to text, learning Regular Expressions can literally save thousands of hours of manual deletes, copying, pasting, reordering and adding things. Combine it with a scripting language, like Perl or, even, Applescript and magical sorts of mass changes can be done. The big drawback, of course, is the learning curve, which probably wouldn't be cost-effective for a one-off juggling of text in a few .afm files.</p>

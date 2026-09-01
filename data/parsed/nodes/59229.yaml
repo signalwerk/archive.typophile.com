@@ -1,0 +1,178 @@
+node: 59229
+title: OpenType CASE in Greek not working in InDesign?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203095422"
+  captured_at: 2010-02-03T09:54:22Z
+  url: http://typophile.com/node/59229
+  digest: BSHIK76E5NAER5C2VES7XI6QGGERYRJ7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/59229.html
+  fingerprint: 208be8dbc6b4bf4c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203095422"
+      digest: BSHIK76E5NAER5C2VES7XI6QGGERYRJ7
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59229.html
+post:
+  id: 59229
+  user: 16321
+  date: 2009-06-21T06:17:00
+  date_raw: 21.Jun.2009 6.17am
+  votes: null
+  html: |-
+    <p>Hi there<br>
+    I have been doing a case feature for Greek diacritical characters, so that the diacritical characters are replaced with the non-diacritical characters when the string is in uppercase. As you can see it works fine in the Fontlab preview panel:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontlab_5573.png"></div><p></p>
+    <p>But in InDesign (CS4) it keeps the dieresis and converts the tonos+dieresis into UC dieresis (I marked them in magenta). Is that an InDesign override, that acually makes it the way it should be? Or what?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/indesign_5049.png"></div><p></p>
+    <p>Thanks<br>
+    Claus</p>
+  html_clean: |-
+    <p>Hi there<br>
+    I have been doing a case feature for Greek diacritical characters, so that the diacritical characters are replaced with the non-diacritical characters when the string is in uppercase. As you can see it works fine in the Fontlab preview panel:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontlab_5573.png"></div><p></p>
+    <p>But in InDesign (CS4) it keeps the dieresis and converts the tonos+dieresis into UC dieresis (I marked them in magenta). Is that an InDesign override, that acually makes it the way it should be? Or what?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/indesign_5049.png"></div><p></p>
+    <p>Thanks<br>
+    Claus</p>
+comments:
+  - id: 352971
+    user: 1844
+    date: 2009-06-21T14:11:00
+    date_raw: 21.Jun.2009 2.11pm
+    votes: null
+    html: |-
+      <p>Yes, the dieresis should always be maintained in cap (and small cap) setting. And yes, dieresis+tonos becomes just dieresis.</p>
+      <p>Ask Gerry, he knows all about it ;^)</p>
+    html_clean: |-
+      <p>Yes, the dieresis should always be maintained in cap (and small cap) setting. And yes, dieresis+tonos becomes just dieresis.</p>
+      <p>Ask Gerry, he knows all about it ;^)</p>
+  - id: 353001
+    user: 1262
+    date: 2009-06-21T19:23:00
+    date_raw: 21.Jun.2009 7.23pm
+    votes: null
+    html: "<p>What Miguel said: the dialytika (dieresis) is retained because it is necessary to differentiate some words in which a sequence of two vowels can either be pronounced as a diphthong or independently. There is a related contextual rule that states that when an accent occurs on the first of two such vowel letters, in all-caps or smallcaps text this must be converted to a dialytika on the second vowel letter when the accent is supressed. In other words, there are two ways to indicate separate pronunciation of two vowel letters in sequence: a dialytika on the second vowel or an accent on the first vowel (an accent on the second vowel indicates an accented diphthong).</p>"
+    html_clean: "<p>What Miguel said: the dialytika (dieresis) is retained because it is necessary to differentiate some words in which a sequence of two vowels can either be pronounced as a diphthong or independently. There is a related contextual rule that states that when an accent occurs on the first of two such vowel letters, in all-caps or smallcaps text this must be converted to a dialytika on the second vowel letter when the accent is supressed. In other words, there are two ways to indicate separate pronunciation of two vowel letters in sequence: a dialytika on the second vowel or an accent on the first vowel (an accent on the second vowel indicates an accented diphthong).</p>"
+  - id: 353127
+    user: 16321
+    date: 2009-06-22T12:56:00
+    date_raw: 22.Jun.2009 12.56pm
+    votes: null
+    html: <p>Thanks guys, I had a feeling that was the CASE. I'll go to my favourite witch doctor and summon Gerry.</p>
+    html_clean: <p>Thanks guys, I had a feeling that was the CASE. I'll go to my favourite witch doctor and summon Gerry.</p>
+  - id: 353335
+    user: 2021
+    date: 2009-06-23T13:46:00
+    date_raw: 23.Jun.2009 1.46pm
+    votes: null
+    html: |-
+      <p>Following a thread here a while ago with contributions from John, among others, I figured this out for FontLab:</p>
+      <p>Case feature:</p>
+      <p>  sub Iota by iota;<br>
+        sub @UCtonos iota' by Iotadieresis;<br>
+        sub iota by Iota;<br>
+        sub Upsilon by upsilon;<br>
+        sub @UCtonos upsilon' by Udieresis;<br>
+        sub upsilon by Upsilon;<br>
+        sub @UCtonos by @UCnotonos;</p>
+    html_clean: |-
+      <p>Following a thread here a while ago with contributions from John, among others, I figured this out for FontLab:</p>
+      <p>Case feature:</p>
+      <p>  sub Iota by iota;<br>
+        sub @UCtonos iota' by Iotadieresis;<br>
+        sub iota by Iota;<br>
+        sub Upsilon by upsilon;<br>
+        sub @UCtonos upsilon' by Udieresis;<br>
+        sub upsilon by Upsilon;<br>
+        sub @UCtonos by @UCnotonos;</p>
+  - id: 353336
+    user: 2021
+    date: 2009-06-23T13:48:00
+    date_raw: 23.Jun.2009 1.48pm
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 353337
+    user: 2021
+    date: 2009-06-23T13:47:00
+    date_raw: 23.Jun.2009 1.47pm
+    votes: null
+    html: |-
+      <p>Classes:</p>
+      <p>UCtonos: Alphatonos Epsilontonos Omicrontonos Omegatonos Iotatonos Etatonos Upsilontonos<br>
+      UCnotonos: Alpha Epsilon Omicron Omega Iota Eta Upsilon</p>
+      <p>...with similar coding for small caps.</p>
+    html_clean: |-
+      <p>Classes:</p>
+      <p>UCtonos: Alphatonos Epsilontonos Omicrontonos Omegatonos Iotatonos Etatonos Upsilontonos<br>
+      UCnotonos: Alpha Epsilon Omicron Omega Iota Eta Upsilon</p>
+      <p>...with similar coding for small caps.</p>
+  - id: 353390
+    user: 16321
+    date: 2009-06-23T19:10:00
+    date_raw: 23.Jun.2009 7.10pm
+    votes: null
+    html: |-
+      <p>Hmm, thanks Nick, but now my 'case' feature no longer works – even when I remove your code. It compiles with no errors, but toggling the case feature on and off in the preview panel does nothing. Very strange. Very very strange.</p>
+      <p>By the way, how would I implement small caps in this code?</p>
+    html_clean: |-
+      <p>Hmm, thanks Nick, but now my 'case' feature no longer works – even when I remove your code. It compiles with no errors, but toggling the case feature on and off in the preview panel does nothing. Very strange. Very very strange.</p>
+      <p>By the way, how would I implement small caps in this code?</p>
+  - id: 353478
+    user: 2021
+    date: 2009-06-24T08:27:00
+    date_raw: 24.Jun.2009 8.27am
+    votes: null
+    html: |-
+      <p><code>lookup smcp1 {<br>
+      	sub [Alphatonos Epsilontonos Omicrontonos Omegatonos alphatonos epsilontonos omicrontonos omegatonos] iota' by iota.smcp.alt;<br>
+      	sub [Alphatonos Epsilontonos Omicrontonos Omegatonos alphatonos epsilontonos omicrontonos omegatonos] upsilon' by upsilon.smcp.alt;<br>
+      } smcp1;</code></p>
+      <p>sub @GrSmcp1 by @GrSmcp2;</p>
+      <p>sub @UCtonos' @GrSmcp2 by @UCnotonos;<br>
+      sub iotadieresistonos by iotadieresis.smcp;<br>
+      sub upsilondieresistonos by upsilondieresis.smcp;<br>
+      } smcp;</p>
+    html_clean: |-
+      <p><code>lookup smcp1 {<br>
+      	sub [Alphatonos Epsilontonos Omicrontonos Omegatonos alphatonos epsilontonos omicrontonos omegatonos] iota' by iota.smcp.alt;<br>
+      	sub [Alphatonos Epsilontonos Omicrontonos Omegatonos alphatonos epsilontonos omicrontonos omegatonos] upsilon' by upsilon.smcp.alt;<br>
+      } smcp1;</code></p>
+      <p>sub @GrSmcp1 by @GrSmcp2;</p>
+      <p>sub @UCtonos' @GrSmcp2 by @UCnotonos;<br>
+      sub iotadieresistonos by iotadieresis.smcp;<br>
+      sub upsilondieresistonos by upsilondieresis.smcp;<br>
+      } smcp;</p>
+  - id: 353479
+    user: 2021
+    date: 2009-06-24T08:30:00
+    date_raw: 24.Jun.2009 8.30am
+    votes: null
+    html: <p>iota.smcp.alt is small cap iota with dieresis.</p>
+    html_clean: <p>iota.smcp.alt is small cap iota with dieresis.</p>
+  - id: 353484
+    user: 2021
+    date: 2009-06-24T08:36:00
+    date_raw: 24.Jun.2009 8.36am
+    votes: null
+    html: <p></p><div class="imageWrap"><img src="http://typophile.com/files/Greek_Sc_5334.jpg"></div><p></p>
+    html_clean: <p></p><div class="imageWrap"><img src="http://typophile.com/files/Greek_Sc_5334.jpg"></div><p></p>

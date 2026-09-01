@@ -1,0 +1,143 @@
+node: 62758
+title: "IndexError: list index out of range (Solved)"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140701003627"
+  captured_at: 2014-07-01T00:36:27Z
+  url: http://typophile.com:80/node/62758
+  digest: ZKSYRR7ALJ63U2HF65O2WIVOWGJVBLDC
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/62758.html
+  fingerprint: 980b5d84f5d0f9a3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140701003627"
+      digest: ZKSYRR7ALJ63U2HF65O2WIVOWGJVBLDC
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/62758.html
+post:
+  id: 62758
+  user: 43018
+  date: 2009-10-06T05:30:00
+  date_raw: 6 Oct 2009 — 5:30am
+  votes: null
+  html: |-
+    <p>Hi guys, </p>
+    <p>Just keep getting error messages after running the following code:</p>
+    <p><code><br>
+    from robofab.world import CurrentFont</code></p>
+    <p>myFont = CurrentFont()</p>
+    <p>for myGlyph in myFont:<br>
+    	print myGlyph.name<br>
+    	myGlyph.autoContourOrder()<br>
+    	myGlyph.correctDirection()<br>
+    	myGlyph.update()<br>
+    	for myContours in myGlyph.contours:<br>
+    		myContours.autoStartSegment()</p>
+    <p>print "done now"<br>
+    </p>
+    <p>This is the error message:<br>
+    <code><br>
+    Traceback (most recent call last):<br>
+      File "", line 16, in ?<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsBase.py", line 2129, in autoStartSegment<br>
+        on = segment.onCurve<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsBase.py", line 2330, in _get_onCurve<br>
+        return self.points[-1]<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsFL.py", line 1942, in _get_points<br>
+        node = self._node<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsFL.py", line 1880, in _get__node<br>
+        return glyph.nodes[self._nodeIndex]<br>
+    IndexError: list index out of range<br>
+    </code></p>
+    <p>The weird thing is (after running it a second time) it will not bump into the same problem again, but rather continues to the next problem, if that makes sense. After a while the script runs fine. Really have no clue here.</p>
+    <p>Thanks,</p>
+    <p>Bruno</p>
+  html_clean: |-
+    <p>Hi guys, </p>
+    <p>Just keep getting error messages after running the following code:</p>
+    <p><code><br>
+    from robofab.world import CurrentFont</code></p>
+    <p>myFont = CurrentFont()</p>
+    <p>for myGlyph in myFont:<br>
+    	print myGlyph.name<br>
+    	myGlyph.autoContourOrder()<br>
+    	myGlyph.correctDirection()<br>
+    	myGlyph.update()<br>
+    	for myContours in myGlyph.contours:<br>
+    		myContours.autoStartSegment()</p>
+    <p>print "done now"<br>
+    </p>
+    <p>This is the error message:<br>
+    <code><br>
+    Traceback (most recent call last):<br>
+      File "", line 16, in ?<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsBase.py", line 2129, in autoStartSegment<br>
+        on = segment.onCurve<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsBase.py", line 2330, in _get_onCurve<br>
+        return self.points[-1]<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsFL.py", line 1942, in _get_points<br>
+        node = self._node<br>
+      File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/RoboFab/robofab/objects/objectsFL.py", line 1880, in _get__node<br>
+        return glyph.nodes[self._nodeIndex]<br>
+    IndexError: list index out of range<br>
+    </code></p>
+    <p>The weird thing is (after running it a second time) it will not bump into the same problem again, but rather continues to the next problem, if that makes sense. After a while the script runs fine. Really have no clue here.</p>
+    <p>Thanks,</p>
+    <p>Bruno</p>
+comments:
+  - id: 371522
+    user: 43018
+    date: 2009-10-06T18:07:00
+    date_raw: 6 Oct 2009 — 6:07pm
+    votes: null
+    html: |-
+      <p>Ok, for the interested:<br>
+      Following should work, cheers</p>
+      <p><code><br>
+      from robofab.world import CurrentFont</code></p>
+      <p>myFont = CurrentFont()<br>
+      print myFont.info.postscriptFullName</p>
+      <p>myGlyph = myFont.keys</p>
+      <p>for myGlyph in myFont:<br>
+      &gt; print myGlyph.name<br>
+      &gt; myGlyph.autoContourOrder()<br>
+      &gt; myGlyph.correctDirection()<br>
+      &gt; &gt; for myContours in myGlyph:<br>
+      &gt; &gt; myContours.autoStartSegment()<br>
+      &gt; myGlyph.update()</p>
+      <p>print "done now"<br>
+      </p>
+    html_clean: |-
+      <p>Ok, for the interested:<br>
+      Following should work, cheers</p>
+      <p><code><br>
+      from robofab.world import CurrentFont</code></p>
+      <p>myFont = CurrentFont()<br>
+      print myFont.info.postscriptFullName</p>
+      <p>myGlyph = myFont.keys</p>
+      <p>for myGlyph in myFont:<br>
+      &gt; print myGlyph.name<br>
+      &gt; myGlyph.autoContourOrder()<br>
+      &gt; myGlyph.correctDirection()<br>
+      &gt; &gt; for myContours in myGlyph:<br>
+      &gt; &gt; myContours.autoStartSegment()<br>
+      &gt; myGlyph.update()</p>
+      <p>print "done now"<br>
+      </p>

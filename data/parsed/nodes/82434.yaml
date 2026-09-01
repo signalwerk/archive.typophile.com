@@ -1,0 +1,241 @@
+node: 82434
+title: Contextual endings in Illustrator CS4
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131015013248"
+  captured_at: 2013-10-15T01:32:48Z
+  url: http://typophile.com/node/82434
+  digest: B665FOEFELJJQYHPZZNNUZRSGJUTTV36
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/82434.html
+  fingerprint: 0167fe8aaed50790
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131015013248"
+      digest: B665FOEFELJJQYHPZZNNUZRSGJUTTV36
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/82434.html
+post:
+  id: 82434
+  user: 14650
+  date: 2011-05-23T12:53:00
+  date_raw: 23 May 2011 — 12:53pm
+  votes: null
+  html: |-
+    <p>I've been seeing a change in the way Illustrator handles contextual ending letters and wondered what's different. I used to use a lookup in the calt feature and it would only work with end of words followed by a space. End of lines used to never work because of the nature of text strings. </p>
+    <p>Here is what I use for a code:</p>
+    <p>feature calt {<br>
+         lookup calt_y.end1 {<br>
+         ignore sub y' @ Letters;<br>
+         sub y' space by y.end1;<br>
+         } calt_y.end1;<br>
+    } calt;</p>
+    <p>The space character BTW is NOT included in @Letters. Normally the ending y should only be triggered when followed by a space, but for some reason it does this at ends of lines also where there is no space character following. Last year I was doing this in CS4 as well, but there was a software update since then and now it behaves differently. Normally having an ending character at the end of lines and words both wouldn't be a problem, but since its contextual and there are ending swqsh letters in the stylistic sets as well, it makes it harder for a user to sub the swash ends without turning the calt feature off first.</p>
+  html_clean: |-
+    <p>I've been seeing a change in the way Illustrator handles contextual ending letters and wondered what's different. I used to use a lookup in the calt feature and it would only work with end of words followed by a space. End of lines used to never work because of the nature of text strings. </p>
+    <p>Here is what I use for a code:</p>
+    <p>feature calt {<br>
+         lookup calt_y.end1 {<br>
+         ignore sub y' @ Letters;<br>
+         sub y' space by y.end1;<br>
+         } calt_y.end1;<br>
+    } calt;</p>
+    <p>The space character BTW is NOT included in @Letters. Normally the ending y should only be triggered when followed by a space, but for some reason it does this at ends of lines also where there is no space character following. Last year I was doing this in CS4 as well, but there was a software update since then and now it behaves differently. Normally having an ending character at the end of lines and words both wouldn't be a problem, but since its contextual and there are ending swqsh letters in the stylistic sets as well, it makes it harder for a user to sub the swash ends without turning the calt feature off first.</p>
+comments:
+  - id: 465570
+    user: 1043
+    date: 2011-05-23T14:57:00
+    date_raw: 23 May 2011 — 2:57pm
+    votes: null
+    html: <p>Have you tried taking out the "ignore" line?</p>
+    html_clean: <p>Have you tried taking out the "ignore" line?</p>
+  - id: 465575
+    user: 14650
+    date: 2011-05-23T16:25:00
+    date_raw: 23 May 2011 — 4:25pm
+    votes: null
+    html: |-
+      <p>I will try tomorrow. </p>
+      <p>It used to work "as is" before, substituting end character only at the end of words followed by a space. This particular font is not mine, but a friend's at American Greetings. I'm helping with code. All my past experience proved futile to get any character to sub at the end of a line contextually. Now suddenly its doing it when I don't expect it. Another font that I did digitize for her last year is now behaving that same way in Illustrator but didn't before. </p>
+      <p>My understanding was that because of the nature of a text string there was no way to get the font to recognize contextually that its the end of a line.</p>
+    html_clean: |-
+      <p>I will try tomorrow. </p>
+      <p>It used to work "as is" before, substituting end character only at the end of words followed by a space. This particular font is not mine, but a friend's at American Greetings. I'm helping with code. All my past experience proved futile to get any character to sub at the end of a line contextually. Now suddenly its doing it when I don't expect it. Another font that I did digitize for her last year is now behaving that same way in Illustrator but didn't before. </p>
+      <p>My understanding was that because of the nature of a text string there was no way to get the font to recognize contextually that its the end of a line.</p>
+  - id: 470247
+    user: 35635
+    date: 2011-07-07T23:39:00
+    date_raw: 7 Jul 2011 — 11:39pm
+    votes: null
+    html: |-
+      <p>Hi, glad to know you.</p>
+      <p>I've handled this kind problem with cswh features as follow:</p>
+      <ol>
+      lookup cswh10 {
+      <ol>
+        ignore sub @fina1' [@letter_define];<br>
+        sub @fina1' by @fina2;
+      </ol>
+      <p>} cswh10;
+      </p></ol>
+      <p><strong>@fina2</strong> is a class where the endings were placed.</p>
+      <p>So far this works fine in Indesign, but I'm not yet sure if this fiture can generally be accessed in several other software which supporting OT</p>
+      <p>Best regards.<br>
+      awm</p>
+    html_clean: |-
+      <p>Hi, glad to know you.</p>
+      <p>I've handled this kind problem with cswh features as follow:</p>
+      <ol>
+      lookup cswh10 {
+      <ol>
+        ignore sub @fina1' [@letter_define];<br>
+        sub @fina1' by @fina2;
+      </ol>
+      <p>} cswh10;
+      </p></ol>
+      <p><strong>@fina2</strong> is a class where the endings were placed.</p>
+      <p>So far this works fine in Indesign, but I'm not yet sure if this fiture can generally be accessed in several other software which supporting OT</p>
+      <p>Best regards.<br>
+      awm</p>
+  - id: 473127
+    user: 59672
+    date: 2011-08-04T11:18:00
+    date_raw: 4 Aug 2011 — 11:18am
+    votes: null
+    html: |-
+      <p>I'm also having the same problem with desired swash NOT showing up at the end of the string.</p>
+      <p>It seems Illustrator reads end of the text string as "space".<br>
+      So I used:<br>
+      <code><br>
+      ignore sub @ending @letter;<br>
+      ignore sub @ending space @letter;<br>
+      sub @letter' space by @ending;<br>
+      sub @letter by @ending;<br>
+      </code></p>
+      <p>But now I get swashes at the end of EVERY line.<br>
+      And I don't understand the solution stated here... :(</p>
+    html_clean: |-
+      <p>I'm also having the same problem with desired swash NOT showing up at the end of the string.</p>
+      <p>It seems Illustrator reads end of the text string as "space".<br>
+      So I used:<br>
+      <code><br>
+      ignore sub @ending @letter;<br>
+      ignore sub @ending space @letter;<br>
+      sub @letter' space by @ending;<br>
+      sub @letter by @ending;<br>
+      </code></p>
+      <p>But now I get swashes at the end of EVERY line.<br>
+      And I don't understand the solution stated here... :(</p>
+  - id: 473215
+    user: 44740
+    date: 2011-08-05T03:52:00
+    date_raw: 5 Aug 2011 — 3:52am
+    votes: null
+    html: |-
+      <p>@ Minerva</p>
+      <p>you need to put apostrophes in the ignore sub as well as the sub, but I'm not sure what you're trying to achieve with the second ignore substitution - looks like you don't want the @letter to change to an @ending AFTER a space, but it should be the opposite - you want it to replace BEFORE a space.</p>
+      <p>@ Stephen</p>
+      <p>Is there a reason you would only want it to change to an endform before a space?  Why not have endforms at the ends of lines, before punctuation etc etc.  That'd be easy, because you'd just get rid of the space from sub y' space by y.end1;</p>
+    html_clean: |-
+      <p>@ Minerva</p>
+      <p>you need to put apostrophes in the ignore sub as well as the sub, but I'm not sure what you're trying to achieve with the second ignore substitution - looks like you don't want the @letter to change to an @ending AFTER a space, but it should be the opposite - you want it to replace BEFORE a space.</p>
+      <p>@ Stephen</p>
+      <p>Is there a reason you would only want it to change to an endform before a space?  Why not have endforms at the ends of lines, before punctuation etc etc.  That'd be easy, because you'd just get rid of the space from sub y' space by y.end1;</p>
+  - id: 473223
+    user: 59672
+    date: 2011-08-05T05:51:00
+    date_raw: 5 Aug 2011 — 5:51am
+    votes: null
+    html: |-
+      <p>Yeah, I had apostrophes at the actual code, just messed things here.<br>
+      In short, I want swashes only to appear at the end of the text string.<br>
+      <code><br>
+      ignore sub @ending' @letter;<br>
+      ignore sub @ending' space;<br>
+      sub @ending' by @ending.swash;<br>
+      </code>(This gives swashes in FL, but not in Ai.)<br>
+      <code><br>
+      ignore sub @ending' @letter;<br>
+      ignore sub @ending' space @letter;<br>
+      sub @ending' by @ending.swash;<br>
+      </code>(This gives the same swashes in FL + swashes at the end of ALL lines in Ai.</p>
+      <p>And I need only 1 swash at the end of the text.</p>
+    html_clean: |-
+      <p>Yeah, I had apostrophes at the actual code, just messed things here.<br>
+      In short, I want swashes only to appear at the end of the text string.<br>
+      <code><br>
+      ignore sub @ending' @letter;<br>
+      ignore sub @ending' space;<br>
+      sub @ending' by @ending.swash;<br>
+      </code>(This gives swashes in FL, but not in Ai.)<br>
+      <code><br>
+      ignore sub @ending' @letter;<br>
+      ignore sub @ending' space @letter;<br>
+      sub @ending' by @ending.swash;<br>
+      </code>(This gives the same swashes in FL + swashes at the end of ALL lines in Ai.</p>
+      <p>And I need only 1 swash at the end of the text.</p>
+  - id: 473690
+    user: 59672
+    date: 2011-08-11T09:00:00
+    date_raw: 11 Aug 2011 — 9:00am
+    votes: null
+    html: <p>I'm bumping this thread a bit because this issue is the last one before I can release my typeface.</p>
+    html_clean: <p>I'm bumping this thread a bit because this issue is the last one before I can release my typeface.</p>
+  - id: 474016
+    user: 909
+    date: 2011-08-14T11:58:00
+    date_raw: 14 Aug 2011 — 11:58am
+    votes: null
+    html: |-
+      <p>I thought you wanted swashes at the end of all lines. Are you saying (Aug 5) that you only want a swash at the end of the whole paragraph?</p>
+      <p>T</p>
+    html_clean: |-
+      <p>I thought you wanted swashes at the end of all lines. Are you saying (Aug 5) that you only want a swash at the end of the whole paragraph?</p>
+      <p>T</p>
+  - id: 474073
+    user: 59672
+    date: 2011-08-15T00:56:00
+    date_raw: 15 Aug 2011 — 12:56am
+    votes: null
+    html: <p>Yes.</p>
+    html_clean: <p>Yes.</p>
+  - id: 474298
+    user: 909
+    date: 2011-08-16T16:17:00
+    date_raw: 16 Aug 2011 — 4:17pm
+    votes: null
+    html: |-
+      <p>I don't think you can do that in OpenType today. Sorry.</p>
+      <p>Unless of course the layout engines allow the hard return character to participate in OpenType shaping. But I'd be surprised if that was normal/common behavior across layout engines. But even that wouldn't be enough, if you want the feature to also work when the end of paragraph is also the end of the document or text block... you'd need to be able to detect app-inserted soft returns as well, which seems even more unlikely.</p>
+      <p>If my belief above is correct, it would take very active application support to make such a feature work, because only the application knows whether the last character on the line is the end of just the line, or the end of the paragraph. The regular OpenType contextual workings aren't enough to handle that.</p>
+      <p>Regards,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>I don't think you can do that in OpenType today. Sorry.</p>
+      <p>Unless of course the layout engines allow the hard return character to participate in OpenType shaping. But I'd be surprised if that was normal/common behavior across layout engines. But even that wouldn't be enough, if you want the feature to also work when the end of paragraph is also the end of the document or text block... you'd need to be able to detect app-inserted soft returns as well, which seems even more unlikely.</p>
+      <p>If my belief above is correct, it would take very active application support to make such a feature work, because only the application knows whether the last character on the line is the end of just the line, or the end of the paragraph. The regular OpenType contextual workings aren't enough to handle that.</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 474386
+    user: 59672
+    date: 2011-08-17T08:27:00
+    date_raw: 17 Aug 2011 — 8:27am
+    votes: null
+    html: <p>One solution would be swashes activated by period. But that may confuse users.</p>
+    html_clean: <p>One solution would be swashes activated by period. But that may confuse users.</p>

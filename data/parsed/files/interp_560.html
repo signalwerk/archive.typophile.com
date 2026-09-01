@@ -1,0 +1,147 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<script type="text/javascript">
+
+/* Return the string representing the number with dp digits after the point */
+function fixDecPl(x,dp)
+{
+return x.toFixed(dp) 
+}
+
+
+function intvalues()
+{
+  var linstring     = '';
+  var quadstring    = '';
+  var deGrootstring = '';
+
+  for(i=0; i<3; i++){
+    var box = document.forms['loginterp'].elements[i];
+    if (!box.value){
+       alert('You haven\'t filled in ' + box.name + '!');
+       box.focus();
+       return;
+    }
+  }
+
+  var  a = parseFloat(document.forms['loginterp'].start.value);
+  var  b = parseFloat(document.forms['loginterp'].end.value);
+  var  n = parseInt(document.forms['loginterp'].n.value);
+
+  var dp = parseInt(document.forms['loginterp'].dp.value);       /* decimal places */
+
+  document.forms['loginterp'].n.value = n     /* we use just the integer part */
+  document.forms['loginterp'].dp.value = dp   /* idem  */
+
+  var  il = a
+  var  dl = (b - a)/(n+1)
+
+  var  iq = Math.sqrt(a)
+  var  dq = (Math.sqrt(b) - Math.sqrt(a))/(n+1)
+
+  var  id = Math.log(a)
+  var  dd = (Math.log(b) - Math.log(a))/(n+1)
+
+  for (i=1; i<=n; i++) { 
+     linstring      = linstring     + fixDecPl(il+i*dl,dp) + '    ';
+     quadstring     = quadstring    + fixDecPl((iq+i*dq)*(iq+i*dq),dp) + '    ';
+     deGrootstring  = deGrootstring + fixDecPl(Math.exp(id+i*dd),dp) + '    ';
+  }
+
+  document.forms['loginterp'].linear.value     = linstring;
+  document.forms['loginterp'].quadratic.value  = quadstring;
+  document.forms['loginterp'].deGroot.value    = deGrootstring;
+}   
+
+</script>
+
+            
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Michel Boyer">
+<meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; I) [Netscape]"> 
+
+<title>Interpolation</title>
+ 
+<style type="text/css">      
+#interpolation
+{
+   font-family: Verdana;
+}
+#interpolation input
+{
+   font-family: Verdana;
+   font-size:0.9em;
+}
+#interpolation textarea
+{
+   font-family: Verdana;
+   font-size:0.9em;
+}
+table
+{ 
+  font-family: Verdana;
+  font-size:0.9em;
+}
+BODY 
+{
+   bgcolor: white; 
+   font-family: Verdana;        
+   font-size:0.9em;
+   margin-left: 20pt ;
+}      
+A
+{        
+   font-family: Verdana;
+   text-decoration: none; color: red;   
+}    
+</style>
+</head>
+<body bgcolor="white">
+      
+<center>
+<HR>
+<H1>Interpolation</H1>
+<HR>
+
+<PRE>
+
+
+</PRE>
+
+<form id="interpolation" name="loginterp" action="#" onsubmit="intvalues(); return false">
+<table>
+<tr>
+  <td>Start value</td> 
+  <td><input type=float name=start size=8></td>
+</tr>
+<tr>
+  <td>End value </td> 
+  <td><input type=float name=end  size=8></td>
+</tr>
+<tr>
+  <td>Number of values to fit between</td> 
+  <td><input type=int  name="n"  size=8></td>
+</tr>
+<tr><td></td><td></td></tr>
+<tr>
+  <td>Decimals after point &nbsp;&nbsp;&nbsp;<input type=int   name="dp"  value="3" size=1></td><td><input type="submit" value="Submit"><input type="reset" value="Reset"></td>
+</tr>
+<tr><td></td><td></td></tr>
+<tr>
+  <td>Linear</td>       
+  <td><textarea name="linear" cols="50"></textarea> </td>
+</tr>
+<tr>
+  <td>Quadratic</td>    
+  <td><textarea name="quadratic" cols="50"></textarea></td>
+</tr>
+<tr>
+  <td><a href="http://www.lucasfonts.com/about/interpolation-theory/">de Groot</a></td>
+  <td><textarea name="deGroot" cols="50"></textarea></td>
+</tr> 
+</table>
+</form>
+</center>
+</body>
+</html>

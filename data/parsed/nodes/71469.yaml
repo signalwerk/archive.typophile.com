@@ -1,0 +1,113 @@
+node: 71469
+title: PostScript error when Distiller embeding the font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140903041301"
+  captured_at: 2014-09-03T04:13:01Z
+  url: http://typophile.com/node/71469
+  digest: KUCI7M7VGFEANUAOCJ3WYHKQIZSKOLWH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/71469.html
+  fingerprint: 209bd2eda50e894d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140903041301"
+      digest: KUCI7M7VGFEANUAOCJ3WYHKQIZSKOLWH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71469.html
+post:
+  id: 71469
+  user: 66155
+  date: 2010-06-18T05:48:00
+  date_raw: 18 Jun 2010 — 5:48am
+  votes: null
+  html: |-
+    <p>I exported my font in FontLab Studio as OpenType PS format and I tested the font with different software to see if it is okay.</p>
+    <p>I found that using Adobe Acrobat virtual printer to "print" the MS Word/WordPad document using my font, it will cause a postscript error:<br>
+    <code><br>
+    %%[ ProductName: Distiller ]%%<br>
+    CNLicense-A not found, using Courier.<br>
+    %%[ Error: typecheck; OffendingCommand: show ]%%<br>
+    Stack:<br>
+    (%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%<br>
+    %%[ Warning: PostScript error. No PDF file produced. ] %%<br>
+    </code><br>
+    However, when I use the built-in PDF export feature in Illustrator and OpenOffice.org Writer in Ubuntu, no error is found and the font can be embedded successfully. </p>
+    <p>In FontLab, I have already selected "Everything is allowed (installable mode)" in Font Info window. I found that my other fonts exported also encounter this issue but not the fonts created by the others. Is there any other settings can cause this problem? I have no clue what can cause this problem.</p>
+  html_clean: |-
+    <p>I exported my font in FontLab Studio as OpenType PS format and I tested the font with different software to see if it is okay.</p>
+    <p>I found that using Adobe Acrobat virtual printer to "print" the MS Word/WordPad document using my font, it will cause a postscript error:<br>
+    <code><br>
+    %%[ ProductName: Distiller ]%%<br>
+    CNLicense-A not found, using Courier.<br>
+    %%[ Error: typecheck; OffendingCommand: show ]%%<br>
+    Stack:<br>
+    (%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%<br>
+    %%[ Warning: PostScript error. No PDF file produced. ] %%<br>
+    </code><br>
+    However, when I use the built-in PDF export feature in Illustrator and OpenOffice.org Writer in Ubuntu, no error is found and the font can be embedded successfully. </p>
+    <p>In FontLab, I have already selected "Everything is allowed (installable mode)" in Font Info window. I found that my other fonts exported also encounter this issue but not the fonts created by the others. Is there any other settings can cause this problem? I have no clue what can cause this problem.</p>
+comments:
+  - id: 416507
+    user: 15033
+    date: 2010-06-18T12:16:00
+    date_raw: 18 Jun 2010 — 12:16pm
+    votes: null
+    html: <p>That error message doesn't look like a font licensing problem; it looks more like Distiller can't locate the font file. Where is the .otf file located on your computer?</p>
+    html_clean: <p>That error message doesn't look like a font licensing problem; it looks more like Distiller can't locate the font file. Where is the .otf file located on your computer?</p>
+  - id: 416540
+    user: 66155
+    date: 2010-06-18T19:05:00
+    date_raw: 18 Jun 2010 — 7:05pm
+    votes: null
+    html: |-
+      <p>I put the font file in C:\WINDOWS\Fonts and got the following error message:<br>
+      <code><br>
+      %%[ ProductName: Distiller ]%%<br>
+      %%[ Error: typecheck; OffendingCommand: xshow ]%%<br>
+      Stack:<br>
+      [89 89 0]<br>
+      (%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%<br>
+      %%[ Warning: PostScript error. No PDF file produced. ] %%<br>
+      </code></p>
+    html_clean: |-
+      <p>I put the font file in C:\WINDOWS\Fonts and got the following error message:<br>
+      <code><br>
+      %%[ ProductName: Distiller ]%%<br>
+      %%[ Error: typecheck; OffendingCommand: xshow ]%%<br>
+      Stack:<br>
+      [89 89 0]<br>
+      (%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%<br>
+      %%[ Warning: PostScript error. No PDF file produced. ] %%<br>
+      </code></p>
+  - id: 416547
+    user: 15033
+    date: 2010-06-18T21:28:00
+    date_raw: 18 Jun 2010 — 9:28pm
+    votes: null
+    html: |-
+      <p>The typecheck error means that the interpreter was expecting one kind of data but got something else. The xshow command has to do with symbol widths and positioning. Taken together, they suggest that either your font has an internal problem, or you have a bad print driver. Since this only happens with Word and Wordpad, I tend to suspect PDFMaker (I assume this is what you mean by virtual printer). Unfortunately, even if you find out that PDFMaker is the problem, you'll still need to figure out why it doesn't like your font.</p>
+      <p>Two things before dealing with PDFMaker: First, how did you put the font file into C:\Windows\Fonts? While you can drag or copy files into the folder, the best way is to open Fonts from the Control Panel and then go to File &gt; Install New Font. </p>
+      <p>Second, if your font is very large, with many symbols, try subsetting instead of embedding everything.</p>
+      <p>Those things out of the way, bypass PDFMaker by printing your Word document to a .ps file and then distilling the .ps file (doubleclicking on the .ps file should launch Distiller).</p>
+    html_clean: |-
+      <p>The typecheck error means that the interpreter was expecting one kind of data but got something else. The xshow command has to do with symbol widths and positioning. Taken together, they suggest that either your font has an internal problem, or you have a bad print driver. Since this only happens with Word and Wordpad, I tend to suspect PDFMaker (I assume this is what you mean by virtual printer). Unfortunately, even if you find out that PDFMaker is the problem, you'll still need to figure out why it doesn't like your font.</p>
+      <p>Two things before dealing with PDFMaker: First, how did you put the font file into C:\Windows\Fonts? While you can drag or copy files into the folder, the best way is to open Fonts from the Control Panel and then go to File &gt; Install New Font. </p>
+      <p>Second, if your font is very large, with many symbols, try subsetting instead of embedding everything.</p>
+      <p>Those things out of the way, bypass PDFMaker by printing your Word document to a .ps file and then distilling the .ps file (doubleclicking on the .ps file should launch Distiller).</p>

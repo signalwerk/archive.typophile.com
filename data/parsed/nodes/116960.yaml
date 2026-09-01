@@ -1,0 +1,320 @@
+node: 116960
+title: Generating a Unicode Chart per Font
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20140724065751"
+  captured_at: 2014-07-24T06:57:51Z
+  url: http://typophile.com/node/116960
+  digest: AIYW6BFGU7AKIC62G5A4HB47EBXVO4D3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/116960.html
+  fingerprint: c9e159016483921e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140724065751"
+      digest: AIYW6BFGU7AKIC62G5A4HB47EBXVO4D3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/116960.html
+post:
+  id: 116960
+  user: 10590
+  date: 2014-06-01T19:54:00
+  date_raw: 1 Jun 2014 — 7:54pm
+  votes: null
+  html: |-
+    <p>Dear typophiles,</p>
+    <p>Does there exist any available application or tool for generating a pdf (or jpg or png or...) unicode code chart? For example, input a range (say, start=0600,stop=06FF) and a font name: Then the resultant pdf gives you a unicode code chart covering that range (as supported by the named font), with the code point as caption per each cell... </p>
+    <p>Anything like that available? Perhaps an online utility? Seems like a common enough task that a utility may be floating out there somewhere...</p>
+    <p>Thanks in advance!</p>
+  html_clean: |-
+    <p>Dear typophiles,</p>
+    <p>Does there exist any available application or tool for generating a pdf (or jpg or png or...) unicode code chart? For example, input a range (say, start=0600,stop=06FF) and a font name: Then the resultant pdf gives you a unicode code chart covering that range (as supported by the named font), with the code point as caption per each cell... </p>
+    <p>Anything like that available? Perhaps an online utility? Seems like a common enough task that a utility may be floating out there somewhere...</p>
+    <p>Thanks in advance!</p>
+comments:
+  - id: 579644
+    user: 18942
+    date: 2014-06-02T07:02:00
+    date_raw: 2 Jun 2014 — 7:02am
+    votes: null
+    html: |-
+      <p>The AFDKO command <code>tx</code> gives you charts and if you use the <code>-g</code> option with a list of characters, you can get the chart for those glyphs. However <code>tx</code> does not appear to accept a unicode range. On the Mac or on Linux you can however easily generate the list of character names if you have the FontForge python class installed. Here is a script that does that. Let us call it <code>listcharnames</code></p>
+      <pre>---- cut line
+      #!/usr/bin/env python
+
+      import fontforge,sys
+      fnt=fontforge.open(sys.argv[1],1)
+
+      start = int(sys.argv[2],16)
+      end=int(sys.argv[3],16)
+
+      unilist=[g.unicode for g in fnt.glyphs() \
+          if ((g.unicode &lt;= end) and (g.unicode &gt;= start))]
+      unilist.sort()
+      print ','.join(fnt[u].glyphname for u in unilist)
+      ---
+      </pre><p>Then you can also give yourself the command <code>mkchart</code></p>
+      <pre>--- cut line
+      #!/bin/sh
+      tx -pdf -g `listcharnames $1 $2 $3` $1
+      ---
+      </pre><p>and to get your chart say for Arno Pro for the hex values between 0x0060 and 0xFFFF, you need only type<br>
+      <code><br>
+      mkchart ArnoPro-Regular.otf 0060 FFFF &gt; ~/sheet.pdf<br>
+      </code><br>
+      and you get your sheet (to get it on the desktop on the mac, you rather redirect to <code>~/Desktop/sheet.pdf</code>)</p>
+      <p>Here the sheet I get with<br>
+      <code><br>
+      mkchart ArnoPro-Regular.otf 0060 00AF &gt; ~/sheet.pdf<br>
+      </code><br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/ArnoSheet_5282.png"></div><p></p>
+    html_clean: |-
+      <p>The AFDKO command <code>tx</code> gives you charts and if you use the <code>-g</code> option with a list of characters, you can get the chart for those glyphs. However <code>tx</code> does not appear to accept a unicode range. On the Mac or on Linux you can however easily generate the list of character names if you have the FontForge python class installed. Here is a script that does that. Let us call it <code>listcharnames</code></p>
+      <pre>---- cut line
+      #!/usr/bin/env python
+
+      import fontforge,sys
+      fnt=fontforge.open(sys.argv[1],1)
+
+      start = int(sys.argv[2],16)
+      end=int(sys.argv[3],16)
+
+      unilist=[g.unicode for g in fnt.glyphs() \
+          if ((g.unicode &lt;= end) and (g.unicode &gt;= start))]
+      unilist.sort()
+      print ','.join(fnt[u].glyphname for u in unilist)
+      ---
+      </pre><p>Then you can also give yourself the command <code>mkchart</code></p>
+      <pre>--- cut line
+      #!/bin/sh
+      tx -pdf -g `listcharnames $1 $2 $3` $1
+      ---
+      </pre><p>and to get your chart say for Arno Pro for the hex values between 0x0060 and 0xFFFF, you need only type<br>
+      <code><br>
+      mkchart ArnoPro-Regular.otf 0060 FFFF &gt; ~/sheet.pdf<br>
+      </code><br>
+      and you get your sheet (to get it on the desktop on the mac, you rather redirect to <code>~/Desktop/sheet.pdf</code>)</p>
+      <p>Here the sheet I get with<br>
+      <code><br>
+      mkchart ArnoPro-Regular.otf 0060 00AF &gt; ~/sheet.pdf<br>
+      </code><br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/ArnoSheet_5282.png"></div><p></p>
+  - id: 579665
+    user: 48268
+    date: 2014-06-02T08:22:00
+    date_raw: 2 Jun 2014 — 8:22am
+    votes: null
+    html: |-
+      <p>FontExplorer X Pro has a nice feature that allows you to create font books in this way. You can specify the Unicode table(s), the number of characters per row, whether to include HTML and Keystroke info, text previews and a variety of metadata information.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Source Sans Pro-1_3694.jpg"></div><p></p>
+    html_clean: |-
+      <p>FontExplorer X Pro has a nice feature that allows you to create font books in this way. You can specify the Unicode table(s), the number of characters per row, whether to include HTML and Keystroke info, text previews and a variety of metadata information.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Source Sans Pro-1_3694.jpg"></div><p></p>
+  - id: 579710
+    user: 18942
+    date: 2014-06-02T17:35:00
+    date_raw: 2 Jun 2014 — 5:35pm
+    votes: null
+    html: <p>[deleted]</p>
+    html_clean: <p>[deleted]</p>
+  - id: 579721
+    user: 10590
+    date: 2014-06-02T21:01:00
+    date_raw: 2 Jun 2014 — 9:01pm
+    votes: null
+    html: |-
+      <p>Hi Michel, Karl,<br>
+      Thanks for the tips; *much* appreciated! </p>
+      <p>I downloaded the latest AFDKO, but it seems broken:</p>
+      <p><a href="http://www.typophile.com/node/116997" title="http://www.typophile.com/node/116997">http://www.typophile.com/node/116997</a></p>
+      <p>Once I get it working I'll try to build a chart (not sure if I can get the FF python class working on Win though).</p>
+      <p>As for FontExplorer X Pro, I can view the character info under "Characters" in the Information dialog, but there is no way to export that to a file with or without the specifications you mentioned (yes, most of those specs are available for preview). The only one seems to be able to export is the basic preview on the main page. Any advice would be appreciated... </p>
+      <p>Thanks!</p>
+    html_clean: |-
+      <p>Hi Michel, Karl,<br>
+      Thanks for the tips; *much* appreciated! </p>
+      <p>I downloaded the latest AFDKO, but it seems broken:</p>
+      <p><a href="/node/116997/" title="http://www.typophile.com/node/116997">http://www.typophile.com/node/116997</a></p>
+      <p>Once I get it working I'll try to build a chart (not sure if I can get the FF python class working on Win though).</p>
+      <p>As for FontExplorer X Pro, I can view the character info under "Characters" in the Information dialog, but there is no way to export that to a file with or without the specifications you mentioned (yes, most of those specs are available for preview). The only one seems to be able to export is the basic preview on the main page. Any advice would be appreciated... </p>
+      <p>Thanks!</p>
+  - id: 579722
+    user: 18942
+    date: 2014-06-02T21:44:00
+    date_raw: 2 Jun 2014 — 9:44pm
+    votes: null
+    html: |-
+      <p>I can't help with AFDKO on Windows. I am on Macs.</p>
+      <p>On the other hand, if you have problems with FontForge, here is some replacement code for <code>listcharnames</code> written in Lua for LuaTeX. That avoids  having to install the Fontforge python module but I think LuaTeX uses some Fontforge code anyway. If you have tex live installed, this should run.</p>
+      <pre>--- cut here
+      #!/usr/bin/env luatex --luaonly
+
+      local f = fontloader.open(arg[1])
+      local startcode=tonumber(arg[2])
+      local endcode = tonumber(arg[3])
+      local listcodes={}
+      local i = 0
+      while (i &lt; f.glyphmax) do
+        local g = f.glyphs[i]
+        if g then
+          if ((g.unicode &gt;= startcode) and (g.unicode &lt;= endcode)) then
+            listcodes[g.unicode] = g.name
+          end
+        end
+        i = i + 1
+      end
+      local keys={}
+      for n in pairs(listcodes) do table.insert(keys,n) end
+      table.sort(keys)
+      local names={}
+      for i,n in ipairs(keys) do table.insert(names,listcodes[n]) end
+      print(table.concat(names,","))
+      fontloader.close(f)
+      ---
+      </pre><p>Here is a trace of execution on my mac: the hex interval needs to by written with 0x...</p>
+      <pre>% listcharnames texgyrecursor-bold.otf 0x050 0x060
+      P,Q,R,S,T,U,V,W,X,Y,Z,bracketleft,backslash,bracketright,asciicircum,underscore,grave
+      % 
+      </pre><p>On windows, unless you are running cygwin, my scripts would not work as is and the previous call would become</p>
+      <pre>luatex  --luaonly listcharnames texgyrecursor-bold.otf 0x050 0x060
+      </pre><p>
+      That gives as output the list to be used with <code>tx -g</code></p>
+      <p>I dont' find that Lua code very elegant compared to the Python script but I am not experienced enough in Lua to improve.</p>
+      <p>Incidently, should it not be possible to generate the desired chart directly with LuaTeX or LuaLaTeX?</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>I can't help with AFDKO on Windows. I am on Macs.</p>
+      <p>On the other hand, if you have problems with FontForge, here is some replacement code for <code>listcharnames</code> written in Lua for LuaTeX. That avoids  having to install the Fontforge python module but I think LuaTeX uses some Fontforge code anyway. If you have tex live installed, this should run.</p>
+      <pre>--- cut here
+      #!/usr/bin/env luatex --luaonly
+
+      local f = fontloader.open(arg[1])
+      local startcode=tonumber(arg[2])
+      local endcode = tonumber(arg[3])
+      local listcodes={}
+      local i = 0
+      while (i &lt; f.glyphmax) do
+        local g = f.glyphs[i]
+        if g then
+          if ((g.unicode &gt;= startcode) and (g.unicode &lt;= endcode)) then
+            listcodes[g.unicode] = g.name
+          end
+        end
+        i = i + 1
+      end
+      local keys={}
+      for n in pairs(listcodes) do table.insert(keys,n) end
+      table.sort(keys)
+      local names={}
+      for i,n in ipairs(keys) do table.insert(names,listcodes[n]) end
+      print(table.concat(names,","))
+      fontloader.close(f)
+      ---
+      </pre><p>Here is a trace of execution on my mac: the hex interval needs to by written with 0x...</p>
+      <pre>% listcharnames texgyrecursor-bold.otf 0x050 0x060
+      P,Q,R,S,T,U,V,W,X,Y,Z,bracketleft,backslash,bracketright,asciicircum,underscore,grave
+      % 
+      </pre><p>On windows, unless you are running cygwin, my scripts would not work as is and the previous call would become</p>
+      <pre>luatex  --luaonly listcharnames texgyrecursor-bold.otf 0x050 0x060
+      </pre><p>
+      That gives as output the list to be used with <code>tx -g</code></p>
+      <p>I dont' find that Lua code very elegant compared to the Python script but I am not experienced enough in Lua to improve.</p>
+      <p>Incidently, should it not be possible to generate the desired chart directly with LuaTeX or LuaLaTeX?</p>
+      <p>Michel</p>
+  - id: 579754
+    user: 48268
+    date: 2014-06-03T04:17:00
+    date_raw: 3 Jun 2014 — 4:17am
+    votes: null
+    html: <p>Idris, you need to choose the font or fonts and then go to Print them. That brings up the dialogue box I described.</p>
+    html_clean: <p>Idris, you need to choose the font or fonts and then go to Print them. That brings up the dialogue box I described.</p>
+  - id: 579768
+    user: 10590
+    date: 2014-06-03T05:33:00
+    date_raw: 3 Jun 2014 — 5:33am
+    votes: null
+    html: |-
+      <p>Ah, thanks so much for the lua script, Michel!</p>
+      <p>Just tested it and it does indeed work, so as soon as we can figure out what's wrong with AFDKO I should be back in business.</p>
+      <p>In ConTeXt (based on luaTeX) there is a command \showfont[fontname][all] that prints out charts, but it currently skips some characters in the font I'm working on (no idea why). I could probably design my own, but I don't have the skill to design a chart macro quickly and no longer have the time these days to spend hours working on TeX macro-programming. In ConTeXt, it would probably be more efficient to write a fontchart module in lua anyway, and that's definitely beyond my skill set.</p>
+      <p>Thanks again!</p>
+    html_clean: |-
+      <p>Ah, thanks so much for the lua script, Michel!</p>
+      <p>Just tested it and it does indeed work, so as soon as we can figure out what's wrong with AFDKO I should be back in business.</p>
+      <p>In ConTeXt (based on luaTeX) there is a command \showfont[fontname][all] that prints out charts, but it currently skips some characters in the font I'm working on (no idea why). I could probably design my own, but I don't have the skill to design a chart macro quickly and no longer have the time these days to spend hours working on TeX macro-programming. In ConTeXt, it would probably be more efficient to write a fontchart module in lua anyway, and that's definitely beyond my skill set.</p>
+      <p>Thanks again!</p>
+  - id: 579772
+    user: 10590
+    date: 2014-06-03T05:46:00
+    date_raw: 3 Jun 2014 — 5:46am
+    votes: null
+    html: |-
+      <p>Hi Karl,</p>
+      <p><a href="http://www.fontexplorerx.com/macfeatures/" title="http://www.fontexplorerx.com/macfeatures/">http://www.fontexplorerx.com/macfeatures/</a><br>
+      <a href="http://www.fontexplorerx.com/winfeatures/" title="http://www.fontexplorerx.com/winfeatures/">http://www.fontexplorerx.com/winfeatures/</a></p>
+      <p>I just checked, the "Create Fontbooks by template" functionality seems to be Mac-only; I can find no "Print" function in the Windows version. </p>
+      <p>If I sent you the font privately, could you try it? </p>
+      <p>Thanks again!</p>
+    html_clean: |-
+      <p>Hi Karl,</p>
+      <p><a href="http://www.fontexplorerx.com/macfeatures/" title="http://www.fontexplorerx.com/macfeatures/">http://www.fontexplorerx.com/macfeatures/</a><br>
+      <a href="http://www.fontexplorerx.com/winfeatures/" title="http://www.fontexplorerx.com/winfeatures/">http://www.fontexplorerx.com/winfeatures/</a></p>
+      <p>I just checked, the "Create Fontbooks by template" functionality seems to be Mac-only; I can find no "Print" function in the Windows version. </p>
+      <p>If I sent you the font privately, could you try it? </p>
+      <p>Thanks again!</p>
+  - id: 579773
+    user: 48268
+    date: 2014-06-03T06:23:00
+    date_raw: 3 Jun 2014 — 6:23am
+    votes: null
+    html: <p>Idris, I have sent you an email through the site, respond to that and I will send you some samples.</p>
+    html_clean: <p>Idris, I have sent you an email through the site, respond to that and I will send you some samples.</p>
+  - id: 579808
+    user: 21217
+    date: 2014-06-03T12:10:00
+    date_raw: 3 Jun 2014 — 12:10pm
+    votes: null
+    html: <p>I use this fntsample <a href="http://fntsample.sourceforge.net/" title="http://fntsample.sourceforge.net/">http://fntsample.sourceforge.net/</a></p>
+    html_clean: <p>I use this fntsample <a href="http://fntsample.sourceforge.net/" title="http://fntsample.sourceforge.net/">http://fntsample.sourceforge.net/</a></p>
+  - id: 579826
+    user: 10590
+    date: 2014-06-03T16:32:00
+    date_raw: 3 Jun 2014 — 4:32pm
+    votes: null
+    html: <p>Thanks, Khaled! I'll check that out as well, although it seems to be Linux-only...</p>
+    html_clean: <p>Thanks, Khaled! I'll check that out as well, although it seems to be Linux-only...</p>
+  - id: 580154
+    user: 10590
+    date: 2014-06-07T08:55:00
+    date_raw: 7 Jun 2014 — 8:55am
+    votes: null
+    html: |-
+      <p>Almost by accident I came across a wonderful utility for Windows -- by the Unicode Consortium itself! - that handles the task of generating Unicode code-point charts: UniBook:</p>
+      <p><a href="http://www.unicode.org/unibook/" title="http://www.unicode.org/unibook/">http://www.unicode.org/unibook/</a></p>
+      <p><a href="http://unicode.org/unibook/help/unibook.htm" title="http://unicode.org/unibook/help/unibook.htm">http://unicode.org/unibook/help/unibook.htm</a></p>
+      <p>It creates charts using the same template as the standard unicode charts, choose your font, and has lots of options and features, including printing to pdf if you have a pdf printer or Adobe Acrobat installed. Still exploring its possibilities.</p>
+      <p>Surprised this one isn't better known. Thank you all for your responses, and especially Karl Strange for all of his help!</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Unibook_0600_6321.jpg"></div><p></p>
+    html_clean: |-
+      <p>Almost by accident I came across a wonderful utility for Windows -- by the Unicode Consortium itself! - that handles the task of generating Unicode code-point charts: UniBook:</p>
+      <p><a href="http://www.unicode.org/unibook/" title="http://www.unicode.org/unibook/">http://www.unicode.org/unibook/</a></p>
+      <p><a href="http://unicode.org/unibook/help/unibook.htm" title="http://unicode.org/unibook/help/unibook.htm">http://unicode.org/unibook/help/unibook.htm</a></p>
+      <p>It creates charts using the same template as the standard unicode charts, choose your font, and has lots of options and features, including printing to pdf if you have a pdf printer or Adobe Acrobat installed. Still exploring its possibilities.</p>
+      <p>Surprised this one isn't better known. Thank you all for your responses, and especially Karl Strange for all of his help!</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Unibook_0600_6321.jpg"></div><p></p>

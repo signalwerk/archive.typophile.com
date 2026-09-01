@@ -1,0 +1,395 @@
+node: 41658
+title: Implementing contextual mark positioning
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140724062022"
+  captured_at: 2014-07-24T06:20:22Z
+  url: http://typophile.com/node/41658
+  digest: H4DCDK4BXGDLCWFI74U3DS2SFZHHMUOK
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/41658.html
+  fingerprint: 70e67f855957fc57
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140724062022"
+      digest: H4DCDK4BXGDLCWFI74U3DS2SFZHHMUOK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/41658.html
+post:
+  id: 41658
+  user: 10590
+  date: 2008-02-03T09:55:00
+  date_raw: 3 Feb 2008 — 9:55am
+  votes: null
+  html: |-
+    <p>Hi all,</p>
+    <p>Now there is no GPOS lookup called "contextual mark positioning", but that's an accurate description of the scenario I'm about to describe. Consider the following (using Latin as a model, though the context I'm using this is not Latin):</p>
+    <p>Consider a unicode point UniChar decomposed into a base glyph Base1 and a mark PrimaryMark1. So</p>
+    <p>UniChar =&gt; Base1 + PrimaryMark1 </p>
+    <p>For example, the character atilda can be decomposed into an "a" and a "tilda".</p>
+    <p>The feature "ccmp" and a single lookup takes care of this, of course.</p>
+    <p>Now I want to add a secondary mark SecondaryMark1 to the base, say, a macron. Note that I am adding SecondaryMark1 to the base glyph, NOT to PrimaryMark1. </p>
+    <p>The feature "mark" and a single lookup also takes care of this.</p>
+    <p>I apply this to lots of base glyphs and it works fine, but...</p>
+    <p>For the particular case of Base1, when I apply SecondaryMark1 to Base1, I need to offset the anchor coordinates of PrimaryMark1 for more aesthetic positioning. I cannot use "mkmk" because the relation between PrimaryMark1 and SecondaryMark1 is not constant from base glyph to base glyph.</p>
+    <p>So I need a contextual positioning definition that says, if SecondaryMark1 is applied to Base1, offset PrimaryMark1 by (x1,y1).</p>
+    <p>Let's express this scenario in feature-file syntax:</p>
+    <p># GSUB</p>
+    <p># Base1.comp is the unicode point in the font<br>
+    lookup compose_primarymarks {<br>
+        lookupflag IgnoreMarks;<br>
+    	sub  Base1.comp by Base1 PrimaryMark1;<br>
+    } compose_primarymarks;	</p>
+    <p>feature ccmp {<br>
+          lookup compose_primarymarks;<br>
+    } ccmp;	</p>
+    <p># GPOS</p>
+    <p>lookup primarymarks {<br>
+    	mark PrimaryMark1  ;<br>
+    	pos  Base1          mark [PrimaryMark1 ];<br>
+    } primarymarks;</p>
+    <p>lookup secondarymarks {<br>
+    	mark SecondaryMark1 ;<br>
+    	pos  Base1  mark [SecondaryMark1 ];<br>
+    } secondarymarks;</p>
+    <p>Now I need a rule such that, if Base1 is marked by a SecondaryMark1, then the anchor coordinates for Base1 in the primarymarks lookup must be offset by (x1,y1).</p>
+    <p>Opentype does have a Contextual Chain Positioning lookup but it is very obscure and I'm not sure it is designed or capable of dealing with this kind of situation (which deals with different anchor classes). I've spent many hours on this but cannot find a solution.</p>
+    <p>I could add alternate glyphs and use more GSUB lookups but that defeats the entire purpose and will lead to the glyph mess I wanted to avoid in the first place. The point is to be able to control, for a given character or character string, the interrelation of base glyph, primary mark, and secondary mark.</p>
+    <p>Put another way: If the string</p>
+    <p>Base1 PrimaryMark1 [SecondaryMark2 SecondaryMark3 SecondaryMark4 SecondaryMark5 SecondaryMark6]</p>
+    <p>is encountered, the primarymarks and secondarymarks lookups are invoked. But if</p>
+    <p>Base1 PrimaryMark1 [SecondaryMark1]</p>
+    <p>is encountered, then the anchor coordinates of Base1 in primarymarks are offset by (x1,y1).</p>
+    <p>There is a feature-file syntax for contextual chaining positioning, but this aspect of the syntax is a bit obscure for me:</p>
+    <p><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>
+    <p>NOTE: I am NOT worried at this point about whether or not Uniscribe or some other renderer supports this. I am only concerned about representing the above scenario in valid, opentype form. That is, How do I represent the above scenario in an OpenType font?</p>
+    <p>I hope the above is clear. I cannot use mkmk, and I want to avoid a multiplication of glyph alternates.</p>
+    <p>Thank you in advance</p>
+    <p>Best wishes<br>
+    Idris</p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>Now there is no GPOS lookup called "contextual mark positioning", but that's an accurate description of the scenario I'm about to describe. Consider the following (using Latin as a model, though the context I'm using this is not Latin):</p>
+    <p>Consider a unicode point UniChar decomposed into a base glyph Base1 and a mark PrimaryMark1. So</p>
+    <p>UniChar =&gt; Base1 + PrimaryMark1 </p>
+    <p>For example, the character atilda can be decomposed into an "a" and a "tilda".</p>
+    <p>The feature "ccmp" and a single lookup takes care of this, of course.</p>
+    <p>Now I want to add a secondary mark SecondaryMark1 to the base, say, a macron. Note that I am adding SecondaryMark1 to the base glyph, NOT to PrimaryMark1. </p>
+    <p>The feature "mark" and a single lookup also takes care of this.</p>
+    <p>I apply this to lots of base glyphs and it works fine, but...</p>
+    <p>For the particular case of Base1, when I apply SecondaryMark1 to Base1, I need to offset the anchor coordinates of PrimaryMark1 for more aesthetic positioning. I cannot use "mkmk" because the relation between PrimaryMark1 and SecondaryMark1 is not constant from base glyph to base glyph.</p>
+    <p>So I need a contextual positioning definition that says, if SecondaryMark1 is applied to Base1, offset PrimaryMark1 by (x1,y1).</p>
+    <p>Let's express this scenario in feature-file syntax:</p>
+    <p># GSUB</p>
+    <p># Base1.comp is the unicode point in the font<br>
+    lookup compose_primarymarks {<br>
+        lookupflag IgnoreMarks;<br>
+    	sub  Base1.comp by Base1 PrimaryMark1;<br>
+    } compose_primarymarks;	</p>
+    <p>feature ccmp {<br>
+          lookup compose_primarymarks;<br>
+    } ccmp;	</p>
+    <p># GPOS</p>
+    <p>lookup primarymarks {<br>
+    	mark PrimaryMark1  ;<br>
+    	pos  Base1          mark [PrimaryMark1 ];<br>
+    } primarymarks;</p>
+    <p>lookup secondarymarks {<br>
+    	mark SecondaryMark1 ;<br>
+    	pos  Base1  mark [SecondaryMark1 ];<br>
+    } secondarymarks;</p>
+    <p>Now I need a rule such that, if Base1 is marked by a SecondaryMark1, then the anchor coordinates for Base1 in the primarymarks lookup must be offset by (x1,y1).</p>
+    <p>Opentype does have a Contextual Chain Positioning lookup but it is very obscure and I'm not sure it is designed or capable of dealing with this kind of situation (which deals with different anchor classes). I've spent many hours on this but cannot find a solution.</p>
+    <p>I could add alternate glyphs and use more GSUB lookups but that defeats the entire purpose and will lead to the glyph mess I wanted to avoid in the first place. The point is to be able to control, for a given character or character string, the interrelation of base glyph, primary mark, and secondary mark.</p>
+    <p>Put another way: If the string</p>
+    <p>Base1 PrimaryMark1 [SecondaryMark2 SecondaryMark3 SecondaryMark4 SecondaryMark5 SecondaryMark6]</p>
+    <p>is encountered, the primarymarks and secondarymarks lookups are invoked. But if</p>
+    <p>Base1 PrimaryMark1 [SecondaryMark1]</p>
+    <p>is encountered, then the anchor coordinates of Base1 in primarymarks are offset by (x1,y1).</p>
+    <p>There is a feature-file syntax for contextual chaining positioning, but this aspect of the syntax is a bit obscure for me:</p>
+    <p><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.h">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a></p>
+    <p>NOTE: I am NOT worried at this point about whether or not Uniscribe or some other renderer supports this. I am only concerned about representing the above scenario in valid, opentype form. That is, How do I represent the above scenario in an OpenType font?</p>
+    <p>I hope the above is clear. I cannot use mkmk, and I want to avoid a multiplication of glyph alternates.</p>
+    <p>Thank you in advance</p>
+    <p>Best wishes<br>
+    Idris</p>
+comments:
+  - id: 256050
+    user: 1262
+    date: 2008-02-03T19:25:00
+    date_raw: 3 Feb 2008 — 7:25pm
+    votes: null
+    html: |-
+      <p>I'm afraid I'm not familiar enough with AFDKO/FontLab syntax to advise on particular implementation, and in any case I understand that this syntax might be liable to change and that it does not currently work properly. I suspect you still need to do mark positioning using VOLT, not FontLab.</p>
+      <p>As I understand it, you are trying to produce a situation in which </p>
+      <p>base + primary mark + secondary mark</p>
+      <p>results in the primary mark being positioned independently of the secondary mark, i.e. with an independent anchor on the base, but capable of being contextually shifted in presence of the secondary mark.</p>
+      <p>I think this is not too difficult, since the secondary glyph can perform as a context for the primary glyph. This sort of thing happens a lot in Biblical Hebrew, which doesn't use any mkmk, only contextual mark lookups. [The more difficult situation is if the first mark needs to act as context for the second mark. Actually, I'm not sure at all how one would handle that.]</p>
+      <p>In VOLT, you would simply add a secondary lookup to your mark feature in which </p>
+      <p>| secondarymarks</p>
+      <p>provided the context for a using a different anchor for primary marks on the base. So you might have an initial, non-contextual lookup in which primary marks are positioned on the base using an anchor called e.g. 'primark1' and a second lookup, with the secondarymarks context, in which the primary marks are positiong on the base using an anchor called e.g. 'primark2' or some similar mnemonic name.</p>
+      <p>Does that make sense?</p>
+    html_clean: |-
+      <p>I'm afraid I'm not familiar enough with AFDKO/FontLab syntax to advise on particular implementation, and in any case I understand that this syntax might be liable to change and that it does not currently work properly. I suspect you still need to do mark positioning using VOLT, not FontLab.</p>
+      <p>As I understand it, you are trying to produce a situation in which </p>
+      <p>base + primary mark + secondary mark</p>
+      <p>results in the primary mark being positioned independently of the secondary mark, i.e. with an independent anchor on the base, but capable of being contextually shifted in presence of the secondary mark.</p>
+      <p>I think this is not too difficult, since the secondary glyph can perform as a context for the primary glyph. This sort of thing happens a lot in Biblical Hebrew, which doesn't use any mkmk, only contextual mark lookups. [The more difficult situation is if the first mark needs to act as context for the second mark. Actually, I'm not sure at all how one would handle that.]</p>
+      <p>In VOLT, you would simply add a secondary lookup to your mark feature in which </p>
+      <p>| secondarymarks</p>
+      <p>provided the context for a using a different anchor for primary marks on the base. So you might have an initial, non-contextual lookup in which primary marks are positioned on the base using an anchor called e.g. 'primark1' and a second lookup, with the secondarymarks context, in which the primary marks are positiong on the base using an anchor called e.g. 'primark2' or some similar mnemonic name.</p>
+      <p>Does that make sense?</p>
+  - id: 256055
+    user: 10590
+    date: 2008-02-03T20:10:00
+    date_raw: 3 Feb 2008 — 8:10pm
+    votes: null
+    html: |-
+      <p>Hi John,</p>
+      <p>Thanks for the reply. I am actually using FontForge, not FontLab, for opentype programming, since, as we all know, adfdk is not quite there yet.***** I am actually amazed at the depth of FF's opentype support, even for mark classes (which the fea syntax does not support at all, let alone implement).</p>
+      <p>"As I understand it, you are trying to produce a situation in which </p>
+      <p>base + primary mark + secondary mark</p>
+      <p>results in the primary mark being positioned independently of the secondary mark, i.e. with an independent anchor on the base, but capable of being contextually shifted in presence of the secondary mark."</p>
+      <p>That's exactly it!</p>
+      <p>"[The more difficult situation is if the first mark needs to act as context for the second mark. Actually, I’m not sure at all how one would handle that.]"</p>
+      <p>I think that's largely avoidable. If it did come up, we could probably express it as the reverse (relativity).</p>
+      <p>"So you might have an initial, non-contextual lookup in which primary marks are positioned on the base using an anchor called e.g. ’primark1’ and a second lookup, with the secondarymarks context, in which the primary marks are positiong on the base using an anchor called e.g. ’primark2’ or some similar mnemonic name.</p>
+      <p>Does that make sense?"</p>
+      <p>Yes, I believe so. Is this contextual chaining positioning (GPOS lookup 8)?</p>
+      <p>In any case, I may need your help to walk me through this, at least the first time around. Does arabtype use this scenario at all?</p>
+      <p>I'll play with this some more and report back. If there is any font you can point me to that implements this, I'd like to know. Also, a friend/colleague mentioned that vietnamese (which distinguishes vowel letters and tone marks) could be a candidate for this kind of treatment.</p>
+      <p>Best wishes<br>
+      Idris</p>
+      <p>***** I was very excited by the fea syntax but it is sad that Adobe is taking forever to a) complete and standardize the syntax; b) cover all of opentype (eg no mark classes); c) implement it!</p>
+    html_clean: |-
+      <p>Hi John,</p>
+      <p>Thanks for the reply. I am actually using FontForge, not FontLab, for opentype programming, since, as we all know, adfdk is not quite there yet.***** I am actually amazed at the depth of FF's opentype support, even for mark classes (which the fea syntax does not support at all, let alone implement).</p>
+      <p>"As I understand it, you are trying to produce a situation in which </p>
+      <p>base + primary mark + secondary mark</p>
+      <p>results in the primary mark being positioned independently of the secondary mark, i.e. with an independent anchor on the base, but capable of being contextually shifted in presence of the secondary mark."</p>
+      <p>That's exactly it!</p>
+      <p>"[The more difficult situation is if the first mark needs to act as context for the second mark. Actually, I’m not sure at all how one would handle that.]"</p>
+      <p>I think that's largely avoidable. If it did come up, we could probably express it as the reverse (relativity).</p>
+      <p>"So you might have an initial, non-contextual lookup in which primary marks are positioned on the base using an anchor called e.g. ’primark1’ and a second lookup, with the secondarymarks context, in which the primary marks are positiong on the base using an anchor called e.g. ’primark2’ or some similar mnemonic name.</p>
+      <p>Does that make sense?"</p>
+      <p>Yes, I believe so. Is this contextual chaining positioning (GPOS lookup 8)?</p>
+      <p>In any case, I may need your help to walk me through this, at least the first time around. Does arabtype use this scenario at all?</p>
+      <p>I'll play with this some more and report back. If there is any font you can point me to that implements this, I'd like to know. Also, a friend/colleague mentioned that vietnamese (which distinguishes vowel letters and tone marks) could be a candidate for this kind of treatment.</p>
+      <p>Best wishes<br>
+      Idris</p>
+      <p>***** I was very excited by the fea syntax but it is sad that Adobe is taking forever to a) complete and standardize the syntax; b) cover all of opentype (eg no mark classes); c) implement it!</p>
+  - id: 256068
+    user: 1262
+    date: 2008-02-03T20:37:00
+    date_raw: 3 Feb 2008 — 8:37pm
+    votes: null
+    html: |-
+      <p>I have uploaded a very small demo font <a href="http://www.tiro.com/John/VOLTmarktest.ttf" rel="nofollow">HERE</a>. This font has VOLT source tables included, so you can open it in VOLT and see how the lookups are built.</p>
+      <p>Here is the output from the lookups, in the VOLT proofing tool:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/output_4672.gif"></div><p></p>
+      <p>The mark.basic lookup provides individual anchors for the mark1 and mark2 glyphs. The mark.contextual lookup provides a new anchor for the mark1 glyph when it is followed by the mark2 glyph.</p>
+    html_clean: |-
+      <p>I have uploaded a very small demo font <a href="http://www.tiro.com/John/VOLTmarktest.ttf" rel="nofollow">HERE</a>. This font has VOLT source tables included, so you can open it in VOLT and see how the lookups are built.</p>
+      <p>Here is the output from the lookups, in the VOLT proofing tool:<br>
+      </p><div class="imageWrap"><img src="/files/output_4672.gif"></div><p></p>
+      <p>The mark.basic lookup provides individual anchors for the mark1 and mark2 glyphs. The mark.contextual lookup provides a new anchor for the mark1 glyph when it is followed by the mark2 glyph.</p>
+  - id: 256274
+    user: 14637
+    date: 2008-02-04T16:08:00
+    date_raw: 4 Feb 2008 — 4:08pm
+    votes: null
+    html: |-
+      <p>John Hudson's suggestion is very clever. I  have yet to come up with anything that works as well.</p>
+      <p>I don't understand why it is a more difficult case when the first mark would act as context for the second. I think you could cover this case with a second contextual positioning rule with the context reversed, and referencing the same MarkToBase rule. </p>
+      <p>The one problem is that this approach may be cumbersome when there starts to be significantly more than two mark attachment points on the base glyph. Since (I think) there is no restriction on the sequence in which mark glyphs of different classes appear in the text string, than means that you must provide enough contextual rules to cover all the possible glyph sequences that you need to match.  For example, if the base glyph could have four different marks attached at once, then the  primary and secondary marks in a text sequence need to match a rule when they are separated by anything from  none to two mark glyphs of the other classes, and you would need six contextual rules to cover all the cases in order to treat any single pair of mark classes as a special case for the MarkToBase rule.. In AFDKO syntax, these six context matching rules would look like:<br>
+      **********************************<br>
+      pos mark1' mark2<br>
+      pos mark1' [mark3 mark4]  mark2<br>
+      pos mark1'  [mark3 mark4]  [mark3 mark4]  mark2<br>
+      pos mark2  mark1'<br>
+      pos mark2 [mark3 mark4]  mark1'<br>
+      pos mark2  [mark3 mark4]  [mark3 mark4]  mark1'<br>
+      # do special case MarkToBase rule when any of the contexts above match.<br>
+      # The special case sets a different base attachment point for<br>
+      # glyph mark1, whenever glyph "mark2' is also attached to the base glyph.<br>
+      **********************************</p>
+      <p>However, I can't think of a more concise way to get the desired result.</p>
+      <p>FYI, there is supposed to be a new version of the ADKO package coming out in a few months, which will add support for mark and attachment lookups. (See " http://www.adobeforums.com/webx/.3c05d2bd/0" for a preview of feature file syntax changes). </p>
+      <p>I'd also like to check that I understand in detail how the example font provided by John Hudson works. Please correct me if I am wrong about the following.</p>
+      <p>When I look at the font with the AFDKO program 'spot' , what I see is that the feature "mark" contains two lookups, which will be applied in order.</p>
+      <p>The first lookup is a MarkToBase type. There is only one rule in the lookup, and the rule positions both the first and second mark glyphs at the same attachment position on the base glyph, at (x = 400, y = -400)</p>
+      <p>The second is a chaining contextual position lookup. There is only one rule in the lookup, and it  will be applied when the glyph sequence is "mark glyph 1", "mark glyph 2", and the current text position is at the "mark glyph 1". The actual positioning rule which gets applied at this position is a MarkToBase rule. This MarkToBase  rule specifies a single attachment point on the base glyph at (x=140, y = -400) for the "mark glyph 1".</p>
+      <p>The way this works, as the layout program steps through the text string [base glyph, mark glyph 1, mark glyph 2], is as follows:</p>
+      <p>1) text position is at the base glyph, the first glyph in the text string "[base glyph, mark glyph 1, mark glyph 2], ".<br>
+      Lookup 0 is processed, but the one rule does not match the current context, as the current glyph is not a mark glyph preceded by a base glyph.<br>
+      Lookup 1 is processed, but the one rule does not match the current context. The current glyph is not "mark glyph 1' followed by 'mark glyph 2'.</p>
+      <p>2) text position is at "mark glyph 1"<br>
+      Lookup 0 is processed. The MarkToBase rule  matches  (because "mark glyph 1" is a mark glyph and is preceded by the base glyph), and so "mark glyph 1" is moved  to the base glyph attachment point at (x = 400, y = -400) relative to the base glyph origin.</p>
+      <p>Lookup 1 is processed. The context is satisfied for the one rule in this lookup  ("mark glyph 1" is followed by "mark glyph 2") - and so the associated MarkToBase rule is processed. It also matches - the "mark 1 glyph" is preceded by the base glyph - and is applied. It says to attach the the "mark glyph 1" to the base glyph at (x=140, y = -400). This overrides the result of processing lookup 0.</p>
+      <p>3) text position is at "mark glyph 2".<br>
+      Lookup 0 is processed. The markToBase rule  matches  ( "mark glyph 2" is a mark glyph, and is preceded by the base glyph, and the only intervening glyph is another mark glyph), and so "mark glyph 2" is moved  to the base glyph attachment point at (x = 400, y = -400) relative to the base glyph origin.</p>
+      <p>Lookup 1 is processed, but the one rule does not match the current context. The current glyph is not "mark glyph 1".</p>
+      <p>For this to work, the lookup flag for lookup 0 must be set so that the rule processing will ignore all mark glyphs in the text sequence between the current glyph and the base glyph.</p>
+      <p>The one thing that I do not understand here is why the MarkToBase rule in Lookup 0 defines "mark glyph 1" and "mark glyph 2' to be two separate mark classes, which happen to attach at the same location on the base glyph. It would take slightly less space, and would be conceptually simpler, to define a single mark class which contains both of them. I understand that the glyph lists of mark classes cannot overlap within a MarkToBase subtable, nor within the mark class definitions that are referenced by any lookup flag field,  but the mark classes defined in one subtable are completely independent of mark classes defined in other subtables, which in turn are independent of the set of mark class definitions referenced by any lookup flag.</p>
+    html_clean: |-
+      <p>John Hudson's suggestion is very clever. I  have yet to come up with anything that works as well.</p>
+      <p>I don't understand why it is a more difficult case when the first mark would act as context for the second. I think you could cover this case with a second contextual positioning rule with the context reversed, and referencing the same MarkToBase rule. </p>
+      <p>The one problem is that this approach may be cumbersome when there starts to be significantly more than two mark attachment points on the base glyph. Since (I think) there is no restriction on the sequence in which mark glyphs of different classes appear in the text string, than means that you must provide enough contextual rules to cover all the possible glyph sequences that you need to match.  For example, if the base glyph could have four different marks attached at once, then the  primary and secondary marks in a text sequence need to match a rule when they are separated by anything from  none to two mark glyphs of the other classes, and you would need six contextual rules to cover all the cases in order to treat any single pair of mark classes as a special case for the MarkToBase rule.. In AFDKO syntax, these six context matching rules would look like:<br>
+      **********************************<br>
+      pos mark1' mark2<br>
+      pos mark1' [mark3 mark4]  mark2<br>
+      pos mark1'  [mark3 mark4]  [mark3 mark4]  mark2<br>
+      pos mark2  mark1'<br>
+      pos mark2 [mark3 mark4]  mark1'<br>
+      pos mark2  [mark3 mark4]  [mark3 mark4]  mark1'<br>
+      # do special case MarkToBase rule when any of the contexts above match.<br>
+      # The special case sets a different base attachment point for<br>
+      # glyph mark1, whenever glyph "mark2' is also attached to the base glyph.<br>
+      **********************************</p>
+      <p>However, I can't think of a more concise way to get the desired result.</p>
+      <p>FYI, there is supposed to be a new version of the ADKO package coming out in a few months, which will add support for mark and attachment lookups. (See " http://www.adobeforums.com/webx/.3c05d2bd/0" for a preview of feature file syntax changes). </p>
+      <p>I'd also like to check that I understand in detail how the example font provided by John Hudson works. Please correct me if I am wrong about the following.</p>
+      <p>When I look at the font with the AFDKO program 'spot' , what I see is that the feature "mark" contains two lookups, which will be applied in order.</p>
+      <p>The first lookup is a MarkToBase type. There is only one rule in the lookup, and the rule positions both the first and second mark glyphs at the same attachment position on the base glyph, at (x = 400, y = -400)</p>
+      <p>The second is a chaining contextual position lookup. There is only one rule in the lookup, and it  will be applied when the glyph sequence is "mark glyph 1", "mark glyph 2", and the current text position is at the "mark glyph 1". The actual positioning rule which gets applied at this position is a MarkToBase rule. This MarkToBase  rule specifies a single attachment point on the base glyph at (x=140, y = -400) for the "mark glyph 1".</p>
+      <p>The way this works, as the layout program steps through the text string [base glyph, mark glyph 1, mark glyph 2], is as follows:</p>
+      <p>1) text position is at the base glyph, the first glyph in the text string "[base glyph, mark glyph 1, mark glyph 2], ".<br>
+      Lookup 0 is processed, but the one rule does not match the current context, as the current glyph is not a mark glyph preceded by a base glyph.<br>
+      Lookup 1 is processed, but the one rule does not match the current context. The current glyph is not "mark glyph 1' followed by 'mark glyph 2'.</p>
+      <p>2) text position is at "mark glyph 1"<br>
+      Lookup 0 is processed. The MarkToBase rule  matches  (because "mark glyph 1" is a mark glyph and is preceded by the base glyph), and so "mark glyph 1" is moved  to the base glyph attachment point at (x = 400, y = -400) relative to the base glyph origin.</p>
+      <p>Lookup 1 is processed. The context is satisfied for the one rule in this lookup  ("mark glyph 1" is followed by "mark glyph 2") - and so the associated MarkToBase rule is processed. It also matches - the "mark 1 glyph" is preceded by the base glyph - and is applied. It says to attach the the "mark glyph 1" to the base glyph at (x=140, y = -400). This overrides the result of processing lookup 0.</p>
+      <p>3) text position is at "mark glyph 2".<br>
+      Lookup 0 is processed. The markToBase rule  matches  ( "mark glyph 2" is a mark glyph, and is preceded by the base glyph, and the only intervening glyph is another mark glyph), and so "mark glyph 2" is moved  to the base glyph attachment point at (x = 400, y = -400) relative to the base glyph origin.</p>
+      <p>Lookup 1 is processed, but the one rule does not match the current context. The current glyph is not "mark glyph 1".</p>
+      <p>For this to work, the lookup flag for lookup 0 must be set so that the rule processing will ignore all mark glyphs in the text sequence between the current glyph and the base glyph.</p>
+      <p>The one thing that I do not understand here is why the MarkToBase rule in Lookup 0 defines "mark glyph 1" and "mark glyph 2' to be two separate mark classes, which happen to attach at the same location on the base glyph. It would take slightly less space, and would be conceptually simpler, to define a single mark class which contains both of them. I understand that the glyph lists of mark classes cannot overlap within a MarkToBase subtable, nor within the mark class definitions that are referenced by any lookup flag field,  but the mark classes defined in one subtable are completely independent of mark classes defined in other subtables, which in turn are independent of the set of mark class definitions referenced by any lookup flag.</p>
+  - id: 256293
+    user: 1262
+    date: 2008-02-04T17:25:00
+    date_raw: 4 Feb 2008 — 5:25pm
+    votes: null
+    html: |-
+      <p>Read, re. your last query, this was a hastily made demo, and I hadn't considered that the two marks would have the same offset. I'd originally intended that they would have different offsets. As you say, if they are the same, they could share an anchor in this lookup.</p>
+      <p>Re. anticipating arbitrary mark order. This is a significant issue. I don't think it makes sense for font lookups to try to anticipate every possible, equivalent mark order. It makes more sense, in the OpenType philosophy, for the shaping engine to apply some form or mark order normalisation during display.</p>
+      <p>We ran into this issue when developing the SBL Hebrew font. In that case, we found that some of the technicaly possible mark orders were actually impossible to display correctly because of complex contextual mark interaction in Biblical Hebrew that relied on specific order being followed. The issue was further complicated by the fact that there are similar mistaken assumptions in the canonical combining class assignments for Hebrew mark characters, such that Unicode normalisation can also result in glyph strings that are difficult or impossible to display correctly with OpenType (and also collapsing of textually distinct character order, which is a bigger problem). The solution, worked out with Microsoft, SIL, Logos and other participants, was to add buffered character re-ordering to the Uniscribe Hebrew shaping engine as part of the display. In other words, Uniscribe takes a variety of possible input orders and performs a display-targeted normalisation that produces predictable ordering for font lookups to process. The Hebrew case is complicated by errors in Unicode; for other scripts the Unicode canonical combining classes might provide appropriate normalisation. Of course, this won't solve all possible ordering issues, because marks within the same canonical class will not be reordered and will interact typographically, so these need to be anticipated in font lookups or users need to be encouraged to adopt consistent mark ordering practices.</p>
+    html_clean: |-
+      <p>Read, re. your last query, this was a hastily made demo, and I hadn't considered that the two marks would have the same offset. I'd originally intended that they would have different offsets. As you say, if they are the same, they could share an anchor in this lookup.</p>
+      <p>Re. anticipating arbitrary mark order. This is a significant issue. I don't think it makes sense for font lookups to try to anticipate every possible, equivalent mark order. It makes more sense, in the OpenType philosophy, for the shaping engine to apply some form or mark order normalisation during display.</p>
+      <p>We ran into this issue when developing the SBL Hebrew font. In that case, we found that some of the technicaly possible mark orders were actually impossible to display correctly because of complex contextual mark interaction in Biblical Hebrew that relied on specific order being followed. The issue was further complicated by the fact that there are similar mistaken assumptions in the canonical combining class assignments for Hebrew mark characters, such that Unicode normalisation can also result in glyph strings that are difficult or impossible to display correctly with OpenType (and also collapsing of textually distinct character order, which is a bigger problem). The solution, worked out with Microsoft, SIL, Logos and other participants, was to add buffered character re-ordering to the Uniscribe Hebrew shaping engine as part of the display. In other words, Uniscribe takes a variety of possible input orders and performs a display-targeted normalisation that produces predictable ordering for font lookups to process. The Hebrew case is complicated by errors in Unicode; for other scripts the Unicode canonical combining classes might provide appropriate normalisation. Of course, this won't solve all possible ordering issues, because marks within the same canonical class will not be reordered and will interact typographically, so these need to be anticipated in font lookups or users need to be encouraged to adopt consistent mark ordering practices.</p>
+  - id: 256294
+    user: 1262
+    date: 2008-02-04T17:24:00
+    date_raw: 4 Feb 2008 — 5:24pm
+    votes: null
+    html: |-
+      <p>Read: <em>I don’t understand why it is a more difficult case when the first mark would act as context for the second. I think you could cover this case with a second contextual positioning rule with the context reversed, and referencing the same MarkToBase rule.</em></p>
+      <p>I'll have to experiment, but in a MarkToBase lookup, wouldn't a context string</p>
+      <p>mark1 |</p>
+      <p>(mark1 preceding context) imply mark1 preceding the base glyph, i.e.</p>
+      <p>mark1 BASE mark2</p>
+      <p>not</p>
+      <p>BASE mark1 mark2</p>
+      <p>?</p>
+      <p>Actually, I'm not sure such a context would have have effect at all, because if one is defining preceding context for a MarkToBase one seems to need the base glyph to be part of the context, e.g.</p>
+      <p>mark1 BASE |</p>
+    html_clean: |-
+      <p>Read: <em>I don’t understand why it is a more difficult case when the first mark would act as context for the second. I think you could cover this case with a second contextual positioning rule with the context reversed, and referencing the same MarkToBase rule.</em></p>
+      <p>I'll have to experiment, but in a MarkToBase lookup, wouldn't a context string</p>
+      <p>mark1 |</p>
+      <p>(mark1 preceding context) imply mark1 preceding the base glyph, i.e.</p>
+      <p>mark1 BASE mark2</p>
+      <p>not</p>
+      <p>BASE mark1 mark2</p>
+      <p>?</p>
+      <p>Actually, I'm not sure such a context would have have effect at all, because if one is defining preceding context for a MarkToBase one seems to need the base glyph to be part of the context, e.g.</p>
+      <p>mark1 BASE |</p>
+  - id: 256988
+    user: 10590
+    date: 2008-02-07T21:51:00
+    date_raw: 7 Feb 2008 — 9:51pm
+    votes: null
+    html: |-
+      <p>Hi Read,</p>
+      <p>I want to spend some time with your comment and analysis and perhaps say more. In the meantime, here is John's method in fea syntax:</p>
+      <p>================================================<br>
+      lookup markMarkPositioninginLatinlooku {<br>
+        lookupflag 0;<br>
+          mark \mark1 ;<br>
+          pos \BASE  mark [\mark1 ];<br>
+          mark \mark2 ;<br>
+          pos \BASE  mark [\mark2 ];<br>
+      } markMarkPositioninginLatinlooku;</p>
+      <p>lookup Marktobaseattachmentlookup2 {<br>
+        lookupflag 0;<br>
+          mark \mark1 ;<br>
+          pos \BASE  mark [\mark1 ];<br>
+      } Marktobaseattachmentlookup2;</p>
+      <p>lookup pos_chain_marklatn_0 {<br>
+        lookupflag 0;<br>
+          sub [\mark1 ]'  [\mark2 ] ;<br>
+      } pos_chain_marklatn_0;</p>
+      <p>feature \mark {</p>
+      <p>  script latn;<br>
+           language dflt ;<br>
+            lookup markMarkPositioninginLatinlooku;<br>
+            lookup pos_chain_marklatn_0;<br>
+      } \mark;<br>
+      ================================================</p>
+      <p>I find the use of the &lt;'&gt; to be rather alienating. Most of the feature-file syntax is rather easy to read and write except this part. It's very error-prone.</p>
+      <p>My own idea was to do a huge part of the opentype programming in fea syntax, then compile it in FontForge or, eventually, Fontlab. For some tasks (like choosing ancho-coordinates) a gui is much more useful, but for other tasks the fea file helps me see the overall structure clearly (and to do certain kinds of repetitive editing tasks). But the syntax for contextual chaining is a bit obscure, and the examples in the spec are rather unclear. </p>
+      <p>Could you, by way of example, explain the pos_chain_marklatn_0 lookup in english so I can understand better exactly what's going on? Is there another way to write this? Could there be a better way to syntactically express this?</p>
+      <p>Could we replace (or have the option of replacing) the &lt;'&gt; by something more verbose? perhaps even a begin-end syntax?</p>
+      <p>In any case I do look forward to the next iteration of the fea-file syntax language.</p>
+      <p>Best wishes<br>
+      Idris</p>
+    html_clean: |-
+      <p>Hi Read,</p>
+      <p>I want to spend some time with your comment and analysis and perhaps say more. In the meantime, here is John's method in fea syntax:</p>
+      <p>================================================<br>
+      lookup markMarkPositioninginLatinlooku {<br>
+        lookupflag 0;<br>
+          mark \mark1 ;<br>
+          pos \BASE  mark [\mark1 ];<br>
+          mark \mark2 ;<br>
+          pos \BASE  mark [\mark2 ];<br>
+      } markMarkPositioninginLatinlooku;</p>
+      <p>lookup Marktobaseattachmentlookup2 {<br>
+        lookupflag 0;<br>
+          mark \mark1 ;<br>
+          pos \BASE  mark [\mark1 ];<br>
+      } Marktobaseattachmentlookup2;</p>
+      <p>lookup pos_chain_marklatn_0 {<br>
+        lookupflag 0;<br>
+          sub [\mark1 ]'  [\mark2 ] ;<br>
+      } pos_chain_marklatn_0;</p>
+      <p>feature \mark {</p>
+      <p>  script latn;<br>
+           language dflt ;<br>
+            lookup markMarkPositioninginLatinlooku;<br>
+            lookup pos_chain_marklatn_0;<br>
+      } \mark;<br>
+      ================================================</p>
+      <p>I find the use of the &lt;'&gt; to be rather alienating. Most of the feature-file syntax is rather easy to read and write except this part. It's very error-prone.</p>
+      <p>My own idea was to do a huge part of the opentype programming in fea syntax, then compile it in FontForge or, eventually, Fontlab. For some tasks (like choosing ancho-coordinates) a gui is much more useful, but for other tasks the fea file helps me see the overall structure clearly (and to do certain kinds of repetitive editing tasks). But the syntax for contextual chaining is a bit obscure, and the examples in the spec are rather unclear. </p>
+      <p>Could you, by way of example, explain the pos_chain_marklatn_0 lookup in english so I can understand better exactly what's going on? Is there another way to write this? Could there be a better way to syntactically express this?</p>
+      <p>Could we replace (or have the option of replacing) the &lt;'&gt; by something more verbose? perhaps even a begin-end syntax?</p>
+      <p>In any case I do look forward to the next iteration of the fea-file syntax language.</p>
+      <p>Best wishes<br>
+      Idris</p>

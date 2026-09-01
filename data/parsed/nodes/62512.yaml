@@ -1,0 +1,199 @@
+node: 62512
+title: My first Robofab script
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203110336"
+  captured_at: 2010-02-03T11:03:36Z
+  url: http://typophile.com/node/62512
+  digest: MSTU4ZK3SDCDKW4KM72H6M6L4WTOG5EN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/62512.html
+  fingerprint: 7f107c0eb0a4e71f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203110336"
+      digest: MSTU4ZK3SDCDKW4KM72H6M6L4WTOG5EN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/62512.html
+post:
+  id: 62512
+  user: 4186
+  date: 2009-09-28T23:32:00
+  date_raw: 28.Sep.2009 11.32pm
+  votes: null
+  html: |-
+    <p>I've been working at this for hours..ugh! Sure, if there's a better way to do this, please inform. Regardless, I want to really build this script from scratch to learn.</p>
+    <p>What I want to do:<br>
+    Shift points at a certain y value to a different y value.</p>
+    <p>Logical Process:<br>
+    Cycle through each glyph in my font. In each glyph, cycle through contours. Within the contours cycle through points. If the point has a y value or 395, or 265, change accordingly. </p>
+    <p>--------------------------------------------------<br>
+    from robofab.world import CurrentGlyph<br>
+    from robofab.world import CurrentFont</p>
+    <p>font=CurrentFont()</p>
+    <p>for x in font:<br>
+    	print font[x.name][0]<br>
+    	contour= font[x.name][0]<br>
+    	for p in contour.points:<br>
+    			if p.y==395:<br>
+    				p.y += 100<br>
+    			if p.y==265:<br>
+    				p.y -= 100<br>
+    font.update()<br>
+    --------------------------------------------------</p>
+    <p>What am I misunderstanding here? When I target the contour by doing CurrentGlyph()[0], it works. So why not font[x.name][0]? Oddly enough font[x.name] is returning the value expected, but CurrentGlyph() returns the glyph that apparently belongs to "unnamed_font". And for some reason, the unnamed_font one works. Am I totally off in my approach?</p>
+  html_clean: |-
+    <p>I've been working at this for hours..ugh! Sure, if there's a better way to do this, please inform. Regardless, I want to really build this script from scratch to learn.</p>
+    <p>What I want to do:<br>
+    Shift points at a certain y value to a different y value.</p>
+    <p>Logical Process:<br>
+    Cycle through each glyph in my font. In each glyph, cycle through contours. Within the contours cycle through points. If the point has a y value or 395, or 265, change accordingly. </p>
+    <p>--------------------------------------------------<br>
+    from robofab.world import CurrentGlyph<br>
+    from robofab.world import CurrentFont</p>
+    <p>font=CurrentFont()</p>
+    <p>for x in font:<br>
+    	print font[x.name][0]<br>
+    	contour= font[x.name][0]<br>
+    	for p in contour.points:<br>
+    			if p.y==395:<br>
+    				p.y += 100<br>
+    			if p.y==265:<br>
+    				p.y -= 100<br>
+    font.update()<br>
+    --------------------------------------------------</p>
+    <p>What am I misunderstanding here? When I target the contour by doing CurrentGlyph()[0], it works. So why not font[x.name][0]? Oddly enough font[x.name] is returning the value expected, but CurrentGlyph() returns the glyph that apparently belongs to "unnamed_font". And for some reason, the unnamed_font one works. Am I totally off in my approach?</p>
+comments:
+  - id: 370185
+    user: 4186
+    date: 2009-09-28T23:43:00
+    date_raw: 28.Sep.2009 11.43pm
+    votes: null
+    html: |-
+      <p>#!@$%!!<br>
+      just when I mustered up the will to post it, I figured it out:</p>
+      <p><code><br>
+      from robofab.world import CurrentGlyph<br>
+      from robofab.world import CurrentFont</code></p>
+      <p>font=CurrentFont()</p>
+      <p>for x in font:<br>
+      	for m in x:<br>
+      		print m<br>
+      		for p in m.points:<br>
+      				if p.y==395:<br>
+      					p.y += 100<br>
+      				if p.y==265:<br>
+      					p.y -= 100</p>
+      <p>	font.update()<br>
+      </p>
+      <p>The only question now is, would this be the best way you would solve this problem?</p>
+    html_clean: |-
+      <p>#!@$%!!<br>
+      just when I mustered up the will to post it, I figured it out:</p>
+      <p><code><br>
+      from robofab.world import CurrentGlyph<br>
+      from robofab.world import CurrentFont</code></p>
+      <p>font=CurrentFont()</p>
+      <p>for x in font:<br>
+      	for m in x:<br>
+      		print m<br>
+      		for p in m.points:<br>
+      				if p.y==395:<br>
+      					p.y += 100<br>
+      				if p.y==265:<br>
+      					p.y -= 100</p>
+      <p>	font.update()<br>
+      </p>
+      <p>The only question now is, would this be the best way you would solve this problem?</p>
+  - id: 370196
+    user: 4763
+    date: 2009-09-29T01:18:00
+    date_raw: 29.Sep.2009 1.18am
+    votes: null
+    html: <p>I suggest using more descriptive variable names. Why x for the glyph? I bet if you look at this code again in a year's time you will find this very confusing – especially since x would also be used for the abscissa of a point.</p>
+    html_clean: <p>I suggest using more descriptive variable names. Why x for the glyph? I bet if you look at this code again in a year's time you will find this very confusing – especially since x would also be used for the abscissa of a point.</p>
+  - id: 370210
+    user: 17208
+    date: 2009-09-29T03:42:00
+    date_raw: 29.Sep.2009 3.42am
+    votes: null
+    html: |-
+      <p>I agree with Tim: using more descriptive variable names makes your code more readable, both to you and other people.</p>
+      <p>One small optimisation could be "from robofab.world import CurrentFont, CurrentGlyph" instead of using two seperate lines.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+    html_clean: |-
+      <p>I agree with Tim: using more descriptive variable names makes your code more readable, both to you and other people.</p>
+      <p>One small optimisation could be "from robofab.world import CurrentFont, CurrentGlyph" instead of using two seperate lines.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+  - id: 370231
+    user: 4186
+    date: 2009-09-29T06:15:00
+    date_raw: 29.Sep.2009 6.15am
+    votes: null
+    html: <p>Thanks for the tips. I started using descriptive variable names, but i ended up confusing myself by not remembering which word was my own variable versus which were reserved words. Hope to get the hang of it soon...</p>
+    html_clean: <p>Thanks for the tips. I started using descriptive variable names, but i ended up confusing myself by not remembering which word was my own variable versus which were reserved words. Hope to get the hang of it soon...</p>
+  - id: 370234
+    user: 17208
+    date: 2009-09-29T06:42:00
+    date_raw: 29.Sep.2009 6.42am
+    votes: null
+    html: |-
+      <p>Regarding the naming of variables some one letter variables are used very often in RoboFab scripts:<br>
+      f for a font object, i.e. f = CurrentFont()<br>
+      g for a glyph object, i.e. g = f['Adieresis']<br>
+      p for a point object<br>
+      and when dealing with multiple objects of the same type variables can be numbered, i.e. f1, f2, etc.</p>
+      <p>To distinguish variable names from reserved keywords you can always opt to let them begin with the same suffix. For instance 'my':</p>
+      <p><code><br>
+      from robofab.world import CurrentFont, CurrentGlyph</code></p>
+      <p>myFont = CurrentFont()</p>
+      <p>for myGlyph in myFont:<br>
+      &gt; for myContour in myGlyph:<br>
+      &gt; &gt; for myPoint in myContour.points:<br>
+      &gt; &gt; &gt; if myPoint.y == 395:<br>
+      &gt; &gt; &gt; &gt; myPoint.y += 100<br>
+      &gt; &gt; &gt; if myPoint.y == 265:<br>
+      &gt; &gt; &gt; &gt; myPoint.y -= 100</p>
+      <p>myFont.update()<br>
+      </p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+    html_clean: |-
+      <p>Regarding the naming of variables some one letter variables are used very often in RoboFab scripts:<br>
+      f for a font object, i.e. f = CurrentFont()<br>
+      g for a glyph object, i.e. g = f['Adieresis']<br>
+      p for a point object<br>
+      and when dealing with multiple objects of the same type variables can be numbered, i.e. f1, f2, etc.</p>
+      <p>To distinguish variable names from reserved keywords you can always opt to let them begin with the same suffix. For instance 'my':</p>
+      <p><code><br>
+      from robofab.world import CurrentFont, CurrentGlyph</code></p>
+      <p>myFont = CurrentFont()</p>
+      <p>for myGlyph in myFont:<br>
+      &gt; for myContour in myGlyph:<br>
+      &gt; &gt; for myPoint in myContour.points:<br>
+      &gt; &gt; &gt; if myPoint.y == 395:<br>
+      &gt; &gt; &gt; &gt; myPoint.y += 100<br>
+      &gt; &gt; &gt; if myPoint.y == 265:<br>
+      &gt; &gt; &gt; &gt; myPoint.y -= 100</p>
+      <p>myFont.update()<br>
+      </p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>

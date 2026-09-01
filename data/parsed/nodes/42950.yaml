@@ -1,0 +1,146 @@
+node: 42950
+title: FontLab Studio 5.0 help
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20090828154219"
+  captured_at: 2009-08-28T15:42:19Z
+  url: http://typophile.com:80/node/42950
+  digest: 2E7JXF7ZWRO73DZQYU62GFAPV2M7JVEH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/42950.html
+  fingerprint: 0a42d7a26e181633
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20090828154219"
+      digest: 2E7JXF7ZWRO73DZQYU62GFAPV2M7JVEH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/42950.html
+post:
+  id: 42950
+  user: 26901
+  date: 2008-03-07T18:39:00
+  date_raw: 7.Mar.2008 6.39pm
+  votes: null
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I’ve just started using FontLab Studio and I’m working on a new typeface, but I am having a few problems. I have 3 variations of each character. These variations would be used according to the preceding character. For example, variation 1 of the character a would always be used after the character b, but variation 2 would be the one always used after the character c.</p>
+    <p>etc, for the entire alphabet.</p>
+    <p>I’ve figured out how to create ligatures, but the problem is .. if I were to maanually create ligatures, I would have to make every combination of characters (which is like millions). </p>
+    <p>I can get ligatures of ab, bc, cd etc .. But I would like to find a way to program the font so that I can get “abc” ... without having to make an actual glyph consisting of the letters a, b, and c. </p>
+    <p>I hope that makes sense, and that it is possible to achieve this in FontLab Studio.</p>
+    <p>Thanks,<br>
+    Veronica</p>
+  html_clean: |-
+    <p>Hi everyone,</p>
+    <p>I’ve just started using FontLab Studio and I’m working on a new typeface, but I am having a few problems. I have 3 variations of each character. These variations would be used according to the preceding character. For example, variation 1 of the character a would always be used after the character b, but variation 2 would be the one always used after the character c.</p>
+    <p>etc, for the entire alphabet.</p>
+    <p>I’ve figured out how to create ligatures, but the problem is .. if I were to maanually create ligatures, I would have to make every combination of characters (which is like millions). </p>
+    <p>I can get ligatures of ab, bc, cd etc .. But I would like to find a way to program the font so that I can get “abc” ... without having to make an actual glyph consisting of the letters a, b, and c. </p>
+    <p>I hope that makes sense, and that it is possible to achieve this in FontLab Studio.</p>
+    <p>Thanks,<br>
+    Veronica</p>
+comments:
+  - id: 264508
+    user: 26644
+    date: 2008-03-07T18:49:00
+    date_raw: 7.Mar.2008 6.49pm
+    votes: null
+    html: |-
+      <p>I’ve actually been thinking of doing the same thing with serifs on my font, except with two types (a: rimshot, B: top and bottom start), with the added problem that the the influence a letter has on the one following it depends on its type, so that there would be three or four letter combos.<br>
+      I have no idea how to even make ligatures.</p>
+    html_clean: |-
+      <p>I’ve actually been thinking of doing the same thing with serifs on my font, except with two types (a: rimshot, B: top and bottom start), with the added problem that the the influence a letter has on the one following it depends on its type, so that there would be three or four letter combos.<br>
+      I have no idea how to even make ligatures.</p>
+  - id: 264511
+    user: 8664
+    date: 2008-03-07T19:50:00
+    date_raw: 7.Mar.2008 7.50pm
+    votes: null
+    html: |-
+      <p>Very briefly, you need to add features. For ligatures, add a ’liga’ feature:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature liga {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub f l by f_l;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub f i by f_i;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} liga;</p>
+      <p>To replace glyphs by alternate versions in specific contexts, you need to add a ’calt’ feature:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature calt {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub b a’ by a.calt.1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c a’ by a.calt.2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} calt;</p>
+      <p>The <em>a</em> marked with a single quote (Typophile may have turned this into an apostrophe ...) will be replaced by <em>a.calt.1</em>, but only if it is preceded by the glyphs(s) not marked that way — non-marked letters are considered as ’context’ which must be present so that marked glyphs will be replaced.<br>
+      Rather than defining context glyphs individually, you can also create a class and refer to this:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@CALT_BEFORE_A1 = [b d f]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@CALT_BEFORE_A1 = [c e g]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature calt {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @CALT_BEFORE_A1 a’ by a.calt.1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @CALT_BEFORE_A2 a’ by a.calt.2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} calt;</p>
+      <p>Or define classes in FLS’s Classes Panel, but omit the <em>@</em> there.</p>
+      <p>Also try to google for phrases like “feature site:typophile.com”, “feature syntax site:typophile.com”, “calt site:typophile.com”, etc. Feature issues have been dealt with extensively on Typophile.</p>
+    html_clean: |-
+      <p>Very briefly, you need to add features. For ligatures, add a ’liga’ feature:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature liga {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub f l by f_l;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub f i by f_i;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} liga;</p>
+      <p>To replace glyphs by alternate versions in specific contexts, you need to add a ’calt’ feature:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature calt {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub b a’ by a.calt.1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c a’ by a.calt.2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} calt;</p>
+      <p>The <em>a</em> marked with a single quote (Typophile may have turned this into an apostrophe ...) will be replaced by <em>a.calt.1</em>, but only if it is preceded by the glyphs(s) not marked that way — non-marked letters are considered as ’context’ which must be present so that marked glyphs will be replaced.<br>
+      Rather than defining context glyphs individually, you can also create a class and refer to this:</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@CALT_BEFORE_A1 = [b d f]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@CALT_BEFORE_A1 = [c e g]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature calt {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @CALT_BEFORE_A1 a’ by a.calt.1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @CALT_BEFORE_A2 a’ by a.calt.2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} calt;</p>
+      <p>Or define classes in FLS’s Classes Panel, but omit the <em>@</em> there.</p>
+      <p>Also try to google for phrases like “feature site:typophile.com”, “feature syntax site:typophile.com”, “calt site:typophile.com”, etc. Feature issues have been dealt with extensively on Typophile.</p>
+  - id: 264559
+    user: 8664
+    date: 2008-03-08T10:07:00
+    date_raw: 8.Mar.2008 10.07am
+    votes: null
+    html: <p>Connecting you with <a href="http://typophile.com/node/42886" title="http://typophile.com/node/42886">http://typophile.com/node/42886</a></p>
+    html_clean: <p>Connecting you with <a href="/node/42886/" title="http://typophile.com/node/42886">http://typophile.com/node/42886</a></p>
+  - id: 265001
+    user: 28003
+    date: 2008-03-10T16:18:00
+    date_raw: 10.Mar.2008 4.18pm
+    votes: null
+    html: |-
+      <p>K.L.</p>
+      <p>Thank you for your info, but actually I am so at the beggining that it is really hard for me to understand how the whole structure works.<br>
+      I tried to create a class for some glyphs and assign the calt feature your refer to but actually when I try to generate the .otf font an error doesn’t let it to be generated.<br>
+      Would it be possible for you to be more specific on how to do it?<br>
+      As you sugested, I googled the phrases and there is lots of information on this subject but because it is not in a sistematic text it is very difficult for me to build the puzzle...</p>
+      <p>Hope my begginer questions are not too much...</p>
+      <p>Thanks a lot<br>
+      a.</p>
+    html_clean: |-
+      <p>K.L.</p>
+      <p>Thank you for your info, but actually I am so at the beggining that it is really hard for me to understand how the whole structure works.<br>
+      I tried to create a class for some glyphs and assign the calt feature your refer to but actually when I try to generate the .otf font an error doesn’t let it to be generated.<br>
+      Would it be possible for you to be more specific on how to do it?<br>
+      As you sugested, I googled the phrases and there is lots of information on this subject but because it is not in a sistematic text it is very difficult for me to build the puzzle...</p>
+      <p>Hope my begginer questions are not too much...</p>
+      <p>Thanks a lot<br>
+      a.</p>

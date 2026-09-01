@@ -1,0 +1,106 @@
+node: 56170
+title: In Point BCPs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203162707"
+  captured_at: 2010-02-03T16:27:07Z
+  url: http://typophile.com/node/56170
+  digest: 565NLCEE4V2HXLGH422FG3726GDV4MRU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/56170.html
+  fingerprint: d2b8247d7f7c6b0e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203162707"
+      digest: 565NLCEE4V2HXLGH422FG3726GDV4MRU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56170.html
+post:
+  id: 56170
+  user: 23212
+  date: 2009-03-23T12:29:00
+  date_raw: 23.Mar.2009 12.29pm
+  votes: null
+  html: |-
+    <p>Hi,<br>
+    I'm reviewing a font with a lot of styles and I have to remove In Point BCPs. I don't want to apply the Remove Overlap action to the entire font because I don't know what FontLab could do (I really want to be sure of every single action working with FL). Anybody know a script that recognizes glyphs with such problems so that I could work on them directly? Or something that solves the problem only where it is necessary?</p>
+    <p>Best,</p>
+    <p>Michele</p>
+  html_clean: |-
+    <p>Hi,<br>
+    I'm reviewing a font with a lot of styles and I have to remove In Point BCPs. I don't want to apply the Remove Overlap action to the entire font because I don't know what FontLab could do (I really want to be sure of every single action working with FL). Anybody know a script that recognizes glyphs with such problems so that I could work on them directly? Or something that solves the problem only where it is necessary?</p>
+    <p>Best,</p>
+    <p>Michele</p>
+comments:
+  - id: 337289
+    user: 16123
+    date: 2009-03-23T14:33:00
+    date_raw: 23.Mar.2009 2.33pm
+    votes: null
+    html: |-
+      <p>Hi Michele,<br>
+      this uses RoboFab and calls a "Merge Contour" command to <em>clean</em> the glyph.<br>
+      Optionally the script can color the glyph instead of calling the Merge Contour so you can edit the contour by yourself.<br>
+      <code><br>
+      #FLM: Sanitize BCP<br>
+      # scriptype - Paolo Mazzetti - 2009<br>
+      from robofab.world import CurrentGlyph<br>
+      from FL import *</code></p>
+      <p>g = CurrentGlyph()<br>
+      for contour in g:<br>
+      	try:<br>
+      		for p in contour.bPoints:<br>
+      			if p.bcpIn == p.bcpOut and p.bcpIn == (0,0):<br>
+      				fl.CallCommand(fl_cmd.ActionRemoveOverlap)<br>
+      				#g.mark = 1<br>
+      	except:<br>
+      		pass<br>
+      g.update()<br>
+      </p>
+      <p>(Indentation won't probably make it)<br>
+      Cheers!</p>
+    html_clean: |-
+      <p>Hi Michele,<br>
+      this uses RoboFab and calls a "Merge Contour" command to <em>clean</em> the glyph.<br>
+      Optionally the script can color the glyph instead of calling the Merge Contour so you can edit the contour by yourself.<br>
+      <code><br>
+      #FLM: Sanitize BCP<br>
+      # scriptype - Paolo Mazzetti - 2009<br>
+      from robofab.world import CurrentGlyph<br>
+      from FL import *</code></p>
+      <p>g = CurrentGlyph()<br>
+      for contour in g:<br>
+      	try:<br>
+      		for p in contour.bPoints:<br>
+      			if p.bcpIn == p.bcpOut and p.bcpIn == (0,0):<br>
+      				fl.CallCommand(fl_cmd.ActionRemoveOverlap)<br>
+      				#g.mark = 1<br>
+      	except:<br>
+      		pass<br>
+      g.update()<br>
+      </p>
+      <p>(Indentation won't probably make it)<br>
+      Cheers!</p>
+  - id: 337392
+    user: 909
+    date: 2009-03-23T22:28:00
+    date_raw: 23.Mar.2009 10.28pm
+    votes: null
+    html: <p>The AFDKO tool "spot" can do this, I think. Maybe Miguel will comment.</p>
+    html_clean: <p>The AFDKO tool "spot" can do this, I think. Maybe Miguel will comment.</p>

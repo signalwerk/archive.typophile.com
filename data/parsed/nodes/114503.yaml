@@ -1,0 +1,99 @@
+node: 114503
+title: Creating visible zero-width and zero-height glyphs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420030124"
+  captured_at: 2015-04-20T03:01:24Z
+  url: http://typophile.com/node/114503
+  digest: AUUNS3IPNVKQ265JUFSDL26BD36EMFHN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/114503.html
+  fingerprint: bf866098297f9adf
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420030124"
+      digest: AUUNS3IPNVKQ265JUFSDL26BD36EMFHN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/114503.html
+post:
+  id: 114503
+  user: 216292
+  date: 2014-02-25T23:50:00
+  date_raw: 25 Feb 2014 — 11:50pm
+  votes: null
+  html: |-
+    <p>I'm playing with TTX/Fonttools and I'm trying to accomplish to get zero height and zero width chars:</p>
+    <p>ABC<br>
+    DEF</p>
+    <p>All these six chars should be on the same spot (where the A is) and overlap eachother. This includes the chars on the second line.</p>
+    <p>I got the glyps to overlap horizontally by setting the width to 0 in the HMTX table.</p>
+    <p>Is there a way to set zero height as well? I read about the VMTX table but it looks like its only used for vertical fonts. Can you set zero height a different way? An line height of 0 for the entire font, instead of setting it for each character, would work as well.</p>
+    <p>And my zero width chars only appear when I prepend with a normal width character. Say I have A, B and C of 0 width, then</p>
+    <p>ABC</p>
+    <p>will be invisible, and</p>
+    <p>XABC</p>
+    <p>will show an X and then the A, B and C overlapping eachtoher. Is there any way to get zero width chars to show without prepending them with a normal width char?</p>
+  html_clean: |-
+    <p>I'm playing with TTX/Fonttools and I'm trying to accomplish to get zero height and zero width chars:</p>
+    <p>ABC<br>
+    DEF</p>
+    <p>All these six chars should be on the same spot (where the A is) and overlap eachother. This includes the chars on the second line.</p>
+    <p>I got the glyps to overlap horizontally by setting the width to 0 in the HMTX table.</p>
+    <p>Is there a way to set zero height as well? I read about the VMTX table but it looks like its only used for vertical fonts. Can you set zero height a different way? An line height of 0 for the entire font, instead of setting it for each character, would work as well.</p>
+    <p>And my zero width chars only appear when I prepend with a normal width character. Say I have A, B and C of 0 width, then</p>
+    <p>ABC</p>
+    <p>will be invisible, and</p>
+    <p>XABC</p>
+    <p>will show an X and then the A, B and C overlapping eachtoher. Is there any way to get zero width chars to show without prepending them with a normal width char?</p>
+comments:
+  - id: 572320
+    user: 21309
+    date: 2014-02-26T04:36:00
+    date_raw: 26 Feb 2014 — 4:36am
+    votes: null
+    html: |-
+      <p>I think the minimum font height is 1. I can only confirm this for Windows 7.</p>
+      <p>When pushing the limits, do be aware each rasterizer has its own limits. ABC shows just fine in Windows and Firefox.</p>
+    html_clean: |-
+      <p>I think the minimum font height is 1. I can only confirm this for Windows 7.</p>
+      <p>When pushing the limits, do be aware each rasterizer has its own limits. ABC shows just fine in Windows and Firefox.</p>
+  - id: 572322
+    user: 216292
+    date: 2014-02-26T04:45:00
+    date_raw: 26 Feb 2014 — 4:45am
+    votes: null
+    html: |-
+      <p>Chrome on Windows 7 and Chromium on Linux Mint will only show overlapped ABC when it's prepended by a normal width char. But Firefox on Windows 7 indeed shows the overlapped ABC without any extra chars. Good to learn about this difference.</p>
+      <p>I've converted my TTF to a TTX XML file. How can I start playing with the line height? I don't see any values that seem to represent it.</p>
+    html_clean: |-
+      <p>Chrome on Windows 7 and Chromium on Linux Mint will only show overlapped ABC when it's prepended by a normal width char. But Firefox on Windows 7 indeed shows the overlapped ABC without any extra chars. Good to learn about this difference.</p>
+      <p>I've converted my TTF to a TTX XML file. How can I start playing with the line height? I don't see any values that seem to represent it.</p>
+  - id: 572653
+    user: 216292
+    date: 2014-03-02T23:57:00
+    date_raw: 2 Mar 2014 — 11:57pm
+    votes: null
+    html: |-
+      <p>Just in case anyone else ever wants to do this and finds this thread:</p>
+      <p>I got chars to overlap properly by giving the first char (A)  a width of 512 and a left side bearing of 0. All the following chars (B and C) have a width of 0, and a lsb of -512. I can do this because I know I'll always start with the A — I don't know how you can do this reliably cross-browser if the order is unknown.</p>
+      <p>I'm still looking into the line-height thing, but it seems that both Apple and Microsoft have different approaches to calculate this from the font's properties. A font's height could be based on the bounding box measurements, the ascender/descender values, or other values in the OS2 table. My conclusion is that if you want to tweak the (line-) height of a font, do it in CSS.</p>
+    html_clean: |-
+      <p>Just in case anyone else ever wants to do this and finds this thread:</p>
+      <p>I got chars to overlap properly by giving the first char (A)  a width of 512 and a left side bearing of 0. All the following chars (B and C) have a width of 0, and a lsb of -512. I can do this because I know I'll always start with the A — I don't know how you can do this reliably cross-browser if the order is unknown.</p>
+      <p>I'm still looking into the line-height thing, but it seems that both Apple and Microsoft have different approaches to calculate this from the font's properties. A font's height could be based on the bounding box measurements, the ascender/descender values, or other values in the OS2 table. My conclusion is that if you want to tweak the (line-) height of a font, do it in CSS.</p>

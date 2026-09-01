@@ -1,0 +1,114 @@
+node: 72642
+title: "how to solve this problem for me? fontlab 5: GPOS feature 'kern' causes overflow of offset to a subtable"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141109082430"
+  captured_at: 2014-11-09T08:24:30Z
+  url: http://typophile.com:80/node/72642
+  digest: SIC4HKXA3R3HRBO6C2MFVRCEEMMUWUDG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/72642.html
+  fingerprint: 60adbe3c9f016b1c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141109082430"
+      digest: SIC4HKXA3R3HRBO6C2MFVRCEEMMUWUDG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/72642.html
+post:
+  id: 72642
+  user: 5444
+  date: 2010-07-27T01:32:00
+  date_raw: 27 Jul 2010 — 1:32am
+  votes: null
+  html: |-
+    <p>Dear readers,</p>
+    <p>i have been searching the forums for this topic, and found some questions and answers, but it didn't help me in solving my problem:</p>
+    <p>I have kerned an extensive opentype font (that should end up in a postscript otf file finally) in fontlab 5 on windows XP.</p>
+    <p>I am using about 125 kerning classes (but also with exceptions if necessary) and kern single glyphs that don't deserve a class (as they are alone anyway). in metrics window, the pair count in the table on the right says there are 5982 pairs defined. in the bottom of fontlab window, it says "Pairs: 5874" (why is there a difference?) When i update the kern feature with fontlabs tool, it results in 5874 POS-instructions (plus 5 "subtable;" lines in between).<br>
+    when i want to compile the opentype features (including 'kern'), i get this (and only this) error message:<br>
+    [FATAL]  GPOS feature 'kern' causes overflow of offset to a subtable (0x1101c)</p>
+    <p>what i read so far (my interpretation):</p>
+    <ul>
+    <li>a kern table in opentype fonts is limited to 64kb
+    </li><li>someone here on the forum says the commands are limited to about 15.000 (but i am having problems with "only" about 5800 - maybe my commands are "larger"?)
+    </li><li>if i manually delete about 800 lines from kern feature, the feature compiles.
+    </li><li>there can be more kern subtables, with adding "subtable;" command somewhere in between (which does not seem to work for me - how is the syntax?)
+    </li><li>if there are conflicts in kern classes, fontlab creates subtables by itself, some of the glyph combinations are not kerned then anymore due to overlaps. (this is not the case here, i don't have any conflicts in classes - no error messages when compiling, nothing found when clicking the ying-yang symbol in fontlab kern assistance.)
+    </li><li>there is the suggestion to use the AFDKO kern feature generator. but this special script relies on robofab, which i tried to install, but this one again relies on fonttools, which i tried to install, but this one relies on a mathematics script collection for python, which i am not able to install ... so i am stuck for the moment on this path, as it get's more complicated with every step i take.
+    </li></ul>
+    <p>what i'd like to do / could do:</p>
+    <ul>
+    <li>get robofab installed and try AFDKO generator
+    </li><li>lern how to use the subtable command correctly
+    </li><li>reduce kerning pairs - i am able to push them below my "personal" 5000 commands limit for the moment, but it does not seem to be a good solution when i want to expand the font further.
+    </li></ul>
+    <p>any ideas, facts, best practices, ... ?</p>
+    <p>thanks for your help again<br>
+    Sebastian</p>
+  html_clean: |-
+    <p>Dear readers,</p>
+    <p>i have been searching the forums for this topic, and found some questions and answers, but it didn't help me in solving my problem:</p>
+    <p>I have kerned an extensive opentype font (that should end up in a postscript otf file finally) in fontlab 5 on windows XP.</p>
+    <p>I am using about 125 kerning classes (but also with exceptions if necessary) and kern single glyphs that don't deserve a class (as they are alone anyway). in metrics window, the pair count in the table on the right says there are 5982 pairs defined. in the bottom of fontlab window, it says "Pairs: 5874" (why is there a difference?) When i update the kern feature with fontlabs tool, it results in 5874 POS-instructions (plus 5 "subtable;" lines in between).<br>
+    when i want to compile the opentype features (including 'kern'), i get this (and only this) error message:<br>
+    [FATAL]  GPOS feature 'kern' causes overflow of offset to a subtable (0x1101c)</p>
+    <p>what i read so far (my interpretation):</p>
+    <ul>
+    <li>a kern table in opentype fonts is limited to 64kb
+    </li><li>someone here on the forum says the commands are limited to about 15.000 (but i am having problems with "only" about 5800 - maybe my commands are "larger"?)
+    </li><li>if i manually delete about 800 lines from kern feature, the feature compiles.
+    </li><li>there can be more kern subtables, with adding "subtable;" command somewhere in between (which does not seem to work for me - how is the syntax?)
+    </li><li>if there are conflicts in kern classes, fontlab creates subtables by itself, some of the glyph combinations are not kerned then anymore due to overlaps. (this is not the case here, i don't have any conflicts in classes - no error messages when compiling, nothing found when clicking the ying-yang symbol in fontlab kern assistance.)
+    </li><li>there is the suggestion to use the AFDKO kern feature generator. but this special script relies on robofab, which i tried to install, but this one again relies on fonttools, which i tried to install, but this one relies on a mathematics script collection for python, which i am not able to install ... so i am stuck for the moment on this path, as it get's more complicated with every step i take.
+    </li></ul>
+    <p>what i'd like to do / could do:</p>
+    <ul>
+    <li>get robofab installed and try AFDKO generator
+    </li><li>lern how to use the subtable command correctly
+    </li><li>reduce kerning pairs - i am able to push them below my "personal" 5000 commands limit for the moment, but it does not seem to be a good solution when i want to expand the font further.
+    </li></ul>
+    <p>any ideas, facts, best practices, ... ?</p>
+    <p>thanks for your help again<br>
+    Sebastian</p>
+comments:
+  - id: 422227
+    user: 8664
+    date: 2010-07-27T02:12:00
+    date_raw: 27 Jul 2010 — 2:12am
+    votes: null
+    html: |-
+      <p>Hello Sebastian, please be patient. I may have something ready by the end of next week: It is an FLS5 script* which makes an AFDKO syntax kern feature, automatically splits subtables, and if necessary enforces use of the extension lookup type.</p>
+      <p>* No dependencies on RoboFab or anything else.</p>
+    html_clean: |-
+      <p>Hello Sebastian, please be patient. I may have something ready by the end of next week: It is an FLS5 script* which makes an AFDKO syntax kern feature, automatically splits subtables, and if necessary enforces use of the extension lookup type.</p>
+      <p>* No dependencies on RoboFab or anything else.</p>
+  - id: 422230
+    user: 5444
+    date: 2010-07-27T02:25:00
+    date_raw: 27 Jul 2010 — 2:25am
+    votes: null
+    html: |-
+      <p>Hello Karsten,</p>
+      <p>thank you, this sounds very promising –&nbsp;I'll do clean up in the meantime, and wait patiently :)</p>
+      <p>Sebastian</p>
+    html_clean: |-
+      <p>Hello Karsten,</p>
+      <p>thank you, this sounds very promising –&nbsp;I'll do clean up in the meantime, and wait patiently :)</p>
+      <p>Sebastian</p>

@@ -1,0 +1,97 @@
+node: 101534
+title: Testing and Quality Assurance
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809064443"
+  captured_at: 2014-08-09T06:44:43Z
+  url: http://typophile.com/node/101534
+  digest: TYUGLNABRFRZCPE5ZK7FTWA5W7OYKE27
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/101534.html
+  fingerprint: d36fb94982e51dea
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809064443"
+      digest: TYUGLNABRFRZCPE5ZK7FTWA5W7OYKE27
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/101534.html
+post:
+  id: 101534
+  user: 5658
+  date: 2013-03-19T08:18:00
+  date_raw: 19 Mar 2013 — 8:18am
+  votes: null
+  html: |-
+    <p>One of the hardest parts of font production for me has always been testing and quality assurance. So I am trying to establish a formal process that will at least cover all the major bases. I know I want to check outlines, integrity of the font file tables, metrics and kerning, and OpenType feature functionality.</p>
+    <p>I am curious what others do -- strategies, processes, tools, etc. Anyone willing to share?</p>
+    <p>Thanks!</p>
+    <p>-t.</p>
+  html_clean: |-
+    <p>One of the hardest parts of font production for me has always been testing and quality assurance. So I am trying to establish a formal process that will at least cover all the major bases. I know I want to check outlines, integrity of the font file tables, metrics and kerning, and OpenType feature functionality.</p>
+    <p>I am curious what others do -- strategies, processes, tools, etc. Anyone willing to share?</p>
+    <p>Thanks!</p>
+    <p>-t.</p>
+comments:
+  - id: 548778
+    user: 15340
+    date: 2013-03-28T12:48:00
+    date_raw: 28 Mar 2013 — 12:48pm
+    votes: null
+    html: <p>One option is to use <a class="freelinking external" href="http://www.fontqa.com" rel="nofollow">fontQA</a>. I must admit that I've thought of developing my own QA checker as at some stage I will need to do a formal release process.</p>
+    html_clean: <p>One option is to use <a class="freelinking external" href="http://www.fontqa.com" rel="nofollow">fontQA</a>. I must admit that I've thought of developing my own QA checker as at some stage I will need to do a formal release process.</p>
+  - id: 548787
+    user: 909
+    date: 2013-03-28T14:34:00
+    date_raw: 28 Mar 2013 — 2:34pm
+    votes: null
+    html: |-
+      <p>You need multiple tools to test fonts. Unfortunately, you also need to develop a lot of expertise in reading the output, as each of the font testing tools has been developed to meet the needs of the particular company that made it.</p>
+      <p>The Adobe CompareFamily tool from the AFDKO is indispensable, and one of very few tools that checks how various metadata is coordinated across a family, as well as performing a variety of single-font level tests.</p>
+      <p>Microsoft's Font Validator can be useful, especially for TTF.</p>
+      <p>Coming up with some way to run fonts against the Windows version of the OpenType Sanitizer used by WebKit is handy, if you are going to release web font versions of your fonts. We had to do a bunch of work to wire it up, though.</p>
+    html_clean: |-
+      <p>You need multiple tools to test fonts. Unfortunately, you also need to develop a lot of expertise in reading the output, as each of the font testing tools has been developed to meet the needs of the particular company that made it.</p>
+      <p>The Adobe CompareFamily tool from the AFDKO is indispensable, and one of very few tools that checks how various metadata is coordinated across a family, as well as performing a variety of single-font level tests.</p>
+      <p>Microsoft's Font Validator can be useful, especially for TTF.</p>
+      <p>Coming up with some way to run fonts against the Windows version of the OpenType Sanitizer used by WebKit is handy, if you are going to release web font versions of your fonts. We had to do a bunch of work to wire it up, though.</p>
+  - id: 548792
+    user: 1262
+    date: 2013-03-28T15:12:00
+    date_raw: 28 Mar 2013 — 3:12pm
+    votes: null
+    html: <p>I use Font Validator as the primary QA tool. However, you need to be aware of which aspects of it have not yet been updated to cover the latest version of the OT spec. These will report as problems things that are fine according to the latest spec, e.g. new table version values and data.</p>
+    html_clean: <p>I use Font Validator as the primary QA tool. However, you need to be aware of which aspects of it have not yet been updated to cover the latest version of the OT spec. These will report as problems things that are fine according to the latest spec, e.g. new table version values and data.</p>
+  - id: 549183
+    user: 5658
+    date: 2013-04-01T06:10:00
+    date_raw: 1 Apr 2013 — 6:10am
+    votes: null
+    html: |-
+      <p>Thanks for the input, folks. I also have used Font Validator for a long time, and I recently added the fontQA suite to my toolbox. Sounds like I may have to look into the OpenType Sanitizer as well.</p>
+      <p>-tim</p>
+    html_clean: |-
+      <p>Thanks for the input, folks. I also have used Font Validator for a long time, and I recently added the fontQA suite to my toolbox. Sounds like I may have to look into the OpenType Sanitizer as well.</p>
+      <p>-tim</p>
+  - id: 550721
+    user: 19493
+    date: 2013-04-12T12:51:00
+    date_raw: 12 Apr 2013 — 12:51pm
+    votes: null
+    html: <p>In case anyone’s having trouble building a stand-alone OpenType Sanitizer, there’s a Web version at <a href="http://async5.org/ots/ots.html" title="http://async5.org/ots/ots.html">http://async5.org/ots/ots.html</a>. Base64 representation of the font binary needed.</p>
+    html_clean: <p>In case anyone’s having trouble building a stand-alone OpenType Sanitizer, there’s a Web version at <a href="http://async5.org/ots/ots.html" title="http://async5.org/ots/ots.html">http://async5.org/ots/ots.html</a>. Base64 representation of the font binary needed.</p>

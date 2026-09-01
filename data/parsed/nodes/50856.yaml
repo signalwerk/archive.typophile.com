@@ -1,0 +1,274 @@
+node: 50856
+title: Opentype smcp and valt feature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131020052102"
+  captured_at: 2013-10-20T05:21:02Z
+  url: http://typophile.com/node/50856
+  digest: CKU7RQVRMVWCY3GKSZMUN4BOZEWBHHCP
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/50856.html
+  fingerprint: e66d3877caa12a80
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131020052102"
+      digest: CKU7RQVRMVWCY3GKSZMUN4BOZEWBHHCP
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/50856.html
+post:
+  id: 50856
+  user: 25106
+  date: 2008-10-24T08:01:00
+  date_raw: 24 Oct 2008 — 8:01am
+  votes: null
+  html: |-
+    <p>Hi, everyone.</p>
+    <p>Right now I'm writing Opentype programs, and there are two things I don't get it.</p>
+    <p>1.<br>
+    The font has small cap characters and Th ligature. Th is controlled by 'liga' feature (sub T h by TH;), but when the smcp feature is turned on, Th doesn't separate into T(cap) and h(smallcap) and remains still. How can I avoid this?</p>
+    <p>2.<br>
+    I'd like to use 'valt' feature, which is used for vertical setting. It's supposed to controll vertical bearings(like moving g up or l down), but I have no idea how to write the code. It's very strange thing for Japanese people to ask about this, but I know almost nothing about Opentype things. If you know anything about this or any good books to learn these, please tell me.</p>
+  html_clean: |-
+    <p>Hi, everyone.</p>
+    <p>Right now I'm writing Opentype programs, and there are two things I don't get it.</p>
+    <p>1.<br>
+    The font has small cap characters and Th ligature. Th is controlled by 'liga' feature (sub T h by TH;), but when the smcp feature is turned on, Th doesn't separate into T(cap) and h(smallcap) and remains still. How can I avoid this?</p>
+    <p>2.<br>
+    I'd like to use 'valt' feature, which is used for vertical setting. It's supposed to controll vertical bearings(like moving g up or l down), but I have no idea how to write the code. It's very strange thing for Japanese people to ask about this, but I know almost nothing about Opentype things. If you know anything about this or any good books to learn these, please tell me.</p>
+comments:
+  - id: 308066
+    user: 8664
+    date: 2008-10-24T08:45:00
+    date_raw: 24 Oct 2008 — 8:45am
+    votes: null
+    html: "<p>ad 1: 'smcp' should precede 'liga'. So if 'smcp' has done its job and replaced h by smallcap H, there is no T h left for 'liga' to replace by T_h.</p>"
+    html_clean: "<p>ad 1: 'smcp' should precede 'liga'. So if 'smcp' has done its job and replaced h by smallcap H, there is no T h left for 'liga' to replace by T_h.</p>"
+  - id: 308104
+    user: 25106
+    date: 2008-10-24T11:20:00
+    date_raw: 24 Oct 2008 — 11:20am
+    votes: null
+    html: |-
+      <p>&gt;k.l.<br>
+      Thank you very much for the information...but it actually happens.</p>
+    html_clean: |-
+      <p>&gt;k.l.<br>
+      Thank you very much for the information...but it actually happens.</p>
+  - id: 308163
+    user: 1262
+    date: 2008-10-24T17:05:00
+    date_raw: 24 Oct 2008 — 5:05pm
+    votes: null
+    html: |-
+      <p>You need to manually order your lookups so that the smcp lookup precedes the liga lookup. These kinds of features are applied simultaneously by the layout engine based upon the order of lookups in the font, not on a specified order of features hardcoded in the layout engine (as happens for some other kinds of features).</p>
+      <p>If you are making your font in FontLab, you have to order the lookups by ordering the features to which that are associated. You do this in the OpenType panel by clicking on and dragging feature tags up and down in the feature list.</p>
+      <p>[In Microsoft's VOLT tool, you can control the order of the lookups independently of the features with which they are associated, which is sometimes useful.]</p>
+    html_clean: |-
+      <p>You need to manually order your lookups so that the smcp lookup precedes the liga lookup. These kinds of features are applied simultaneously by the layout engine based upon the order of lookups in the font, not on a specified order of features hardcoded in the layout engine (as happens for some other kinds of features).</p>
+      <p>If you are making your font in FontLab, you have to order the lookups by ordering the features to which that are associated. You do this in the OpenType panel by clicking on and dragging feature tags up and down in the feature list.</p>
+      <p>[In Microsoft's VOLT tool, you can control the order of the lookups independently of the features with which they are associated, which is sometimes useful.]</p>
+  - id: 308167
+    user: 8664
+    date: 2008-10-24T17:10:00
+    date_raw: 24 Oct 2008 — 5:10pm
+    votes: null
+    html: <p>Could you post your actual liga/smcp code, in the order in which it appears in the OT Panel? And, of which application are you speaking? Do you test in FLS, or InDesign, or Illustrator, ...?</p>
+    html_clean: <p>Could you post your actual liga/smcp code, in the order in which it appears in the OT Panel? And, of which application are you speaking? Do you test in FLS, or InDesign, or Illustrator, ...?</p>
+  - id: 308189
+    user: 25106
+    date: 2008-10-24T23:22:00
+    date_raw: 24 Oct 2008 — 11:22pm
+    votes: null
+    html: |-
+      <p>&gt;John<br>
+      I dragged smcp feature above liga tag, then everything went well. Thanks! I don't know how to use lookup, but anyway I don't need to use it this time.</p>
+      <p>&gt;k.l.<br>
+      I use FontLab5 on Mac and test the behavior on Illustrator and InDesign, but it's okay since the solution is found. Thank you very much.</p>
+      <p>But I still don't know about valt feature...<br>
+      If anyone knows about this, please help me.</p>
+    html_clean: |-
+      <p>&gt;John<br>
+      I dragged smcp feature above liga tag, then everything went well. Thanks! I don't know how to use lookup, but anyway I don't need to use it this time.</p>
+      <p>&gt;k.l.<br>
+      I use FontLab5 on Mac and test the behavior on Illustrator and InDesign, but it's okay since the solution is found. Thank you very much.</p>
+      <p>But I still don't know about valt feature...<br>
+      If anyone knows about this, please help me.</p>
+  - id: 308198
+    user: 8664
+    date: 2008-10-25T03:05:00
+    date_raw: 25 Oct 2008 — 3:05am
+    votes: null
+    html: |-
+      <p>When I wrote in my first post that "'smcp' should precede 'liga'" this meant that you need do reorder features as John described ...&nbsp;&nbsp;:)</p>
+      <p>(Haven't seen John posts when posting my last one.)</p>
+    html_clean: |-
+      <p>When I wrote in my first post that "'smcp' should precede 'liga'" this meant that you need do reorder features as John described ...&nbsp;&nbsp;:)</p>
+      <p>(Haven't seen John posts when posting my last one.)</p>
+  - id: 308208
+    user: 1927
+    date: 2008-10-25T06:37:00
+    date_raw: 25 Oct 2008 — 6:37am
+    votes: null
+    html: |-
+      <p>I've heard that most of applications don't support 'valt' feature.<br>
+      So all Japanese fonts control the positioning of full-width 'g' and 'y' for vertical setting with 'vmtx' table.</p>
+      <p>I've tried to compile valt feature in FLS like this,</p>
+      <p>feature valt {<br>
+        pos A &lt;0 -1000 0 0&gt;;<br>
+      } valt;</p>
+      <p>and then, FLS showed it correctly in Preview palet, but it didn't work with Illustrator CS3.<br>
+      valt feature might be for full-width Latin characters in CJKV font.</p>
+      <p>Do you want to set your font vertically with Japanese fonts?</p>
+    html_clean: |-
+      <p>I've heard that most of applications don't support 'valt' feature.<br>
+      So all Japanese fonts control the positioning of full-width 'g' and 'y' for vertical setting with 'vmtx' table.</p>
+      <p>I've tried to compile valt feature in FLS like this,</p>
+      <p>feature valt {<br>
+        pos A &lt;0 -1000 0 0&gt;;<br>
+      } valt;</p>
+      <p>and then, FLS showed it correctly in Preview palet, but it didn't work with Illustrator CS3.<br>
+      valt feature might be for full-width Latin characters in CJKV font.</p>
+      <p>Do you want to set your font vertically with Japanese fonts?</p>
+  - id: 308316
+    user: 25106
+    date: 2008-10-26T08:04:00
+    date_raw: 26 Oct 2008 — 8:04am
+    votes: null
+    html: |-
+      <p>&gt;k.I.<br>
+      Oh, sorry. I didn't understand what you meant. I didn't think that 'smcp' feature visually needed to be placed avobe the 'liga' feature until I really did that.</p>
+      <p>&gt;Okano San<br>
+      &gt;&gt;Do you want to set your font vertically with Japanese fonts?<br>
+      Yes, I do. Maybe I'll ask you personally.<br>
+      By the way, I wanted to make a contact with you some time.<br>
+      I didn't imagine that I would see you in such occasion :)</p>
+    html_clean: |-
+      <p>&gt;k.I.<br>
+      Oh, sorry. I didn't understand what you meant. I didn't think that 'smcp' feature visually needed to be placed avobe the 'liga' feature until I really did that.</p>
+      <p>&gt;Okano San<br>
+      &gt;&gt;Do you want to set your font vertically with Japanese fonts?<br>
+      Yes, I do. Maybe I'll ask you personally.<br>
+      By the way, I wanted to make a contact with you some time.<br>
+      I didn't imagine that I would see you in such occasion :)</p>
+  - id: 308518
+    user: 14653
+    date: 2008-10-27T13:27:00
+    date_raw: 27 Oct 2008 — 1:27pm
+    votes: null
+    html: |-
+      <p>I should first state that the 'valt' GPOS feature is effectively deprecated, because there is a better way to achieve the functionality. Given that the context in which its functionality is expected to be used is vertical writing, and that it is also expected to be default behavior, we discovered that we could effect this through 'vmtx' table overrides.</p>
+      <p>I developed a Perl script, several years ago, that takes two files as input. One is a coverage table, specifically a list of CIDs and CID ranges that are candidates for this treatment. This means anything that is classified as full-width Latin, full-width Greek, or full-width Cyrillic, including full-width symbols. The other is the AFM file for the font, which has the glyph-level BBox information. (The AFDKO tool called "tx" has a mighty convenient "-afm" option for generating AFM files from a font.)</p>
+      <p>Consider the full-width Latin glyphs for a, b, and p. In Adobe-Japan1-6, the CIDs are 816, 817, and 831, respectively. For Kozuka Mincho Pr6N Regular, the AFM records for these glyphs are as follows:</p>
+      <p><code>C -1 ; W0X 1000 ; N 816 ; B 276 -12 754 514 ;<br>
+      C -1 ; W0X 1000 ; N 817 ; B 240 -12 762 772 ;<br>
+      C -1 ; W0X 1000 ; N 831 ; B 248 -257 775 514 ;</code></p>
+      <p>Given that the top and bottom of the design space is at 880 and -120, what we effectively want to do is to center the glyphs within that 1000-unit space. When I run my script, which I named mkvmtx.pl, the following is the output for these three glyphs:</p>
+      <p><code>table vmtx {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;VertOriginY \816 751;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;VertOriginY \831 628;<br>
+      } vmtx;</code></p>
+      <p>What happened to the entry for CID+817? Look at its Y-axis values, specifically -12 and 772. There is exactly 108 units between the edges and the edges of the design space, so the glyph is alrady centered, and no adjustment is necessary. The default value is 880, and thus is not necessary.</p>
+      <p>The workhorse portion of my script, which iterates through AFM records, ignoring those not in the coverage table (%cidrange), is below:</p>
+      <p><code>$ybottomlimit = -120;<br>
+      $ytoplimit = 880;<br>
+      $ycenter = ($ybottomlimit + $ytoplimit) / 2;</code></p>
+      <p><code>while ($line = &lt;STDIN&gt;) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if ($line =~ /^C.*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chomp $line;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($cid,$ymin,$ymax) = (split(/ /,$line))[7,11,13];<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (exists $cidrange{$cid}) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$halfy = ($ymax - $ymin) / 2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$yminnew = $ycenter - $halfy;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$pushy = round($yminnew - $ymin);<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$pushy =~ s/^\+(\d+)/$1/;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf STDOUT "  VertOriginY \\$cid %s;\n",$ytoplimit - $pushy if $pushy !~ /^-?[0-4]$/;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      }</code></p>
+      <p><code>sub round {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;my ($arg) = @_;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if ($arg =~ /\.[0-4]\d*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg =~ s/\.[0-4]\d*$//;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;} elsif ($arg =~ /\.[5-9]\d*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg =~ s/(\d+)\.[5-9]\d*$/$1 + 1/e;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;} return $arg;<br>
+      }</code></p>
+      <p>If anyone would like the complete Perl script or the coverage tables for our CID character collections, or both, please feel free to drop me an email.</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+    html_clean: |-
+      <p>I should first state that the 'valt' GPOS feature is effectively deprecated, because there is a better way to achieve the functionality. Given that the context in which its functionality is expected to be used is vertical writing, and that it is also expected to be default behavior, we discovered that we could effect this through 'vmtx' table overrides.</p>
+      <p>I developed a Perl script, several years ago, that takes two files as input. One is a coverage table, specifically a list of CIDs and CID ranges that are candidates for this treatment. This means anything that is classified as full-width Latin, full-width Greek, or full-width Cyrillic, including full-width symbols. The other is the AFM file for the font, which has the glyph-level BBox information. (The AFDKO tool called "tx" has a mighty convenient "-afm" option for generating AFM files from a font.)</p>
+      <p>Consider the full-width Latin glyphs for a, b, and p. In Adobe-Japan1-6, the CIDs are 816, 817, and 831, respectively. For Kozuka Mincho Pr6N Regular, the AFM records for these glyphs are as follows:</p>
+      <p><code>C -1 ; W0X 1000 ; N 816 ; B 276 -12 754 514 ;<br>
+      C -1 ; W0X 1000 ; N 817 ; B 240 -12 762 772 ;<br>
+      C -1 ; W0X 1000 ; N 831 ; B 248 -257 775 514 ;</code></p>
+      <p>Given that the top and bottom of the design space is at 880 and -120, what we effectively want to do is to center the glyphs within that 1000-unit space. When I run my script, which I named mkvmtx.pl, the following is the output for these three glyphs:</p>
+      <p><code>table vmtx {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;VertOriginY \816 751;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;VertOriginY \831 628;<br>
+      } vmtx;</code></p>
+      <p>What happened to the entry for CID+817? Look at its Y-axis values, specifically -12 and 772. There is exactly 108 units between the edges and the edges of the design space, so the glyph is alrady centered, and no adjustment is necessary. The default value is 880, and thus is not necessary.</p>
+      <p>The workhorse portion of my script, which iterates through AFM records, ignoring those not in the coverage table (%cidrange), is below:</p>
+      <p><code>$ybottomlimit = -120;<br>
+      $ytoplimit = 880;<br>
+      $ycenter = ($ybottomlimit + $ytoplimit) / 2;</code></p>
+      <p><code>while ($line = &lt;STDIN&gt;) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if ($line =~ /^C.*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chomp $line;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($cid,$ymin,$ymax) = (split(/ /,$line))[7,11,13];<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (exists $cidrange{$cid}) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$halfy = ($ymax - $ymin) / 2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$yminnew = $ycenter - $halfy;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$pushy = round($yminnew - $ymin);<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$pushy =~ s/^\+(\d+)/$1/;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf STDOUT "  VertOriginY \\$cid %s;\n",$ytoplimit - $pushy if $pushy !~ /^-?[0-4]$/;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      }</code></p>
+      <p><code>sub round {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;my ($arg) = @_;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if ($arg =~ /\.[0-4]\d*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg =~ s/\.[0-4]\d*$//;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;} elsif ($arg =~ /\.[5-9]\d*/) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg =~ s/(\d+)\.[5-9]\d*$/$1 + 1/e;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;} return $arg;<br>
+      }</code></p>
+      <p>If anyone would like the complete Perl script or the coverage tables for our CID character collections, or both, please feel free to drop me an email.</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+  - id: 308552
+    user: 1927
+    date: 2008-10-27T18:18:00
+    date_raw: 27 Oct 2008 — 6:18pm
+    votes: null
+    html: |-
+      <p>Thanks Dr.Lunde!<br>
+      I'm very curious about your script and like to use it.<br>
+      I'll get in touch with you after a while.</p>
+      <p>Kunihiko</p>
+    html_clean: |-
+      <p>Thanks Dr.Lunde!<br>
+      I'm very curious about your script and like to use it.<br>
+      I'll get in touch with you after a while.</p>
+      <p>Kunihiko</p>

@@ -1,0 +1,82 @@
+node: 39377
+title: Managing Additional Diacritics in an FL Typeface
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420125218"
+  captured_at: 2015-04-20T12:52:18Z
+  url: http://typophile.com/node/39377
+  digest: 4OWLG7IMCNBWFFOZOBW3QRTA5BPSJMM7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/39377.html
+  fingerprint: 3b1a71fc68821a5c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420125218"
+      digest: 4OWLG7IMCNBWFFOZOBW3QRTA5BPSJMM7
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/39377.html
+post:
+  id: 39377
+  user: 17100
+  date: 2007-11-23T10:30:00
+  date_raw: 23 Nov 2007 — 10:30am
+  votes: null
+  html: |-
+    <p>I have noticed that in many installed fonts, there is a HUGE selection of diacritical alternates for all sorts of letters that don't appear to be covered by the usual codepages. I would like to support at least some of these in my own typeface, but it doesn't appear that I can easily create these glyphs the way I can with the diacritics recognized by the codepages, wherein you can simply double click the glyph and a copy of both the letter and the diacritic is created. This allows changes made to either the diacritic or the letter to be automatically updated, and it makes large groups of these alterates very easy to create, delete and recreate as necessary.</p>
+    <p>For these unrecognized diacritical glyphs, do I have to lose this functionality? I want to support a wide range of diacritics, but I might not have the time to create and manage them if they can't be handled as easily as the recognized ones.</p>
+  html_clean: |-
+    <p>I have noticed that in many installed fonts, there is a HUGE selection of diacritical alternates for all sorts of letters that don't appear to be covered by the usual codepages. I would like to support at least some of these in my own typeface, but it doesn't appear that I can easily create these glyphs the way I can with the diacritics recognized by the codepages, wherein you can simply double click the glyph and a copy of both the letter and the diacritic is created. This allows changes made to either the diacritic or the letter to be automatically updated, and it makes large groups of these alterates very easy to create, delete and recreate as necessary.</p>
+    <p>For these unrecognized diacritical glyphs, do I have to lose this functionality? I want to support a wide range of diacritics, but I might not have the time to create and manage them if they can't be handled as easily as the recognized ones.</p>
+comments:
+  - id: 241534
+    user: 1133
+    date: 2007-11-23T12:02:00
+    date_raw: 23 Nov 2007 — 12:02pm
+    votes: null
+    html: |-
+      <p>Diacritic characters, i.e. letters with diacritic marks, can be entered in text using two ways: static and dynamic. </p>
+      <p>The static method is using precomposed forms, i.e. each character is represented by one glyph in the font. Most of these glyphs are made using components, so they are composite, or precomposed, glyphs. But for a repertoire of these precomposed glyphs, , codepages is an antique mechanism to look at. Please look at Unicode Ranges (also called Unicode blocks), this is a far more up-to-date mechanism to address  the repertoire of encoded precomposed diacritics. For example, look at the Latin Extended B block -- you will find a number of characters that are not in any codepages but are present in the Unicode standard. In the Unicode Ranges mode of FontLab Studio, you can create those glyphs by double-clicking, usually. </p>
+      <p>Letters with diacritic marks that are not encoded in the Unicode standard in their precomposed form can be entered in text as a sequence of base letter followed by a combining diacritic mark. Their rendering can be performed using two dynamic methods: substitution or positioning. </p>
+      <p>The substitution method works in many applications that support OpenType. It typically employs the "ccmp" OpenType Layout feature, while sometimes it can also be duplicated in the "liga" feature for backwards compatibility. I have detailed the process of their creation in FontLab Studio on the <a href="http://groups.msn.com/FontLab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403" rel="nofollow">FontLab forum</a>. </p>
+      <p>The other dynamic method is positioning. This is done using the "mark" and "mkmk" OpenType Layout features. You need Microsoft VOLT to add those features. There is a VOLT tutorial on the <a href="http://scripts.sil.org/VOLT_Tutorial" rel="nofollow">SIL site</a>. </p>
+      <p>Karsten Lücke's <a href="http://www.kltf.de/kltf_otresources.htm" rel="nofollow">OpenType resources collection</a> is also a good starting point. </p>
+      <p>Regards,<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+    html_clean: |-
+      <p>Diacritic characters, i.e. letters with diacritic marks, can be entered in text using two ways: static and dynamic. </p>
+      <p>The static method is using precomposed forms, i.e. each character is represented by one glyph in the font. Most of these glyphs are made using components, so they are composite, or precomposed, glyphs. But for a repertoire of these precomposed glyphs, , codepages is an antique mechanism to look at. Please look at Unicode Ranges (also called Unicode blocks), this is a far more up-to-date mechanism to address  the repertoire of encoded precomposed diacritics. For example, look at the Latin Extended B block -- you will find a number of characters that are not in any codepages but are present in the Unicode standard. In the Unicode Ranges mode of FontLab Studio, you can create those glyphs by double-clicking, usually. </p>
+      <p>Letters with diacritic marks that are not encoded in the Unicode standard in their precomposed form can be entered in text as a sequence of base letter followed by a combining diacritic mark. Their rendering can be performed using two dynamic methods: substitution or positioning. </p>
+      <p>The substitution method works in many applications that support OpenType. It typically employs the "ccmp" OpenType Layout feature, while sometimes it can also be duplicated in the "liga" feature for backwards compatibility. I have detailed the process of their creation in FontLab Studio on the <a href="http://groups.msn.com/FontLab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403" rel="nofollow">FontLab forum</a>. </p>
+      <p>The other dynamic method is positioning. This is done using the "mark" and "mkmk" OpenType Layout features. You need Microsoft VOLT to add those features. There is a VOLT tutorial on the <a href="http://scripts.sil.org/VOLT_Tutorial" rel="nofollow">SIL site</a>. </p>
+      <p>Karsten Lücke's <a href="http://www.kltf.de/kltf_otresources.htm" rel="nofollow">OpenType resources collection</a> is also a good starting point. </p>
+      <p>Regards,<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+  - id: 241636
+    user: 1262
+    date: 2007-11-23T17:48:00
+    date_raw: 23 Nov 2007 — 5:48pm
+    votes: null
+    html: |-
+      <p>Adam, I think you missed the point of Elliot's question. He wants to know if there is a way to have automatically precomposed glyphs appear in FontLab when he double-clicks on an appropriately named glyph cell.</p>
+      <p>This used to be possible via the alias.dat file, yes? What is the mechanism now?</p>
+    html_clean: |-
+      <p>Adam, I think you missed the point of Elliot's question. He wants to know if there is a way to have automatically precomposed glyphs appear in FontLab when he double-clicks on an appropriately named glyph cell.</p>
+      <p>This used to be possible via the alias.dat file, yes? What is the mechanism now?</p>

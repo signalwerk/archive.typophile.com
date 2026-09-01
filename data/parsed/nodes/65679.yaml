@@ -1,0 +1,241 @@
+node: 65679
+title: Scaling UPM
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131010223805"
+  captured_at: 2013-10-10T22:38:05Z
+  url: http://typophile.com/node/65679
+  digest: TDVXBYBE5FJYM4WK5KD65JIDQJQSM2KR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/65679.html
+  fingerprint: 9f095ae5e81decf2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131010223805"
+      digest: TDVXBYBE5FJYM4WK5KD65JIDQJQSM2KR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/65679.html
+post:
+  id: 65679
+  user: 14604
+  date: 2009-12-25T15:50:00
+  date_raw: 25 Dec 2009 — 3:50pm
+  votes: null
+  html: |-
+    <p>I'm working on a typeface which was first a personal project, but I'm now adapting it for a client. I originally designed it on a UPM of 2000. However, the client needs a Type 1 font for their system. I'm having difficulties with the vertical metrics when I test the Type 1, especially in InDesign. </p>
+    <p>It's prefectly fine when I export it as OpenType, but with the Type 1 it's as if the whole baseline shifts up (or the baseline stays put but the letters shift up, however you look at it). This makes all ascenders and caps to extend outside of the text-frame (which doesn't happen with the OTF). The cursor and selection box is of the right size, but the type is shifted up, so to speak.</p>
+    <p>I'm aware that Type 1 originally doesn't allow any nodes to extend outside the 2000 and -2000 boundaries, but also read on typophile somewhere that the real boundaries are more in the range of 4000. As far as I know I've set the vertical metrics correctly, with the help of the how-to on typophile and the pdf that is floating around made by Karsten Lücke.</p>
+    <p>It's possible that a 2000 UPM doesn't work, and that I need to scale it. Is there a good way to do this without too much nodes rounding of very crudely? Scaling to 1000 with the 'scale all glyphs...' option checked does cause quite a bit of rounding off changes.</p>
+    <p>Or maybe there are other tips you guys can give me?</p>
+  html_clean: |-
+    <p>I'm working on a typeface which was first a personal project, but I'm now adapting it for a client. I originally designed it on a UPM of 2000. However, the client needs a Type 1 font for their system. I'm having difficulties with the vertical metrics when I test the Type 1, especially in InDesign. </p>
+    <p>It's prefectly fine when I export it as OpenType, but with the Type 1 it's as if the whole baseline shifts up (or the baseline stays put but the letters shift up, however you look at it). This makes all ascenders and caps to extend outside of the text-frame (which doesn't happen with the OTF). The cursor and selection box is of the right size, but the type is shifted up, so to speak.</p>
+    <p>I'm aware that Type 1 originally doesn't allow any nodes to extend outside the 2000 and -2000 boundaries, but also read on typophile somewhere that the real boundaries are more in the range of 4000. As far as I know I've set the vertical metrics correctly, with the help of the how-to on typophile and the pdf that is floating around made by Karsten Lücke.</p>
+    <p>It's possible that a 2000 UPM doesn't work, and that I need to scale it. Is there a good way to do this without too much nodes rounding of very crudely? Scaling to 1000 with the 'scale all glyphs...' option checked does cause quite a bit of rounding off changes.</p>
+    <p>Or maybe there are other tips you guys can give me?</p>
+comments:
+  - id: 385591
+    user: 12278
+    date: 2009-12-25T16:45:00
+    date_raw: 25 Dec 2009 — 4:45pm
+    votes: null
+    html: <p>This is possibly a dumb question, but why did you make your font in 2000 UPM in the first place?</p>
+    html_clean: <p>This is possibly a dumb question, but why did you make your font in 2000 UPM in the first place?</p>
+  - id: 385592
+    user: 14604
+    date: 2009-12-25T16:53:00
+    date_raw: 25 Dec 2009 — 4:53pm
+    votes: null
+    html: <p>No particular reason, and with TT and OTF it doesn't really matter that much. I was not planning on exporting it as Type 1, but now I am forced to.</p>
+    html_clean: <p>No particular reason, and with TT and OTF it doesn't really matter that much. I was not planning on exporting it as Type 1, but now I am forced to.</p>
+  - id: 385595
+    user: 12278
+    date: 2009-12-25T17:10:00
+    date_raw: 25 Dec 2009 — 5:10pm
+    votes: null
+    html: |-
+      <p>I've always worked with the lowest common denomerator, just in case.</p>
+      <p>Like yours. Sorry about that.</p>
+    html_clean: |-
+      <p>I've always worked with the lowest common denomerator, just in case.</p>
+      <p>Like yours. Sorry about that.</p>
+  - id: 385601
+    user: 14604
+    date: 2009-12-25T18:32:00
+    date_raw: 25 Dec 2009 — 6:32pm
+    votes: null
+    html: |-
+      <p>Strangely enough, when exporting the Type 1, the Font BBox gets scaled down automatically to some random numbers, even when 'Use WinAscent and WinDescent as font vertical size' is ticked on in the PostScript-specific Settings. </p>
+      <p>I tried exporting with the Type 1 Export Terminal this time, and manually changed the BBox numbers to the ones that are shown in Key Dimensions (on the bottom). Tested the font in InDesign, and the glyphs are now back onto the baseline and nothing extends outside of the bounding box (apart from characters like Â, but that is obvious).</p>
+      <p>I have no idea why it changes the BBox size to something completely wrong on itself...</p>
+    html_clean: |-
+      <p>Strangely enough, when exporting the Type 1, the Font BBox gets scaled down automatically to some random numbers, even when 'Use WinAscent and WinDescent as font vertical size' is ticked on in the PostScript-specific Settings. </p>
+      <p>I tried exporting with the Type 1 Export Terminal this time, and manually changed the BBox numbers to the ones that are shown in Key Dimensions (on the bottom). Tested the font in InDesign, and the glyphs are now back onto the baseline and nothing extends outside of the bounding box (apart from characters like Â, but that is obvious).</p>
+      <p>I have no idea why it changes the BBox size to something completely wrong on itself...</p>
+  - id: 386038
+    user: 14604
+    date: 2009-12-29T08:06:00
+    date_raw: 29 Dec 2009 — 8:06am
+    votes: null
+    html: |-
+      <p>Well, apparently exporting Type 1 automatically assumes the typeface is on a UPM of 1000. As a consequence, everything in my typeface gets halved. Font metrics, but also kerning.</p>
+      <p>Is there anyone that knows how I can prevent FontLab from doing this? Or perhaps knows about another way that I can generate a Type 1 without everything getting halved?</p>
+      <p>Or if that is not possible, how I can scale down the UPM to 1000, without getting too much rounding errors?</p>
+      <p>On a sidenote: strangely enough the font does display correctly in InDesign. For example, it says kerning between L en Y is -90, but it displays it as -180. If I reopen the exported font in FontLab, it says -180 again (while the afm clearly says -90). I have no idea how exactly this works. It seems weird.</p>
+    html_clean: |-
+      <p>Well, apparently exporting Type 1 automatically assumes the typeface is on a UPM of 1000. As a consequence, everything in my typeface gets halved. Font metrics, but also kerning.</p>
+      <p>Is there anyone that knows how I can prevent FontLab from doing this? Or perhaps knows about another way that I can generate a Type 1 without everything getting halved?</p>
+      <p>Or if that is not possible, how I can scale down the UPM to 1000, without getting too much rounding errors?</p>
+      <p>On a sidenote: strangely enough the font does display correctly in InDesign. For example, it says kerning between L en Y is -90, but it displays it as -180. If I reopen the exported font in FontLab, it says -180 again (while the afm clearly says -90). I have no idea how exactly this works. It seems weird.</p>
+  - id: 386048
+    user: 1250
+    date: 2009-12-29T08:46:00
+    date_raw: 29 Dec 2009 — 8:46am
+    votes: null
+    html: |-
+      <p>AFAIK it's not FontLab that's scaling anything down (except maybe in the<br>
+      kerning?), it's the renderer in a given SW. That would be why InDesign<br>
+      does it right while other apps don't.</p>
+      <p>I'm not sure because I've always stuck with 1000 (for PS) to be safe...  :-/<br>
+      It's probably worth going to the trouble fixing everything by hand.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>AFAIK it's not FontLab that's scaling anything down (except maybe in the<br>
+      kerning?), it's the renderer in a given SW. That would be why InDesign<br>
+      does it right while other apps don't.</p>
+      <p>I'm not sure because I've always stuck with 1000 (for PS) to be safe...  :-/<br>
+      It's probably worth going to the trouble fixing everything by hand.</p>
+      <p>hhp</p>
+  - id: 386053
+    user: 14604
+    date: 2009-12-29T09:46:00
+    date_raw: 29 Dec 2009 — 9:46am
+    votes: null
+    html: |-
+      <p>Well, everything in the .afm file is scaled down to 50%. I don't know if FontLab does this, but <em>something</em> does. It scales all values to 50%, but the glyph shapes themselves are larger than this, so I could see how this is problematic. I.e. The cap A is 1450 high and 1512 wide. But the afm shows it as 741 or something like that.</p>
+      <p>The font will be used in CCI (newspaper software), which is rather deprecated and weird software, so I'm trying to get it right so CCI will display everything correctly. They told me that the font prints properly, but that the screen display is showing squashed glyphs (the glyphs are compressed so that it almost looks like a condensed font). I thought this was caused by the scaled down BBox, but after that I noticed <em>everything</em> is scaled down, not only the BBox but also the metrics, kerning and the glyhs themselves.</p>
+      <p>And yes, I will also be sticking with UPM of 1000 from now on. But as I said, I was only planning for it to be for my own use, so OT or TTF only, and for those a UPM of 2000 is fine. But then someone decided to use the typeface, to which I obviously wouldn't object but for which did not plan, and they need Type 1 for CCI. ;)</p>
+    html_clean: |-
+      <p>Well, everything in the .afm file is scaled down to 50%. I don't know if FontLab does this, but <em>something</em> does. It scales all values to 50%, but the glyph shapes themselves are larger than this, so I could see how this is problematic. I.e. The cap A is 1450 high and 1512 wide. But the afm shows it as 741 or something like that.</p>
+      <p>The font will be used in CCI (newspaper software), which is rather deprecated and weird software, so I'm trying to get it right so CCI will display everything correctly. They told me that the font prints properly, but that the screen display is showing squashed glyphs (the glyphs are compressed so that it almost looks like a condensed font). I thought this was caused by the scaled down BBox, but after that I noticed <em>everything</em> is scaled down, not only the BBox but also the metrics, kerning and the glyhs themselves.</p>
+      <p>And yes, I will also be sticking with UPM of 1000 from now on. But as I said, I was only planning for it to be for my own use, so OT or TTF only, and for those a UPM of 2000 is fine. But then someone decided to use the typeface, to which I obviously wouldn't object but for which did not plan, and they need Type 1 for CCI. ;)</p>
+  - id: 386056
+    user: 14604
+    date: 2009-12-29T10:13:00
+    date_raw: 29 Dec 2009 — 10:13am
+    votes: null
+    html: <p>Correction, I noticed <em>everything</em> is scaled down, not only the BBox but also the metrics, kerning but <strong>not</strong> the glyphs themselves. I typed that the glyphs were also scaled down, but this is not the case.</p>
+    html_clean: <p>Correction, I noticed <em>everything</em> is scaled down, not only the BBox but also the metrics, kerning but <strong>not</strong> the glyphs themselves. I typed that the glyphs were also scaled down, but this is not the case.</p>
+  - id: 386094
+    user: 1947
+    date: 2009-12-29T13:26:00
+    date_raw: 29 Dec 2009 — 1:26pm
+    votes: null
+    html: |-
+      <p><cite>and with TT and OTF it doesn’t really matter that much</cite></p>
+      <p>Perhaps it matters more than you think!</p>
+    html_clean: |-
+      <p><cite>and with TT and OTF it doesn’t really matter that much</cite></p>
+      <p>Perhaps it matters more than you think!</p>
+  - id: 386187
+    user: 33942
+    date: 2009-12-30T06:49:00
+    date_raw: 30 Dec 2009 — 6:49am
+    votes: null
+    html: <p><code>Type 1 fonts <em>must</em> have a UPM of 1000 by definition. FontLab's auto scaling is obviously buggy, so make a copy of the font on 1000 UPM and check everything by hand.</code></p>
+    html_clean: <p><code>Type 1 fonts <em>must</em> have a UPM of 1000 by definition. FontLab's auto scaling is obviously buggy, so make a copy of the font on 1000 UPM and check everything by hand.</code></p>
+  - id: 386206
+    user: 33942
+    date: 2009-12-30T08:23:00
+    date_raw: 30 Dec 2009 — 8:23am
+    votes: null
+    html: |-
+      <p><code>See page 25 and 26 in this magnificent curve stuff: <a class="freelinking external" href="http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF" rel="nofollow">http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF</a><br>
+      Unfortunately FontLab does not do <strong>div</strong> for you.</code></p>
+    html_clean: |-
+      <p><code>See page 25 and 26 in this magnificent curve stuff: <a class="freelinking external" href="http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF" rel="nofollow">http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF</a><br>
+      Unfortunately FontLab does not do <strong>div</strong> for you.</code></p>
+  - id: 388080
+    user: 14604
+    date: 2010-01-08T14:23:00
+    date_raw: 8 Jan 2010 — 2:23pm
+    votes: null
+    html: |-
+      <p>Thanks CurveDoctor. I knew about the 1000 UPM requirement, but not that FontLab <em>will</em> automatically scale all vertical metrics to 50% when you export Type 1, but just leaves everything else at the original size. This will obviously cause problems, as the original size glyphs won't fit into the halved vertical metrics / BBox. It would be more workable if FontLab tells you a UPM of 2000 isn't supported when you export Type 1, and that it will auto scale everything when you proceed. Now it tells you nothing, and just scale down the vertical metrics but leave the UPM at 2000.</p>
+      <p>Now that I know all this, it isn't longer a problem and I just check everything by hand.</p>
+      <p>This thread is basically me completely not understanding at all. I should have done some more research before starting it. But perhaps it can be of use to someone else having the same lack of understanding in the future. :)</p>
+    html_clean: |-
+      <p>Thanks CurveDoctor. I knew about the 1000 UPM requirement, but not that FontLab <em>will</em> automatically scale all vertical metrics to 50% when you export Type 1, but just leaves everything else at the original size. This will obviously cause problems, as the original size glyphs won't fit into the halved vertical metrics / BBox. It would be more workable if FontLab tells you a UPM of 2000 isn't supported when you export Type 1, and that it will auto scale everything when you proceed. Now it tells you nothing, and just scale down the vertical metrics but leave the UPM at 2000.</p>
+      <p>Now that I know all this, it isn't longer a problem and I just check everything by hand.</p>
+      <p>This thread is basically me completely not understanding at all. I should have done some more research before starting it. But perhaps it can be of use to someone else having the same lack of understanding in the future. :)</p>
+  - id: 388084
+    user: 14604
+    date: 2010-01-08T14:19:00
+    date_raw: 8 Jan 2010 — 2:19pm
+    votes: null
+    html: |-
+      <p>&gt; <em>Perhaps it matters more than you think!</em></p>
+      <p>Wel, I don't think so. :)</p>
+      <p>As far as I know the UPM standard of TTF is 2048. As for OTF; I think the official recommendation is 1000 (as it uses postscript outlines), but not a requirement, as OTF fonts work perfectly fine at 2000. And at seemingly random sizes as well, if I'm not mistaken.</p>
+    html_clean: |-
+      <p>&gt; <em>Perhaps it matters more than you think!</em></p>
+      <p>Wel, I don't think so. :)</p>
+      <p>As far as I know the UPM standard of TTF is 2048. As for OTF; I think the official recommendation is 1000 (as it uses postscript outlines), but not a requirement, as OTF fonts work perfectly fine at 2000. And at seemingly random sizes as well, if I'm not mistaken.</p>
+  - id: 388597
+    user: 38073
+    date: 2010-01-12T19:41:00
+    date_raw: 12 Jan 2010 — 7:41pm
+    votes: null
+    html: |-
+      <p><cite>Scaling to 1000 with the 'scale all glyphs...' option checked does cause quite a bit of rounding off changes.</cite></p>
+      <p>What happens when you do that?<br>
+      What were some of the problems you got when you did it?</p>
+    html_clean: |-
+      <p><cite>Scaling to 1000 with the 'scale all glyphs...' option checked does cause quite a bit of rounding off changes.</cite></p>
+      <p>What happens when you do that?<br>
+      What were some of the problems you got when you did it?</p>
+  - id: 391424
+    user: 14604
+    date: 2010-01-25T21:31:00
+    date_raw: 25 Jan 2010 — 9:31pm
+    votes: null
+    html: "<p>@johnnydib: To answer your question, scaling with 'scale all glyphs...' causes rounding off issues. In other words, it simply causes some anchor points to move a little bit because the grid on which they have to line up is more coarse. But I've noticed the changes are tiny, so in my case I accepted it and moved on. :)</p>"
+    html_clean: "<p>@johnnydib: To answer your question, scaling with 'scale all glyphs...' causes rounding off issues. In other words, it simply causes some anchor points to move a little bit because the grid on which they have to line up is more coarse. But I've noticed the changes are tiny, so in my case I accepted it and moved on. :)</p>"
+  - id: 392070
+    user: 38073
+    date: 2010-01-28T08:28:00
+    date_raw: 28 Jan 2010 — 8:28am
+    votes: null
+    html: <p>Okay good to know. At least it's not buggy or anything.</p>
+    html_clean: <p>Okay good to know. At least it's not buggy or anything.</p>
+  - id: 392358
+    user: 1133
+    date: 2010-01-29T10:32:00
+    date_raw: 29 Jan 2010 — 10:32am
+    votes: null
+    html: |-
+      <p>In the most recent Adobe FDK for OpenType, a commandline tool named IS is included. It performs "intelligent scaling". It uses Type 1 hinting information attempting to keep the hinted stems and other elements the same width after the downscaling. </p>
+      <p>We plan to integrate Adobe's intelligent scaling into the upcoming versions of our applications. </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>In the most recent Adobe FDK for OpenType, a commandline tool named IS is included. It performs "intelligent scaling". It uses Type 1 hinting information attempting to keep the hinted stems and other elements the same width after the downscaling. </p>
+      <p>We plan to integrate Adobe's intelligent scaling into the upcoming versions of our applications. </p>
+      <p>Best,<br>
+      Adam</p>

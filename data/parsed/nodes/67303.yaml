@@ -1,0 +1,139 @@
+node: 67303
+title: Embedding fonts in MS Publisher
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130824140809"
+  captured_at: 2013-08-24T14:08:09Z
+  url: http://typophile.com/node/67303
+  digest: L7UMA4JI5WGFPTPN2VXZJR62VHGG2RKA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/67303.html
+  fingerprint: 074b9cb65705a313
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130824140809"
+      digest: L7UMA4JI5WGFPTPN2VXZJR62VHGG2RKA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/67303.html
+post:
+  id: 67303
+  user: 3320
+  date: 2010-02-11T03:52:00
+  date_raw: 11 Feb 2010 — 3:52am
+  votes: null
+  html: |-
+    <p>Hi</p>
+    <p>A customer is trying to embed a set of eight TT fonts all of which have installable embedding set. All the fonts have the same glyph set and index order, the default glyphs are all correct and MS FontValidator does not return any errors, yet from within MS Publisher four show as 'will embed' and four show as 'may not embed'. The customer has been reporting inconsistent results across different machines when trying to embed.</p>
+    <p>Does anyone know what might be upsetting Publisher? </p>
+    <p>tia<br>
+    M</p>
+  html_clean: |-
+    <p>Hi</p>
+    <p>A customer is trying to embed a set of eight TT fonts all of which have installable embedding set. All the fonts have the same glyph set and index order, the default glyphs are all correct and MS FontValidator does not return any errors, yet from within MS Publisher four show as 'will embed' and four show as 'may not embed'. The customer has been reporting inconsistent results across different machines when trying to embed.</p>
+    <p>Does anyone know what might be upsetting Publisher? </p>
+    <p>tia<br>
+    M</p>
+comments:
+  - id: 395418
+    user: 3095
+    date: 2010-02-11T12:06:00
+    date_raw: 11 Feb 2010 — 12:06pm
+    votes: null
+    html: <p>I've used the 'pack and go' wizard for commercial printing before without a problem. If the fonts all have proper embedding permissions, as you say, then I'm not sure what the issue could be. What version of Publisher?</p>
+    html_clean: <p>I've used the 'pack and go' wizard for commercial printing before without a problem. If the fonts all have proper embedding permissions, as you say, then I'm not sure what the issue could be. What version of Publisher?</p>
+  - id: 395528
+    user: 3320
+    date: 2010-02-11T18:42:00
+    date_raw: 11 Feb 2010 — 6:42pm
+    votes: null
+    html: <p>Found it. I hade PS style font name in the Name Table - Windows Full Name. A left over from making the font in CFF. Changing that back has got it to work as it should.</p>
+    html_clean: <p>Found it. I hade PS style font name in the Name Table - Windows Full Name. A left over from making the font in CFF. Changing that back has got it to work as it should.</p>
+  - id: 395670
+    user: 1133
+    date: 2010-02-12T12:34:00
+    date_raw: 12 Feb 2010 — 12:34pm
+    votes: null
+    html: |-
+      <p>Malcolm, </p>
+      <p>can you elaborate on the problem and your solution? I would be interested in knowing more about this issue even though you solved it. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Malcolm, </p>
+      <p>can you elaborate on the problem and your solution? I would be interested in knowing more about this issue even though you solved it. </p>
+      <p>A.</p>
+  - id: 396112
+    user: 3320
+    date: 2010-02-15T12:00:00
+    date_raw: 15 Feb 2010 — 12:00pm
+    votes: null
+    html: |-
+      <p>Adam</p>
+      <p>When I made the first version of the fonts, I made them as CFF OpenType fonts which meant that I set the Platform 3 FullName (field 4) to the PostScript Name, which in the case of these fonts included a hyphen between the Family name and the Style name. The client preferred to have TTF OpenType fonts which ment that the Platform 3 FullName should have been without the hyphen.</p>
+      <p>My way of working is always to work with the OpenType names records directly.</p>
+      <p>I think that MSPublisher is the only application that baulks at this but I may be wrong.</p>
+      <p>M</p>
+    html_clean: |-
+      <p>Adam</p>
+      <p>When I made the first version of the fonts, I made them as CFF OpenType fonts which meant that I set the Platform 3 FullName (field 4) to the PostScript Name, which in the case of these fonts included a hyphen between the Family name and the Style name. The client preferred to have TTF OpenType fonts which ment that the Platform 3 FullName should have been without the hyphen.</p>
+      <p>My way of working is always to work with the OpenType names records directly.</p>
+      <p>I think that MSPublisher is the only application that baulks at this but I may be wrong.</p>
+      <p>M</p>
+  - id: 396165
+    user: 1133
+    date: 2010-02-15T15:12:00
+    date_raw: 15 Feb 2010 — 3:12pm
+    votes: null
+    html: |-
+      <p>Malcolm, </p>
+      <p>are you saying that MS Publisher has a problem "seeing" fonts in TTF format where the FullName 4.3.1.1033 has a hyphen? Which version of Publisher, which OS? </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Malcolm, </p>
+      <p>are you saying that MS Publisher has a problem "seeing" fonts in TTF format where the FullName 4.3.1.1033 has a hyphen? Which version of Publisher, which OS? </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 396176
+    user: 3320
+    date: 2010-02-15T16:15:00
+    date_raw: 15 Feb 2010 — 4:15pm
+    votes: null
+    html: |-
+      <p>No Adam, I'm not saying that MSPublisher has a problem "seeing" them.</p>
+      <p>MSPublisher seems to have a problem recognising TTF fonts as embedable when they carry a hyphen in the Windows Full Name (4.3.1.1033), even when the correct embedding bits have been set. The "embedability" of fonts is displayed in the 'Tools&gt;Commercial Printing Tools&gt;Fonts' dialog of MSPublisher.</p>
+      <p>I have not been able to do extensive research into this problem suffice to say that changing the 4.3.1.1033 field in these TTF's by changing the hyphen to a space caused the 'Tools&gt;Commercial Printing Tools&gt;Fonts' dialog to show them as 'embedable' where before they were shown as 'may not embed'.</p>
+      <p>M</p>
+    html_clean: |-
+      <p>No Adam, I'm not saying that MSPublisher has a problem "seeing" them.</p>
+      <p>MSPublisher seems to have a problem recognising TTF fonts as embedable when they carry a hyphen in the Windows Full Name (4.3.1.1033), even when the correct embedding bits have been set. The "embedability" of fonts is displayed in the 'Tools&gt;Commercial Printing Tools&gt;Fonts' dialog of MSPublisher.</p>
+      <p>I have not been able to do extensive research into this problem suffice to say that changing the 4.3.1.1033 field in these TTF's by changing the hyphen to a space caused the 'Tools&gt;Commercial Printing Tools&gt;Fonts' dialog to show them as 'embedable' where before they were shown as 'may not embed'.</p>
+      <p>M</p>
+  - id: 396186
+    user: 1133
+    date: 2010-02-15T16:49:00
+    date_raw: 15 Feb 2010 — 4:49pm
+    votes: null
+    html: |-
+      <p>Malcolm, </p>
+      <p>let me repeat this question: which version of Microsoft Publisher, and which version of Windows? </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Malcolm, </p>
+      <p>let me repeat this question: which version of Microsoft Publisher, and which version of Windows? </p>
+      <p>A.</p>

@@ -1,0 +1,112 @@
+node: 84458
+title: Fontalb error generating font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20111201145121"
+  captured_at: 2011-12-01T14:51:21Z
+  url: http://typophile.com:80/node/84458
+  digest: N2T7IL2OC6I5NBDSCNDMOIMC7D3BNVUO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/84458.html
+  fingerprint: d0f9d0a96d5488a8
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20111201145121"
+      digest: N2T7IL2OC6I5NBDSCNDMOIMC7D3BNVUO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84458.html
+post:
+  id: 84458
+  user: 174718
+  date: 2011-08-10T09:52:00
+  date_raw: 10.Aug.2011 9.52am
+  votes: null
+  html: |-
+    <p>Hi guys, probably this is a common mistake, but i don't know how can solve that.<br>
+    I'm a student, I'm doing a font for my typography class, for now, I have only write ADHESION letters and there is only a ligature feature( It had to be a opentype font).<br>
+    When I compile the script, it says me "[WARNING]  cmap{plat=3,script=1,lang=0}: empty encoding" that I really don't know what means.....</p>
+    <p>But i can see my font without problem and every letter is ok, The preview works fine too.<br>
+    then i add a ligature:<br>
+    feature dlig {<br>
+      sub s i' by i_alt;<br>
+    } dlig;<br>
+     and this works too.....<br>
+    But i can't generate my font, i don't know why, i had to generate it in .otf(my professor want that) but i tried:<br>
+    TTF/Unicode mode: and generate a blank preview of the font<br>
+    TTF/Names mode: works, but i need an otf....</p>
+    <p>OTF/Unicode mode: blank font<br>
+    OTF/Names mode:generate a font with some errors in the graphics(some part of the letters became white in a casual way)</p>
+    <p>Really i don't know what to do, some suggestions?</p>
+  html_clean: |-
+    <p>Hi guys, probably this is a common mistake, but i don't know how can solve that.<br>
+    I'm a student, I'm doing a font for my typography class, for now, I have only write ADHESION letters and there is only a ligature feature( It had to be a opentype font).<br>
+    When I compile the script, it says me "[WARNING]  cmap{plat=3,script=1,lang=0}: empty encoding" that I really don't know what means.....</p>
+    <p>But i can see my font without problem and every letter is ok, The preview works fine too.<br>
+    then i add a ligature:<br>
+    feature dlig {<br>
+      sub s i' by i_alt;<br>
+    } dlig;<br>
+     and this works too.....<br>
+    But i can't generate my font, i don't know why, i had to generate it in .otf(my professor want that) but i tried:<br>
+    TTF/Unicode mode: and generate a blank preview of the font<br>
+    TTF/Names mode: works, but i need an otf....</p>
+    <p>OTF/Unicode mode: blank font<br>
+    OTF/Names mode:generate a font with some errors in the graphics(some part of the letters became white in a casual way)</p>
+    <p>Really i don't know what to do, some suggestions?</p>
+comments:
+  - id: 473625
+    user: 84836
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I suggest you open a font that has ligatures in fontlab and look at how the lig feature is written. Copy and paste that code and change it a little, and it should work. Throw out the code you have in there now.</p>
+    html_clean: <p>I suggest you open a font that has ligatures in fontlab and look at how the lig feature is written. Copy and paste that code and change it a little, and it should work. Throw out the code you have in there now.</p>
+  - id: 473629
+    user: 31798
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>The code which he offers isn't entirely implausible. It isn't a ligature rule, but I can envision a face in which a contextual alternates are used in such a way that it makes sense to place them in the 'dlig' feature (particularly if the alternate in question overlaps the preceding s in a way that suggests a ligature). Moreover, the code in the 'dlig' feature above wouldn't lead to the error which he's encountering. However, i_alt isn't a valid name -- you should use i.alt instead.</p>
+      <p>I'd make sure that your glyphs are correctly named, that they are assigned unicode values correctly, and then let FontLab (assuming that's what you're using) to fill in the values in the 'Encodings and Unicode' pane automatically.</p>
+      <p>The letters becoming white suggests you've got overlapping contours and/or problems with your path directions.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>The code which he offers isn't entirely implausible. It isn't a ligature rule, but I can envision a face in which a contextual alternates are used in such a way that it makes sense to place them in the 'dlig' feature (particularly if the alternate in question overlaps the preceding s in a way that suggests a ligature). Moreover, the code in the 'dlig' feature above wouldn't lead to the error which he's encountering. However, i_alt isn't a valid name -- you should use i.alt instead.</p>
+      <p>I'd make sure that your glyphs are correctly named, that they are assigned unicode values correctly, and then let FontLab (assuming that's what you're using) to fill in the values in the 'Encodings and Unicode' pane automatically.</p>
+      <p>The letters becoming white suggests you've got overlapping contours and/or problems with your path directions.</p>
+      <p>André</p>
+  - id: 473634
+    user: 174718
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I'll try tomorrow, thanks.</p>
+    html_clean: <p>I'll try tomorrow, thanks.</p>
+  - id: 476007
+    user: 174718
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>ok, sorry I was busy, thanks to everyone, Now, I really don't know how to fix the overlapping problem, I make work the liga features and the unicode problem, but overlapping is a question mark, how can i fix that? i'm using fontlab.<br>
+      P.S. Overlapping show "himself" only when i generate the font, but when the code generate the glyphs the letters are okay.</p>
+    html_clean: |-
+      <p>ok, sorry I was busy, thanks to everyone, Now, I really don't know how to fix the overlapping problem, I make work the liga features and the unicode problem, but overlapping is a question mark, how can i fix that? i'm using fontlab.<br>
+      P.S. Overlapping show "himself" only when i generate the font, but when the code generate the glyphs the letters are okay.</p>

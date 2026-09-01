@@ -1,0 +1,141 @@
+node: 107953
+title: Reduce line height in font file
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419172754"
+  captured_at: 2015-04-19T17:27:54Z
+  url: http://typophile.com/node/107953
+  digest: JXHL7R2MRRP77P6J43UKTM6J727ZD4EF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/107953.html
+  fingerprint: a1814a0300369aee
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419172754"
+      digest: JXHL7R2MRRP77P6J43UKTM6J727ZD4EF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/107953.html
+post:
+  id: 107953
+  user: 22603
+  date: 2014-01-02T05:06:00
+  date_raw: 2 Jan 2014 — 5:06am
+  votes: null
+  html: |-
+    <p>I've been tasked with making modifications to a Flash application which uses an embedded custom font. The font used in the first instance has since been lost: the version we have is a slight variation which displays a greater line-height, which breaks the fixed layout in many instances.</p>
+    <p>I'm using <em>Type light 3.2</em> — it seems to be the most stable free font editor available for Windows (<em>Font Forge</em> crashes whenever I modify the font) — to try and modify the font metrics to reduce the line height. <em>Line Gap</em> and <em>Typo Line Gap</em> were set to <code>200</code>, which I reduced to <code>0</code> for each (this seemed the most obvious metric to try) in an attempt to see an immediate difference, however the new font doesn't appear any different in any software I use to render it across several lines.</p>
+    <p>There are other less obvious options: I could try reducing the various ascender and descender values, or reduce the EM unit size, but these seem overly invasive and contrived ways to get around what seems fairly conceptually simple. Am I missing something?</p>
+  html_clean: |-
+    <p>I've been tasked with making modifications to a Flash application which uses an embedded custom font. The font used in the first instance has since been lost: the version we have is a slight variation which displays a greater line-height, which breaks the fixed layout in many instances.</p>
+    <p>I'm using <em>Type light 3.2</em> — it seems to be the most stable free font editor available for Windows (<em>Font Forge</em> crashes whenever I modify the font) — to try and modify the font metrics to reduce the line height. <em>Line Gap</em> and <em>Typo Line Gap</em> were set to <code>200</code>, which I reduced to <code>0</code> for each (this seemed the most obvious metric to try) in an attempt to see an immediate difference, however the new font doesn't appear any different in any software I use to render it across several lines.</p>
+    <p>There are other less obvious options: I could try reducing the various ascender and descender values, or reduce the EM unit size, but these seem overly invasive and contrived ways to get around what seems fairly conceptually simple. Am I missing something?</p>
+comments:
+  - id: 568509
+    user: 83217
+    date: 2014-01-02T07:09:00
+    date_raw: 2 Jan 2014 — 7:09am
+    votes: null
+    html: <p>You have made sure the line spacing is not hardwired in the app?</p>
+    html_clean: <p>You have made sure the line spacing is not hardwired in the app?</p>
+  - id: 568510
+    user: 22603
+    date: 2014-01-02T07:41:00
+    date_raw: 2 Jan 2014 — 7:41am
+    votes: null
+    html: |-
+      <p>Hi Té,</p>
+      <p>It isn't. The app was actually created in an old version of Flash before it supported paragraph styles, so it's not even possible to specify the line spacing (!). After a bit more experimentation, it seems that modifying the font metrics via <em>Type light</em> doesn't make any practical difference to the font's rendering — perhaps these values are here purely to provide visual aids for the designer in the glyph editor?</p>
+    html_clean: |-
+      <p>Hi Té,</p>
+      <p>It isn't. The app was actually created in an old version of Flash before it supported paragraph styles, so it's not even possible to specify the line spacing (!). After a bit more experimentation, it seems that modifying the font metrics via <em>Type light</em> doesn't make any practical difference to the font's rendering — perhaps these values are here purely to provide visual aids for the designer in the glyph editor?</p>
+  - id: 568527
+    user: 187995
+    date: 2014-01-02T13:17:00
+    date_raw: 2 Jan 2014 — 1:17pm
+    votes: null
+    html: |-
+      <p>For historical reasons, Windows and Mac obtain font-based line spacing from different tables: Mac gets it from the hhea table while Windows from the OS/2 table.  See the section on <strong>Baseline to Baseline Distances</strong> in <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">Recommendations for OpenType Fonts</a>.</p>
+      <p>I don't know what fields <em>Type Light 3.2</em> is adjusting, but perhaps it is adjusting some but not all of the relevant values.</p>
+    html_clean: |-
+      <p>For historical reasons, Windows and Mac obtain font-based line spacing from different tables: Mac gets it from the hhea table while Windows from the OS/2 table.  See the section on <strong>Baseline to Baseline Distances</strong> in <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">Recommendations for OpenType Fonts</a>.</p>
+      <p>I don't know what fields <em>Type Light 3.2</em> is adjusting, but perhaps it is adjusting some but not all of the relevant values.</p>
+  - id: 568566
+    user: 22603
+    date: 2014-01-03T03:22:00
+    date_raw: 3 Jan 2014 — 3:22am
+    votes: null
+    html: |-
+      <p>Hi Bob,</p>
+      <p>The fields in question are <em>Line Gap</em> and <em>Typo Line Gap</em>. I've since found a stable release of <em>FontForge</em>, if anybody's more familiar with that: this also exposes a «<em>Has Vertical Metrics</em>» boolean which I can tick (I thought this might cause the <em>Line Gap</em> or <em>Typo Line Gap</em> to take effect, but no dice).</p>
+      <p>I'm willing to concede that I might be going about this completely the wrong way. Maybe there's a better method of reducing the default line-height without modifying the glyphs? Any suggestions welcome.</p>
+    html_clean: |-
+      <p>Hi Bob,</p>
+      <p>The fields in question are <em>Line Gap</em> and <em>Typo Line Gap</em>. I've since found a stable release of <em>FontForge</em>, if anybody's more familiar with that: this also exposes a «<em>Has Vertical Metrics</em>» boolean which I can tick (I thought this might cause the <em>Line Gap</em> or <em>Typo Line Gap</em> to take effect, but no dice).</p>
+      <p>I'm willing to concede that I might be going about this completely the wrong way. Maybe there's a better method of reducing the default line-height without modifying the glyphs? Any suggestions welcome.</p>
+  - id: 568614
+    user: 43535
+    date: 2014-01-03T12:22:00
+    date_raw: 3 Jan 2014 — 12:22pm
+    votes: null
+    html: |-
+      <p>I hope you will find this pdf quite helpful for line-height or leading adjustment<br>
+      <a href="http://kltf.de/downloads/FontMetrics-kltf.pdf" title="http://kltf.de/downloads/FontMetrics-kltf.pdf">http://kltf.de/downloads/FontMetrics-kltf.pdf</a></p>
+    html_clean: |-
+      <p>I hope you will find this pdf quite helpful for line-height or leading adjustment<br>
+      <a href="http://kltf.de/downloads/FontMetrics-kltf.pdf" title="http://kltf.de/downloads/FontMetrics-kltf.pdf">http://kltf.de/downloads/FontMetrics-kltf.pdf</a></p>
+  - id: 568617
+    user: 9636
+    date: 2014-01-03T13:05:00
+    date_raw: 3 Jan 2014 — 1:05pm
+    votes: null
+    html: |-
+      <p>There are actually three sets of values, two in the os/2 and one in the hhea. Two of these use ascent, descent and linegap settings, while the third uses only two values (WinAscent and WinDescent). It's possible that your flash app is not using linegap information and simply using ascent+descent as the line height. In that case you'd have to modify one or all of these values. </p>
+      <p>Unfortunately I don't use FontForge, so this is as far as I can go. Sorry about that.</p>
+      <p>Jason Campbell</p>
+    html_clean: |-
+      <p>There are actually three sets of values, two in the os/2 and one in the hhea. Two of these use ascent, descent and linegap settings, while the third uses only two values (WinAscent and WinDescent). It's possible that your flash app is not using linegap information and simply using ascent+descent as the line height. In that case you'd have to modify one or all of these values. </p>
+      <p>Unfortunately I don't use FontForge, so this is as far as I can go. Sorry about that.</p>
+      <p>Jason Campbell</p>
+  - id: 568638
+    user: 8031
+    date: 2014-01-04T01:12:00
+    date_raw: 4 Jan 2014 — 1:12am
+    votes: null
+    html: |-
+      <p>Regarding Type light 3.2:</p>
+      <p>As long as you have "calculate automatically" unchecked in the advanced metrics dialog, you can input your own values for all of the standard font metrics and they will be saved with your font. ie:<br>
+      winascent<br>
+      windescent<br>
+      hhea ascender<br>
+      hhea ascender<br>
+      hhea line gap<br>
+      typo ascender<br>
+      typo descender<br>
+      typo line gap</p>
+    html_clean: |-
+      <p>Regarding Type light 3.2:</p>
+      <p>As long as you have "calculate automatically" unchecked in the advanced metrics dialog, you can input your own values for all of the standard font metrics and they will be saved with your font. ie:<br>
+      winascent<br>
+      windescent<br>
+      hhea ascender<br>
+      hhea ascender<br>
+      hhea line gap<br>
+      typo ascender<br>
+      typo descender<br>
+      typo line gap</p>

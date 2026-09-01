@@ -1,0 +1,726 @@
+node: 56936
+title: Prevent a single last paragraph word on a new line
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20150408010048"
+  captured_at: 2015-04-08T01:00:48Z
+  url: http://www.typophile.com:80/node/56936
+  digest: 2RQUUZD4T7CMVMLEIWFKOPRQQJE4ECRF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/56936.html
+  fingerprint: 3bd464d55dd3d5cb
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150408010048"
+      digest: 2RQUUZD4T7CMVMLEIWFKOPRQQJE4ECRF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56936.html
+post:
+  id: 56936
+  user: 14995
+  date: 2009-04-13T04:36:00
+  date_raw: 13 Apr 2009 — 4:36am
+  votes: null
+  html: |-
+    <p>Hi,<br>
+     I have a problem with (and now I try to explain it in my best Englisch) a single last paragraph word on a new line. I work in InDesign CS3 and I don't want that the last word of a paragraph starts on a knew line. I now the ways of correcting this manually, but I am looking for a way to prevent this. Any one a good idea /tip?</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Afbeelding 2_1.png">Afbeelding 2.png</a></td><td>8.27 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hi,<br>
+     I have a problem with (and now I try to explain it in my best Englisch) a single last paragraph word on a new line. I work in InDesign CS3 and I don't want that the last word of a paragraph starts on a knew line. I now the ways of correcting this manually, but I am looking for a way to prevent this. Any one a good idea /tip?</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Afbeelding 2_1.png">Afbeelding 2.png</a></td><td>8.27 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 341350
+    user: 16911
+    date: 2009-04-13T06:14:00
+    date_raw: 13 Apr 2009 — 6:14am
+    votes: null
+    html: |-
+      <p>Hallo Hans,</p>
+      <p>you can use GREP to solve this issue.<br>
+      In the search/replace window (in InDesign CS ≥3), there’s a tab called ‘GREP’. Search for <code>\s\w+?\W+?$</code></p>
+      <p><code>\s</code> is a placeholder for ‘any space character’. (That’s the last word space in your paragraph.)<br>
+      <code>\w+?</code> stands for ‘one or more word characters’. (Matches the last word.)<br>
+      <code>\W+?</code> is for ‘one or more non-word characters’: it matches the dot, but also the question mark, exclamation mark etc. Why ‘one or more’? Because your paragraph could end with a closing quotation mark <strong>and</strong> a punctuation mark. Maybe there’s even an additional superscript character, indicating a footnote.<br>
+      The final <code>$</code> stands for: ‘look at paragraph endings only’.*</p>
+      <p>Now you can easily add the ‘no break’ property (directly or via character style) to the hits.<br>
+      F</p>
+      <p>*) Maybe there’s a more elegant way; I’m still getting used to GREP. Love to hear ideas.</p>
+    html_clean: |-
+      <p>Hallo Hans,</p>
+      <p>you can use GREP to solve this issue.<br>
+      In the search/replace window (in InDesign CS ≥3), there’s a tab called ‘GREP’. Search for <code>\s\w+?\W+?$</code></p>
+      <p><code>\s</code> is a placeholder for ‘any space character’. (That’s the last word space in your paragraph.)<br>
+      <code>\w+?</code> stands for ‘one or more word characters’. (Matches the last word.)<br>
+      <code>\W+?</code> is for ‘one or more non-word characters’: it matches the dot, but also the question mark, exclamation mark etc. Why ‘one or more’? Because your paragraph could end with a closing quotation mark <strong>and</strong> a punctuation mark. Maybe there’s even an additional superscript character, indicating a footnote.<br>
+      The final <code>$</code> stands for: ‘look at paragraph endings only’.*</p>
+      <p>Now you can easily add the ‘no break’ property (directly or via character style) to the hits.<br>
+      F</p>
+      <p>*) Maybe there’s a more elegant way; I’m still getting used to GREP. Love to hear ideas.</p>
+  - id: 341359
+    user: 29994
+    date: 2009-04-13T07:02:00
+    date_raw: 13 Apr 2009 — 7:02am
+    votes: null
+    html: |-
+      <p>Upgrade to CS4 :-)</p>
+      <p>The paragraph formatting routines in CS3 (and earlier versions) contain a somewhat odd artefact, that tends to create such last word endings more often than statistically probable. CS4 uses a different formatting.</p>
+    html_clean: |-
+      <p>Upgrade to CS4 :-)</p>
+      <p>The paragraph formatting routines in CS3 (and earlier versions) contain a somewhat odd artefact, that tends to create such last word endings more often than statistically probable. CS4 uses a different formatting.</p>
+  - id: 341360
+    user: 11693
+    date: 2009-04-13T07:07:00
+    date_raw: 13 Apr 2009 — 7:07am
+    votes: null
+    html: |-
+      <p>You could also try using the paragraph Keep Options (cmd-option-K)</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/keep-options_3885.gif"></div><p></p>
+    html_clean: |-
+      <p>You could also try using the paragraph Keep Options (cmd-option-K)</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/keep-options_3885.gif"></div><p></p>
+  - id: 341363
+    user: 42797
+    date: 2009-04-13T07:41:00
+    date_raw: 13 Apr 2009 — 7:41am
+    votes: null
+    html: |-
+      <p>theunis said:<br>
+      &gt;   The paragraph formatting routines in CS3 (and earlier versions)<br>
+      &gt;   contain a somewhat odd artefact, that tends to create such<br>
+      &gt;   last word endings more often than statistically probable.<br>
+      &gt;   CS4 uses a different formatting.</p>
+      <p>maybe cs5 will contain a setting to avoid such ugliness automatically.<br>
+      or cs6.  always gotta save those reasons to get people to buy upgrades.</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>theunis said:<br>
+      &gt;   The paragraph formatting routines in CS3 (and earlier versions)<br>
+      &gt;   contain a somewhat odd artefact, that tends to create such<br>
+      &gt;   last word endings more often than statistically probable.<br>
+      &gt;   CS4 uses a different formatting.</p>
+      <p>maybe cs5 will contain a setting to avoid such ugliness automatically.<br>
+      or cs6.  always gotta save those reasons to get people to buy upgrades.</p>
+      <p>-bowerbird</p>
+  - id: 341368
+    user: 16911
+    date: 2009-04-13T08:14:00
+    date_raw: 13 Apr 2009 — 8:14am
+    votes: null
+    html: |-
+      <p>Ken, with the ‘Keep’ options, one can address a different problem: avoiding orphans and widows, i.e. keeping the first/last <em>n</em> lines of one paragraph within the same column or frame. (It’s not a very sophisticated approach, but it might be of value in some situations.)</p>
+      <p>Bowerbird, your sarcasm aside, please define ‘ugliness’. A single word in the last line of a paragraph is often the lesser evil, depending on column width, word length/language etc. If there was an automatism, it better should be very intelligent – and customizable.</p>
+    html_clean: |-
+      <p>Ken, with the ‘Keep’ options, one can address a different problem: avoiding orphans and widows, i.e. keeping the first/last <em>n</em> lines of one paragraph within the same column or frame. (It’s not a very sophisticated approach, but it might be of value in some situations.)</p>
+      <p>Bowerbird, your sarcasm aside, please define ‘ugliness’. A single word in the last line of a paragraph is often the lesser evil, depending on column width, word length/language etc. If there was an automatism, it better should be very intelligent – and customizable.</p>
+  - id: 341396
+    user: 7891
+    date: 2009-04-13T10:21:00
+    date_raw: 13 Apr 2009 — 10:21am
+    votes: null
+    html: |-
+      <p>I can add nothing to the InDesign discussion. </p>
+      <p>But I am curious to know why a single word on a last line of a para is considered undesirable. I have never felt this to be a bad thing except on some occasions during my stint as an advertising type director. Most book typographers and compositors I've worked with do not see this as a thing to be gotten rid of. At a given size and measure and face, we will often be faced with a single-word exit line on a para. I do not like to see very short single words in that position, for sometimes they can be shorter than the para indent, and that does look bad. Otherwise, let them flow.</p>
+      <p>And what should be done about an exceptionally long word in such a position? How should, say, the word "typographically" be handled if it is the last word in the para and starts a line?</p>
+      <p>powers</p>
+    html_clean: |-
+      <p>I can add nothing to the InDesign discussion. </p>
+      <p>But I am curious to know why a single word on a last line of a para is considered undesirable. I have never felt this to be a bad thing except on some occasions during my stint as an advertising type director. Most book typographers and compositors I've worked with do not see this as a thing to be gotten rid of. At a given size and measure and face, we will often be faced with a single-word exit line on a para. I do not like to see very short single words in that position, for sometimes they can be shorter than the para indent, and that does look bad. Otherwise, let them flow.</p>
+      <p>And what should be done about an exceptionally long word in such a position? How should, say, the word "typographically" be handled if it is the last word in the para and starts a line?</p>
+      <p>powers</p>
+  - id: 341400
+    user: 42797
+    date: 2009-04-13T10:35:00
+    date_raw: 13 Apr 2009 — 10:35am
+    votes: null
+    html: |-
+      <p>florian said:<br>
+      &gt;   Bowerbird, your sarcasm aside</p>
+      <p>wait!  no fair!  you can't ignore the best part!           :+)</p>
+      <p>&gt;   please define ‘ugliness’.</p>
+      <p>well, in this case, i'm referring to the topic-at-hand,<br>
+      which is a one-word line at the end of a paragraph...</p>
+      <p>but you and i both know there are all kinds of ugliness.</p>
+      <p>still, let's limit it to this one thing for right now, ok?</p>
+      <p>&gt;   A single word in the last line of a paragraph is<br>
+      &gt;   often the lesser evil, depending on column width,<br>
+      &gt;   word length/language etc. </p>
+      <p>i will agree with you on that.</p>
+      <p>so where does that leave us?</p>
+      <p>are you implying that it would be beyond adobe's ability<br>
+      to puzzle through the various aspects to get a solution?</p>
+      <p>i will agree with you on that too.  (see?, that's sarcasm!)</p>
+      <p>but seriously, you would think that adobe would have<br>
+      come to the realization that this is a concern in layout,<br>
+      and they would have done _something_ to address it...</p>
+      <p>wouldn't you?</p>
+      <p>and heck, maybe adobe does have something, i don't<br>
+      even own a copy of indesign, maybe it's right _there_,<br>
+      buried in some preference dialog for the cognoscenti.</p>
+      <p>or maybe they've never thought about it.</p>
+      <p>or maybe they've thought about it -- a whole lot --<br>
+      and they've come to the conclusion that it's simply<br>
+      too darn complicated, and it's been the subject of<br>
+      much infighting within the indesign design team,<br>
+      and it's gotten to the point that nobody even dares<br>
+      to _mention_ it anymore, because it just means that<br>
+      everybody is going to start yelling at everybody else,<br>
+      and then they all go home and kick their poor dogs...</p>
+      <p>i don't know.</p>
+      <p>maybe someone from adobe will come tell us what's up.<br>
+      seems like they should have an evangelist here, right?,<br>
+      listening to the customers who buy and use their stuff...</p>
+      <p>&gt;   If there was an automatism, it better should be<br>
+      &gt;   very intelligent – and customizable.</p>
+      <p>you want "very intelligent" _and_ "customizable"?  both?<br>
+      you're right.  adobe can't do that...        ;+)</p>
+      <p>on the other hand, how does your grep approach do both?<br>
+      seems to me that it's neither intelligent nor customizable...</p>
+      <p>-bowerbird</p>
+      <p>p.s.  on a serious note, i think it'd be easy enough to create<br>
+      a routine that would do the right thing some 99% of the time.<br>
+      if you wanna be really productive, we could brainstorm it now.</p>
+    html_clean: |-
+      <p>florian said:<br>
+      &gt;   Bowerbird, your sarcasm aside</p>
+      <p>wait!  no fair!  you can't ignore the best part!           :+)</p>
+      <p>&gt;   please define ‘ugliness’.</p>
+      <p>well, in this case, i'm referring to the topic-at-hand,<br>
+      which is a one-word line at the end of a paragraph...</p>
+      <p>but you and i both know there are all kinds of ugliness.</p>
+      <p>still, let's limit it to this one thing for right now, ok?</p>
+      <p>&gt;   A single word in the last line of a paragraph is<br>
+      &gt;   often the lesser evil, depending on column width,<br>
+      &gt;   word length/language etc. </p>
+      <p>i will agree with you on that.</p>
+      <p>so where does that leave us?</p>
+      <p>are you implying that it would be beyond adobe's ability<br>
+      to puzzle through the various aspects to get a solution?</p>
+      <p>i will agree with you on that too.  (see?, that's sarcasm!)</p>
+      <p>but seriously, you would think that adobe would have<br>
+      come to the realization that this is a concern in layout,<br>
+      and they would have done _something_ to address it...</p>
+      <p>wouldn't you?</p>
+      <p>and heck, maybe adobe does have something, i don't<br>
+      even own a copy of indesign, maybe it's right _there_,<br>
+      buried in some preference dialog for the cognoscenti.</p>
+      <p>or maybe they've never thought about it.</p>
+      <p>or maybe they've thought about it -- a whole lot --<br>
+      and they've come to the conclusion that it's simply<br>
+      too darn complicated, and it's been the subject of<br>
+      much infighting within the indesign design team,<br>
+      and it's gotten to the point that nobody even dares<br>
+      to _mention_ it anymore, because it just means that<br>
+      everybody is going to start yelling at everybody else,<br>
+      and then they all go home and kick their poor dogs...</p>
+      <p>i don't know.</p>
+      <p>maybe someone from adobe will come tell us what's up.<br>
+      seems like they should have an evangelist here, right?,<br>
+      listening to the customers who buy and use their stuff...</p>
+      <p>&gt;   If there was an automatism, it better should be<br>
+      &gt;   very intelligent – and customizable.</p>
+      <p>you want "very intelligent" _and_ "customizable"?  both?<br>
+      you're right.  adobe can't do that...        ;+)</p>
+      <p>on the other hand, how does your grep approach do both?<br>
+      seems to me that it's neither intelligent nor customizable...</p>
+      <p>-bowerbird</p>
+      <p>p.s.  on a serious note, i think it'd be easy enough to create<br>
+      a routine that would do the right thing some 99% of the time.<br>
+      if you wanna be really productive, we could brainstorm it now.</p>
+  - id: 341402
+    user: 16911
+    date: 2009-04-13T10:45:00
+    date_raw: 13 Apr 2009 — 10:45am
+    votes: null
+    html: |-
+      <p>You have a point, Will.<br>
+      The GREP query can be refined to account for that:<br>
+      <code>\s\w{1,4}\W+?$</code></p>
+      <p><code>\w{1,4}</code> is for ‘one or up to four adjacent word characters’, or, in plain English, ‘words with less than 5 characters’.</p>
+    html_clean: |-
+      <p>You have a point, Will.<br>
+      The GREP query can be refined to account for that:<br>
+      <code>\s\w{1,4}\W+?$</code></p>
+      <p><code>\w{1,4}</code> is for ‘one or up to four adjacent word characters’, or, in plain English, ‘words with less than 5 characters’.</p>
+  - id: 341404
+    user: 42797
+    date: 2009-04-13T10:48:00
+    date_raw: 13 Apr 2009 — 10:48am
+    votes: null
+    html: |-
+      <p>will said:<br>
+      &gt;   But I am curious to know why a single word<br>
+      &gt;   on a last line of a para is considered undesirable.</p>
+      <p>it's only undesirable if it's ugly.</p>
+      <p>and, for the most part, it's ugly if it's fairly short...<br>
+      first of all, that makes it look stubby, by definition.</p>
+      <p>what's worst is when it's about the same length as<br>
+      (or shorter than) the paragraph-indented next line,<br>
+      where it then causes some attentional confusion...</p>
+      <p>there might be other cases where it's ugly too, but<br>
+      i trust that you will know them when you see them.</p>
+      <p>&gt;   Most book typographers and compositors I’ve<br>
+      &gt;   worked with do not see this as a thing to be gotten rid of.</p>
+      <p>in the situations i outline above, they would/should.</p>
+      <p>&gt;   At a given size and measure and face, we will often<br>
+      &gt;   be faced with a single-word exit line on a para.</p>
+      <p>that's the reason you use multi-line breaking routines,<br>
+      to avoid the situations where you'd get such ugliness...</p>
+      <p>&gt;   I do not like to see very short single words in that position,<br>
+      &gt;   for sometimes they can be shorter than the para indent,<br>
+      &gt;   and that does look bad. Otherwise, let them flow.</p>
+      <p>ok, so we're in agreement.</p>
+      <p>&gt;   And what should be done about an exceptionally long word<br>
+      &gt;   in such a position? How should, say, the word “typographically”<br>
+      &gt;   be handled if it is the last word in the para and starts a line?</p>
+      <p>that's fine, typographically.</p>
+      <p>but a one-word line in the _middle_ of a paragraph can be bad,<br>
+      if you do justification, because there's no place to put the slop.</p>
+      <p>if you're hyphenating at the same time -- with a short measure,<br>
+      and justification, you'd better be hyphenating too -- you'd then<br>
+      try to hyphenate that baby across two lines, to get some spaces.</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>will said:<br>
+      &gt;   But I am curious to know why a single word<br>
+      &gt;   on a last line of a para is considered undesirable.</p>
+      <p>it's only undesirable if it's ugly.</p>
+      <p>and, for the most part, it's ugly if it's fairly short...<br>
+      first of all, that makes it look stubby, by definition.</p>
+      <p>what's worst is when it's about the same length as<br>
+      (or shorter than) the paragraph-indented next line,<br>
+      where it then causes some attentional confusion...</p>
+      <p>there might be other cases where it's ugly too, but<br>
+      i trust that you will know them when you see them.</p>
+      <p>&gt;   Most book typographers and compositors I’ve<br>
+      &gt;   worked with do not see this as a thing to be gotten rid of.</p>
+      <p>in the situations i outline above, they would/should.</p>
+      <p>&gt;   At a given size and measure and face, we will often<br>
+      &gt;   be faced with a single-word exit line on a para.</p>
+      <p>that's the reason you use multi-line breaking routines,<br>
+      to avoid the situations where you'd get such ugliness...</p>
+      <p>&gt;   I do not like to see very short single words in that position,<br>
+      &gt;   for sometimes they can be shorter than the para indent,<br>
+      &gt;   and that does look bad. Otherwise, let them flow.</p>
+      <p>ok, so we're in agreement.</p>
+      <p>&gt;   And what should be done about an exceptionally long word<br>
+      &gt;   in such a position? How should, say, the word “typographically”<br>
+      &gt;   be handled if it is the last word in the para and starts a line?</p>
+      <p>that's fine, typographically.</p>
+      <p>but a one-word line in the _middle_ of a paragraph can be bad,<br>
+      if you do justification, because there's no place to put the slop.</p>
+      <p>if you're hyphenating at the same time -- with a short measure,<br>
+      and justification, you'd better be hyphenating too -- you'd then<br>
+      try to hyphenate that baby across two lines, to get some spaces.</p>
+      <p>-bowerbird</p>
+  - id: 341414
+    user: 12273
+    date: 2009-04-13T12:02:00
+    date_raw: 13 Apr 2009 — 12:02pm
+    votes: null
+    html: |-
+      <p>I've often found that a very short last word looks bad, particularly if it is shorter than the following paragraph indent. </p>
+      <p>The problem with a "no last word on a line" rule, whether done manually or by computer, it that there are exceptions. If the last word is exceptional long, it should be able to stand alone. And sometimes there will be two or three two letter words, and they can look bad. The computer, or the rule, will not deal with these.</p>
+    html_clean: |-
+      <p>I've often found that a very short last word looks bad, particularly if it is shorter than the following paragraph indent. </p>
+      <p>The problem with a "no last word on a line" rule, whether done manually or by computer, it that there are exceptions. If the last word is exceptional long, it should be able to stand alone. And sometimes there will be two or three two letter words, and they can look bad. The computer, or the rule, will not deal with these.</p>
+  - id: 341436
+    user: 42797
+    date: 2009-04-13T14:15:00
+    date_raw: 13 Apr 2009 — 2:15pm
+    votes: null
+    html: |-
+      <p>don said:<br>
+      &gt;   sometimes there will be two or three two letter words,<br>
+      &gt;   and they can look bad. The computer, or the rule,<br>
+      &gt;   will not deal with these.</p>
+      <p>depends on how sophisticated we<br>
+      make the rule, or the computer...</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>don said:<br>
+      &gt;   sometimes there will be two or three two letter words,<br>
+      &gt;   and they can look bad. The computer, or the rule,<br>
+      &gt;   will not deal with these.</p>
+      <p>depends on how sophisticated we<br>
+      make the rule, or the computer...</p>
+      <p>-bowerbird</p>
+  - id: 341451
+    user: 5094
+    date: 2009-04-13T15:07:00
+    date_raw: 13 Apr 2009 — 3:07pm
+    votes: null
+    html: |-
+      <p>I'd echo what Will said. Moreover, we'll even hyphenate the last word of a paragraph, unless the customer specifically prohibits it. If they prohibit it, they pay the price of gappier word spacing.</p>
+      <p>Our rule is that the end of a paragraph must be visually longer than the paragraph indent of the following paragraph, again as Will said. You can find hyphenated words that have more characters taken down than two words, e.g., "of it." If I had to, I'd break "preconceived;" "-conceived" is significantly longer than any reasonable paragraph indent.</p>
+      <p>There are places where I'd work real hard to avoid this -- right before a subhead, for example, especially a centered one. </p>
+      <p>* * *</p>
+      <p>I keep saying it, but there are always compromises to the "do nots." Usually, they come out of "tight and even word spacing." It isn't that comps are lazy, they are honoring the more basic "do" of tight &amp; even word spacing. As always, there are those who speculate and theorize, and those of us who work for a living.</p>
+    html_clean: |-
+      <p>I'd echo what Will said. Moreover, we'll even hyphenate the last word of a paragraph, unless the customer specifically prohibits it. If they prohibit it, they pay the price of gappier word spacing.</p>
+      <p>Our rule is that the end of a paragraph must be visually longer than the paragraph indent of the following paragraph, again as Will said. You can find hyphenated words that have more characters taken down than two words, e.g., "of it." If I had to, I'd break "preconceived;" "-conceived" is significantly longer than any reasonable paragraph indent.</p>
+      <p>There are places where I'd work real hard to avoid this -- right before a subhead, for example, especially a centered one. </p>
+      <p>* * *</p>
+      <p>I keep saying it, but there are always compromises to the "do nots." Usually, they come out of "tight and even word spacing." It isn't that comps are lazy, they are honoring the more basic "do" of tight &amp; even word spacing. As always, there are those who speculate and theorize, and those of us who work for a living.</p>
+  - id: 341491
+    user: 42797
+    date: 2009-04-13T23:04:00
+    date_raw: 13 Apr 2009 — 11:04pm
+    votes: null
+    html: |-
+      <p>charles_e said:<br>
+      &gt;   I’d echo what Will said. </p>
+      <p>will was echoing what everyone else said, right?</p>
+      <p>&gt;   It isn’t that comps are lazy, they are honoring<br>
+      &gt;   the more basic “do” of tight &amp; even word spacing.</p>
+      <p>well, in the absence of specific examples,<br>
+      it's hard to say, one way or the other, but...</p>
+      <p>i would stress that no one is saying that<br>
+      you should not "honor" the "more basic"<br>
+      rules that call for tight, even word-spacing.</p>
+      <p>as i said explicitly above, that's why you<br>
+      utilize multi-line breaking routines, so<br>
+      you don't get yourself painted into a corner<br>
+      where you'll sacrifice one rule for another...</p>
+      <p>&gt;   As always, there are those who<br>
+      &gt;   speculate and theorize, and<br>
+      &gt;   those of us who work for a living.</p>
+      <p>as always...      :+)</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>charles_e said:<br>
+      &gt;   I’d echo what Will said. </p>
+      <p>will was echoing what everyone else said, right?</p>
+      <p>&gt;   It isn’t that comps are lazy, they are honoring<br>
+      &gt;   the more basic “do” of tight &amp; even word spacing.</p>
+      <p>well, in the absence of specific examples,<br>
+      it's hard to say, one way or the other, but...</p>
+      <p>i would stress that no one is saying that<br>
+      you should not "honor" the "more basic"<br>
+      rules that call for tight, even word-spacing.</p>
+      <p>as i said explicitly above, that's why you<br>
+      utilize multi-line breaking routines, so<br>
+      you don't get yourself painted into a corner<br>
+      where you'll sacrifice one rule for another...</p>
+      <p>&gt;   As always, there are those who<br>
+      &gt;   speculate and theorize, and<br>
+      &gt;   those of us who work for a living.</p>
+      <p>as always...      :+)</p>
+      <p>-bowerbird</p>
+  - id: 341503
+    user: 14995
+    date: 2009-04-14T01:01:00
+    date_raw: 14 Apr 2009 — 1:01am
+    votes: null
+    html: |-
+      <p>Hi again,</p>
+      <p>Thanks for your ractions.</p>
+      <p>I have no problem with a longer single word on a last line. But I don't like a short word (about 5 characters) on that position. I use left alingment and I like regular hyphenation. In my opinion the right gap/indent is to big when a single word on a last line is to short.</p>
+      <p>Maybe I had to high expectations of InDesign. But there is nothing wrong with doing it manually. I only hoped to save some time.</p>
+    html_clean: |-
+      <p>Hi again,</p>
+      <p>Thanks for your ractions.</p>
+      <p>I have no problem with a longer single word on a last line. But I don't like a short word (about 5 characters) on that position. I use left alingment and I like regular hyphenation. In my opinion the right gap/indent is to big when a single word on a last line is to short.</p>
+      <p>Maybe I had to high expectations of InDesign. But there is nothing wrong with doing it manually. I only hoped to save some time.</p>
+  - id: 341513
+    user: 16911
+    date: 2009-04-14T02:06:00
+    date_raw: 14 Apr 2009 — 2:06am
+    votes: null
+    html: <p>Hans, did you try the GREP?</p>
+    html_clean: <p>Hans, did you try the GREP?</p>
+  - id: 341515
+    user: 14995
+    date: 2009-04-14T02:42:00
+    date_raw: 14 Apr 2009 — 2:42am
+    votes: null
+    html: |-
+      <p>Hi Florian,</p>
+      <p>Not yet, but I am certainly going to try this. I am not familiar with the GREP, so thanks for your input.</p>
+      <p>I am also interested in other opinions about single words on al last line as being something to avoid or not? What are the typographical 'rules' about this?</p>
+    html_clean: |-
+      <p>Hi Florian,</p>
+      <p>Not yet, but I am certainly going to try this. I am not familiar with the GREP, so thanks for your input.</p>
+      <p>I am also interested in other opinions about single words on al last line as being something to avoid or not? What are the typographical 'rules' about this?</p>
+  - id: 341517
+    user: 16911
+    date: 2009-04-14T03:16:00
+    date_raw: 14 Apr 2009 — 3:16am
+    votes: null
+    html: |-
+      <p>I think most general rules or thoughts about this have all already been mentioned:<br>
+      When working with indents, the ending line better should be longer than the indent below.<br>
+      In justified setting, the most important aspect is even spacing. Applying a ‘no-break’ attribute to the last two words might counteract that goal.<br>
+      Certain circumstances (e.g. before subheads, as Charles mentioned, or your example with repeating words; ‘zijn’) are especially unfortunate and might demand a workaround.<br>
+      In ragged-right settings, things can be handled more permissively. If it’s the last paragraph of the column or page, I try to achieve an ending line with more than one word, ideally filling half the column width or more.</p>
+    html_clean: |-
+      <p>I think most general rules or thoughts about this have all already been mentioned:<br>
+      When working with indents, the ending line better should be longer than the indent below.<br>
+      In justified setting, the most important aspect is even spacing. Applying a ‘no-break’ attribute to the last two words might counteract that goal.<br>
+      Certain circumstances (e.g. before subheads, as Charles mentioned, or your example with repeating words; ‘zijn’) are especially unfortunate and might demand a workaround.<br>
+      In ragged-right settings, things can be handled more permissively. If it’s the last paragraph of the column or page, I try to achieve an ending line with more than one word, ideally filling half the column width or more.</p>
+  - id: 341529
+    user: 1215
+    date: 2009-04-14T05:21:00
+    date_raw: 14 Apr 2009 — 5:21am
+    votes: null
+    html: |-
+      <p><cite>I use left alingment and I like regular hyphenation. In my opinion the right gap/indent is to big when a single word on a last line is to short.</cite></p>
+      <p>Ah, if you're setting flush-left/ragged-right text, then you can try applying InDesign's "Balance Ragged Lines" command (found in the menu off the Paragraph palette, or the menu off the Control panel when the text tool is active). </p>
+      <p>As the name implies, this command only takes effect when the text is unjustified.</p>
+      <p>You may or may not like the overall results for the paragraph, but it will fill out a disproportionately short last line.</p>
+      <p>-- Kent.</p>
+    html_clean: |-
+      <p><cite>I use left alingment and I like regular hyphenation. In my opinion the right gap/indent is to big when a single word on a last line is to short.</cite></p>
+      <p>Ah, if you're setting flush-left/ragged-right text, then you can try applying InDesign's "Balance Ragged Lines" command (found in the menu off the Paragraph palette, or the menu off the Control panel when the text tool is active). </p>
+      <p>As the name implies, this command only takes effect when the text is unjustified.</p>
+      <p>You may or may not like the overall results for the paragraph, but it will fill out a disproportionately short last line.</p>
+      <p>-- Kent.</p>
+  - id: 341629
+    user: 42797
+    date: 2009-04-14T12:45:00
+    date_raw: 14 Apr 2009 — 12:45pm
+    votes: null
+    html: |-
+      <p>west_46 said:<br>
+      &gt;   What are the typographical ’rules’ about this?</p>
+      <p>well, the closest you'll get to a "rule" is bringhurst, who says this:<br>
+      &gt;   2.4.2.  avoid leaving the stub end of a hyphenated word, or any<br>
+      &gt;   word shorter than four letters, as the last line of a paragraph.</p>
+      <p>but bringhurst also says you must always trust your own judgment.</p>
+      <p>he even ends the section on hyphenation and pagination with this:<br>
+      &gt;   2.4.11.  avoid any and all rules of hyphenation and pagination<br>
+      &gt;   that fail to serve the needs of the text</p>
+      <p>so i'd say you have the latitude to be more or less strict if you like.</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>west_46 said:<br>
+      &gt;   What are the typographical ’rules’ about this?</p>
+      <p>well, the closest you'll get to a "rule" is bringhurst, who says this:<br>
+      &gt;   2.4.2.  avoid leaving the stub end of a hyphenated word, or any<br>
+      &gt;   word shorter than four letters, as the last line of a paragraph.</p>
+      <p>but bringhurst also says you must always trust your own judgment.</p>
+      <p>he even ends the section on hyphenation and pagination with this:<br>
+      &gt;   2.4.11.  avoid any and all rules of hyphenation and pagination<br>
+      &gt;   that fail to serve the needs of the text</p>
+      <p>so i'd say you have the latitude to be more or less strict if you like.</p>
+      <p>-bowerbird</p>
+  - id: 341828
+    user: 11063
+    date: 2009-04-15T11:29:00
+    date_raw: 15 Apr 2009 — 11:29am
+    votes: null
+    html: |-
+      <p>The hard and fast rule of never allowing a single word on a line is often imposed by somebody in Editorial or up the chain of command who once heard that one word on a line is a bad idea. So the question of whether it's a good rule is unfortunately not left to the designer.</p>
+      <p>I think the grep as it is now will miss situations with multiple punctuation marks at the end of the paragraph, or other unusual characters...</p>
+      <p>Maybe grep</p>
+      <p>\s(?=\S+$)</p>
+      <p>and replace with non-breaking space?</p>
+    html_clean: |-
+      <p>The hard and fast rule of never allowing a single word on a line is often imposed by somebody in Editorial or up the chain of command who once heard that one word on a line is a bad idea. So the question of whether it's a good rule is unfortunately not left to the designer.</p>
+      <p>I think the grep as it is now will miss situations with multiple punctuation marks at the end of the paragraph, or other unusual characters...</p>
+      <p>Maybe grep</p>
+      <p>\s(?=\S+$)</p>
+      <p>and replace with non-breaking space?</p>
+  - id: 341843
+    user: 29994
+    date: 2009-04-15T12:40:00
+    date_raw: 15 Apr 2009 — 12:40pm
+    votes: null
+    html: |-
+      <p>Alas, P.P. GREP is kind of magic but your expression is not valid (non-GREPpers are excused from reading on). The lookahead stuff does not allow variable lengths.</p>
+      <p>You need the 2nd part to be variable;</p>
+      <p>Search: \s(\S+)$</p>
+      <p>Replace: ~s$1</p>
+      <p>might work -- but again, it'll happily swallow everything at the end of a line, no matter how long the word.</p>
+      <p>Pers'nally, I like to do this stuff by hand, so I can choose between either running in (to gain a line on a page), or let it run out with a very modest tracking, making the last line longer.</p>
+    html_clean: |-
+      <p>Alas, P.P. GREP is kind of magic but your expression is not valid (non-GREPpers are excused from reading on). The lookahead stuff does not allow variable lengths.</p>
+      <p>You need the 2nd part to be variable;</p>
+      <p>Search: \s(\S+)$</p>
+      <p>Replace: ~s$1</p>
+      <p>might work -- but again, it'll happily swallow everything at the end of a line, no matter how long the word.</p>
+      <p>Pers'nally, I like to do this stuff by hand, so I can choose between either running in (to gain a line on a page), or let it run out with a very modest tracking, making the last line longer.</p>
+  - id: 341861
+    user: 2021
+    date: 2009-04-15T14:09:00
+    date_raw: 15 Apr 2009 — 2:09pm
+    votes: null
+    html: |-
+      <p>I think a bigger problem with the last word in a paragraph is in justified copy where the h&amp;j setting allows letterspacing.</p>
+      <p>So what happens is that the last line of a paragraph is set flush left, with no letterspacing of course, and the adjacent lines may be quite letterspaced. I would apply extra tracking manually to even out the discrepancy.</p>
+    html_clean: |-
+      <p>I think a bigger problem with the last word in a paragraph is in justified copy where the h&amp;j setting allows letterspacing.</p>
+      <p>So what happens is that the last line of a paragraph is set flush left, with no letterspacing of course, and the adjacent lines may be quite letterspaced. I would apply extra tracking manually to even out the discrepancy.</p>
+  - id: 341865
+    user: 5094
+    date: 2009-04-15T14:32:00
+    date_raw: 15 Apr 2009 — 2:32pm
+    votes: null
+    html: |-
+      <p>Just to throw in another $0.02:</p>
+      <p>@Nick, if you can see any letterspacing (for justification) at all, it is too much.</p>
+      <p>@pica pusher, I have been known to spend considerable time going over with designers, or editors if necessary, the results of such a rule. Sometimes they insist, and we do as they wish. In such cases, we also try to make sure our name isn't listed as on the copyright page as the typesetter. Telling them that sometimes gets their attention.</p>
+      <p>Theunis brings up an interesting point -- reasonably often, you have to make or loose a line for pagination. While I'd still not have the last line of a paragraph shorter than the paragraph indent, I will either take up or bring down a word to make/loose a line.</p>
+    html_clean: |-
+      <p>Just to throw in another $0.02:</p>
+      <p>@Nick, if you can see any letterspacing (for justification) at all, it is too much.</p>
+      <p>@pica pusher, I have been known to spend considerable time going over with designers, or editors if necessary, the results of such a rule. Sometimes they insist, and we do as they wish. In such cases, we also try to make sure our name isn't listed as on the copyright page as the typesetter. Telling them that sometimes gets their attention.</p>
+      <p>Theunis brings up an interesting point -- reasonably often, you have to make or loose a line for pagination. While I'd still not have the last line of a paragraph shorter than the paragraph indent, I will either take up or bring down a word to make/loose a line.</p>
+  - id: 341879
+    user: 1215
+    date: 2009-04-15T15:30:00
+    date_raw: 15 Apr 2009 — 3:30pm
+    votes: null
+    html: |-
+      <p><cite> &gt; In such cases, we also try to make sure our name isn’t listed as on the copyright page as the typesetter. Telling them that sometimes gets their attention.</cite></p>
+      <p>I have used such a ploy in other situations as well: "I will gladly make the [inane] changes you request to your cover, I only ask that you make sure that I *do not* get a credit line, as I have a reputation to uphold." ;-)</p>
+      <p>-- K.</p>
+    html_clean: |-
+      <p><cite> &gt; In such cases, we also try to make sure our name isn’t listed as on the copyright page as the typesetter. Telling them that sometimes gets their attention.</cite></p>
+      <p>I have used such a ploy in other situations as well: "I will gladly make the [inane] changes you request to your cover, I only ask that you make sure that I *do not* get a credit line, as I have a reputation to uphold." ;-)</p>
+      <p>-- K.</p>
+  - id: 341916
+    user: 7891
+    date: 2009-04-15T20:27:00
+    date_raw: 15 Apr 2009 — 8:27pm
+    votes: null
+    html: |-
+      <p>I've done the same thing as Charles and Kent: take no credit for work I feel is not up to snuff because of "rules" imposed by a client.</p>
+      <p>powers</p>
+    html_clean: |-
+      <p>I've done the same thing as Charles and Kent: take no credit for work I feel is not up to snuff because of "rules" imposed by a client.</p>
+      <p>powers</p>
+  - id: 341925
+    user: 2021
+    date: 2009-04-15T21:48:00
+    date_raw: 15 Apr 2009 — 9:48pm
+    votes: null
+    html: |-
+      <p><em>@Nick, if you can see any letterspacing (for justification) at all, it is too much.</em></p>
+      <p>Not all typography is book work, Charles.</p>
+      <p>But speaking of book typography and wide columns, what do you do when the last line of a paragraph is flush left with "normal" word space widths, and just about every other line has much wider word spaces? Don't you think that looks odd?</p>
+    html_clean: |-
+      <p><em>@Nick, if you can see any letterspacing (for justification) at all, it is too much.</em></p>
+      <p>Not all typography is book work, Charles.</p>
+      <p>But speaking of book typography and wide columns, what do you do when the last line of a paragraph is flush left with "normal" word space widths, and just about every other line has much wider word spaces? Don't you think that looks odd?</p>
+  - id: 341963
+    user: 5094
+    date: 2009-04-16T05:10:00
+    date_raw: 16 Apr 2009 — 5:10am
+    votes: null
+    html: |-
+      <p><cite>what do you do when the last line of a paragraph is flush left with “normal” word space widths, and just about every other line has much wider word spaces? Don’t you think that looks odd?</cite></p>
+      <p>Yes, you're right. And it does happen. The frequency depends on the text of course, but also on the layout program. For instance, I find that InDesign does this -- and other infelicities -- if (1) you use the paragraph composer, and (2) you don't get good values for min-ideal-"not honored" (aka max) spacing. The "best" values can change a bit with the size of the type and the measure. </p>
+      <p>Not to pick on InDesign, TeX had a its oddities too. The penalty for increasing the word space was the same as for decreasing the word space, on a percentage basis. Well, using real numbers, if you set the minimum spaceband to 180 and the maximum (which TeX somewhat honors) to 400, using any value other than 290 as "ideal" (halfway in between) would skew the results, based on change penalties computed as a percentage. But 290 is too big; 240 is more like it. Since using TeX with these parameters "encouraged" adding space to justify, we wrote another routine adding a demerit for setting more lines that absolutely needed in a paragraph. The value you used for this demerit would control the spacing behavior.</p>
+      <p>Too much information, I know. The point is, for setting extended text, you have to understand how your layout program works, &amp; adapt it to your needs/desires.</p>
+    html_clean: |-
+      <p><cite>what do you do when the last line of a paragraph is flush left with “normal” word space widths, and just about every other line has much wider word spaces? Don’t you think that looks odd?</cite></p>
+      <p>Yes, you're right. And it does happen. The frequency depends on the text of course, but also on the layout program. For instance, I find that InDesign does this -- and other infelicities -- if (1) you use the paragraph composer, and (2) you don't get good values for min-ideal-"not honored" (aka max) spacing. The "best" values can change a bit with the size of the type and the measure. </p>
+      <p>Not to pick on InDesign, TeX had a its oddities too. The penalty for increasing the word space was the same as for decreasing the word space, on a percentage basis. Well, using real numbers, if you set the minimum spaceband to 180 and the maximum (which TeX somewhat honors) to 400, using any value other than 290 as "ideal" (halfway in between) would skew the results, based on change penalties computed as a percentage. But 290 is too big; 240 is more like it. Since using TeX with these parameters "encouraged" adding space to justify, we wrote another routine adding a demerit for setting more lines that absolutely needed in a paragraph. The value you used for this demerit would control the spacing behavior.</p>
+      <p>Too much information, I know. The point is, for setting extended text, you have to understand how your layout program works, &amp; adapt it to your needs/desires.</p>
+  - id: 342014
+    user: 12273
+    date: 2009-04-16T10:27:00
+    date_raw: 16 Apr 2009 — 10:27am
+    votes: null
+    html: |-
+      <p>&gt; @Nick, if you can see any letterspacing (for justification) at all, it is too much.</p>
+      <p>I think Nick does newspaper work, and there narrow columns, combined with the inane editor's idea of insetting a photo into half to a third of that column, and you will definitely get letterspacing that you can see. In some cases, it is too much.</p>
+      <p>The problem with Nick's solution to this (letterspacing the stub) is that design on the newspaper seldom happens within the production schedule. It is too rushed to get the damn page on the press. Going back and tracking a stub is not going to get priority.</p>
+    html_clean: |-
+      <p>&gt; @Nick, if you can see any letterspacing (for justification) at all, it is too much.</p>
+      <p>I think Nick does newspaper work, and there narrow columns, combined with the inane editor's idea of insetting a photo into half to a third of that column, and you will definitely get letterspacing that you can see. In some cases, it is too much.</p>
+      <p>The problem with Nick's solution to this (letterspacing the stub) is that design on the newspaper seldom happens within the production schedule. It is too rushed to get the damn page on the press. Going back and tracking a stub is not going to get priority.</p>
+  - id: 342022
+    user: 2021
+    date: 2009-04-16T11:01:00
+    date_raw: 16 Apr 2009 — 11:01am
+    votes: null
+    html: |-
+      <p><em>...inane editor...</em></p>
+      <p>More likely a designer/art director who breaks up the rigidity of the grid by having an image straddle a gutter. So, not so much an image that is a fraction of a column, but an image that is one and a bit columns, or two and a bit columns, etc.</p>
+      <p>It's not unusual, given the ease with which layout applications can cause text to wrap around a clipping path or picture box.</p>
+      <p>And not just an image. It could be a pull-quote that's being wrapped around. Or a drop cap.</p>
+      <p>It's a design issue for any kind of publication that has justified body copy, but of course, if you're going to wrap text round an image, you should be extra careful with how it breaks.</p>
+    html_clean: |-
+      <p><em>...inane editor...</em></p>
+      <p>More likely a designer/art director who breaks up the rigidity of the grid by having an image straddle a gutter. So, not so much an image that is a fraction of a column, but an image that is one and a bit columns, or two and a bit columns, etc.</p>
+      <p>It's not unusual, given the ease with which layout applications can cause text to wrap around a clipping path or picture box.</p>
+      <p>And not just an image. It could be a pull-quote that's being wrapped around. Or a drop cap.</p>
+      <p>It's a design issue for any kind of publication that has justified body copy, but of course, if you're going to wrap text round an image, you should be extra careful with how it breaks.</p>
+  - id: 342035
+    user: 42797
+    date: 2009-04-16T12:23:00
+    date_raw: 16 Apr 2009 — 12:23pm
+    votes: null
+    html: |-
+      <p>in the must-reflow-to-current-viewport online world,<br>
+      your program must adjust to any possible line-width,<br>
+      and there is no "i'll check exceptions manually" option.</p>
+      <p>and yes, i agree with nick: if the next-to-last line of a<br>
+      paragraph has a larger wordspace due to justification,<br>
+      it looks weird for the last line to have normal wordspace.</p>
+      <p>-bowerbird</p>
+    html_clean: |-
+      <p>in the must-reflow-to-current-viewport online world,<br>
+      your program must adjust to any possible line-width,<br>
+      and there is no "i'll check exceptions manually" option.</p>
+      <p>and yes, i agree with nick: if the next-to-last line of a<br>
+      paragraph has a larger wordspace due to justification,<br>
+      it looks weird for the last line to have normal wordspace.</p>
+      <p>-bowerbird</p>
+  - id: 342166
+    user: 33741
+    date: 2009-04-17T08:28:00
+    date_raw: 17 Apr 2009 — 8:28am
+    votes: null
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 342198
+    user: 7891
+    date: 2009-04-17T10:08:00
+    date_raw: 17 Apr 2009 — 10:08am
+    votes: null
+    html: <p>"</p>
+    html_clean: <p>"</p>
+  - id: 342213
+    user: 2021
+    date: 2009-04-17T10:47:00
+    date_raw: 17 Apr 2009 — 10:47am
+    votes: null
+    html: <p>A</p>
+    html_clean: <p>A</p>
+  - id: 342232
+    user: 42797
+    date: 2009-04-17T13:33:00
+    date_raw: 17 Apr 2009 — 1:33pm
+    votes: null
+    html: <p>z</p>
+    html_clean: <p>z</p>

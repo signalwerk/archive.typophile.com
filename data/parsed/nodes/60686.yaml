@@ -1,0 +1,142 @@
+node: 60686
+title: AFDKO autohint on a command line
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203105811"
+  captured_at: 2010-02-03T10:58:11Z
+  url: http://typophile.com/node/60686
+  digest: XJ7KQ6GCXNMFBZ3T56LWICSVGLSVKXQW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/60686.html
+  fingerprint: c170d0c2720aa7dc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203105811"
+      digest: XJ7KQ6GCXNMFBZ3T56LWICSVGLSVKXQW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/60686.html
+post:
+  id: 60686
+  user: 40601
+  date: 2009-08-05T18:04:00
+  date_raw: 5.Aug.2009 6.04pm
+  votes: null
+  html: "<p>Pls forgive this old fogey if this has been answered before: Does the authohint script accept wildcards (or a directory) or does it have to be entered again for each font? Also, should I always run it with the -a switch to replace the FLS5 hints altogether?</p>"
+  html_clean: "<p>Pls forgive this old fogey if this has been answered before: Does the authohint script accept wildcards (or a directory) or does it have to be entered again for each font? Also, should I always run it with the -a switch to replace the FLS5 hints altogether?</p>"
+comments:
+  - id: 360122
+    user: 14722
+    date: 2009-08-05T18:14:00
+    date_raw: 5.Aug.2009 6.14pm
+    votes: null
+    html: |-
+      <p>I had trouble running it with wildcards so I run it in a loop:<br>
+      for i in ./*.otf ; do autohint -a $i &gt; $i.log ; done</p>
+    html_clean: |-
+      <p>I had trouble running it with wildcards so I run it in a loop:<br>
+      for i in ./*.otf ; do autohint -a $i &gt; $i.log ; done</p>
+  - id: 360505
+    user: 45774
+    date: 2009-08-07T14:13:00
+    date_raw: 7.Aug.2009 2.13pm
+    votes: null
+    html: |-
+      <p>James Puckett</p>
+      <p>"for i in ./*.otf ; do autohint -a $i &gt; $i.log ; done"</p>
+      <p>Which scripting language is that? Batch for the Mac?</p>
+    html_clean: |-
+      <p>James Puckett</p>
+      <p>"for i in ./*.otf ; do autohint -a $i &gt; $i.log ; done"</p>
+      <p>Which scripting language is that? Batch for the Mac?</p>
+  - id: 360506
+    user: 14722
+    date: 2009-08-07T14:15:00
+    date_raw: 7.Aug.2009 2.15pm
+    votes: null
+    html: <p>That’s just simple bourne/korn/bash scripting. You can run it at the command line.</p>
+    html_clean: <p>That’s just simple bourne/korn/bash scripting. You can run it at the command line.</p>
+  - id: 360510
+    user: 45774
+    date: 2009-08-07T15:05:00
+    date_raw: 7.Aug.2009 3.05pm
+    votes: null
+    html: |-
+      <p>"You can run it at the command line."</p>
+      <p>But probably not on a native Windows.</p>
+      <p>My batch scripts (Windows):</p>
+      <p><code>@echo off<br>
+      call FDKvars<br>
+      copy Input\*.* Output<br>
+      cd %FDK%<br>
+      for %%f in (%~dp0Output\*.otf; %~dp0Output\*.pfb; %~dp0Output\*.pfa) do %autohintCom% -q -a "%%f"</code></p>
+      <p>While FDKvars.bat is:</p>
+      <p><code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"<br>
+      set "autohintCom=autohint.cmd"<br>
+      </code></p>
+      <p>The folder, that contains the two batch files, must also contain the folders "Input" and "Output".</p>
+      <p>I have created the FDKvars.bat, because now I only have to make slight corrections in that file, when Adobe updates the FDK. And I renamed the folder FDK to FDK_25_21898, because I am using three versions of the FDK at the moment.</p>
+      <p><strong>paragraph</strong></p>
+      <p>Remember to deactivate the FLS option "Use subroutines to compress outlines in CFF table".</p>
+      <p>"Also, should I always run it with the -a switch to replace the FLS5 hints altogether?"</p>
+      <p>Well, I prefer to remove all hints in FLS, before I autohint a font, but if you don’t remove them, it should be the -r option, shouldn’t it? I am not sure at the moment, because the autohint help says "has effect only, if the history file is being used."</p>
+    html_clean: |-
+      <p>"You can run it at the command line."</p>
+      <p>But probably not on a native Windows.</p>
+      <p>My batch scripts (Windows):</p>
+      <p><code>@echo off<br>
+      call FDKvars<br>
+      copy Input\*.* Output<br>
+      cd %FDK%<br>
+      for %%f in (%~dp0Output\*.otf; %~dp0Output\*.pfb; %~dp0Output\*.pfa) do %autohintCom% -q -a "%%f"</code></p>
+      <p>While FDKvars.bat is:</p>
+      <p><code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"<br>
+      set "autohintCom=autohint.cmd"<br>
+      </code></p>
+      <p>The folder, that contains the two batch files, must also contain the folders "Input" and "Output".</p>
+      <p>I have created the FDKvars.bat, because now I only have to make slight corrections in that file, when Adobe updates the FDK. And I renamed the folder FDK to FDK_25_21898, because I am using three versions of the FDK at the moment.</p>
+      <p><strong>paragraph</strong></p>
+      <p>Remember to deactivate the FLS option "Use subroutines to compress outlines in CFF table".</p>
+      <p>"Also, should I always run it with the -a switch to replace the FLS5 hints altogether?"</p>
+      <p>Well, I prefer to remove all hints in FLS, before I autohint a font, but if you don’t remove them, it should be the -r option, shouldn’t it? I am not sure at the moment, because the autohint help says "has effect only, if the history file is being used."</p>
+  - id: 362371
+    user: 40601
+    date: 2009-08-18T18:19:00
+    date_raw: 18.Aug.2009 6.19pm
+    votes: null
+    html: <p>Thanks, Arno. James, your tidbit works like a charm! I'll have to buy you a drink sometime :)</p>
+    html_clean: <p>Thanks, Arno. James, your tidbit works like a charm! I'll have to buy you a drink sometime :)</p>
+  - id: 362463
+    user: 909
+    date: 2009-08-19T07:57:00
+    date_raw: 19.Aug.2009 7.57am
+    votes: null
+    html: |-
+      <p><cite>That’s just simple bourne/korn/bash scripting. You can run it at the command line.</cite></p>
+      <p>... on Unix/Linux/Mac. Not Windows.</p>
+      <p>And do put the word "shell" in after "bourne/korn/bash."</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p><cite>That’s just simple bourne/korn/bash scripting. You can run it at the command line.</cite></p>
+      <p>... on Unix/Linux/Mac. Not Windows.</p>
+      <p>And do put the word "shell" in after "bourne/korn/bash."</p>
+      <p>Cheers,</p>
+      <p>T</p>

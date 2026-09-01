@@ -1,0 +1,188 @@
+node: 64424
+title: either is not defined or had no rules which could be included in the aalt feature.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203134649"
+  captured_at: 2010-02-03T13:46:49Z
+  url: http://typophile.com/node/64424
+  digest: METMC63IXZWUJ3YUS6IRCGJIL65JD3ZB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/64424.html
+  fingerprint: 86ded4ff875710b3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203134649"
+      digest: METMC63IXZWUJ3YUS6IRCGJIL65JD3ZB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64424.html
+post:
+  id: 64424
+  user: 49864
+  date: 2009-11-18T15:54:00
+  date_raw: 18.Nov.2009 3.54pm
+  votes: null
+  html: |-
+    <p>this is what my terminal shows:</p>
+    <p>makeotfexe [WARNING]  feature 'dlig', referenced in aalt feature, either is not defined or had no rules which could be included in the aalt feature.<br>
+    makeotfexe [NOTE] Wrote new font file 'dotsFDK.otf'.</p>
+    <p>this how my features.family file looks like</p>
+    <p>++<br>
+    languagesystem DFLT dflt;<br>
+    languagesystem latn dflt;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem grek dflt;<br>
+    languagesystem latn AZE;<br>
+    languagesystem latn CRT;<br>
+    languagesystem latn DEU;<br>
+    languagesystem latn MOL;<br>
+    languagesystem latn ROM;<br>
+    languagesystem latn TRK;<br>
+    languagesystem cyrl SRB;</p>
+    <p>#--------------------------------------<br>
+    feature aalt {<br>
+    	feature dlig;<br>
+    } aalt;</p>
+    <p>#--------------------------------------<br>
+    feature dlig {<br>
+    	sub d o by e;<br>
+    } dlig;</p>
+    <p>++</p>
+    <p>What is going wrong?</p>
+    <p>also, when i activate my font and the name is dotsFDK for example then in illustrator in the font list it comes after the L in the list. Someone a idea how that becomes?<br>
+    (i thought some time that my fonts didn't show up at all untill i saw a font that started with 'a' at the bootom of my list.</p>
+  html_clean: |-
+    <p>this is what my terminal shows:</p>
+    <p>makeotfexe [WARNING]  feature 'dlig', referenced in aalt feature, either is not defined or had no rules which could be included in the aalt feature.<br>
+    makeotfexe [NOTE] Wrote new font file 'dotsFDK.otf'.</p>
+    <p>this how my features.family file looks like</p>
+    <p>++<br>
+    languagesystem DFLT dflt;<br>
+    languagesystem latn dflt;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem grek dflt;<br>
+    languagesystem latn AZE;<br>
+    languagesystem latn CRT;<br>
+    languagesystem latn DEU;<br>
+    languagesystem latn MOL;<br>
+    languagesystem latn ROM;<br>
+    languagesystem latn TRK;<br>
+    languagesystem cyrl SRB;</p>
+    <p>#--------------------------------------<br>
+    feature aalt {<br>
+    	feature dlig;<br>
+    } aalt;</p>
+    <p>#--------------------------------------<br>
+    feature dlig {<br>
+    	sub d o by e;<br>
+    } dlig;</p>
+    <p>++</p>
+    <p>What is going wrong?</p>
+    <p>also, when i activate my font and the name is dotsFDK for example then in illustrator in the font list it comes after the L in the list. Someone a idea how that becomes?<br>
+    (i thought some time that my fonts didn't show up at all untill i saw a font that started with 'a' at the bootom of my list.</p>
+comments:
+  - id: 379211
+    user: 14650
+    date: 2009-11-18T16:18:00
+    date_raw: 18.Nov.2009 4.18pm
+    votes: null
+    html: <p>Your problem I think is that you are doing a substitute using a standard character rather than a ligature. I don't understand the logic behind having do replaced by e, but that is definitely not a ligature.</p>
+    html_clean: <p>Your problem I think is that you are doing a substitute using a standard character rather than a ligature. I don't understand the logic behind having do replaced by e, but that is definitely not a ligature.</p>
+  - id: 379221
+    user: 49864
+    date: 2009-11-18T17:44:00
+    date_raw: 18.Nov.2009 5.44pm
+    votes: null
+    html: |-
+      <p>that was just for testing if the dlig works and that works.<br>
+      Only the error shows up in aalt.</p>
+    html_clean: |-
+      <p>that was just for testing if the dlig works and that works.<br>
+      Only the error shows up in aalt.</p>
+  - id: 379228
+    user: 31798
+    date: 2009-11-18T18:32:00
+    date_raw: 18.Nov.2009 6.32pm
+    votes: null
+    html: |-
+      <p>Nothing is going wrong. The aalt feature can only include one-to-one substitutions, not ligature substitutions. makeotfexe is simply letting you know that this particular substitution is being stripped from the aalt feature.</p>
+      <p>I can't comment on the naming issue since you haven't provided enough information. Which name field is 'dotsFDK' taken from? What's in the other fields?</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Nothing is going wrong. The aalt feature can only include one-to-one substitutions, not ligature substitutions. makeotfexe is simply letting you know that this particular substitution is being stripped from the aalt feature.</p>
+      <p>I can't comment on the naming issue since you haven't provided enough information. Which name field is 'dotsFDK' taken from? What's in the other fields?</p>
+      <p>André</p>
+  - id: 379434
+    user: 14650
+    date: 2009-11-19T13:12:00
+    date_raw: 19.Nov.2009 1.12pm
+    votes: null
+    html: |-
+      <p>He is merely including the dlig feature as part of aalt. That's pretty normal to include all your features in the aalt so that you can get glyph submenus to map properly in the glyph palette of AI and other apps. I've never run into an issue with that. </p>
+      <p>The warning sounds to me like its finding the dlig feature incorrect (which it is) and is catching the error in its first reference which would be the aalt feature which is typically at the top of your features list.</p>
+    html_clean: |-
+      <p>He is merely including the dlig feature as part of aalt. That's pretty normal to include all your features in the aalt so that you can get glyph submenus to map properly in the glyph palette of AI and other apps. I've never run into an issue with that. </p>
+      <p>The warning sounds to me like its finding the dlig feature incorrect (which it is) and is catching the error in its first reference which would be the aalt feature which is typically at the top of your features list.</p>
+  - id: 379499
+    user: 14637
+    date: 2009-11-19T22:32:00
+    date_raw: 19.Nov.2009 10.32pm
+    votes: null
+    html: <p>André is right in this case.. The aalt feature can use only single and multiple substitution rules. That particular message means that the logic which is building the aalt rules can't find any appropriate rules from the dlig feature. Unfortunately, the logic can't tell if the feature was never defined, or was defined, but didn't have any rules that could be used for the aalt feature.</p>
+    html_clean: <p>André is right in this case.. The aalt feature can use only single and multiple substitution rules. That particular message means that the logic which is building the aalt rules can't find any appropriate rules from the dlig feature. Unfortunately, the logic can't tell if the feature was never defined, or was defined, but didn't have any rules that could be used for the aalt feature.</p>
+  - id: 379544
+    user: 49864
+    date: 2009-11-20T06:39:00
+    date_raw: 20.Nov.2009 6.39am
+    votes: null
+    html: |-
+      <p>Ok thx for the answers.</p>
+      <p>&gt;&gt;<br>
+      Which name field is ’dotsFDK’ taken from? What’s in the other fields?<br>
+      &lt;&lt;</p>
+      <p>I don't get what you mean?</p>
+    html_clean: |-
+      <p>Ok thx for the answers.</p>
+      <p>&gt;&gt;<br>
+      Which name field is ’dotsFDK’ taken from? What’s in the other fields?<br>
+      &lt;&lt;</p>
+      <p>I don't get what you mean?</p>
+  - id: 379552
+    user: 31798
+    date: 2009-11-20T07:21:00
+    date_raw: 20.Nov.2009 7.21am
+    votes: null
+    html: |-
+      <p>Is it the Font Family Name? The Postscript Name? The Full Name? The Menu Name? The OT Family Name?</p>
+      <p>How have you filled out the full set of name fields?</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Is it the Font Family Name? The Postscript Name? The Full Name? The Menu Name? The OT Family Name?</p>
+      <p>How have you filled out the full set of name fields?</p>
+      <p>André</p>
+  - id: 379571
+    user: 49864
+    date: 2009-11-20T08:28:00
+    date_raw: 20.Nov.2009 8.28am
+    votes: null
+    html: |-
+      <p>I namend everything that could be named dotsFDK so my answer is yes, yes, yes, yes, yes i suppose.</p>
+      <p>Is it a bat habbit? (it's not for release afcorse, it's just for testing).</p>
+    html_clean: |-
+      <p>I namend everything that could be named dotsFDK so my answer is yes, yes, yes, yes, yes i suppose.</p>
+      <p>Is it a bat habbit? (it's not for release afcorse, it's just for testing).</p>

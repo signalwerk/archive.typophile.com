@@ -1,0 +1,102 @@
+node: 86111
+title: Ordering of ccmp feature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120720114043"
+  captured_at: 2012-07-20T11:40:43Z
+  url: http://typophile.com/node/86111
+  digest: YAGZ6PK4267XZFRHG3IA2M6DI5IE35JG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/86111.html
+  fingerprint: 2c5cd4054c6f6ce5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120720114043"
+      digest: YAGZ6PK4267XZFRHG3IA2M6DI5IE35JG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/86111.html
+post:
+  id: 86111
+  user: 31798
+  date: 2011-10-05T04:21:00
+  date_raw: 5 Oct 2011 — 4:21am
+  votes: null
+  html: |-
+    <p>I recall reading somewhere but can't for the life of me remember where that the 'ccmp' and 'aalt' features are treated specially by software and are always processed before other features.</p>
+    <p>§7.b of the OpenType Feature File Specification seems to confirm this is true for 'aalt', but I can't for the life of me find any discussion of 'ccmp' receiving special treatment. Adobe's discussion in their feature list indicates that "[ccmp] should be processed as the first feature processed, and should be processed only when it is called" but it isn't clear from this whether this means applications are expected to process it first, or that font developers are expected to implement it as the first feature in their feature file. (Also, it's unclear to me what the second part of that description means -- I'd assume that this feature should always be processed, and I've never run across an application which allows you to explicitly select it).</p>
+    <p>Can anyone clarify this issue for me or provide a link to a source which discusses ccmp in more detail?</p>
+    <p>Thanks,</p>
+    <p>André</p>
+  html_clean: |-
+    <p>I recall reading somewhere but can't for the life of me remember where that the 'ccmp' and 'aalt' features are treated specially by software and are always processed before other features.</p>
+    <p>§7.b of the OpenType Feature File Specification seems to confirm this is true for 'aalt', but I can't for the life of me find any discussion of 'ccmp' receiving special treatment. Adobe's discussion in their feature list indicates that "[ccmp] should be processed as the first feature processed, and should be processed only when it is called" but it isn't clear from this whether this means applications are expected to process it first, or that font developers are expected to implement it as the first feature in their feature file. (Also, it's unclear to me what the second part of that description means -- I'd assume that this feature should always be processed, and I've never run across an application which allows you to explicitly select it).</p>
+    <p>Can anyone clarify this issue for me or provide a link to a source which discusses ccmp in more detail?</p>
+    <p>Thanks,</p>
+    <p>André</p>
+comments:
+  - id: 479639
+    user: 31798
+    date: 2011-10-05T04:29:00
+    date_raw: 5 Oct 2011 — 4:29am
+    votes: null
+    html: |-
+      <p>Just to clarify, the reason I'm asking this is that in the past I've always placed 'ccmp' first. However, in the new FLS beta, standalone lookups need to be declared in the bottom pane which means in effect that all standalone lookups end up being placed before any features placed in the left hand feature pane. I'm unsure, therefore, whether I need to declare 'ccmp' (and possible 'aalt') in the bottom pane as well rather than declaring it in the left hand pane along with all other features.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Just to clarify, the reason I'm asking this is that in the past I've always placed 'ccmp' first. However, in the new FLS beta, standalone lookups need to be declared in the bottom pane which means in effect that all standalone lookups end up being placed before any features placed in the left hand feature pane. I'm unsure, therefore, whether I need to declare 'ccmp' (and possible 'aalt') in the bottom pane as well rather than declaring it in the left hand pane along with all other features.</p>
+      <p>André</p>
+  - id: 479645
+    user: 1262
+    date: 2011-10-05T05:53:00
+    date_raw: 5 Oct 2011 — 5:53am
+    votes: null
+    html: |-
+      <p>Typical feature ordering, in layout engines that apply features in discreet blocks rather than relying only on the order of lookups in the font, is</p>
+      <p>locl<br>
+      ccmp<br>
+      [language shaping features, e.g. for complex script processing]<br>
+      [typographic layout features]</p>
+      <p>aalt is a bit of an oddity, since it isn't really used in layout but, rather, is used to build glyph palettes.</p>
+    html_clean: |-
+      <p>Typical feature ordering, in layout engines that apply features in discreet blocks rather than relying only on the order of lookups in the font, is</p>
+      <p>locl<br>
+      ccmp<br>
+      [language shaping features, e.g. for complex script processing]<br>
+      [typographic layout features]</p>
+      <p>aalt is a bit of an oddity, since it isn't really used in layout but, rather, is used to build glyph palettes.</p>
+  - id: 479655
+    user: 21217
+    date: 2011-10-05T07:17:00
+    date_raw: 5 Oct 2011 — 7:17am
+    votes: null
+    html: <p>The order of lookup statements is irrelevant, what matters is the order of feature statements (speaking of feature files syntax), but even for ccmp and locl the engine will always applies them first regardless of their actual order in the font.</p>
+    html_clean: <p>The order of lookup statements is irrelevant, what matters is the order of feature statements (speaking of feature files syntax), but even for ccmp and locl the engine will always applies them first regardless of their actual order in the font.</p>
+  - id: 479662
+    user: 31798
+    date: 2011-10-05T07:58:00
+    date_raw: 5 Oct 2011 — 7:58am
+    votes: null
+    html: |-
+      <p>Thanks, John, for the clarification.</p>
+      <p>Hosny, I'm quite sure the the order of lookups takes priority over the order of feature declarations, particularly when lookups are declared outside of feature blocks.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Thanks, John, for the clarification.</p>
+      <p>Hosny, I'm quite sure the the order of lookups takes priority over the order of feature declarations, particularly when lookups are declared outside of feature blocks.</p>
+      <p>André</p>

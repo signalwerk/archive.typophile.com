@@ -1,0 +1,740 @@
+node: 39965
+title: Nodes in MM-fonts
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20080314123444"
+  captured_at: 2008-03-14T12:34:44Z
+  url: http://typophile.com:80/node/39965
+  digest: YVJI6FZYENZQQTLRH4HBPIQQPDZP2322
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/39965.html
+  fingerprint: 9496e181e5a5de6f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20080314123444"
+      digest: YVJI6FZYENZQQTLRH4HBPIQQPDZP2322
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/39965.html
+post:
+  id: 39965
+  user: 11526
+  date: 2007-12-11T03:34:00
+  date_raw: 11.Dec.2007 3.34am
+  votes: null
+  html: |-
+    <p>I have tried to solve this on myself, but it seems impossible.</p>
+    <p>For interpolation to be correct, the nodes positions must be representing the same “area” of the glyph. I’m all fine with that. But sometimes, some small error has occured and the node on one master represent a wrong “node position”. For instance, the top left nod of an “I” of one master is on the right bottom on the other master, making interpolation wrong.</p>
+    <p>Is there a way to solve this without having to redraw the outline? Similar to change start-point, or something? Sort of tell the glyph: This node is supposed to be here?</p>
+    <p>Thanks in advance.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/38719" class="topic-previous" title="Go to previous forum topic">‹ Kerning Multiple Master fonts</a> <a href="/node/40301" class="topic-next" title="Go to next forum topic">End of line ›</a></div>
+  html_clean: |-
+    <p>I have tried to solve this on myself, but it seems impossible.</p>
+    <p>For interpolation to be correct, the nodes positions must be representing the same “area” of the glyph. I’m all fine with that. But sometimes, some small error has occured and the node on one master represent a wrong “node position”. For instance, the top left nod of an “I” of one master is on the right bottom on the other master, making interpolation wrong.</p>
+    <p>Is there a way to solve this without having to redraw the outline? Similar to change start-point, or something? Sort of tell the glyph: This node is supposed to be here?</p>
+    <p>Thanks in advance.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/38719/" class="topic-previous" title="Go to previous forum topic">‹ Kerning Multiple Master fonts</a> <a href="/node/40301" class="topic-next" title="Go to next forum topic">End of line ›</a></div>
+comments:
+  - id: 245808
+    user: 2969
+    date: 2007-12-11T04:15:00
+    date_raw: 11.Dec.2007 4.15am
+    votes: null
+    html: |-
+      <p>” Similar to change start-point, or something?”<br>
+      If you are drawing contours in FL, control key and -click on the point you wish to make first, and select “make node first” I think.<br>
+      If you are drawing strokes in FL, tell me and I’ll give you the procedure, it’s a little bit funny. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>” Similar to change start-point, or something?”<br>
+      If you are drawing contours in FL, control key and -click on the point you wish to make first, and select “make node first” I think.<br>
+      If you are drawing strokes in FL, tell me and I’ll give you the procedure, it’s a little bit funny. </p>
+      <p>Cheers!</p>
+  - id: 245810
+    user: 5585
+    date: 2007-12-11T04:21:00
+    date_raw: 11.Dec.2007 4.21am
+    votes: null
+    html: |-
+      <p>Or CONTOUR &gt; PATH &gt; RELOCATE STARTPOINTS</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Or CONTOUR &gt; PATH &gt; RELOCATE STARTPOINTS</p>
+      <p>Pieter</p>
+  - id: 245814
+    user: 11526
+    date: 2007-12-11T04:58:00
+    date_raw: 11.Dec.2007 4.58am
+    votes: null
+    html: |-
+      <p>Hmm, the startpoint was just an example. I am more thinking of “fixing” the nodes so they represent the same “node-position” in a glyph.<br>
+      What I meant was this (I know it’s my bad english...)<br>
+      1. Open up a MM-project.<br>
+      2. Open the glyph “hyphen”<br>
+      3. On one of the masters – flip it horizontal.<br>
+         (This to simulate the problem only)<br>
+      4. When you interpolate these two, the interim weights will now be distorted.</p>
+      <p>How do I fix it? Think of the glyph as if it was NOT the hyphen, but a “g” or something else that cant be just flipped to be corrected.</p>
+    html_clean: |-
+      <p>Hmm, the startpoint was just an example. I am more thinking of “fixing” the nodes so they represent the same “node-position” in a glyph.<br>
+      What I meant was this (I know it’s my bad english...)<br>
+      1. Open up a MM-project.<br>
+      2. Open the glyph “hyphen”<br>
+      3. On one of the masters – flip it horizontal.<br>
+         (This to simulate the problem only)<br>
+      4. When you interpolate these two, the interim weights will now be distorted.</p>
+      <p>How do I fix it? Think of the glyph as if it was NOT the hyphen, but a “g” or something else that cant be just flipped to be corrected.</p>
+  - id: 245828
+    user: 10199
+    date: 2007-12-11T06:41:00
+    date_raw: 11.Dec.2007 6.41am
+    votes: null
+    html: |-
+      <p></p><div class="imageWrap"><img src="/files/gees_5958.gif"></div><p></p>
+      <p>I’ve never done anything with MM. But when blending fonts it’s important that path direction, starting point and all nodes correspond with their counterpart(s) on the other weight. By setting the starting point the same on each contour, you’re telling the contour where each point is. (The third g is blended)</p>
+    html_clean: |-
+      <p></p><div class="imageWrap"><img src="/files/gees_5958.gif"></div><p></p>
+      <p>I’ve never done anything with MM. But when blending fonts it’s important that path direction, starting point and all nodes correspond with their counterpart(s) on the other weight. By setting the starting point the same on each contour, you’re telling the contour where each point is. (The third g is blended)</p>
+  - id: 245831
+    user: 11526
+    date: 2007-12-11T06:48:00
+    date_raw: 11.Dec.2007 6.48am
+    votes: null
+    html: |-
+      <p>Thanks, but this question is about when this is not working and I manually have to make some adjustments on one of the masters or something.</p>
+      <p>Try the example I gave above, and you’ll see that it wont work, because the node positions seems to be “locked” in the glyph in some way. So if I flip the hyphen and change that startpoint to correct the “fault” on one master, the other startpoint will also follow on the other master (but opposite).</p>
+      <p>Try it, you’ll see that the start points will be wrong anyway.</p>
+    html_clean: |-
+      <p>Thanks, but this question is about when this is not working and I manually have to make some adjustments on one of the masters or something.</p>
+      <p>Try the example I gave above, and you’ll see that it wont work, because the node positions seems to be “locked” in the glyph in some way. So if I flip the hyphen and change that startpoint to correct the “fault” on one master, the other startpoint will also follow on the other master (but opposite).</p>
+      <p>Try it, you’ll see that the start points will be wrong anyway.</p>
+  - id: 245838
+    user: 1551
+    date: 2007-12-11T07:08:00
+    date_raw: 11.Dec.2007 7.08am
+    votes: null
+    html: |-
+      <p>&gt;So if I flip the hyphen and change that startpoint to correct the “fault” on one master, the other startpoint will also follow on the other master (but opposite).</p>
+      <p>Did you first set the start points the same, and afterwards create the MM?</p>
+    html_clean: |-
+      <p>&gt;So if I flip the hyphen and change that startpoint to correct the “fault” on one master, the other startpoint will also follow on the other master (but opposite).</p>
+      <p>Did you first set the start points the same, and afterwards create the MM?</p>
+  - id: 245837
+    user: 3070
+    date: 2007-12-11T07:17:00
+    date_raw: 11.Dec.2007 7.17am
+    votes: null
+    html: |-
+      <p>I think you are a bit vague in what you wanna do. How do you know the node “represents the wrong position” as you put it? If the startpoint, the path direction and the amount/type of points are the same, there should be no problem..<br>
+      I think your problem is path direction. If you flip a glyph the path direction gets reversed. What you have to do is select all glyphs and push the “set PS direction” (if you´re making that) button, then the relocate startpoint button - on both masters.</p>
+    html_clean: |-
+      <p>I think you are a bit vague in what you wanna do. How do you know the node “represents the wrong position” as you put it? If the startpoint, the path direction and the amount/type of points are the same, there should be no problem..<br>
+      I think your problem is path direction. If you flip a glyph the path direction gets reversed. What you have to do is select all glyphs and push the “set PS direction” (if you´re making that) button, then the relocate startpoint button - on both masters.</p>
+  - id: 245839
+    user: 10199
+    date: 2007-12-11T07:19:00
+    date_raw: 11.Dec.2007 7.19am
+    votes: null
+    html: |-
+      <p>So I tried MM (for the first time :-) If I change the starting point on one contour the other contour follows. When I remove a node (not breaking the contour) that also happens on the opposite master(!)</p>
+      <p>So I guess your contours need to be correct from the start.</p>
+    html_clean: |-
+      <p>So I tried MM (for the first time :-) If I change the starting point on one contour the other contour follows. When I remove a node (not breaking the contour) that also happens on the opposite master(!)</p>
+      <p>So I guess your contours need to be correct from the start.</p>
+  - id: 245842
+    user: 3070
+    date: 2007-12-11T07:25:00
+    date_raw: 11.Dec.2007 7.25am
+    votes: null
+    html: <p>Yes, the above should be done before interpolation of course..</p>
+    html_clean: <p>Yes, the above should be done before interpolation of course..</p>
+  - id: 245845
+    user: 7006
+    date: 2007-12-11T07:31:00
+    date_raw: 11.Dec.2007 7.31am
+    votes: null
+    html: |-
+      <p>if i understand the problem correctly, this is my solution. if i seem coming from nowhere, then i misread the problem, but here goes:</p>
+      <p>make a new blank font. from the glyph window select one master and copy it. paste into a glyph window in your new font. fix the starting points to match the master that was not copied. copy your fixed glyph. paste into the mask layer of the multiple master glyph. copy mask to master. voila! it should work now.</p>
+      <p>this is a terrible work around. i wish there were some way to disable the compatibility links between masters. i’d rather there just be some kind of warning flag that alerts you that your masters are not compatible until you’ve changed them so that they are. or maybe the user should be able to toggle MM compatibility on and off to make these kinds of changes easily.</p>
+    html_clean: |-
+      <p>if i understand the problem correctly, this is my solution. if i seem coming from nowhere, then i misread the problem, but here goes:</p>
+      <p>make a new blank font. from the glyph window select one master and copy it. paste into a glyph window in your new font. fix the starting points to match the master that was not copied. copy your fixed glyph. paste into the mask layer of the multiple master glyph. copy mask to master. voila! it should work now.</p>
+      <p>this is a terrible work around. i wish there were some way to disable the compatibility links between masters. i’d rather there just be some kind of warning flag that alerts you that your masters are not compatible until you’ve changed them so that they are. or maybe the user should be able to toggle MM compatibility on and off to make these kinds of changes easily.</p>
+  - id: 245881
+    user: 1844
+    date: 2007-12-11T09:07:00
+    date_raw: 11.Dec.2007 9.07am
+    votes: null
+    html: |-
+      <p>Try this:</p>
+      <p>1. Clear the Mask layer<br>
+      2. Copy the glyph to the Mask layer<br>
+      3. Switch to the Mask layer<br>
+      4. Do Tools &gt; Multiple Master &gt; Expand Master<br>
+      5. Correct the outline(s)<br>
+      6. Switch to the Outline layer<br>
+      7. Do Tools &gt; Multiple Master &gt; Mask to Master</p>
+      <p>The key step in this procedure is the “Expand Master” operation. What it does is it breaks the compatibility links between masters and lets you adjust the outlines freely. I used to do what Paul described until I found this method.</p>
+    html_clean: |-
+      <p>Try this:</p>
+      <p>1. Clear the Mask layer<br>
+      2. Copy the glyph to the Mask layer<br>
+      3. Switch to the Mask layer<br>
+      4. Do Tools &gt; Multiple Master &gt; Expand Master<br>
+      5. Correct the outline(s)<br>
+      6. Switch to the Outline layer<br>
+      7. Do Tools &gt; Multiple Master &gt; Mask to Master</p>
+      <p>The key step in this procedure is the “Expand Master” operation. What it does is it breaks the compatibility links between masters and lets you adjust the outlines freely. I used to do what Paul described until I found this method.</p>
+  - id: 245900
+    user: 10199
+    date: 2007-12-11T09:45:00
+    date_raw: 11.Dec.2007 9.45am
+    votes: null
+    html: <p>Great (typowiki) tip!</p>
+    html_clean: <p>Great (typowiki) tip!</p>
+  - id: 245913
+    user: 7006
+    date: 2007-12-11T10:08:00
+    date_raw: 11.Dec.2007 10.08am
+    votes: null
+    html: <p>aha! great tip miguel.</p>
+    html_clean: <p>aha! great tip miguel.</p>
+  - id: 245969
+    user: 11526
+    date: 2007-12-11T12:37:00
+    date_raw: 11.Dec.2007 12.37pm
+    votes: null
+    html: |-
+      <p>Paul and Miguel, you are my heroes!</p>
+      <p>The “compability links” is the issue. Not startpoints, path orientation or something else, that almost everybody else here have been insisting on ;-)</p>
+      <p>Many thanks for being patient enough to fully understand my problem. I dont think anyone else did.</p>
+      <p>Hugs from Sweden<br>
+      Göran</p>
+    html_clean: |-
+      <p>Paul and Miguel, you are my heroes!</p>
+      <p>The “compability links” is the issue. Not startpoints, path orientation or something else, that almost everybody else here have been insisting on ;-)</p>
+      <p>Many thanks for being patient enough to fully understand my problem. I dont think anyone else did.</p>
+      <p>Hugs from Sweden<br>
+      Göran</p>
+  - id: 245974
+    user: 11526
+    date: 2007-12-11T12:46:00
+    date_raw: 11.Dec.2007 12.46pm
+    votes: null
+    html: |-
+      <p>I just *have to* answer this one:</p>
+      <p><cite>How do you know the node “represents the wrong position” as you put it?</cite></p>
+      <p>I have two eyes.</p>
+      <p><cite>If you flip a glyph the path direction gets reversed.</cite></p>
+      <p>Actually it doesn’t. Not since 5.03 I believe.</p>
+    html_clean: |-
+      <p>I just *have to* answer this one:</p>
+      <p><cite>How do you know the node “represents the wrong position” as you put it?</cite></p>
+      <p>I have two eyes.</p>
+      <p><cite>If you flip a glyph the path direction gets reversed.</cite></p>
+      <p>Actually it doesn’t. Not since 5.03 I believe.</p>
+  - id: 245978
+    user: 10199
+    date: 2007-12-11T13:04:00
+    date_raw: 11.Dec.2007 1.04pm
+    votes: null
+    html: <p>Well ... at least you’re happy now.</p>
+    html_clean: <p>Well ... at least you’re happy now.</p>
+  - id: 245983
+    user: 11526
+    date: 2007-12-11T13:23:00
+    date_raw: 11.Dec.2007 1.23pm
+    votes: null
+    html: <p>Arent we all, getting this nice advice? :)</p>
+    html_clean: <p>Arent we all, getting this nice advice? :)</p>
+  - id: 246011
+    user: 1133
+    date: 2007-12-11T16:34:00
+    date_raw: 11.Dec.2007 4.34pm
+    votes: null
+    html: |-
+      <p>A good way of understanding MM is NOT to think of the masters as being collections of points that are somehow “linked together” across masters. In MM, every glyph is made of just ONE set of nodes, but each of those nodes have several different POSITIONS (coordinate locations) – different on each master. So if you add or delete a node, you just add or delete a node from that one set of nodes that there is. </p>
+      <p>It’s like having 10 employees — let’s assume that each of them works in a different office each day of the week. If you fire one, then you have one employee less — on all days of the week. And if you hire one, you have one employee more — on all days of the week. On Monday, Jim can be at the office on the 42nd Street and on Tuesday, he can be at the office on 7th Avenue, but it is still one and the same Jim :D </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>A good way of understanding MM is NOT to think of the masters as being collections of points that are somehow “linked together” across masters. In MM, every glyph is made of just ONE set of nodes, but each of those nodes have several different POSITIONS (coordinate locations) – different on each master. So if you add or delete a node, you just add or delete a node from that one set of nodes that there is. </p>
+      <p>It’s like having 10 employees — let’s assume that each of them works in a different office each day of the week. If you fire one, then you have one employee less — on all days of the week. And if you hire one, you have one employee more — on all days of the week. On Monday, Jim can be at the office on the 42nd Street and on Tuesday, he can be at the office on 7th Avenue, but it is still one and the same Jim :D </p>
+      <p>Adam</p>
+  - id: 246071
+    user: 2969
+    date: 2007-12-12T04:22:00
+    date_raw: 12.Dec.2007 4.22am
+    votes: null
+    html: |-
+      <p>“In MM, every glyph is made of just ONE set of nodes, but each of those nodes have several different POSITIONS (coordinate locations) – different on each master. “<br>
+      Oh I see. None the the advantages of GX with all the limitations. :-o </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>“In MM, every glyph is made of just ONE set of nodes, but each of those nodes have several different POSITIONS (coordinate locations) – different on each master. “<br>
+      Oh I see. None the the advantages of GX with all the limitations. :-o </p>
+      <p>Cheers!</p>
+  - id: 246122
+    user: 4763
+    date: 2007-12-12T08:15:00
+    date_raw: 12.Dec.2007 8.15am
+    votes: null
+    html: "<p>The funny thing is that in FontLab-Python, you can access the nodes in both ways: as a list of points for each master or as a list of masters for each node. That always confuses me again.</p>"
+    html_clean: "<p>The funny thing is that in FontLab-Python, you can access the nodes in both ways: as a list of points for each master or as a list of masters for each node. That always confuses me again.</p>"
+  - id: 246203
+    user: 1262
+    date: 2007-12-12T12:44:00
+    date_raw: 12.Dec.2007 12.44pm
+    votes: null
+    html: |-
+      <p><em>The funny thing is that in FontLab-Python, you can access the nodes in both ways:</em></p>
+      <p>That’s because Jim is also bilocating; however, he still only collects one pay cheque.</p>
+    html_clean: |-
+      <p><em>The funny thing is that in FontLab-Python, you can access the nodes in both ways:</em></p>
+      <p>That’s because Jim is also bilocating; however, he still only collects one pay cheque.</p>
+  - id: 246897
+    user: 1133
+    date: 2007-12-15T20:19:00
+    date_raw: 15.Dec.2007 8.19pm
+    votes: null
+    html: |-
+      <p>&gt; Oh I see. None the the advantages of GX with all the limitations. :-o</p>
+      <p>Two huge advantages over GX: </p>
+      <p>* there are actual usable shipping applications that allow people to draw fonts in MM space</p>
+      <p>* designers actually understand what is going on in MM so that the Carters don’t need to hire the Berlows to “implement” their designs :D </p>
+      <p>BTW, even Erik van Blokland’s Superpolator uses the same principle, i.e. one set of outline points and a number of locations (masters). The difference between MM and Superpolator is that in MM, the masters are located at the ends of the design space, and that the number of masters must be a power of two. In Superpolator, masters can be inserted at any place within the design space (but they still need to be “compatible”). Actually, an extended version of MM did support intermediate masters (so you could slice an axis by inserting extra masters in the middle) but this extended MM is not implemented in FontLab Studio. </p>
+      <p>Simplicity is often a virtue. </p>
+      <p>Cheers,<br>
+      Adam</p>
+    html_clean: |-
+      <p>&gt; Oh I see. None the the advantages of GX with all the limitations. :-o</p>
+      <p>Two huge advantages over GX: </p>
+      <p>* there are actual usable shipping applications that allow people to draw fonts in MM space</p>
+      <p>* designers actually understand what is going on in MM so that the Carters don’t need to hire the Berlows to “implement” their designs :D </p>
+      <p>BTW, even Erik van Blokland’s Superpolator uses the same principle, i.e. one set of outline points and a number of locations (masters). The difference between MM and Superpolator is that in MM, the masters are located at the ends of the design space, and that the number of masters must be a power of two. In Superpolator, masters can be inserted at any place within the design space (but they still need to be “compatible”). Actually, an extended version of MM did support intermediate masters (so you could slice an axis by inserting extra masters in the middle) but this extended MM is not implemented in FontLab Studio. </p>
+      <p>Simplicity is often a virtue. </p>
+      <p>Cheers,<br>
+      Adam</p>
+  - id: 246916
+    user: 4763
+    date: 2007-12-16T01:45:00
+    date_raw: 16.Dec.2007 1.45am
+    votes: null
+    html: |-
+      <p><cite>is not implemented in FontLab Studio</cite></p>
+      <p>Intermediate masters are not implemented in FL – but they are supported, in a way. You just have to use an MM font with four masters to take up your extralight, regular and extrabold masters. That results to one redundant master, of course, so you have two identical masters. I have written a very small macro that simply updates that ’dead’ master from the other so that is not a big deal. This is how I have been designing and producing my font families for years.<br>
+      The advantage of having three weights in an MM font is that you can mix you cocktail out of the three masters at any arbitrary ratio. For example, you can mix your semibold out of  -20% extralight, 80% regular and 40% extrabold. I explained over in the other thread (<a href="http://typophile.com/node/39376" title="http://typophile.com/node/39376">http://typophile.com/node/39376</a>) why this makes sense. Don’t know whether this concept, combining the principles of interpolation and extrapolation, is possible in Superpolator.</p>
+    html_clean: |-
+      <p><cite>is not implemented in FontLab Studio</cite></p>
+      <p>Intermediate masters are not implemented in FL – but they are supported, in a way. You just have to use an MM font with four masters to take up your extralight, regular and extrabold masters. That results to one redundant master, of course, so you have two identical masters. I have written a very small macro that simply updates that ’dead’ master from the other so that is not a big deal. This is how I have been designing and producing my font families for years.<br>
+      The advantage of having three weights in an MM font is that you can mix you cocktail out of the three masters at any arbitrary ratio. For example, you can mix your semibold out of  -20% extralight, 80% regular and 40% extrabold. I explained over in the other thread (<a href="/node/39376/" title="http://typophile.com/node/39376">http://typophile.com/node/39376</a>) why this makes sense. Don’t know whether this concept, combining the principles of interpolation and extrapolation, is possible in Superpolator.</p>
+  - id: 246950
+    user: 1133
+    date: 2007-12-16T09:44:00
+    date_raw: 16.Dec.2007 9.44am
+    votes: null
+    html: |-
+      <p>Tim, </p>
+      <p>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Tim, </p>
+      <p>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”. </p>
+      <p>A.</p>
+  - id: 246959
+    user: 4763
+    date: 2007-12-16T11:16:00
+    date_raw: 16.Dec.2007 11.16am
+    votes: null
+    html: |-
+      <p><cite>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”.</cite></p>
+      <p>Ah, didn’t know that. That makes me curious. Is there any information on arbitrary mixing of masters in Superpolator available?</p>
+    html_clean: |-
+      <p><cite>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”.</cite></p>
+      <p>Ah, didn’t know that. That makes me curious. Is there any information on arbitrary mixing of masters in Superpolator available?</p>
+  - id: 246980
+    user: 1551
+    date: 2007-12-16T14:36:00
+    date_raw: 16.Dec.2007 2.36pm
+    votes: null
+    html: |-
+      <p>&gt;the very principle of “superpolation”</p>
+      <p>Adam, does this mean that if you are interpolating between two weights only, or extrapolating beyond them, that there is no difference between MM in FontLab and Superpolator? Is Superpolator only an advantage when the goal is more than three weights?</p>
+    html_clean: |-
+      <p>&gt;the very principle of “superpolation”</p>
+      <p>Adam, does this mean that if you are interpolating between two weights only, or extrapolating beyond them, that there is no difference between MM in FontLab and Superpolator? Is Superpolator only an advantage when the goal is more than three weights?</p>
+  - id: 247071
+    user: 2969
+    date: 2007-12-17T04:27:00
+    date_raw: 17.Dec.2007 4.27am
+    votes: null
+    html: |-
+      <p>”...extended MM is not implemented in FontLab Studio.”<br>
+      Like I said. But the solution I think we are looking for from this variety of type design work comes in two ’broad kinds’.</p>
+      <p>I think we know what neat numerically linear interpolated arrays of styles are good for (broad kind one).<br>
+      But Print has been using slightly messy arrays for years (broad kind two).<br>
+      Downright ugly arrays of styles have given magnificent benefit to type on screens (also broad kind two).<br>
+      Simplicity is indeed often a virtue, but it is not one that FontStudio exhibits, why change now!? lol. </p>
+      <p>”...need to hire the Berlows to “implement” their designs”<br>
+      Superpolator does MM as well as Superpolations. A tool implemented to do both hardly forces the average type designer into being a type rocket sci 506 major. Why are you picking on Erik? I bet Tim or any other competent MM designing type designer can pick up Erik’s excellent tool and in one (1) day (day), and be stylistically ’whooopin’-it-up’ forevermore. But thanks!</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>”...extended MM is not implemented in FontLab Studio.”<br>
+      Like I said. But the solution I think we are looking for from this variety of type design work comes in two ’broad kinds’.</p>
+      <p>I think we know what neat numerically linear interpolated arrays of styles are good for (broad kind one).<br>
+      But Print has been using slightly messy arrays for years (broad kind two).<br>
+      Downright ugly arrays of styles have given magnificent benefit to type on screens (also broad kind two).<br>
+      Simplicity is indeed often a virtue, but it is not one that FontStudio exhibits, why change now!? lol. </p>
+      <p>”...need to hire the Berlows to “implement” their designs”<br>
+      Superpolator does MM as well as Superpolations. A tool implemented to do both hardly forces the average type designer into being a type rocket sci 506 major. Why are you picking on Erik? I bet Tim or any other competent MM designing type designer can pick up Erik’s excellent tool and in one (1) day (day), and be stylistically ’whooopin’-it-up’ forevermore. But thanks!</p>
+      <p>Cheers!</p>
+  - id: 247154
+    user: 1133
+    date: 2007-12-17T11:17:00
+    date_raw: 17.Dec.2007 11.17am
+    votes: null
+    html: |-
+      <p>David, </p>
+      <p>Who’s picking on Erik? Not I, my Lord. </p>
+      <p>Just last week I met with Erik in Bad Homburg where he was doing presentations of Superpolator 2 and LetterSetter (developed by Erik) as well as MetricsMachine, FeatureProof and Prepolator (developed by Tal Leming). I was very impressed with all the tools. </p>
+      <p>I actually was picking on GX — because I think GX Variations was “too much”. I have heard from several people that designing GX Variantions fonts was hardly a practical process. With Superpolator, it is different, because Superpolator does not follow the GX way (one master and a bunch of deltas) but is more of a mix between the GX process and the MM process. Superpolator is flexible on one hand but it still manages to be visual and intuitive. I think the task of finding the right balance between technical flexibility and UI feasibility is the hardest task in software design. </p>
+      <p>William, </p>
+      <p>indeed, with two masters, the results between MM and Superpolation should be identical. However, the next step in Superpolation is that you can add just a 3rd master while in the FontLab MM implementation, you need to add two more (ending up with four). </p>
+      <p>With Superpolator, you can have 5, 7, or 13 masters but of course also 4, 8 or 16 masters — and they can be in different locations on the design space. </p>
+      <p>For example, 4 masters in Superpolator can visually form an arbitrary quadrangle while in MM they have to form a rectangle. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>David, </p>
+      <p>Who’s picking on Erik? Not I, my Lord. </p>
+      <p>Just last week I met with Erik in Bad Homburg where he was doing presentations of Superpolator 2 and LetterSetter (developed by Erik) as well as MetricsMachine, FeatureProof and Prepolator (developed by Tal Leming). I was very impressed with all the tools. </p>
+      <p>I actually was picking on GX — because I think GX Variations was “too much”. I have heard from several people that designing GX Variantions fonts was hardly a practical process. With Superpolator, it is different, because Superpolator does not follow the GX way (one master and a bunch of deltas) but is more of a mix between the GX process and the MM process. Superpolator is flexible on one hand but it still manages to be visual and intuitive. I think the task of finding the right balance between technical flexibility and UI feasibility is the hardest task in software design. </p>
+      <p>William, </p>
+      <p>indeed, with two masters, the results between MM and Superpolation should be identical. However, the next step in Superpolation is that you can add just a 3rd master while in the FontLab MM implementation, you need to add two more (ending up with four). </p>
+      <p>With Superpolator, you can have 5, 7, or 13 masters but of course also 4, 8 or 16 masters — and they can be in different locations on the design space. </p>
+      <p>For example, 4 masters in Superpolator can visually form an arbitrary quadrangle while in MM they have to form a rectangle. </p>
+      <p>A.</p>
+  - id: 247165
+    user: 4763
+    date: 2007-12-17T11:56:00
+    date_raw: 17.Dec.2007 11.56am
+    votes: null
+    html: |-
+      <p><cite>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”.</cite></p>
+      <p>Adam, do you know how arbitrary mixing of masters in Superpolator works? How is it edited? And how is it connected to the input methods described in the screencast?<br>
+      If all I want is simply to mix my semibold out of -20% extralight, 80% regular and 40% extrabold, how would that be achieved? I cannot imagine any quadrangle doing that.</p>
+    html_clean: |-
+      <p><cite>the principle of arbitrary mixing various masters in different percentages is the very principle of “superpolation”.</cite></p>
+      <p>Adam, do you know how arbitrary mixing of masters in Superpolator works? How is it edited? And how is it connected to the input methods described in the screencast?<br>
+      If all I want is simply to mix my semibold out of -20% extralight, 80% regular and 40% extrabold, how would that be achieved? I cannot imagine any quadrangle doing that.</p>
+  - id: 247269
+    user: 1133
+    date: 2007-12-17T18:25:00
+    date_raw: 17.Dec.2007 6.25pm
+    votes: null
+    html: |-
+      <p>I’m not sure how you would position this in the Superpolator space visually, but I know that Erik has developed a GlyphMath module (<a href="http://robofab.org/howto/glyphmath.html" title="http://robofab.org/howto/glyphmath.html">http://robofab.org/howto/glyphmath.html</a> ). Using this, it should be possible to say something like <code>newfont = -0.2 * xl + 0.8 * rg + 0.4 * xb</code>. I don’t have Superpolator so I cannot test it myself. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>I’m not sure how you would position this in the Superpolator space visually, but I know that Erik has developed a GlyphMath module (<a href="http://robofab.org/howto/glyphmath.html" title="http://robofab.org/howto/glyphmath.html">http://robofab.org/howto/glyphmath.html</a> ). Using this, it should be possible to say something like <code>newfont = -0.2 * xl + 0.8 * rg + 0.4 * xb</code>. I don’t have Superpolator so I cannot test it myself. </p>
+      <p>Adam</p>
+  - id: 247272
+    user: 3135
+    date: 2007-12-17T18:45:00
+    date_raw: 17.Dec.2007 6.45pm
+    votes: null
+    html: |-
+      <p>Tracking</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Tracking</p>
+      <p>ChrisL</p>
+  - id: 247295
+    user: 1078
+    date: 2007-12-17T23:46:00
+    date_raw: 17.Dec.2007 11.46pm
+    votes: null
+    html: |-
+      <p>Tim:<br>
+      <cite>do you know how arbitrary mixing of masters in Superpolator works? How is it edited? And how is it connected to the input methods described in the screencast?<br>
+      If all I want is simply to mix my semibold out of -20% extralight, 80% regular and 40% extrabold, how would that be achieved? I cannot imagine any quadrangle doing that.<br>
+      </cite></p>
+      <p>in order to mix masters the way you describe, in Superpolator, or GX, you need to set up a separate axis for each, then pick values along each to get to the shape you want.</p>
+      <p>ExtraLightAxis: 1 master at 1000<br>
+      ExtraBoldAxis: 1 master at 1000<br>
+      I’d put the Regular at the origin of both axes. Then you can add or reduce the influence of all 3 masters.</p>
+      <p>As Adam points out, you can do the same thing with RoboFab’s glyphMath (in fact, that’s what Sp uses alot). You don’t even have to have Superpolator:<br>
+      <code><br>
+      # suppose a font with 3 interpolatable glyphs on A, B, C<br>
+      # calculate D based on 3 factors.<br>
+      from robofab.world import CurrentFont<br>
+      f = CurrentFont()<br>
+      xl = f['A']<br>
+      rg = f['B']<br>
+      xb = f['C']<br>
+      new = -0.2 * xl + .8 * rg + 0.4 * xb<br>
+      if 'D' not in f:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.newGlyph('D')<br>
+      f['D'].clear()<br>
+      f['D'].appendGlyph(new)<br>
+      f['D'].update()<br>
+      </code></p>
+      <p>Using Superpolator it would be a matter of exploring the design space to find the right combination of factors. If you already know what you want, it’s just as easy to use a glyphMath transformation.</p>
+    html_clean: |-
+      <p>Tim:<br>
+      <cite>do you know how arbitrary mixing of masters in Superpolator works? How is it edited? And how is it connected to the input methods described in the screencast?<br>
+      If all I want is simply to mix my semibold out of -20% extralight, 80% regular and 40% extrabold, how would that be achieved? I cannot imagine any quadrangle doing that.<br>
+      </cite></p>
+      <p>in order to mix masters the way you describe, in Superpolator, or GX, you need to set up a separate axis for each, then pick values along each to get to the shape you want.</p>
+      <p>ExtraLightAxis: 1 master at 1000<br>
+      ExtraBoldAxis: 1 master at 1000<br>
+      I’d put the Regular at the origin of both axes. Then you can add or reduce the influence of all 3 masters.</p>
+      <p>As Adam points out, you can do the same thing with RoboFab’s glyphMath (in fact, that’s what Sp uses alot). You don’t even have to have Superpolator:<br>
+      <code><br>
+      # suppose a font with 3 interpolatable glyphs on A, B, C<br>
+      # calculate D based on 3 factors.<br>
+      from robofab.world import CurrentFont<br>
+      f = CurrentFont()<br>
+      xl = f['A']<br>
+      rg = f['B']<br>
+      xb = f['C']<br>
+      new = -0.2 * xl + .8 * rg + 0.4 * xb<br>
+      if 'D' not in f:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.newGlyph('D')<br>
+      f['D'].clear()<br>
+      f['D'].appendGlyph(new)<br>
+      f['D'].update()<br>
+      </code></p>
+      <p>Using Superpolator it would be a matter of exploring the design space to find the right combination of factors. If you already know what you want, it’s just as easy to use a glyphMath transformation.</p>
+  - id: 247308
+    user: 4763
+    date: 2007-12-18T03:50:00
+    date_raw: 18.Dec.2007 3.50am
+    votes: null
+    html: |-
+      <p>Thanks for the explanations, everyone. Looks like it would be more of a trinagle, then.</p>
+      <p>In order to get my semibold cocktail I could also introduce a second, vertical “trueness” axis. The extralight and extrabold would be at the ends of the weight axis at trueness 0, and the true regular would be placed somewhere around the middle of the weight axis but on trueness 1 (middle top of the diagram). This is how I used to sketch it on paper. </p>
+      <p>That would also make it easy to compare a purely interpolated regular to the true regular, and even extrapolate something truer than true, just to visualise what constitutes a true regular.</p>
+    html_clean: |-
+      <p>Thanks for the explanations, everyone. Looks like it would be more of a trinagle, then.</p>
+      <p>In order to get my semibold cocktail I could also introduce a second, vertical “trueness” axis. The extralight and extrabold would be at the ends of the weight axis at trueness 0, and the true regular would be placed somewhere around the middle of the weight axis but on trueness 1 (middle top of the diagram). This is how I used to sketch it on paper. </p>
+      <p>That would also make it easy to compare a purely interpolated regular to the true regular, and even extrapolate something truer than true, just to visualise what constitutes a true regular.</p>
+  - id: 247523
+    user: 2969
+    date: 2007-12-19T05:59:00
+    date_raw: 19.Dec.2007 5.59am
+    votes: null
+    html: |-
+      <p>Adam’s: “I actually was picking on GX — because I think GX Variations was “too much”.”<br>
+      Perhaps, and perhaps for the tools available at the time. But having control over ’the middle’ of a typographic design space,,, was/is never too much. Don’t have superpolator? Not designed a GX font, but ya’ know “several people” who have? lol, riiight. Superpolator is close enough to GX for me to know  — I’ll not be needing FL for this Either. What Erik says in his last two lines, combined with what I said about neat and messy design speces, are all a typophile’s typophile needs to know. :-)</p>
+      <p>Tim’s: “That would also make it easy to compare a purely interpolated regular to the true regular, and even extrapolate something truer than true, just to visualise what constitutes a true regular.” I’m pretty sure this is what I mean. Why visualize?</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Adam’s: “I actually was picking on GX — because I think GX Variations was “too much”.”<br>
+      Perhaps, and perhaps for the tools available at the time. But having control over ’the middle’ of a typographic design space,,, was/is never too much. Don’t have superpolator? Not designed a GX font, but ya’ know “several people” who have? lol, riiight. Superpolator is close enough to GX for me to know  — I’ll not be needing FL for this Either. What Erik says in his last two lines, combined with what I said about neat and messy design speces, are all a typophile’s typophile needs to know. :-)</p>
+      <p>Tim’s: “That would also make it easy to compare a purely interpolated regular to the true regular, and even extrapolate something truer than true, just to visualise what constitutes a true regular.” I’m pretty sure this is what I mean. Why visualize?</p>
+      <p>Cheers!</p>
+  - id: 247622
+    user: 1133
+    date: 2007-12-19T16:15:00
+    date_raw: 19.Dec.2007 4.15pm
+    votes: null
+    html: |-
+      <p>David, </p>
+      <p>to me, “the tools available at the time” *are* the technology, realistically. </p>
+      <p>Type 1 would be just another font format if it were not for Fontographer. </p>
+      <p>And, dare I say, Multiple Master would completely sink in forgotenness since Adobe dropped it 8 years ago if it were not for FontLab Studio that allowed it to resurface as a font development technology (far from perfect, but good enough for many designers). </p>
+      <p>GX Variations are long forgotten (they don’t even work properly anymore in Mac OS X’s up-to-date text engine, CoreText that is) because the tools to make fonts in that format were awkward. </p>
+      <p>GX had support for rich typography and complex scripts long before OpenType, but it was OpenType that gained momentum, because (among others) there were tools that allowed people to make fonts in that format. </p>
+      <p>MM had the concept of “start at the ends and imagine the middle” and GX Variations had the concept of “start at the middle and imagine the ends”. That is my understanding. I don’t think either of those was really practical from a designer’s perspective. </p>
+      <p>Superpolator is neither, as far as I can tell. It has the concept of “start anywhere and put masters anywhere”, which is flexible though tough to visualize. Superpolator IS very promising and I’m keeping my fingers crossed. </p>
+      <p>&gt; Don’t have superpolator? Not designed a GX font, but ya’ know “several people”<br>
+      &gt; who have? lol, riiight. </p>
+      <p>When TrueType GX was introduced, I was in high school. Until 2000 or so, the only cases where I have seen a Mac was from a distance (which is not really surprising given that Microsoft localized their OS and applications into my native language very early on, and Apple did not seem to care.) </p>
+      <p>EvB told me he did a GX variations face once, at some point I did figure about the state table stuff, and about two years ago, I spent a whole afternoon with Dave Opstad, and he explained me GX Variations and other aspects GX. That was the first time I developed a grasp of that — after all, I’m just a moderately intelligent person, one a crack who can “get it” from just reading the specs. </p>
+      <p>I’ve never seen any GX tools, any GX applications. I’ve spoken to people at Linotype who had all but good things to say about GX. </p>
+      <p>I’m not sure what you mean by “lol, riiight” here, but I’m sure you have fun and you are right. :) </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>David, </p>
+      <p>to me, “the tools available at the time” *are* the technology, realistically. </p>
+      <p>Type 1 would be just another font format if it were not for Fontographer. </p>
+      <p>And, dare I say, Multiple Master would completely sink in forgotenness since Adobe dropped it 8 years ago if it were not for FontLab Studio that allowed it to resurface as a font development technology (far from perfect, but good enough for many designers). </p>
+      <p>GX Variations are long forgotten (they don’t even work properly anymore in Mac OS X’s up-to-date text engine, CoreText that is) because the tools to make fonts in that format were awkward. </p>
+      <p>GX had support for rich typography and complex scripts long before OpenType, but it was OpenType that gained momentum, because (among others) there were tools that allowed people to make fonts in that format. </p>
+      <p>MM had the concept of “start at the ends and imagine the middle” and GX Variations had the concept of “start at the middle and imagine the ends”. That is my understanding. I don’t think either of those was really practical from a designer’s perspective. </p>
+      <p>Superpolator is neither, as far as I can tell. It has the concept of “start anywhere and put masters anywhere”, which is flexible though tough to visualize. Superpolator IS very promising and I’m keeping my fingers crossed. </p>
+      <p>&gt; Don’t have superpolator? Not designed a GX font, but ya’ know “several people”<br>
+      &gt; who have? lol, riiight. </p>
+      <p>When TrueType GX was introduced, I was in high school. Until 2000 or so, the only cases where I have seen a Mac was from a distance (which is not really surprising given that Microsoft localized their OS and applications into my native language very early on, and Apple did not seem to care.) </p>
+      <p>EvB told me he did a GX variations face once, at some point I did figure about the state table stuff, and about two years ago, I spent a whole afternoon with Dave Opstad, and he explained me GX Variations and other aspects GX. That was the first time I developed a grasp of that — after all, I’m just a moderately intelligent person, one a crack who can “get it” from just reading the specs. </p>
+      <p>I’ve never seen any GX tools, any GX applications. I’ve spoken to people at Linotype who had all but good things to say about GX. </p>
+      <p>I’m not sure what you mean by “lol, riiight” here, but I’m sure you have fun and you are right. :) </p>
+      <p>Adam</p>
+  - id: 247631
+    user: 1262
+    date: 2007-12-19T17:33:00
+    date_raw: 19.Dec.2007 5.33pm
+    votes: null
+    html: |-
+      <p><em>to me, “the tools available at the time” *are* the technology</em></p>
+      <p>Adam’s a nominalist! Adam’s a nominalist! Nyanyanyanya! :)</p>
+    html_clean: |-
+      <p><em>to me, “the tools available at the time” *are* the technology</em></p>
+      <p>Adam’s a nominalist! Adam’s a nominalist! Nyanyanyanya! :)</p>
+  - id: 247645
+    user: 1133
+    date: 2007-12-19T18:13:00
+    date_raw: 19.Dec.2007 6.13pm
+    votes: null
+    html: |-
+      <p>Of course I am. I always thought that OpenType is just a sum of all fonts available in this format.<br>
+      A.</p>
+    html_clean: |-
+      <p>Of course I am. I always thought that OpenType is just a sum of all fonts available in this format.<br>
+      A.</p>
+  - id: 247940
+    user: 25290
+    date: 2007-12-21T05:27:00
+    date_raw: 21.Dec.2007 5.27am
+    votes: null
+    html: |-
+      <p>’GX Variations are long forgotten (they don’t even work properly anymore in Mac OS X’s up-to-date text engine, CoreText that is)’</p>
+      <p>Currently, Intaglio and Freeway can access Skia Light Condensed through to Extra Bold Extended and everything in between, all by dragging sliders. When CoreText is released, will this capability be missing?  </p>
+      <p>’spent a whole afternoon with Dave Opstad, and he explained me GX Variations and other aspects GX. That was the first time I developed a grasp of that’</p>
+      <p>Wow—you’re a lucky chap. Would you like to share your knowledge?</p>
+    html_clean: |-
+      <p>’GX Variations are long forgotten (they don’t even work properly anymore in Mac OS X’s up-to-date text engine, CoreText that is)’</p>
+      <p>Currently, Intaglio and Freeway can access Skia Light Condensed through to Extra Bold Extended and everything in between, all by dragging sliders. When CoreText is released, will this capability be missing?  </p>
+      <p>’spent a whole afternoon with Dave Opstad, and he explained me GX Variations and other aspects GX. That was the first time I developed a grasp of that’</p>
+      <p>Wow—you’re a lucky chap. Would you like to share your knowledge?</p>
+  - id: 247945
+    user: 1043
+    date: 2007-12-21T06:02:00
+    date_raw: 21.Dec.2007 6.02am
+    votes: null
+    html: <p>I have Freeway, Skia and Leopard (which includes CoreText). GX Variations may be forgotten, but they seem to still work.</p>
+    html_clean: <p>I have Freeway, Skia and Leopard (which includes CoreText). GX Variations may be forgotten, but they seem to still work.</p>
+  - id: 247947
+    user: 1043
+    date: 2007-12-21T06:24:00
+    date_raw: 21.Dec.2007 6.24am
+    votes: null
+    html: <p>I also note that there are 10 different weights listed for Skia, but only one font file. So, presumably, the weights are created synthetically by the OS for other programs where the sliders are absent. (Only Regular is available in Adobe CS and other non-Cocoa apps, though.)</p>
+    html_clean: <p>I also note that there are 10 different weights listed for Skia, but only one font file. So, presumably, the weights are created synthetically by the OS for other programs where the sliders are absent. (Only Regular is available in Adobe CS and other non-Cocoa apps, though.)</p>
+  - id: 247962
+    user: 2969
+    date: 2007-12-21T07:36:00
+    date_raw: 21.Dec.2007 7.36am
+    votes: null
+    html: |-
+      <p>“to me, “the tools available at the time” *are* the technology, realistically.”<br>
+      That’s a reasonable late adapter’s viewpoint, but ’realistically’, where is the future in that attitude? Illustrator and a text editor were not PostScript the technology. Royal-T (the original Truetype hint and contour editor), was not TrueType the technology. </p>
+      <p>“Type 1 would be just another font format if it were not for Fontographer.”<br>
+      That’s a nice typocentric thought. If Type 1 wasn’t the high quality font format of PostScript, and PostScript wasn’t by far the dominating force in Type 1’s rise, it’d be true. Besides which, Fontographer came first, a published Type 1 specification came second.</p>
+      <p>“GX Variations are long forgotten...”<br>
+      You’d have to redefine long and forgotten, or say Hi to Ian! and then there’s Erik’s work, which thankfully took long by my definition and forgot nothing, so far as I can find... but there’s always time. ;)</p>
+      <p>”...the tools to make fonts in that format were awkward.”<br>
+      I don’t find this to be the case at all. Can you compare and contrast Superpolator and Mutator from experience please? </p>
+      <p>“GX Variations had the concept of “start at the middle and imagine the ends””<br>
+      That nothing in the past, or now, can ’imagine’ ends, is certain. One actually draws the middle and may or may not draw ends in GX variations, or in Superpolator. But without at least a middle and one end (as one can probably imagine), there is no space for in-between, or for extrapolation outside.</p>
+      <p>Contrasting this with MM, and reaching a clear understanding in a proper framework of open-mindedness, typographic knowledge and with the aid of visuals, is obviously needed. I’ll try to do a skit of something at Typo, which seems to have all those capabilities in a conference environment :-)</p>
+      <p>The important things for designers of type to know, is that Superpolator has all of the advantages of GX Variations, a fabulous interface, it is OS current, it can make MMs like a slicer makes bread, or make Superpolations like MMs if a slice that is a whole loaf of bread is what one wants... and it is ufo compliant.</p>
+      <p>Cheers! and considering the time of year, additional Cheers!</p>
+    html_clean: |-
+      <p>“to me, “the tools available at the time” *are* the technology, realistically.”<br>
+      That’s a reasonable late adapter’s viewpoint, but ’realistically’, where is the future in that attitude? Illustrator and a text editor were not PostScript the technology. Royal-T (the original Truetype hint and contour editor), was not TrueType the technology. </p>
+      <p>“Type 1 would be just another font format if it were not for Fontographer.”<br>
+      That’s a nice typocentric thought. If Type 1 wasn’t the high quality font format of PostScript, and PostScript wasn’t by far the dominating force in Type 1’s rise, it’d be true. Besides which, Fontographer came first, a published Type 1 specification came second.</p>
+      <p>“GX Variations are long forgotten...”<br>
+      You’d have to redefine long and forgotten, or say Hi to Ian! and then there’s Erik’s work, which thankfully took long by my definition and forgot nothing, so far as I can find... but there’s always time. ;)</p>
+      <p>”...the tools to make fonts in that format were awkward.”<br>
+      I don’t find this to be the case at all. Can you compare and contrast Superpolator and Mutator from experience please? </p>
+      <p>“GX Variations had the concept of “start at the middle and imagine the ends””<br>
+      That nothing in the past, or now, can ’imagine’ ends, is certain. One actually draws the middle and may or may not draw ends in GX variations, or in Superpolator. But without at least a middle and one end (as one can probably imagine), there is no space for in-between, or for extrapolation outside.</p>
+      <p>Contrasting this with MM, and reaching a clear understanding in a proper framework of open-mindedness, typographic knowledge and with the aid of visuals, is obviously needed. I’ll try to do a skit of something at Typo, which seems to have all those capabilities in a conference environment :-)</p>
+      <p>The important things for designers of type to know, is that Superpolator has all of the advantages of GX Variations, a fabulous interface, it is OS current, it can make MMs like a slicer makes bread, or make Superpolations like MMs if a slice that is a whole loaf of bread is what one wants... and it is ufo compliant.</p>
+      <p>Cheers! and considering the time of year, additional Cheers!</p>
+  - id: 247986
+    user: 4763
+    date: 2007-12-21T10:04:00
+    date_raw: 21.Dec.2007 10.04am
+    votes: null
+    html: |-
+      <p><cite>MM had the concept of “start at the ends and imagine the middle”</cite></p>
+      <p>That may have been the concept but it is not how you have to use it. You can simply start designing a regular and then extend the design space only to one side, by adding a bold, for example. This would be “starting in the middle and extending towards one end”, without having to imagine anything. It is my impression that many, if not most designers work in that way.</p>
+    html_clean: |-
+      <p><cite>MM had the concept of “start at the ends and imagine the middle”</cite></p>
+      <p>That may have been the concept but it is not how you have to use it. You can simply start designing a regular and then extend the design space only to one side, by adding a bold, for example. This would be “starting in the middle and extending towards one end”, without having to imagine anything. It is my impression that many, if not most designers work in that way.</p>
+  - id: 248016
+    user: 1133
+    date: 2007-12-21T12:55:00
+    date_raw: 21.Dec.2007 12.55pm
+    votes: null
+    html: |-
+      <p>David, </p>
+      <p>by saying “to me, “the tools available at the time” *are* the technology, realistically,” I meant that the today’s current support in tools is the primary aspect of judging the value of a technology. Of course, every now and then, I gladly take out the glass ball from my drawer and play the visionary, and do some speculations and, hm, extrapolations. But realistically, if Fontographer had not been as brilliant as it was, and Royal T had been better (at the time), TrueType might have outdistanced Type 1 long time ago. If the market had 1000s of quality TrueType fonts and only a handful Type 1s, Adobe would have implemented proper TrueType support in PostScript earlier (and yet, they did, after all, anyway). </p>
+      <p>Royal T was free, and still, you told me that you preferred Fontographer Q. </p>
+      <p>&gt; Can you compare and contrast Superpolator and Mutator from experience please? </p>
+      <p>I can’t. I’ve never seen Mutator and I was not allowed to obtain a copy of Superpolator 2 when it was released. But from what EvB said last week I gather he thinks Superpolator is better than the old GX Variations drawing tools (I presume that was Mutator). </p>
+      <p>&gt;&gt; GX Variations are long forgotten...<br>
+      &gt; You’d have to redefine long and forgotten, </p>
+      <p>Dan Fenwick, currently one of the principal engineers on Apple’s text engines, says: “As I explained at the last WWDC, ATSUI is actually a very old technology that is getting very difficult to shim new technology into so we are strongly advocating developers use Cocoa and/or CoreText moving forward.” and “CoreText also has nearly all the support for AAT table layout that ATSUI has (only the very obscure AAT stuff is missing that nearly no one notices)” [1]</p>
+      <p>CoreText does use other GX/AAT aspects like the morx tables, allowing the use of small-caps, swashes, old-style numerals etc. — but not Variations. GX Variations (“the sliders”, gvar table) work in ATSUI but they never worked in AppKit or CoreText. So my guess is that the Variations are one of the things that the Apple engineer described as “very obscure AAT stuff that nearly no one notices”. </p>
+      <p>TextEdit used AppKit and in 10.5 uses CoreText, and I believe Keynote still uses AppKit. Apple once made an alternative to TextEdit called WorldText which used ATSUI, allowing the use of GX Variations. The app was included on the Developer disk up to Mac OS X 10.3 but was dropped since 10.4 on, and the older versions of WorldText crash when one tries to run them on 10.4 or 10.5. </p>
+      <p>Apple is actively advocating people to move away from ATSUI, the only environment that supports GX Variations. They no longer ship apps that use GX Variations (even for demo purposes). So, Variations are supported in the sense of “yeah, it will still somehow work if you know what you’re doing” but not in the sense of “here’s a technology, use it, we’ll tell you how”. </p>
+      <p>Maybe I was too harsh saying “long forgotten”. I should have said “GX Variations started to sink some considerable time ago, there is nothing to stop it but they haven’t touched the bottom yet.”</p>
+      <p>On the other hand, thumbs up for Superpolator. I’m glad to see that some of the Variations concepts resurfaced there, though obviously not in the same implementation details. </p>
+      <p>Best,<br>
+      Adam</p>
+      <p>[1] <a href="http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html" title="http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html">http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html</a></p>
+    html_clean: |-
+      <p>David, </p>
+      <p>by saying “to me, “the tools available at the time” *are* the technology, realistically,” I meant that the today’s current support in tools is the primary aspect of judging the value of a technology. Of course, every now and then, I gladly take out the glass ball from my drawer and play the visionary, and do some speculations and, hm, extrapolations. But realistically, if Fontographer had not been as brilliant as it was, and Royal T had been better (at the time), TrueType might have outdistanced Type 1 long time ago. If the market had 1000s of quality TrueType fonts and only a handful Type 1s, Adobe would have implemented proper TrueType support in PostScript earlier (and yet, they did, after all, anyway). </p>
+      <p>Royal T was free, and still, you told me that you preferred Fontographer Q. </p>
+      <p>&gt; Can you compare and contrast Superpolator and Mutator from experience please? </p>
+      <p>I can’t. I’ve never seen Mutator and I was not allowed to obtain a copy of Superpolator 2 when it was released. But from what EvB said last week I gather he thinks Superpolator is better than the old GX Variations drawing tools (I presume that was Mutator). </p>
+      <p>&gt;&gt; GX Variations are long forgotten...<br>
+      &gt; You’d have to redefine long and forgotten, </p>
+      <p>Dan Fenwick, currently one of the principal engineers on Apple’s text engines, says: “As I explained at the last WWDC, ATSUI is actually a very old technology that is getting very difficult to shim new technology into so we are strongly advocating developers use Cocoa and/or CoreText moving forward.” and “CoreText also has nearly all the support for AAT table layout that ATSUI has (only the very obscure AAT stuff is missing that nearly no one notices)” [1]</p>
+      <p>CoreText does use other GX/AAT aspects like the morx tables, allowing the use of small-caps, swashes, old-style numerals etc. — but not Variations. GX Variations (“the sliders”, gvar table) work in ATSUI but they never worked in AppKit or CoreText. So my guess is that the Variations are one of the things that the Apple engineer described as “very obscure AAT stuff that nearly no one notices”. </p>
+      <p>TextEdit used AppKit and in 10.5 uses CoreText, and I believe Keynote still uses AppKit. Apple once made an alternative to TextEdit called WorldText which used ATSUI, allowing the use of GX Variations. The app was included on the Developer disk up to Mac OS X 10.3 but was dropped since 10.4 on, and the older versions of WorldText crash when one tries to run them on 10.4 or 10.5. </p>
+      <p>Apple is actively advocating people to move away from ATSUI, the only environment that supports GX Variations. They no longer ship apps that use GX Variations (even for demo purposes). So, Variations are supported in the sense of “yeah, it will still somehow work if you know what you’re doing” but not in the sense of “here’s a technology, use it, we’ll tell you how”. </p>
+      <p>Maybe I was too harsh saying “long forgotten”. I should have said “GX Variations started to sink some considerable time ago, there is nothing to stop it but they haven’t touched the bottom yet.”</p>
+      <p>On the other hand, thumbs up for Superpolator. I’m glad to see that some of the Variations concepts resurfaced there, though obviously not in the same implementation details. </p>
+      <p>Best,<br>
+      Adam</p>
+      <p>[1] <a href="http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html" title="http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html">http://lists.apple.com/archives/carbon-dev/2007/Nov/msg00014.html</a></p>
+  - id: 248471
+    user: 2969
+    date: 2007-12-27T06:47:00
+    date_raw: 27.Dec.2007 6.47am
+    votes: null
+    html: |-
+      <p>Adam, “Royal T was free, and still, you told me that you preferred Fontographer Q.”<br>
+      Better Yet! Royal-T was free and I paid 1,000s to have Fog-Q developed! Drawing native TT and Generating TT point-accurate in my native application with my nice UI, was a priceless thing not so much a preference thing.</p>
+      <p>Adam, “...if Fontographer had not been []brilliant[], and Royal T had been better (at the time), TrueType might have outdistanced Type 1 long time ago...” </p>
+      <p>:——) If Adobe had exhibited grace, instead of fearmongering at TT ..., if Apple and Adobe had (right then,1990) finished their respective integrations of TT and T1... if MS had completed its cooperation with Apple on TT, to this day...and, if Jobs had not come home and rearranged the furniture, maybe...but that’s a lot of ifs. I’m sad to have to tell you, you having been in school for the first 1/2 of this, that slowing, de-standardizing and dumbing down TT as it rose into popular use took a rather broad and semi-disconcerted effort that Fontographer had little to do with in general, (and from day 1 of FOG’s generation of TT...FOG was a non-factor in keeping TT down).</p>
+      <p>But, regardless of how dumb TT has got for the end user, (and TT’s only a single dimension worth of hints away from dumb-as-T1, but lighter, for billions of PC users, with Mac users employing around 98% dumb-as-T1 type, but darker), how dumb should the general Type Designer’s tools be at recording variations of a design? I guess the answer is a firm and general, dumb as T1 MM 1.0. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Adam, “Royal T was free, and still, you told me that you preferred Fontographer Q.”<br>
+      Better Yet! Royal-T was free and I paid 1,000s to have Fog-Q developed! Drawing native TT and Generating TT point-accurate in my native application with my nice UI, was a priceless thing not so much a preference thing.</p>
+      <p>Adam, “...if Fontographer had not been []brilliant[], and Royal T had been better (at the time), TrueType might have outdistanced Type 1 long time ago...” </p>
+      <p>:——) If Adobe had exhibited grace, instead of fearmongering at TT ..., if Apple and Adobe had (right then,1990) finished their respective integrations of TT and T1... if MS had completed its cooperation with Apple on TT, to this day...and, if Jobs had not come home and rearranged the furniture, maybe...but that’s a lot of ifs. I’m sad to have to tell you, you having been in school for the first 1/2 of this, that slowing, de-standardizing and dumbing down TT as it rose into popular use took a rather broad and semi-disconcerted effort that Fontographer had little to do with in general, (and from day 1 of FOG’s generation of TT...FOG was a non-factor in keeping TT down).</p>
+      <p>But, regardless of how dumb TT has got for the end user, (and TT’s only a single dimension worth of hints away from dumb-as-T1, but lighter, for billions of PC users, with Mac users employing around 98% dumb-as-T1 type, but darker), how dumb should the general Type Designer’s tools be at recording variations of a design? I guess the answer is a firm and general, dumb as T1 MM 1.0. </p>
+      <p>Cheers!</p>

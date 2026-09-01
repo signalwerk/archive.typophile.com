@@ -1,0 +1,174 @@
+node: 92576
+title: Wildcard for Opentype Substitution code?
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20120514202807"
+  captured_at: 2012-05-14T20:28:07Z
+  url: http://typophile.com/node/92576
+  digest: K5WKER47UBZVBHXQJYJVFZYMIL7QZAML
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/92576.html
+  fingerprint: c96f5700d185d73b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120514202807"
+      digest: K5WKER47UBZVBHXQJYJVFZYMIL7QZAML
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/92576.html
+post:
+  id: 92576
+  user: 181264
+  date: 2012-04-28T09:42:00
+  date_raw: 28 Apr 2012 — 9:42am
+  votes: null
+  html: |-
+    <p>I want to work with spaces in my sub code, or rather the glyphs immediately adjacent to the space.  I wonder if there is any way I could use a wildcard and simple variables to make this code a lot shorter. I'm trying to have a special glyh substition for all glyphs at the end of words, and all glyphs at the begining of words.</p>
+    <p>If not I could always generate a line of code for every glyph - space combination, and every space - glyph combination.</p>
+  html_clean: |-
+    <p>I want to work with spaces in my sub code, or rather the glyphs immediately adjacent to the space.  I wonder if there is any way I could use a wildcard and simple variables to make this code a lot shorter. I'm trying to have a special glyh substition for all glyphs at the end of words, and all glyphs at the begining of words.</p>
+    <p>If not I could always generate a line of code for every glyph - space combination, and every space - glyph combination.</p>
+comments:
+  - id: 507847
+    user: 6470
+    date: 2012-04-28T10:50:00
+    date_raw: 28 Apr 2012 — 10:50am
+    votes: null
+    html: |-
+      <p>Sounds like a job for <strong>init</strong> and<strong> fina</strong> features, but I have yet to use them, so I’m not much help. However, the same thing can be accomplished with the <strong>calt</strong> feature.</p>
+      <p>As I understand it (which I may not, and amendment will surely follow), text strings within brackets are processed and/or recognized sequentially, so—instead of a line of code for every glyph—you could use code like this:<br>
+      <code>sub [ a b c d e f etc .]' space by [ a.fina b.fina c.fina d.fina e.fina f.fina etc.fina ];</code></p>
+    html_clean: |-
+      <p>Sounds like a job for <strong>init</strong> and<strong> fina</strong> features, but I have yet to use them, so I’m not much help. However, the same thing can be accomplished with the <strong>calt</strong> feature.</p>
+      <p>As I understand it (which I may not, and amendment will surely follow), text strings within brackets are processed and/or recognized sequentially, so—instead of a line of code for every glyph—you could use code like this:<br>
+      <code>sub [ a b c d e f etc .]' space by [ a.fina b.fina c.fina d.fina e.fina f.fina etc.fina ];</code></p>
+  - id: 507936
+    user: 181264
+    date: 2012-04-29T13:18:00
+    date_raw: 29 Apr 2012 — 1:18pm
+    votes: null
+    html: <p>Yes init and fina seem to be exactly what im looking for. Researching them has led to more confusion however. Looks like I need to make 2 substitution tables. I have no idea how to do that.  Moreover I can't find anything on what the code would actually look like, or how to go about doing all this in fontlab.</p>
+    html_clean: <p>Yes init and fina seem to be exactly what im looking for. Researching them has led to more confusion however. Looks like I need to make 2 substitution tables. I have no idea how to do that.  Moreover I can't find anything on what the code would actually look like, or how to go about doing all this in fontlab.</p>
+  - id: 507937
+    user: 3254
+    date: 2012-04-29T13:49:00
+    date_raw: 29 Apr 2012 — 1:49pm
+    votes: null
+    html: |-
+      <p>See <a href="http://www.www.typophile.com/node/60990" title="http://www.www.typophile.com/node/60990">http://www.www.typophile.com/node/60990</a><br>
+      As for "wildcards," isn't that what OpenType classes more or less do?</p>
+    html_clean: |-
+      <p>See <a href="http://www.www.typophile.com/node/60990" title="http://www.www.typophile.com/node/60990">http://www.www.typophile.com/node/60990</a><br>
+      As for "wildcards," isn't that what OpenType classes more or less do?</p>
+  - id: 508090
+    user: 181264
+    date: 2012-05-01T15:11:00
+    date_raw: 1 May 2012 — 3:11pm
+    votes: null
+    html: |-
+      <p>Ok, Im advancing myself a little farther down this rabbit hole:<br>
+      Very hard to find actual examples of opentype code online.<br>
+      Lots of sites describing its capabilities, and a few sites that list all its "features" aka methods,<br>
+      but very little actual code examples.</p>
+      <p>It seems like this is what I want, though I haven't been able to get it to work:</p>
+      <p>@LETTERS = [ &lt; all letters in the font that could be part of a word&gt;];</p>
+      <p>feature clig {<br>
+      lookup BEGIN_WORD_LIGS {<br>
+      ignore @LETTERS @LETTERS'; # will match any word glyph preceeded by another word glyph.<br>
+      sub c t by c_t.begin; # you know that there is no word glyph before the 'ct' sequence.<br>
+      };</p>
+      <p>lookup END_WORD_LIGS {<br>
+      ignore @LETTERS' @LETTERS; # will match any word glyph followed by another word glyph.<br>
+      sub o f f by o_f_f.end; # you know that there is no word glyph after the 'off' sequence.<br>
+      };<br>
+      } clig; </p>
+      <p>I get that they are addressing a class with the @LETTERS, but did they have to create this class through fontlab somehow, as in a new set of glyphs? That is, is it or is it not being substantiated in the actual code itself?  And why isn't Fina or Init being used here?  Is Lookup an actual built-in function, or "feature", or just what the author chose to name this function right here in this example?</p>
+    html_clean: |-
+      <p>Ok, Im advancing myself a little farther down this rabbit hole:<br>
+      Very hard to find actual examples of opentype code online.<br>
+      Lots of sites describing its capabilities, and a few sites that list all its "features" aka methods,<br>
+      but very little actual code examples.</p>
+      <p>It seems like this is what I want, though I haven't been able to get it to work:</p>
+      <p>@LETTERS = [ &lt; all letters in the font that could be part of a word&gt;];</p>
+      <p>feature clig {<br>
+      lookup BEGIN_WORD_LIGS {<br>
+      ignore @LETTERS @LETTERS'; # will match any word glyph preceeded by another word glyph.<br>
+      sub c t by c_t.begin; # you know that there is no word glyph before the 'ct' sequence.<br>
+      };</p>
+      <p>lookup END_WORD_LIGS {<br>
+      ignore @LETTERS' @LETTERS; # will match any word glyph followed by another word glyph.<br>
+      sub o f f by o_f_f.end; # you know that there is no word glyph after the 'off' sequence.<br>
+      };<br>
+      } clig; </p>
+      <p>I get that they are addressing a class with the @LETTERS, but did they have to create this class through fontlab somehow, as in a new set of glyphs? That is, is it or is it not being substantiated in the actual code itself?  And why isn't Fina or Init being used here?  Is Lookup an actual built-in function, or "feature", or just what the author chose to name this function right here in this example?</p>
+  - id: 508099
+    user: 48268
+    date: 2012-05-01T09:41:00
+    date_raw: 1 May 2012 — 9:41am
+    votes: null
+    html: <p>If you have not already seen it you may find <a class="freelinking external" href="http://ilovetypography.com/OpenType/opentype-features.html" rel="nofollow">this</a> useful.</p>
+    html_clean: <p>If you have not already seen it you may find <a class="freelinking external" href="http://ilovetypography.com/OpenType/opentype-features.html" rel="nofollow">this</a> useful.</p>
+  - id: 508911
+    user: 76756
+    date: 2012-05-07T07:13:00
+    date_raw: 7 May 2012 — 7:13am
+    votes: null
+    html: |-
+      <p>Hello  Ryan, </p>
+      <p>I am not an expert on OT myself, but after a lot of trial and error I managed to achieve a pretty sophisticated result...</p>
+      <p>You can see my code in this thread: <a href="http://typophile.com/node/92348" title="http://typophile.com/node/92348">http://typophile.com/node/92348</a></p>
+      <p>About your issue: Isn't "space" just a glyph like any other? It would make sense for it to be...</p>
+    html_clean: |-
+      <p>Hello  Ryan, </p>
+      <p>I am not an expert on OT myself, but after a lot of trial and error I managed to achieve a pretty sophisticated result...</p>
+      <p>You can see my code in this thread: <a href="/node/92348/" title="http://typophile.com/node/92348">http://typophile.com/node/92348</a></p>
+      <p>About your issue: Isn't "space" just a glyph like any other? It would make sense for it to be...</p>
+  - id: 509349
+    user: 909
+    date: 2012-05-10T17:04:00
+    date_raw: 10 May 2012 — 5:04pm
+    votes: null
+    html: |-
+      <p>"I get that they are addressing a class with the @LETTERS, but did they have to create this class through fontlab somehow,"</p>
+      <p>Yes.<br>
+      "as in a new set of glyphs?"</p>
+      <p>New glyphs? Presumably not: the whole point was to reference all existing letter glyphs in the font.</p>
+      <p>&gt; That is, is it or is it not being substantiated in the actual code itself? </p>
+      <p>Yes, there needs to be code for it. There are no built-in classes in FontLab or OpenType.</p>
+      <p>&gt;And why isn't Fina or Init being used here? </p>
+      <p>That's a question for the person who wrote the code. If it were me, my most likely reason to avoid 'init' and 'fina' would be poor app support. Even InDesign, which does support these features, contradicts the OpenType spec by not having them on by default. I lobbied hard to get them supported, but couldn't get them on by default.  :(</p>
+      <p>&gt; Is Lookup an actual built-in function, or "feature", or just what the author chose to name this function right here in this example?</p>
+      <p>The concept of a lookup is fundamental to OpenType itself. The AFDKO feature language supports it directly for those cases where a lookup needs to be explicitly handled for some reason. Your feature code will otherwise create one lookup per OT feature where it is not explicit.</p>
+    html_clean: |-
+      <p>"I get that they are addressing a class with the @LETTERS, but did they have to create this class through fontlab somehow,"</p>
+      <p>Yes.<br>
+      "as in a new set of glyphs?"</p>
+      <p>New glyphs? Presumably not: the whole point was to reference all existing letter glyphs in the font.</p>
+      <p>&gt; That is, is it or is it not being substantiated in the actual code itself? </p>
+      <p>Yes, there needs to be code for it. There are no built-in classes in FontLab or OpenType.</p>
+      <p>&gt;And why isn't Fina or Init being used here? </p>
+      <p>That's a question for the person who wrote the code. If it were me, my most likely reason to avoid 'init' and 'fina' would be poor app support. Even InDesign, which does support these features, contradicts the OpenType spec by not having them on by default. I lobbied hard to get them supported, but couldn't get them on by default.  :(</p>
+      <p>&gt; Is Lookup an actual built-in function, or "feature", or just what the author chose to name this function right here in this example?</p>
+      <p>The concept of a lookup is fundamental to OpenType itself. The AFDKO feature language supports it directly for those cases where a lookup needs to be explicitly handled for some reason. Your feature code will otherwise create one lookup per OT feature where it is not explicit.</p>
+  - id: 509350
+    user: 909
+    date: 2012-05-10T17:05:00
+    date_raw: 10 May 2012 — 5:05pm
+    votes: null
+    html: <p>BTW, this discussion really belongs in "Build" rather than "General Discussions."</p>
+    html_clean: <p>BTW, this discussion really belongs in "Build" rather than "General Discussions."</p>

@@ -1,0 +1,133 @@
+node: 101020
+title: Is there any way to put Unicodes in encoding files?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420051339"
+  captured_at: 2015-04-20T05:13:39Z
+  url: http://typophile.com/node/101020
+  digest: H5B5YI3JDL2DXOYGPE2T7QXW6BPQ7TJZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/101020.html
+  fingerprint: 41960a1b6d1b074f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420051339"
+      digest: H5B5YI3JDL2DXOYGPE2T7QXW6BPQ7TJZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/101020.html
+post:
+  id: 101020
+  user: 209335
+  date: 2013-03-02T10:16:00
+  date_raw: 2 Mar 2013 — 10:16am
+  votes: null
+  html: |-
+    <p>Hi!</p>
+    <p>I'm trying to create a standard encoding for my fonts, but there are some glyphs that FontLab doesn't recognice, or even defines with incorrect unicode. Theese are the ones i've been having problems:</p>
+    <p>Germandbls (should be U+1E9E)<br>
+    Tcedilla (should be U+0162)<br>
+    Tcommaaccent (should be U+021A)<br>
+    tcedilla (should be U+0163)<br>
+    tcommaaccent (should be U+021B)</p>
+    <p>Is there any way to creating a encoding (.enc) that gives name+unicode to each glyph?</p>
+  html_clean: |-
+    <p>Hi!</p>
+    <p>I'm trying to create a standard encoding for my fonts, but there are some glyphs that FontLab doesn't recognice, or even defines with incorrect unicode. Theese are the ones i've been having problems:</p>
+    <p>Germandbls (should be U+1E9E)<br>
+    Tcedilla (should be U+0162)<br>
+    Tcommaaccent (should be U+021A)<br>
+    tcedilla (should be U+0163)<br>
+    tcommaaccent (should be U+021B)</p>
+    <p>Is there any way to creating a encoding (.enc) that gives name+unicode to each glyph?</p>
+comments:
+  - id: 545371
+    user: 803
+    date: 2013-03-02T10:39:00
+    date_raw: 2 Mar 2013 — 10:39am
+    votes: null
+    html: <p>You don't say what app or platform you are using, but if you are using FL Studio you can define your own .enc file and FLS can use it. Check the manual (page 154) or the FontLab Forum for more information about your particular platform.</p>
+    html_clean: <p>You don't say what app or platform you are using, but if you are using FL Studio you can define your own .enc file and FLS can use it. Check the manual (page 154) or the FontLab Forum for more information about your particular platform.</p>
+  - id: 545374
+    user: 209335
+    date: 2013-03-02T10:31:00
+    date_raw: 2 Mar 2013 — 10:31am
+    votes: null
+    html: |-
+      <p>I'm using FontLab on PC. And I already have my .enc file ready to use.<br>
+      The thing is that when I use my encoding in FontLab those glyphs have the wrong Unicode.</p>
+    html_clean: |-
+      <p>I'm using FontLab on PC. And I already have my .enc file ready to use.<br>
+      The thing is that when I use my encoding in FontLab those glyphs have the wrong Unicode.</p>
+  - id: 545375
+    user: 803
+    date: 2013-03-02T10:42:00
+    date_raw: 2 Mar 2013 — 10:42am
+    votes: null
+    html: <p>Someone here may chime in with an answer, but I don't have it. If I encountered that problem I would ask about it in the FontLab Forums.</p>
+    html_clean: <p>Someone here may chime in with an answer, but I don't have it. If I encountered that problem I would ask about it in the FontLab Forums.</p>
+  - id: 545382
+    user: 1262
+    date: 2013-03-02T11:45:00
+    date_raw: 2 Mar 2013 — 11:45am
+    votes: null
+    html: |-
+      <p>Name-to-Unicode mappings are stored in .nam files in the \FontLab\Shared\Mapping folder, independent of the .enc files in the \Encoding folder. So you set up the name-to-Unicode mappings in a .nam file, and then use those names in a .enc file. In FontLab, you then need to use the 'Generate Unicode' dialogue in the Glyph/Glyph Names menu to select a default .nam to use. [Note that every once in a while, FontLab will revert to its Standard .nam and you will need to reset the default.]</p>
+      <p>PS. I recommend creating your own .nam files, even if based on those provided by FontLab, rather than editing the Standard .nam.</p>
+    html_clean: |-
+      <p>Name-to-Unicode mappings are stored in .nam files in the \FontLab\Shared\Mapping folder, independent of the .enc files in the \Encoding folder. So you set up the name-to-Unicode mappings in a .nam file, and then use those names in a .enc file. In FontLab, you then need to use the 'Generate Unicode' dialogue in the Glyph/Glyph Names menu to select a default .nam to use. [Note that every once in a while, FontLab will revert to its Standard .nam and you will need to reset the default.]</p>
+      <p>PS. I recommend creating your own .nam files, even if based on those provided by FontLab, rather than editing the Standard .nam.</p>
+  - id: 545511
+    user: 187995
+    date: 2013-03-03T15:00:00
+    date_raw: 3 Mar 2013 — 3:00pm
+    votes: null
+    html: |-
+      <p>I can't seem to find standard.nam anywhere, though I do have a folder \Fontlab\Shared\Mapping that contains readme_nam.txt.</p>
+      <p>Where should I look for it -- or is my [Windows] FL Studio 5.0.4 installation deficient?</p>
+    html_clean: |-
+      <p>I can't seem to find standard.nam anywhere, though I do have a folder \Fontlab\Shared\Mapping that contains readme_nam.txt.</p>
+      <p>Where should I look for it -- or is my [Windows] FL Studio 5.0.4 installation deficient?</p>
+  - id: 545532
+    user: 1262
+    date: 2013-03-03T17:41:00
+    date_raw: 3 Mar 2013 — 5:41pm
+    votes: null
+    html: <p>Somewhat confusingly, FontLab can store .enc, .nam, etc. and also macros in more than one location. The default location on Windows is not the folders in FontLab's app folder, but the ones at [User]\My Documents\FontLab. Check there.</p>
+    html_clean: <p>Somewhat confusingly, FontLab can store .enc, .nam, etc. and also macros in more than one location. The default location on Windows is not the folders in FontLab's app folder, but the ones at [User]\My Documents\FontLab. Check there.</p>
+  - id: 545538
+    user: 187995
+    date: 2013-03-03T18:23:00
+    date_raw: 3 Mar 2013 — 6:23pm
+    votes: null
+    html: <p>Sorry my earlier post didn't come through as I intended, but I was looking in [Users]\My Documents\Fontlab. :-(</p>
+    html_clean: <p>Sorry my earlier post didn't come through as I intended, but I was looking in [Users]\My Documents\Fontlab. :-(</p>
+  - id: 545614
+    user: 1262
+    date: 2013-03-04T10:34:00
+    date_raw: 4 Mar 2013 — 10:34am
+    votes: null
+    html: <p>Oh, try the FontLab folders in Application Files.</p>
+    html_clean: <p>Oh, try the FontLab folders in Application Files.</p>
+  - id: 549325
+    user: 209335
+    date: 2013-04-02T08:33:00
+    date_raw: 2 Apr 2013 — 8:33am
+    votes: null
+    html: <p>Thanks everyone this has been very helpful!</p>
+    html_clean: <p>Thanks everyone this has been very helpful!</p>

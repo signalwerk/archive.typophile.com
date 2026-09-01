@@ -1,0 +1,136 @@
+node: 71477
+title: Which Open-Type feature should I use?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140723081542"
+  captured_at: 2014-07-23T08:15:42Z
+  url: http://typophile.com/node/71477
+  digest: OS35ZC4GTBG5GC6ZNJGRXTDAYZPSLDOE
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/71477.html
+  fingerprint: 954dfb94f3bb0169
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140723081542"
+      digest: OS35ZC4GTBG5GC6ZNJGRXTDAYZPSLDOE
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71477.html
+post:
+  id: 71477
+  user: 52319
+  date: 2010-06-18T09:11:00
+  date_raw: 18 Jun 2010 — 9:11am
+  votes: null
+  html: |-
+    <p>I created a font for a school assignment a while ago, and I'm having a little trouble with Open-Type in order to make it work properly.see the font here: <a href="http://www.behance.net/gallery/Shoelace-Typefeet/465085" title="http://www.behance.net/gallery/Shoelace-Typefeet/465085">http://www.behance.net/gallery/Shoelace-Typefeet/465085</a><br>
+    Since the typeface uses shoes as characters, I needed it to be like this:<br>
+    Right foot, Left foot,Right foot, Left foot,Right foot, Left foot,</p>
+    <p>At first I just put all the right feet in uppercase glyphs and left feet in lowercase glyphs, so you needed to type ThIs WaY to make it work (not the best solution, but I had a tight deadline). Now I am trying to find an open-type solution to make it look right regardless of how you write, but I'm not sure about which open-type feature I should use.<br>
+    I am a bit of a noob at Font Lab, so any help would be appreciated.<br>
+    (and sorry if my english is a bit confusing)</p>
+    <p>Thanks a lot!</p>
+  html_clean: |-
+    <p>I created a font for a school assignment a while ago, and I'm having a little trouble with Open-Type in order to make it work properly.see the font here: <a href="http://www.behance.net/gallery/Shoelace-Typefeet/465085" title="http://www.behance.net/gallery/Shoelace-Typefeet/465085">http://www.behance.net/gallery/Shoelace-Typefeet/465085</a><br>
+    Since the typeface uses shoes as characters, I needed it to be like this:<br>
+    Right foot, Left foot,Right foot, Left foot,Right foot, Left foot,</p>
+    <p>At first I just put all the right feet in uppercase glyphs and left feet in lowercase glyphs, so you needed to type ThIs WaY to make it work (not the best solution, but I had a tight deadline). Now I am trying to find an open-type solution to make it look right regardless of how you write, but I'm not sure about which open-type feature I should use.<br>
+    I am a bit of a noob at Font Lab, so any help would be appreciated.<br>
+    (and sorry if my english is a bit confusing)</p>
+    <p>Thanks a lot!</p>
+comments:
+  - id: 416488
+    user: 7006
+    date: 2010-06-18T10:44:00
+    date_raw: 18 Jun 2010 — 10:44am
+    votes: null
+    html: <p>use the contextual alternates (calt) feature.</p>
+    html_clean: <p>use the contextual alternates (calt) feature.</p>
+  - id: 416489
+    user: 1262
+    date: 2010-06-18T10:47:00
+    date_raw: 18 Jun 2010 — 10:47am
+    votes: null
+    html: |-
+      <p>Try the Contextual Alternates 'calt' feature.</p>
+      <p>First, I suggest you make all the default characters right feet glyphs, so that regardless of whether the user types upper or lowercase characters the text always begins on a right foot. Then make a 'calt' contextual lookup that replaces a right foot glyph with a left foot glyph when preceded by a right foot.</p>
+      <p>You need to think about what you want to happen across wordspace boundaries. Using L and R as foot indicators, do you want</p>
+      <p>RLRLR LRLRL RLRLR...</p>
+      <p>or</p>
+      <p>RLRLR RLRLR RLRLR...</p>
+      <p>If you want the first option, then your contextual substitution needs to have two contexts: when preceded by right foot and when preceded by right foot + space.</p>
+    html_clean: |-
+      <p>Try the Contextual Alternates 'calt' feature.</p>
+      <p>First, I suggest you make all the default characters right feet glyphs, so that regardless of whether the user types upper or lowercase characters the text always begins on a right foot. Then make a 'calt' contextual lookup that replaces a right foot glyph with a left foot glyph when preceded by a right foot.</p>
+      <p>You need to think about what you want to happen across wordspace boundaries. Using L and R as foot indicators, do you want</p>
+      <p>RLRLR LRLRL RLRLR...</p>
+      <p>or</p>
+      <p>RLRLR RLRLR RLRLR...</p>
+      <p>If you want the first option, then your contextual substitution needs to have two contexts: when preceded by right foot and when preceded by right foot + space.</p>
+  - id: 418444
+    user: 52319
+    date: 2010-07-01T17:42:00
+    date_raw: 1 Jul 2010 — 5:42pm
+    votes: null
+    html: |-
+      <p>So, let me see if I got it:</p>
+      <p>1-Put Right Foot (R) on all regular glyphs<br>
+      2-Create alternate glyphs (calt) for every regular glyph with the Left Foot (L) in it<br>
+      3-Add a rule to replace RR by RL</p>
+      <p>Is that it?</p>
+      <p>Thanks a lot for the help/attention!</p>
+    html_clean: |-
+      <p>So, let me see if I got it:</p>
+      <p>1-Put Right Foot (R) on all regular glyphs<br>
+      2-Create alternate glyphs (calt) for every regular glyph with the Left Foot (L) in it<br>
+      3-Add a rule to replace RR by RL</p>
+      <p>Is that it?</p>
+      <p>Thanks a lot for the help/attention!</p>
+  - id: 418455
+    user: 1262
+    date: 2010-07-01T20:02:00
+    date_raw: 1 Jul 2010 — 8:02pm
+    votes: null
+    html: <p>That's right.</p>
+    html_clean: <p>That's right.</p>
+  - id: 418757
+    user: 52319
+    date: 2010-07-04T15:49:00
+    date_raw: 4 Jul 2010 — 3:49pm
+    votes: null
+    html: |-
+      <p>It worked!<br>
+      Thanks a lot!<br>
+      The quote on the opentype programming tricked me for a while, but after reading some forums about opentype features I finally payed close enough attention to see how it worked</p>
+    html_clean: |-
+      <p>It worked!<br>
+      Thanks a lot!<br>
+      The quote on the opentype programming tricked me for a while, but after reading some forums about opentype features I finally payed close enough attention to see how it worked</p>
+  - id: 422024
+    user: 31385
+    date: 2010-07-24T23:04:00
+    date_raw: 24 Jul 2010 — 11:04pm
+    votes: null
+    html: |-
+      <p>Not Needed... you only need 2 glyphes right and left/</p>
+      <p>now... sub the first with a right foot/<br>
+      if the on before is right sub current letter with left, if the letter befor is left sub current with right</p>
+    html_clean: |-
+      <p>Not Needed... you only need 2 glyphes right and left/</p>
+      <p>now... sub the first with a right foot/<br>
+      if the on before is right sub current letter with left, if the letter befor is left sub current with right</p>

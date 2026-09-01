@@ -1,0 +1,153 @@
+node: 71336
+title: f-ligature coding
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100616161547"
+  captured_at: 2010-06-16T16:15:47Z
+  url: http://typophile.com:80/node/71336
+  digest: WAOCOBE7TNFTW4PPVTBBWBQTFUUO6KZA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/71336.html
+  fingerprint: 041d80d000bd7c4a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100616161547"
+      digest: WAOCOBE7TNFTW4PPVTBBWBQTFUUO6KZA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71336.html
+post:
+  id: 71336
+  user: 20652
+  date: 2010-06-14T11:29:00
+  date_raw: 14.Jun.2010 11.29am
+  votes: null
+  html: |-
+    <p>I've been working on some code and developed a liga feature that creates [fb fh fi figrave fj fk fl] ligatures by replacing the base form of f with a shortened-hood variant. I gather that for Mac compatibility I also need to include fi and fl ligatures as single glyphs.</p>
+    <p>There's also very narrow f alternates for next to the idieresis and icircumflex.</p>
+    <p>I have also developed some code that applies to [ff ffb ffh ffi ffigrave ffj ffk and ffl] or any number of fs preceding these letters. It replaces the initial f with a slightly lower-hooded variant (and any following ones that are followed by another f) and the final f by the shorter version. That way I don't need to create new glyphs for all these combinations and for the [fff] variants.</p>
+    <p>Here's the code:</p>
+    <p><code>feature liga {<br>
+    <code>  sub f'f by f.low;<br>
+    <code>    #lowers the hood of any fs except last in chain<br>
+    <code>  sub f' [b h i igrave j k l] by f.medium;<br>
+    <code>    #shortens the hood of normal height f<br>
+    <code>    #which is last in chain<br>
+    <code>  sub f' icircumflex by f.short;<br>
+    <code>  sub f' idieresis by f.shortest;<br>
+    <code>  sub T' h' by Th;<br>
+    <code>} liga;</code></code></code></code></code></code></code></code></code></code></p>
+    <p>Question is can anyone see any problems with doing things this way? And is there any way to neaten up the code further? I'm not a programmer but it works.</p>
+  html_clean: |-
+    <p>I've been working on some code and developed a liga feature that creates [fb fh fi figrave fj fk fl] ligatures by replacing the base form of f with a shortened-hood variant. I gather that for Mac compatibility I also need to include fi and fl ligatures as single glyphs.</p>
+    <p>There's also very narrow f alternates for next to the idieresis and icircumflex.</p>
+    <p>I have also developed some code that applies to [ff ffb ffh ffi ffigrave ffj ffk and ffl] or any number of fs preceding these letters. It replaces the initial f with a slightly lower-hooded variant (and any following ones that are followed by another f) and the final f by the shorter version. That way I don't need to create new glyphs for all these combinations and for the [fff] variants.</p>
+    <p>Here's the code:</p>
+    <p><code>feature liga {<br>
+    <code>  sub f'f by f.low;<br>
+    <code>    #lowers the hood of any fs except last in chain<br>
+    <code>  sub f' [b h i igrave j k l] by f.medium;<br>
+    <code>    #shortens the hood of normal height f<br>
+    <code>    #which is last in chain<br>
+    <code>  sub f' icircumflex by f.short;<br>
+    <code>  sub f' idieresis by f.shortest;<br>
+    <code>  sub T' h' by Th;<br>
+    <code>} liga;</code></code></code></code></code></code></code></code></code></code></p>
+    <p>Question is can anyone see any problems with doing things this way? And is there any way to neaten up the code further? I'm not a programmer but it works.</p>
+comments:
+  - id: 415834
+    user: 2021
+    date: 2010-06-14T12:39:00
+    date_raw: 14.Jun.2010 12.39pm
+    votes: null
+    html: |-
+      <p>I haven't come across any problems doing this kind of thing.<br>
+      Technically it's not a ligature, more of a contextual alternate, but so what.<br>
+      Some foundries make these extra ligatures discretionary (dlig), but IMO liga is best, on by dfault.<br>
+      You can neaten up the code by putting glyphs in brackets into a class -- this may help you manage kerning situations with capitals such as T.</p>
+      <p><em>sub T' h' by Th;</em></p>
+      <p>That's an Adobe trope.</p>
+    html_clean: |-
+      <p>I haven't come across any problems doing this kind of thing.<br>
+      Technically it's not a ligature, more of a contextual alternate, but so what.<br>
+      Some foundries make these extra ligatures discretionary (dlig), but IMO liga is best, on by dfault.<br>
+      You can neaten up the code by putting glyphs in brackets into a class -- this may help you manage kerning situations with capitals such as T.</p>
+      <p><em>sub T' h' by Th;</em></p>
+      <p>That's an Adobe trope.</p>
+  - id: 415849
+    user: 1133
+    date: 2010-06-14T14:27:00
+    date_raw: 14.Jun.2010 2.27pm
+    votes: null
+    html: |-
+      <p>In Mac applications that use the native system font rendering (through ATSUI or CoreText) on Mac OS X 10.4, contextual alternate features don't work. In 10.5 and 10.6, they "sort of" work but more complex contextual substitutions perform incorrectly. But a simple one like yours should work. </p>
+      <p>I propose a better solution: </p>
+      <p><code>feature liga {<br>
+        lookup liga_contextual {<br>
+        sub f' f by f.low;<br>
+        sub f' [b h i igrave j k l] by f.medium;<br>
+        sub f' icircumflex by f.short;<br>
+        sub f' idieresis by f.shortest;<br>
+        } liga_contextual;<br>
+        lookup liga_Th {<br>
+        sub T h by T_h;<br>
+        } liga_Th;<br>
+        lookup liga_fifl {<br>
+        sub f i by f_i;<br>
+        sub f l by f_l;<br>
+        } liga_fifl;<br>
+      } liga;</code></p>
+      <p>The first lookup will work whenever contextual substitutions are supported (so it won't work in Mac OS X 10.4 or some other environments where contextual OTL rules are not processed).<br>
+      The second lookup will always work because it's a simple substitution.<br>
+      The third lookup will only be activated if the first lookup did not get processed, so it'll work in Mac OS X 10.4, or in situations when contextual substitutions don't work for some reason. If the first lookup worked, the third will be omitted (because the "f" glyph has been replaced by "f.medium" by the time the third lookup gets processed, so the third lookup won't have any input to process).</p>
+    html_clean: |-
+      <p>In Mac applications that use the native system font rendering (through ATSUI or CoreText) on Mac OS X 10.4, contextual alternate features don't work. In 10.5 and 10.6, they "sort of" work but more complex contextual substitutions perform incorrectly. But a simple one like yours should work. </p>
+      <p>I propose a better solution: </p>
+      <p><code>feature liga {<br>
+        lookup liga_contextual {<br>
+        sub f' f by f.low;<br>
+        sub f' [b h i igrave j k l] by f.medium;<br>
+        sub f' icircumflex by f.short;<br>
+        sub f' idieresis by f.shortest;<br>
+        } liga_contextual;<br>
+        lookup liga_Th {<br>
+        sub T h by T_h;<br>
+        } liga_Th;<br>
+        lookup liga_fifl {<br>
+        sub f i by f_i;<br>
+        sub f l by f_l;<br>
+        } liga_fifl;<br>
+      } liga;</code></p>
+      <p>The first lookup will work whenever contextual substitutions are supported (so it won't work in Mac OS X 10.4 or some other environments where contextual OTL rules are not processed).<br>
+      The second lookup will always work because it's a simple substitution.<br>
+      The third lookup will only be activated if the first lookup did not get processed, so it'll work in Mac OS X 10.4, or in situations when contextual substitutions don't work for some reason. If the first lookup worked, the third will be omitted (because the "f" glyph has been replaced by "f.medium" by the time the third lookup gets processed, so the third lookup won't have any input to process).</p>
+  - id: 416014
+    user: 20652
+    date: 2010-06-15T11:49:00
+    date_raw: 15.Jun.2010 11.49am
+    votes: null
+    html: |-
+      <p>&gt;That's an Adobe trope.</p>
+      <p>Nick, you mean I should put this in dlig, yes?</p>
+      <p>Thanks for pointing out the T kerning situation. I think the glyphs in the brackets are ok but the idieresis/icircumflex and itilde will need some attention.</p>
+      <p>Adam, thanks for the info about Mac systems, I don't know any of that kind of stuff so it's very helpful.</p>
+    html_clean: |-
+      <p>&gt;That's an Adobe trope.</p>
+      <p>Nick, you mean I should put this in dlig, yes?</p>
+      <p>Thanks for pointing out the T kerning situation. I think the glyphs in the brackets are ok but the idieresis/icircumflex and itilde will need some attention.</p>
+      <p>Adam, thanks for the info about Mac systems, I don't know any of that kind of stuff so it's very helpful.</p>

@@ -1,0 +1,264 @@
+node: 85020
+title: "Fontlab: how to import OT features from external fea file using python macro"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131018225058"
+  captured_at: 2013-10-18T22:50:58Z
+  url: http://typophile.com/node/85020
+  digest: 6BMX4ZL4SWO25F3TIXI27TQQJSWY6MOM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/85020.html
+  fingerprint: adcd5d48bc6408d8
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131018225058"
+      digest: 6BMX4ZL4SWO25F3TIXI27TQQJSWY6MOM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/85020.html
+post:
+  id: 85020
+  user: 46471
+  date: 2011-08-31T18:12:00
+  date_raw: 31 Aug 2011 — 6:12pm
+  votes: null
+  html: |-
+    <p>I know how to compile OT features from inside a python macro:</p>
+    <p>fl.CallCommand(33203)</p>
+    <p>33203 being the code for the menu command OTCompile.</p>
+    <p>Fontlab also provides codes for the menu commands OTFeaturesNew (33222), which resets the features, and OTFeaturesOpen (33210), which gets features from a file.</p>
+    <p>The problem with OTFeaturesNew (33222) is that it pops an alert asking if you really want to remove all OT data.<br>
+    The problem with OTFeaturesOpen (33210) is that it pops a dialog to select the file.</p>
+    <p>I would like to be able to:</p>
+    <p>+ reset the OT features WITHOUT popping an alert (ie. silently)<br>
+    + get features from a specific fea file WITHOUT popping a dialog</p>
+    <p>Can it be done?</p>
+  html_clean: |-
+    <p>I know how to compile OT features from inside a python macro:</p>
+    <p>fl.CallCommand(33203)</p>
+    <p>33203 being the code for the menu command OTCompile.</p>
+    <p>Fontlab also provides codes for the menu commands OTFeaturesNew (33222), which resets the features, and OTFeaturesOpen (33210), which gets features from a file.</p>
+    <p>The problem with OTFeaturesNew (33222) is that it pops an alert asking if you really want to remove all OT data.<br>
+    The problem with OTFeaturesOpen (33210) is that it pops a dialog to select the file.</p>
+    <p>I would like to be able to:</p>
+    <p>+ reset the OT features WITHOUT popping an alert (ie. silently)<br>
+    + get features from a specific fea file WITHOUT popping a dialog</p>
+    <p>Can it be done?</p>
+comments:
+  - id: 475869
+    user: 21687
+    date: 2011-09-01T03:28:00
+    date_raw: 1 Sep 2011 — 3:28am
+    votes: null
+    html: |-
+      <p>Matthew,</p>
+      <p>resetting the features is possible if you don't use the command codes, but set the python attributes directly:</p>
+      <pre>fl.font.features.clean()
+      fl.font.ot_classes = "" # to clear the lower right part of the OT panel
+      fl.UpdateFont()
+      </pre><p>
+      Loading feature code from a text file can probably be done, but it would be a bit more complicated. In principle, open a text file using python, detect the lines where one feature's code starts and ends, and add the feature to the font like this:</p>
+      <pre>fl.font.features.append(Feature(myFeatureTag, myFeatureCode))
+      fl.UpdateFont()
+      </pre><p>
+      Example:</p>
+      <pre>fl.font.features.append(Feature("liga", "feature liga\n  {\n  sub f i by f_i;\n  } liga;\n"))
+      fl.UpdateFont()
+      </pre><p>
+      hth,<br>
+      Jens</p>
+    html_clean: |-
+      <p>Matthew,</p>
+      <p>resetting the features is possible if you don't use the command codes, but set the python attributes directly:</p>
+      <pre>fl.font.features.clean()
+      fl.font.ot_classes = "" # to clear the lower right part of the OT panel
+      fl.UpdateFont()
+      </pre><p>
+      Loading feature code from a text file can probably be done, but it would be a bit more complicated. In principle, open a text file using python, detect the lines where one feature's code starts and ends, and add the feature to the font like this:</p>
+      <pre>fl.font.features.append(Feature(myFeatureTag, myFeatureCode))
+      fl.UpdateFont()
+      </pre><p>
+      Example:</p>
+      <pre>fl.font.features.append(Feature("liga", "feature liga\n  {\n  sub f i by f_i;\n  } liga;\n"))
+      fl.UpdateFont()
+      </pre><p>
+      hth,<br>
+      Jens</p>
+  - id: 475931
+    user: 46471
+    date: 2011-09-01T14:33:00
+    date_raw: 1 Sep 2011 — 2:33pm
+    votes: null
+    html: "<p>Not bad, but this will only work for feature records, right? And there's more to the fea file than feature records (notably: class definitions and 'languagesystem' statements).</p>"
+    html_clean: "<p>Not bad, but this will only work for feature records, right? And there's more to the fea file than feature records (notably: class definitions and 'languagesystem' statements).</p>"
+  - id: 475986
+    user: 14455
+    date: 2011-09-02T03:10:00
+    date_raw: 2 Sep 2011 — 3:10am
+    votes: null
+    html: |-
+      <p>Matthew,</p>
+      <p>Class definitions and 'languagesystem' statements go to the lower right part of the OpenType panel. This is accessable via the ot_classes attribute of the font object as one big string.</p>
+      <p>Best<br>
+      Eigi</p>
+    html_clean: |-
+      <p>Matthew,</p>
+      <p>Class definitions and 'languagesystem' statements go to the lower right part of the OpenType panel. This is accessable via the ot_classes attribute of the font object as one big string.</p>
+      <p>Best<br>
+      Eigi</p>
+  - id: 476077
+    user: 46471
+    date: 2011-09-02T18:00:00
+    date_raw: 2 Sep 2011 — 6:00pm
+    votes: null
+    html: <p>Ah, thank you. I see how to do this now.</p>
+    html_clean: <p>Ah, thank you. I see how to do this now.</p>
+  - id: 476182
+    user: 46471
+    date: 2011-09-03T17:15:00
+    date_raw: 3 Sep 2011 — 5:15pm
+    votes: null
+    html: |-
+      <pre>from robofab.world import CurrentFont
+      import os, re
+
+      font = CurrentFont()
+
+      # reset OT features - thank you Jens
+      font.naked().features.clean()
+      font.naked().ot_classes = "" 
+
+      # open fea file
+      feaFile = open({path to fea file}, 'r')
+      feaCode = feaFile.read()
+
+
+      # read ot_classses from file - from beginning of file to first feature declaration
+      otClassesPattern = re.compile('^.*?(?=\nfeature )', re.DOTALL)
+      otClasses = otClassesPattern.search(feaCode).group(0)
+
+      # set ot_classses
+      font.naked().ot_classes = otClasses
+
+
+      # read features from file &amp; add to font
+      tagList = []
+      tagPattern = re.compile('feature\s*(?P&lt;tag&gt;\w\w\w\w)\s*{', re.DOTALL)
+      for match in tagPattern.finditer(feaCode):
+          tagList.append(match.group('tag'))
+
+      for tag in tagList:
+          featurePattern = re.compile('feature\s+%s\s*{.*?}\s*%s;' % (tag, tag), re.DOTALL)
+          featureCode = featurePattern.search(feaCode).group(0)
+          font.naked().features.append(Feature(tag, featureCode))
+
+
+      # delete kern feature if it exists - thank you Karsten
+      for featureIndex in range(len(font.naked().features)-1,-1,-1):
+          if font.naked().features[featureIndex].tag == "kern":
+          	  del font.naked().features[featureIndex]
+
+      # make new kern feature &amp; append to feature list 
+      kernFeature = font.naked().MakeKernFeature()
+      font.naked().features.append(kernFeature)
+
+      # recompile OT features
+      font.update()
+      fl.CallCommand(33203)
+
+      </pre>
+    html_clean: |-
+      <pre>from robofab.world import CurrentFont
+      import os, re
+
+      font = CurrentFont()
+
+      # reset OT features - thank you Jens
+      font.naked().features.clean()
+      font.naked().ot_classes = "" 
+
+      # open fea file
+      feaFile = open({path to fea file}, 'r')
+      feaCode = feaFile.read()
+
+
+      # read ot_classses from file - from beginning of file to first feature declaration
+      otClassesPattern = re.compile('^.*?(?=\nfeature )', re.DOTALL)
+      otClasses = otClassesPattern.search(feaCode).group(0)
+
+      # set ot_classses
+      font.naked().ot_classes = otClasses
+
+
+      # read features from file &amp; add to font
+      tagList = []
+      tagPattern = re.compile('feature\s*(?P&lt;tag&gt;\w\w\w\w)\s*{', re.DOTALL)
+      for match in tagPattern.finditer(feaCode):
+          tagList.append(match.group('tag'))
+
+      for tag in tagList:
+          featurePattern = re.compile('feature\s+%s\s*{.*?}\s*%s;' % (tag, tag), re.DOTALL)
+          featureCode = featurePattern.search(feaCode).group(0)
+          font.naked().features.append(Feature(tag, featureCode))
+
+
+      # delete kern feature if it exists - thank you Karsten
+      for featureIndex in range(len(font.naked().features)-1,-1,-1):
+          if font.naked().features[featureIndex].tag == "kern":
+          	  del font.naked().features[featureIndex]
+
+      # make new kern feature &amp; append to feature list 
+      kernFeature = font.naked().MakeKernFeature()
+      font.naked().features.append(kernFeature)
+
+      # recompile OT features
+      font.update()
+      fl.CallCommand(33203)
+
+      </pre>
+  - id: 476183
+    user: 1043
+    date: 2011-09-03T18:12:00
+    date_raw: 3 Sep 2011 — 6:12pm
+    votes: null
+    html: |-
+      <p>Maybe I'm missing something, but if you just want your features in an external file (which is maybe not the only thing you're wanting to do), you can just put something like this at the bottom right pane of the OT panel:</p>
+      <pre>include(myfeatures.fea)</pre><p>
+      The .fea file would be in the same directory as the .vfb file in this example.</p>
+    html_clean: |-
+      <p>Maybe I'm missing something, but if you just want your features in an external file (which is maybe not the only thing you're wanting to do), you can just put something like this at the bottom right pane of the OT panel:</p>
+      <pre>include(myfeatures.fea)</pre><p>
+      The .fea file would be in the same directory as the .vfb file in this example.</p>
+  - id: 476185
+    user: 46471
+    date: 2011-09-03T18:51:00
+    date_raw: 3 Sep 2011 — 6:51pm
+    votes: null
+    html: <p>Good idea. That's simple and works for getting the features into the font. But it doesn't display the underyling fea source code in the OT panel, which I prefer so I can try different things without having to modify the official features file.</p>
+    html_clean: <p>Good idea. That's simple and works for getting the features into the font. But it doesn't display the underyling fea source code in the OT panel, which I prefer so I can try different things without having to modify the official features file.</p>
+  - id: 476188
+    user: 1043
+    date: 2011-09-03T21:08:00
+    date_raw: 3 Sep 2011 — 9:08pm
+    votes: null
+    html: |-
+      <p>Well, you can easily change things in the external file, save and then hit compile in FontLab. It's really only one extra step (saving in the text editor), if you don't count switching between programs.</p>
+      <p>Also, you can duplicate the external file, and "include" that instead, if you want to try different things out without messing with your official features file. It also works with more than one file (each on a separate "include" line), so you can break things out logically among multiple .fea files if you wish.</p>
+    html_clean: |-
+      <p>Well, you can easily change things in the external file, save and then hit compile in FontLab. It's really only one extra step (saving in the text editor), if you don't count switching between programs.</p>
+      <p>Also, you can duplicate the external file, and "include" that instead, if you want to try different things out without messing with your official features file. It also works with more than one file (each on a separate "include" line), so you can break things out logically among multiple .fea files if you wish.</p>

@@ -1,0 +1,100 @@
+node: 115819
+title: "FontLab 5.2.1 Output: GSUB feature 'ÿÿÿÿ' causes overflow of offset to a subtable"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420125207"
+  captured_at: 2015-04-20T12:52:07Z
+  url: http://typophile.com/node/115819
+  digest: STAO3IW6ZO2RQHB6DAIU2OYYCP5WR4R2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/115819.html
+  fingerprint: 448c9a644860620c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420125207"
+      digest: STAO3IW6ZO2RQHB6DAIU2OYYCP5WR4R2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/115819.html
+post:
+  id: 115819
+  user: 21283
+  date: 2014-04-16T12:41:00
+  date_raw: 16 Apr 2014 — 12:41pm
+  votes: null
+  html: |-
+    <p>Hi all,</p>
+    <p>I'm designing a handwriten font wich contain many alternate sets of characters and I programmed a calt feature to randomize  it. The feature contains a lot of lines mixing and conditioning the substition of each character. I thing the sintaxis is fine and the replacement works fine too, but when I increase the number of characters in each of the classes used in the code the output panel shows the following warning:</p>
+    <p>[FATAL]  GSUB feature 'ÿÿÿÿ' causes overflow of offset to a subtable (0x1140a)</p>
+    <p>(I don't know why the name of the feature is swhown without the correct name).<br>
+    I guess it means the code becomes too heavy but searching and reading a lot of posts of similar bugs I concluded that the responsible of this issue was the program. So I decided to try compiling the font in an older version (FL 5.0) and there aren't any problem and the compiled font works fine.<br>
+    Please tell me what can I do to improve my version of FL to avoid this issue. Any comment will be appreciated.</p>
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>I'm designing a handwriten font wich contain many alternate sets of characters and I programmed a calt feature to randomize  it. The feature contains a lot of lines mixing and conditioning the substition of each character. I thing the sintaxis is fine and the replacement works fine too, but when I increase the number of characters in each of the classes used in the code the output panel shows the following warning:</p>
+    <p>[FATAL]  GSUB feature 'ÿÿÿÿ' causes overflow of offset to a subtable (0x1140a)</p>
+    <p>(I don't know why the name of the feature is swhown without the correct name).<br>
+    I guess it means the code becomes too heavy but searching and reading a lot of posts of similar bugs I concluded that the responsible of this issue was the program. So I decided to try compiling the font in an older version (FL 5.0) and there aren't any problem and the compiled font works fine.<br>
+    Please tell me what can I do to improve my version of FL to avoid this issue. Any comment will be appreciated.</p>
+comments:
+  - id: 576345
+    user: 4926
+    date: 2014-04-17T04:59:00
+    date_raw: 17 Apr 2014 — 4:59am
+    votes: null
+    html: |-
+      <p>I think you can fix this by defining several lookup tables in the calt feature and specifying the useExtension keyword in each of the lookups.<br>
+      Something like this:</p>
+      <p><code><br>
+      feature calt { # Alternates<br>
+        lookup calt_1 useExtension {<br>
+      	  ...<br>
+        } calt_1;<br>
+        lookup calt_2 useExtension {<br>
+      	  ...<br>
+        } calt_2;<br>
+        lookup calt_3 useExtension {<br>
+      	  ...<br>
+        } calt_3;<br>
+      } calt;<br>
+      </code></p>
+      <p>Johnych</p>
+    html_clean: |-
+      <p>I think you can fix this by defining several lookup tables in the calt feature and specifying the useExtension keyword in each of the lookups.<br>
+      Something like this:</p>
+      <p><code><br>
+      feature calt { # Alternates<br>
+        lookup calt_1 useExtension {<br>
+      	  ...<br>
+        } calt_1;<br>
+        lookup calt_2 useExtension {<br>
+      	  ...<br>
+        } calt_2;<br>
+        lookup calt_3 useExtension {<br>
+      	  ...<br>
+        } calt_3;<br>
+      } calt;<br>
+      </code></p>
+      <p>Johnych</p>
+  - id: 576573
+    user: 21283
+    date: 2014-04-22T05:54:00
+    date_raw: 22 Apr 2014 — 5:54am
+    votes: null
+    html: <p>Thank you johnych for your suggestion but I also tried it and doesn't work.</p>
+    html_clean: <p>Thank you johnych for your suggestion but I also tried it and doesn't work.</p>

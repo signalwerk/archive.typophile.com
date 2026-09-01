@@ -1,0 +1,384 @@
+node: 78317
+title: How does Font Book know the supported languages of a font?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150215061221"
+  captured_at: 2015-02-15T06:12:21Z
+  url: http://typophile.com:80/node/78317
+  digest: HLPNBT5RXGG6I72DQ22QAPHGEV2Q3FN2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/78317.html
+  fingerprint: 81185272c102841c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150215061221"
+      digest: HLPNBT5RXGG6I72DQ22QAPHGEV2Q3FN2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/78317.html
+post:
+  id: 78317
+  user: 4763
+  date: 2011-01-23T07:37:00
+  date_raw: 23 Jan 2011 — 7:37am
+  votes: null
+  html: <p>When I do Cmd-I on a a font in Apple Font Book, it shows me a list of languages supported by the font. How is it generated? I assume there is some internal database? Is there any way to extract it?</p>
+  html_clean: <p>When I do Cmd-I on a a font in Apple Font Book, it shows me a list of languages supported by the font. How is it generated? I assume there is some internal database? Is there any way to extract it?</p>
+comments:
+  - id: 448646
+    user: 85443
+    date: 2011-01-23T07:58:00
+    date_raw: 23 Jan 2011 — 7:58am
+    votes: null
+    html: |-
+      <p>Hello,<br>
+      good question! I’m interested into an answer too.<br>
+      surely an internal algorithm.<br>
+      But I have the impression the language listed are less than the effective ones. Doing it by hand following iso-8859-×, I’ve listed much more languages than FontBook list.</p>
+    html_clean: |-
+      <p>Hello,<br>
+      good question! I’m interested into an answer too.<br>
+      surely an internal algorithm.<br>
+      But I have the impression the language listed are less than the effective ones. Doing it by hand following iso-8859-×, I’ve listed much more languages than FontBook list.</p>
+  - id: 448659
+    user: 16321
+    date: 2011-01-23T09:50:00
+    date_raw: 23 Jan 2011 — 9:50am
+    votes: null
+    html: <p>Perhaps you could get a similar db from Georg Seifert. Alternatively you could compile one from Michael Everson's PDF over European languages. I also remember an Excel-file with a lot of languages and their glyphs in a matrix. I think Miguel Sousa did it or just posted it in an old Adobe blog; I can't seem to find it now.</p>
+    html_clean: <p>Perhaps you could get a similar db from Georg Seifert. Alternatively you could compile one from Michael Everson's PDF over European languages. I also remember an Excel-file with a lot of languages and their glyphs in a matrix. I think Miguel Sousa did it or just posted it in an old Adobe blog; I can't seem to find it now.</p>
+  - id: 448672
+    user: 46055
+    date: 2011-01-23T11:39:00
+    date_raw: 23 Jan 2011 — 11:39am
+    votes: null
+    html: <p>it should be an algorithm</p>
+    html_clean: <p>it should be an algorithm</p>
+  - id: 448692
+    user: 29994
+    date: 2011-01-23T14:36:00
+    date_raw: 23 Jan 2011 — 2:36pm
+    votes: null
+    html: |-
+      <p><cite>.. it should be an algorithm</cite></p>
+      <p>It <em>is</em> an algorithm. It could be sort a database of all possible languages, each with a set of glyphs this language needs, and all this algorithm needs to do is to check for each language</p>
+      <p>∀(char) ∈ Language</p>
+      <p>-- of course it depends on the database how many different "languages" (dialects? idolects?) it contains, and how strict the check is (as perhaps not all <em>possible</em> characters are <em>required</em> for each language). And, of course, "language" itself is a fluent concept.</p>
+    html_clean: |-
+      <p><cite>.. it should be an algorithm</cite></p>
+      <p>It <em>is</em> an algorithm. It could be sort a database of all possible languages, each with a set of glyphs this language needs, and all this algorithm needs to do is to check for each language</p>
+      <p>∀(char) ∈ Language</p>
+      <p>-- of course it depends on the database how many different "languages" (dialects? idolects?) it contains, and how strict the check is (as perhaps not all <em>possible</em> characters are <em>required</em> for each language). And, of course, "language" itself is a fluent concept.</p>
+  - id: 448711
+    user: 32723
+    date: 2011-01-23T18:14:00
+    date_raw: 23 Jan 2011 — 6:14pm
+    votes: null
+    html: |-
+      <p>I thought this kind of information came from the codepages supported, what is defined in the font and interpreted by the OS algorithm.</p>
+      <p>If this is verified on the fly by MacOS taking into account the actual glyphs of the font, its database would be extremely useful. I'm searching for months to get all Latin-script languages mapped and it's an almost insane job.</p>
+      <p>But if this is an algorithm, how it evalues the support given through combining diacritics? A proper support would need the base glyph, the combining diacritic and the ccmp declaration (and also a mark definition for most stacking diacritics). Does MacOs verify all this?</p>
+      <p>In Windows I believe the OS simply takes language support from font codepages.</p>
+    html_clean: |-
+      <p>I thought this kind of information came from the codepages supported, what is defined in the font and interpreted by the OS algorithm.</p>
+      <p>If this is verified on the fly by MacOS taking into account the actual glyphs of the font, its database would be extremely useful. I'm searching for months to get all Latin-script languages mapped and it's an almost insane job.</p>
+      <p>But if this is an algorithm, how it evalues the support given through combining diacritics? A proper support would need the base glyph, the combining diacritic and the ccmp declaration (and also a mark definition for most stacking diacritics). Does MacOs verify all this?</p>
+      <p>In Windows I believe the OS simply takes language support from font codepages.</p>
+  - id: 448718
+    user: 14722
+    date: 2011-01-23T19:32:00
+    date_raw: 23 Jan 2011 — 7:32pm
+    votes: null
+    html: <p>If you generate a font containing only Latin characters but enable the Arabic and Hebrew codepages Fontbook will report that the font supports Arabic and Hebrew. It’s definitely not one of Apple’s better applications.</p>
+    html_clean: <p>If you generate a font containing only Latin characters but enable the Arabic and Hebrew codepages Fontbook will report that the font supports Arabic and Hebrew. It’s definitely not one of Apple’s better applications.</p>
+  - id: 448722
+    user: 46055
+    date: 2011-01-23T19:51:00
+    date_raw: 23 Jan 2011 — 7:51pm
+    votes: null
+    html: <p>of course, first you should map every glyph for all the languages, then implement a tree search with recursion</p>
+    html_clean: <p>of course, first you should map every glyph for all the languages, then implement a tree search with recursion</p>
+  - id: 448769
+    user: 4763
+    date: 2011-01-24T05:17:00
+    date_raw: 24 Jan 2011 — 5:17am
+    votes: null
+    html: |-
+      <p>Thanks for your thoughts, everyone.</p>
+      <p>I was interested in the database more than in the lookup implementation (which is surely very simple, so no fuss necessary). So, is it not possible to get hold of the database? I looked into the package contents of Font Book.app but couldn't find it there. Maybe it is stored somewhere else in the system?</p>
+    html_clean: |-
+      <p>Thanks for your thoughts, everyone.</p>
+      <p>I was interested in the database more than in the lookup implementation (which is surely very simple, so no fuss necessary). So, is it not possible to get hold of the database? I looked into the package contents of Font Book.app but couldn't find it there. Maybe it is stored somewhere else in the system?</p>
+  - id: 448773
+    user: 21217
+    date: 2011-01-24T05:25:00
+    date_raw: 24 Jan 2011 — 5:25am
+    votes: null
+    html: <p>I usually use <a class="freelinking external" href="http://www.freedesktop.org/wiki/Software/fontconfig" rel="nofollow">fontconfig</a>'s <a class="freelinking external" href="http://cgit.freedesktop.org/fontconfig/tree/fc-lang" rel="nofollow">orthography database</a>, either using their command line utilities (like fc-query) or parsing the database on my own. Pretty good coverage, even for languages that can be written in different scripts.</p>
+    html_clean: <p>I usually use <a class="freelinking external" href="http://www.freedesktop.org/wiki/Software/fontconfig" rel="nofollow">fontconfig</a>'s <a class="freelinking external" href="http://cgit.freedesktop.org/fontconfig/tree/fc-lang" rel="nofollow">orthography database</a>, either using their command line utilities (like fc-query) or parsing the database on my own. Pretty good coverage, even for languages that can be written in different scripts.</p>
+  - id: 448780
+    user: 1133
+    date: 2011-01-24T06:44:00
+    date_raw: 24 Jan 2011 — 6:44am
+    votes: null
+    html: |-
+      <p>Tim, </p>
+      <p>my assumption is that the data comes from the ICU library which is bundled with Mac OS X. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Tim, </p>
+      <p>my assumption is that the data comes from the ICU library which is bundled with Mac OS X. </p>
+      <p>A.</p>
+  - id: 448781
+    user: 32723
+    date: 2011-01-24T06:55:00
+    date_raw: 24 Jan 2011 — 6:55am
+    votes: null
+    html: |-
+      <p>Tim, as it <em>seems</em> FontBook does not evaluates the actual font contents but just the codepage declaration (which is arbitrary and may be wrong), the database may be simply a table with languages supported by each codepage. If this is what you need, a good startpoint is <a class="freelinking external" href="http://en.wikipedia.org/wiki/ISO/IEC_8859" rel="nofollow">here</a>.</p>
+      <p>If you need more information about languages and alphabets, this <a class="freelinking external" href="http://typophile.com/node/74756" rel="nofollow">thread</a> has some good tips, including a link to Excel table referred above. There are also <a class="freelinking external" href="http://www.omniglot.com/writing" rel="nofollow">Omniglot</a> and <a class="freelinking external" href="http://www.languagegeek.com/" rel="nofollow">LanguageGeek</a> sites. For Latin script, a good general table is published in <a class="freelinking external" href="http://en.wikipedia.org/wiki/Latin-derived_alphabet" rel="nofollow">Wikipedia</a>.</p>
+    html_clean: |-
+      <p>Tim, as it <em>seems</em> FontBook does not evaluates the actual font contents but just the codepage declaration (which is arbitrary and may be wrong), the database may be simply a table with languages supported by each codepage. If this is what you need, a good startpoint is <a class="freelinking external" href="http://en.wikipedia.org/wiki/ISO/IEC_8859" rel="nofollow">here</a>.</p>
+      <p>If you need more information about languages and alphabets, this <a class="freelinking external" href="/node/74756/" rel="nofollow">thread</a> has some good tips, including a link to Excel table referred above. There are also <a class="freelinking external" href="http://www.omniglot.com/writing" rel="nofollow">Omniglot</a> and <a class="freelinking external" href="http://www.languagegeek.com/" rel="nofollow">LanguageGeek</a> sites. For Latin script, a good general table is published in <a class="freelinking external" href="http://en.wikipedia.org/wiki/Latin-derived_alphabet" rel="nofollow">Wikipedia</a>.</p>
+  - id: 449049
+    user: 85443
+    date: 2011-01-25T14:40:00
+    date_raw: 25 Jan 2011 — 2:40pm
+    votes: null
+    html: <p><a href="http://www.eki.ee/letter/" title="http://www.eki.ee/letter/">http://www.eki.ee/letter/</a></p>
+    html_clean: <p><a href="http://www.eki.ee/letter/" title="http://www.eki.ee/letter/">http://www.eki.ee/letter/</a></p>
+  - id: 449199
+    user: 17347
+    date: 2011-01-26T12:45:00
+    date_raw: 26 Jan 2011 — 12:45pm
+    votes: null
+    html: |-
+      <p>For <cite>Andron Mega</cite> FontBook reports a number of 57 languages supported. My own counting resulted in about 280 languages.</p>
+      <p>I based my record on composing samples utilizing text strings from the <a class="freelinking external" href="http://www.unicode.org/udhr/" rel="nofollow">UDHR project</a>, which I found very useful to perform the task. (see full listing <a class="freelinking external" href="http://www.signographie.de/cms/front_content.php?idart=280" rel="nofollow">here</a>.)</p>
+    html_clean: |-
+      <p>For <cite>Andron Mega</cite> FontBook reports a number of 57 languages supported. My own counting resulted in about 280 languages.</p>
+      <p>I based my record on composing samples utilizing text strings from the <a class="freelinking external" href="http://www.unicode.org/udhr/" rel="nofollow">UDHR project</a>, which I found very useful to perform the task. (see full listing <a class="freelinking external" href="http://www.signographie.de/cms/front_content.php?idart=280" rel="nofollow">here</a>.)</p>
+  - id: 449252
+    user: 1049
+    date: 2011-01-26T21:00:00
+    date_raw: 26 Jan 2011 — 9:00pm
+    votes: null
+    html: <p>Has anyone thought to ask Apple?</p>
+    html_clean: <p>Has anyone thought to ask Apple?</p>
+  - id: 449277
+    user: 16321
+    date: 2011-01-27T05:27:00
+    date_raw: 27 Jan 2011 — 5:27am
+    votes: null
+    html: |-
+      <p><cite>Has anyone thought to ask Apple?</cite></p>
+      <p>Pointless as they don't answer.</p>
+    html_clean: |-
+      <p><cite>Has anyone thought to ask Apple?</cite></p>
+      <p>Pointless as they don't answer.</p>
+  - id: 449278
+    user: 16321
+    date: 2011-01-27T05:35:00
+    date_raw: 27 Jan 2011 — 5:35am
+    votes: null
+    html: <p>Andreas I would take those lists with a big spoonful of salt. Just checking the Danish list <a class="freelinking external" href="http://www.unicode.org/udhr/d/udhr_dan.charcount" rel="nofollow">http://www.unicode.org/udhr/d/udhr_dan.charcount</a>, and I can see Q, X, W, Z missing. A better list for Danish is the <a class="freelinking external" href="http://www.evertype.com/alphabets/danish.pdf" rel="nofollow">http://www.evertype.com/alphabets/danish.pdf</a> from Michael Everson's <a class="freelinking external" href="http://www.evertype.com/alphabets/" rel="nofollow">Alphabets of Europe</a>, but that list is extremely inclusive, hence the characters in brackets are for loan-words, translitterations &amp;c.</p>
+    html_clean: <p>Andreas I would take those lists with a big spoonful of salt. Just checking the Danish list <a class="freelinking external" href="http://www.unicode.org/udhr/d/udhr_dan.charcount" rel="nofollow">http://www.unicode.org/udhr/d/udhr_dan.charcount</a>, and I can see Q, X, W, Z missing. A better list for Danish is the <a class="freelinking external" href="http://www.evertype.com/alphabets/danish.pdf" rel="nofollow">http://www.evertype.com/alphabets/danish.pdf</a> from Michael Everson's <a class="freelinking external" href="http://www.evertype.com/alphabets/" rel="nofollow">Alphabets of Europe</a>, but that list is extremely inclusive, hence the characters in brackets are for loan-words, translitterations &amp;c.</p>
+  - id: 449357
+    user: 1049
+    date: 2011-01-27T11:58:00
+    date_raw: 27 Jan 2011 — 11:58am
+    votes: null
+    html: |-
+      <p>&gt;Pointless as they don't answer.</p>
+      <p>:-) Well here's the answer Apple sent me...</p>
+      <p>We compare the cmap to the ICU exemplar strings for each language.<br>
+      We just pick up the latest copy of the open source ICU database for each system release.</p>
+      <p> CLDR Survey Tool <a href="http://unicode.org/cldr/apps/survey" title="http://unicode.org/cldr/apps/survey">http://unicode.org/cldr/apps/survey</a> (jump to other items pop-up/characters)<br>
+       e.g. <a href="http://unicode.org/cldr/apps/survey?_=be&amp;x=characters" title="http://unicode.org/cldr/apps/survey?_=be&amp;x=characters">http://unicode.org/cldr/apps/survey?_=be&amp;x=characters</a><br>
+       Unicode Set definition <a href="http://icu.sourceforge.net/userguide/unicodeSet.html" title="http://icu.sourceforge.net/userguide/unicodeSet.html">http://icu.sourceforge.net/userguide/unicodeSet.html</a></p>
+    html_clean: |-
+      <p>&gt;Pointless as they don't answer.</p>
+      <p>:-) Well here's the answer Apple sent me...</p>
+      <p>We compare the cmap to the ICU exemplar strings for each language.<br>
+      We just pick up the latest copy of the open source ICU database for each system release.</p>
+      <p> CLDR Survey Tool <a href="http://unicode.org/cldr/apps/survey" title="http://unicode.org/cldr/apps/survey">http://unicode.org/cldr/apps/survey</a> (jump to other items pop-up/characters)<br>
+       e.g. <a href="http://unicode.org/cldr/apps/survey?_=be&amp;x=characters" title="http://unicode.org/cldr/apps/survey?_=be&amp;x=characters">http://unicode.org/cldr/apps/survey?_=be&amp;x=characters</a><br>
+       Unicode Set definition <a href="http://icu.sourceforge.net/userguide/unicodeSet.html" title="http://icu.sourceforge.net/userguide/unicodeSet.html">http://icu.sourceforge.net/userguide/unicodeSet.html</a></p>
+  - id: 449377
+    user: 17347
+    date: 2011-01-27T13:32:00
+    date_raw: 27 Jan 2011 — 1:32pm
+    votes: null
+    html: |-
+      <p>Clause, I didn’t mean the character listings you have linked to (they’re new to me, and look rather alien). Yes, there is something missing – not useful. The Everson language records (which I know and appreciate, of course) are, as you say, over-inclusive – which I find less helpful as well.<br>
+      I was referring to the bits of actual text (The Declaration of Human Rights) at the UDHR project site. This gives me some real-world proof for the scope of my fonts, yet still not entirely reliable since not every piece of text contains neccessarily all characters belonging to a language.</p>
+    html_clean: |-
+      <p>Clause, I didn’t mean the character listings you have linked to (they’re new to me, and look rather alien). Yes, there is something missing – not useful. The Everson language records (which I know and appreciate, of course) are, as you say, over-inclusive – which I find less helpful as well.<br>
+      I was referring to the bits of actual text (The Declaration of Human Rights) at the UDHR project site. This gives me some real-world proof for the scope of my fonts, yet still not entirely reliable since not every piece of text contains neccessarily all characters belonging to a language.</p>
+  - id: 449379
+    user: 32723
+    date: 2011-01-27T14:02:00
+    date_raw: 27 Jan 2011 — 2:02pm
+    votes: null
+    html: |-
+      <p>Simon, thanks for the information. CLDR is a great tool, although a bit confuse. I was not aware about it and surely will take advantage of this tip.</p>
+      <p>Anyway, use of these data may explain the problems with FontBook.</p>
+      <p>First: the list of languages covered by CLDR is still limited. For example, under Z it lists just Zulu, so any support or reference about Záparo, Zapotec, Zarma, Zazaki, Zhuang or Zuni are missed by evaluations based on CLDR.</p>
+      <p>Second: CLDR classifies characters as "approved" and "proposed". If FontBook (or any other tool) evalues the language support based only in "approved" (the safer way), it may miss some essential characters. And if it includes "proposed" (aiming a more complete analysis) it would return characters actually not needed. For example: it's known Latin script for Azerbaijani uses Schwa, but this character is not approved in CLDR until now. Thus, evaluation for Azerbaijani support based on CLDR would be inconsistent.</p>
+      <p>I'm not saying CLDR is a bad tool – far from that, it's really useful. But it is under development and automated evaluations based on its data (as FontBook does) need to be understood as partial.</p>
+    html_clean: |-
+      <p>Simon, thanks for the information. CLDR is a great tool, although a bit confuse. I was not aware about it and surely will take advantage of this tip.</p>
+      <p>Anyway, use of these data may explain the problems with FontBook.</p>
+      <p>First: the list of languages covered by CLDR is still limited. For example, under Z it lists just Zulu, so any support or reference about Záparo, Zapotec, Zarma, Zazaki, Zhuang or Zuni are missed by evaluations based on CLDR.</p>
+      <p>Second: CLDR classifies characters as "approved" and "proposed". If FontBook (or any other tool) evalues the language support based only in "approved" (the safer way), it may miss some essential characters. And if it includes "proposed" (aiming a more complete analysis) it would return characters actually not needed. For example: it's known Latin script for Azerbaijani uses Schwa, but this character is not approved in CLDR until now. Thus, evaluation for Azerbaijani support based on CLDR would be inconsistent.</p>
+      <p>I'm not saying CLDR is a bad tool – far from that, it's really useful. But it is under development and automated evaluations based on its data (as FontBook does) need to be understood as partial.</p>
+  - id: 449506
+    user: 2969
+    date: 2011-01-28T12:33:00
+    date_raw: 28 Jan 2011 — 12:33pm
+    votes: null
+    html: |-
+      <p>&gt; I'm not saying CLDR is a bad tool – far from that, it's really useful...development and automated evaluations based on its data (as FontBook does) need to be understood as partial.</p>
+      <p>So, if I might ask, is there anything better than fontbook at doing this? And how much of the "partial" is up to the user regardless? Vs the other part of "partial" that's lacking time  completeness in language/nation mapping? And etc? Thanks.</p>
+    html_clean: |-
+      <p>&gt; I'm not saying CLDR is a bad tool – far from that, it's really useful...development and automated evaluations based on its data (as FontBook does) need to be understood as partial.</p>
+      <p>So, if I might ask, is there anything better than fontbook at doing this? And how much of the "partial" is up to the user regardless? Vs the other part of "partial" that's lacking time  completeness in language/nation mapping? And etc? Thanks.</p>
+  - id: 449512
+    user: 32723
+    date: 2011-01-28T13:35:00
+    date_raw: 28 Jan 2011 — 1:35pm
+    votes: null
+    html: |-
+      <p><cite>Is there anything better than fontbook at doing this?</cite></p>
+      <p>ALAIK, not. While I was searching for languages and its alphabets, I did surveys in various places –Unicode charts, SIL, Ethnologue, LanguageGeek, Omniglot, Wikipedia, eki.ee, Evertype, Signographie, dozens of NGO related to minorities and also linguistic departments in several universities. I did ask for a place where these informations are compiled, but no one know such a site or book.</p>
+      <p>CLDR is a nice addition to the list, but still not the one-does-all resource.</p>
+    html_clean: |-
+      <p><cite>Is there anything better than fontbook at doing this?</cite></p>
+      <p>ALAIK, not. While I was searching for languages and its alphabets, I did surveys in various places –Unicode charts, SIL, Ethnologue, LanguageGeek, Omniglot, Wikipedia, eki.ee, Evertype, Signographie, dozens of NGO related to minorities and also linguistic departments in several universities. I did ask for a place where these informations are compiled, but no one know such a site or book.</p>
+      <p>CLDR is a nice addition to the list, but still not the one-does-all resource.</p>
+  - id: 449568
+    user: 46071
+    date: 2011-01-29T01:28:00
+    date_raw: 29 Jan 2011 — 1:28am
+    votes: null
+    html: <p>And if someone could be able/willing to create/compile such a resource, which characteristics/tools would be needed?</p>
+    html_clean: <p>And if someone could be able/willing to create/compile such a resource, which characteristics/tools would be needed?</p>
+  - id: 449578
+    user: 9108
+    date: 2011-01-29T03:50:00
+    date_raw: 29 Jan 2011 — 3:50am
+    votes: null
+    html: |-
+      <p>Such a .txt could be very useful<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/viet_4802.png"></div><br>
+      I changed the TAHOMA to my (under construction <a href="http://typophile.com/node/73413" title="http://typophile.com/node/73413">http://typophile.com/node/73413</a> ) font, and<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/VDviet_4480.png"></div><br>
+      everything is clear, no question marks!<p></p>
+      <p>Disclaimer: These pictures are distributed on an AS IS basis, without warranty.</p>
+    html_clean: |-
+      <p>Such a .txt could be very useful<br>
+      </p><div class="imageWrap"><img src="/files/viet_4802.png"></div><br>
+      I changed the TAHOMA to my (under construction <a href="/node/73413/" title="http://typophile.com/node/73413">http://typophile.com/node/73413</a> ) font, and<br>
+      <div class="imageWrap"><img src="/files/vdviet_4480.png"></div><br>
+      everything is clear, no question marks!<p></p>
+      <p>Disclaimer: These pictures are distributed on an AS IS basis, without warranty.</p>
+  - id: 449638
+    user: 1262
+    date: 2011-01-29T19:21:00
+    date_raw: 29 Jan 2011 — 7:21pm
+    votes: null
+    html: <p>Suddenly, it's all very <a href="http://tiro.com/Articles/sylfaen_article.pdf" rel="nofollow">1997</a>. [PDF]</p>
+    html_clean: <p>Suddenly, it's all very <a href="http://tiro.com/Articles/sylfaen_article.pdf" rel="nofollow">1997</a>. [PDF]</p>
+  - id: 449646
+    user: 32723
+    date: 2011-01-29T22:01:00
+    date_raw: 29 Jan 2011 — 10:01pm
+    votes: null
+    html: |-
+      <p><cite>And if someone could be able/willing to create/compile such a resource, which characteristics/tools would be needed?</cite></p>
+      <p>Riccardo, I think the best is to build a relational database. This could be used in queries through the web or in some automatic tool. As any relational db can have its data exported in several ways, the information would feed since Python macros to standalone applications.</p>
+      <p>This db structure would include a table for languages, a table for scripts, a table for glyphs, a table for countries and tables with associations between all these. The separation in various tables is needed to handle the n-to-n relationships (glyphs–alphabets–languages–scripts–countries). Glyph table needs a field to insert the glyph image.</p>
+      <p>About tools, I think any db manager could do this –like phpMyAdmin for MySQL or even MS Access.</p>
+    html_clean: |-
+      <p><cite>And if someone could be able/willing to create/compile such a resource, which characteristics/tools would be needed?</cite></p>
+      <p>Riccardo, I think the best is to build a relational database. This could be used in queries through the web or in some automatic tool. As any relational db can have its data exported in several ways, the information would feed since Python macros to standalone applications.</p>
+      <p>This db structure would include a table for languages, a table for scripts, a table for glyphs, a table for countries and tables with associations between all these. The separation in various tables is needed to handle the n-to-n relationships (glyphs–alphabets–languages–scripts–countries). Glyph table needs a field to insert the glyph image.</p>
+      <p>About tools, I think any db manager could do this –like phpMyAdmin for MySQL or even MS Access.</p>
+  - id: 451246
+    user: 8664
+    date: 2011-02-08T15:34:00
+    date_raw: 8 Feb 2011 — 3:34pm
+    votes: null
+    html: |-
+      <p>Instead of setting up one more of the same, why not help Unicode improve CLDR – <a href="http://unicode-inc.blogspot.com/2011/02/unicode-consortium-announces-opening-of.html" target="_blank" rel="nofollow">now that they are asking</a>?</p>
+      <p>My impression is that what is missing is a reliable set of characters per language. And I like the idea of having e.g. CLDR as a single source for a variety of locale information. CLDR's approach to classify character sets is an advantage and indicates that they are honest enough to point out "not sure". Applications can chose either approved or proposed sets and ideally would tell users about their choice.</p>
+    html_clean: |-
+      <p>Instead of setting up one more of the same, why not help Unicode improve CLDR – <a href="http://unicode-inc.blogspot.com/2011/02/unicode-consortium-announces-opening-of.html" target="_blank" rel="nofollow">now that they are asking</a>?</p>
+      <p>My impression is that what is missing is a reliable set of characters per language. And I like the idea of having e.g. CLDR as a single source for a variety of locale information. CLDR's approach to classify character sets is an advantage and indicates that they are honest enough to point out "not sure". Applications can chose either approved or proposed sets and ideally would tell users about their choice.</p>
+  - id: 451285
+    user: 4763
+    date: 2011-02-09T01:38:00
+    date_raw: 9 Feb 2011 — 1:38am
+    votes: null
+    html: |-
+      <p><cite>...reliable set of characters per language</cite></p>
+      <p>The first question is: what are these databases used for, what is the objective?</p>
+      <p>In the case of FontBook it is obviously to determine the set of supported languages for a given font.</p>
+      <p>As a font maker, it would be the other way round: Which characters do I have to provide in order to support a certain language? It all boils down to minimizing the number of fail cases where a document requires a character that is not in the font. Or, to achieve a certain coverage (say, 99.95%) while minimizing the costs. What are the costs? Design effort is a cost, which is not the same for each character – some accented characters can be generated with two clicks, whereas other rarely used characters need to be designed from scratch. What if the rationale is to minimize the file size, e.g. for web fonts? Then the cost is in kB, not work. But we have a similar scenario: some characters cost more, others less (accented characters have very low data volume).</p>
+      <p>So, we want to cover as many cases as possible with our font. In that sense, I think a linguistic approach does not help much. I believe trying to find out which characters are “required” is the wrong paradigm and 100% coverage is impossible to achieve. Also, “cases” is very difficult to define in the first place. Do we distinguish between geographic locations as well? Are we talking about the web? Print? The past, present or future? How about foreign words or place names? We can find “coöperation” in English texts, and “Café” with a French accent is standard in German. On the other hand, in German, the »angular« quotes, are very rarely used on websites although they are the classic form in novels. An “official” character set is very difficult to determine for most languages so in my opinion, a real-world basis (scanning large amounts of text) would make more sense than an academic one. Another difficult question is, what constitutes a language – only letters and letter-like symbols, also punctuation? Are figures part of a language? For example, In most middle-east countries they use “real” Arabic figures whereas in Northern Africa the “Latin Arabic” numerals we use seem to be preferred. How about mathematical punctuation, is that still language-specific, how much of it is “required”? I think this whole thing should not be restricted to letters. What does it help to know which letters I need to satisfy the needs of most of my users, but not the other characters.</p>
+      <p>What we really need is the frequency of occurrence for each character in each language, found by a real-world survey. Then we can set a threshold and determine our set of required characters. Or, we can assign a nominal cost to each character, and then work out a tradeoff.</p>
+    html_clean: |-
+      <p><cite>...reliable set of characters per language</cite></p>
+      <p>The first question is: what are these databases used for, what is the objective?</p>
+      <p>In the case of FontBook it is obviously to determine the set of supported languages for a given font.</p>
+      <p>As a font maker, it would be the other way round: Which characters do I have to provide in order to support a certain language? It all boils down to minimizing the number of fail cases where a document requires a character that is not in the font. Or, to achieve a certain coverage (say, 99.95%) while minimizing the costs. What are the costs? Design effort is a cost, which is not the same for each character – some accented characters can be generated with two clicks, whereas other rarely used characters need to be designed from scratch. What if the rationale is to minimize the file size, e.g. for web fonts? Then the cost is in kB, not work. But we have a similar scenario: some characters cost more, others less (accented characters have very low data volume).</p>
+      <p>So, we want to cover as many cases as possible with our font. In that sense, I think a linguistic approach does not help much. I believe trying to find out which characters are “required” is the wrong paradigm and 100% coverage is impossible to achieve. Also, “cases” is very difficult to define in the first place. Do we distinguish between geographic locations as well? Are we talking about the web? Print? The past, present or future? How about foreign words or place names? We can find “coöperation” in English texts, and “Café” with a French accent is standard in German. On the other hand, in German, the »angular« quotes, are very rarely used on websites although they are the classic form in novels. An “official” character set is very difficult to determine for most languages so in my opinion, a real-world basis (scanning large amounts of text) would make more sense than an academic one. Another difficult question is, what constitutes a language – only letters and letter-like symbols, also punctuation? Are figures part of a language? For example, In most middle-east countries they use “real” Arabic figures whereas in Northern Africa the “Latin Arabic” numerals we use seem to be preferred. How about mathematical punctuation, is that still language-specific, how much of it is “required”? I think this whole thing should not be restricted to letters. What does it help to know which letters I need to satisfy the needs of most of my users, but not the other characters.</p>
+      <p>What we really need is the frequency of occurrence for each character in each language, found by a real-world survey. Then we can set a threshold and determine our set of required characters. Or, we can assign a nominal cost to each character, and then work out a tradeoff.</p>
+  - id: 451288
+    user: 19774
+    date: 2011-02-09T02:12:00
+    date_raw: 9 Feb 2011 — 2:12am
+    votes: null
+    html: |-
+      <p><em>I did ask for a place where these informations are compiled, but no one know such a site or book.</em></p>
+      <p>We're working to change that. <a class="freelinking external" href="http://www.scriptsource.org/" rel="nofollow">ScriptSource</a> is a site dedicated to gathering info on scripts and writing systems. It supports 'tabular' data - lists of scripts, languages, characters, etc. - and the associations between them as well as text+graphics information. It's built on a database designed specifically for this type of linguistic data, and pulls in data from Unicode, the Ethnologue, various international standards (15924, 639-3) and CLDR. Text descriptions, articles, graphics, bibliographic links and even software can be connected to this skeleton of data.</p>
+      <p>We're working closely with the CLDR committee, and working on strategies to dramatically expand CLDR data for minority languages. CLDR already contains a huge volume of data in a useful but rather complex system that supports important concepts such as inheritance, but as a result can be tricky to navigate. We hope that ScriptSource can present some of that data in an easier to read format, and serve as a place to collect documentation and data toward further CLDR submissions. We see CLDR and international standards - not ScriptSource - as the long-term repositories of writing system data, but use our site to pull them together and enhance them. </p>
+      <p>ScriptSource is currently in testing and being refined for a public release later in the spring. If you're interested in finding our more go to <a class="freelinking external" href="http://www.scriptsource.org" rel="nofollow">www.scriptsource.org</a>. If you want to look at what we have so far and give us feedback drop me a line and I can give you an invitation, especially if you think that you might want to contribute to the site.</p>
+    html_clean: |-
+      <p><em>I did ask for a place where these informations are compiled, but no one know such a site or book.</em></p>
+      <p>We're working to change that. <a class="freelinking external" href="http://www.scriptsource.org/" rel="nofollow">ScriptSource</a> is a site dedicated to gathering info on scripts and writing systems. It supports 'tabular' data - lists of scripts, languages, characters, etc. - and the associations between them as well as text+graphics information. It's built on a database designed specifically for this type of linguistic data, and pulls in data from Unicode, the Ethnologue, various international standards (15924, 639-3) and CLDR. Text descriptions, articles, graphics, bibliographic links and even software can be connected to this skeleton of data.</p>
+      <p>We're working closely with the CLDR committee, and working on strategies to dramatically expand CLDR data for minority languages. CLDR already contains a huge volume of data in a useful but rather complex system that supports important concepts such as inheritance, but as a result can be tricky to navigate. We hope that ScriptSource can present some of that data in an easier to read format, and serve as a place to collect documentation and data toward further CLDR submissions. We see CLDR and international standards - not ScriptSource - as the long-term repositories of writing system data, but use our site to pull them together and enhance them. </p>
+      <p>ScriptSource is currently in testing and being refined for a public release later in the spring. If you're interested in finding our more go to <a class="freelinking external" href="http://www.scriptsource.org" rel="nofollow">www.scriptsource.org</a>. If you want to look at what we have so far and give us feedback drop me a line and I can give you an invitation, especially if you think that you might want to contribute to the site.</p>
+  - id: 451292
+    user: 4763
+    date: 2011-02-09T03:03:00
+    date_raw: 9 Feb 2011 — 3:03am
+    votes: null
+    html: <p>Victor, ScriptSource looks very promising! Looking forward to seeing the results of you efforts. Will it help me decide on the character set (not only letter-set) to put in my fonts?</p>
+    html_clean: <p>Victor, ScriptSource looks very promising! Looking forward to seeing the results of you efforts. Will it help me decide on the character set (not only letter-set) to put in my fonts?</p>
+  - id: 451341
+    user: 19774
+    date: 2011-02-09T09:12:00
+    date_raw: 9 Feb 2011 — 9:12am
+    votes: null
+    html: |-
+      <p>I hope so. The main 'objects' are script, language, writing system (what you get when you connect a script and a language, and a bit like a CLDR 'locale') and character. So you will be able to see what characters are used for a particular writing system - the main characters as well as auxiliary ones that are used for loan words, etc. We've focused more on characters than glyphs, although you'll be able to post details of glyph variants, cultural preferences, style differences, etc.</p>
+      <p>You'll also be able to see what writing systems use a particular character, although the completeness of that answer depends on the completeness of the underlying data, and there is still a <em>lot</em> of that data that doesn't exist yet.</p>
+    html_clean: |-
+      <p>I hope so. The main 'objects' are script, language, writing system (what you get when you connect a script and a language, and a bit like a CLDR 'locale') and character. So you will be able to see what characters are used for a particular writing system - the main characters as well as auxiliary ones that are used for loan words, etc. We've focused more on characters than glyphs, although you'll be able to post details of glyph variants, cultural preferences, style differences, etc.</p>
+      <p>You'll also be able to see what writing systems use a particular character, although the completeness of that answer depends on the completeness of the underlying data, and there is still a <em>lot</em> of that data that doesn't exist yet.</p>

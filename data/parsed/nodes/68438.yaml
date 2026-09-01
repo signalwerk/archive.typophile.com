@@ -1,0 +1,130 @@
+node: 68438
+title: Detecting Reverse PS Hints with Python
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131013030813"
+  captured_at: 2013-10-13T03:08:13Z
+  url: http://typophile.com/node/68438
+  digest: JKQQFHW5PVZ7ZQNIBOTMDNNTISBWBBBZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/68438.html
+  fingerprint: 5ef9a0a04035fa5a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131013030813"
+      digest: JKQQFHW5PVZ7ZQNIBOTMDNNTISBWBBBZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/68438.html
+post:
+  id: 68438
+  user: 910
+  date: 2010-03-15T16:25:00
+  date_raw: 15 Mar 2010 — 4:25pm
+  votes: null
+  html: |-
+    <p>Hey Everyone,</p>
+    <p>I'm stumped. Does anyone here know how to detect reversed postscript hints using Python in FontLab? </p>
+    <p>Here's what I tried:<br>
+    <code><br>
+    font = fl.font<br>
+    glyphs = font.glyphs</code><br>
+    <code><br>
+    for index in range(len(fl.font)):<br>
+    	glyph = fl.font[index]<br>
+    	vhw = glyph.vhints.width<br>
+    	if len(vhw) &lt; 0:<br>
+    		print glyph.name, vhw<br>
+    </code></p>
+    <p>I find there are two things wrong here (but I don't know how to fix them).<br>
+    1. FL py reports width as not being an attribute of hhints<br>
+    2. <code>len(vhw) &lt; 0</code> returns nothing even when I know those instances are present </p>
+    <p>Any help is appreciated.</p>
+  html_clean: |-
+    <p>Hey Everyone,</p>
+    <p>I'm stumped. Does anyone here know how to detect reversed postscript hints using Python in FontLab? </p>
+    <p>Here's what I tried:<br>
+    <code><br>
+    font = fl.font<br>
+    glyphs = font.glyphs</code><br>
+    <code><br>
+    for index in range(len(fl.font)):<br>
+    	glyph = fl.font[index]<br>
+    	vhw = glyph.vhints.width<br>
+    	if len(vhw) &lt; 0:<br>
+    		print glyph.name, vhw<br>
+    </code></p>
+    <p>I find there are two things wrong here (but I don't know how to fix them).<br>
+    1. FL py reports width as not being an attribute of hhints<br>
+    2. <code>len(vhw) &lt; 0</code> returns nothing even when I know those instances are present </p>
+    <p>Any help is appreciated.</p>
+comments:
+  - id: 402054
+    user: 1133
+    date: 2010-03-18T12:27:00
+    date_raw: 18 Mar 2010 — 12:27pm
+    votes: null
+    html: |-
+      <p>Delve, </p>
+      <p>glyph.vhints is a list. You need to iterate through it as in:<br>
+      <code>for vhint in glyph.vhints:<br>
+        print vhint.width</code></p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>Delve, </p>
+      <p>glyph.vhints is a list. You need to iterate through it as in:<br>
+      <code>for vhint in glyph.vhints:<br>
+        print vhint.width</code></p>
+      <p>Adam</p>
+  - id: 402225
+    user: 910
+    date: 2010-03-19T13:18:00
+    date_raw: 19 Mar 2010 — 1:18pm
+    votes: null
+    html: |-
+      <p>Thanks Adam!</p>
+      <p>That makes sense. I tried what you recommended and now it gives me an error that vhints is not an attribute of glyph (?).</p>
+      <p>D</p>
+    html_clean: |-
+      <p>Thanks Adam!</p>
+      <p>That makes sense. I tried what you recommended and now it gives me an error that vhints is not an attribute of glyph (?).</p>
+      <p>D</p>
+  - id: 402249
+    user: 29994
+    date: 2010-03-19T14:59:00
+    date_raw: 19 Mar 2010 — 2:59pm
+    votes: null
+    html: <p>The <a href="http://www.e-font.de/flpydoc/html/Glyph.xml.html" rel="nofollow">Unofficial FontLab/Python Ref</a> suggests it is ...</p>
+    html_clean: <p>The <a href="http://www.e-font.de/flpydoc/html/Glyph.xml.html" rel="nofollow">Unofficial FontLab/Python Ref</a> suggests it is ...</p>
+  - id: 402272
+    user: 3320
+    date: 2010-03-19T17:59:00
+    date_raw: 19 Mar 2010 — 5:59pm
+    votes: null
+    html: |-
+      <p>You may need to define the list first as in:</p>
+      <p>for v in range len(glyph.vhints):</p>
+      <p>or</p>
+      <p>verthints = glyph.vhints<br>
+      for v in range len(verthints):</p>
+    html_clean: |-
+      <p>You may need to define the list first as in:</p>
+      <p>for v in range len(glyph.vhints):</p>
+      <p>or</p>
+      <p>verthints = glyph.vhints<br>
+      for v in range len(verthints):</p>

@@ -1,0 +1,100 @@
+node: 42063
+title: makeotf error
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150421234917"
+  captured_at: 2015-04-21T23:49:17Z
+  url: http://www.typophile.com:80/node/42063
+  digest: RDI25ZJDIRRNTVXIBK6RKDAGTMHXJ3IS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/42063.html
+  fingerprint: a36bb57cea021ddb
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150421234917"
+      digest: RDI25ZJDIRRNTVXIBK6RKDAGTMHXJ3IS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/42063.html
+post:
+  id: 42063
+  user: 12948
+  date: 2008-02-13T14:30:00
+  date_raw: 13 Feb 2008 — 2:30pm
+  votes: null
+  html: |-
+    <p>I'm teaching myself the AFDKO, and I think I have everything all set up to go with one of my own fonts, but I keep running into this error:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture-3_4302.gif"></div><p></p>
+    <p>If I run <code>makeotf</code> on the Myriad sample provided by Adobe, things work perfect. I get the expected .otf file that works without a hitch.</p>
+    <p>Here is the directory structure of the file I'm creating:<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/pic-2_5286.gif"></div><p></p>
+    <p>Any suggestions?</p>
+  html_clean: |-
+    <p>I'm teaching myself the AFDKO, and I think I have everything all set up to go with one of my own fonts, but I keep running into this error:</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture-3_4302.gif"></div><p></p>
+    <p>If I run <code>makeotf</code> on the Myriad sample provided by Adobe, things work perfect. I get the expected .otf file that works without a hitch.</p>
+    <p>Here is the directory structure of the file I'm creating:<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/pic-2_5286.gif"></div><p></p>
+    <p>Any suggestions?</p>
+comments:
+  - id: 258703
+    user: 12948
+    date: 2008-02-13T15:13:00
+    date_raw: 13 Feb 2008 — 3:13pm
+    votes: null
+    html: |-
+      <p>Ok, so I thought that perhaps breaking the featuress into the two different feature files, as Adobe has it in their Myriad sample, would do it. Like so:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/pic-1_3806.gif"></div><p></p>
+      <p>Still no go.</p>
+    html_clean: |-
+      <p>Ok, so I thought that perhaps breaking the featuress into the two different feature files, as Adobe has it in their Myriad sample, would do it. Like so:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/pic-1_3806.gif"></div><p></p>
+      <p>Still no go.</p>
+  - id: 258726
+    user: 1133
+    date: 2008-02-13T17:17:00
+    date_raw: 13 Feb 2008 — 5:17pm
+    votes: null
+    html: |-
+      <p>But how do you run MakeOTF? What's the command?</p>
+      <p>A.</p>
+    html_clean: |-
+      <p>But how do you run MakeOTF? What's the command?</p>
+      <p>A.</p>
+  - id: 258734
+    user: 12948
+    date: 2008-02-13T18:04:00
+    date_raw: 13 Feb 2008 — 6:04pm
+    votes: null
+    html: |-
+      <p><code>DanGayles-PowerBook:~/Fonts/build/fonts/parallelhistories/Roman/Regular Dan$ makeotf -r</code> was the basic command. </p>
+      <p>I <code>cd</code> to the directory that contains the files to be converted, then run the command. It works for the Minion sample, but not mine. I created all of the documents using the Myriad files as templates, so I don't know if they are the problem.</p>
+      <p>I'm reading Miguel Sousa's "Font production at Adobe" .pdf for some clues. I re-exported the .pfa using standard encoding, and that's getting me further along the line.</p>
+      <p>Now I'm having an issue with the glyph names db. Will it never end? What's the best way to create or output that db from Fontlab 5 on a Mac?</p>
+    html_clean: |-
+      <p><code>DanGayles-PowerBook:~/Fonts/build/fonts/parallelhistories/Roman/Regular Dan$ makeotf -r</code> was the basic command. </p>
+      <p>I <code>cd</code> to the directory that contains the files to be converted, then run the command. It works for the Minion sample, but not mine. I created all of the documents using the Myriad files as templates, so I don't know if they are the problem.</p>
+      <p>I'm reading Miguel Sousa's "Font production at Adobe" .pdf for some clues. I re-exported the .pfa using standard encoding, and that's getting me further along the line.</p>
+      <p>Now I'm having an issue with the glyph names db. Will it never end? What's the best way to create or output that db from Fontlab 5 on a Mac?</p>
+  - id: 258735
+    user: 1370
+    date: 2008-02-13T18:04:00
+    date_raw: 13 Feb 2008 — 6:04pm
+    votes: null
+    html: <p>I'm going to guess that you're not giving makeOTF info on what font outline file (OTF, PS, PFA) to make the font from, so it is using the default of font.ps, which isn't in your directory. Use 'makeOTF -f Parallel Histories.otf' and it should work, though I would take out the space in 'Parallel Histories', as you may have to escape the space on the command line. Taking out the space would mean that your makeOTF command would be 'makeOTF -f ParallelHistories.otf'.</p>
+    html_clean: <p>I'm going to guess that you're not giving makeOTF info on what font outline file (OTF, PS, PFA) to make the font from, so it is using the default of font.ps, which isn't in your directory. Use 'makeOTF -f Parallel Histories.otf' and it should work, though I would take out the space in 'Parallel Histories', as you may have to escape the space on the command line. Taking out the space would mean that your makeOTF command would be 'makeOTF -f ParallelHistories.otf'.</p>

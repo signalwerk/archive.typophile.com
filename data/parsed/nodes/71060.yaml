@@ -1,0 +1,205 @@
+node: 71060
+title: Advanced opentype question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100708205006"
+  captured_at: 2010-07-08T20:50:06Z
+  url: http://typophile.com:80/node/71060
+  digest: M6SLDL5Q57JRBPVFIOJJPCSKIDDSGCRP
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/71060.html
+  fingerprint: a437ae37486fa2c6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100708205006"
+      digest: M6SLDL5Q57JRBPVFIOJJPCSKIDDSGCRP
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71060.html
+post:
+  id: 71060
+  user: 17101
+  date: 2010-06-04T19:41:00
+  date_raw: 4.Jun.2010 7.41pm
+  votes: null
+  html: |-
+    <p>If I select a portion of text and apply an opentype feature, is it possible to only make changes to the last [insert number] characters? I’d have to count backwards from the last character in the selection.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/otrequest_4687.png"></div><p></p>
+    <p>Edit: Fixed typo in title.</p>
+  html_clean: |-
+    <p>If I select a portion of text and apply an opentype feature, is it possible to only make changes to the last [insert number] characters? I’d have to count backwards from the last character in the selection.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/otrequest_4687.png"></div><p></p>
+    <p>Edit: Fixed typo in title.</p>
+comments:
+  - id: 414500
+    user: 17101
+    date: 2010-06-04T19:47:00
+    date_raw: 4.Jun.2010 7.47pm
+    votes: null
+    html: "<p>And another related question: Can OT count the number of characters selected?</p>"
+    html_clean: "<p>And another related question: Can OT count the number of characters selected?</p>"
+  - id: 414507
+    user: 1262
+    date: 2010-06-04T20:43:00
+    date_raw: 4.Jun.2010 8.43pm
+    votes: null
+    html: |-
+      <p>OT doesn't work on characters; it works on glyphs. There is no concept in OTL of 'end of selection'.</p>
+      <p>Are you actually trying to reduce the size of the glyphs, as shown in your example, or is this just an illustration? In order to achieve this appearance using OTL, you font would need to contain sized alternates: you can't actually change the font size via OTL, and in any case a change of text size normally terminates a glyph run for OTL processing.</p>
+    html_clean: |-
+      <p>OT doesn't work on characters; it works on glyphs. There is no concept in OTL of 'end of selection'.</p>
+      <p>Are you actually trying to reduce the size of the glyphs, as shown in your example, or is this just an illustration? In order to achieve this appearance using OTL, you font would need to contain sized alternates: you can't actually change the font size via OTL, and in any case a change of text size normally terminates a glyph run for OTL processing.</p>
+  - id: 414509
+    user: 17101
+    date: 2010-06-04T21:34:00
+    date_raw: 4.Jun.2010 9.34pm
+    votes: null
+    html: |-
+      <p>I am trying to reduce the size. Someone asked me if it was possible to have an effect like this in an OT feature. If so, I would have drawn four or five sets of sized alternates and substituted them counting backwards from “end of selection”.</p>
+      <p>You’ve answered my question and obviously it can’t be done this way.</p>
+      <p>Thanks.</p>
+    html_clean: |-
+      <p>I am trying to reduce the size. Someone asked me if it was possible to have an effect like this in an OT feature. If so, I would have drawn four or five sets of sized alternates and substituted them counting backwards from “end of selection”.</p>
+      <p>You’ve answered my question and obviously it can’t be done this way.</p>
+      <p>Thanks.</p>
+  - id: 414511
+    user: 1262
+    date: 2010-06-04T23:09:00
+    date_raw: 4.Jun.2010 11.09pm
+    votes: null
+    html: |-
+      <p>You could do it with a trigger glyph. So rather than having the context run backwards from the end of the selection you would insert the trigger glyph at the end of the selection and use that as the first context glyph. You would use a series of contextual lookups, something like this (using VOLT syntax; sorry, I don't do AFKDO):</p>
+      <p>letter -&gt; letter.smallest<br>
+      | trigger</p>
+      <p>letter -&gt; letter.smallerstill<br>
+      | letter.smallest</p>
+      <p>letter -&gt; letter.smaller<br>
+      | letter.smallerstill</p>
+      <p>letter -&gt; letter.small<br>
+      | letter.smaller</p>
+      <p>and finally you would remove the trigger glyph from the string like this:</p>
+      <p>letter.smallest trigger -&gt; letter.smallest</p>
+    html_clean: |-
+      <p>You could do it with a trigger glyph. So rather than having the context run backwards from the end of the selection you would insert the trigger glyph at the end of the selection and use that as the first context glyph. You would use a series of contextual lookups, something like this (using VOLT syntax; sorry, I don't do AFKDO):</p>
+      <p>letter -&gt; letter.smallest<br>
+      | trigger</p>
+      <p>letter -&gt; letter.smallerstill<br>
+      | letter.smallest</p>
+      <p>letter -&gt; letter.smaller<br>
+      | letter.smallerstill</p>
+      <p>letter -&gt; letter.small<br>
+      | letter.smaller</p>
+      <p>and finally you would remove the trigger glyph from the string like this:</p>
+      <p>letter.smallest trigger -&gt; letter.smallest</p>
+  - id: 414514
+    user: 17101
+    date: 2010-06-04T23:54:00
+    date_raw: 4.Jun.2010 11.54pm
+    votes: null
+    html: <p>I don’t get the syntax yet, but I think I get the concept. Thanks John!</p>
+    html_clean: <p>I don’t get the syntax yet, but I think I get the concept. Thanks John!</p>
+  - id: 414515
+    user: 17101
+    date: 2010-06-05T00:18:00
+    date_raw: 5.Jun.2010 12.18am
+    votes: null
+    html: |-
+      <p>Say I’d set this up with “]” as the trigger glyph, could I write “]5” and somehow use the number to determine how many letters my feature would affect? </p>
+      <p>if “]1” — run feature one step<br>
+      if “]2” — run feature two steps<br>
+      if “]3” — run feature three steps<br>
+      if “]4” — run feature four steps<br>
+      if “]5” —&nbsp;run feature five steps<br>
+      if “]6” — run feature six steps<br>
+      if “]7” — run feature seven steps<br>
+      if “]8” — run feature eight steps<br>
+      if “]9” — run feature nine steps</p>
+    html_clean: |-
+      <p>Say I’d set this up with “]” as the trigger glyph, could I write “]5” and somehow use the number to determine how many letters my feature would affect? </p>
+      <p>if “]1” — run feature one step<br>
+      if “]2” — run feature two steps<br>
+      if “]3” — run feature three steps<br>
+      if “]4” — run feature four steps<br>
+      if “]5” —&nbsp;run feature five steps<br>
+      if “]6” — run feature six steps<br>
+      if “]7” — run feature seven steps<br>
+      if “]8” — run feature eight steps<br>
+      if “]9” — run feature nine steps</p>
+  - id: 414517
+    user: 17101
+    date: 2010-06-05T00:19:00
+    date_raw: 5.Jun.2010 12.19am
+    votes: null
+    html: "<p>Or better yet: Could I determine the number of glyphs in the textbox?</p>"
+    html_clean: "<p>Or better yet: Could I determine the number of glyphs in the textbox?</p>"
+  - id: 414523
+    user: 32723
+    date: 2010-06-05T04:01:00
+    date_raw: 5.Jun.2010 4.01am
+    votes: null
+    html: <p>I don't see a way to do this with OT. But you can get this effect with InDesign GREP styles – and thus no need to create a set of different sized glyphs.</p>
+    html_clean: <p>I don't see a way to do this with OT. But you can get this effect with InDesign GREP styles – and thus no need to create a set of different sized glyphs.</p>
+  - id: 414541
+    user: 17101
+    date: 2010-06-05T08:23:00
+    date_raw: 5.Jun.2010 8.23am
+    votes: null
+    html: <p>Even if I could tell, it doesn’t seem to be any way to divide that number by X to get the length of my steps.</p>
+    html_clean: <p>Even if I could tell, it doesn’t seem to be any way to divide that number by X to get the length of my steps.</p>
+  - id: 414555
+    user: 1262
+    date: 2010-06-05T09:53:00
+    date_raw: 5.Jun.2010 9.53am
+    votes: null
+    html: |-
+      <p>You could hack a trigger for context length like this:</p>
+      <p>letter -&gt; letter.small<br>
+      |   J 4</p>
+      <p>followed by</p>
+      <p>letter -&gt; letter.smaller<br>
+      letter.small |</p>
+      <p>letter -&gt; letter.smallerstill<br>
+      letter.smaller |</p>
+      <p>letter -&gt; letter.smallest<br>
+      letter.smallerstill |</p>
+      <p>and then</p>
+      <p>letter.smallest J 4 -&gt; letter.smallest</p>
+      <p>to remove the trigger glyphs.</p>
+      <p>But just because it might be possible doesn't mean it's a good idea.</p>
+    html_clean: |-
+      <p>You could hack a trigger for context length like this:</p>
+      <p>letter -&gt; letter.small<br>
+      |   J 4</p>
+      <p>followed by</p>
+      <p>letter -&gt; letter.smaller<br>
+      letter.small |</p>
+      <p>letter -&gt; letter.smallerstill<br>
+      letter.smaller |</p>
+      <p>letter -&gt; letter.smallest<br>
+      letter.smallerstill |</p>
+      <p>and then</p>
+      <p>letter.smallest J 4 -&gt; letter.smallest</p>
+      <p>to remove the trigger glyphs.</p>
+      <p>But just because it might be possible doesn't mean it's a good idea.</p>
+  - id: 414563
+    user: 17101
+    date: 2010-06-05T10:14:00
+    date_raw: 5.Jun.2010 10.14am
+    votes: null
+    html: <p>True. The number of alternates alone — and that’s even before I consider the contextual alternates and ligatures involved in the base font — is daunting.</p>
+    html_clean: <p>True. The number of alternates alone — and that’s even before I consider the contextual alternates and ligatures involved in the base font — is daunting.</p>

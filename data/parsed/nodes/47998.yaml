@@ -1,0 +1,119 @@
+node: 47998
+title: WPF ClearType tuning
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20150315143306"
+  captured_at: 2015-03-15T14:33:06Z
+  url: http://typophile.com:80/node/47998
+  digest: BHTZYLZI2M7OZQGVBX3HA7Q2YTNXLQJM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/47998.html
+  fingerprint: 667895a896ae9483
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150315143306"
+      digest: BHTZYLZI2M7OZQGVBX3HA7Q2YTNXLQJM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/47998.html
+post:
+  id: 47998
+  user: 33948
+  date: 2008-08-01T13:31:00
+  date_raw: 1 Aug 2008 — 1:31pm
+  votes: null
+  html: |-
+    <p>Here are my observations on WPF ClearType tuning on a lowly 96 dpi LG LCD fitted to a Compaq V5000 laptop running XP SP3. Before diving in, note that my observations are NOT relevant to ClearType for GDI, which is what the Control Panel applet tweaks!</p>
+    <p>I relied on two WPF applications to test the various settings: Expression Design 2, and XamlPadX v3 using FlowDocumentPageViewer. Design 2 has a default white on black menu, which was a good torture test for legibility. I tried the surfaces (i.e. drawing areas) of these two apps with various C-series fonts and Segoe UI, but I couldn't get them to look exactly the same even using the same font, point size and zoom level. It seems that Design 2 doesn't use WPF's ClearType setting for its drawing surface. [BTW, Expression Web 2 seemed to ignore <em>all</em> WPF ClearType registry setting (perhaps it has its own??), so I couldn't test anything with it. Also Web 2 didn't show Segoe UI in its fonts list (bug?).] My sad conclusion after all this is that the only WPF app for which ClearType can be reliably tweaked is XamlPadX, which isn't exactly a production tool... In any case, on with the show:</p>
+    <p>0) In contrast with GDI ClearType, there is no tool that I know of for changing WPF ClearType settings. I used the registry editor. The values I'm discussing are all decimal; make sure you don't enter them as hex in regedit (which is the default input mode). The reference on the registry entries is: <a href="http://msdn.microsoft.com/en-us/library/aa970267.aspx" title="http://msdn.microsoft.com/en-us/library/aa970267.aspx">http://msdn.microsoft.com/en-us/library/aa970267.aspx</a></p>
+    <p>1) Unlike the GDI ClearType registry changes, which takes effect instantly on all GDI applications, the WPF ClearType registry tweaks require the WPF application(s) to be be restarted for changes to take effect.</p>
+    <p>2) There are no default WPF ClearType registry entries, and contrary to what MSDN claims, the settings for the GDI ClearType were NOT used as default for WPF applications. Instead some built-in defaults seem to be used.</p>
+    <p>3) Color fringes, perhaps the most annoying "feature" of ClearType, can (finally) be controlled for WPF apps by changing the GammaLevel setting. This setting doesn't affect the monitor gamma in any way, but only changes what WPF ClearType /thinks/ the gamma is. MSDN recommends that you match this with your actual monitor gamma. My experience is that the higher the setting, the better reduction of color fringes is. IMO 2200 (decimal), which is the max setting, seems optimal.</p>
+    <p>4) The general level of glyph anti-aliasing seems to be controlled by the ClearTypeLevel setting. The best seemed the max value - 100 (which seems the default).</p>
+    <p>5) There's another registry setting that counterbalances glyph aliasing: TextContrastLevel. This controls how thick the stems remain even after applying the anti-aliasing. The default is 1, which is okay at 12 point, but makes the menus hard to read. Lowering this to 0 was significantly better for white on black menus, but made black on white text a bit harder to read.</p>
+    <p>6) The PixelStructure controls the order of sub-pixels. 0 means no sub-pixel rendering, 1, which looked best to me, means RGB order, 2=BGR. Beware that the default is 0! My Design 2's menu was really foggy with 0, which is what motivated me to investigate this whole matter. Also, don't worry much about getting your sub-pixel order wrong because at the wrong setting white text looks rainbow colored, so it's easily spotted.</p>
+    <p>That's it. To recap, the best settings for me were PixelStructure=1, TextContrastLevel=0 (1 is okay too), ClearTypeLevel=100, GammaLevel=2200. I'd be glad to hear your comments on this.</p>
+  html_clean: |-
+    <p>Here are my observations on WPF ClearType tuning on a lowly 96 dpi LG LCD fitted to a Compaq V5000 laptop running XP SP3. Before diving in, note that my observations are NOT relevant to ClearType for GDI, which is what the Control Panel applet tweaks!</p>
+    <p>I relied on two WPF applications to test the various settings: Expression Design 2, and XamlPadX v3 using FlowDocumentPageViewer. Design 2 has a default white on black menu, which was a good torture test for legibility. I tried the surfaces (i.e. drawing areas) of these two apps with various C-series fonts and Segoe UI, but I couldn't get them to look exactly the same even using the same font, point size and zoom level. It seems that Design 2 doesn't use WPF's ClearType setting for its drawing surface. [BTW, Expression Web 2 seemed to ignore <em>all</em> WPF ClearType registry setting (perhaps it has its own??), so I couldn't test anything with it. Also Web 2 didn't show Segoe UI in its fonts list (bug?).] My sad conclusion after all this is that the only WPF app for which ClearType can be reliably tweaked is XamlPadX, which isn't exactly a production tool... In any case, on with the show:</p>
+    <p>0) In contrast with GDI ClearType, there is no tool that I know of for changing WPF ClearType settings. I used the registry editor. The values I'm discussing are all decimal; make sure you don't enter them as hex in regedit (which is the default input mode). The reference on the registry entries is: <a href="http://msdn.microsoft.com/en-us/library/aa970267.aspx" title="http://msdn.microsoft.com/en-us/library/aa970267.aspx">http://msdn.microsoft.com/en-us/library/aa970267.aspx</a></p>
+    <p>1) Unlike the GDI ClearType registry changes, which takes effect instantly on all GDI applications, the WPF ClearType registry tweaks require the WPF application(s) to be be restarted for changes to take effect.</p>
+    <p>2) There are no default WPF ClearType registry entries, and contrary to what MSDN claims, the settings for the GDI ClearType were NOT used as default for WPF applications. Instead some built-in defaults seem to be used.</p>
+    <p>3) Color fringes, perhaps the most annoying "feature" of ClearType, can (finally) be controlled for WPF apps by changing the GammaLevel setting. This setting doesn't affect the monitor gamma in any way, but only changes what WPF ClearType /thinks/ the gamma is. MSDN recommends that you match this with your actual monitor gamma. My experience is that the higher the setting, the better reduction of color fringes is. IMO 2200 (decimal), which is the max setting, seems optimal.</p>
+    <p>4) The general level of glyph anti-aliasing seems to be controlled by the ClearTypeLevel setting. The best seemed the max value - 100 (which seems the default).</p>
+    <p>5) There's another registry setting that counterbalances glyph aliasing: TextContrastLevel. This controls how thick the stems remain even after applying the anti-aliasing. The default is 1, which is okay at 12 point, but makes the menus hard to read. Lowering this to 0 was significantly better for white on black menus, but made black on white text a bit harder to read.</p>
+    <p>6) The PixelStructure controls the order of sub-pixels. 0 means no sub-pixel rendering, 1, which looked best to me, means RGB order, 2=BGR. Beware that the default is 0! My Design 2's menu was really foggy with 0, which is what motivated me to investigate this whole matter. Also, don't worry much about getting your sub-pixel order wrong because at the wrong setting white text looks rainbow colored, so it's easily spotted.</p>
+    <p>That's it. To recap, the best settings for me were PixelStructure=1, TextContrastLevel=0 (1 is okay too), ClearTypeLevel=100, GammaLevel=2200. I'd be glad to hear your comments on this.</p>
+comments:
+  - id: 292979
+    user: 1250
+    date: 2008-08-01T20:07:00
+    date_raw: 1 Aug 2008 — 8:07pm
+    votes: null
+    html: |-
+      <p>I'm not sure what prompted this, but thank you; this is actually something I might have to get into for a project, even though frankly I don't get most of what you wrote... yet. Would it make sense to show some images here?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I'm not sure what prompted this, but thank you; this is actually something I might have to get into for a project, even though frankly I don't get most of what you wrote... yet. Would it make sense to show some images here?</p>
+      <p>hhp</p>
+  - id: 296471
+    user: 1262
+    date: 2008-08-18T18:54:00
+    date_raw: 18 Aug 2008 — 6:54pm
+    votes: null
+    html: <p><a href="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx" title="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx">http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx</a></p>
+    html_clean: <p><a href="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx" title="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx">http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx</a></p>
+  - id: 296524
+    user: 2969
+    date: 2008-08-19T03:01:00
+    date_raw: 19 Aug 2008 — 3:01am
+    votes: null
+    html: |-
+      <p><a href="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx" title="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx">http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx</a></p>
+      <p>"Californian FB", as shown in this 'white paper', seems to be particularly effected by 'CT tuning.' </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p><a href="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx" title="http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx">http://windowsclient.net/wpf/white-papers/wpftextclarity.aspx</a></p>
+      <p>"Californian FB", as shown in this 'white paper', seems to be particularly effected by 'CT tuning.' </p>
+      <p>Cheers!</p>
+  - id: 296938
+    user: 5882
+    date: 2008-08-21T03:41:00
+    date_raw: 21 Aug 2008 — 3:41am
+    votes: null
+    html: |-
+      <p>&gt;&gt;“Californian FB”, as shown in this ’white paper’, seems to be particularly effected by ’CT tuning.’ </p>
+      <p>I contacted the owner of the Site. Normal service has been returned ;-)</p>
+    html_clean: |-
+      <p>&gt;&gt;“Californian FB”, as shown in this ’white paper’, seems to be particularly effected by ’CT tuning.’ </p>
+      <p>I contacted the owner of the Site. Normal service has been returned ;-)</p>
+  - id: 299589
+    user: 2969
+    date: 2008-09-04T07:47:00
+    date_raw: 4 Sep 2008 — 7:47am
+    votes: null
+    html: |-
+      <p>"I contacted the owner of the Site. Normal service has been returned"</p>
+      <p>Thank you so much, it now looks a lot more like the original, having serifs, and contrast and those good old shapes.<br>
+      No need to set loose the IP lawyers on a misbranding licensee either. :)</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"I contacted the owner of the Site. Normal service has been returned"</p>
+      <p>Thank you so much, it now looks a lot more like the original, having serifs, and contrast and those good old shapes.<br>
+      No need to set loose the IP lawyers on a misbranding licensee either. :)</p>
+      <p>Cheers!</p>

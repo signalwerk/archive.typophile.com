@@ -1,0 +1,70 @@
+node: 2254
+title: null
+forum:
+  id: null
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20050518123346"
+  captured_at: 2005-05-18T12:33:46Z
+  url: http://typophile.com:80/node/2254
+  digest: 4U67AS3IHDZ366CU4LW7INFJA32BG7KI
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/2254.html
+  fingerprint: 6c60442026852bf8
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20050518123346"
+      digest: 4U67AS3IHDZ366CU4LW7INFJA32BG7KI
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/2254.html
+post:
+  id: 2254
+  user: null
+  date: null
+  date_raw: Sun, 2003-11-30 14:58
+  votes: null
+  html: "<p>Anyone know how to make a utf-16 font without buying the $2000 Asia Font Studio? I'm doing a <a href=\"http://en.wikipedia.org/wiki/Deseret_alphabet\">Deseret Alphabet</a> font (Unicode 10400-1044F) complete with an OSX keyboard layout for a research project. I've played around a little bit with Apple's command line font tools, dumping out xml, editing, then reincorporating, but it always chokes when I try to change the unicode hex values to anything higher than 8 bit. Letterror's TTX has the same problem. (I even downloaded and applied their patch--it still chokes with a long integer error)  Anyone have any ideas? <br> <br>Point of interest: OSX comes with a Deseret Alphabet font included--who knew? Hint: it's in the Symbols font. It's very ugly, but cool that it's there. I just need to figure out how to reencode a utf-8 font into a utf-16...</p>"
+  html_clean: "<p>Anyone know how to make a utf-16 font without buying the $2000 Asia Font Studio? I'm doing a <a href=\"http://en.wikipedia.org/wiki/Deseret_alphabet\">Deseret Alphabet</a> font (Unicode 10400-1044F) complete with an OSX keyboard layout for a research project. I've played around a little bit with Apple's command line font tools, dumping out xml, editing, then reincorporating, but it always chokes when I try to change the unicode hex values to anything higher than 8 bit. Letterror's TTX has the same problem. (I even downloaded and applied their patch--it still chokes with a long integer error)  Anyone have any ideas? <br> <br>Point of interest: OSX comes with a Deseret Alphabet font included--who knew? Hint: it's in the Symbols font. It's very ugly, but cool that it's there. I just need to figure out how to reencode a utf-8 font into a utf-16...</p>"
+comments:
+  - id: 17983
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>You can do non-BMP Unicodes in FontLab. You just have to give the glyphs names in the format "u10412" etc. You can't see the non-BMP Unicode correctly in FontLab, but it should work in the exported font. <br> <br>Note that the title of your post is a little off; UTF-16 is simply one of the ways of representing Unicode (and requires two code points to represent a non-BMP code). From a font perspective, you don't use two code points to represent a non-BMP Unicode, but instead use a 32-bit cmap (UTF-32). The font itself will actually have both a 16-bit cmap and a 32-bit cmap. <br> <br>Cheers, <br> <br>T</p>
+    html_clean: <p>You can do non-BMP Unicodes in FontLab. You just have to give the glyphs names in the format "u10412" etc. You can't see the non-BMP Unicode correctly in FontLab, but it should work in the exported font. <br> <br>Note that the title of your post is a little off; UTF-16 is simply one of the ways of representing Unicode (and requires two code points to represent a non-BMP code). From a font perspective, you don't use two code points to represent a non-BMP Unicode, but instead use a 32-bit cmap (UTF-32). The font itself will actually have both a 16-bit cmap and a 32-bit cmap. <br> <br>Cheers, <br> <br>T</p>
+  - id: 17984
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>Thomas: Thanks for the pointers. I didn't know that about unicode fonts. I guess I need to read up on the unicode standard. I've never really worried about it up to this point. I tried your  fontlab tip, and it didn't work. The characters come out mapped differently. Any other ideas?</p>"
+    html_clean: "<p>Thomas: Thanks for the pointers. I didn't know that about unicode fonts. I guess I need to read up on the unicode standard. I've never really worried about it up to this point. I tried your  fontlab tip, and it didn't work. The characters come out mapped differently. Any other ideas?</p>"
+  - id: 17985
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Nope. That was my understanding of how to do it. Maybe I got some key detail wrong. You could try browsing the FontLab user forum on MSN. I know this has been discussed there. <br> <br>Regards, <br> <br>T</p>
+    html_clean: <p>Nope. That was my understanding of how to do it. Maybe I got some key detail wrong. You could try browsing the FontLab user forum on MSN. I know this has been discussed there. <br> <br>Regards, <br> <br>T</p>
+  - id: 17986
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>If you have a Windows machine, you can run the fonts through Microsoft's free <a href="http://www.microsoft.com/typography/developers/volt/default.htm">VOLT</a> tool. This is a program for adding OpenType Layout features to a font, but it also rewrites cmap tables, so you can use it to map glyphs to non-BMP characters. However, you have to use surrogate pair values, not 32-bit scalar values, so <a href="http://trigeminal.com/16to32AndBack.asp">this convertor</a> will be useful.</p>
+    html_clean: <p>If you have a Windows machine, you can run the fonts through Microsoft's free <a href="http://www.microsoft.com/typography/developers/volt/default.htm">VOLT</a> tool. This is a program for adding OpenType Layout features to a font, but it also rewrites cmap tables, so you can use it to map glyphs to non-BMP characters. However, you have to use surrogate pair values, not 32-bit scalar values, so <a href="http://trigeminal.com/16to32AndBack.asp">this convertor</a> will be useful.</p>

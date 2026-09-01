@@ -1,0 +1,109 @@
+node: 73867
+title: OT - changing last glyph in word
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100907021230"
+  captured_at: 2010-09-07T02:12:30Z
+  url: http://typophile.com:80/node/73867
+  digest: RXJOSXELVSE5HXUHPR26RYGJOM245ID2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/73867.html
+  fingerprint: 83d207bcb9fe93b2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100907021230"
+      digest: RXJOSXELVSE5HXUHPR26RYGJOM245ID2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/73867.html
+post:
+  id: 73867
+  user: 44424
+  date: 2010-09-05T07:35:00
+  date_raw: 5.Sep.2010 7.35am
+  votes: null
+  html: |-
+    <p>Can someone help me and tell me is it possible to have OT feature that will change last glyph in word?</p>
+    <p>For example: America into AmericA.</p>
+    <p>Thanks</p>
+  html_clean: |-
+    <p>Can someone help me and tell me is it possible to have OT feature that will change last glyph in word?</p>
+    <p>For example: America into AmericA.</p>
+    <p>Thanks</p>
+comments:
+  - id: 428299
+    user: 1133
+    date: 2010-09-05T08:14:00
+    date_raw: 5.Sep.2010 8.14am
+    votes: null
+    html: |-
+      <p><code>@LETTERS = [A-Z a-z];<br>
+      feature calt {<br>
+      ignore sub a' @LETTERS;<br>
+      sub a' by A;<br>
+      } calt;<br>
+      feature fina {<br>
+      sub a by A;<br>
+      } fina;</code></p>
+    html_clean: |-
+      <p><code>@LETTERS = [A-Z a-z];<br>
+      feature calt {<br>
+      ignore sub a' @LETTERS;<br>
+      sub a' by A;<br>
+      } calt;<br>
+      feature fina {<br>
+      sub a by A;<br>
+      } fina;</code></p>
+  - id: 428303
+    user: 44424
+    date: 2010-09-05T09:10:00
+    date_raw: 5.Sep.2010 9.10am
+    votes: null
+    html: <p>Thank you very much :)</p>
+    html_clean: <p>Thank you very much :)</p>
+  - id: 428307
+    user: 3254
+    date: 2010-09-05T09:31:00
+    date_raw: 5.Sep.2010 9.31am
+    votes: null
+    html: <p>Is the "fina" feature a redundancy to assure maximum support?</p>
+    html_clean: <p>Is the "fina" feature a redundancy to assure maximum support?</p>
+  - id: 428324
+    user: 21217
+    date: 2010-09-05T11:06:00
+    date_raw: 5.Sep.2010 11.06am
+    votes: null
+    html: <p>'fina' feature is script specific (Arabic and Syriac AFAIK), and requires certain knowledge about the respective script in the engine itself, since final position is not necessary at the end of the word and can be triggered by certain letter sequences even in the middle of the word. The same is true for "init", "medi", "isol" and other similar features. Actually, I don't think any of those features will work with Latin script.</p>
+    html_clean: <p>'fina' feature is script specific (Arabic and Syriac AFAIK), and requires certain knowledge about the respective script in the engine itself, since final position is not necessary at the end of the word and can be triggered by certain letter sequences even in the middle of the word. The same is true for "init", "medi", "isol" and other similar features. Actually, I don't think any of those features will work with Latin script.</p>
+  - id: 428370
+    user: 1133
+    date: 2010-09-05T18:05:00
+    date_raw: 5.Sep.2010 6.05pm
+    votes: null
+    html: |-
+      <p>Khaled, </p>
+      <p><code>isol</code>, <code>init</code>, <code>medi</code> and <code>fina</code> work in Latin fonts, e.g. in InDesign CS4/CS5, using the "Positional Forms" submenu in the OpenType flyout menu. This allows users of Latin fonts to have a fine-grain control over which forms should appear (typically, in <code>calt</code>, you'd have code to deal with all forms at the same time).</p>
+      <p>You're right, though: in <code>calt</code>, the font designer needs to specify the context, i.e. identify the end of a word or a line. In the positional forms features, it is the application (i.e. the OT Layout engine) that "knows" where to apply those features if the user enables them. This is why in my example, the <code>calt</code> feature uses a contextual substitution while the <code>fina</code> feature uses a simple substitution. </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Khaled, </p>
+      <p><code>isol</code>, <code>init</code>, <code>medi</code> and <code>fina</code> work in Latin fonts, e.g. in InDesign CS4/CS5, using the "Positional Forms" submenu in the OpenType flyout menu. This allows users of Latin fonts to have a fine-grain control over which forms should appear (typically, in <code>calt</code>, you'd have code to deal with all forms at the same time).</p>
+      <p>You're right, though: in <code>calt</code>, the font designer needs to specify the context, i.e. identify the end of a word or a line. In the positional forms features, it is the application (i.e. the OT Layout engine) that "knows" where to apply those features if the user enables them. This is why in my example, the <code>calt</code> feature uses a contextual substitution while the <code>fina</code> feature uses a simple substitution. </p>
+      <p>Best,<br>
+      Adam</p>

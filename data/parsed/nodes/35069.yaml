@@ -1,0 +1,83 @@
+node: 35069
+title: True Type parsing issue
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20090417175125"
+  captured_at: 2009-04-17T17:51:25Z
+  url: http://www.typophile.com:80/node/35069
+  digest: NDYMHMAXEBKJWSP5AQMUTHV472CPNZKO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/35069.html
+  fingerprint: 9152506311e2ff15
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20090417175125"
+      digest: NDYMHMAXEBKJWSP5AQMUTHV472CPNZKO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/35069.html
+post:
+  id: 35069
+  user: 19557
+  date: 2007-07-12T05:34:00
+  date_raw: 12.Jul.2007 5.34am
+  votes: null
+  html: |-
+    <p>Hey!<br>
+    I’m currently writing a parser for the TrueType file format for a project I’m doing. I don’t need all the tables present in the TT standard, and everything I’ve parsed so far has worked out nicely. Now I’m battling with the glyf-table, which I just can seem to get right!</p>
+    <p>When I parse this table, everything works as expected as long as there are no blank glyphs (zero contours (spaces etc)). Sometime when my parser hits a blank glyph it gets out of synch, which of course has devastating effects...</p>
+    <p>The files I’m parsing don’t have composite glyphs, so I don’t have to worry about that (contour values = -1).</p>
+    <p>I think I’ve localized the error. If I look at my font in a hex editor I can see that the blank glyphs do not have a full glyph-header (n_contours, x_min, y_min, x_max, y_max). Instead they seem to have an arbitrary (usually 1-3) byte entries which are zero, and then the next glyph on comes right after that.<br>
+    For instance, a blank glyph in a hex editor looks like this:</p>
+    <p>... 05 e6 fa 1a    |    00    |    00 01 01 AA ...</p>
+    <p>The first part is the en parts of the previous glyph. This seems to be correct - I get the right point values and flags for it.</p>
+    <p>The middle part is a single 0 entry, and that’s all I can find from the blank glyph.</p>
+    <p>The last part first says 0001 countours, which is correct, and 01AA xMin which is also correct for the following glyph. As you can see, the middle glyph, which is a blank glyph, only has one single entry... no full 5 Short value glyf-header!</p>
+    <p>I have no clue why that is! For a while I thought the varying amount of zero entries were some kind of allignment padding in the file, but that doesn’t seem right...</p>
+    <p>I’m thankful for any help I can get to help me out here!<br>
+    Thanks in advance!!</p>
+    <p>/Magnus</p>
+  html_clean: |-
+    <p>Hey!<br>
+    I’m currently writing a parser for the TrueType file format for a project I’m doing. I don’t need all the tables present in the TT standard, and everything I’ve parsed so far has worked out nicely. Now I’m battling with the glyf-table, which I just can seem to get right!</p>
+    <p>When I parse this table, everything works as expected as long as there are no blank glyphs (zero contours (spaces etc)). Sometime when my parser hits a blank glyph it gets out of synch, which of course has devastating effects...</p>
+    <p>The files I’m parsing don’t have composite glyphs, so I don’t have to worry about that (contour values = -1).</p>
+    <p>I think I’ve localized the error. If I look at my font in a hex editor I can see that the blank glyphs do not have a full glyph-header (n_contours, x_min, y_min, x_max, y_max). Instead they seem to have an arbitrary (usually 1-3) byte entries which are zero, and then the next glyph on comes right after that.<br>
+    For instance, a blank glyph in a hex editor looks like this:</p>
+    <p>... 05 e6 fa 1a    |    00    |    00 01 01 AA ...</p>
+    <p>The first part is the en parts of the previous glyph. This seems to be correct - I get the right point values and flags for it.</p>
+    <p>The middle part is a single 0 entry, and that’s all I can find from the blank glyph.</p>
+    <p>The last part first says 0001 countours, which is correct, and 01AA xMin which is also correct for the following glyph. As you can see, the middle glyph, which is a blank glyph, only has one single entry... no full 5 Short value glyf-header!</p>
+    <p>I have no clue why that is! For a while I thought the varying amount of zero entries were some kind of allignment padding in the file, but that doesn’t seem right...</p>
+    <p>I’m thankful for any help I can get to help me out here!<br>
+    Thanks in advance!!</p>
+    <p>/Magnus</p>
+comments:
+  - id: 212966
+    user: 19560
+    date: 2007-07-12T08:59:00
+    date_raw: 12.Jul.2007 8.59am
+    votes: null
+    html: |-
+      <p>It’s hard to say for sure without seeing the rest of the font data, but I would guess that what you’re calling the data for the blank glyph *is* in fact padding at the end of the first glyph. There can be 0 - 3 pad bytes at the end of each glyph’s data, depending on the length of the data and ’loca’ format (’indexToLocFormat’ value from the <a class="freelinking-external" href="http://www.microsoft.com/typography/otspec/head.htm">’head’ table</a>).</p>
+      <p>Are you reading the ’loca’ table to obtain each glyph’s offset and length within the ’glyf’ table? I would be surprised to see such results if so, as it would indicate corruption (as an aside: if you haven’t already verified the integrity of the data, you should consider doing so with <a class="freelinking-external" href="http://www.microsoft.com/typography/FontValidator.mspx">Font Validator</a> or other utility). Truly blank glyphs will have a length of zero.</p>
+      <p>If you’re not using the ’loca’ values...well, you need to. The ’glyf’ table data is meaningless without the ’loca’.</p>
+    html_clean: |-
+      <p>It’s hard to say for sure without seeing the rest of the font data, but I would guess that what you’re calling the data for the blank glyph *is* in fact padding at the end of the first glyph. There can be 0 - 3 pad bytes at the end of each glyph’s data, depending on the length of the data and ’loca’ format (’indexToLocFormat’ value from the <a class="freelinking-external" href="http://www.microsoft.com/typography/otspec/head.htm">’head’ table</a>).</p>
+      <p>Are you reading the ’loca’ table to obtain each glyph’s offset and length within the ’glyf’ table? I would be surprised to see such results if so, as it would indicate corruption (as an aside: if you haven’t already verified the integrity of the data, you should consider doing so with <a class="freelinking-external" href="http://www.microsoft.com/typography/FontValidator.mspx">Font Validator</a> or other utility). Truly blank glyphs will have a length of zero.</p>
+      <p>If you’re not using the ’loca’ values...well, you need to. The ’glyf’ table data is meaningless without the ’loca’.</p>

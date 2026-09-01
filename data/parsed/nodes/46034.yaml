@@ -1,0 +1,94 @@
+node: 46034
+title: Question about OT Scripting and file size
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081015212103"
+  captured_at: 2008-10-15T21:21:03Z
+  url: http://www.typophile.com/node/46034
+  digest: GRHNC47FV4XLSNO4VJEF2EUDVTWHY3ZS
+  verified: false
+  truncated: false
+  sound: true
+  content: rewritten
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/46034.html
+  fingerprint: 0e38bcff897839b6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081015212103"
+      digest: GRHNC47FV4XLSNO4VJEF2EUDVTWHY3ZS
+      verified: false
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/46034.html
+post:
+  id: 46034
+  user: 2942
+  date: 2008-06-03T14:15:00
+  date_raw: 3.Jun.2008 2.15pm
+  votes: null
+  html: |-
+    <p>I was thinking about the practical issues involved in using Calt/Liga for text faces today, and I started wondering about how much larger a file might be if it has has 10, 50, 100, 1000 or 10,000 feature entries. And what the real practical limitations might be in terms of the file size, for the Operating System (OSX, Windows Vista, XP etc.) , and applications, any one of which might potentially choke on an overly big file. Maybe file size per se isn’t the only technical issue. I am BTW deliberately leaving out any mention of managing large #s of features which is essentially a different issue.</p>
+    <p>It’s a broad question, and I know the answers are probably very specific and potentially very case dependent.</p>
+    <p>Still, what is your take on this? Have you run into problems regarding this kind of thing as an OS, application, or font developer you would like to share?</p>
+    <div class="forum-topic-navigation clear-block"><a href="/web/20081015212103/http://www.typophile.com/node/45985" class="topic-previous" title="Go to previous forum topic">‹ fsSelection field error.</a> <a href="/web/20081015212103/http://www.typophile.com/node/46092" class="topic-next" title="Go to next forum topic">Kerning doesn't transfers from Fontlab Studio to font file ›</a></div>
+  html_clean: |-
+    <p>I was thinking about the practical issues involved in using Calt/Liga for text faces today, and I started wondering about how much larger a file might be if it has has 10, 50, 100, 1000 or 10,000 feature entries. And what the real practical limitations might be in terms of the file size, for the Operating System (OSX, Windows Vista, XP etc.) , and applications, any one of which might potentially choke on an overly big file. Maybe file size per se isn’t the only technical issue. I am BTW deliberately leaving out any mention of managing large #s of features which is essentially a different issue.</p>
+    <p>It’s a broad question, and I know the answers are probably very specific and potentially very case dependent.</p>
+    <p>Still, what is your take on this? Have you run into problems regarding this kind of thing as an OS, application, or font developer you would like to share?</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/45985/" class="topic-previous" title="Go to previous forum topic">‹ fsSelection field error.</a> <a href="/web/20081015212103/http://www.typophile.com/node/46092" class="topic-next" title="Go to next forum topic">Kerning doesn't transfers from Fontlab Studio to font file ›</a></div>
+comments:
+  - id: 282013
+    user: 909
+    date: 2008-06-03T17:09:00
+    date_raw: 3.Jun.2008 5.09pm
+    votes: null
+    html: |-
+      <p>There’s a 64K limit on the size of a subtable offset (I think I have that right). This can be worked around with the “extension” function and appropriate subtable breaks, although not all possible clients will recognize that. Usually this comes up with kerning for really big fonts (e.g. Arno Pro).</p>
+      <p>There are a couple of size limits related to glyphs rather than features, as well:</p>
+      <p>1) Mac OS used to have a limit on the total length of glyph name strings, as well. That has been fixed at some point.</p>
+      <p>2) There’s the limit of 64K glyphs in the font.</p>
+      <p>Regards,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>There’s a 64K limit on the size of a subtable offset (I think I have that right). This can be worked around with the “extension” function and appropriate subtable breaks, although not all possible clients will recognize that. Usually this comes up with kerning for really big fonts (e.g. Arno Pro).</p>
+      <p>There are a couple of size limits related to glyphs rather than features, as well:</p>
+      <p>1) Mac OS used to have a limit on the total length of glyph name strings, as well. That has been fixed at some point.</p>
+      <p>2) There’s the limit of 64K glyphs in the font.</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 282014
+    user: 1262
+    date: 2008-06-03T17:32:00
+    date_raw: 3.Jun.2008 5.32pm
+    votes: null
+    html: |-
+      <p>I’m playing with interleaved contextual and stylistic set stuff for display type that goes way beyond anything that I would anticipate in a text face, and I have not hit any size limits in terms of software support — at least not in my test environments, which in this case are InDesign and WPF —, although I have hit (anticipated) feature implementation issues. Sergey Malkin at MS confirms that my VOLT source for this project is the largest and most complex he has seen (a record I previously held with SBL Hebrew), and the GSUB table takes up something like 40% of the compiled font. This is the stuff I’ll be showing at TypeCon this year.</p>
+      <p>I can’t imagine anything on that magnitude being necessary in a text face, even presuming that some characters have multiple forms for improved fit. Also, from my perspective there is an important net gain in not using ligature glyphs any more, since it massively simplifies the GPOS mark positioning work.</p>
+    html_clean: |-
+      <p>I’m playing with interleaved contextual and stylistic set stuff for display type that goes way beyond anything that I would anticipate in a text face, and I have not hit any size limits in terms of software support — at least not in my test environments, which in this case are InDesign and WPF —, although I have hit (anticipated) feature implementation issues. Sergey Malkin at MS confirms that my VOLT source for this project is the largest and most complex he has seen (a record I previously held with SBL Hebrew), and the GSUB table takes up something like 40% of the compiled font. This is the stuff I’ll be showing at TypeCon this year.</p>
+      <p>I can’t imagine anything on that magnitude being necessary in a text face, even presuming that some characters have multiple forms for improved fit. Also, from my perspective there is an important net gain in not using ligature glyphs any more, since it massively simplifies the GPOS mark positioning work.</p>
+  - id: 282015
+    user: 1262
+    date: 2008-06-03T17:33:00
+    date_raw: 3.Jun.2008 5.33pm
+    votes: null
+    html: <p>PS. All my OTL work is done in VOLT, so I don’t know what kind of tool issues you might hit with FontLab/FDK.</p>
+    html_clean: <p>PS. All my OTL work is done in VOLT, so I don’t know what kind of tool issues you might hit with FontLab/FDK.</p>
+  - id: 282016
+    user: 1262
+    date: 2008-06-03T17:35:00
+    date_raw: 3.Jun.2008 5.35pm
+    votes: null
+    html: null
+    html_clean: null

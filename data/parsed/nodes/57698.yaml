@@ -1,0 +1,385 @@
+node: 57698
+title: Fontlab - Changing diacritics' case
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20150424141938"
+  captured_at: 2015-04-24T14:19:38Z
+  url: http://typophile.com/node/57698
+  digest: XZUQEHUHQVRW6G5ZC4XR3F5QC2HFZ53F
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/57698.html
+  fingerprint: 0f810e79afae46b1
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150424141938"
+      digest: XZUQEHUHQVRW6G5ZC4XR3F5QC2HFZ53F
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/57698.html
+post:
+  id: 57698
+  user: 10256
+  date: 2009-05-05T15:33:00
+  date_raw: 5 May 2009 — 3:33pm
+  votes: null
+  html: |-
+    <p>Well, this is probably a easy one:</p>
+    <p>When working in FreeFont mode, how can I assign automatically a lower-case acute mark to a lower-case glyph and a upper-case mark to a upper-case glyph?</p>
+    <p>Fontlab insists on giving lower-case marks to all characters.</p>
+    <p>Thank you in advance.</p>
+  html_clean: |-
+    <p>Well, this is probably a easy one:</p>
+    <p>When working in FreeFont mode, how can I assign automatically a lower-case acute mark to a lower-case glyph and a upper-case mark to a upper-case glyph?</p>
+    <p>Fontlab insists on giving lower-case marks to all characters.</p>
+    <p>Thank you in advance.</p>
+comments:
+  - id: 345340
+    user: 5264
+    date: 2009-05-05T16:17:00
+    date_raw: 5 May 2009 — 4:17pm
+    votes: null
+    html: <p>Good question. This will also be helpful to me.</p>
+    html_clean: <p>Good question. This will also be helpful to me.</p>
+  - id: 345341
+    user: 4346
+    date: 2009-05-05T16:19:00
+    date_raw: 5 May 2009 — 4:19pm
+    votes: null
+    html: <p>Check out Ben Kiel's BuildAccent python library. Once you set up the build file it's easy. <a href="http://benkiel.com/typeDesign/" title="http://benkiel.com/typeDesign/">http://benkiel.com/typeDesign/</a></p>
+    html_clean: <p>Check out Ben Kiel's BuildAccent python library. Once you set up the build file it's easy. <a href="http://benkiel.com/typeDesign/" title="http://benkiel.com/typeDesign/">http://benkiel.com/typeDesign/</a></p>
+  - id: 345346
+    user: 16708
+    date: 2009-05-05T17:34:00
+    date_raw: 5 May 2009 — 5:34pm
+    votes: null
+    html: |-
+      <p>Question from non-user: If you have <code>acutecomb</code> and <code>acutecomb.cap</code>, for instance, in your <code>case</code> substitution, does it not automatically replace it when needed?   FontForge does it for me...</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+    html_clean: |-
+      <p>Question from non-user: If you have <code>acutecomb</code> and <code>acutecomb.cap</code>, for instance, in your <code>case</code> substitution, does it not automatically replace it when needed?   FontForge does it for me...</p>
+      <p><em>«El futuro es una línea tan fina que apenas nos damos cuenta de pintarla nosotros mismos». (La Luz Oscura, por Javier Guerrero)</em></p>
+  - id: 345351
+    user: 1947
+    date: 2009-05-05T18:31:00
+    date_raw: 5 May 2009 — 6:31pm
+    votes: null
+    html: <p>If you name your uppercase accents with a .case suffix FontLab will use most of them. You can customize all of this by editing the alias.dat file. You can go as far as using small cap accents named with a .smcp suffix and most of them will work as well. Watch out for those caron.case and caron.smcp uses. You really have to edit alias.dat for those to work.</p>
+    html_clean: <p>If you name your uppercase accents with a .case suffix FontLab will use most of them. You can customize all of this by editing the alias.dat file. You can go as far as using small cap accents named with a .smcp suffix and most of them will work as well. Watch out for those caron.case and caron.smcp uses. You really have to edit alias.dat for those to work.</p>
+  - id: 345429
+    user: 10256
+    date: 2009-05-06T04:05:00
+    date_raw: 6 May 2009 — 4:05am
+    votes: null
+    html: |-
+      <p>OK, thank you guys!</p>
+      <p>terminaldesign, can you provide me an explanation on how to do this?</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>OK, thank you guys!</p>
+      <p>terminaldesign, can you provide me an explanation on how to do this?</p>
+      <p>Cheers!</p>
+  - id: 345445
+    user: 1947
+    date: 2009-05-06T06:39:00
+    date_raw: 6 May 2009 — 6:39am
+    votes: null
+    html: |-
+      <p>It is a text edit procedure. Here are the first few lines of the alias.dat file:</p>
+      <p>%%FONTLAB ALIASES<br>
+      % Build 2005-09-05 for FontLab Studio 5.0 or higher<br>
+      AE A_E<br>
+      AEacute AE+~acute.case<br>
+      AEacute AE+acutecomb<br>
+      AEacute AE+acute<br>
+      AEacute.small AE.small+~acute.small<br>
+      Aacute A+~acute.case<br>
+      Aacute A+acutecomb<br>
+      Aacute A+acute<br>
+      Aacute.small A.small+~acute.small<br>
+      Abreve A+~breve.case<br>
+      Abreve A+uni0306<br>
+      Abreve A+breve<br>
+      Abreve.small A.small+~breve.small<br>
+      Acircumflex A+~circumflex.case<br>
+      Acircumflex A+uni0302<br>
+      Acircumflex A+circumflex<br>
+      Acircumflex.small A.small+~circumflex.small<br>
+      Adieresis A+~dieresis.case<br>
+      Adieresis A+uni0308<br>
+      Adieresis A+dieresis<br>
+      Adieresis.small A.small+~dieresis.small<br>
+      Agrave A+~grave.case<br>
+      Agrave A+gravecomb<br>
+      Agrave A+grave</p>
+      <p>As you can see there are several formulas for constructing the composite glyph. If the components are available for the first formula, it will be used. If not the the second formula will be tried, and finally the third.</p>
+      <p>You can edit these, so if you don't use .case, but use .cap instead, do a find and replace and change it.</p>
+      <p>Just make sure you have a backup of the original in case you screw it up.</p>
+    html_clean: |-
+      <p>It is a text edit procedure. Here are the first few lines of the alias.dat file:</p>
+      <p>%%FONTLAB ALIASES<br>
+      % Build 2005-09-05 for FontLab Studio 5.0 or higher<br>
+      AE A_E<br>
+      AEacute AE+~acute.case<br>
+      AEacute AE+acutecomb<br>
+      AEacute AE+acute<br>
+      AEacute.small AE.small+~acute.small<br>
+      Aacute A+~acute.case<br>
+      Aacute A+acutecomb<br>
+      Aacute A+acute<br>
+      Aacute.small A.small+~acute.small<br>
+      Abreve A+~breve.case<br>
+      Abreve A+uni0306<br>
+      Abreve A+breve<br>
+      Abreve.small A.small+~breve.small<br>
+      Acircumflex A+~circumflex.case<br>
+      Acircumflex A+uni0302<br>
+      Acircumflex A+circumflex<br>
+      Acircumflex.small A.small+~circumflex.small<br>
+      Adieresis A+~dieresis.case<br>
+      Adieresis A+uni0308<br>
+      Adieresis A+dieresis<br>
+      Adieresis.small A.small+~dieresis.small<br>
+      Agrave A+~grave.case<br>
+      Agrave A+gravecomb<br>
+      Agrave A+grave</p>
+      <p>As you can see there are several formulas for constructing the composite glyph. If the components are available for the first formula, it will be used. If not the the second formula will be tried, and finally the third.</p>
+      <p>You can edit these, so if you don't use .case, but use .cap instead, do a find and replace and change it.</p>
+      <p>Just make sure you have a backup of the original in case you screw it up.</p>
+  - id: 345451
+    user: 20652
+    date: 2009-05-06T07:34:00
+    date_raw: 6 May 2009 — 7:34am
+    votes: null
+    html: <p>Useful info, thanks :)</p>
+    html_clean: <p>Useful info, thanks :)</p>
+  - id: 345686
+    user: 10256
+    date: 2009-05-07T04:15:00
+    date_raw: 7 May 2009 — 4:15am
+    votes: null
+    html: |-
+      <p>Thanks terminaldesign, it worked and helped a lot!</p>
+      <p>:)</p>
+    html_clean: |-
+      <p>Thanks terminaldesign, it worked and helped a lot!</p>
+      <p>:)</p>
+  - id: 345727
+    user: 10199
+    date: 2009-05-07T07:23:00
+    date_raw: 7 May 2009 — 7:23am
+    votes: null
+    html: |-
+      <p>Thanks, James! Works great.</p>
+      <p>Maybe also (a tiny little) useful... to batch change suffixes:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/more_5396.png"></div><p></p>
+    html_clean: |-
+      <p>Thanks, James! Works great.</p>
+      <p>Maybe also (a tiny little) useful... to batch change suffixes:<br>
+      </p><div class="imageWrap"><img src="/files/more_5396.png"></div><p></p>
+  - id: 345939
+    user: 10256
+    date: 2009-05-08T06:10:00
+    date_raw: 8 May 2009 — 6:10am
+    votes: null
+    html: |-
+      <p>Hey Jos!</p>
+      <p>That's soooo handy!</p>
+    html_clean: |-
+      <p>Hey Jos!</p>
+      <p>That's soooo handy!</p>
+  - id: 346053
+    user: 10199
+    date: 2009-05-09T02:42:00
+    date_raw: 9 May 2009 — 2:42am
+    votes: null
+    html: <p>Thanks. I really took me some time to find out where this command resided.</p>
+    html_clean: <p>Thanks. I really took me some time to find out where this command resided.</p>
+  - id: 348018
+    user: 2942
+    date: 2009-05-22T11:44:00
+    date_raw: 22 May 2009 — 11:44am
+    votes: null
+    html: <p>James, thanks for this!!!</p>
+    html_clean: <p>James, thanks for this!!!</p>
+  - id: 348023
+    user: 3254
+    date: 2009-05-22T12:40:00
+    date_raw: 22 May 2009 — 12:40pm
+    votes: null
+    html: <p>What's that tilde before some of the components in the alias.dat file?</p>
+    html_clean: <p>What's that tilde before some of the components in the alias.dat file?</p>
+  - id: 348036
+    user: 1947
+    date: 2009-05-22T13:29:00
+    date_raw: 22 May 2009 — 1:29pm
+    votes: null
+    html: <p>The tilde before the component is an instruction not to reposition the component. One assumes that the .case or .small accents are designed at the appropriate height to correctly position over the glyphs. If you left the tilde out FontLab would raise the position of the accent assuming it was originally positioned for the lowercase.</p>
+    html_clean: <p>The tilde before the component is an instruction not to reposition the component. One assumes that the .case or .small accents are designed at the appropriate height to correctly position over the glyphs. If you left the tilde out FontLab would raise the position of the accent assuming it was originally positioned for the lowercase.</p>
+  - id: 348037
+    user: 1947
+    date: 2009-05-22T13:36:00
+    date_raw: 22 May 2009 — 1:36pm
+    votes: null
+    html: |-
+      <p>Adam Twardoch explains it all in depth here:</p>
+      <p><a href="http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites-generate-glyphs-tricks-t3171.0.html" title="http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites-generate-glyphs-tricks-t3171.0.html">http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites...</a></p>
+    html_clean: |-
+      <p>Adam Twardoch explains it all in depth here:</p>
+      <p><a href="http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites-generate-glyphs-tricks-t3171.0.html" title="http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites-generate-glyphs-tricks-t3171.0.html">http://forum.fontlab.com/archive-fontlab-tips-and-tricks/tips-composites...</a></p>
+  - id: 348038
+    user: 3254
+    date: 2009-05-22T13:39:00
+    date_raw: 22 May 2009 — 1:39pm
+    votes: null
+    html: <p>I see - thanks!</p>
+    html_clean: <p>I see - thanks!</p>
+  - id: 348067
+    user: 40601
+    date: 2009-05-22T17:11:00
+    date_raw: 22 May 2009 — 5:11pm
+    votes: null
+    html: <p>Thanks, [track].</p>
+    html_clean: <p>Thanks, [track].</p>
+  - id: 475262
+    user: 174791
+    date: 2011-08-25T02:54:00
+    date_raw: 25 Aug 2011 — 2:54am
+    votes: null
+    html: |-
+      <p>Awesome, I keep on learning new tricks!</p>
+      <p>Can't seem to find that alias.dat file anywhere though? Am on a windows vista machine...</p>
+    html_clean: |-
+      <p>Awesome, I keep on learning new tricks!</p>
+      <p>Can't seem to find that alias.dat file anywhere though? Am on a windows vista machine...</p>
+  - id: 475353
+    user: 20652
+    date: 2011-08-26T05:29:00
+    date_raw: 26 Aug 2011 — 5:29am
+    votes: null
+    html: <p>Try Program Files/Common Files/Fontlab/Data.</p>
+    html_clean: <p>Try Program Files/Common Files/Fontlab/Data.</p>
+  - id: 475414
+    user: 174791
+    date: 2011-08-27T02:27:00
+    date_raw: 27 Aug 2011 — 2:27am
+    votes: null
+    html: <p>Yes, that's it! Awesome, thanks Ben!</p>
+    html_clean: <p>Yes, that's it! Awesome, thanks Ben!</p>
+  - id: 584540
+    user: 52182
+    date: 2014-07-31T09:11:00
+    date_raw: 31 Jul 2014 — 9:11am
+    votes: null
+    html: |-
+      <p>Can someone explain what the alias.dat file does exactly? I mean, is it safe to replace the file once you're almost done with your font or should this be done at the beginning of the design process?</p>
+      <p><cite>Just make sure you have a backup of the original in case you screw it up.</cite></p>
+      <p>What can potentially go wrong?</p>
+    html_clean: |-
+      <p>Can someone explain what the alias.dat file does exactly? I mean, is it safe to replace the file once you're almost done with your font or should this be done at the beginning of the design process?</p>
+      <p><cite>Just make sure you have a backup of the original in case you screw it up.</cite></p>
+      <p>What can potentially go wrong?</p>
+  - id: 584549
+    user: 17101
+    date: 2014-07-31T09:33:00
+    date_raw: 31 Jul 2014 — 9:33am
+    votes: null
+    html: <p>alias.dat has no effect on the font file. You can modify it to change the automated building of composite glyphs, like for example doubleclicking the æ adds composites of a &amp; e.</p>
+    html_clean: <p>alias.dat has no effect on the font file. You can modify it to change the automated building of composite glyphs, like for example doubleclicking the æ adds composites of a &amp; e.</p>
+  - id: 584561
+    user: 52182
+    date: 2014-07-31T11:03:00
+    date_raw: 31 Jul 2014 — 11:03am
+    votes: null
+    html: <p>I had a look at the file and I'm puzzled as to what I actually need to change for cap diacritics, or is it just a matter of being consistent with the suffixes? Is there a preference between .case and .cap?</p>
+    html_clean: <p>I had a look at the file and I'm puzzled as to what I actually need to change for cap diacritics, or is it just a matter of being consistent with the suffixes? Is there a preference between .case and .cap?</p>
+  - id: 584570
+    user: 52182
+    date: 2014-07-31T11:43:00
+    date_raw: 31 Jul 2014 — 11:43am
+    votes: null
+    html: |-
+      <p>I'm trying to make the L-caron but can't get it to work. First off, since the caron in L-caron looks like a comma, I created a glyph called 'caroncomma'. I doubt this is how it's supposed to be done, so what's the correct way?</p>
+      <p>I used caroncomma to generate l-caron and it works as I would expect. For L-caron I created a second caroncomma and tried the names caroncomma.cap, caroncomma.case and caroncommacap but in all cases the caron is placed too high in L-caron. So what do I change in alias.dat to fix this? Also, won't I run into problems when opening the font on a computer which has the unmodified alias.dat?</p>
+    html_clean: |-
+      <p>I'm trying to make the L-caron but can't get it to work. First off, since the caron in L-caron looks like a comma, I created a glyph called 'caroncomma'. I doubt this is how it's supposed to be done, so what's the correct way?</p>
+      <p>I used caroncomma to generate l-caron and it works as I would expect. For L-caron I created a second caroncomma and tried the names caroncomma.cap, caroncomma.case and caroncommacap but in all cases the caron is placed too high in L-caron. So what do I change in alias.dat to fix this? Also, won't I run into problems when opening the font on a computer which has the unmodified alias.dat?</p>
+  - id: 584575
+    user: 17101
+    date: 2014-07-31T12:09:00
+    date_raw: 31 Jul 2014 — 12:09pm
+    votes: null
+    html: |-
+      <p>Aacute A+~acute.case<br>
+      aacute a+~acute</p>
+      <p>From the FontLab forum:<br>
+      “You'll find it in the "Creating Composites and Ligatures" section in the manual:</p>
+      <p>In the composition recipe, the "+" command may be followed by one or<br>
+      two alignment commands:<br>
+      ^ align component to the uppercase position<br>
+      ~ do not move component vertically<br>
+      &lt; align component to the left of the base glyph<br>
+      &gt; align component to the right of the base glyph<br>
+      | center component horizontally</p>
+      <p>[...]</p>
+      <p>Use "%=" instead of "=" to decompose created composite glyph. For<br>
+      example:<br>
+      A+^ring%=Aringdecomposed”</p>
+      <p>You won’t run into problems when opening the font on another computer.</p>
+    html_clean: |-
+      <p>Aacute A+~acute.case<br>
+      aacute a+~acute</p>
+      <p>From the FontLab forum:<br>
+      “You'll find it in the "Creating Composites and Ligatures" section in the manual:</p>
+      <p>In the composition recipe, the "+" command may be followed by one or<br>
+      two alignment commands:<br>
+      ^ align component to the uppercase position<br>
+      ~ do not move component vertically<br>
+      &lt; align component to the left of the base glyph<br>
+      &gt; align component to the right of the base glyph<br>
+      | center component horizontally</p>
+      <p>[...]</p>
+      <p>Use "%=" instead of "=" to decompose created composite glyph. For<br>
+      example:<br>
+      A+^ring%=Aringdecomposed”</p>
+      <p>You won’t run into problems when opening the font on another computer.</p>
+  - id: 584579
+    user: 52182
+    date: 2014-07-31T12:47:00
+    date_raw: 31 Jul 2014 — 12:47pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>Ohh these are codes to be used for the Generate Glyphs command. For some reason I missed that. Thanks for elaborating.</p>
+      <p>Two question which went unanswered: is it better to use .case, .cap or doesn't it matter as long as you're consistent? What's the appropriate name of the caron that looks like a comma?</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>Ohh these are codes to be used for the Generate Glyphs command. For some reason I missed that. Thanks for elaborating.</p>
+      <p>Two question which went unanswered: is it better to use .case, .cap or doesn't it matter as long as you're consistent? What's the appropriate name of the caron that looks like a comma?</p>
+      </div>
+  - id: 585039
+    user: 909
+    date: 2014-08-06T07:08:00
+    date_raw: 6 Aug 2014 — 7:08am
+    votes: null
+    html: |-
+      <p>alias.dat is used for generate glyphs, and also when you double-click on an empty slot in the font window.</p>
+      <p>.cap or .case doesn’t matter as long as there is the matching data in alias.dat. On a technical level, you could even use some of each, but that would probably get confusing!</p>
+      <p>I’d name it the alternate caron... caron + some extension. Could be caron.commalike or caron.alt.</p>
+    html_clean: |-
+      <p>alias.dat is used for generate glyphs, and also when you double-click on an empty slot in the font window.</p>
+      <p>.cap or .case doesn’t matter as long as there is the matching data in alias.dat. On a technical level, you could even use some of each, but that would probably get confusing!</p>
+      <p>I’d name it the alternate caron... caron + some extension. Could be caron.commalike or caron.alt.</p>

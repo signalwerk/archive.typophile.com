@@ -1,0 +1,201 @@
+node: 102041
+title: Different line gap between styles of the same font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809085059"
+  captured_at: 2014-08-09T08:50:59Z
+  url: http://typophile.com/node/102041
+  digest: XFNZA5SQTWYLQNKLRIPMK4DAHAP36BLR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/102041.html
+  fingerprint: 99655ed18324ffcd
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809085059"
+      digest: XFNZA5SQTWYLQNKLRIPMK4DAHAP36BLR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/102041.html
+post:
+  id: 102041
+  user: 210418
+  date: 2013-04-05T08:15:00
+  date_raw: 5 Apr 2013 — 8:15am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>I have a problem with the line gap of my font when using it on windows 7 with Wordpad (no problem on open office and on my mac).</p>
+    <p>I made a  font family with 4 styles (regular, italic, bold and bold italic) and when I use it with Wordpad, I ended up with unconsistent linegap. Italic, bold &amp; bold italic have the same line gap but regular has a larger one.</p>
+    <p>I use Fontlab to made the font and my settings in "Truetype Specific metrics" are the same for all 4 styles (see below).</p>
+    <p>OS/2 TypoAscender = 1600<br>
+    OS/2 TypoDescender = -500<br>
+    OS/2 TypoLineGap = 400<br>
+    OS/2 WinAscent = 1900<br>
+    OS/2 WinDescent = -600<br>
+    hhea Ascender = 1900<br>
+    hhea Descender = -600<br>
+    hhea LineGap = 0</p>
+    <p>A screenshot of the regular and bold version at the same size :</p>
+    <p><img src="http://f.cl.ly/items/1i3E2C0Y1F0T2c3d3V31/linegap-problem.png" border="0"></p>
+    <p>I tried various settings in "Truetype Specific metrics" but none of them solve the issue. I don't know why the line gap calculated by wordpad is different for regular and bold despite that they have the same settings… Maybe you know…</p>
+    <p>Sorry for my english… I hope someone could help me !</p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I have a problem with the line gap of my font when using it on windows 7 with Wordpad (no problem on open office and on my mac).</p>
+    <p>I made a  font family with 4 styles (regular, italic, bold and bold italic) and when I use it with Wordpad, I ended up with unconsistent linegap. Italic, bold &amp; bold italic have the same line gap but regular has a larger one.</p>
+    <p>I use Fontlab to made the font and my settings in "Truetype Specific metrics" are the same for all 4 styles (see below).</p>
+    <p>OS/2 TypoAscender = 1600<br>
+    OS/2 TypoDescender = -500<br>
+    OS/2 TypoLineGap = 400<br>
+    OS/2 WinAscent = 1900<br>
+    OS/2 WinDescent = -600<br>
+    hhea Ascender = 1900<br>
+    hhea Descender = -600<br>
+    hhea LineGap = 0</p>
+    <p>A screenshot of the regular and bold version at the same size :</p>
+    <p><img src="http://f.cl.ly/items/1i3E2C0Y1F0T2c3d3V31/linegap-problem.png" border="0"></p>
+    <p>I tried various settings in "Truetype Specific metrics" but none of them solve the issue. I don't know why the line gap calculated by wordpad is different for regular and bold despite that they have the same settings… Maybe you know…</p>
+    <p>Sorry for my english… I hope someone could help me !</p>
+comments:
+  - id: 549815
+    user: 803
+    date: 2013-04-05T10:10:00
+    date_raw: 5 Apr 2013 — 10:10am
+    votes: null
+    html: |-
+      <p>Just some thoughts for you to consider:<br>
+      1. Are you absolutely certain that the largest numbers in your Regular are 1900 and -600? Did you do a Recalculation to check that weight?<br>
+      2. Does your Wordpad file have a Carriage Return at the end of the last line? A long shot but it may affect it.<br>
+      3. Have you tried it with both LineGap settings at zero? I know this is contrary to all recommendations but it may force Wordpad to work with it. If you changed this number you would also have to set your Typo numbers to match Win &amp; hhea. It will affect your output in all apps.</p>
+      <p>Assuming this is a font you are making for sale, if it were my font I wouldn't worry about using it in Wordpad. How many people use Wordpad in an office or professional setting?</p>
+    html_clean: |-
+      <p>Just some thoughts for you to consider:<br>
+      1. Are you absolutely certain that the largest numbers in your Regular are 1900 and -600? Did you do a Recalculation to check that weight?<br>
+      2. Does your Wordpad file have a Carriage Return at the end of the last line? A long shot but it may affect it.<br>
+      3. Have you tried it with both LineGap settings at zero? I know this is contrary to all recommendations but it may force Wordpad to work with it. If you changed this number you would also have to set your Typo numbers to match Win &amp; hhea. It will affect your output in all apps.</p>
+      <p>Assuming this is a font you are making for sale, if it were my font I wouldn't worry about using it in Wordpad. How many people use Wordpad in an office or professional setting?</p>
+  - id: 549883
+    user: 9636
+    date: 2013-04-05T21:48:00
+    date_raw: 5 Apr 2013 — 9:48pm
+    votes: null
+    html: <p>OK, now this one's a longshot, but did you cache the VDMX table? If your autohinting is off, that could cause weird settings in the VDMX. This would only happen at some sizes, though, so if you see the issue at a large range of sizes, that's not the cause.</p>
+    html_clean: <p>OK, now this one's a longshot, but did you cache the VDMX table? If your autohinting is off, that could cause weird settings in the VDMX. This would only happen at some sizes, though, so if you see the issue at a large range of sizes, that's not the cause.</p>
+  - id: 549884
+    user: 2021
+    date: 2013-04-05T21:57:00
+    date_raw: 5 Apr 2013 — 9:57pm
+    votes: null
+    html: |-
+      <p>It may be a problem with the bounding box.<br>
+      In FontLab:<br>
+      &gt; Metrics and Dimensions &gt; Key dimensions</p>
+      <p>Font BBox: (-xxx, -<strong>xxx</strong>) - (xxxx, <strong>xxx</strong>)</p>
+      <p>Make sure that the y-axis/vertical values (which I have indicated in bold) are the same for every font.</p>
+      <p>Go through all the glyphs and check the position of the highest (usually the ring accent over cap A) and lowest details—these are used to determine the bounding box.</p>
+    html_clean: |-
+      <p>It may be a problem with the bounding box.<br>
+      In FontLab:<br>
+      &gt; Metrics and Dimensions &gt; Key dimensions</p>
+      <p>Font BBox: (-xxx, -<strong>xxx</strong>) - (xxxx, <strong>xxx</strong>)</p>
+      <p>Make sure that the y-axis/vertical values (which I have indicated in bold) are the same for every font.</p>
+      <p>Go through all the glyphs and check the position of the highest (usually the ring accent over cap A) and lowest details—these are used to determine the bounding box.</p>
+  - id: 550053
+    user: 210418
+    date: 2013-04-08T00:47:00
+    date_raw: 8 Apr 2013 — 12:47am
+    votes: null
+    html: |-
+      <p>Thank you for your replies !</p>
+      <p>@George Thomas:<br>
+      1. I check my vertical dimension and effectively 1900 is not my largest number, it's 1929.<br>
+      2. Not a problem with a carriage return.<br>
+      3. I havn't tried to set the 2 linegap to 0, will try it to see if it change something.</p>
+      <p>I tried my font on wordPad because I didn't have word on PC (I work on a mac) and I assume that if there is an issue in wordPad, this issue may appear on other software as well.</p>
+      <p>@jasonc :<br>
+      I have the issue at all sizes…</p>
+      <p>@Nick Shinn:<br>
+      My Font BBox are different, see the values below:<br>
+      Regular: (-99, -710) - (3132, 1920)<br>
+      Italic: (-139, -711) - (3070, 1920)<br>
+      Bold: (-130, -710) - (3141, 1928)<br>
+      Bold Italic: (-198, -711) - (3235, 1929)</p>
+      <p>Do I need to change my font design to fit in the same bounding box ?</p>
+      <p>I will do more test today, and I'll let you know if I make any progress ! </p>
+      <p>Again, thank you !</p>
+    html_clean: |-
+      <p>Thank you for your replies !</p>
+      <p>@George Thomas:<br>
+      1. I check my vertical dimension and effectively 1900 is not my largest number, it's 1929.<br>
+      2. Not a problem with a carriage return.<br>
+      3. I havn't tried to set the 2 linegap to 0, will try it to see if it change something.</p>
+      <p>I tried my font on wordPad because I didn't have word on PC (I work on a mac) and I assume that if there is an issue in wordPad, this issue may appear on other software as well.</p>
+      <p>@jasonc :<br>
+      I have the issue at all sizes…</p>
+      <p>@Nick Shinn:<br>
+      My Font BBox are different, see the values below:<br>
+      Regular: (-99, -710) - (3132, 1920)<br>
+      Italic: (-139, -711) - (3070, 1920)<br>
+      Bold: (-130, -710) - (3141, 1928)<br>
+      Bold Italic: (-198, -711) - (3235, 1929)</p>
+      <p>Do I need to change my font design to fit in the same bounding box ?</p>
+      <p>I will do more test today, and I'll let you know if I make any progress ! </p>
+      <p>Again, thank you !</p>
+  - id: 550069
+    user: 2969
+    date: 2013-04-08T03:31:00
+    date_raw: 8 Apr 2013 — 3:31am
+    votes: null
+    html: <p>I think styles of the same family and size master should share the same em proportions. This does not mean, e.g. the heights or depths of all the glyphs need to be the exactly the same, but they should be fairly close.</p>
+    html_clean: <p>I think styles of the same family and size master should share the same em proportions. This does not mean, e.g. the heights or depths of all the glyphs need to be the exactly the same, but they should be fairly close.</p>
+  - id: 550227
+    user: 210418
+    date: 2013-04-09T08:32:00
+    date_raw: 9 Apr 2013 — 8:32am
+    votes: null
+    html: |-
+      <p>I tried various "Truetype specific settings" but none of them fix the issue. I change the tallest glyphs in the bold version so that regular and bold fit in the same bounding box (xxx, -710) - (xxx, 1920) but it didn't change anything. I tried to set the 2 linegap to 0… same result.</p>
+      <p>If someone has another idea I'll take it!</p>
+    html_clean: |-
+      <p>I tried various "Truetype specific settings" but none of them fix the issue. I change the tallest glyphs in the bold version so that regular and bold fit in the same bounding box (xxx, -710) - (xxx, 1920) but it didn't change anything. I tried to set the 2 linegap to 0… same result.</p>
+      <p>If someone has another idea I'll take it!</p>
+  - id: 550251
+    user: 210418
+    date: 2013-04-09T09:51:00
+    date_raw: 9 Apr 2013 — 9:51am
+    votes: null
+    html: |-
+      <p>I finally fix the issue… it was components in some fractions (1/4, 3/4…) that wasn't decompose !</p>
+      <p>Thanks for your help !</p>
+    html_clean: |-
+      <p>I finally fix the issue… it was components in some fractions (1/4, 3/4…) that wasn't decompose !</p>
+      <p>Thanks for your help !</p>
+  - id: 550259
+    user: 2021
+    date: 2013-04-09T10:11:00
+    date_raw: 9 Apr 2013 — 10:11am
+    votes: null
+    html: <p>How did that create the problem?</p>
+    html_clean: <p>How did that create the problem?</p>
+  - id: 550344
+    user: 210418
+    date: 2013-04-10T00:24:00
+    date_raw: 10 Apr 2013 — 12:24am
+    votes: null
+    html: <p>I use the component "1" and "4" and scale them down to make the glyph "1/4", so my guess is that the original hinting of the glyph "1" and "4" cause the issue… Does it make sense to you ?</p>
+    html_clean: <p>I use the component "1" and "4" and scale them down to make the glyph "1/4", so my guess is that the original hinting of the glyph "1" and "4" cause the issue… Does it make sense to you ?</p>

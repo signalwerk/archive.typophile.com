@@ -1,0 +1,110 @@
+node: 65758
+title: TrueType format glyf table
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150112052033"
+  captured_at: 2015-01-12T05:20:33Z
+  url: http://typophile.com:80/node/65758
+  digest: JWTR2ZDRUX7BZVMADKHYRZUG4VCOC4G2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/65758.html
+  fingerprint: 83b82f39c4931291
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150112052033"
+      digest: JWTR2ZDRUX7BZVMADKHYRZUG4VCOC4G2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/65758.html
+post:
+  id: 65758
+  user: 29572
+  date: 2009-12-30T06:07:00
+  date_raw: 30 Dec 2009 — 6:07am
+  votes: null
+  html: |-
+    <p>Hi<br>
+    I am trying to create software to look at TrueType fonts but I can not understand all things in the spec for glyf table perhaps because my English is no so good. Is there any where I can get help?</p>
+    <p>thank you</p>
+  html_clean: |-
+    <p>Hi<br>
+    I am trying to create software to look at TrueType fonts but I can not understand all things in the spec for glyf table perhaps because my English is no so good. Is there any where I can get help?</p>
+    <p>thank you</p>
+comments:
+  - id: 386181
+    user: 29994
+    date: 2009-12-30T06:25:00
+    date_raw: 30 Dec 2009 — 6:25am
+    votes: null
+    html: |-
+      <p>This <a class="freelinking external" href="http://developer.apple.com/textfonts/TTRefMan/RM06/Chap6glyf.html" rel="nofollow">Apple documentation</a> shows the basics, in quite short sentences ;-)</p>
+      <p>Do you want to render the font data yourself as outlines? That's really hard. If you don't want to get involved into extremely low level programming, you can always use the <a class="freelinking external" href="http://www.freetype.org/" rel="nofollow">FreeType</a> libraries to load and rasterize (= convert from math outlines to a bitmapped image) fonts. FreeType can create a monochrome or grayscale image of any character, so all you have to do is write a function to put it up onto your display.</p>
+    html_clean: |-
+      <p>This <a class="freelinking external" href="http://developer.apple.com/textfonts/TTRefMan/RM06/Chap6glyf.html" rel="nofollow">Apple documentation</a> shows the basics, in quite short sentences ;-)</p>
+      <p>Do you want to render the font data yourself as outlines? That's really hard. If you don't want to get involved into extremely low level programming, you can always use the <a class="freelinking external" href="http://www.freetype.org/" rel="nofollow">FreeType</a> libraries to load and rasterize (= convert from math outlines to a bitmapped image) fonts. FreeType can create a monochrome or grayscale image of any character, so all you have to do is write a function to put it up onto your display.</p>
+  - id: 386186
+    user: 29572
+    date: 2009-12-30T06:47:00
+    date_raw: 30 Dec 2009 — 6:47am
+    votes: null
+    html: |-
+      <p>Thank you Theunis<br>
+      I do need to get the glyph data to display. FreeType is not for me as glyphs can only be got from cmap. I need to get all glyphs even if no cmap entry.<br>
+      I am stuck on glyf table 'flags'. How can I calculate the size of flag array?</p>
+      <p>Janic</p>
+    html_clean: |-
+      <p>Thank you Theunis<br>
+      I do need to get the glyph data to display. FreeType is not for me as glyphs can only be got from cmap. I need to get all glyphs even if no cmap entry.<br>
+      I am stuck on glyf table 'flags'. How can I calculate the size of flag array?</p>
+      <p>Janic</p>
+  - id: 386270
+    user: 29994
+    date: 2009-12-30T15:19:00
+    date_raw: 30 Dec 2009 — 3:19pm
+    votes: null
+    html: |-
+      <p>Ah -- okay. The <a class="freelinking external" href="http://www.microsoft.com/TRUETYPE/OTSPEC/glyf.htm" rel="nofollow">Microsoft page</a> is a little less vague on this subject.</p>
+      <p>Apparently, the number of flags should be equal to the number of <em>points</em> in one glyph. However, Bit 3 specifies a "repeat" of the current flag value, and the number of repeats is in the next byte in the same array. So if you have 10 points defining the glyph, its flags may be</p>
+      <p>0: <em>some flags for pt #0</em><br>
+      1: <em>some flags for pt #1</em> + "repeat" bit set<br>
+      2: a literal value "8"<br>
+      3: <em>some flags for pt #9</em></p>
+      <p>.. so the table only has 4 bytes but defines flags for all 10 points.</p>
+      <p>At least, that's what it sounds like. It's not really clear from this page what the difference is in "number of contours" and "number of points" -- the number of contours is specifically declared in the first table, and the number of points could be the same.</p>
+    html_clean: |-
+      <p>Ah -- okay. The <a class="freelinking external" href="http://www.microsoft.com/TRUETYPE/OTSPEC/glyf.htm" rel="nofollow">Microsoft page</a> is a little less vague on this subject.</p>
+      <p>Apparently, the number of flags should be equal to the number of <em>points</em> in one glyph. However, Bit 3 specifies a "repeat" of the current flag value, and the number of repeats is in the next byte in the same array. So if you have 10 points defining the glyph, its flags may be</p>
+      <p>0: <em>some flags for pt #0</em><br>
+      1: <em>some flags for pt #1</em> + "repeat" bit set<br>
+      2: a literal value "8"<br>
+      3: <em>some flags for pt #9</em></p>
+      <p>.. so the table only has 4 bytes but defines flags for all 10 points.</p>
+      <p>At least, that's what it sounds like. It's not really clear from this page what the difference is in "number of contours" and "number of points" -- the number of contours is specifically declared in the first table, and the number of points could be the same.</p>
+  - id: 386448
+    user: 29572
+    date: 2010-01-01T07:13:00
+    date_raw: 1 Jan 2010 — 7:13am
+    votes: null
+    html: |-
+      <p>Theunis<br>
+      Thank you for your help. I think I understand now.</p>
+      <p>Janic</p>
+    html_clean: |-
+      <p>Theunis<br>
+      Thank you for your help. I think I understand now.</p>
+      <p>Janic</p>

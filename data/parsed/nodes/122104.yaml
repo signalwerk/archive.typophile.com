@@ -1,0 +1,102 @@
+node: 122104
+title: How to substitute two letters for alternates rather than a ligature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150318003353"
+  captured_at: 2015-03-18T00:33:53Z
+  url: http://typophile.com/node/122104
+  digest: HNPSXF2POIU6HYFGCZR7AAATRRLEUCAD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/122104.html
+  fingerprint: 515b7683916aa431
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150318003353"
+      digest: HNPSXF2POIU6HYFGCZR7AAATRRLEUCAD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/122104.html
+post:
+  id: 122104
+  user: 52182
+  date: 2014-12-19T07:38:00
+  date_raw: 19 Dec 2014 — 7:38am
+  votes: null
+  html: |-
+    <p>I continued working on this handwritten typeface and while I made alternates to replace double vowels before, I would prefer to replace both vowels individually.</p>
+    <p>So, right now I have the following feature:<br>
+    sub a a by a_a;</p>
+    <p>/a_a features two variants on /a that are both different from the default /a. Essentially what I want to do is replace /a /a by /a.alt1 and /a.alt2 instead of /a_a, because I want to maintain the ability to apply tracking to all the letters.</p>
+    <p>Now, I actually have this feature working with the following code:<br>
+    sub a' a by a.alt1;<br>
+    sub a.alt1 a' by a.alt2;</p>
+    <p>However, this doesn't seem to be the most beautiful solution and I'm not sure if there are instances where this feature won't work appropriately. Is there a better solution than this? Can it be done with only one line?</p>
+  html_clean: |-
+    <p>I continued working on this handwritten typeface and while I made alternates to replace double vowels before, I would prefer to replace both vowels individually.</p>
+    <p>So, right now I have the following feature:<br>
+    sub a a by a_a;</p>
+    <p>/a_a features two variants on /a that are both different from the default /a. Essentially what I want to do is replace /a /a by /a.alt1 and /a.alt2 instead of /a_a, because I want to maintain the ability to apply tracking to all the letters.</p>
+    <p>Now, I actually have this feature working with the following code:<br>
+    sub a' a by a.alt1;<br>
+    sub a.alt1 a' by a.alt2;</p>
+    <p>However, this doesn't seem to be the most beautiful solution and I'm not sure if there are instances where this feature won't work appropriately. Is there a better solution than this? Can it be done with only one line?</p>
+comments:
+  - id: 595951
+    user: 803
+    date: 2014-12-19T14:55:00
+    date_raw: 19 Dec 2014 — 2:55pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p><cite>Can it be done with only one line?</cite></p>
+      <p>No. Feature code has some real limitations. I did a connecting script this year and discovered just how much feature code won't do in certain situations. To me that's a real shortcoming since connecting scripts with alternates have been around for well over a hundred years.</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p><cite>Can it be done with only one line?</cite></p>
+      <p>No. Feature code has some real limitations. I did a connecting script this year and discovered just how much feature code won't do in certain situations. To me that's a real shortcoming since connecting scripts with alternates have been around for well over a hundred years.</p>
+      </div>
+  - id: 595957
+    user: 52182
+    date: 2014-12-19T16:20:00
+    date_raw: 19 Dec 2014 — 4:20pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>I suppose this has no bearing on what you're talking about, but just to clarify, the typeface I'm currently working on is not a connected script. It's more akin to Comic Sans.</p>
+      <p>So is the feature code I'm working with now (the second example) proper?</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>I suppose this has no bearing on what you're talking about, but just to clarify, the typeface I'm currently working on is not a connected script. It's more akin to Comic Sans.</p>
+      <p>So is the feature code I'm working with now (the second example) proper?</p>
+      </div>
+  - id: 595963
+    user: 2462
+    date: 2014-12-19T17:57:00
+    date_raw: 19 Dec 2014 — 5:57pm
+    votes: null
+    html: <p>Yeah, that's how it's done. You should probably add "sub a.alt2 a' by a.alt1;" so that if there are, say, seven a's in a row, the last is not noticeably the odd one out.</p>
+    html_clean: <p>Yeah, that's how it's done. You should probably add "sub a.alt2 a' by a.alt1;" so that if there are, say, seven a's in a row, the last is not noticeably the odd one out.</p>
+  - id: 595972
+    user: 52182
+    date: 2014-12-19T21:45:00
+    date_raw: 19 Dec 2014 — 9:45pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>Good idea. Thanks!</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>Good idea. Thanks!</p>
+      </div>

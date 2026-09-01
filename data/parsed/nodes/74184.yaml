@@ -1,0 +1,112 @@
+node: 74184
+title: Prime mark missing in Adobe Garamond Premier Pro?
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20101018071837"
+  captured_at: 2010-10-18T07:18:37Z
+  url: http://typophile.com:80/node/74184
+  digest: DRVTZDKHWINEEV6SONWHEMP25VYD6DAL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/74184.html
+  fingerprint: 02c1e84b10c4cb31
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20101018071837"
+      digest: DRVTZDKHWINEEV6SONWHEMP25VYD6DAL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/74184.html
+post:
+  id: 74184
+  user: 18872
+  date: 2010-09-14T05:24:00
+  date_raw: 14.Sep.2010 5.24am
+  votes: null
+  html: |-
+    <p>I am working on a text with some mathematical content, and I can't find a prime mark in Adobe Garamond Premier Pro.</p>
+    <p>I have looked for PRIME (U+2032): ′ in the complete glyph set, and the closest I can find is Greek Numeral Sign (U+0374). The prime mark seems to be lacking, but can this really be correct?</p>
+    <p>I have also tried to set the prime mark in Times New Roman, using Unicode U+2032 and then change the font to Garamond, but this does not work since the glyph is missing.</p>
+    <p>Any help would be appreciated. If it really is missing, I would really appreciate suggestions of how to replace it from some suitable typeface.</p>
+    <p>Regards,</p>
+    <p>Viktor Grut</p>
+  html_clean: |-
+    <p>I am working on a text with some mathematical content, and I can't find a prime mark in Adobe Garamond Premier Pro.</p>
+    <p>I have looked for PRIME (U+2032): ′ in the complete glyph set, and the closest I can find is Greek Numeral Sign (U+0374). The prime mark seems to be lacking, but can this really be correct?</p>
+    <p>I have also tried to set the prime mark in Times New Roman, using Unicode U+2032 and then change the font to Garamond, but this does not work since the glyph is missing.</p>
+    <p>Any help would be appreciated. If it really is missing, I would really appreciate suggestions of how to replace it from some suitable typeface.</p>
+    <p>Regards,</p>
+    <p>Viktor Grut</p>
+comments:
+  - id: 429532
+    user: 711
+    date: 2010-09-14T05:47:00
+    date_raw: 14.Sep.2010 5.47am
+    votes: null
+    html: |-
+      <p>I don't think it does have the prime. That is a bit surprising, but here you are!</p>
+      <p>See this page in the InDesign help for Adobe's workaround:<br>
+      <a href="http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-D94EB142D14Aa.html" title="http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-D94EB142D14Aa.html">http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-...</a></p>
+      <p>or, add a prime from a font that does have one, and don't switch the font.</p>
+    html_clean: |-
+      <p>I don't think it does have the prime. That is a bit surprising, but here you are!</p>
+      <p>See this page in the InDesign help for Adobe's workaround:<br>
+      <a href="http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-D94EB142D14Aa.html" title="http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-D94EB142D14Aa.html">http://help.adobe.com/en_US/indesign/cs/using/WS40DEFA94-9ECE-4963-A189-...</a></p>
+      <p>or, add a prime from a font that does have one, and don't switch the font.</p>
+  - id: 429551
+    user: 2021
+    date: 2010-09-14T07:55:00
+    date_raw: 14.Sep.2010 7.55am
+    votes: null
+    html: <p>Use the character from the Symbol font, which is a system font.</p>
+    html_clean: <p>Use the character from the Symbol font, which is a system font.</p>
+  - id: 429563
+    user: 29994
+    date: 2010-09-14T08:45:00
+    date_raw: 14.Sep.2010 8.45am
+    votes: null
+    html: |-
+      <p>Viktor, you don't mention which software and version you are using.</p>
+      <p>For Adobe InDesign CS4 (and newer), this</p>
+      <p><cite>I have also tried to set the prime mark in Times New Roman, using Unicode U+2032 and then change the font to Garamond, but this does not work since the glyph is missing.</cite></p>
+      <p>can be solved by this:</p>
+      <p>1. Create a character style that applies only a font; select a font that supports U+2032 -- if you have a choice, select one that matches your mathematical font. (Although I suppose for "just a prime", Symbol would suffice.)</p>
+      <p>2. Create a GREP style in the paragraph style you are using for math. Have it apply the character style you just created to this text:</p>
+      <p>\x{2032}</p>
+      <p>3. There is no point 3! The character style will automatically be applied to every occurrence of the prime character in that paragraph style.</p>
+      <p>Since GREP styles cascade down the "Based on" hierarchy of paragraph styles, you could define the GREP style in your main text style, and it'll be active in every derived one as well.</p>
+    html_clean: |-
+      <p>Viktor, you don't mention which software and version you are using.</p>
+      <p>For Adobe InDesign CS4 (and newer), this</p>
+      <p><cite>I have also tried to set the prime mark in Times New Roman, using Unicode U+2032 and then change the font to Garamond, but this does not work since the glyph is missing.</cite></p>
+      <p>can be solved by this:</p>
+      <p>1. Create a character style that applies only a font; select a font that supports U+2032 -- if you have a choice, select one that matches your mathematical font. (Although I suppose for "just a prime", Symbol would suffice.)</p>
+      <p>2. Create a GREP style in the paragraph style you are using for math. Have it apply the character style you just created to this text:</p>
+      <p>\x{2032}</p>
+      <p>3. There is no point 3! The character style will automatically be applied to every occurrence of the prime character in that paragraph style.</p>
+      <p>Since GREP styles cascade down the "Based on" hierarchy of paragraph styles, you could define the GREP style in your main text style, and it'll be active in every derived one as well.</p>
+  - id: 429597
+    user: 18872
+    date: 2010-09-14T11:33:00
+    date_raw: 14.Sep.2010 11.33am
+    votes: null
+    html: |-
+      <p>Thanks for your advice! I am using InDesign CS4 and will definitely try the GREP method you describe. However, since I have to manually set each math part (from jpg:s…) I think it will also work by just inserting an italized asterisk as described in the InDesign help document linked above.</p>
+      <p>Again, thanks for your help.</p>
+    html_clean: |-
+      <p>Thanks for your advice! I am using InDesign CS4 and will definitely try the GREP method you describe. However, since I have to manually set each math part (from jpg:s…) I think it will also work by just inserting an italized asterisk as described in the InDesign help document linked above.</p>
+      <p>Again, thanks for your help.</p>

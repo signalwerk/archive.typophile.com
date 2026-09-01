@@ -1,0 +1,99 @@
+node: 17753
+title: Questions regarding the OFA specification
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20070804115540"
+  captured_at: 2007-08-04T11:55:40Z
+  url: http://typophile.com:80/node/17753
+  digest: IV7SBOJVZ5353S2MQO2VMDHZR7VKMS6T
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/17753.html
+  fingerprint: 00ab714509497f93
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20070804115540"
+      digest: IV7SBOJVZ5353S2MQO2VMDHZR7VKMS6T
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/17753.html
+post:
+  id: 17753
+  user: 4098
+  date: 2006-02-06T16:40:00
+  date_raw: 6.Feb.2006 4.40pm
+  votes: null
+  html: |-
+    <p>I can’t find a specification for the Open Font Architecture anywhere (!) but I am kind of making things up as I go along by examination and copying, and published specs for OFA implementations such as TrueType and OpenType.<br>
+    I have two questions that remain though:</p>
+    <p>1) Do tables have to be aligned on four byte word boundaries?<br>
+    2) Is there any reason why tables are output in a specific order, yet given in a different order in the table listing at the start of the file? e.g. in the Apple Symbols font the header gives the tables in this order: LTSH, OS/2, VDMX, cmap, ... but by offset in the file the tables are ordered hmtx, fpgm, prep, loca, glyf, ...</p>
+    <p>Thanks for any insight,<br>
+    – Nicholas</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/17760" class="topic-previous" title="Go to previous forum topic">‹ Digital Cree?</a> <a href="/node/12198" class="topic-next" title="Go to next forum topic">Tiger kills AAT! ›</a></div>
+  html_clean: |-
+    <p>I can’t find a specification for the Open Font Architecture anywhere (!) but I am kind of making things up as I go along by examination and copying, and published specs for OFA implementations such as TrueType and OpenType.<br>
+    I have two questions that remain though:</p>
+    <p>1) Do tables have to be aligned on four byte word boundaries?<br>
+    2) Is there any reason why tables are output in a specific order, yet given in a different order in the table listing at the start of the file? e.g. in the Apple Symbols font the header gives the tables in this order: LTSH, OS/2, VDMX, cmap, ... but by offset in the file the tables are ordered hmtx, fpgm, prep, loca, glyf, ...</p>
+    <p>Thanks for any insight,<br>
+    – Nicholas</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/17760/" class="topic-previous" title="Go to previous forum topic">‹ Digital Cree?</a> <a href="/node/12198/" class="topic-next" title="Go to next forum topic">Tiger kills AAT! ›</a></div>
+comments:
+  - id: 107520
+    user: 3085
+    date: 2006-02-06T18:41:00
+    date_raw: 6.Feb.2006 6.41pm
+    votes: null
+    html: |-
+      <p>You may want to look at Recommendaations for OpenType fonts(<a>http://www.microsoft.com/typography/otspec/recom.htm</a>).</p>
+      <p>There is no strict requirement on table alignment and ordering in the OpenType format. However it is recommended to have them 4-byte aligned and padded with zeroes to 4-byte boundary. Form the page above:</p>
+      <p><cite><br>
+      Table Alignment and Length</cite></p>
+      <p>All tables should be aligned to begin at offsets which are multiples of four bytes. While this is not required by the TrueType rasterizer, it does prevent ambiguous checksum calculations and greatly speeds table access on some processors. </p>
+      <p>All tables should be recorded in the table directory with their actual length. To ensure that checksums are calculated correctly, it is suggested that tables begin on LONG word boundries. Any extra space after a table (and before the next LONG word boundry) should be padded with zeros.<br>
+      </p>
+      <p>Physical order of tables in the font does not depend at all on alphabetical order of tables in the font header. Table ordering recommendations are based on the order in which operating system typically read font data. Grouping some tables together really does (or at least did) significantly speed up font loading time. Recommended order is (from the same page):</p>
+      <p><cite><br>
+      Optimized Table Ordering</cite></p>
+      <p>OpenType fonts with TrueType outlines are more efficient in the Windows operating system when the tables are ordered as follows (from first to last):</p>
+      <p>head, hhea, maxp, OS/2, hmtx, LTSH, VDMX, hdmx, cmap, fpgm, prep, cvt, loca, glyf, kern, name, post, gasp, PCLT, DSIG</p>
+      <p>The initial loading of an OpenType font containing CFF data will be more efficiently handled if the following sfnt table ordering is used within the body of the sfnt (listed from first to last):</p>
+      <p>head, hhea, maxp, OS/2, name, cmap, post, CFF, (other tables, as convenient)</p>
+      <p></p>
+      <p>Hope this will help.</p>
+      <p>Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>You may want to look at Recommendaations for OpenType fonts(<a>http://www.microsoft.com/typography/otspec/recom.htm</a>).</p>
+      <p>There is no strict requirement on table alignment and ordering in the OpenType format. However it is recommended to have them 4-byte aligned and padded with zeroes to 4-byte boundary. Form the page above:</p>
+      <p><cite><br>
+      Table Alignment and Length</cite></p>
+      <p>All tables should be aligned to begin at offsets which are multiples of four bytes. While this is not required by the TrueType rasterizer, it does prevent ambiguous checksum calculations and greatly speeds table access on some processors. </p>
+      <p>All tables should be recorded in the table directory with their actual length. To ensure that checksums are calculated correctly, it is suggested that tables begin on LONG word boundries. Any extra space after a table (and before the next LONG word boundry) should be padded with zeros.<br>
+      </p>
+      <p>Physical order of tables in the font does not depend at all on alphabetical order of tables in the font header. Table ordering recommendations are based on the order in which operating system typically read font data. Grouping some tables together really does (or at least did) significantly speed up font loading time. Recommended order is (from the same page):</p>
+      <p><cite><br>
+      Optimized Table Ordering</cite></p>
+      <p>OpenType fonts with TrueType outlines are more efficient in the Windows operating system when the tables are ordered as follows (from first to last):</p>
+      <p>head, hhea, maxp, OS/2, hmtx, LTSH, VDMX, hdmx, cmap, fpgm, prep, cvt, loca, glyf, kern, name, post, gasp, PCLT, DSIG</p>
+      <p>The initial loading of an OpenType font containing CFF data will be more efficiently handled if the following sfnt table ordering is used within the body of the sfnt (listed from first to last):</p>
+      <p>head, hhea, maxp, OS/2, name, cmap, post, CFF, (other tables, as convenient)</p>
+      <p></p>
+      <p>Hope this will help.</p>
+      <p>Thanks,<br>
+      Sergey</p>

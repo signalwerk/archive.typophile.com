@@ -1,0 +1,82 @@
+node: 122609
+title: Python, Trace and Image
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150317224059"
+  captured_at: 2015-03-17T22:40:59Z
+  url: http://typophile.com/node/122609
+  digest: V3UIWQSUB5BWBI3VGW77MR43GUTNJWAF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/122609.html
+  fingerprint: f286ed277f4ca5ea
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150317224059"
+      digest: V3UIWQSUB5BWBI3VGW77MR43GUTNJWAF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/122609.html
+post:
+  id: 122609
+  user: 8555
+  date: 2015-01-16T10:24:00
+  date_raw: 16 Jan 2015 — 10:24am
+  votes: null
+  html: |-
+    <p>I'm having difficulty with adding an image to the background layer. I can create the image no problem with g.Rasterize(imagexyz), but I don't see anything about adding it to the glyph again.</p>
+    <p>I'm doing some stuff with PIL, but I can't even get that far until I can add the image to the glyph to trace it.</p>
+    <p>Trace(imagexyz) does not work. It appears there is a bug with Trace.</p>
+    <p>relevant documentation:<br>
+    <a href="http://www.e-font.de/flpydoc/html/Image.xml.html" title="http://www.e-font.de/flpydoc/html/Image.xml.html">http://www.e-font.de/flpydoc/html/Image.xml.html</a><br>
+    <a href="http://www.e-font.de/flpydoc/xml/Glyph.xml" title="http://www.e-font.de/flpydoc/xml/Glyph.xml">http://www.e-font.de/flpydoc/xml/Glyph.xml</a></p>
+    <p>Any help is appreciated.</p>
+  html_clean: |-
+    <p>I'm having difficulty with adding an image to the background layer. I can create the image no problem with g.Rasterize(imagexyz), but I don't see anything about adding it to the glyph again.</p>
+    <p>I'm doing some stuff with PIL, but I can't even get that far until I can add the image to the glyph to trace it.</p>
+    <p>Trace(imagexyz) does not work. It appears there is a bug with Trace.</p>
+    <p>relevant documentation:<br>
+    <a href="http://www.e-font.de/flpydoc/html/Image.xml.html" title="http://www.e-font.de/flpydoc/html/Image.xml.html">http://www.e-font.de/flpydoc/html/Image.xml.html</a><br>
+    <a href="http://www.e-font.de/flpydoc/xml/Glyph.xml" title="http://www.e-font.de/flpydoc/xml/Glyph.xml">http://www.e-font.de/flpydoc/xml/Glyph.xml</a></p>
+    <p>Any help is appreciated.</p>
+comments:
+  - id: 597451
+    user: 8555
+    date: 2015-01-16T13:00:00
+    date_raw: 16 Jan 2015 — 1:00pm
+    votes: null
+    html: |-
+      <p>Here's the way:</p>
+      <p>imagexyz.Trace(g)</p>
+      <p>Python is somewhat idiosyncratic, at least from someone who only learned basic and C++</p>
+    html_clean: |-
+      <p>Here's the way:</p>
+      <p>imagexyz.Trace(g)</p>
+      <p>Python is somewhat idiosyncratic, at least from someone who only learned basic and C++</p>
+  - id: 597455
+    user: 8555
+    date: 2015-01-16T13:31:00
+    date_raw: 16 Jan 2015 — 1:31pm
+    votes: null
+    html: |-
+      <p>Yeah, so this works, but the traced image gets put at (0,0)</p>
+      <p>I thought about adding a pixel to fix the sidebearings, but glyphs with descenders get put in at 0,0 as well. Any ideas on how to fix this?</p>
+      <p>Manually tracing a background image works fine and inserts the trace results exactly where they should go.</p>
+    html_clean: |-
+      <p>Yeah, so this works, but the traced image gets put at (0,0)</p>
+      <p>I thought about adding a pixel to fix the sidebearings, but glyphs with descenders get put in at 0,0 as well. Any ideas on how to fix this?</p>
+      <p>Manually tracing a background image works fine and inserts the trace results exactly where they should go.</p>

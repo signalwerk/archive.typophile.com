@@ -1,0 +1,230 @@
+node: 84799
+title: Two new font production scripts.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809101319"
+  captured_at: 2014-08-09T10:13:19Z
+  url: http://typophile.com/node/84799
+  digest: 2SUITZSIVHJPYITZUANIXTT24W7NLUGC
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/84799.html
+  fingerprint: 5a0db85018db18bb
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809101319"
+      digest: 2SUITZSIVHJPYITZUANIXTT24W7NLUGC
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84799.html
+post:
+  id: 84799
+  user: 14722
+  date: 2011-08-22T15:03:00
+  date_raw: 22 Aug 2011 — 3:03pm
+  votes: null
+  html: |-
+    <p>I have released two font production scripts under the GPL. <a href="http://www.dunwichtype.com/?page_id=1549" rel="nofollow">Both can be downloaded from Dunwichtype.com.</a></p>
+    <p>DTF Decomposer is a script intended for producing final versions of fonts that contain overlaps and composites that would otherwise require manual intervention. It first decomposes glyphs supplied in a list. It then removes overlaps in all glyphs and corrects path directions.</p>
+    <p>DTF Mark overlaps checks all glyphs for overlaps and marks a glyph when an overlap is found. It can find overlaps in glyphs that contain only outlines, only components, or outlines and components. It is not especially fast, but it is much faster than manual inspections. Sometimes glyphs that do not actually contain overlaps will be marked. This is because Fontlab's remove overlap function removes stray anchor points it deems unnecessary, such as anchor points on straight lines.</p>
+    <p>Neither script has been optimized to run as fast as it could, but they are both a lot faster than manual operations, especially when finishing families.</p>
+  html_clean: |-
+    <p>I have released two font production scripts under the GPL. <a href="http://www.dunwichtype.com/?page_id=1549" rel="nofollow">Both can be downloaded from Dunwichtype.com.</a></p>
+    <p>DTF Decomposer is a script intended for producing final versions of fonts that contain overlaps and composites that would otherwise require manual intervention. It first decomposes glyphs supplied in a list. It then removes overlaps in all glyphs and corrects path directions.</p>
+    <p>DTF Mark overlaps checks all glyphs for overlaps and marks a glyph when an overlap is found. It can find overlaps in glyphs that contain only outlines, only components, or outlines and components. It is not especially fast, but it is much faster than manual inspections. Sometimes glyphs that do not actually contain overlaps will be marked. This is because Fontlab's remove overlap function removes stray anchor points it deems unnecessary, such as anchor points on straight lines.</p>
+    <p>Neither script has been optimized to run as fast as it could, but they are both a lot faster than manual operations, especially when finishing families.</p>
+comments:
+  - id: 475056
+    user: 655
+    date: 2011-08-23T11:44:00
+    date_raw: 23 Aug 2011 — 11:44am
+    votes: null
+    html: |-
+      <p>Thank you!<br>
+      The Mark Overlap is nice. It's runing now on a traced wood type design since 20 minits or so and is still runing. :-)</p>
+    html_clean: |-
+      <p>Thank you!<br>
+      The Mark Overlap is nice. It's runing now on a traced wood type design since 20 minits or so and is still runing. :-)</p>
+  - id: 475061
+    user: 655
+    date: 2011-08-23T12:35:00
+    date_raw: 23 Aug 2011 — 12:35pm
+    votes: null
+    html: |-
+      <p>So after an hour it's done. Your script is more precise like Fontlab itself on Type1 export.</p>
+      <p>Could it be it finds outlines that overlap not directly but one knot is placed on top of an other knot?</p>
+    html_clean: |-
+      <p>So after an hour it's done. Your script is more precise like Fontlab itself on Type1 export.</p>
+      <p>Could it be it finds outlines that overlap not directly but one knot is placed on top of an other knot?</p>
+  - id: 475077
+    user: 14722
+    date: 2011-08-23T15:03:00
+    date_raw: 23 Aug 2011 — 3:03pm
+    votes: null
+    html: |-
+      <p><cite>ould it be it finds outlines that overlap not directly but one knot is placed on top of an other knot?</cite></p>
+      <p>It works by making two copies of a glyph. All components in each glyph are decomposed, then the remove overlaps function is applied to one copy. Then all anchor point locations in both copies are dumped to strings, the strings get hash()ed, and then the hashes are compared. If they don't match, the glyph is assumed to contain overlaps. The downside to this method is that glyphs with lots of anchor points will take a long time to check.</p>
+    html_clean: |-
+      <p><cite>ould it be it finds outlines that overlap not directly but one knot is placed on top of an other knot?</cite></p>
+      <p>It works by making two copies of a glyph. All components in each glyph are decomposed, then the remove overlaps function is applied to one copy. Then all anchor point locations in both copies are dumped to strings, the strings get hash()ed, and then the hashes are compared. If they don't match, the glyph is assumed to contain overlaps. The downside to this method is that glyphs with lots of anchor points will take a long time to check.</p>
+  - id: 476051
+    user: 21687
+    date: 2011-09-02T12:27:00
+    date_raw: 2 Sep 2011 — 12:27pm
+    votes: null
+    html: |-
+      <p>Hi James,</p>
+      <p>thanks for the idea about how to detect overlaps. I hope you don't mind, I rewrote your script to use pure FontLab, no RoboFab. That way it runs a lot faster. Additionally, I stop the comparison of points of a glyph as soon as a difference is found, that makes it faster too. And the last thing, you don't need to add the temporary glyphs to the font window. Drawing stuff on screen repeatedly makes things slow. I just make copies in memory using the copy constructors for <code>Font()</code> and <code>Glyph()</code>. The script now takes 1 second as compared to 258 seconds before on one of my fonts ;)</p>
+      <pre>#FLM: Mark Overlaps JK
+
+      # make a copy of the current font
+      f = Font(fl.font)
+
+      for glyphIndex in range(len(f.glyphs)):
+      	g = f[glyphIndex]
+      	if len(g.components) &gt; 1:
+      		# only decompose composites made up of more than one component
+      		g.Decompose()
+      	if len(g) &gt; 0:
+      		# glyph has outlines
+      		g2 = Glyph(g)
+      		g2.RemoveOverlap()
+      		if len(g) != len(g2):
+      			# different number of nodes
+      			fl.font[glyphIndex].mark = 10
+      		else:
+      			# check nodes
+      			for nodeIndex in range(len(g.nodes)):
+      				n = g.nodes[nodeIndex]
+      				n2 = g2.nodes[nodeIndex]
+      				if len(n) != len(n2):
+      					# nodes don't have the same number of points
+      					fl.font[glyphIndex].mark = 20
+      					break
+      				else:
+      					# check points
+      					for pointIndex in range(len(n.points)):
+      						if n[pointIndex].x != n2[pointIndex].x or n[pointIndex].y != n2[pointIndex].y:
+      							fl.font[glyphIndex].mark = 30
+      							break
+      fl.UpdateFont()
+      </pre>
+    html_clean: |-
+      <p>Hi James,</p>
+      <p>thanks for the idea about how to detect overlaps. I hope you don't mind, I rewrote your script to use pure FontLab, no RoboFab. That way it runs a lot faster. Additionally, I stop the comparison of points of a glyph as soon as a difference is found, that makes it faster too. And the last thing, you don't need to add the temporary glyphs to the font window. Drawing stuff on screen repeatedly makes things slow. I just make copies in memory using the copy constructors for <code>Font()</code> and <code>Glyph()</code>. The script now takes 1 second as compared to 258 seconds before on one of my fonts ;)</p>
+      <pre>#FLM: Mark Overlaps JK
+
+      # make a copy of the current font
+      f = Font(fl.font)
+
+      for glyphIndex in range(len(f.glyphs)):
+      	g = f[glyphIndex]
+      	if len(g.components) &gt; 1:
+      		# only decompose composites made up of more than one component
+      		g.Decompose()
+      	if len(g) &gt; 0:
+      		# glyph has outlines
+      		g2 = Glyph(g)
+      		g2.RemoveOverlap()
+      		if len(g) != len(g2):
+      			# different number of nodes
+      			fl.font[glyphIndex].mark = 10
+      		else:
+      			# check nodes
+      			for nodeIndex in range(len(g.nodes)):
+      				n = g.nodes[nodeIndex]
+      				n2 = g2.nodes[nodeIndex]
+      				if len(n) != len(n2):
+      					# nodes don't have the same number of points
+      					fl.font[glyphIndex].mark = 20
+      					break
+      				else:
+      					# check points
+      					for pointIndex in range(len(n.points)):
+      						if n[pointIndex].x != n2[pointIndex].x or n[pointIndex].y != n2[pointIndex].y:
+      							fl.font[glyphIndex].mark = 30
+      							break
+      fl.UpdateFont()
+      </pre>
+  - id: 476070
+    user: 14722
+    date: 2011-09-02T16:00:00
+    date_raw: 2 Sep 2011 — 4:00pm
+    votes: null
+    html: <p>Thanks, Jens. Your Fontlab coding abilities never fails to astound me!</p>
+    html_clean: <p>Thanks, Jens. Your Fontlab coding abilities never fails to astound me!</p>
+  - id: 540531
+    user: 1137
+    date: 2013-01-28T00:46:00
+    date_raw: 28 Jan 2013 — 12:46am
+    votes: null
+    html: |-
+      <p>Hi there,</p>
+      <p>Thanks for the different versions of the script. I've been using it today and I would like to point that although it does a fantastic work detecting overlapped components and contours, it does fail to detect when a component is overlapped by a contour. Can it be addressed as well?</p>
+      <p>Thanks in advance.</p>
+      <p>R.</p>
+    html_clean: |-
+      <p>Hi there,</p>
+      <p>Thanks for the different versions of the script. I've been using it today and I would like to point that although it does a fantastic work detecting overlapped components and contours, it does fail to detect when a component is overlapped by a contour. Can it be addressed as well?</p>
+      <p>Thanks in advance.</p>
+      <p>R.</p>
+  - id: 541326
+    user: 207951
+    date: 2013-01-28T23:42:00
+    date_raw: 28 Jan 2013 — 11:42pm
+    votes: null
+    html: <p>well, I guess i should have checked this script on the first place that is why right now I am already looking forward into it.</p>
+    html_clean: <p>well, I guess i should have checked this script on the first place that is why right now I am already looking forward into it.</p>
+  - id: 541502
+    user: 1137
+    date: 2013-01-30T06:31:00
+    date_raw: 30 Jan 2013 — 6:31am
+    votes: null
+    html: |-
+      <p>Hi there,</p>
+      <p>Jens has updated the script and now it detect contours overlapping components as well. Thanks Jens again!</p>
+      <p>Just replace:</p>
+      <p>if len(g.components) &gt; 1:</p>
+      <p>by:</p>
+      <p>if (len(g.components) &gt; 1) or (len(g) &gt; 0 and len(g.components) &gt; 0):</p>
+    html_clean: |-
+      <p>Hi there,</p>
+      <p>Jens has updated the script and now it detect contours overlapping components as well. Thanks Jens again!</p>
+      <p>Just replace:</p>
+      <p>if len(g.components) &gt; 1:</p>
+      <p>by:</p>
+      <p>if (len(g.components) &gt; 1) or (len(g) &gt; 0 and len(g.components) &gt; 0):</p>
+  - id: 544510
+    user: 19457
+    date: 2013-02-24T13:10:00
+    date_raw: 24 Feb 2013 — 1:10pm
+    votes: null
+    html: |-
+      <p>Hi!<br>
+      The link doesn't seem to be working, any way I can get the scripts? </p>
+      <p>Thanks</p>
+    html_clean: |-
+      <p>Hi!<br>
+      The link doesn't seem to be working, any way I can get the scripts? </p>
+      <p>Thanks</p>
+  - id: 545923
+    user: 1137
+    date: 2013-03-06T03:17:00
+    date_raw: 6 Mar 2013 — 3:17am
+    votes: null
+    html: <p>Copy the text Jens wrote and paste it in your FL's Python console. And replace the line I suggested if you wanna increase its functionality. Cheers.</p>
+    html_clean: <p>Copy the text Jens wrote and paste it in your FL's Python console. And replace the line I suggested if you wanna increase its functionality. Cheers.</p>

@@ -1,0 +1,376 @@
+node: 56028
+title: Font naming driving me crazy
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20121214051823"
+  captured_at: 2012-12-14T05:18:23Z
+  url: http://typophile.com:80/node/56028
+  digest: 3IWUDIUY4MLGJCJVBO77OHHSMK6XKYGU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/56028.html
+  fingerprint: 45389b92a4f31773
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20121214051823"
+      digest: 3IWUDIUY4MLGJCJVBO77OHHSMK6XKYGU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56028.html
+post:
+  id: 56028
+  user: 3834
+  date: 2009-03-19T05:04:00
+  date_raw: 19 Mar 2009 — 5:04am
+  votes: null
+  html: |-
+    <p>I've been renaming and regenerating for days now. The problem I have is that Roman typefaces and their italics appear under different font menus even though the family name is exactly the same (see pic). How can I sort this and have them all appear under the same menu? I have spent enough time going round in circles getting nowhere. Why are there so many options in FontLab and no definitive solution to generating an OTF family in a range of weights?</p>
+    <p>Any help much appreciated. Thanks.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Fontmenu_4695.gif"></div><p></p>
+  html_clean: |-
+    <p>I've been renaming and regenerating for days now. The problem I have is that Roman typefaces and their italics appear under different font menus even though the family name is exactly the same (see pic). How can I sort this and have them all appear under the same menu? I have spent enough time going round in circles getting nowhere. Why are there so many options in FontLab and no definitive solution to generating an OTF family in a range of weights?</p>
+    <p>Any help much appreciated. Thanks.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Fontmenu_4695.gif"></div><p></p>
+comments:
+  - id: 336214
+    user: 40601
+    date: 2009-03-19T05:19:00
+    date_raw: 19 Mar 2009 — 5:19am
+    votes: null
+    html: |-
+      <p><a href="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html" title="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html">http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-nami...</a></p>
+      <p>Hope this helps, it helped me.</p>
+    html_clean: |-
+      <p><a href="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html" title="http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-naming-in-fontlab-studio-5-t313.0.html">http://forum.fontlab.com/fontlab-studio-tips-and-tricks/font-family-nami...</a></p>
+      <p>Hope this helps, it helped me.</p>
+  - id: 336215
+    user: 10199
+    date: 2009-03-19T05:25:00
+    date_raw: 19 Mar 2009 — 5:25am
+    votes: null
+    html: <p>Karsten Lücke's "<a class="freelinking external" href="http://kltf.de/kltf_otproduction.htm" rel="nofollow">Font Naming</a>" pdf is great. Maybe you should nuke your font caches too.</p>
+    html_clean: <p>Karsten Lücke's "<a class="freelinking external" href="http://kltf.de/kltf_otproduction.htm" rel="nofollow">Font Naming</a>" pdf is great. Maybe you should nuke your font caches too.</p>
+  - id: 336232
+    user: 14722
+    date: 2009-03-19T07:18:00
+    date_raw: 19 Mar 2009 — 7:18am
+    votes: null
+    html: |-
+      <p>Post screenshots of your naming and OT naming options for these fonts, please. Regular and italic versions.</p>
+      <p>Also, I have found that even after deleting fonts and cleaning the font caches Indesign will sometimes maintain an incorrect family name for a font even after a correctly named version has replaced it.</p>
+    html_clean: |-
+      <p>Post screenshots of your naming and OT naming options for these fonts, please. Regular and italic versions.</p>
+      <p>Also, I have found that even after deleting fonts and cleaning the font caches Indesign will sometimes maintain an incorrect family name for a font even after a correctly named version has replaced it.</p>
+  - id: 336236
+    user: 16986
+    date: 2009-03-19T07:19:00
+    date_raw: 19 Mar 2009 — 7:19am
+    votes: null
+    html: |-
+      <p>Nick</p>
+      <p>I wrote this python code to help me with naming fonts in FL - it works for Light, Regular, Medium, Bold and Italics. You should be able to adapt it for other weights.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      from robofab.interface.all.dialogs import AskString<br>
+      f = CurrentFont()<br>
+      #<br>
+      fontName = AskString('Font Name')<br>
+      Weight = AskString('Weight')<br>
+      #<br>
+      def naming( short, weight, weight2 ):<br>
+      	f.info.familyName = fontName+" "+short<br>
+      	f.info.widthName = "Normal"<br>
+      	f.info.styleName = weight<br>
+      	f.info.fontName = fontName.replace(' ', '')+"-"+weight2.replace(' ', '')<br>
+      	f.info.fullName = fontName+" "+weight2<br>
+      	f.info.menuName = fontName+" "+short<br>
+      	f.info.fondName = fontName.replace(' ', '')+" "+weight2.replace(' ', '')<br>
+      	f.info.otFamilyName = fontName<br>
+      	f.info.otStyleName = weight2<br>
+      #<br>
+      if Weight == "Thin":<br>
+      	naming("Th", "Regular", "Thin")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light":<br>
+      	naming("Lt", "Regular", "Light")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Regular":<br>
+      	naming("Rg", "Regular", "Regular")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium":<br>
+      	naming("Lt", "Bold", "Medium")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold":<br>
+      	naming("Rg", "Bold" ,"Bold")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Thin Italic":<br>
+      	naming("Th", "Italic", "Thin Italic")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light Italic":<br>
+      	naming("Lt", "Italic", "Light Italic")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Italic":<br>
+      	naming("Rg", "Italic", "Italic")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium Italic":<br>
+      	naming("Lt", "Bold Italic", "Medium Italic")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold Italic":<br>
+      	naming("Rg", "Bold Italic", "Bold Italic")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      else:<br>
+      	print "Ooops that's not a weight"<br>
+      	print fontName+" "+"is not named"<br>
+      #<br>
+      f.update()</code></p>
+      <p></p>
+    html_clean: |-
+      <p>Nick</p>
+      <p>I wrote this python code to help me with naming fonts in FL - it works for Light, Regular, Medium, Bold and Italics. You should be able to adapt it for other weights.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      from robofab.interface.all.dialogs import AskString<br>
+      f = CurrentFont()<br>
+      #<br>
+      fontName = AskString('Font Name')<br>
+      Weight = AskString('Weight')<br>
+      #<br>
+      def naming( short, weight, weight2 ):<br>
+      	f.info.familyName = fontName+" "+short<br>
+      	f.info.widthName = "Normal"<br>
+      	f.info.styleName = weight<br>
+      	f.info.fontName = fontName.replace(' ', '')+"-"+weight2.replace(' ', '')<br>
+      	f.info.fullName = fontName+" "+weight2<br>
+      	f.info.menuName = fontName+" "+short<br>
+      	f.info.fondName = fontName.replace(' ', '')+" "+weight2.replace(' ', '')<br>
+      	f.info.otFamilyName = fontName<br>
+      	f.info.otStyleName = weight2<br>
+      #<br>
+      if Weight == "Thin":<br>
+      	naming("Th", "Regular", "Thin")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light":<br>
+      	naming("Lt", "Regular", "Light")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Regular":<br>
+      	naming("Rg", "Regular", "Regular")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium":<br>
+      	naming("Lt", "Bold", "Medium")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold":<br>
+      	naming("Rg", "Bold" ,"Bold")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Thin Italic":<br>
+      	naming("Th", "Italic", "Thin Italic")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light Italic":<br>
+      	naming("Lt", "Italic", "Light Italic")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Italic":<br>
+      	naming("Rg", "Italic", "Italic")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium Italic":<br>
+      	naming("Lt", "Bold Italic", "Medium Italic")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold Italic":<br>
+      	naming("Rg", "Bold Italic", "Bold Italic")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      else:<br>
+      	print "Ooops that's not a weight"<br>
+      	print fontName+" "+"is not named"<br>
+      #<br>
+      f.update()</code></p>
+      <p></p>
+  - id: 336382
+    user: 2021
+    date: 2009-03-19T14:08:00
+    date_raw: 19 Mar 2009 — 2:08pm
+    votes: null
+    html: |-
+      <p>Rachel, that's a good idea.<br>
+      Let's hope that this is incorporated into the next FontLab, invisibly!</p>
+    html_clean: |-
+      <p>Rachel, that's a good idea.<br>
+      Let's hope that this is incorporated into the next FontLab, invisibly!</p>
+  - id: 336384
+    user: 2021
+    date: 2009-03-19T14:12:00
+    date_raw: 19 Mar 2009 — 2:12pm
+    votes: null
+    html: |-
+      <p><em>Why are there so many options in FontLab and no definitive solution to generating an OTF family in a range of weights?</em></p>
+      <p>The whole font-naming mess is a conspiracy to create work for programmers and derogate the importance of mere glyph-limners.<br>
+      On the up side, if you ever get this sorted out, you can charge big bucks/eros/pounds for being such a pro!</p>
+    html_clean: |-
+      <p><em>Why are there so many options in FontLab and no definitive solution to generating an OTF family in a range of weights?</em></p>
+      <p>The whole font-naming mess is a conspiracy to create work for programmers and derogate the importance of mere glyph-limners.<br>
+      On the up side, if you ever get this sorted out, you can charge big bucks/eros/pounds for being such a pro!</p>
+  - id: 336408
+    user: 17099
+    date: 2009-03-19T15:13:00
+    date_raw: 19 Mar 2009 — 3:13pm
+    votes: null
+    html: <p>The font naming issues are complex and varied… I'm glad I'm not the only one who has had problems. I figured it out through a combination of sources such as the links above and a lot of trial and error, now that I'm set I'm sticking with the process I have as it works well.</p>
+    html_clean: <p>The font naming issues are complex and varied… I'm glad I'm not the only one who has had problems. I figured it out through a combination of sources such as the links above and a lot of trial and error, now that I'm set I'm sticking with the process I have as it works well.</p>
+  - id: 336730
+    user: 40601
+    date: 2009-03-21T00:30:00
+    date_raw: 21 Mar 2009 — 12:30am
+    votes: null
+    html: |-
+      <p>As this involves italic, how about this little gem from Miguel Sousa (nothing to do with naming fonts):<br>
+      <a href="http://typophile.com/node/55320" title="http://typophile.com/node/55320">http://typophile.com/node/55320</a></p>
+    html_clean: |-
+      <p>As this involves italic, how about this little gem from Miguel Sousa (nothing to do with naming fonts):<br>
+      <a href="/node/55320/" title="http://typophile.com/node/55320">http://typophile.com/node/55320</a></p>
+  - id: 337610
+    user: 14722
+    date: 2009-03-24T15:59:00
+    date_raw: 24 Mar 2009 — 3:59pm
+    votes: null
+    html: <p>Since my last post I ran into the same problem. There was a space after the last character in one of the font names, and that space was causing the font to be counted as a second family with what looked like the same name. Fixing the fonts did not fix the problem; I found that the only way to fix it was to stop using the fonts via a font manager and instead put them in /Library/Application Support/Adobe/Fonts.</p>
+    html_clean: <p>Since my last post I ran into the same problem. There was a space after the last character in one of the font names, and that space was causing the font to be counted as a second family with what looked like the same name. Fixing the fonts did not fix the problem; I found that the only way to fix it was to stop using the fonts via a font manager and instead put them in /Library/Application Support/Adobe/Fonts.</p>
+  - id: 337692
+    user: 3834
+    date: 2009-03-25T05:05:00
+    date_raw: 25 Mar 2009 — 5:05am
+    votes: null
+    html: |-
+      <p>Thanks for all the help. It's sorted now - I renamed them all slightly and that sorted it.</p>
+      <p>Rachel - thanks for that, but I have no idea what to do with it; I have an aversion to all that python stuff - it's on a par with manual hinting which thankfully I have also managed to steer well clear of. Creating features and classes is bad enough, but that makes me shudder.</p>
+      <p>Nick Cooke</p>
+    html_clean: |-
+      <p>Thanks for all the help. It's sorted now - I renamed them all slightly and that sorted it.</p>
+      <p>Rachel - thanks for that, but I have no idea what to do with it; I have an aversion to all that python stuff - it's on a par with manual hinting which thankfully I have also managed to steer well clear of. Creating features and classes is bad enough, but that makes me shudder.</p>
+      <p>Nick Cooke</p>
+  - id: 337743
+    user: 16986
+    date: 2009-03-25T08:56:00
+    date_raw: 25 Mar 2009 — 8:56am
+    votes: null
+    html: |-
+      <p>Nick</p>
+      <p>You do need RoboFab installed it's really simple - I'm not the sharpest knife in the box.</p>
+      <p>1. Select all the code and save it in a text file (I use TextMate on a mac).<br>
+      2. Name the file something with .py at the end, I use NamingMacro.py<br>
+      3. Put this file into your macros folder, on a mac thats - /Users/Username/Library/Application Support/FontLab/Studio 5/Macros<br>
+      4. In FontLab open the macros toolbar    View - Toolbars - Macro.<br>
+      5. The file you put in the macros folder should be there, select it and press run.<br>
+      6. A window will open asking you for the family name then one for the weight.<br>
+      7. Done.</p>
+    html_clean: |-
+      <p>Nick</p>
+      <p>You do need RoboFab installed it's really simple - I'm not the sharpest knife in the box.</p>
+      <p>1. Select all the code and save it in a text file (I use TextMate on a mac).<br>
+      2. Name the file something with .py at the end, I use NamingMacro.py<br>
+      3. Put this file into your macros folder, on a mac thats - /Users/Username/Library/Application Support/FontLab/Studio 5/Macros<br>
+      4. In FontLab open the macros toolbar    View - Toolbars - Macro.<br>
+      5. The file you put in the macros folder should be there, select it and press run.<br>
+      6. A window will open asking you for the family name then one for the weight.<br>
+      7. Done.</p>
+  - id: 337749
+    user: 17099
+    date: 2009-03-25T09:15:00
+    date_raw: 25 Mar 2009 — 9:15am
+    votes: null
+    html: |-
+      <p>It would be nice to have an expanded version of RoboFab to handle all weight possibilities… does RoboFab mimic FontLab Studio naming even for the PS Font name with no spaces and the OpenType naming?</p>
+      <p>Does it sync with Adam Twardoch's naming conventions for FontLab Studio?</p>
+      <p>Just curious this looks interesting.</p>
+      <p>I don't have any problems currently with naming but it looks like a very efficient system…</p>
+      <p>Mike</p>
+    html_clean: |-
+      <p>It would be nice to have an expanded version of RoboFab to handle all weight possibilities… does RoboFab mimic FontLab Studio naming even for the PS Font name with no spaces and the OpenType naming?</p>
+      <p>Does it sync with Adam Twardoch's naming conventions for FontLab Studio?</p>
+      <p>Just curious this looks interesting.</p>
+      <p>I don't have any problems currently with naming but it looks like a very efficient system…</p>
+      <p>Mike</p>
+  - id: 337979
+    user: 3834
+    date: 2009-03-26T09:57:00
+    date_raw: 26 Mar 2009 — 9:57am
+    votes: null
+    html: |-
+      <p>I tried that on an unnamed font and an output window came up with:</p>
+      <p>  File "", line 1<br>
+          {\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430<br>
+                                                           ^<br>
+      SyntaxError: invalid token</p>
+      <p>I assume that's not right?</p>
+      <p>Nick Cooke</p>
+    html_clean: |-
+      <p>I tried that on an unnamed font and an output window came up with:</p>
+      <p>  File "", line 1<br>
+          {\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430<br>
+                                                           ^<br>
+      SyntaxError: invalid token</p>
+      <p>I assume that's not right?</p>
+      <p>Nick Cooke</p>
+  - id: 337986
+    user: 16986
+    date: 2009-03-26T10:28:00
+    date_raw: 26 Mar 2009 — 10:28am
+    votes: null
+    html: |-
+      <p>Nick </p>
+      <p>Do you have RoboFab installed and working correctly ?</p>
+      <p>Do you get the windows asking for the Font name and Font weight ?</p>
+    html_clean: |-
+      <p>Nick </p>
+      <p>Do you have RoboFab installed and working correctly ?</p>
+      <p>Do you get the windows asking for the Font name and Font weight ?</p>

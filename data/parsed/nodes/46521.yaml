@@ -1,0 +1,424 @@
+node: 46521
+title: Pseudo-random 3.0
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20140803214432"
+  captured_at: 2014-08-03T21:44:32Z
+  url: http://typophile.com/node/46521
+  digest: LAWREKVPLCDZSIGIMNZPOYBFROUAUN3Y
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/46521.html
+  fingerprint: 62e155d84e9e679a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140803214432"
+      digest: LAWREKVPLCDZSIGIMNZPOYBFROUAUN3Y
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/46521.html
+post:
+  id: 46521
+  user: 2021
+  date: 2008-06-17T11:49:00
+  date_raw: 17 Jun 2008 — 11:49am
+  votes: null
+  html: |-
+    <p>First I should mention that the goal here is not in fact randomness, because we want a "natural" effect, where adjacent glyphs are not identical--which is what would occur occasionally with a truly random disposition of glyphs.</p>
+    <p>In these examples, there are four alternates of each character in the font (including punctuation and, importantly, the space). They are sorted in four classes, @one, @two, @three and @four.</p>
+    <p>Version 1.0 was provided by Thomas Phinney. This is the first lookup.<br>
+    It sets glyphs from a sequence of classes: 1234 1234 1234, which then repeats.</p>
+    <p>Version 2.0 is a tweak I provided, to deal with repetitive five-character sequences, as in "they do the things..."<br>
+    This is implemented by the second lookup.<br>
+    It sets the class sequence to: 1234 1324 3142, which then repeats.</p>
+    <p>Version 3.0 deals with the line-break problem. (Because layout applications don't carry contextuality from one line to the next, starting over every line, a word like "the" at the start of a line is set with the same glyphs every time.) This method was suggested by John Hudson. It works backwards from the fifth character in the line (chosen, again, to deal primarily with the problem of "the"). My code splits possible fifth letters into seven groups, arranged to separate those that occur most frequently in English into different groups. The seventh group is the default, and not coded. It includes all accented characters, as I have not bothered to make truly comprehensive classes, as I did with classes one through four, which might include them.<br>
+    This adjusts Version 2.0 by changing the first four classes in the sequence, depending on the fifth character in the line, to one of: 3143, 4324, 2413, 3214, 4132, 2314 or 1432.</p>
+    <p><code><br>
+    feature calt { </code></p>
+    <p>lookup calt_one {<br>
+    sub @one @one' @one by @two;<br>
+    sub @two @one' @one by @three;<br>
+    sub @three @one' @one by @four;<br>
+    } calt_one;</p>
+    <p>lookup calt_two {<br>
+    sub @four @one @two' by @three;<br>
+    sub @three @three' by @two;<br>
+    sub @two @four @one' by @three;<br>
+    sub @four @three @two' by @one;<br>
+    sub @three @one @three' by @four;<br>
+    sub @four @four' by @two;<br>
+    } calt_two;</p>
+    <p>lookup calt_three {<br>
+    sub @one' @two @three @four [E M V e m v one space] by @three;<br>
+    sub @two' @three @four [E M V e m v one space] @three by @one;<br>
+    sub @three' @four [E M V e m v one space] @three @two by @four;<br>
+    sub @four' [E M V e m v one space] @three @two @four by @two;<br>
+    } calt_three;</p>
+    <p>lookup calt_four {<br>
+    sub @one' @two @three @four [T U B t u b two space.alt2] by @four;<br>
+    sub @two' @three @four [T U B t u b two space.alt2] @three by @three;<br>
+    sub @three' @four [T U B t u b two space.alt2] @three @two by @two;<br>
+    sub @four' [T U B t u b two space.alt2] @three @two @four by @four;<br>
+    } calt_four;</p>
+    <p>lookup calt_five {<br>
+    sub @one' @two @three @four [P A C p a c three nine space.alt3] by @two;<br>
+    sub @two' @three @four [P A C p a c three nine space.alt3] @three by @four;<br>
+    sub @three' @four [P A C p a c three nine space.alt3] @three @two by @one;<br>
+    sub @four' [P A C p a c three nine space.alt3] @three @two @four by @three;<br>
+    } calt_five;</p>
+    <p>lookup calt_six {<br>
+    sub @one' @two @three @four [L I Q Y l i q y four eight] by @three;<br>
+    sub @two' @three @four [L I Q Y l i q y four eight] @three by @two;<br>
+    sub @three' @four [L I Q Y l i q y four eight] @three @two by @one;<br>
+    sub @four' [L I Q Y l i q y four eight] @three @two @four by @four;<br>
+    } calt_six;</p>
+    <p>lookup calt_seven {<br>
+    sub @one' @two @three @four [D O G Z d o g z five] by @four;<br>
+    sub @two' @three @four [D O G Z d o g z five] @three by @one;<br>
+    sub @three' @four [D O G Z d o g z five] @three @two by @three;<br>
+    sub @four' [D O G Z d o g z five] @three @two @four by @two;<br>
+    } calt_seven;</p>
+    <p>lookup calt_eight {<br>
+    sub @one' @two @three @four [F R J N f r j n six seven] by @one;<br>
+    sub @two' @three @four [F R J N f r j n six seven] @three by @four;<br>
+    sub @three' @four [F R J N f r j n six seven] @three @two by @three;<br>
+    sub @four' [F R J N f r j n six seven] @three @two @four by @two;<br>
+    } calt_eight;</p>
+    <p>sub @two @two' by @one;<br>
+    sub @one @one' by @two;</p>
+    <p>} calt;</p>
+    <p>I suspect it may be possible to configure a system that works entirely with backwards-activation, but it is too mind-boggling for me to figure out.</p>
+    <p>[Sorry, I meant to post this in the Build forum.]</p>
+  html_clean: |-
+    <p>First I should mention that the goal here is not in fact randomness, because we want a "natural" effect, where adjacent glyphs are not identical--which is what would occur occasionally with a truly random disposition of glyphs.</p>
+    <p>In these examples, there are four alternates of each character in the font (including punctuation and, importantly, the space). They are sorted in four classes, @one, @two, @three and @four.</p>
+    <p>Version 1.0 was provided by Thomas Phinney. This is the first lookup.<br>
+    It sets glyphs from a sequence of classes: 1234 1234 1234, which then repeats.</p>
+    <p>Version 2.0 is a tweak I provided, to deal with repetitive five-character sequences, as in "they do the things..."<br>
+    This is implemented by the second lookup.<br>
+    It sets the class sequence to: 1234 1324 3142, which then repeats.</p>
+    <p>Version 3.0 deals with the line-break problem. (Because layout applications don't carry contextuality from one line to the next, starting over every line, a word like "the" at the start of a line is set with the same glyphs every time.) This method was suggested by John Hudson. It works backwards from the fifth character in the line (chosen, again, to deal primarily with the problem of "the"). My code splits possible fifth letters into seven groups, arranged to separate those that occur most frequently in English into different groups. The seventh group is the default, and not coded. It includes all accented characters, as I have not bothered to make truly comprehensive classes, as I did with classes one through four, which might include them.<br>
+    This adjusts Version 2.0 by changing the first four classes in the sequence, depending on the fifth character in the line, to one of: 3143, 4324, 2413, 3214, 4132, 2314 or 1432.</p>
+    <p><code><br>
+    feature calt { </code></p>
+    <p>lookup calt_one {<br>
+    sub @one @one' @one by @two;<br>
+    sub @two @one' @one by @three;<br>
+    sub @three @one' @one by @four;<br>
+    } calt_one;</p>
+    <p>lookup calt_two {<br>
+    sub @four @one @two' by @three;<br>
+    sub @three @three' by @two;<br>
+    sub @two @four @one' by @three;<br>
+    sub @four @three @two' by @one;<br>
+    sub @three @one @three' by @four;<br>
+    sub @four @four' by @two;<br>
+    } calt_two;</p>
+    <p>lookup calt_three {<br>
+    sub @one' @two @three @four [E M V e m v one space] by @three;<br>
+    sub @two' @three @four [E M V e m v one space] @three by @one;<br>
+    sub @three' @four [E M V e m v one space] @three @two by @four;<br>
+    sub @four' [E M V e m v one space] @three @two @four by @two;<br>
+    } calt_three;</p>
+    <p>lookup calt_four {<br>
+    sub @one' @two @three @four [T U B t u b two space.alt2] by @four;<br>
+    sub @two' @three @four [T U B t u b two space.alt2] @three by @three;<br>
+    sub @three' @four [T U B t u b two space.alt2] @three @two by @two;<br>
+    sub @four' [T U B t u b two space.alt2] @three @two @four by @four;<br>
+    } calt_four;</p>
+    <p>lookup calt_five {<br>
+    sub @one' @two @three @four [P A C p a c three nine space.alt3] by @two;<br>
+    sub @two' @three @four [P A C p a c three nine space.alt3] @three by @four;<br>
+    sub @three' @four [P A C p a c three nine space.alt3] @three @two by @one;<br>
+    sub @four' [P A C p a c three nine space.alt3] @three @two @four by @three;<br>
+    } calt_five;</p>
+    <p>lookup calt_six {<br>
+    sub @one' @two @three @four [L I Q Y l i q y four eight] by @three;<br>
+    sub @two' @three @four [L I Q Y l i q y four eight] @three by @two;<br>
+    sub @three' @four [L I Q Y l i q y four eight] @three @two by @one;<br>
+    sub @four' [L I Q Y l i q y four eight] @three @two @four by @four;<br>
+    } calt_six;</p>
+    <p>lookup calt_seven {<br>
+    sub @one' @two @three @four [D O G Z d o g z five] by @four;<br>
+    sub @two' @three @four [D O G Z d o g z five] @three by @one;<br>
+    sub @three' @four [D O G Z d o g z five] @three @two by @three;<br>
+    sub @four' [D O G Z d o g z five] @three @two @four by @two;<br>
+    } calt_seven;</p>
+    <p>lookup calt_eight {<br>
+    sub @one' @two @three @four [F R J N f r j n six seven] by @one;<br>
+    sub @two' @three @four [F R J N f r j n six seven] @three by @four;<br>
+    sub @three' @four [F R J N f r j n six seven] @three @two by @three;<br>
+    sub @four' [F R J N f r j n six seven] @three @two @four by @two;<br>
+    } calt_eight;</p>
+    <p>sub @two @two' by @one;<br>
+    sub @one @one' by @two;</p>
+    <p>} calt;</p>
+    <p>I suspect it may be possible to configure a system that works entirely with backwards-activation, but it is too mind-boggling for me to figure out.</p>
+    <p>[Sorry, I meant to post this in the Build forum.]</p>
+comments:
+  - id: 284389
+    user: 14650
+    date: 2008-06-17T12:23:00
+    date_raw: 17 Jun 2008 — 12:23pm
+    votes: null
+    html: |-
+      <p>Nick,<br>
+      In what style of font do you see random substitution as best used?</p>
+      <p>I've never tried to achieve a total random look, but the last 2 script fonts I've worked on (both connecting) I've gotten close to this effect just through using a lot of contextual substitution with certain classes. I would see Random substitution being most useful where the variations are subtle and letters are not connected. I've been adding contextual variations of ligatures as well which seems to be a useful thing for handlettering style designs.</p>
+      <p>Stephen</p>
+    html_clean: |-
+      <p>Nick,<br>
+      In what style of font do you see random substitution as best used?</p>
+      <p>I've never tried to achieve a total random look, but the last 2 script fonts I've worked on (both connecting) I've gotten close to this effect just through using a lot of contextual substitution with certain classes. I would see Random substitution being most useful where the variations are subtle and letters are not connected. I've been adding contextual variations of ligatures as well which seems to be a useful thing for handlettering style designs.</p>
+      <p>Stephen</p>
+  - id: 284394
+    user: 2021
+    date: 2008-06-17T12:56:00
+    date_raw: 17 Jun 2008 — 12:56pm
+    votes: null
+    html: |-
+      <p>Pseudo-random reduces repetition. For instance, consider f_f.<br>
+      In a four-alternates font, there would be four different f_f ligatures, but 12 different combinations of individual f and f.<br>
+      I've developed this code while working on Duffy Script, which is not connected.<br>
+      However, the variations don't have to be subtle.<br>
+      But they do have to work with every other glyph except themselves, so it's a more more complex design procedure, "mulling" (as James Montalbano puts it) over the whole as one works on the individual.<br>
+      I don't see why this shouldn't be applied to any genre of type, from strictly geometric sans to swashy connected script.</p>
+    html_clean: |-
+      <p>Pseudo-random reduces repetition. For instance, consider f_f.<br>
+      In a four-alternates font, there would be four different f_f ligatures, but 12 different combinations of individual f and f.<br>
+      I've developed this code while working on Duffy Script, which is not connected.<br>
+      However, the variations don't have to be subtle.<br>
+      But they do have to work with every other glyph except themselves, so it's a more more complex design procedure, "mulling" (as James Montalbano puts it) over the whole as one works on the individual.<br>
+      I don't see why this shouldn't be applied to any genre of type, from strictly geometric sans to swashy connected script.</p>
+  - id: 368277
+    user: 19370
+    date: 2009-09-17T17:48:00
+    date_raw: 17 Sep 2009 — 5:48pm
+    votes: null
+    html: |-
+      <p>Nick,<br>
+      Thanks for the code. I have been having this problem with a font I am working on and couldn't figure out the solution. Your code works great, now I just have to figure out how to expand it from four to nine.</p>
+      <p>Michael</p>
+    html_clean: |-
+      <p>Nick,<br>
+      Thanks for the code. I have been having this problem with a font I am working on and couldn't figure out the solution. Your code works great, now I just have to figure out how to expand it from four to nine.</p>
+      <p>Michael</p>
+  - id: 572186
+    user: 54527
+    date: 2014-02-24T17:37:00
+    date_raw: 24 Feb 2014 — 5:37pm
+    votes: null
+    html: |-
+      <blockquote><p>I suspect it may be possible to configure a system that works entirely with backwards-activation, but it is too mind-boggling for me to figure out.</p></blockquote>
+      <p><a href="https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20Sets/Create%20pseudorandom%20calt%20feature.py" title="https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20Sets/Create%20pseudorandom%20calt%20feature.py">https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20...</a></p>
+    html_clean: |-
+      <blockquote><p>I suspect it may be possible to configure a system that works entirely with backwards-activation, but it is too mind-boggling for me to figure out.</p></blockquote>
+      <p><a href="https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20Sets/Create%20pseudorandom%20calt%20feature.py" title="https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20Sets/Create%20pseudorandom%20calt%20feature.py">https://github.com/schriftgestalt/Mekka-Scripts/blob/master/Stylistic%20...</a></p>
+  - id: 572190
+    user: 50554
+    date: 2014-02-24T18:24:00
+    date_raw: 24 Feb 2014 — 6:24pm
+    votes: null
+    html: |-
+      <p>I know of one type of font where such features make sense: lettering fonts for comic strips. They intentionally simulate hand lettering, and they often have alternates (usually put in easy reach as UC/LC in a caps-only font) for the purpose of avoiding identical letters. (But the letter I usually has an alternate where the presence of serifs indicates a capital letter - or, rather, a letter that would still have been a capital even if the text weren't in all caps.)</p>
+      <p>For such a face, it might be worthwhile to get more elaborate.</p>
+      <p>Each letter might have five forms. Which form is used depends on which letter, and which form of that letter, preceded it. But there are two (really four) possible successors for each preceding letter - one picked by shifting the letter. (And if the previous letter was shifted, another two.)</p>
+    html_clean: |-
+      <p>I know of one type of font where such features make sense: lettering fonts for comic strips. They intentionally simulate hand lettering, and they often have alternates (usually put in easy reach as UC/LC in a caps-only font) for the purpose of avoiding identical letters. (But the letter I usually has an alternate where the presence of serifs indicates a capital letter - or, rather, a letter that would still have been a capital even if the text weren't in all caps.)</p>
+      <p>For such a face, it might be worthwhile to get more elaborate.</p>
+      <p>Each letter might have five forms. Which form is used depends on which letter, and which form of that letter, preceded it. But there are two (really four) possible successors for each preceding letter - one picked by shifting the letter. (And if the previous letter was shifted, another two.)</p>
+  - id: 572232
+    user: 2969
+    date: 2014-02-25T07:08:00
+    date_raw: 25 Feb 2014 — 7:08am
+    votes: null
+    html: |-
+      <p>"I don't see why this shouldn't be applied to any genre of type, from strictly geometric sans to swashy connected script."</p>
+      <p>I don't either, except that effects of writing in some connecting scripts are less than random, being based on reservoir size, dip frequency and the "length" and "weight" of the glyphs being "written". </p>
+      <p>I'll let you know how that turns out. ;)</p>
+    html_clean: |-
+      <p>"I don't see why this shouldn't be applied to any genre of type, from strictly geometric sans to swashy connected script."</p>
+      <p>I don't either, except that effects of writing in some connecting scripts are less than random, being based on reservoir size, dip frequency and the "length" and "weight" of the glyphs being "written". </p>
+      <p>I'll let you know how that turns out. ;)</p>
+  - id: 572258
+    user: 2021
+    date: 2014-02-25T12:24:00
+    date_raw: 25 Feb 2014 — 12:24pm
+    votes: null
+    html: |-
+      <p>You will ﬁnd that it is impossible to write like an automaton, devoid of randomness.<br>
+      The constraints you mention are all subject to variation in writing, and are exactly the kind of qualities that might be represented in alternate “takes” of the same glyph—including ligatures and ﬂourishes.</p>
+    html_clean: |-
+      <p>You will ﬁnd that it is impossible to write like an automaton, devoid of randomness.<br>
+      The constraints you mention are all subject to variation in writing, and are exactly the kind of qualities that might be represented in alternate “takes” of the same glyph—including ligatures and ﬂourishes.</p>
+  - id: 572554
+    user: 2969
+    date: 2014-02-28T14:24:00
+    date_raw: 28 Feb 2014 — 2:24pm
+    votes: null
+    html: |-
+      <p>"You will ﬁnd that it is impossible to write like an automaton, devoid of randomness."</p>
+      <p>Then you will find it hard to design randomness into a font with OT, won't you. I'm saying, for some results in some script styles, the mull calls for an approach to variation that is not just grapheme roulette.</p>
+    html_clean: |-
+      <p>"You will ﬁnd that it is impossible to write like an automaton, devoid of randomness."</p>
+      <p>Then you will find it hard to design randomness into a font with OT, won't you. I'm saying, for some results in some script styles, the mull calls for an approach to variation that is not just grapheme roulette.</p>
+  - id: 572571
+    user: 2021
+    date: 2014-02-28T20:30:00
+    date_raw: 28 Feb 2014 — 8:30pm
+    votes: null
+    html: |-
+      <p>It’s not randomness. It’s pseudo-randomness.<br>
+      The goal is to imitate certain irregular qualities of “natural” media.<br>
+      The coding can be constrained to accommodate all kinds of variation—anything that can be written.<br>
+      Neither is this grapheme roulette, because the variants are deployed according to contextuality, not by chance.<br>
+      Show me an example of “some results in some script styles” that you believe can’t be pseudo-randomized and I’ll explain how to do it.</p>
+    html_clean: |-
+      <p>It’s not randomness. It’s pseudo-randomness.<br>
+      The goal is to imitate certain irregular qualities of “natural” media.<br>
+      The coding can be constrained to accommodate all kinds of variation—anything that can be written.<br>
+      Neither is this grapheme roulette, because the variants are deployed according to contextuality, not by chance.<br>
+      Show me an example of “some results in some script styles” that you believe can’t be pseudo-randomized and I’ll explain how to do it.</p>
+  - id: 572582
+    user: 2969
+    date: 2014-03-01T04:21:00
+    date_raw: 1 Mar 2014 — 4:21am
+    votes: null
+    html: |-
+      <p>"...the variants are deployed according to contextuality, not by chance."</p>
+      <p>¡ But the quantity of a particular character in text subjected to any psuedomizer, is according chance. And the number of variations in a roulette-wheel of glyphs, playing on the chance in the text is chance times chance !</p>
+      <p>Don't get me wrong,  I do not believe there is any style that can’t be psuedomized in OT. I just don't think it's correct to say one has a solution for 'any genre of type' when there are styles where the writer is not random, because among the mind, the tool and the content, there is an agenda.</p>
+    html_clean: |-
+      <p>"...the variants are deployed according to contextuality, not by chance."</p>
+      <p>¡ But the quantity of a particular character in text subjected to any psuedomizer, is according chance. And the number of variations in a roulette-wheel of glyphs, playing on the chance in the text is chance times chance !</p>
+      <p>Don't get me wrong,  I do not believe there is any style that can’t be psuedomized in OT. I just don't think it's correct to say one has a solution for 'any genre of type' when there are styles where the writer is not random, because among the mind, the tool and the content, there is an agenda.</p>
+  - id: 572586
+    user: 50554
+    date: 2014-03-01T06:20:00
+    date_raw: 1 Mar 2014 — 6:20am
+    votes: null
+    html: <p>As for using this idea for other kinds of type than that used for comic word balloons... there is an illustrious precedent. Gutenberg used many alternate forms in order for his printed books to look like manuscripts.</p>
+    html_clean: <p>As for using this idea for other kinds of type than that used for comic word balloons... there is an illustrious precedent. Gutenberg used many alternate forms in order for his printed books to look like manuscripts.</p>
+  - id: 572595
+    user: 2021
+    date: 2014-03-01T10:45:00
+    date_raw: 1 Mar 2014 — 10:45am
+    votes: null
+    html: <p>I have no idea what you’re talking about David. Can you post an image illustrating your point?</p>
+    html_clean: <p>I have no idea what you’re talking about David. Can you post an image illustrating your point?</p>
+  - id: 572689
+    user: 2969
+    date: 2014-03-03T07:42:00
+    date_raw: 3 Mar 2014 — 7:42am
+    votes: null
+    html: |-
+      <p>"Gutenberg used many alternate forms in order for his printed books to look like manuscripts."</p>
+      <p>But then his successors lost the knowledge of the agenda, i.e. started using the several hundred lowercase glyphs randomly, and no one collected their work. </p>
+      <p>Nick, there are a number of things going on in the famous specimen below, some of it is random, and some shows an agenda.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/penloading_5830.png"></div><p></p>
+    html_clean: |-
+      <p>"Gutenberg used many alternate forms in order for his printed books to look like manuscripts."</p>
+      <p>But then his successors lost the knowledge of the agenda, i.e. started using the several hundred lowercase glyphs randomly, and no one collected their work. </p>
+      <p>Nick, there are a number of things going on in the famous specimen below, some of it is random, and some shows an agenda.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/penloading_5830.png"></div><p></p>
+  - id: 572700
+    user: 2021
+    date: 2014-03-03T12:01:00
+    date_raw: 3 Mar 2014 — 12:01pm
+    votes: null
+    html: <p>Sorry for being so dim, David, but could you please point out the bit(s) that are driven by an agenda, and which cannot be mimicked by OpenType substitution.</p>
+    html_clean: <p>Sorry for being so dim, David, but could you please point out the bit(s) that are driven by an agenda, and which cannot be mimicked by OpenType substitution.</p>
+  - id: 574271
+    user: 2969
+    date: 2014-03-21T06:37:00
+    date_raw: 21 Mar 2014 — 6:37am
+    votes: null
+    html: |-
+      <p>Sorry for the break. Nick, there are things that happen in writing, where the foreknowledge and memory of the writer go beyond the line breaks, which is OT's boundary. </p>
+      <p>So, in this example, "It affords me" is written with a pen that becomes unloaded, i.e. runs nearly dry by the time"much"is written. It reloads, in time for "pleasure"  and etc. </p>
+      <p>Next, there is no way to know not to cross the t, because a long descending f was used in the previous line, as the "fine" above, does to "that" which is below. </p>
+      <p>This is neither random, pseudo-random, or an OTability I know of, and there is more. .</p>
+    html_clean: |-
+      <p>Sorry for the break. Nick, there are things that happen in writing, where the foreknowledge and memory of the writer go beyond the line breaks, which is OT's boundary. </p>
+      <p>So, in this example, "It affords me" is written with a pen that becomes unloaded, i.e. runs nearly dry by the time"much"is written. It reloads, in time for "pleasure"  and etc. </p>
+      <p>Next, there is no way to know not to cross the t, because a long descending f was used in the previous line, as the "fine" above, does to "that" which is below. </p>
+      <p>This is neither random, pseudo-random, or an OTability I know of, and there is more. .</p>
+  - id: 574297
+    user: 2021
+    date: 2014-03-21T11:52:00
+    date_raw: 21 Mar 2014 — 11:52am
+    votes: null
+    html: |-
+      <p>Right, OT contextuality is conﬁned to single lines (and stumbles at either end). It also fails when tracking (beyond a small amount) is applied—which is really annoying, as that is an intentional feature of layout applications, not a bug or technical limitation.</p>
+      <p>Nonetheless, I do think that your example here, with its huge “negative leading”, is an outlier/special case. If typographers decide to adopt this tricky practice, they are likely aware that it will create extender collisions which will not be ameliorated by the layout app’s H&amp;J’s or OT smart fonts, and are prepared to deal with them manually, or let things fall as they may. </p>
+      <p>One might just as well dismiss “smart quotes” software that replaces hash marks with proper quote marks, because it fails when dealing with apostrophes at the beginning of words.</p>
+      <p>Pseudo-randomization is intended to mimic certain “natural media” effects but it cannot produce a perfect facsimile of virtuoso calligraphy and layout on the ﬂy. I doubt the author of the example could either, without ﬁrst sketching the layout—note how the “g” in “king” anticipates the line below.</p>
+    html_clean: |-
+      <p>Right, OT contextuality is conﬁned to single lines (and stumbles at either end). It also fails when tracking (beyond a small amount) is applied—which is really annoying, as that is an intentional feature of layout applications, not a bug or technical limitation.</p>
+      <p>Nonetheless, I do think that your example here, with its huge “negative leading”, is an outlier/special case. If typographers decide to adopt this tricky practice, they are likely aware that it will create extender collisions which will not be ameliorated by the layout app’s H&amp;J’s or OT smart fonts, and are prepared to deal with them manually, or let things fall as they may. </p>
+      <p>One might just as well dismiss “smart quotes” software that replaces hash marks with proper quote marks, because it fails when dealing with apostrophes at the beginning of words.</p>
+      <p>Pseudo-randomization is intended to mimic certain “natural media” effects but it cannot produce a perfect facsimile of virtuoso calligraphy and layout on the ﬂy. I doubt the author of the example could either, without ﬁrst sketching the layout—note how the “g” in “king” anticipates the line below.</p>
+  - id: 574340
+    user: 2969
+    date: 2014-03-21T18:20:00
+    date_raw: 21 Mar 2014 — 6:20pm
+    votes: null
+    html: <p>Now Nick, I'm not dismissing pseudo random typography!?  You asked, I showed, you said you did not understand, I explained. You seem to understand now, good. I just don't think roulette can be applied to any genre of type, because not all genres of type can be properly composed with Any random bits whatsoever, though not all.</p>
+    html_clean: <p>Now Nick, I'm not dismissing pseudo random typography!?  You asked, I showed, you said you did not understand, I explained. You seem to understand now, good. I just don't think roulette can be applied to any genre of type, because not all genres of type can be properly composed with Any random bits whatsoever, though not all.</p>
+  - id: 574347
+    user: 5094
+    date: 2014-03-21T21:20:00
+    date_raw: 21 Mar 2014 — 9:20pm
+    votes: null
+    html: |-
+      <blockquote><p>First I should mention that the goal here is not in fact randomness, because we want a "natural" effect, where adjacent glyphs are not identical--which is what would occur occasionally with a truly random disposition of glyphs.</p></blockquote>
+      <p>Perhaps the only problem here was to the label the thread "pseudo randomness"? Ditching the label, try the type and let's see the result.</p>
+      <p>If you want to stay purely theoretical, give some thought to the question of whether or not there could be more than one utopia. Most of us would settle for "this is nice."</p>
+    html_clean: |-
+      <blockquote><p>First I should mention that the goal here is not in fact randomness, because we want a "natural" effect, where adjacent glyphs are not identical--which is what would occur occasionally with a truly random disposition of glyphs.</p></blockquote>
+      <p>Perhaps the only problem here was to the label the thread "pseudo randomness"? Ditching the label, try the type and let's see the result.</p>
+      <p>If you want to stay purely theoretical, give some thought to the question of whether or not there could be more than one utopia. Most of us would settle for "this is nice."</p>
+  - id: 574375
+    user: 2021
+    date: 2014-03-22T12:51:00
+    date_raw: 22 Mar 2014 — 12:51pm
+    votes: null
+    html: |-
+      <p>Thanks for posting the Flickinger specimen, David.<br>
+      You’re right, such a controlled piece of calligraphy has no place for randomness.</p>
+      <p>It’s interesting that this penman’s methodology could be readily “pseudomized” with Contextual Alternates.</p>
+      <p>In particular, the heavying up of certain downstrokes, but never (with the exception of double-f) for adjacent glyphs, is just the sort of thing that the Contextual Alternates feature handles well.</p>
+      <p>Also, the use of different forms of “t” for initial, middle and terminal position.</p>
+    html_clean: |-
+      <p>Thanks for posting the Flickinger specimen, David.<br>
+      You’re right, such a controlled piece of calligraphy has no place for randomness.</p>
+      <p>It’s interesting that this penman’s methodology could be readily “pseudomized” with Contextual Alternates.</p>
+      <p>In particular, the heavying up of certain downstrokes, but never (with the exception of double-f) for adjacent glyphs, is just the sort of thing that the Contextual Alternates feature handles well.</p>
+      <p>Also, the use of different forms of “t” for initial, middle and terminal position.</p>
+  - id: 574480
+    user: 2969
+    date: 2014-03-24T05:05:00
+    date_raw: 24 Mar 2014 — 5:05am
+    votes: null
+    html: |-
+      <p>Your quite welcome Nick. It’s definitely an interesting specimen. After drawing a font in response over the last few seasons, I took a break to confer with Kent Lew about the OT possibilities of this same specimen, and we’re doing an excercise.  That plan led me to discuss it with Petr van Blokland, who’s always working at least a little on layout features. </p>
+      <p>There are always going to be limits on achieving handmade appearance, so I’m not trying to do the impossible. I take something like these Chinese compositions (<a href="http://arts.cultural-china.com/en/62A6116A12015.html" title="http://arts.cultural-china.com/en/62A6116A12015.html">http://arts.cultural-china.com/en/62A6116A12015.html</a>), as an example of something so far inside of a person, I think it’s beyond computers to store.</p>
+      <p>But you can see brushes loading up with ink, and spreading it out into writing, (and sure there’s some random in there too!). But there is also care in distributing that ink as evenly as possible, if that’s the compositional need, or not, if that’s what’s needed.</p>
+    html_clean: |-
+      <p>Your quite welcome Nick. It’s definitely an interesting specimen. After drawing a font in response over the last few seasons, I took a break to confer with Kent Lew about the OT possibilities of this same specimen, and we’re doing an excercise.  That plan led me to discuss it with Petr van Blokland, who’s always working at least a little on layout features. </p>
+      <p>There are always going to be limits on achieving handmade appearance, so I’m not trying to do the impossible. I take something like these Chinese compositions (<a href="http://arts.cultural-china.com/en/62A6116A12015.html" title="http://arts.cultural-china.com/en/62A6116A12015.html">http://arts.cultural-china.com/en/62A6116A12015.html</a>), as an example of something so far inside of a person, I think it’s beyond computers to store.</p>
+      <p>But you can see brushes loading up with ink, and spreading it out into writing, (and sure there’s some random in there too!). But there is also care in distributing that ink as evenly as possible, if that’s the compositional need, or not, if that’s what’s needed.</p>

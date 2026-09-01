@@ -1,0 +1,139 @@
+node: 58875
+title: opentype classes- best practices?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203094637"
+  captured_at: 2010-02-03T09:46:37Z
+  url: http://typophile.com/node/58875
+  digest: 3WM7TQPK7DULMW7TD6HOHIUMY4I2G4LT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/58875.html
+  fingerprint: b7f4157d91014001
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203094637"
+      digest: 3WM7TQPK7DULMW7TD6HOHIUMY4I2G4LT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/58875.html
+post:
+  id: 58875
+  user: 3254
+  date: 2009-06-09T12:09:00
+  date_raw: 9.Jun.2009 12.09pm
+  votes: null
+  html: |-
+    <p>What are the best setups of opentype classes for working with diacritics and other modified letters?</p>
+    <p>My font has stylistic alternates and small caps. I'm hoping for advice both on how to structure classes, and efficient ways to set them up.</p>
+    <p>Do you have a giant @diacritics class with all of those letters in a long list? (and a @diacriticals.smcp class to go with it)? Do you organize by key letter (@adiacritics, e.g.) and then list all those in the smcp code? Or can you have a class of classes?</p>
+    <p>Are there shortcuts for generating any of these classes?</p>
+  html_clean: |-
+    <p>What are the best setups of opentype classes for working with diacritics and other modified letters?</p>
+    <p>My font has stylistic alternates and small caps. I'm hoping for advice both on how to structure classes, and efficient ways to set them up.</p>
+    <p>Do you have a giant @diacritics class with all of those letters in a long list? (and a @diacriticals.smcp class to go with it)? Do you organize by key letter (@adiacritics, e.g.) and then list all those in the smcp code? Or can you have a class of classes?</p>
+    <p>Are there shortcuts for generating any of these classes?</p>
+comments:
+  - id: 351052
+    user: 14722
+    date: 2009-06-09T12:30:00
+    date_raw: 9.Jun.2009 12.30pm
+    votes: null
+    html: |-
+      <p>When I was working on the classes in Black Monday I did a copy/paste from the font window to Textedit, saved it to a text file, used this command:</p>
+      <p>tr '/' '\n' &lt; ./bmonday_encode.txt &gt; ./bmonday2.txt </p>
+      <p>to insert real line breaks, and this one:</p>
+      <p>sed -e s/$/.alt1/g bmonday_formatted.txt</p>
+      <p>to create my big alternate classes. This allowed me to deal with the classes in Textedit where I can use 14-point Verdana to spot any mistakes before I work them into Fontlab.</p>
+      <p>And remember, save your OpenType classes any time you edit them in Fontlab. You <em>will</em> accidentally use the evil class sorting button that deletes them at some point, so be ready.</p>
+    html_clean: |-
+      <p>When I was working on the classes in Black Monday I did a copy/paste from the font window to Textedit, saved it to a text file, used this command:</p>
+      <p>tr '/' '\n' &lt; ./bmonday_encode.txt &gt; ./bmonday2.txt </p>
+      <p>to insert real line breaks, and this one:</p>
+      <p>sed -e s/$/.alt1/g bmonday_formatted.txt</p>
+      <p>to create my big alternate classes. This allowed me to deal with the classes in Textedit where I can use 14-point Verdana to spot any mistakes before I work them into Fontlab.</p>
+      <p>And remember, save your OpenType classes any time you edit them in Fontlab. You <em>will</em> accidentally use the evil class sorting button that deletes them at some point, so be ready.</p>
+  - id: 351054
+    user: 3254
+    date: 2009-06-09T12:59:00
+    date_raw: 9.Jun.2009 12.59pm
+    votes: null
+    html: |-
+      <p>Yeah, that "some point" happened today! #$%^&amp;*(</p>
+      <p>I'll take a look at those text-editing tips.</p>
+    html_clean: |-
+      <p>Yeah, that "some point" happened today! #$%^&amp;*(</p>
+      <p>I'll take a look at those text-editing tips.</p>
+  - id: 351097
+    user: 14829
+    date: 2009-06-09T19:07:00
+    date_raw: 9.Jun.2009 7.07pm
+    votes: null
+    html: |-
+      <p>If you're talking about classes for layout features and not kerning (well, kerning is a layout feature, but you know what I mean), then a lot of it comes down to what makes the most sense for you as a font editor.</p>
+      <p>There is sense in setting up a big lowercase class, @LC = [a b c d ...], and having a matching small caps class, @SC = [a.sc b.sc c.sc d.sc ...]. Such classes could include all the accented characters. These classes could be fairly easy to manage with a visual editor like FontLab.</p>
+      <p>When it comes to some contextual substitutions, you might want a class of "all letters" for some particular contextual rule, so you could then make a "class of classes": @LETTERS = [@LC @UC @SC].</p>
+      <p>If you're using a text editor and a features file, you might eventually find, as I did, that editing large classes like this can be difficult. Complementary classes have to match 1-to-1, and if there's an error, you'll find yourself poring over long class definitions trying to find the error.</p>
+      <p>In practice, you can specify basic letter ranges in shorthand, e.g. [a-z], so this can help. But I've found in some cases that it's helpful to see a list of single substitutions, e.g.</p>
+      <p>sub dollar by dollar.oldstyle;<br>
+      sub cent by cent.oldstyle;</p>
+      <p>and so on. It's tempting to start by putting everything in classes, but it's not always the best solution.</p>
+    html_clean: |-
+      <p>If you're talking about classes for layout features and not kerning (well, kerning is a layout feature, but you know what I mean), then a lot of it comes down to what makes the most sense for you as a font editor.</p>
+      <p>There is sense in setting up a big lowercase class, @LC = [a b c d ...], and having a matching small caps class, @SC = [a.sc b.sc c.sc d.sc ...]. Such classes could include all the accented characters. These classes could be fairly easy to manage with a visual editor like FontLab.</p>
+      <p>When it comes to some contextual substitutions, you might want a class of "all letters" for some particular contextual rule, so you could then make a "class of classes": @LETTERS = [@LC @UC @SC].</p>
+      <p>If you're using a text editor and a features file, you might eventually find, as I did, that editing large classes like this can be difficult. Complementary classes have to match 1-to-1, and if there's an error, you'll find yourself poring over long class definitions trying to find the error.</p>
+      <p>In practice, you can specify basic letter ranges in shorthand, e.g. [a-z], so this can help. But I've found in some cases that it's helpful to see a list of single substitutions, e.g.</p>
+      <p>sub dollar by dollar.oldstyle;<br>
+      sub cent by cent.oldstyle;</p>
+      <p>and so on. It's tempting to start by putting everything in classes, but it's not always the best solution.</p>
+  - id: 351259
+    user: 5094
+    date: 2009-06-10T17:58:00
+    date_raw: 10.Jun.2009 5.58pm
+    votes: null
+    html: |-
+      <p>I suspect a lot depends on what font editing program you have.</p>
+      <p>I too use a text editor, but one that has numerous capabilities, such as a column mode, sorting, change to case, etc. I use Vedit, but it is out of date. EditPad Pro would be much better.</p>
+      <p>I can describe a couple things that I do, but this should be taken only a suggestion of how to think about things, not a recipe.</p>
+      <p>First, I write off an .afm file. It will have all the characters. On a PC, you can them use grep to search for all instance of, say, ".sc" in the afm file, and pipe them to another file. Working in that file, the columnar mode will quickly let you erase everything but the character names. Search &amp; replace the returns with a space, and you now have a row. Copy the row, and search &amp; delete the .sc (or .scmp or whatever). You now have a second row with the same order as the first. Copy that row, and apply a lower case" routine to the third row.</p>
+      <p>You now have three rows, one with all the small cap characters, and matching rows with the caps &amp; lower case. Each to become a class. The only potential problem I'm aware of is the dotted cap I and small cap "I" for Turkish. Likely you could come across others, in some languages. But since you started with only the small caps, the problems will be minimal.</p>
+      <p>A similar search of the .afm should work for you stylistic variants, which you will have named ".alt" or ".alt01" ".alt02" etc. A sort may not be needed, but a text editor that will do that can be handy.</p>
+      <p>etc.</p>
+      <p>If I'm making a few changes to a font, I trust myself to the new add glyph names to the end of the class row. If there are a lot of changes, I write off a new .afm &amp; do the construction work again. It doesn't take long.</p>
+      <p>I do something a bit different with the numbers; each kind of 0-9 has its own row. Then other thing also switched with numbers, (dollarsign, plus, minus, divide, etc. etc. for lining versus oldstyle) has it's own row, as does comma, period if I've made ones up for tabular numbers. Here, the splitting into separate rows makes things easier when you have to find things (read: fix problems).</p>
+      <p>On purpose, I'm not efficient with classes. I'll make more than are needed, so I as a human can find things &amp; work on them. For example, I make up separate classes for the features tnum, pnum, onum and lnum. Each feature having 2 classes e.g., -- tnumb1 and tnumb2 as well as pnum1 and pnum2. The features programming doesn't need this -- but it is easier for me as an older human being (so I claim) to keep track of things. A real programmer would likely object to this wastefulness, and if you're careful, you can use fewer classes &amp; maybe save some space in the file. Not my biggest problem.</p>
+      <p>But enough -- if this is the sort of thing you're interested in, you get the idea. If not, sorry to waste your time.</p>
+    html_clean: |-
+      <p>I suspect a lot depends on what font editing program you have.</p>
+      <p>I too use a text editor, but one that has numerous capabilities, such as a column mode, sorting, change to case, etc. I use Vedit, but it is out of date. EditPad Pro would be much better.</p>
+      <p>I can describe a couple things that I do, but this should be taken only a suggestion of how to think about things, not a recipe.</p>
+      <p>First, I write off an .afm file. It will have all the characters. On a PC, you can them use grep to search for all instance of, say, ".sc" in the afm file, and pipe them to another file. Working in that file, the columnar mode will quickly let you erase everything but the character names. Search &amp; replace the returns with a space, and you now have a row. Copy the row, and search &amp; delete the .sc (or .scmp or whatever). You now have a second row with the same order as the first. Copy that row, and apply a lower case" routine to the third row.</p>
+      <p>You now have three rows, one with all the small cap characters, and matching rows with the caps &amp; lower case. Each to become a class. The only potential problem I'm aware of is the dotted cap I and small cap "I" for Turkish. Likely you could come across others, in some languages. But since you started with only the small caps, the problems will be minimal.</p>
+      <p>A similar search of the .afm should work for you stylistic variants, which you will have named ".alt" or ".alt01" ".alt02" etc. A sort may not be needed, but a text editor that will do that can be handy.</p>
+      <p>etc.</p>
+      <p>If I'm making a few changes to a font, I trust myself to the new add glyph names to the end of the class row. If there are a lot of changes, I write off a new .afm &amp; do the construction work again. It doesn't take long.</p>
+      <p>I do something a bit different with the numbers; each kind of 0-9 has its own row. Then other thing also switched with numbers, (dollarsign, plus, minus, divide, etc. etc. for lining versus oldstyle) has it's own row, as does comma, period if I've made ones up for tabular numbers. Here, the splitting into separate rows makes things easier when you have to find things (read: fix problems).</p>
+      <p>On purpose, I'm not efficient with classes. I'll make more than are needed, so I as a human can find things &amp; work on them. For example, I make up separate classes for the features tnum, pnum, onum and lnum. Each feature having 2 classes e.g., -- tnumb1 and tnumb2 as well as pnum1 and pnum2. The features programming doesn't need this -- but it is easier for me as an older human being (so I claim) to keep track of things. A real programmer would likely object to this wastefulness, and if you're careful, you can use fewer classes &amp; maybe save some space in the file. Not my biggest problem.</p>
+      <p>But enough -- if this is the sort of thing you're interested in, you get the idea. If not, sorry to waste your time.</p>
+  - id: 351287
+    user: 3254
+    date: 2009-06-10T22:08:00
+    date_raw: 10.Jun.2009 10.08pm
+    votes: null
+    html: <p>That's helpful, thanks Charles!</p>
+    html_clean: <p>That's helpful, thanks Charles!</p>

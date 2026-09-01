@@ -1,0 +1,132 @@
+node: 104927
+title: Fontlab Generating Only My Font Glyphs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419154419"
+  captured_at: 2015-04-19T15:44:19Z
+  url: http://typophile.com/node/104927
+  digest: GX2IT4JL6U3DHGWVHBRMGABXF4KOX7LD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/104927.html
+  fingerprint: 1e09d66de80b55af
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419154419"
+      digest: GX2IT4JL6U3DHGWVHBRMGABXF4KOX7LD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/104927.html
+post:
+  id: 104927
+  user: 184609
+  date: 2013-07-24T16:29:00
+  date_raw: 24 Jul 2013 — 4:29pm
+  votes: null
+  html: |-
+    <p>Is it possible to generate a font with only the glyphs that I designed in fontlab. It seems like when I use my typeface in other applications for glyphs that I didn't design it replaces them with a standard glyph which I do not want displayed. </p>
+    <p>It might be a silly question, but thanks in advance.</p>
+  html_clean: |-
+    <p>Is it possible to generate a font with only the glyphs that I designed in fontlab. It seems like when I use my typeface in other applications for glyphs that I didn't design it replaces them with a standard glyph which I do not want displayed. </p>
+    <p>It might be a silly question, but thanks in advance.</p>
+comments:
+  - id: 561076
+    user: 18942
+    date: 2013-07-24T19:23:00
+    date_raw: 24 Jul 2013 — 7:23pm
+    votes: null
+    html: |-
+      <p>I hope the following answers your question; if not, you will need to be more precise. I  know FontLab only very superficially  but I don't think it generates anything else than what you designed. </p>
+      <p>Here is what you seem to be experiencing. On OS X and on Windows, TextEdit, Word, Pages, Powerpoint (standard Mac and Windows applications)  use a "fallback font" when the current font is missing a character. To avoid that you need an application that does not rely on the fallback mechanism. I know that Adobe InDesign would not replace your missing glyphs by those of a fallback font. If you are on a campus with a fast connection, you can install texlive 2013 (on the Mac, it is <a href="http://www.tug.org/mactex/" rel="nofollow">MacTeX</a>, on the PC, <a href="http://www.tug.org/texlive/" rel="nofollow">TeX Live</a>). It comes with XeLaTeX that does not use the fallback mechanism either. Here is how MacTeX looks (with TeXShop); first the input file:</p>
+      <p><img src="/files/xelatex_4867.png"></p>
+      <p>and now what I get after clicking "Typeset".</p>
+      <p><img src="/files/bonjour_6323.png"></p>
+      <p>The font does not contain Hebrew characters and they are displayed as missing.</p>
+      <p>You could also try <a href="http://www.lyx.org/Home" rel="nofollow">LyX</a>, that is built on top of TeX and is supposedly more user friendly.</p>
+    html_clean: |-
+      <p>I hope the following answers your question; if not, you will need to be more precise. I  know FontLab only very superficially  but I don't think it generates anything else than what you designed. </p>
+      <p>Here is what you seem to be experiencing. On OS X and on Windows, TextEdit, Word, Pages, Powerpoint (standard Mac and Windows applications)  use a "fallback font" when the current font is missing a character. To avoid that you need an application that does not rely on the fallback mechanism. I know that Adobe InDesign would not replace your missing glyphs by those of a fallback font. If you are on a campus with a fast connection, you can install texlive 2013 (on the Mac, it is <a href="http://www.tug.org/mactex/" rel="nofollow">MacTeX</a>, on the PC, <a href="http://www.tug.org/texlive/" rel="nofollow">TeX Live</a>). It comes with XeLaTeX that does not use the fallback mechanism either. Here is how MacTeX looks (with TeXShop); first the input file:</p>
+      <p><img src="/files/xelatex_4867.png"></p>
+      <p>and now what I get after clicking "Typeset".</p>
+      <p><img src="/files/bonjour_6323.png"></p>
+      <p>The font does not contain Hebrew characters and they are displayed as missing.</p>
+      <p>You could also try <a href="http://www.lyx.org/Home" rel="nofollow">LyX</a>, that is built on top of TeX and is supposedly more user friendly.</p>
+  - id: 561083
+    user: 18942
+    date: 2013-07-24T20:50:00
+    date_raw: 24 Jul 2013 — 8:50pm
+    votes: null
+    html: |-
+      <p>Of course, texlive also runs on Unix.</p>
+      <p>Once texlive is installed, you also have lualatex. If you have any doubt about the glyph list in your font, here is a lualatex script that will give it (from the manual)</p>
+      <pre>--- file lglyphs.lua --- cut here
+      #!/usr/bin/env lualatex
+
+      local f = fontloader.open(arg[1])
+      local i = 0
+      while (i &lt; f.glyphmax) do
+        local g = f.glyphs[i]
+        if g then
+          print(g.name)
+        end
+        i = i + 1
+      end
+      fontloader.close(f)
+      --- cut line ---
+      </pre><p>Then</p>
+      <pre>lualatex lglyphs.lua fontfile
+      </pre><p>will give you the glyph list in your font file. You can make that file executable and run it as a unix script but on my mac it needs the extension .lua to work.</p>
+    html_clean: |-
+      <p>Of course, texlive also runs on Unix.</p>
+      <p>Once texlive is installed, you also have lualatex. If you have any doubt about the glyph list in your font, here is a lualatex script that will give it (from the manual)</p>
+      <pre>--- file lglyphs.lua --- cut here
+      #!/usr/bin/env lualatex
+
+      local f = fontloader.open(arg[1])
+      local i = 0
+      while (i &lt; f.glyphmax) do
+        local g = f.glyphs[i]
+        if g then
+          print(g.name)
+        end
+        i = i + 1
+      end
+      fontloader.close(f)
+      --- cut line ---
+      </pre><p>Then</p>
+      <pre>lualatex lglyphs.lua fontfile
+      </pre><p>will give you the glyph list in your font file. You can make that file executable and run it as a unix script but on my mac it needs the extension .lua to work.</p>
+  - id: 561084
+    user: 1262
+    date: 2013-07-24T20:59:00
+    date_raw: 24 Jul 2013 — 8:59pm
+    votes: null
+    html: <p>FontLab <em>is</em> only generating the fonts you create. The other glyphs you see being displayed in software are fallback fonts, i.e. the default fonts used by that software to display characters that are not supported in your font.</p>
+    html_clean: <p>FontLab <em>is</em> only generating the fonts you create. The other glyphs you see being displayed in software are fallback fonts, i.e. the default fonts used by that software to display characters that are not supported in your font.</p>
+  - id: 561186
+    user: 18942
+    date: 2013-07-25T18:14:00
+    date_raw: 25 Jul 2013 — 6:14pm
+    votes: null
+    html: |-
+      <p>The Unix script can be called <code>lglyphs</code> without the <code>.lua</code> extension if  the first line is replaced by</p>
+      <pre>#!/usr/bin/env texlua
+      </pre><p>and will then execute properly.  Other options can be found in the manual at <a href="http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf" title="http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf">http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf</a></p>
+    html_clean: |-
+      <p>The Unix script can be called <code>lglyphs</code> without the <code>.lua</code> extension if  the first line is replaced by</p>
+      <pre>#!/usr/bin/env texlua
+      </pre><p>and will then execute properly.  Other options can be found in the manual at <a href="http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf" title="http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf">http://www.luatex.org/svn/trunk/manual/luatexref-t.pdf</a></p>

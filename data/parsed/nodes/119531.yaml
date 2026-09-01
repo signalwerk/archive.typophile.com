@@ -1,0 +1,139 @@
+node: 119531
+title: Trying to understand OT Languagesystem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141111093730"
+  captured_at: 2014-11-11T09:37:30Z
+  url: http://typophile.com:80/node/119531
+  digest: DJIAYXS2HAZ6PKU7JEBLWZ5LUN7LN5K3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/119531.html
+  fingerprint: 6ca0384dd6a30d25
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141111093730"
+      digest: DJIAYXS2HAZ6PKU7JEBLWZ5LUN7LN5K3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/119531.html
+post:
+  id: 119531
+  user: 212629
+  date: 2014-09-14T08:01:00
+  date_raw: 14 Sep 2014 — 8:01am
+  votes: null
+  html: <p>What is the real purpose of these tags as declared by themselves in the lower right panel of the OpenType window in Fontlab?  I can understand how they are used in individual features to run substitutions for certain glyphs in certain languages, but what is the point of them sitting there in the beginning by themselves? Apparently you have to declare at least one, or you will get build errors now, but should I declare every system that my font supports?  A fixed and certain set of them across all my fonts (as long as the font supports them),  or as few as possible, or what?  Should they be declared in the order their glyphs appear in unicode?  Order of most widely used?  Does the order not matter at all?</p>
+  html_clean: <p>What is the real purpose of these tags as declared by themselves in the lower right panel of the OpenType window in Fontlab?  I can understand how they are used in individual features to run substitutions for certain glyphs in certain languages, but what is the point of them sitting there in the beginning by themselves? Apparently you have to declare at least one, or you will get build errors now, but should I declare every system that my font supports?  A fixed and certain set of them across all my fonts (as long as the font supports them),  or as few as possible, or what?  Should they be declared in the order their glyphs appear in unicode?  Order of most widely used?  Does the order not matter at all?</p>
+comments:
+  - id: 588260
+    user: 803
+    date: 2014-09-14T09:47:00
+    date_raw: 14 Sep 2014 — 9:47am
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>Have you read the documentation at Adobe's developer web site?</p>
+      <p><a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/index_tag3.html" rel="nofollow">http://partners.adobe.com/public/developer/opentype/index_tag3.html</a></p>
+      <p>Also, there should be explanations specific to FontLab's documentation. I believe it s a free download from their web site.</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>Have you read the documentation at Adobe's developer web site?</p>
+      <p><a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/index_tag3.html" rel="nofollow">http://partners.adobe.com/public/developer/opentype/index_tag3.html</a></p>
+      <p>Also, there should be explanations specific to FontLab's documentation. I believe it s a free download from their web site.</p>
+      </div>
+  - id: 588264
+    user: 212629
+    date: 2014-09-14T10:20:00
+    date_raw: 14 Sep 2014 — 10:20am
+    votes: null
+    html: |-
+      <p>I don't see "languagesystem" anywhere on the page you linked to.  </p>
+      <p>Fontlab 5 manual had this to say:</p>
+      <blockquote><p>
+      Language system<br>
+      In practice, most or all of the features in a font will be registered under the<br>
+      same set of language systems, and a particular feature's lookups will be<br>
+      identical across the language systems that the feature is registered under.<br>
+      The "languagesystem" statement takes advantage of this fact. It is the<br>
+      simplest way to specify a language system in the feature file. One or more<br>
+      such statements may be present in the feature file at global scope (i.e.<br>
+      outside of the feature blocks or any other blocks) and before any of the<br>
+      feature blocks:<br>
+      languagesystem  ;<br>
+      When these statements are present, then each feature that does not contain<br>
+      an explicit "script" or "language" statement will be registered under every<br>
+      language system specified by the "languagesystem" statement(s).<br>
+      If no "languagesystem" statement is present, then the implementation will<br>
+      behave exactly as though the following statement were present at the<br>
+      beginning of the feature file:<br>
+      languagesystem latn DFLT;
+      </p></blockquote>
+      <p>It doesn't really explain why or in which order to use multiple languagesystem tags.</p>
+    html_clean: |-
+      <p>I don't see "languagesystem" anywhere on the page you linked to.  </p>
+      <p>Fontlab 5 manual had this to say:</p>
+      <blockquote><p>
+      Language system<br>
+      In practice, most or all of the features in a font will be registered under the<br>
+      same set of language systems, and a particular feature's lookups will be<br>
+      identical across the language systems that the feature is registered under.<br>
+      The "languagesystem" statement takes advantage of this fact. It is the<br>
+      simplest way to specify a language system in the feature file. One or more<br>
+      such statements may be present in the feature file at global scope (i.e.<br>
+      outside of the feature blocks or any other blocks) and before any of the<br>
+      feature blocks:<br>
+      languagesystem  ;<br>
+      When these statements are present, then each feature that does not contain<br>
+      an explicit "script" or "language" statement will be registered under every<br>
+      language system specified by the "languagesystem" statement(s).<br>
+      If no "languagesystem" statement is present, then the implementation will<br>
+      behave exactly as though the following statement were present at the<br>
+      beginning of the feature file:<br>
+      languagesystem latn DFLT;
+      </p></blockquote>
+      <p>It doesn't really explain why or in which order to use multiple languagesystem tags.</p>
+  - id: 588266
+    user: 803
+    date: 2014-09-14T11:17:00
+    date_raw: 14 Sep 2014 — 11:17am
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>Here's more from Adobe about "languagesystems":<br>
+      <a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html</a></p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>Here's more from Adobe about "languagesystems":<br>
+      <a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html</a></p>
+      </div>
+  - id: 588270
+    user: 212629
+    date: 2014-09-14T12:21:00
+    date_raw: 14 Sep 2014 — 12:21pm
+    votes: null
+    html: <p>How do you deal with the languagesystem tag yourself, George?</p>
+    html_clean: <p>How do you deal with the languagesystem tag yourself, George?</p>
+  - id: 588291
+    user: 803
+    date: 2014-09-14T16:18:00
+    date_raw: 14 Sep 2014 — 4:18pm
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>I switched from FontLab to Glyphs; it takes care of all that automatically.</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>I switched from FontLab to Glyphs; it takes care of all that automatically.</p>
+      </div>

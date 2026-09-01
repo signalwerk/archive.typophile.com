@@ -1,0 +1,114 @@
+node: 104649
+title: InDesign find&replace hebrew with nikud
+forum:
+  id: 373
+  title: Hebrew Typography & Type Design
+source:
+  archive: web.archive.org
+  timestamp: "20150317132915"
+  captured_at: 2015-03-17T13:29:15Z
+  url: http://typophile.com/node/104649
+  digest: MGUL6QKW2CWJUEAM5UF5HYEU4MGS3UAD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/104649.html
+  fingerprint: 2260f663a5ee23d1
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150317132915"
+      digest: MGUL6QKW2CWJUEAM5UF5HYEU4MGS3UAD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/104649.html
+post:
+  id: 104649
+  user: 188948
+  date: 2013-07-15T13:10:00
+  date_raw: 15 Jul 2013 — 1:10pm
+  votes: null
+  html: |-
+    <p>Is there a fast way in Indesign to change biblical text imported from the internet the includes nikud into the appropriate unicode sign.</p>
+    <p>The imported text is built  - letter, nikud, dagesh<br>
+    I would like to change to - letter+dagesh glyph, nikud</p>
+    <p>Bentzi</p>
+  html_clean: |-
+    <p>Is there a fast way in Indesign to change biblical text imported from the internet the includes nikud into the appropriate unicode sign.</p>
+    <p>The imported text is built  - letter, nikud, dagesh<br>
+    I would like to change to - letter+dagesh glyph, nikud</p>
+    <p>Bentzi</p>
+comments:
+  - id: 560326
+    user: 18942
+    date: 2013-07-17T15:36:00
+    date_raw: 17 Jul 2013 — 3:36pm
+    votes: null
+    html: |-
+      <p>I have never coded for InDesign, and I can't answer the question you are asking.</p>
+      <p>In any case, I would just recode the input text (before feeding it to InDesign). But first, are you sure your input never contains a sequence like "shin shidot qamats dagesh" (for instance הַשָּׁמַיִם) that you would want to replace by "shin dagesh shindot qamats"? If so, the substitution "[letter][nikkud][dagesh]" to "[letter][dagesh][nikkud]" is not general enough. You need to accept [nikkud]+, i.e. one or more.</p>
+      <p>If your input file is already utf-8 encoded, then the following Python code should do it (provided there is no cantillation mark between the letter and the dagesh). </p>
+      <pre>---- file reorddag.py ---- cut line
+      #!/usr/bin/env python
+
+      import re, sys
+      reord = re.compile(ur'([\u05D0-\u05EA])([\u05B0-\u05BB\u05BD\u05BF\u05C1\u05C2\u05C7]+)\u05BC')
+
+      if len(sys.argv) &gt; 1:
+         f=open(sys.argv[1])
+      else:
+         f=sys.stdin
+
+      line = f.readline().decode('utf-8')
+      while line:
+        print re.sub(reord, ur'\1\u05BC\2',line).encode('utf-8'),
+        line = f.readline().decode('utf-8')
+      ---- cut line
+      </pre><p>If you you save those lines to <code>reorddag.py</code>, then</p>
+      <pre>python reorddag.py input.txt &gt; output.txt
+      </pre><p>should perform the desired changes; if you are on a mac or linux, you can name the file reorddag, make it executable and it can be used with <code>reorddag input.txt</code> to get the output on stdout and it can also be piped.</p>
+      <p>-- 16 Jul 2013 — 11:51am Added # that was missing before ! in the copy, on the first line<br>
+      -- Something weird is happening:  starting on my mac with shin shindot qamats dagesh in הַשָּׁמַיִם, copying it  to typophile  and then copying from typophile to my mac I end with the sequence shin qamats dagesh shindot.<br>
+      -- 17 Jul 2013 — 3:35pm Added a missing comma at the end of the print line (was giving two CR for each line)</p>
+    html_clean: |-
+      <p>I have never coded for InDesign, and I can't answer the question you are asking.</p>
+      <p>In any case, I would just recode the input text (before feeding it to InDesign). But first, are you sure your input never contains a sequence like "shin shidot qamats dagesh" (for instance הַשָּׁמַיִם) that you would want to replace by "shin dagesh shindot qamats"? If so, the substitution "[letter][nikkud][dagesh]" to "[letter][dagesh][nikkud]" is not general enough. You need to accept [nikkud]+, i.e. one or more.</p>
+      <p>If your input file is already utf-8 encoded, then the following Python code should do it (provided there is no cantillation mark between the letter and the dagesh). </p>
+      <pre>---- file reorddag.py ---- cut line
+      #!/usr/bin/env python
+
+      import re, sys
+      reord = re.compile(ur'([\u05D0-\u05EA])([\u05B0-\u05BB\u05BD\u05BF\u05C1\u05C2\u05C7]+)\u05BC')
+
+      if len(sys.argv) &gt; 1:
+         f=open(sys.argv[1])
+      else:
+         f=sys.stdin
+
+      line = f.readline().decode('utf-8')
+      while line:
+        print re.sub(reord, ur'\1\u05BC\2',line).encode('utf-8'),
+        line = f.readline().decode('utf-8')
+      ---- cut line
+      </pre><p>If you you save those lines to <code>reorddag.py</code>, then</p>
+      <pre>python reorddag.py input.txt &gt; output.txt
+      </pre><p>should perform the desired changes; if you are on a mac or linux, you can name the file reorddag, make it executable and it can be used with <code>reorddag input.txt</code> to get the output on stdout and it can also be piped.</p>
+      <p>-- 16 Jul 2013 — 11:51am Added # that was missing before ! in the copy, on the first line<br>
+      -- Something weird is happening:  starting on my mac with shin shindot qamats dagesh in הַשָּׁמַיִם, copying it  to typophile  and then copying from typophile to my mac I end with the sequence shin qamats dagesh shindot.<br>
+      -- 17 Jul 2013 — 3:35pm Added a missing comma at the end of the print line (was giving two CR for each line)</p>
+  - id: 561333
+    user: 188948
+    date: 2013-07-28T00:38:00
+    date_raw: 28 Jul 2013 — 12:38am
+    votes: null
+    html: <p>Thank you for your help, it took me a little time to figure out how to work a script in python and it works!</p>
+    html_clean: <p>Thank you for your help, it took me a little time to figure out how to work a script in python and it works!</p>

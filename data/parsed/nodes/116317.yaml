@@ -1,0 +1,110 @@
+node: 116317
+title: Toggle through 1 set of alternates
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140702161135"
+  captured_at: 2014-07-02T16:11:35Z
+  url: http://typophile.com/node/116317
+  digest: QDMLIQN4MTINXZ3WPXQRWIQSUUQHD5QP
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/116317.html
+  fingerprint: 98b0f4cc48ca3087
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140702161135"
+      digest: QDMLIQN4MTINXZ3WPXQRWIQSUUQHD5QP
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/116317.html
+post:
+  id: 116317
+  user: 219868
+  date: 2014-05-06T10:21:00
+  date_raw: 6 May 2014 — 10:21am
+  votes: null
+  html: |-
+    <p>Hi there</p>
+    <p>I'm looking to add a simple alternate feature to a font. The font is purely uppercase but in the lowercase glyphs the font has one set of of alternates (also uppercase design). </p>
+    <p>We're not after any cutting edge attempts at randomisation, just a simple toggle effect, cycling through so every other time you type a letter the alternate displays. So typing "aaaa" will pull out "aAaA" from the glyphs.</p>
+    <p>I have looked through a lot of posts and articles and have found much useful information, but can't quite pin down the exact code. I understand it's quite simple and I'm almost there I think. I have created two classes - class1 (uppercase) and class2 (lowercase). </p>
+    <p>Now I believe I just need a simple piece of code to place here in the opentype panel:</p>
+    <p>feature xxxx {<br>
+      sub by ;<br>
+    } xxxx;</p>
+    <p>I just can't find anything that has an example of the code, just the effect I'm after described in general terms. If anyone could help me out here,  I would be extremely grateful.</p>
+    <p>Many thanks</p>
+    <p>Pascal</p>
+  html_clean: |-
+    <p>Hi there</p>
+    <p>I'm looking to add a simple alternate feature to a font. The font is purely uppercase but in the lowercase glyphs the font has one set of of alternates (also uppercase design). </p>
+    <p>We're not after any cutting edge attempts at randomisation, just a simple toggle effect, cycling through so every other time you type a letter the alternate displays. So typing "aaaa" will pull out "aAaA" from the glyphs.</p>
+    <p>I have looked through a lot of posts and articles and have found much useful information, but can't quite pin down the exact code. I understand it's quite simple and I'm almost there I think. I have created two classes - class1 (uppercase) and class2 (lowercase). </p>
+    <p>Now I believe I just need a simple piece of code to place here in the opentype panel:</p>
+    <p>feature xxxx {<br>
+      sub by ;<br>
+    } xxxx;</p>
+    <p>I just can't find anything that has an example of the code, just the effect I'm after described in general terms. If anyone could help me out here,  I would be extremely grateful.</p>
+    <p>Many thanks</p>
+    <p>Pascal</p>
+comments:
+  - id: 577723
+    user: 83217
+    date: 2014-05-06T11:04:00
+    date_raw: 6 May 2014 — 11:04am
+    votes: null
+    html: |-
+      <p>If you want/need the toggle only in runs of a character...</p>
+      <p>sub a a' by a.alt;</p>
+      <p>might work. The apostrophe, incidentally, points out which character is to be swapped out for the new one.</p>
+    html_clean: |-
+      <p>If you want/need the toggle only in runs of a character...</p>
+      <p>sub a a' by a.alt;</p>
+      <p>might work. The apostrophe, incidentally, points out which character is to be swapped out for the new one.</p>
+  - id: 577724
+    user: 6470
+    date: 2014-05-06T11:30:00
+    date_raw: 6 May 2014 — 11:30am
+    votes: null
+    html: |-
+      <p>This works for me (code courtesy of Paul Hunt)...</p>
+      <p>@All=[ a b c d e f g h i j k l m n o p q r s t u v w x y z œ æ ð ø þ lslash];<br>
+      @Allalt=[ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Œ Æ Ð Ø Þ Lslash];</p>
+      <p>feature calt {<br>
+      sub @All @All' by @Allalt ;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>This works for me (code courtesy of Paul Hunt)...</p>
+      <p>@All=[ a b c d e f g h i j k l m n o p q r s t u v w x y z œ æ ð ø þ lslash];<br>
+      @Allalt=[ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Œ Æ Ð Ø Þ Lslash];</p>
+      <p>feature calt {<br>
+      sub @All @All' by @Allalt ;<br>
+      } calt;</p>
+  - id: 577757
+    user: 219592
+    date: 2014-05-06T23:52:00
+    date_raw: 6 May 2014 — 11:52pm
+    votes: null
+    html: <p>Oldnick, that should work except for “œ æ ð ø þ”, because the regular expression to match <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.f.i" rel="nofollow">valid glyph names</a> (in AFDKO syntax) is <code>(\\?[A-z_][A-z0-9_.]*|\.notdef)</code>. Sorry for nitpicking.</p>
+    html_clean: <p>Oldnick, that should work except for “œ æ ð ø þ”, because the regular expression to match <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#2.f.i" rel="nofollow">valid glyph names</a> (in AFDKO syntax) is <code>(\\?[A-z_][A-z0-9_.]*|\.notdef)</code>. Sorry for nitpicking.</p>
+  - id: 577779
+    user: 6470
+    date: 2014-05-07T06:18:00
+    date_raw: 7 May 2014 — 6:18am
+    votes: null
+    html: "<p>You're right: thanks for pointing that out.</p>"
+    html_clean: "<p>You're right: thanks for pointing that out.</p>"

@@ -1,0 +1,155 @@
+node: 74330
+title: Feature to alpha-numeric ordinals
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141217034037"
+  captured_at: 2014-12-17T03:40:37Z
+  url: http://typophile.com/node/74330
+  digest: ZOVDEBZW65KALDAVWF5HO7R4WO3LAX6L
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/74330.html
+  fingerprint: 86c29b4c356350aa
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141217034037"
+      digest: ZOVDEBZW65KALDAVWF5HO7R4WO3LAX6L
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/74330.html
+post:
+  id: 74330
+  user: 13021
+  date: 2010-09-18T05:24:00
+  date_raw: 18 Sep 2010 — 5:24am
+  votes: null
+  html: |-
+    <p>Hi, again, wise-people. I want to know, in your opinion, what is the best open type feature to use with alpha-numeric ordinals (in fact, better say numeric-alphabetic ordinals). See the attached sample. I want to program a open type feature to use with this kind of gliph, where the first character is a arabic number, followed by a abreviation, like "1st", "2nd", "3rd"... But, I have two or three different kinds of each ordinal to program...</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/ordinals.png">ordinals.png</a></td><td>124.47 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hi, again, wise-people. I want to know, in your opinion, what is the best open type feature to use with alpha-numeric ordinals (in fact, better say numeric-alphabetic ordinals). See the attached sample. I want to program a open type feature to use with this kind of gliph, where the first character is a arabic number, followed by a abreviation, like "1st", "2nd", "3rd"... But, I have two or three different kinds of each ordinal to program...</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/ordinals.png">ordinals.png</a></td><td>124.47 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 430221
+    user: 2021
+    date: 2010-09-19T14:19:00
+    date_raw: 19 Sep 2010 — 2:19pm
+    votes: null
+    html: |-
+      <p>This works for English:</p>
+      <p>@ordn1: one.lnum two.lnum three.lnum one two three one.onum two.onum three.onum one.tnum two.tnum three.tnum</p>
+      <p>@ordn2: zero four five six seven eight nine zero.lnum four.lnum five.lnum six.lnum seven.lnum eight.lnum nine.lnum zero.onum four.onum five.onum six.onum seven.onum eight.onum nine.onum zero.tnum four.tnum five.tnum six.tnum seven.tnum eight.tnum nine.tnum </p>
+      <p>@ordn3: zero.lnum one.lnum two.lnum three.lnum four.lnum five.lnum six.lnum seven.lnum eight.lnum nine.lnum zero one two three four five six seven eight nine zero.onum one.onum two.onum three.onum four.onum five.onum six.onum seven.onum eight.onum nine.onum zero.tnum one.tnum two.tnum three.tnum four.tnum five.tnum six.tnum seven.tnum eight.tnum nine.tnum</p>
+      <p>[default = lining, proportional<br>
+      lnum = lining, tabular<br>
+      onum = oldstyle, proportional<br>
+      tnum = oldstyle, tabular<br>
+      These are my own abbreviations for class code names, probably not the most logical...]</p>
+      <p>feature ordn { # Ordinals<br>
+       # Latin<br>
+          ignore sub [one.lnum one one.onum one.tnum] [one.lnum one one.onum one.tnum] a';<br>
+          sub @ordn3 a' by ordfeminine;<br>
+          sub @ordn3 o' by ordmasculine;<br>
+          sub @ordn3 period a' by ordfeminine;<br>
+          sub @ordn3 period o' by ordmasculine;<br>
+          sub [one.lnum one one.onum one.tnum] @ordn1 t' h by t.sups;<br>
+          sub [one.lnum one one.onum one.tnum] @ordn1 t.sups h' by h.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [one.lnum one one.onum one.tnum] s' t;<br>
+          sub [one.lnum one one.onum one.tnum] s' t by s.sups;<br>
+          sub [one.lnum one one.onum one.tnum] s.sups t' by t.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [two.lnum two two.onum two.tnum] d';<br>
+          sub [two.lnum two two.onum two.tnum] d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [two.lnum two two.onum two.tnum] n' d;<br>
+          sub [two.lnum two two.onum two.tnum] n' d by n.sups;<br>
+          sub [two.lnum two two.onum two.tnum] n.sups d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [three.lnum three three.onum three.tnum] d';<br>
+          sub [three.lnum three three.onum three.tnum] d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [three.lnum three three.onum three.tnum] r' d;<br>
+          sub [three.lnum three three.onum three.tnum] r' d by r.sups;<br>
+          sub [three.lnum three three.onum three.tnum] r.sups d' by d.sups;<br>
+          sub @ordn2 t' h by t.sups;<br>
+          sub @ordn2 t.sups h' by h.sups;<br>
+      } ordn;</p>
+    html_clean: |-
+      <p>This works for English:</p>
+      <p>@ordn1: one.lnum two.lnum three.lnum one two three one.onum two.onum three.onum one.tnum two.tnum three.tnum</p>
+      <p>@ordn2: zero four five six seven eight nine zero.lnum four.lnum five.lnum six.lnum seven.lnum eight.lnum nine.lnum zero.onum four.onum five.onum six.onum seven.onum eight.onum nine.onum zero.tnum four.tnum five.tnum six.tnum seven.tnum eight.tnum nine.tnum </p>
+      <p>@ordn3: zero.lnum one.lnum two.lnum three.lnum four.lnum five.lnum six.lnum seven.lnum eight.lnum nine.lnum zero one two three four five six seven eight nine zero.onum one.onum two.onum three.onum four.onum five.onum six.onum seven.onum eight.onum nine.onum zero.tnum one.tnum two.tnum three.tnum four.tnum five.tnum six.tnum seven.tnum eight.tnum nine.tnum</p>
+      <p>[default = lining, proportional<br>
+      lnum = lining, tabular<br>
+      onum = oldstyle, proportional<br>
+      tnum = oldstyle, tabular<br>
+      These are my own abbreviations for class code names, probably not the most logical...]</p>
+      <p>feature ordn { # Ordinals<br>
+       # Latin<br>
+          ignore sub [one.lnum one one.onum one.tnum] [one.lnum one one.onum one.tnum] a';<br>
+          sub @ordn3 a' by ordfeminine;<br>
+          sub @ordn3 o' by ordmasculine;<br>
+          sub @ordn3 period a' by ordfeminine;<br>
+          sub @ordn3 period o' by ordmasculine;<br>
+          sub [one.lnum one one.onum one.tnum] @ordn1 t' h by t.sups;<br>
+          sub [one.lnum one one.onum one.tnum] @ordn1 t.sups h' by h.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [one.lnum one one.onum one.tnum] s' t;<br>
+          sub [one.lnum one one.onum one.tnum] s' t by s.sups;<br>
+          sub [one.lnum one one.onum one.tnum] s.sups t' by t.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [two.lnum two two.onum two.tnum] d';<br>
+          sub [two.lnum two two.onum two.tnum] d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [two.lnum two two.onum two.tnum] n' d;<br>
+          sub [two.lnum two two.onum two.tnum] n' d by n.sups;<br>
+          sub [two.lnum two two.onum two.tnum] n.sups d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [three.lnum three three.onum three.tnum] d';<br>
+          sub [three.lnum three three.onum three.tnum] d' by d.sups;<br>
+          ignore sub [one.lnum one one.onum one.tnum] [three.lnum three three.onum three.tnum] r' d;<br>
+          sub [three.lnum three three.onum three.tnum] r' d by r.sups;<br>
+          sub [three.lnum three three.onum three.tnum] r.sups d' by d.sups;<br>
+          sub @ordn2 t' h by t.sups;<br>
+          sub @ordn2 t.sups h' by h.sups;<br>
+      } ordn;</p>
+  - id: 430299
+    user: 13021
+    date: 2010-09-20T03:04:00
+    date_raw: 20 Sep 2010 — 3:04am
+    votes: null
+    html: |-
+      <p>Thanks, Nick. Taking a look, the programation seems very hard to do! But I will learn and use it, anyway, because I think this kind of resource is very interesting in a good font. </p>
+      <p>By the way, I appreciate the critics from the coleagues at Typophile about the aesthetic solutions to this font, Penabico. So, I create a new theme in the Calligraphic forum, at <a href="http://typophile.com/node/74385" title="http://typophile.com/node/74385">http://typophile.com/node/74385</a> - in the first post I need recomendations about the Thorn</p>
+      <p>best regards, and thanks, for all</p>
+    html_clean: |-
+      <p>Thanks, Nick. Taking a look, the programation seems very hard to do! But I will learn and use it, anyway, because I think this kind of resource is very interesting in a good font. </p>
+      <p>By the way, I appreciate the critics from the coleagues at Typophile about the aesthetic solutions to this font, Penabico. So, I create a new theme in the Calligraphic forum, at <a href="/node/74385/" title="http://typophile.com/node/74385">http://typophile.com/node/74385</a> - in the first post I need recomendations about the Thorn</p>
+      <p>best regards, and thanks, for all</p>
+  - id: 438061
+    user: 2021
+    date: 2010-11-05T14:20:00
+    date_raw: 5 Nov 2010 — 2:20pm
+    votes: null
+    html: |-
+      <p>Yes, it is long-winded, but you have to do it this way in order to make the feature applicable in a Paragraph Style, and not have every letter made superscript, only those in "1st", "2nd", "3rd" etc., -- and also "11th", "12th", "13th" etc.</p>
+      <p>The benefit is that each instance of an ordinal doesn't have to be individually selected and styled.</p>
+    html_clean: |-
+      <p>Yes, it is long-winded, but you have to do it this way in order to make the feature applicable in a Paragraph Style, and not have every letter made superscript, only those in "1st", "2nd", "3rd" etc., -- and also "11th", "12th", "13th" etc.</p>
+      <p>The benefit is that each instance of an ordinal doesn't have to be individually selected and styled.</p>

@@ -1,0 +1,309 @@
+node: 87651
+title: FontLab Macros on Lion
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130831095623"
+  captured_at: 2013-08-31T09:56:23Z
+  url: http://typophile.com:80/node/87651
+  digest: RONLFSRF6WN2I4BSPXGPURVD7ALR64LD
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/87651.html
+  fingerprint: 2ca5ec9949813665
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130831095623"
+      digest: RONLFSRF6WN2I4BSPXGPURVD7ALR64LD
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/87651.html
+post:
+  id: 87651
+  user: 23891
+  date: 2011-11-22T07:53:00
+  date_raw: 22 Nov 2011 — 7:53am
+  votes: null
+  html: |-
+    <p>I totally need help!</p>
+    <p>Updating to Lion – I know it was a bad idea – only brought trouble to my FontLab workflow.<br>
+    Since the last build FontLab luckily works (maybe even better than on Snow Leopard), BUT I just can’t get my macros to work!</p>
+    <p>Here is the latest Error message I get:</p>
+    <p>Traceback (most recent call last):<br>
+      File "", line 20, in<br>
+    ImportError: No module named robofab.interface.all.dialogs</p>
+    <p>Robofab is installed. Python too. (I guess)</p>
+    <p>I am so thankful for tips, it’s driving me crazy,<br>
+    plus I am obviously not able to wrap my mind around this myself.</p>
+  html_clean: |-
+    <p>I totally need help!</p>
+    <p>Updating to Lion – I know it was a bad idea – only brought trouble to my FontLab workflow.<br>
+    Since the last build FontLab luckily works (maybe even better than on Snow Leopard), BUT I just can’t get my macros to work!</p>
+    <p>Here is the latest Error message I get:</p>
+    <p>Traceback (most recent call last):<br>
+      File "", line 20, in<br>
+    ImportError: No module named robofab.interface.all.dialogs</p>
+    <p>Robofab is installed. Python too. (I guess)</p>
+    <p>I am so thankful for tips, it’s driving me crazy,<br>
+    plus I am obviously not able to wrap my mind around this myself.</p>
+comments:
+  - id: 484892
+    user: 16321
+    date: 2011-11-22T08:33:00
+    date_raw: 22 Nov 2011 — 8:33am
+    votes: null
+    html: |-
+      <p>Try pulling the latest packages from SVN. SVN is pretty awesome, it keeps you up to date with code whenever you want.<br>
+      It is installed on your Mac already. So all you have to do is: set up a folder where you want the distros to be </p>
+      <p>(I have ~/svn/)</p>
+      <p>Open a Terminal in that folder and type </p>
+      <p>svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a> (press enter)</p>
+      <p>svn co <a href="https://fonttools.svn.sourceforge.net/svnroot/fonttools" title="https://fonttools.svn.sourceforge.net/svnroot/fonttools">https://fonttools.svn.sourceforge.net/svnroot/fonttools</a> (press enter)<br>
+      svn co <a href="http://svn.typesupply.com/packages/vanilla" title="http://svn.typesupply.com/packages/vanilla">http://svn.typesupply.com/packages/vanilla</a> (press enter)<br>
+      svn co <a href="http://svn.typesupply.com/packages/ufo2fdk" title="http://svn.typesupply.com/packages/ufo2fdk">http://svn.typesupply.com/packages/ufo2fdk</a> (press enter)</p>
+      <p>SVN will download all the code from the specified sources.</p>
+      <p>Now all you have to do is tell Python where your code is:<br>
+      Go to your Python directory(/ies):</p>
+      <p>Macintosh HD/Library/Python/2.6/site-packages/<br>
+      (FL now uses 2.6, and I believe everything else as well, but you can do that for all the Python versions if you want.)</p>
+      <p>Locate the file robofab.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/svn.robofab.com/trunk/Lib</p>
+      <p>Locate the file dialogKit.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/dialogKit/trunk/Lib</p>
+      <p>Locate the file vanilla.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/vanilla/trunk/Lib</p>
+      <p>Locate the file robofab.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/fonttools/trunk/Lib</p>
+      <p>Now copy your .PTH files into all the different Python 'site-packages' folders like in my screenshot.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen-Shot-2011-11-22-at-17_3476.22.gif"></div><p></p>
+      <p>Now copy the Fontlab scripts from the Robofab SVN folder into your Fontlab script folder.</p>
+      <p>Restart Fontlab.</p>
+      <p>Awesome sauce.</p>
+    html_clean: |-
+      <p>Try pulling the latest packages from SVN. SVN is pretty awesome, it keeps you up to date with code whenever you want.<br>
+      It is installed on your Mac already. So all you have to do is: set up a folder where you want the distros to be </p>
+      <p>(I have ~/svn/)</p>
+      <p>Open a Terminal in that folder and type </p>
+      <p>svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a> (press enter)</p>
+      <p>svn co <a href="https://fonttools.svn.sourceforge.net/svnroot/fonttools" title="https://fonttools.svn.sourceforge.net/svnroot/fonttools">https://fonttools.svn.sourceforge.net/svnroot/fonttools</a> (press enter)<br>
+      svn co <a href="http://svn.typesupply.com/packages/vanilla" title="http://svn.typesupply.com/packages/vanilla">http://svn.typesupply.com/packages/vanilla</a> (press enter)<br>
+      svn co <a href="http://svn.typesupply.com/packages/ufo2fdk" title="http://svn.typesupply.com/packages/ufo2fdk">http://svn.typesupply.com/packages/ufo2fdk</a> (press enter)</p>
+      <p>SVN will download all the code from the specified sources.</p>
+      <p>Now all you have to do is tell Python where your code is:<br>
+      Go to your Python directory(/ies):</p>
+      <p>Macintosh HD/Library/Python/2.6/site-packages/<br>
+      (FL now uses 2.6, and I believe everything else as well, but you can do that for all the Python versions if you want.)</p>
+      <p>Locate the file robofab.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/svn.robofab.com/trunk/Lib</p>
+      <p>Locate the file dialogKit.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/dialogKit/trunk/Lib</p>
+      <p>Locate the file vanilla.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/vanilla/trunk/Lib</p>
+      <p>Locate the file robofab.pth, open it and change the contents (to the path you have dumped robofab to):<br>
+      /Users/YOUR-USER-NAME/svn/fonttools/trunk/Lib</p>
+      <p>Now copy your .PTH files into all the different Python 'site-packages' folders like in my screenshot.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen-Shot-2011-11-22-at-17_3476.22.gif"></div><p></p>
+      <p>Now copy the Fontlab scripts from the Robofab SVN folder into your Fontlab script folder.</p>
+      <p>Restart Fontlab.</p>
+      <p>Awesome sauce.</p>
+  - id: 484893
+    user: 17208
+    date: 2011-11-22T08:29:00
+    date_raw: 22 Nov 2011 — 8:29am
+    votes: null
+    html: |-
+      <p>According to the error message RoboFab is not correctly installed. You might want to read these <a class="freelinking external" href="http://forum.fontlab.com/python-scripting/instructions-installing-robofab-12-rev-226-in-fls-51-on-mac-os-x-1072-t8300.0.html" rel="nofollow">instructions for installing Robofab at the FontLab forums</a>.</p>
+      <p>-Paul</p>
+    html_clean: |-
+      <p>According to the error message RoboFab is not correctly installed. You might want to read these <a class="freelinking external" href="http://forum.fontlab.com/python-scripting/instructions-installing-robofab-12-rev-226-in-fls-51-on-mac-os-x-1072-t8300.0.html" rel="nofollow">instructions for installing Robofab at the FontLab forums</a>.</p>
+      <p>-Paul</p>
+  - id: 484894
+    user: 16321
+    date: 2011-11-22T08:30:00
+    date_raw: 22 Nov 2011 — 8:30am
+    votes: null
+    html: <p>~ means your home folder, so ~/Library is in fact = Macintosh HD:Users:YOUR-USER-NAME:Library</p>
+    html_clean: <p>~ means your home folder, so ~/Library is in fact = Macintosh HD:Users:YOUR-USER-NAME:Library</p>
+  - id: 484896
+    user: 16321
+    date: 2011-11-22T08:35:00
+    date_raw: 22 Nov 2011 — 8:35am
+    votes: null
+    html: |-
+      <p>To update the sources on a later date, execute these commands:</p>
+      <p>svn update <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a> (press enter)<br>
+      svn update <a href="https://fonttools.svn.sourceforge.net/svnroot/fonttools" title="https://fonttools.svn.sourceforge.net/svnroot/fonttools">https://fonttools.svn.sourceforge.net/svnroot/fonttools</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/vanilla" title="http://svn.typesupply.com/packages/vanilla">http://svn.typesupply.com/packages/vanilla</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/ufo2fdk" title="http://svn.typesupply.com/packages/ufo2fdk">http://svn.typesupply.com/packages/ufo2fdk</a> (press enter)</p>
+    html_clean: |-
+      <p>To update the sources on a later date, execute these commands:</p>
+      <p>svn update <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a> (press enter)<br>
+      svn update <a href="https://fonttools.svn.sourceforge.net/svnroot/fonttools" title="https://fonttools.svn.sourceforge.net/svnroot/fonttools">https://fonttools.svn.sourceforge.net/svnroot/fonttools</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/vanilla" title="http://svn.typesupply.com/packages/vanilla">http://svn.typesupply.com/packages/vanilla</a> (press enter)<br>
+      svn update <a href="http://svn.typesupply.com/packages/ufo2fdk" title="http://svn.typesupply.com/packages/ufo2fdk">http://svn.typesupply.com/packages/ufo2fdk</a> (press enter)</p>
+  - id: 484923
+    user: 39733
+    date: 2011-11-22T11:25:00
+    date_raw: 22 Nov 2011 — 11:25am
+    votes: null
+    html: |-
+      <p>Wow, Claus is passing on the knowledge … :) </p>
+      <p>Lion and FL 5.1 are using a newer version of Python, so you just have to move over your Robofab folders to the newer Python (2.6 I believe?), or do a re-install.</p>
+      <p>Find the old stuff in /Library/Python/2.3/, reproduce in 2.6</p>
+      <p>Or do as Claus said and get the SVN.</p>
+    html_clean: |-
+      <p>Wow, Claus is passing on the knowledge … :) </p>
+      <p>Lion and FL 5.1 are using a newer version of Python, so you just have to move over your Robofab folders to the newer Python (2.6 I believe?), or do a re-install.</p>
+      <p>Find the old stuff in /Library/Python/2.3/, reproduce in 2.6</p>
+      <p>Or do as Claus said and get the SVN.</p>
+  - id: 484928
+    user: 16321
+    date: 2011-11-22T11:32:00
+    date_raw: 22 Nov 2011 — 11:32am
+    votes: null
+    html: <p>*shyyyys Frank* It's our little secret.</p>
+    html_clean: <p>*shyyyys Frank* It's our little secret.</p>
+  - id: 484937
+    user: 16321
+    date: 2011-11-22T12:23:00
+    date_raw: 22 Nov 2011 — 12:23pm
+    votes: null
+    html: <p>Big thanks to Frank for the original recipe!</p>
+    html_clean: <p>Big thanks to Frank for the original recipe!</p>
+  - id: 485058
+    user: 12433
+    date: 2011-11-23T06:25:00
+    date_raw: 23 Nov 2011 — 6:25am
+    votes: null
+    html: <p>I got all the macros working when I found out that the users Library exists, but it is invisible. I was then able to copy the scripts properly.</p>
+    html_clean: <p>I got all the macros working when I found out that the users Library exists, but it is invisible. I was then able to copy the scripts properly.</p>
+  - id: 485076
+    user: 43853
+    date: 2011-11-23T09:05:00
+    date_raw: 23 Nov 2011 — 9:05am
+    votes: null
+    html: <p>Thanks, Claus &amp; Frank, this fixed all of my chaos as well. 5.1 broke the scripts in 10.6, upgrade to Lion didn't fix or harm, now it's all running smoothly. Such a relief.</p>
+    html_clean: <p>Thanks, Claus &amp; Frank, this fixed all of my chaos as well. 5.1 broke the scripts in 10.6, upgrade to Lion didn't fix or harm, now it's all running smoothly. Such a relief.</p>
+  - id: 485088
+    user: 23891
+    date: 2011-11-23T10:24:00
+    date_raw: 23 Nov 2011 — 10:24am
+    votes: null
+    html: |-
+      <p>Thanks!</p>
+      <p>At first, everything worked fine again, but I still kept getting a "PendingDeprecationWarning" running Ben Kiel's betterGenerateFont.py. Then I noticed that I had an outdated version of Ben's script in my Macros folder. I downloaded the latest version (1.6) from <a href="http://www.benkiel.com/typeDesign/" title="http://www.benkiel.com/typeDesign/">http://www.benkiel.com/typeDesign/</a> and now, everything works as expected again.</p>
+      <p>Yeeeeeeeha!</p>
+    html_clean: |-
+      <p>Thanks!</p>
+      <p>At first, everything worked fine again, but I still kept getting a "PendingDeprecationWarning" running Ben Kiel's betterGenerateFont.py. Then I noticed that I had an outdated version of Ben's script in my Macros folder. I downloaded the latest version (1.6) from <a href="http://www.benkiel.com/typeDesign/" title="http://www.benkiel.com/typeDesign/">http://www.benkiel.com/typeDesign/</a> and now, everything works as expected again.</p>
+      <p>Yeeeeeeeha!</p>
+  - id: 485151
+    user: 8223
+    date: 2011-11-24T04:41:00
+    date_raw: 24 Nov 2011 — 4:41am
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      i am also crazy with this and finally here is an answer!, but i could install everything but the first part:<br>
+      svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a><br>
+      i get:<br>
+      svn: URL 'http://svn.robofab.com/svn' doesn't exist</p>
+      <p>probably i am doing something realy silly, can someone help me?<br>
+      thanks for the help and the post, d.</p>
+    html_clean: |-
+      <p>Hi,<br>
+      i am also crazy with this and finally here is an answer!, but i could install everything but the first part:<br>
+      svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update <a href="http://svn.typesupply.com/packages/dialogKit" title="http://svn.typesupply.com/packages/dialogKit">http://svn.typesupply.com/packages/dialogKit</a><br>
+      i get:<br>
+      svn: URL 'http://svn.robofab.com/svn' doesn't exist</p>
+      <p>probably i am doing something realy silly, can someone help me?<br>
+      thanks for the help and the post, d.</p>
+  - id: 485170
+    user: 30233
+    date: 2011-11-24T08:07:00
+    date_raw: 24 Nov 2011 — 8:07am
+    votes: null
+    html: |-
+      <p>1. The robofab URL was wrong. It should read:</p>
+      <p><code>svn co http://svn.robofab.com/</code></p>
+      <p>2. Why not svn co the complete typesupply stuff?</p>
+      <p><code>svn co http://svn.typesupply.com/</code></p>
+      <p>3. You can then update by cd'ing into the directory and typing <code>svn update</code></p>
+      <p>PS: Also, in my case it's 2.7, not 2.6.</p>
+    html_clean: |-
+      <p>1. The robofab URL was wrong. It should read:</p>
+      <p><code>svn co http://svn.robofab.com/</code></p>
+      <p>2. Why not svn co the complete typesupply stuff?</p>
+      <p><code>svn co http://svn.typesupply.com/</code></p>
+      <p>3. You can then update by cd'ing into the directory and typing <code>svn update</code></p>
+      <p>PS: Also, in my case it's 2.7, not 2.6.</p>
+  - id: 485177
+    user: 8223
+    date: 2011-11-24T11:08:00
+    date_raw: 24 Nov 2011 — 11:08am
+    votes: null
+    html: |-
+      <p>Hi mekka,</p>
+      <p>Thanks for the help, now I could download the robofab.<br>
+      but I did my best and still cannot make it works.<br>
+      Seems to have a problem with the directory.<br>
+      I wrote in robofab.pth:<br>
+      jeremias/daro/documents/svn/svn.robofab.com/trunk/Lib</p>
+      <p>. Jeremias is the name of the disk<br>
+      . daro is my user name<br>
+      . the svn folder is down documents directory.</p>
+      <p>also I edited the pth with TextEdit,</p>
+      <p>thanks again for the help!</p>
+    html_clean: |-
+      <p>Hi mekka,</p>
+      <p>Thanks for the help, now I could download the robofab.<br>
+      but I did my best and still cannot make it works.<br>
+      Seems to have a problem with the directory.<br>
+      I wrote in robofab.pth:<br>
+      jeremias/daro/documents/svn/svn.robofab.com/trunk/Lib</p>
+      <p>. Jeremias is the name of the disk<br>
+      . daro is my user name<br>
+      . the svn folder is down documents directory.</p>
+      <p>also I edited the pth with TextEdit,</p>
+      <p>thanks again for the help!</p>
+  - id: 485184
+    user: 16321
+    date: 2011-11-24T12:20:00
+    date_raw: 24 Nov 2011 — 12:20pm
+    votes: null
+    html: |-
+      <p><cite>svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update http://svn.typesupply.com/packages/dialogKit</cite></p>
+      <p>For some reason the shitty typophile CMS can't write that correctly. It's correctly written if I try to edit my post. Well, you figured it out.</p>
+    html_clean: |-
+      <p><cite>svn co <a href="http://svn.robofab.com/svn" title="http://svn.robofab.com/svn">http://svn.robofab.com/svn</a> update http://svn.typesupply.com/packages/dialogKit</cite></p>
+      <p>For some reason the shitty typophile CMS can't write that correctly. It's correctly written if I try to edit my post. Well, you figured it out.</p>
+  - id: 485204
+    user: 23891
+    date: 2011-11-25T03:15:00
+    date_raw: 25 Nov 2011 — 3:15am
+    votes: null
+    html: |-
+      <p>Now that I came to myself again:</p>
+      <p>@Claus: Thanks for typing this all in for me, it was very helpful.</p>
+      <p>@Paul: You where totally right that RoboFab wasn’t installed correctly anymore.</p>
+      <p>You all rock. Merry Christmas.</p>
+    html_clean: |-
+      <p>Now that I came to myself again:</p>
+      <p>@Claus: Thanks for typing this all in for me, it was very helpful.</p>
+      <p>@Paul: You where totally right that RoboFab wasn’t installed correctly anymore.</p>
+      <p>You all rock. Merry Christmas.</p>

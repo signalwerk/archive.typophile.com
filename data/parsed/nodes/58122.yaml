@@ -1,0 +1,102 @@
+node: 58122
+title: (Too) Complex Contextual Alternatives?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420030624"
+  captured_at: 2015-04-20T03:06:24Z
+  url: http://typophile.com/node/58122
+  digest: B63XAKS6BNSBQVAYQU5XFHSSRDFKMVC2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/58122.html
+  fingerprint: ff6cf990753c3bfe
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420030624"
+      digest: B63XAKS6BNSBQVAYQU5XFHSSRDFKMVC2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/58122.html
+post:
+  id: 58122
+  user: 16708
+  date: 2009-05-18T14:27:00
+  date_raw: 18 May 2009 — 2:27pm
+  votes: null
+  html: |-
+    <p>Here's the situation and I'm not sure if it can be done or if I'm just losing myself.</p>
+    <p>Given two base glyphs, I'd like to change the first one if the second has a combining mark.  However, the first one can have 0-∞ combining mark.</p>
+    <p>Hence my problem.  In this case I'd like to ignore combining marks on one part and ignore the base glyph on the second part, which would leave me with a simple "when X is followed by [list of combining marks], change to Y".</p>
+    <p>In regex it'd be <code>(B1)[`´¨]*B2[`´¨]+</code>.   Do I ask too much of OpenType?</p>
+  html_clean: |-
+    <p>Here's the situation and I'm not sure if it can be done or if I'm just losing myself.</p>
+    <p>Given two base glyphs, I'd like to change the first one if the second has a combining mark.  However, the first one can have 0-∞ combining mark.</p>
+    <p>Hence my problem.  In this case I'd like to ignore combining marks on one part and ignore the base glyph on the second part, which would leave me with a simple "when X is followed by [list of combining marks], change to Y".</p>
+    <p>In regex it'd be <code>(B1)[`´¨]*B2[`´¨]+</code>.   Do I ask too much of OpenType?</p>
+comments:
+  - id: 347376
+    user: 1262
+    date: 2009-05-18T16:23:00
+    date_raw: 18 May 2009 — 4:23pm
+    votes: null
+    html: |-
+      <p>This is a really difficult one. There's two possible approaches:</p>
+      <p>1. Presuppose a limit on the number of combining marks that might be applied to the first glyph, and then include multiple context strings along the lines of</p>
+      <p>[process -marks-]<br>
+      X -&gt; Y<br>
+      ...<br>
+      | -marks- -marks- -marks- -marks- Z -marks-<br>
+      | -marks- -marks- -marks- Z -marks-<br>
+      | -marks- -marks- Z -marks-<br>
+      | -marks- Z -marks-<br>
+      | Z -marks-</p>
+      <p>2. Include duplicate glyphs for the Z triggers and first perform a separate substitution when Z is followed by a mark:</p>
+      <p>[process -marks-]<br>
+      Z -&gt; Z.premark<br>
+      | -marks-</p>
+      <p>[process NONE]<br>
+      X -&gt; Y<br>
+      | Z</p>
+    html_clean: |-
+      <p>This is a really difficult one. There's two possible approaches:</p>
+      <p>1. Presuppose a limit on the number of combining marks that might be applied to the first glyph, and then include multiple context strings along the lines of</p>
+      <p>[process -marks-]<br>
+      X -&gt; Y<br>
+      ...<br>
+      | -marks- -marks- -marks- -marks- Z -marks-<br>
+      | -marks- -marks- -marks- Z -marks-<br>
+      | -marks- -marks- Z -marks-<br>
+      | -marks- Z -marks-<br>
+      | Z -marks-</p>
+      <p>2. Include duplicate glyphs for the Z triggers and first perform a separate substitution when Z is followed by a mark:</p>
+      <p>[process -marks-]<br>
+      Z -&gt; Z.premark<br>
+      | -marks-</p>
+      <p>[process NONE]<br>
+      X -&gt; Y<br>
+      | Z</p>
+  - id: 347382
+    user: 16708
+    date: 2009-05-18T17:41:00
+    date_raw: 18 May 2009 — 5:41pm
+    votes: null
+    html: |-
+      <p>Those were the two that came to mind, though I was hoping to nail it with just one.  The first one would probably work for all intents and purposes, but the programmer in me hates it.  I guess I'll go ahead with the second one, as I suppose it's not too much messier than ligatureless ligatures when you have a three-deep f design.</p>
+      <p>I wonder if such regex-style matching could be added into an OpenType 1.7 (image what you could do with it) or if we'll have to look beyond OT.  I can think of quite a few uses beyond my eample and a few handwriting things.</p>
+    html_clean: |-
+      <p>Those were the two that came to mind, though I was hoping to nail it with just one.  The first one would probably work for all intents and purposes, but the programmer in me hates it.  I guess I'll go ahead with the second one, as I suppose it's not too much messier than ligatureless ligatures when you have a three-deep f design.</p>
+      <p>I wonder if such regex-style matching could be added into an OpenType 1.7 (image what you could do with it) or if we'll have to look beyond OT.  I can think of quite a few uses beyond my eample and a few handwriting things.</p>

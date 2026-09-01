@@ -1,0 +1,98 @@
+node: 8914
+title: OpenType alternates - printing issues
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131018080639"
+  captured_at: 2013-10-18T08:06:39Z
+  url: http://typophile.com/node/8914
+  digest: H2LX2OYS4ZSWBD6FBD547C4ETDTDD5MJ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/8914.html
+  fingerprint: 729646c8569d3068
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131018080639"
+      digest: H2LX2OYS4ZSWBD6FBD547C4ETDTDD5MJ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/8914.html
+post:
+  id: 8914
+  user: 2919
+  date: 2005-01-27T10:52:00
+  date_raw: 27 Jan 2005 — 10:52am
+  votes: null
+  html: <p>I've got an opentype font that I have been trying to get to print, but it will not cooperate and print the correct glyphs.  <br> <br>I have the font set up to have alternates for each letter and they are named a.Alt, b.Alt, etc. I'm using these alts as Stylistic Alternates. They show up correctly in illustrator and indesign but when I print the font out, it prints the original glyph (with the alternate's letterspacing) and not the alternate. My printer is a Brother HL-5140 laser. <br> <br>Any ideas?</p>
+  html_clean: <p>I've got an opentype font that I have been trying to get to print, but it will not cooperate and print the correct glyphs.  <br> <br>I have the font set up to have alternates for each letter and they are named a.Alt, b.Alt, etc. I'm using these alts as Stylistic Alternates. They show up correctly in illustrator and indesign but when I print the font out, it prints the original glyph (with the alternate's letterspacing) and not the alternate. My printer is a Brother HL-5140 laser. <br> <br>Any ideas?</p>
+comments:
+  - id: 58398
+    user: 1049
+    date: 2005-01-27T12:21:00
+    date_raw: 27 Jan 2005 — 12:21pm
+    votes: null
+    html: <p>What happens when you 'print' to a PDF? Does the font print fine on other printers? <br> <br>Cheers, Si</p>
+    html_clean: <p>What happens when you 'print' to a PDF? Does the font print fine on other printers? <br> <br>Cheers, Si</p>
+  - id: 58399
+    user: 2919
+    date: 2005-01-27T12:26:00
+    date_raw: 27 Jan 2005 — 12:26pm
+    votes: null
+    html: <p>It works when printing to PDF. Could the problem be that the  brother is not a postscript printer? I would hope not, because then my font will not work on half of my potential customers printers...</p>
+    html_clean: <p>It works when printing to PDF. Could the problem be that the  brother is not a postscript printer? I would hope not, because then my font will not work on half of my potential customers printers...</p>
+  - id: 58400
+    user: 1133
+    date: 2005-01-27T12:31:00
+    date_raw: 27 Jan 2005 — 12:31pm
+    votes: null
+    html: <p>My guess is that the font is OK but the printer driver for your Brother brother is not very well programmed (by the Brother brother brothers.)  <br> <br>I wonder -- do you have PUA Unicode indexes assigned to your altnerate glyphs? If not, does the problem persists if you assign PUA indexes to the alternate glyphs?  <br> <br>Adam</p>
+    html_clean: <p>My guess is that the font is OK but the printer driver for your Brother brother is not very well programmed (by the Brother brother brothers.)  <br> <br>I wonder -- do you have PUA Unicode indexes assigned to your altnerate glyphs? If not, does the problem persists if you assign PUA indexes to the alternate glyphs?  <br> <br>Adam</p>
+  - id: 58401
+    user: 909
+    date: 2005-01-27T12:31:00
+    date_raw: 27 Jan 2005 — 12:31pm
+    votes: null
+    html: <p>It's a PostScript "clone." Still, one would expect it to work. Like Si, I'd be curious to hear whether or not it works when printing directly (not PDF) to another device. <br> <br>T</p>
+    html_clean: <p>It's a PostScript "clone." Still, one would expect it to work. Like Si, I'd be curious to hear whether or not it works when printing directly (not PDF) to another device. <br> <br>T</p>
+  - id: 58402
+    user: 2919
+    date: 2005-01-27T12:39:00
+    date_raw: 27 Jan 2005 — 12:39pm
+    votes: null
+    html: <p><i>I wonder -- do you have PUA Unicode indexes assigned to your altnerate glyphs? If not, does the problem persists if you assign PUA indexes to the alternate glyphs? </i> <br> <br>This could be it. How do I go about doing this?</p>
+    html_clean: <p><i>I wonder -- do you have PUA Unicode indexes assigned to your altnerate glyphs? If not, does the problem persists if you assign PUA indexes to the alternate glyphs? </i> <br> <br>This could be it. How do I go about doing this?</p>
+  - id: 58403
+    user: 2919
+    date: 2005-01-27T13:04:00
+    date_raw: 27 Jan 2005 — 1:04pm
+    votes: null
+    html: "<p>Adam, that was the problem. I added unicode #'s from E001-E069 and the letters printed. Thanks!</p>"
+    html_clean: "<p>Adam, that was the problem. I added unicode #'s from E001-E069 and the letters printed. Thanks!</p>"
+  - id: 58404
+    user: 909
+    date: 2005-01-27T13:53:00
+    date_raw: 27 Jan 2005 — 1:53pm
+    votes: null
+    html: <p>Although that may provide a useful workaround, it is not a requirement of OpenType that all glyphs be encoded. However, as Adobe has the (possibly bad) habit of encoding all glyphs, which is enforced by our tools, it may be that insufficient testing has been done of fonts that work differently. <br> <br>Do you still have a copy of the misbehaving version of the font, and if so would you be willing to share it with us for testing purposes? I want to be sure that our apps or core tech components within them are not making some bad assumptions.... <br> <br>Regards, <br> <br>T</p>
+    html_clean: <p>Although that may provide a useful workaround, it is not a requirement of OpenType that all glyphs be encoded. However, as Adobe has the (possibly bad) habit of encoding all glyphs, which is enforced by our tools, it may be that insufficient testing has been done of fonts that work differently. <br> <br>Do you still have a copy of the misbehaving version of the font, and if so would you be willing to share it with us for testing purposes? I want to be sure that our apps or core tech components within them are not making some bad assumptions.... <br> <br>Regards, <br> <br>T</p>
+  - id: 58405
+    user: 2919
+    date: 2005-01-27T14:59:00
+    date_raw: 27 Jan 2005 — 2:59pm
+    votes: null
+    html: <p>Sure, Thomas. I'll send you a copy, Just send me an email at mattdesmond@gmail.com. <br> <br>Matt</p>
+    html_clean: <p>Sure, Thomas. I'll send you a copy, Just send me an email at mattdesmond@gmail.com. <br> <br>Matt</p>

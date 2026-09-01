@@ -1,0 +1,153 @@
+node: 16632
+title: Need information on AFM file..
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081029023719"
+  captured_at: 2008-10-29T02:37:19Z
+  url: http://typophile.com:80/node/16632
+  digest: 7IPKGCRGA5CUN6YLKFPO44QH67GC5VRA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/16632.html
+  fingerprint: cea248dc341ec83c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081029023719"
+      digest: 7IPKGCRGA5CUN6YLKFPO44QH67GC5VRA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/16632.html
+post:
+  id: 16632
+  user: 10383
+  date: 2005-12-06T06:25:00
+  date_raw: 6.Dec.2005 6.25am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>Whether AFM file supports Multi-byte characters?. ie. Is there any AFM files for Multibyte languages.</p>
+    <p>For example, we have ’Arial Unicode MS.ttf’ for Unicode support. Like that, do we have anything for Type1 fonts(AFM)?</p>
+    <p>Whether AFM has only 256 characters?? I am very confused on this?</p>
+    <p>Can you ppl please help me in resolving my confusion.</p>
+    <p>Thanks,<br>
+    Vidya Viswanathan.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/16685" class="topic-previous" title="Go to previous forum topic">‹ approaches to building 'serious' families</a> <a href="/node/16481" class="topic-next" title="Go to next forum topic">fontlab grid HELP! ›</a></div>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>Whether AFM file supports Multi-byte characters?. ie. Is there any AFM files for Multibyte languages.</p>
+    <p>For example, we have ’Arial Unicode MS.ttf’ for Unicode support. Like that, do we have anything for Type1 fonts(AFM)?</p>
+    <p>Whether AFM has only 256 characters?? I am very confused on this?</p>
+    <p>Can you ppl please help me in resolving my confusion.</p>
+    <p>Thanks,<br>
+    Vidya Viswanathan.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/16685/" class="topic-previous" title="Go to previous forum topic">‹ approaches to building 'serious' families</a> <a href="/node/16481" class="topic-next" title="Go to next forum topic">fontlab grid HELP! ›</a></div>
+comments:
+  - id: 98627
+    user: 108
+    date: 2005-12-06T09:40:00
+    date_raw: 6.Dec.2005 9.40am
+    votes: null
+    html: <p>| bump |</p>
+    html_clean: <p>| bump |</p>
+  - id: 98644
+    user: 1336
+    date: 2005-12-06T10:40:00
+    date_raw: 6.Dec.2005 10.40am
+    votes: null
+    html: |-
+      <p>Vidya,<br>
+      your Arial Unicode MS.ttf is probably a TrueType-flavoured OpenType. (There are two kinds of OpenType: TrueType- and CFF-flavoured. The TrueType flavour uses the TrueType method of glyph description, and the CFF flavour uses the PostScript Type 1 Compact Font Format method of glyph description. (These differences have to do with the way the actual letterforms are “drawn”: the winding direction of the outlines and the way that bezier points and control handles describe the arcs of the letters.))</p>
+      <p>As far as I know, an AFM file is really only meant for “standard” 256-character fonts where Unicode indexing is not necessarily built in. One can create OpenType files with “individual kern pairs” table - where each kerned pair is an unique line of code - which is the same form as an AFM, instead of using a kern feature, but this is technically undesirable.</p>
+      <p>So, I think that if you have a font with more than 256 characters, the only way for all of those characters to be accessed is with “advanced” font formats, such as the OpenType formats. If you generate a 256+ character font as a regular/heriloom PS Type 1 font, only the basic gamut of the first 256 characters will be available, so any super-gamut kerning will be unused, although it can still be in the AFM (and suitcase) file.</p>
+      <p>Thomas, Si, am I right about this? Vidya, does this answer your question?</p>
+    html_clean: |-
+      <p>Vidya,<br>
+      your Arial Unicode MS.ttf is probably a TrueType-flavoured OpenType. (There are two kinds of OpenType: TrueType- and CFF-flavoured. The TrueType flavour uses the TrueType method of glyph description, and the CFF flavour uses the PostScript Type 1 Compact Font Format method of glyph description. (These differences have to do with the way the actual letterforms are “drawn”: the winding direction of the outlines and the way that bezier points and control handles describe the arcs of the letters.))</p>
+      <p>As far as I know, an AFM file is really only meant for “standard” 256-character fonts where Unicode indexing is not necessarily built in. One can create OpenType files with “individual kern pairs” table - where each kerned pair is an unique line of code - which is the same form as an AFM, instead of using a kern feature, but this is technically undesirable.</p>
+      <p>So, I think that if you have a font with more than 256 characters, the only way for all of those characters to be accessed is with “advanced” font formats, such as the OpenType formats. If you generate a 256+ character font as a regular/heriloom PS Type 1 font, only the basic gamut of the first 256 characters will be available, so any super-gamut kerning will be unused, although it can still be in the AFM (and suitcase) file.</p>
+      <p>Thomas, Si, am I right about this? Vidya, does this answer your question?</p>
+  - id: 98747
+    user: 5094
+    date: 2005-12-06T14:46:00
+    date_raw: 6.Dec.2005 2.46pm
+    votes: null
+    html: |-
+      <p>AFM stands for “Adobe Font Metrics,” and is associated with Type 1 fonts. You can certainly have Type 1 fonts with more than 256 characters (most of mine do), but you can only encode 256 at one time. Since QuarkMaker doesn’t (to my knowledge) allow one to write their own encoding vectors, most people “chunk” them into 256 characters, and frequently tell big fibs about the character names, such as using “a” for a small capital in a different “small caps” font. But if you can write your own encoding vector, you can put all the glyphs in one Type 1 font, properly named, and write off several encodings to use as you need. The plus for doing this is that if you decide to change the kerning say, between A and W, you do it only in one place, instead needing to do it in both the “regular” font and the “small caps” font. The AFM associated with one of our “big” fonts has all the characters and kerning, i.e., more than 256 characters.</p>
+      <p>But there isn’t a lot of point to this approach these days, unless you are using a typesetting program that will let you write your own encoding vectors, and even there, assembling and using something for CJK is tough.</p>
+    html_clean: |-
+      <p>AFM stands for “Adobe Font Metrics,” and is associated with Type 1 fonts. You can certainly have Type 1 fonts with more than 256 characters (most of mine do), but you can only encode 256 at one time. Since QuarkMaker doesn’t (to my knowledge) allow one to write their own encoding vectors, most people “chunk” them into 256 characters, and frequently tell big fibs about the character names, such as using “a” for a small capital in a different “small caps” font. But if you can write your own encoding vector, you can put all the glyphs in one Type 1 font, properly named, and write off several encodings to use as you need. The plus for doing this is that if you decide to change the kerning say, between A and W, you do it only in one place, instead needing to do it in both the “regular” font and the “small caps” font. The AFM associated with one of our “big” fonts has all the characters and kerning, i.e., more than 256 characters.</p>
+      <p>But there isn’t a lot of point to this approach these days, unless you are using a typesetting program that will let you write your own encoding vectors, and even there, assembling and using something for CJK is tough.</p>
+  - id: 98812
+    user: 10383
+    date: 2005-12-06T20:03:00
+    date_raw: 6.Dec.2005 8.03pm
+    votes: null
+    html: |-
+      <p>Thanks a ton...</p>
+      <p>Charles, In your reply you have mentioned that there exists Type1 fonts with more than 256 characters. Whether Adobe provides any Type1 fonts with more than 256 characters? Can you give me some example fonts.</p>
+    html_clean: |-
+      <p>Thanks a ton...</p>
+      <p>Charles, In your reply you have mentioned that there exists Type1 fonts with more than 256 characters. Whether Adobe provides any Type1 fonts with more than 256 characters? Can you give me some example fonts.</p>
+  - id: 98813
+    user: 10383
+    date: 2005-12-06T20:05:00
+    date_raw: 6.Dec.2005 8.05pm
+    votes: null
+    html: <p>Thanks a lot Chester. Whether Adobe provides any Type 1 fonts with more than 256 charcaters? Can you give me some examples.?</p>
+    html_clean: <p>Thanks a lot Chester. Whether Adobe provides any Type 1 fonts with more than 256 charcaters? Can you give me some examples.?</p>
+  - id: 98836
+    user: 10383
+    date: 2005-12-07T04:13:00
+    date_raw: 7.Dec.2005 4.13am
+    votes: null
+    html: |-
+      <p>Hi,</p>
+      <p>Whether AFM supports Multibyte characters? ie. In ttf, we have ’Arial Unicode Ms.ttf’ font file that supports all the characters-Unicode font. Likethis,do we have anything for AFM. Give me some examples.</p>
+      <p>Do we have any AFM fonts for Eastern European languages. </p>
+      <p>Thanks and Regards,<br>
+      Vidya Viswanathan</p>
+    html_clean: |-
+      <p>Hi,</p>
+      <p>Whether AFM supports Multibyte characters? ie. In ttf, we have ’Arial Unicode Ms.ttf’ font file that supports all the characters-Unicode font. Likethis,do we have anything for AFM. Give me some examples.</p>
+      <p>Do we have any AFM fonts for Eastern European languages. </p>
+      <p>Thanks and Regards,<br>
+      Vidya Viswanathan</p>
+  - id: 98901
+    user: 5094
+    date: 2005-12-07T10:43:00
+    date_raw: 7.Dec.2005 10.43am
+    votes: null
+    html: |-
+      <p>Perhaps you need to tell us why you are asking — What are you trying to do, to achieve? I suspect the answer which is true for you is “No.”</p>
+      <p>Once again, I think what you are asking about is Type 1 fonts. The AFM file is metrical data, not a font. I don’t know what you mean by the term “multibyte” — 16-bit bytes? (i.e., 16-bit character encoding) Why do you want Type 1 fonts — i.e., will Type 1 fonts in an OpenType wrapper (as Chester mentions) work for you?</p>
+    html_clean: |-
+      <p>Perhaps you need to tell us why you are asking — What are you trying to do, to achieve? I suspect the answer which is true for you is “No.”</p>
+      <p>Once again, I think what you are asking about is Type 1 fonts. The AFM file is metrical data, not a font. I don’t know what you mean by the term “multibyte” — 16-bit bytes? (i.e., 16-bit character encoding) Why do you want Type 1 fonts — i.e., will Type 1 fonts in an OpenType wrapper (as Chester mentions) work for you?</p>
+  - id: 98918
+    user: 1262
+    date: 2005-12-07T11:36:00
+    date_raw: 7.Dec.2005 11.36am
+    votes: null
+    html: "<p>An AFM file contains three parts: a header, glyph metrics data, and kerning data. The glyph metrics data is organised in a Type 1 centric way in that it uses an 8-bit encoding vector. Glyphs in the font that are outside the 8-bit vector are still listed in the AFM however: their metrics are present, and they are included in the kern pair data. But they are only listed by glyph name: the AFM does not contain multibyte encoding data.</p>"
+    html_clean: "<p>An AFM file contains three parts: a header, glyph metrics data, and kerning data. The glyph metrics data is organised in a Type 1 centric way in that it uses an 8-bit encoding vector. Glyphs in the font that are outside the 8-bit vector are still listed in the AFM however: their metrics are present, and they are included in the kern pair data. But they are only listed by glyph name: the AFM does not contain multibyte encoding data.</p>"
+  - id: 99019
+    user: 10383
+    date: 2005-12-07T20:55:00
+    date_raw: 7.Dec.2005 8.55pm
+    votes: null
+    html: <p>Thanks a lot. This solves my confusion.</p>
+    html_clean: <p>Thanks a lot. This solves my confusion.</p>

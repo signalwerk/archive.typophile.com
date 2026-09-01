@@ -1,0 +1,114 @@
+node: 16807
+title: arabic diacratic marks
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20071214061758"
+  captured_at: 2007-12-14T06:17:58Z
+  url: http://www.typophile.com:80/node/16807
+  digest: I5KO4KOQ7OMKGWBR2TTNCPBQFYDPVB2Q
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/16807.html
+  fingerprint: ae9a9a2f8ee868fd
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20071214061758"
+      digest: I5KO4KOQ7OMKGWBR2TTNCPBQFYDPVB2Q
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/16807.html
+post:
+  id: 16807
+  user: 10168
+  date: 2005-12-15T07:06:00
+  date_raw: 15.Dec.2005 7.06am
+  votes: null
+  html: |-
+    <p>I am currently creating my own arabic font (for personal use). So far I have created all glyph variants and ligatures. The next step before I move on to Microsoft VOLT is to create the diacratic marks. I have already created 1 glyph for each individual diacratic mark (’fatha’, ’kasra’, ’damma’, etc.), but the problem is, the position of the glyph will depend on the letter it appears above (for example, the ’fatha’ that appears on the letter ’alif’ will be much higher than the ’fatha’ that appears on the letter ’baa’ and also more to the left). My question is, do I have to create a different glyph variant for each position of the diacratic mark, or is there some way to specify the position of the mark in Microsoft VOLT?<br>
+    In other words, do I need 1 glyph of the diacratic mark ’fatha’ (and can I then change the position in VOLT) or do I need to create a specific one for each letter?<br>
+    Thanks<br>
+    I. Jamal</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/19953" class="topic-previous" title="Go to previous forum topic">‹ Best software</a> <a href="/node/19789" class="topic-next" title="Go to next forum topic">David Kindersley on Spacing ›</a></div>
+  html_clean: |-
+    <p>I am currently creating my own arabic font (for personal use). So far I have created all glyph variants and ligatures. The next step before I move on to Microsoft VOLT is to create the diacratic marks. I have already created 1 glyph for each individual diacratic mark (’fatha’, ’kasra’, ’damma’, etc.), but the problem is, the position of the glyph will depend on the letter it appears above (for example, the ’fatha’ that appears on the letter ’alif’ will be much higher than the ’fatha’ that appears on the letter ’baa’ and also more to the left). My question is, do I have to create a different glyph variant for each position of the diacratic mark, or is there some way to specify the position of the mark in Microsoft VOLT?<br>
+    In other words, do I need 1 glyph of the diacratic mark ’fatha’ (and can I then change the position in VOLT) or do I need to create a specific one for each letter?<br>
+    Thanks<br>
+    I. Jamal</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/19953/" class="topic-previous" title="Go to previous forum topic">‹ Best software</a> <a href="/node/19789/" class="topic-next" title="Go to next forum topic">David Kindersley on Spacing ›</a></div>
+comments:
+  - id: 100209
+    user: 7207
+    date: 2005-12-15T08:23:00
+    date_raw: 15.Dec.2005 8.23am
+    votes: null
+    html: |-
+      <p>There are spaces within the font to allow for complete characters *with* the diacritics. I’m not familiar with the Microsoft VOLT software, but try opening an existing Arabic font in the editor and you should be able to see the characters and where they should go.</p>
+      <p>I’ve been wanting to create an Arabic face for some time now. I’d be interested to see how yours progresses.</p>
+      <p>Theodore</p>
+    html_clean: |-
+      <p>There are spaces within the font to allow for complete characters *with* the diacritics. I’m not familiar with the Microsoft VOLT software, but try opening an existing Arabic font in the editor and you should be able to see the characters and where they should go.</p>
+      <p>I’ve been wanting to create an Arabic face for some time now. I’d be interested to see how yours progresses.</p>
+      <p>Theodore</p>
+  - id: 100214
+    user: 1262
+    date: 2005-12-15T08:42:00
+    date_raw: 15.Dec.2005 8.42am
+    votes: null
+    html: |-
+      <p>You only need one glyph per mark. In VOLT, you set up the Mark Positioning  and Mark-to-Mark  features, using anchor attachment lookups. The trick is to position all your marks carefully in their own glyph space so that, for example, all above marks can be positioned on a letter using the same anchor attachment point. Within the VOLT glyph positioning window, you should lock the position of all second elements (marks), and then drag the marks into position above or below each letter, using the x and y offset values for the first element (base) to fine tune the positioning.</p>
+      <p>Marks need to be classified as such in the VOLT glyph edit window (this sets their GDEF category).</p>
+      <p>Your ligature substitution lookups should be set to ignore marks, so that the ligatures will form regardless of whether there is a mark on one or more of the letters. In the VOLT glyph edit window you need to identify ligatures as such and correctly record the number of components. So, for instance, the lam_alif ligature has two components.</p>
+      <p>Once this is done, in the glyph positioning window you can make a mark-to-ligature lookup, and position the marks independently for each component of the ligature.</p>
+      <p>You will find a lot of good information in the archives of the VOLT user community on MSN. You can also download the VOLT supplementary files, which include a model Arabic OT font that you can open in VOLT and examine.</p>
+    html_clean: |-
+      <p>You only need one glyph per mark. In VOLT, you set up the Mark Positioning  and Mark-to-Mark  features, using anchor attachment lookups. The trick is to position all your marks carefully in their own glyph space so that, for example, all above marks can be positioned on a letter using the same anchor attachment point. Within the VOLT glyph positioning window, you should lock the position of all second elements (marks), and then drag the marks into position above or below each letter, using the x and y offset values for the first element (base) to fine tune the positioning.</p>
+      <p>Marks need to be classified as such in the VOLT glyph edit window (this sets their GDEF category).</p>
+      <p>Your ligature substitution lookups should be set to ignore marks, so that the ligatures will form regardless of whether there is a mark on one or more of the letters. In the VOLT glyph edit window you need to identify ligatures as such and correctly record the number of components. So, for instance, the lam_alif ligature has two components.</p>
+      <p>Once this is done, in the glyph positioning window you can make a mark-to-ligature lookup, and position the marks independently for each component of the ligature.</p>
+      <p>You will find a lot of good information in the archives of the VOLT user community on MSN. You can also download the VOLT supplementary files, which include a model Arabic OT font that you can open in VOLT and examine.</p>
+  - id: 100256
+    user: 10168
+    date: 2005-12-15T10:55:00
+    date_raw: 15.Dec.2005 10.55am
+    votes: null
+    html: |-
+      <p>phew...that makes it alot easier...I thought I would have to create a a different mark for the letters of different widths and heights...<br>
+      Well, time to learn how to use VOLT.<br>
+      Thanks for the info.</p>
+    html_clean: |-
+      <p>phew...that makes it alot easier...I thought I would have to create a a different mark for the letters of different widths and heights...<br>
+      Well, time to learn how to use VOLT.<br>
+      Thanks for the info.</p>
+  - id: 124275
+    user: 12550
+    date: 2006-05-19T23:45:00
+    date_raw: 19.May.2006 11.45pm
+    votes: null
+    html: |-
+      <p>Is your Volting still progressing?<br>
+      Hope you will find these 2 sites more encouraging than discouraging:<br>
+      <a href="http://www.nonosoft.jifisa.net/download.php" title="http://www.nonosoft.jifisa.net/download.php">http://www.nonosoft.jifisa.net/download.php</a><br>
+      <a href="http://qurankareem.info/a/OthmanyFonts.zip" title="http://qurankareem.info/a/OthmanyFonts.zip">http://qurankareem.info/a/OthmanyFonts.zip</a><br>
+      <a href="http://qurankareem.info/a/othmanyQuran.zip" title="http://qurankareem.info/a/othmanyQuran.zip">http://qurankareem.info/a/othmanyQuran.zip</a><br>
+      Happy Volting</p>
+    html_clean: |-
+      <p>Is your Volting still progressing?<br>
+      Hope you will find these 2 sites more encouraging than discouraging:<br>
+      <a href="http://www.nonosoft.jifisa.net/download.php" title="http://www.nonosoft.jifisa.net/download.php">http://www.nonosoft.jifisa.net/download.php</a><br>
+      <a href="http://qurankareem.info/a/OthmanyFonts.zip" title="http://qurankareem.info/a/OthmanyFonts.zip">http://qurankareem.info/a/OthmanyFonts.zip</a><br>
+      <a href="http://qurankareem.info/a/othmanyQuran.zip" title="http://qurankareem.info/a/othmanyQuran.zip">http://qurankareem.info/a/othmanyQuran.zip</a><br>
+      Happy Volting</p>

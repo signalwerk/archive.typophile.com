@@ -1,0 +1,325 @@
+node: 104290
+title: Cannot force substitution feature to work
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150426231702"
+  captured_at: 2015-04-26T23:17:02Z
+  url: http://typophile.com/node/104290
+  digest: HSTOZPY2KBWCX7B6J6XNIP5AMRMITLCK
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/104290.html
+  fingerprint: 5a0fee69316a7011
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150426231702"
+      digest: HSTOZPY2KBWCX7B6J6XNIP5AMRMITLCK
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/104290.html
+post:
+  id: 104290
+  user: 212725
+  date: 2013-07-01T20:40:00
+  date_raw: 1 Jul 2013 — 8:40pm
+  votes: null
+  html: |-
+    <p>The problem:<br>
+    I want sequence of U+0435 (CYRILLIC SMALL LETTER IE, name "uni0435") and U+00A8 (name "dieresis") chars to be substituted by U+0451 (CYRILLIC SMALL LETTER IO, name "uni0451") char.<br>
+    I want sequence of U+F0987 (Supplementary Private Use Area, name "uF0987") and U+100987 (Supplementary Private Use Area, name "u100987") chars to be substituted by "myglyph1" glyph ("myglyph1" has no Unicode position).<br>
+    I want sequence of U+F0986 (Supplementary Private Use Area, name "uF0986") and U+100986 (Supplementary Private Use Area, name "u100986") chars to be substituted by "myglyph2" glyph ("myglyph2" has no Unicode position).<br>
+    I want sequence of "uni0451", "myglyph1" and "myglyph2" glyphs to be substituted by "myglyph3" glyph ("myglyph3" has no Unicode position).</p>
+    <p>So that if I have uni0435 + uni00A8 + uniF0987 + uni100987 + uniF0986 + uni100986 sequence, I want it all to be substituted by "myglyph3" glyph.</p>
+    <p>I thought about this kind of opentype code:</p>
+    <p><code><br>
+    languagesystem DFLT dflt;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem latn dflt;<br>
+    feature ccmp { # Glyph Composition / Decomposition<br>
+     # DEFAULT<br>
+    lookup ccmp0 {<br>
+        sub uni0435 dieresis by uni0451;<br>
+        sub uF0987 u100987 by myglyph1;<br>
+        sub uF0986 u100986 by myglyph2;<br>
+        sub uni0451 myglyph1 myglyph2 by myglyph3;<br>
+    } ccmp0;<br>
+     script cyrl; # Cyrillic<br>
+    lookup ccmp0;<br>
+     script latn; # Latin<br>
+    lookup ccmp0;<br>
+    } ccmp;<br>
+    </code><br>
+    (or feature "dlig")</p>
+    <p>and MS VOLT lookup source:</p>
+    <p><code><br>
+    DEF_LOOKUP "l002" PROCESS_BASE PROCESS_MARKS ALL DIRECTION LTR<br>
+    IN_CONTEXT<br>
+    END_CONTEXT<br>
+    AS_SUBSTITUTION<br>
+    SUB GLYPH "uni0435" GLYPH "dieresis"<br>
+    WITH GLYPH "uni0451"<br>
+    END_SUB<br>
+    SUB GLYPH "uF0987" GLYPH "u100987"<br>
+    WITH GLYPH "myglyph1"<br>
+    END_SUB<br>
+    SUB GLYPH "uF0986" GLYPH "u100986"<br>
+    WITH GLYPH "myglyph2"<br>
+    END_SUB<br>
+    SUB GLYPH "uni0451" GLYPH "myglyph1" GLYPH "myglyph2"<br>
+    WITH GLYPH "myglyph3"<br>
+    END_SUB<br>
+    END_SUBSTITUTION<br>
+    END<br>
+    </code></p>
+    <p>and I tried to ship font using MS VOLT, but this compiled feature becomes unavailable in Chrome browser (Firefox is OK, I didn't test IE10). How can I solve the problem with Microsoft VOLT or FontLab?</p>
+  html_clean: |-
+    <p>The problem:<br>
+    I want sequence of U+0435 (CYRILLIC SMALL LETTER IE, name "uni0435") and U+00A8 (name "dieresis") chars to be substituted by U+0451 (CYRILLIC SMALL LETTER IO, name "uni0451") char.<br>
+    I want sequence of U+F0987 (Supplementary Private Use Area, name "uF0987") and U+100987 (Supplementary Private Use Area, name "u100987") chars to be substituted by "myglyph1" glyph ("myglyph1" has no Unicode position).<br>
+    I want sequence of U+F0986 (Supplementary Private Use Area, name "uF0986") and U+100986 (Supplementary Private Use Area, name "u100986") chars to be substituted by "myglyph2" glyph ("myglyph2" has no Unicode position).<br>
+    I want sequence of "uni0451", "myglyph1" and "myglyph2" glyphs to be substituted by "myglyph3" glyph ("myglyph3" has no Unicode position).</p>
+    <p>So that if I have uni0435 + uni00A8 + uniF0987 + uni100987 + uniF0986 + uni100986 sequence, I want it all to be substituted by "myglyph3" glyph.</p>
+    <p>I thought about this kind of opentype code:</p>
+    <p><code><br>
+    languagesystem DFLT dflt;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem latn dflt;<br>
+    feature ccmp { # Glyph Composition / Decomposition<br>
+     # DEFAULT<br>
+    lookup ccmp0 {<br>
+        sub uni0435 dieresis by uni0451;<br>
+        sub uF0987 u100987 by myglyph1;<br>
+        sub uF0986 u100986 by myglyph2;<br>
+        sub uni0451 myglyph1 myglyph2 by myglyph3;<br>
+    } ccmp0;<br>
+     script cyrl; # Cyrillic<br>
+    lookup ccmp0;<br>
+     script latn; # Latin<br>
+    lookup ccmp0;<br>
+    } ccmp;<br>
+    </code><br>
+    (or feature "dlig")</p>
+    <p>and MS VOLT lookup source:</p>
+    <p><code><br>
+    DEF_LOOKUP "l002" PROCESS_BASE PROCESS_MARKS ALL DIRECTION LTR<br>
+    IN_CONTEXT<br>
+    END_CONTEXT<br>
+    AS_SUBSTITUTION<br>
+    SUB GLYPH "uni0435" GLYPH "dieresis"<br>
+    WITH GLYPH "uni0451"<br>
+    END_SUB<br>
+    SUB GLYPH "uF0987" GLYPH "u100987"<br>
+    WITH GLYPH "myglyph1"<br>
+    END_SUB<br>
+    SUB GLYPH "uF0986" GLYPH "u100986"<br>
+    WITH GLYPH "myglyph2"<br>
+    END_SUB<br>
+    SUB GLYPH "uni0451" GLYPH "myglyph1" GLYPH "myglyph2"<br>
+    WITH GLYPH "myglyph3"<br>
+    END_SUB<br>
+    END_SUBSTITUTION<br>
+    END<br>
+    </code></p>
+    <p>and I tried to ship font using MS VOLT, but this compiled feature becomes unavailable in Chrome browser (Firefox is OK, I didn't test IE10). How can I solve the problem with Microsoft VOLT or FontLab?</p>
+comments:
+  - id: 559325
+    user: 212725
+    date: 2013-07-04T21:41:00
+    date_raw: 4 Jul 2013 — 9:41pm
+    votes: null
+    html: |-
+      <p>Actually, I don't even know what software should I use to add substitution feature to the font.<br>
+      For example, I just want to substitute uni0435+dieresis by uni0451, that's all.<br>
+      If I want to use MS Volt or Fontforge, then what exactly should I do so my browser could access this feature (using CSS "font-feature-settings")?</p>
+    html_clean: |-
+      <p>Actually, I don't even know what software should I use to add substitution feature to the font.<br>
+      For example, I just want to substitute uni0435+dieresis by uni0451, that's all.<br>
+      If I want to use MS Volt or Fontforge, then what exactly should I do so my browser could access this feature (using CSS "font-feature-settings")?</p>
+  - id: 560443
+    user: 909
+    date: 2013-07-17T12:52:00
+    date_raw: 17 Jul 2013 — 12:52pm
+    votes: null
+    html: |-
+      <p>I don't see any reason that your code and approach shouldn't work. If it works without applying any explicit features in Firefox, but not in Chrome, then it sure sounds like Firefox is behaving correctly, and Chrome has a significant bug in not applying required features.</p>
+      <p>(On the side, "substitute uni0435+dieresis by uni0451" doesn't sound quite right. The dieresis encoded at U+00A8 is not the combining dieresis, that would be U+0308.)</p>
+    html_clean: |-
+      <p>I don't see any reason that your code and approach shouldn't work. If it works without applying any explicit features in Firefox, but not in Chrome, then it sure sounds like Firefox is behaving correctly, and Chrome has a significant bug in not applying required features.</p>
+      <p>(On the side, "substitute uni0435+dieresis by uni0451" doesn't sound quite right. The dieresis encoded at U+00A8 is not the combining dieresis, that would be U+0308.)</p>
+  - id: 560452
+    user: 5094
+    date: 2013-07-17T14:07:00
+    date_raw: 17 Jul 2013 — 2:07pm
+    votes: null
+    html: |-
+      <p>I believe the dieresis at U+00A8 is what most of us think of as a "legacy" dieresis. It originated back when only the first 127 characters of ASCII were fixed. In many 8-bit ASCII encodings, there was a dieresis at A8. </p>
+      <p>It should live on only for the proper reading of older texts, before Unicode. (Unless there is any need for a spacing modifier dieresis, as I don't believe Unicode has one.) Any new use as a  combining diacritical should be U+0308. </p>
+      <p>Having said that, most font designer's don't bother with including <strong>any</strong> of the combining diacritics, which makes their fonts not proper Unicode.</p>
+    html_clean: |-
+      <p>I believe the dieresis at U+00A8 is what most of us think of as a "legacy" dieresis. It originated back when only the first 127 characters of ASCII were fixed. In many 8-bit ASCII encodings, there was a dieresis at A8. </p>
+      <p>It should live on only for the proper reading of older texts, before Unicode. (Unless there is any need for a spacing modifier dieresis, as I don't believe Unicode has one.) Any new use as a  combining diacritical should be U+0308. </p>
+      <p>Having said that, most font designer's don't bother with including <strong>any</strong> of the combining diacritics, which makes their fonts not proper Unicode.</p>
+  - id: 561460
+    user: 909
+    date: 2013-07-29T18:07:00
+    date_raw: 29 Jul 2013 — 6:07pm
+    votes: null
+    html: |-
+      <p>&gt; which makes their fonts not proper Unicode</p>
+      <p>I was in 100% agreement with you until that phrase. I might say instead "which means they have a pretty stupid character set."</p>
+    html_clean: |-
+      <p>&gt; which makes their fonts not proper Unicode</p>
+      <p>I was in 100% agreement with you until that phrase. I might say instead "which means they have a pretty stupid character set."</p>
+  - id: 561491
+    user: 18942
+    date: 2013-07-30T04:14:00
+    date_raw: 30 Jul 2013 — 4:14am
+    votes: null
+    html: |-
+      <blockquote><p>If it works without applying any explicit features in Firefox, but not in Chrome, then it sure sounds like Firefox is behaving correctly, and Chrome has a significant bug in not applying required features. [Thomas Phinney]
+      </p></blockquote>
+      <p>Thomas, concerning the characters in the extended private user area, at the end of the unicode consortium file <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" title="http://www.unicode.org/Public/UNIDATA/NamesList.txt">http://www.unicode.org/Public/UNIDATA/NamesList.txt</a> it is explicitly written</p>
+      <blockquote><p>
+      @+		These codes are intended for process-internal uses, but are not permitted for interchange.
+      </p></blockquote>
+      <p>If those codes are provided as input to Chrome and the consortium says they are not permitted for interchange, why would Chrome not be allowed to consider them as garbage?</p>
+    html_clean: |-
+      <blockquote><p>If it works without applying any explicit features in Firefox, but not in Chrome, then it sure sounds like Firefox is behaving correctly, and Chrome has a significant bug in not applying required features. [Thomas Phinney]
+      </p></blockquote>
+      <p>Thomas, concerning the characters in the extended private user area, at the end of the unicode consortium file <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" title="http://www.unicode.org/Public/UNIDATA/NamesList.txt">http://www.unicode.org/Public/UNIDATA/NamesList.txt</a> it is explicitly written</p>
+      <blockquote><p>
+      @+		These codes are intended for process-internal uses, but are not permitted for interchange.
+      </p></blockquote>
+      <p>If those codes are provided as input to Chrome and the consortium says they are not permitted for interchange, why would Chrome not be allowed to consider them as garbage?</p>
+  - id: 561533
+    user: 18942
+    date: 2013-07-30T12:30:00
+    date_raw: 30 Jul 2013 — 12:30pm
+    votes: null
+    html: |-
+      <p>Concerning the original question, I suggest having a look at <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers" rel="nofollow">Opentype features in web browsers</a> by Gustavo Ferreira on typotheque. There is a <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers_-_tests" rel="nofollow">series of tests</a>, and in particular for <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers_-_tests#liga" rel="nofollow">liga</a>, standard ligatures. Unfortunately, the syntax varies from browser to browser. I managed to get the ligatures working with Chrome on Mac OS X 10.8 (with a webkit font) with the following settings (a list copied from the site so as to cover most browsers and situations)</p>
+      <pre>font-feature-settings: "liga" on;   
+      /* vendor-prefixes */
+      -moz-font-feature-settings: 'liga=1';
+      -ms-font-feature-settings: "liga" on;
+      -webkit-font-feature-settings: "liga" on;
+      -o-font-feature-settings: "liga" on;
+      </pre><p>and Chrome even accepted those weird ligatures I imagined as some kind of test after reading the initial post:</p>
+      <pre>lookup ligaStandardLigaturesinLatinloo {
+        lookupflag 0;
+          sub \A \B  by \C;
+          sub \uF0987 \u100987  by \Z;
+      } ligaStandardLigaturesinLatinloo;
+
+      feature liga {
+        script DFLT;
+           language dflt ;
+            lookup ligaStandardLigaturesinLatinloo;
+        script latn;
+           language dflt ;
+            lookup ligaStandardLigaturesinLatinloo;
+      } liga;
+      </pre><p>The font was made with FontForge (with the graphic interface) and the above feature file is the output from FontForge (and such a feature file can also be used in FontForge with Merge feature file; I prefer using feature files for contextual ligatures and alternates but for liga, the graphic interface works comfortably). As a conclusion, ligatures are not automatic, and also Chrome does not reject disallowed input (I am not sure I like that).</p>
+      <p>All that being said, I must confess I am also puzzled by the original post. Concerning the letter uni0451, it is normally obtained using a keyboard by first typing a key corresponding to dieresis, and then the key corresponding to uni0435; the final effect is that a single character is entered into the text, and it is uni0451. There is no need of a feature file for that, the keyboard layout sends the right character, uni0451, to the text editor. Everything works fine as long as those three characters are in the font (and you have the appropriate keyboard).</p>
+    html_clean: |-
+      <p>Concerning the original question, I suggest having a look at <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers" rel="nofollow">Opentype features in web browsers</a> by Gustavo Ferreira on typotheque. There is a <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers_-_tests" rel="nofollow">series of tests</a>, and in particular for <a href="https://www.typotheque.com/articles/opentype_features_in_web_browsers_-_tests#liga" rel="nofollow">liga</a>, standard ligatures. Unfortunately, the syntax varies from browser to browser. I managed to get the ligatures working with Chrome on Mac OS X 10.8 (with a webkit font) with the following settings (a list copied from the site so as to cover most browsers and situations)</p>
+      <pre>font-feature-settings: "liga" on;   
+      /* vendor-prefixes */
+      -moz-font-feature-settings: 'liga=1';
+      -ms-font-feature-settings: "liga" on;
+      -webkit-font-feature-settings: "liga" on;
+      -o-font-feature-settings: "liga" on;
+      </pre><p>and Chrome even accepted those weird ligatures I imagined as some kind of test after reading the initial post:</p>
+      <pre>lookup ligaStandardLigaturesinLatinloo {
+        lookupflag 0;
+          sub \A \B  by \C;
+          sub \uF0987 \u100987  by \Z;
+      } ligaStandardLigaturesinLatinloo;
+
+      feature liga {
+        script DFLT;
+           language dflt ;
+            lookup ligaStandardLigaturesinLatinloo;
+        script latn;
+           language dflt ;
+            lookup ligaStandardLigaturesinLatinloo;
+      } liga;
+      </pre><p>The font was made with FontForge (with the graphic interface) and the above feature file is the output from FontForge (and such a feature file can also be used in FontForge with Merge feature file; I prefer using feature files for contextual ligatures and alternates but for liga, the graphic interface works comfortably). As a conclusion, ligatures are not automatic, and also Chrome does not reject disallowed input (I am not sure I like that).</p>
+      <p>All that being said, I must confess I am also puzzled by the original post. Concerning the letter uni0451, it is normally obtained using a keyboard by first typing a key corresponding to dieresis, and then the key corresponding to uni0435; the final effect is that a single character is entered into the text, and it is uni0451. There is no need of a feature file for that, the keyboard layout sends the right character, uni0451, to the text editor. Everything works fine as long as those three characters are in the font (and you have the appropriate keyboard).</p>
+  - id: 561584
+    user: 5094
+    date: 2013-07-30T20:14:00
+    date_raw: 30 Jul 2013 — 8:14pm
+    votes: null
+    html: |-
+      <p>@Thomas,</p>
+      <p>I agree it's "stupid" ("not the sharpest knife in the drawer" is gentler, maybe?), but I'll stick with it not being proper Unicode, for the following reason. Remember, the consortium put their foot down on assigning any more codepoints to accented characters. IIRC, at that time, they allowed they'd never intended to give so many accented characters codepoints anyway, such characters were <strong>suppose</strong> to be constructed using base characters and combining diacritics.</p>
+    html_clean: |-
+      <p>@Thomas,</p>
+      <p>I agree it's "stupid" ("not the sharpest knife in the drawer" is gentler, maybe?), but I'll stick with it not being proper Unicode, for the following reason. Remember, the consortium put their foot down on assigning any more codepoints to accented characters. IIRC, at that time, they allowed they'd never intended to give so many accented characters codepoints anyway, such characters were <strong>suppose</strong> to be constructed using base characters and combining diacritics.</p>
+  - id: 561845
+    user: 909
+    date: 2013-08-02T09:52:00
+    date_raw: 2 Aug 2013 — 9:52am
+    votes: null
+    html: |-
+      <p>Michel: Look at the codepoints that comment is applied to more carefully. That comment is applied to explicitly unassigned blocks which are never supposed to be used. It is NOT applied to the three Private Use Area code blocks. At least, that's how I read it. As the characters under discussion are in PUA, and not in any of these reserved non-character blocks, I don't see how this is relevant.</p>
+      <p>Examples of reserved non-characters: FDDO, 2FF80-2FFFF, EFF80-EFFFF....</p>
+      <p>The three PUA blocks:</p>
+      <p>U+E000..U+F8FF (though some of these have been used for Variation Selectors and other oddities)<br>
+      U+F0000..U+FFFFD (Supplemental Private Use Area A)<br>
+      U+100000..U+10FFFD (Supplemental Private Use Area B)</p>
+    html_clean: |-
+      <p>Michel: Look at the codepoints that comment is applied to more carefully. That comment is applied to explicitly unassigned blocks which are never supposed to be used. It is NOT applied to the three Private Use Area code blocks. At least, that's how I read it. As the characters under discussion are in PUA, and not in any of these reserved non-character blocks, I don't see how this is relevant.</p>
+      <p>Examples of reserved non-characters: FDDO, 2FF80-2FFFF, EFF80-EFFFF....</p>
+      <p>The three PUA blocks:</p>
+      <p>U+E000..U+F8FF (though some of these have been used for Variation Selectors and other oddities)<br>
+      U+F0000..U+FFFFD (Supplemental Private Use Area A)<br>
+      U+100000..U+10FFFD (Supplemental Private Use Area B)</p>
+  - id: 561856
+    user: 18942
+    date: 2013-08-02T11:41:00
+    date_raw: 2 Aug 2013 — 11:41am
+    votes: null
+    html: |-
+      <p>The characters used were indeed not touched by the "ban" which concerned only a limited portion of the areas namely (from the last lines of <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" rel="nofollow">NamesList.txt</a>)</p>
+      <pre>@@	FFF80	Supplementary Private Use Area-A	FFFFF
+      @@	10FF80	Supplementary Private Use Area-B	10FFFF
+      </pre><p>I am afraid I was also misled by the meaning I was giving to the word "private" (that has a completely different meaning in cryptography).</p>
+    html_clean: |-
+      <p>The characters used were indeed not touched by the "ban" which concerned only a limited portion of the areas namely (from the last lines of <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" rel="nofollow">NamesList.txt</a>)</p>
+      <pre>@@	FFF80	Supplementary Private Use Area-A	FFFFF
+      @@	10FF80	Supplementary Private Use Area-B	10FFFF
+      </pre><p>I am afraid I was also misled by the meaning I was giving to the word "private" (that has a completely different meaning in cryptography).</p>
+  - id: 561920
+    user: 909
+    date: 2013-08-03T14:50:00
+    date_raw: 3 Aug 2013 — 2:50pm
+    votes: null
+    html: |-
+      <p>Ah! I see.</p>
+      <p>Yes, in Unicode the "Private Use Areas" are special zones for people to use the character codes for basically whatever they want. Apps are generally expected to be able to handle and process PUA characters. They are not unusual in the field—particularly the first Private Use Area in the Basic Multilingual Plane has been used pretty extensively....</p>
+    html_clean: |-
+      <p>Ah! I see.</p>
+      <p>Yes, in Unicode the "Private Use Areas" are special zones for people to use the character codes for basically whatever they want. Apps are generally expected to be able to handle and process PUA characters. They are not unusual in the field—particularly the first Private Use Area in the Basic Multilingual Plane has been used pretty extensively....</p>
+  - id: 561923
+    user: 18942
+    date: 2013-08-03T15:10:00
+    date_raw: 3 Aug 2013 — 3:10pm
+    votes: null
+    html: <p>I would rather call those areas "Public playground" than "Private user area".  I wonder where those that chose the terminology are from.</p>
+    html_clean: <p>I would rather call those areas "Public playground" than "Private user area".  I wonder where those that chose the terminology are from.</p>

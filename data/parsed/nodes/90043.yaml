@@ -1,0 +1,160 @@
+node: 90043
+title: What is the OpenType Layout tag registry expected audience?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130311130255"
+  captured_at: 2013-03-11T13:02:55Z
+  url: http://typophile.com/node/90043
+  digest: QGLWXMGQDQUXTX263LBBLDWQM5GKDROI
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/90043.html
+  fingerprint: c81ac4fd36d8b37d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130311130255"
+      digest: QGLWXMGQDQUXTX263LBBLDWQM5GKDROI
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/90043.html
+post:
+  id: 90043
+  user: 185670
+  date: 2012-02-14T05:25:00
+  date_raw: 14 Feb 2012 — 5:25am
+  votes: null
+  html: |-
+    <p>The list of OpenType features along with their specifications is listed here :</p>
+    <p><a href="http://www.microsoft.com/typography/otspec/featuretags.htm" title="http://www.microsoft.com/typography/otspec/featuretags.htm">http://www.microsoft.com/typography/otspec/featuretags.htm</a></p>
+    <p>I'm having an hard time determining who this document is intended for especially when it comes to the "Feature interaction" field.</p>
+    <p>For example, I paste here the documentation for hlig (historical ligatures)</p>
+    <blockquote><p>
+    Tag: 'hlig'<br>
+    Friendly name: Historical Ligatures<br>
+    Registered by: Microsoft<br>
+    Function: Some ligatures were in common use in the past, but appear anachronistic today. Some fonts include the historical forms as alternates, so they can be used for a 'period' effect. This feature replaces the default (current) forms with the historical alternates.<br>
+    Example: The user applies this feature using Palatino Linotype, and historic ligatures are formed for all long s forms, including: long s+t, long s+b, long s+h, long s+k, and several others.<br>
+    Recommended implementation: The hlig table maps default ligatures and character combinations to corresponding historical ligatures (GSUB lookup type 1).<br>
+    Application interface: For GIDs found in the hlig coverage table, the application passes the GIDs to the hlig table and gets back new GIDs.<br>
+    UI suggestion: This feature should be off by default.<br>
+    Script/language sensitivity: None.<br>
+    Feature interaction: This feature overrides the results of all other features.
+    </p></blockquote>
+    <p>The following is clear to me :<br>
+    "Function" is intended to be read, understood and complied to by the font designer.</p>
+    <p>"Application interface" is intended to be for opentype shaping engine like Uniscribe or DirectWrite or perhaps applications that interpret themselves the opentype tables.</p>
+    <p>"UI suggestion" is for the consuming applications like InDesign, Microsoft Word, etc...</p>
+    <p>"Script/language sensitivity" I think this is for the font designer to limit the application of this feature only to certain languages.</p>
+    <p>"Feature interaction" No idea : should it be the shaping engine that takes care of that, the consuming applications or the font designer?!!? Does anyone know?</p>
+    <p>For hlig, it says : "This feature overrides the results of all other features." What does this means and who is responsible for enforcing it?</p>
+  html_clean: |-
+    <p>The list of OpenType features along with their specifications is listed here :</p>
+    <p><a href="http://www.microsoft.com/typography/otspec/featuretags.htm" title="http://www.microsoft.com/typography/otspec/featuretags.htm">http://www.microsoft.com/typography/otspec/featuretags.htm</a></p>
+    <p>I'm having an hard time determining who this document is intended for especially when it comes to the "Feature interaction" field.</p>
+    <p>For example, I paste here the documentation for hlig (historical ligatures)</p>
+    <blockquote><p>
+    Tag: 'hlig'<br>
+    Friendly name: Historical Ligatures<br>
+    Registered by: Microsoft<br>
+    Function: Some ligatures were in common use in the past, but appear anachronistic today. Some fonts include the historical forms as alternates, so they can be used for a 'period' effect. This feature replaces the default (current) forms with the historical alternates.<br>
+    Example: The user applies this feature using Palatino Linotype, and historic ligatures are formed for all long s forms, including: long s+t, long s+b, long s+h, long s+k, and several others.<br>
+    Recommended implementation: The hlig table maps default ligatures and character combinations to corresponding historical ligatures (GSUB lookup type 1).<br>
+    Application interface: For GIDs found in the hlig coverage table, the application passes the GIDs to the hlig table and gets back new GIDs.<br>
+    UI suggestion: This feature should be off by default.<br>
+    Script/language sensitivity: None.<br>
+    Feature interaction: This feature overrides the results of all other features.
+    </p></blockquote>
+    <p>The following is clear to me :<br>
+    "Function" is intended to be read, understood and complied to by the font designer.</p>
+    <p>"Application interface" is intended to be for opentype shaping engine like Uniscribe or DirectWrite or perhaps applications that interpret themselves the opentype tables.</p>
+    <p>"UI suggestion" is for the consuming applications like InDesign, Microsoft Word, etc...</p>
+    <p>"Script/language sensitivity" I think this is for the font designer to limit the application of this feature only to certain languages.</p>
+    <p>"Feature interaction" No idea : should it be the shaping engine that takes care of that, the consuming applications or the font designer?!!? Does anyone know?</p>
+    <p>For hlig, it says : "This feature overrides the results of all other features." What does this means and who is responsible for enforcing it?</p>
+comments:
+  - id: 495092
+    user: 24931
+    date: 2012-02-14T16:50:00
+    date_raw: 14 Feb 2012 — 4:50pm
+    votes: null
+    html: |-
+      <p><cite>What is the OpenType Layout tag registry expected audience?</cite></p>
+      <p>People working in type tech and techy type designers.</p>
+      <p><cite>For hlig, it says : "This feature overrides the results of all other features." What does this means and who is responsible for enforcing it?</cite></p>
+      <p>It’s also a suggestion. It means that it makes sense to place the <em>hlig</em> feature towards the end of the feature list, like the <em>kern</em> feature, the order of execution of which will be defined in the font file.<br>
+      You are responsible for ordering features. Nobody is responsible for enforcing anything.</p>
+    html_clean: |-
+      <p><cite>What is the OpenType Layout tag registry expected audience?</cite></p>
+      <p>People working in type tech and techy type designers.</p>
+      <p><cite>For hlig, it says : "This feature overrides the results of all other features." What does this means and who is responsible for enforcing it?</cite></p>
+      <p>It’s also a suggestion. It means that it makes sense to place the <em>hlig</em> feature towards the end of the feature list, like the <em>kern</em> feature, the order of execution of which will be defined in the font file.<br>
+      You are responsible for ordering features. Nobody is responsible for enforcing anything.</p>
+  - id: 495098
+    user: 18942
+    date: 2012-02-14T18:52:00
+    date_raw: 14 Feb 2012 — 6:52pm
+    votes: null
+    html: |-
+      <p>If you subscribe to the opentype list</p>
+      <p>subscribe: <a href="mailto:opentype-migration-sub@indx.co.uk">opentype-migration-sub@indx.co.uk</a><br>
+      unsubscribe: <a href="mailto:opentype-migration-unsub@indx.co.uk">opentype-migration-unsub@indx.co.uk</a><br>
+      messages: <a href="mailto:opentype-migration-list@indx.co.uk">opentype-migration-list@indx.co.uk</a></p>
+      <p>you can then search the archives</p>
+      <p>List archive: <a href="http://www.indx.co.uk/biglistarchive/" title="http://www.indx.co.uk/biglistarchive/">http://www.indx.co.uk/biglistarchive/</a></p>
+      <p>for "features that override"; there are 5 posts on a related subject.</p>
+    html_clean: |-
+      <p>If you subscribe to the opentype list</p>
+      <p>subscribe: <a href="mailto:opentype-migration-sub@indx.co.uk">opentype-migration-sub@indx.co.uk</a><br>
+      unsubscribe: <a href="mailto:opentype-migration-unsub@indx.co.uk">opentype-migration-unsub@indx.co.uk</a><br>
+      messages: <a href="mailto:opentype-migration-list@indx.co.uk">opentype-migration-list@indx.co.uk</a></p>
+      <p>you can then search the archives</p>
+      <p>List archive: <a href="http://www.indx.co.uk/biglistarchive/" title="http://www.indx.co.uk/biglistarchive/">http://www.indx.co.uk/biglistarchive/</a></p>
+      <p>for "features that override"; there are 5 posts on a related subject.</p>
+  - id: 495150
+    user: 185670
+    date: 2012-02-15T07:18:00
+    date_raw: 15 Feb 2012 — 7:18am
+    votes: null
+    html: |-
+      <p>Thanks to both of you.</p>
+      <p>Bonjour Michel!</p>
+      <p>You seem to be aware of some open type resources I'm unaware of.</p>
+      <p>Michel, your profile says that your occupation is "academic". Are you a font designer, and /or an application developer?</p>
+      <p>I'm always looking for contacts that develop application text engines or that use shaping engine technology such as uniscribe or directwrite or anything else. There isn't much of these guys in the world and help is scarce.</p>
+      <p>I'm one of these lonely guy :) I'm a software developer that works on the CorelDRAW's text engine.</p>
+    html_clean: |-
+      <p>Thanks to both of you.</p>
+      <p>Bonjour Michel!</p>
+      <p>You seem to be aware of some open type resources I'm unaware of.</p>
+      <p>Michel, your profile says that your occupation is "academic". Are you a font designer, and /or an application developer?</p>
+      <p>I'm always looking for contacts that develop application text engines or that use shaping engine technology such as uniscribe or directwrite or anything else. There isn't much of these guys in the world and help is scarce.</p>
+      <p>I'm one of these lonely guy :) I'm a software developer that works on the CorelDRAW's text engine.</p>
+  - id: 495165
+    user: 18942
+    date: 2012-02-15T09:10:00
+    date_raw: 15 Feb 2012 — 9:10am
+    votes: null
+    html: |-
+      <p>Bonjour Claude,</p>
+      <p>I am neither a font designer nor an application developer. I had to learn a few things about fonts just to be able to use (debug or install) them, either to write my own (rather mathematical) texts with latex or to get a correct display with "exotic" languages or fonts on my Macintosh. </p>
+      <p>I think you should find the right people on the opentype list.</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>Bonjour Claude,</p>
+      <p>I am neither a font designer nor an application developer. I had to learn a few things about fonts just to be able to use (debug or install) them, either to write my own (rather mathematical) texts with latex or to get a correct display with "exotic" languages or fonts on my Macintosh. </p>
+      <p>I think you should find the right people on the opentype list.</p>
+      <p>Michel</p>

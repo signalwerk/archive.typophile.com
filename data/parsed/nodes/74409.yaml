@@ -1,0 +1,97 @@
+node: 74409
+title: Upper and lowercase relationship for non-Western glyphs
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130820081344"
+  captured_at: 2013-08-20T08:13:44Z
+  url: http://typophile.com/node/74409
+  digest: ID2HHTF5KS2HIVSDNAQXIGLT3DVWULAU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/74409.html
+  fingerprint: 6268562f3729e4a1
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130820081344"
+      digest: ID2HHTF5KS2HIVSDNAQXIGLT3DVWULAU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/74409.html
+post:
+  id: 74409
+  user: 32723
+  date: 2010-09-20T13:25:00
+  date_raw: 20 Sep 2010 — 1:25pm
+  votes: null
+  html: |-
+    <p>There is no need to include in a font any instruction about upper and lowercase for the usual A–Z/a–z characters.</p>
+    <p>But what about these uncommon glyphs for African languages, phonetic support and transliterations? Must I include some OT instruction to say that uni0195 is the lowercase for uni01F6? Or this is known by client application due to its Unicode support?</p>
+    <p><em>A side question:</em> if the relationship between upper and lowercase is informed by Unicode, how to handle pairs of glyphs with no codepoint? Say, Gtilde and gtilde or Eacutedotbelow and eacutedotbelow. As they are out of Unicode specification, will the client program or OS understand their upper/lowercase relation?</p>
+    <p>This question <strong>does not</strong> refers to small caps/all caps/petite caps control. I know these are handled by <code>smcp</code>, <code>case</code>, <code>c2sc</code> and <code>pcap</code> features (or, to petite caps, a Stylistic Set as they are still not widely supported).</p>
+  html_clean: |-
+    <p>There is no need to include in a font any instruction about upper and lowercase for the usual A–Z/a–z characters.</p>
+    <p>But what about these uncommon glyphs for African languages, phonetic support and transliterations? Must I include some OT instruction to say that uni0195 is the lowercase for uni01F6? Or this is known by client application due to its Unicode support?</p>
+    <p><em>A side question:</em> if the relationship between upper and lowercase is informed by Unicode, how to handle pairs of glyphs with no codepoint? Say, Gtilde and gtilde or Eacutedotbelow and eacutedotbelow. As they are out of Unicode specification, will the client program or OS understand their upper/lowercase relation?</p>
+    <p>This question <strong>does not</strong> refers to small caps/all caps/petite caps control. I know these are handled by <code>smcp</code>, <code>case</code>, <code>c2sc</code> and <code>pcap</code> features (or, to petite caps, a Stylistic Set as they are still not widely supported).</p>
+comments:
+  - id: 430404
+    user: 29994
+    date: 2010-09-20T14:34:00
+    date_raw: 20 Sep 2010 — 2:34pm
+    votes: null
+    html: |-
+      <p><cite> Must I include some OT instruction to say that uni0195 is the lowercase for uni01F6? Or this is known by client application due to its Unicode support?</cite></p>
+      <p>Yes -- I mean, yes, the client application has to know what's what. InDesign, for example, got updated to the most recent Unicode tables somewhere between CS and CS4. In the older version, using a trick like "All Caps" (as text attribute) or "Change case to Uppercase" didn't work for all characters one would expect. In CS4, at least, it does.</p>
+      <p><cite>A side question: if the relationship between upper and lowercase is informed by Unicode, how to handle pairs of glyphs with no codepoint? Say, Gtilde and gtilde or Eacutedotbelow and eacutedotbelow. As they are out of Unicode specification, will the client program or OS understand their upper/lowercase relation?</cite></p>
+      <p>Nope. If you go over a glyph list in Unicode order, you will see there is no apparent relation between the Unicodes for lowercase and uppercase. As an aside, since these values are defined in the Unicode table, un-encoded (private) characters can not have such a relation with each other, per definition.</p>
+      <p>I <em>think</em> "All Caps" (the text attribute) may be using a 'case' Opentype table when present, because it also converts regular accents to 'uppercase' accents, which are definitely *not* in the Unicode list. </p>
+      <p>.. Okay, just tested it with Minion Pro: the acute accent gets translated to an uppercase variant when using "All Caps" (the 'case' case), but not when using a manual "Change to Uppercase".</p>
+    html_clean: |-
+      <p><cite> Must I include some OT instruction to say that uni0195 is the lowercase for uni01F6? Or this is known by client application due to its Unicode support?</cite></p>
+      <p>Yes -- I mean, yes, the client application has to know what's what. InDesign, for example, got updated to the most recent Unicode tables somewhere between CS and CS4. In the older version, using a trick like "All Caps" (as text attribute) or "Change case to Uppercase" didn't work for all characters one would expect. In CS4, at least, it does.</p>
+      <p><cite>A side question: if the relationship between upper and lowercase is informed by Unicode, how to handle pairs of glyphs with no codepoint? Say, Gtilde and gtilde or Eacutedotbelow and eacutedotbelow. As they are out of Unicode specification, will the client program or OS understand their upper/lowercase relation?</cite></p>
+      <p>Nope. If you go over a glyph list in Unicode order, you will see there is no apparent relation between the Unicodes for lowercase and uppercase. As an aside, since these values are defined in the Unicode table, un-encoded (private) characters can not have such a relation with each other, per definition.</p>
+      <p>I <em>think</em> "All Caps" (the text attribute) may be using a 'case' Opentype table when present, because it also converts regular accents to 'uppercase' accents, which are definitely *not* in the Unicode list. </p>
+      <p>.. Okay, just tested it with Minion Pro: the acute accent gets translated to an uppercase variant when using "All Caps" (the 'case' case), but not when using a manual "Change to Uppercase".</p>
+  - id: 430626
+    user: 32723
+    date: 2010-09-21T18:50:00
+    date_raw: 21 Sep 2010 — 6:50pm
+    votes: null
+    html: <p>Thanks Theunis. But how I can associate through OT code two uncoded glyphs? As you pointed, "All caps" commands will work due to OT classes and features. But simple convertions to/from UC/lc will not.</p>
+    html_clean: <p>Thanks Theunis. But how I can associate through OT code two uncoded glyphs? As you pointed, "All caps" commands will work due to OT classes and features. But simple convertions to/from UC/lc will not.</p>
+  - id: 430628
+    user: 1043
+    date: 2010-09-21T19:33:00
+    date_raw: 21 Sep 2010 — 7:33pm
+    votes: null
+    html: <p>OpenType features do not depend on Unicode. In FontLab (and the AFDKO), feature code is based on glyph names. (I'm sure this is true in VOLT, too, but I've never used it.) Ultimately, in the actual font, after it's been compiled, it's based on the glyph index. If we couldn't reference unencoded glyphs in OT code, we'd be in big trouble.</p>
+    html_clean: <p>OpenType features do not depend on Unicode. In FontLab (and the AFDKO), feature code is based on glyph names. (I'm sure this is true in VOLT, too, but I've never used it.) Ultimately, in the actual font, after it's been compiled, it's based on the glyph index. If we couldn't reference unencoded glyphs in OT code, we'd be in big trouble.</p>
+  - id: 430632
+    user: 32723
+    date: 2010-09-21T20:16:00
+    date_raw: 21 Sep 2010 — 8:16pm
+    votes: null
+    html: <p>Thanks, Mark. But how to handle plain upper and lower case using OT features? This does not fits smcp, c2sp or pcap. Am I missing something about the case feature?</p>
+    html_clean: <p>Thanks, Mark. But how to handle plain upper and lower case using OT features? This does not fits smcp, c2sp or pcap. Am I missing something about the case feature?</p>
+  - id: 430633
+    user: 1043
+    date: 2010-09-21T20:56:00
+    date_raw: 21 Sep 2010 — 8:56pm
+    votes: null
+    html: <p>Well, the <code>case</code> feature is intended for something called "case-sensitive forms". The most common use is for punctuation (such as hyphens and bullets), which is normally centered on the x-height. When the <code>case</code> feature is enabled, such as when "change case to all caps" is invoked, then the punctuation is centered on the caps instead (usually using glyph substitution). It certainly seems possible to use this to cause unencoded lowercase glyphs to be substituted with unencoded uppercase glyphs, but you may need to educate users to select "change case to all caps" for the proper result. Some common contexts (such as the caps-lock key and the shift key) will not, unfortunately, invoke the <code>case</code> feature.</p>
+    html_clean: <p>Well, the <code>case</code> feature is intended for something called "case-sensitive forms". The most common use is for punctuation (such as hyphens and bullets), which is normally centered on the x-height. When the <code>case</code> feature is enabled, such as when "change case to all caps" is invoked, then the punctuation is centered on the caps instead (usually using glyph substitution). It certainly seems possible to use this to cause unencoded lowercase glyphs to be substituted with unencoded uppercase glyphs, but you may need to educate users to select "change case to all caps" for the proper result. Some common contexts (such as the caps-lock key and the shift key) will not, unfortunately, invoke the <code>case</code> feature.</p>

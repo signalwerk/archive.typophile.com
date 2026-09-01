@@ -1,0 +1,187 @@
+node: 55717
+title: opentype features
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203164416"
+  captured_at: 2010-02-03T16:44:16Z
+  url: http://typophile.com/node/55717
+  digest: HYCHVKE5IMPXMZOLIUYKMQHUNSIS3U3U
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/55717.html
+  fingerprint: d63c759c379bd0cc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203164416"
+      digest: HYCHVKE5IMPXMZOLIUYKMQHUNSIS3U3U
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/55717.html
+post:
+  id: 55717
+  user: 42894
+  date: 2009-03-10T11:37:00
+  date_raw: 10.Mar.2009 11.37am
+  votes: null
+  html: |-
+    <p>Hello,</p>
+    <p>New to the forum here (and to OT)(and have a decent working knowledge of fontlab), forgive if this has been covered. </p>
+    <p>I am looking to add an opentype substitute feature into a font i have begun building. My intent is to have three versions of each character that will cycle as to appear randomly. That being said, my question is threefold.</p>
+    <p>1- In fontlab's glyph window, where do i create the alternate characters, and what would be a typical naming convention?</p>
+    <p>2- Would it be easier, code-wise, to randomize each character? or to create alt_set1, alt_set2, and alt_set3?</p>
+    <p>3- what would be the best way to set up the glyph classes to achieve this result?</p>
+    <p>I hope this makes sense..<br>
+    Thank you for any and all input!<br>
+    Johio</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>New to the forum here (and to OT)(and have a decent working knowledge of fontlab), forgive if this has been covered. </p>
+    <p>I am looking to add an opentype substitute feature into a font i have begun building. My intent is to have three versions of each character that will cycle as to appear randomly. That being said, my question is threefold.</p>
+    <p>1- In fontlab's glyph window, where do i create the alternate characters, and what would be a typical naming convention?</p>
+    <p>2- Would it be easier, code-wise, to randomize each character? or to create alt_set1, alt_set2, and alt_set3?</p>
+    <p>3- what would be the best way to set up the glyph classes to achieve this result?</p>
+    <p>I hope this makes sense..<br>
+    Thank you for any and all input!<br>
+    Johio</p>
+comments:
+  - id: 334107
+    user: 2021
+    date: 2009-03-10T19:04:00
+    date_raw: 10.Mar.2009 7.04pm
+    votes: null
+    html: |-
+      <p>1. a.alt1, a.alt2, &amp;c.<br>
+      2. by character<br>
+      3. there have been several Typophile threads on this, but they're hard to find these days with Google.</p>
+    html_clean: |-
+      <p>1. a.alt1, a.alt2, &amp;c.<br>
+      2. by character<br>
+      3. there have been several Typophile threads on this, but they're hard to find these days with Google.</p>
+  - id: 334112
+    user: 42894
+    date: 2009-03-10T20:51:00
+    date_raw: 10.Mar.2009 8.51pm
+    votes: null
+    html: |-
+      <p>Thank you Nick, for your time.</p>
+      <p>Would this be achieved through calt, aalt, or other means? I have been attempting to find script examples with little luck. Any additional information on the subject would be amazing. Links, tutorials or the like.</p>
+      <p>Thanks again.<br>
+      Joe</p>
+    html_clean: |-
+      <p>Thank you Nick, for your time.</p>
+      <p>Would this be achieved through calt, aalt, or other means? I have been attempting to find script examples with little luck. Any additional information on the subject would be amazing. Links, tutorials or the like.</p>
+      <p>Thanks again.<br>
+      Joe</p>
+  - id: 334117
+    user: 14722
+    date: 2009-03-10T22:06:00
+    date_raw: 10.Mar.2009 10.06pm
+    votes: null
+    html: |-
+      <p>Here is example cycling code based on CALT, originally cooked up by Tom Phinney:</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+        sub @default @default' by @alt1;<br>
+        sub @alt1 @default' by @alt2;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p><a href="http://silasdilworth.com/">Silas Dilworth</a> and I recently released <a href="http://www.typetrust.com/font/blackmonday">Black Monday, a font that cycles through three glyph sets.</a> It turned out that while CALT is nice, it is not widely implemented. Making matters worse, it’s not always on by default. And it’s flaky—for example, in Indesign long strings of nonstop CALTs occasionally result in CALT turning off (although for display faces this won’t usually be an issue). Silas dealt with this by writing a program that generates a massive list of LIGA ligatures to handle the cycling; it works very well. </p>
+      <p>Would the mods please make a sticky out of one of the older, in-depth posts?</p>
+    html_clean: |-
+      <p>Here is example cycling code based on CALT, originally cooked up by Tom Phinney:</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+        sub @default @default' by @alt1;<br>
+        sub @alt1 @default' by @alt2;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p><a href="http://silasdilworth.com/">Silas Dilworth</a> and I recently released <a href="http://www.typetrust.com/font/blackmonday">Black Monday, a font that cycles through three glyph sets.</a> It turned out that while CALT is nice, it is not widely implemented. Making matters worse, it’s not always on by default. And it’s flaky—for example, in Indesign long strings of nonstop CALTs occasionally result in CALT turning off (although for display faces this won’t usually be an issue). Silas dealt with this by writing a program that generates a massive list of LIGA ligatures to handle the cycling; it works very well. </p>
+      <p>Would the mods please make a sticky out of one of the older, in-depth posts?</p>
+  - id: 334120
+    user: 42894
+    date: 2009-03-10T23:01:00
+    date_raw: 10.Mar.2009 11.01pm
+    votes: null
+    html: |-
+      <p>great info James, thanks for the time!</p>
+      <p>Black Monday is a great example of the functionality i am looking for. Nice looking as well!</p>
+      <p>One of several remaining questions is a total novice one. When I define the glyph classes, i.e. @alt1. what form does this take in the code? </p>
+      <p>would it be something like:</p>
+      <p>@alt1 = [a.alt1 - z.alt2]</p>
+      <p>which would be followed by something simple like the above calt feature??</p>
+      <p>Thanks for all the help.<br>
+      Joe</p>
+    html_clean: |-
+      <p>great info James, thanks for the time!</p>
+      <p>Black Monday is a great example of the functionality i am looking for. Nice looking as well!</p>
+      <p>One of several remaining questions is a total novice one. When I define the glyph classes, i.e. @alt1. what form does this take in the code? </p>
+      <p>would it be something like:</p>
+      <p>@alt1 = [a.alt1 - z.alt2]</p>
+      <p>which would be followed by something simple like the above calt feature??</p>
+      <p>Thanks for all the help.<br>
+      Joe</p>
+  - id: 334122
+    user: 14722
+    date: 2009-03-11T00:23:00
+    date_raw: 11.Mar.2009 12.23am
+    votes: null
+    html: <p>Classes are covered in the Fontlab manual, page 597.</p>
+    html_clean: <p>Classes are covered in the Fontlab manual, page 597.</p>
+  - id: 334150
+    user: 8664
+    date: 2009-03-11T05:21:00
+    date_raw: 11.Mar.2009 5.21am
+    votes: null
+    html: |-
+      <p><cite>for example, in Indesign long strings of nonstop CALTs occasionally result in CALT turning off (although for display faces this won’t usually be an issue)</cite></p>
+      <p>What do you mean? That after each (automatic) line break, the rotation circle will start anew?</p>
+    html_clean: |-
+      <p><cite>for example, in Indesign long strings of nonstop CALTs occasionally result in CALT turning off (although for display faces this won’t usually be an issue)</cite></p>
+      <p>What do you mean? That after each (automatic) line break, the rotation circle will start anew?</p>
+  - id: 334195
+    user: 14722
+    date: 2009-03-11T09:10:00
+    date_raw: 11.Mar.2009 9.10am
+    votes: null
+    html: |-
+      <p><cite>What do you mean?</cite></p>
+      <p>When I was testing Black Monday with CALT, the contextual alternates feature would occasionally shut off and need to enabled by the user. I should probably put some examples together and submit a bug report. </p>
+      <p>And the mods have stickied the old post that explains the CALT rotation stuff, it is at the top of the build forum.</p>
+    html_clean: |-
+      <p><cite>What do you mean?</cite></p>
+      <p>When I was testing Black Monday with CALT, the contextual alternates feature would occasionally shut off and need to enabled by the user. I should probably put some examples together and submit a bug report. </p>
+      <p>And the mods have stickied the old post that explains the CALT rotation stuff, it is at the top of the build forum.</p>
+  - id: 334198
+    user: 8664
+    date: 2009-03-11T09:23:00
+    date_raw: 11.Mar.2009 9.23am
+    votes: null
+    html: |-
+      <p><cite>submit a bug report</cite></p>
+      <p>With exact application name and version etc, yes. Sounds weird. (I haven't experienced this with my own alternate-rotation fonts yet so I am curious.)</p>
+    html_clean: |-
+      <p><cite>submit a bug report</cite></p>
+      <p>With exact application name and version etc, yes. Sounds weird. (I haven't experienced this with my own alternate-rotation fonts yet so I am curious.)</p>
+  - id: 334289
+    user: 14604
+    date: 2009-03-11T15:49:00
+    date_raw: 11.Mar.2009 3.49pm
+    votes: null
+    html: <p><a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>
+    html_clean: <p><a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>

@@ -1,0 +1,125 @@
+node: 67240
+title: Python Q - replacing last glyph in each word
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130817161558"
+  captured_at: 2013-08-17T16:15:58Z
+  url: http://typophile.com/node/67240
+  digest: YVNPYLVXBKAKBV6NR4YRKCNKVOQVSGWA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/67240.html
+  fingerprint: c2a8a78cda997912
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130817161558"
+      digest: YVNPYLVXBKAKBV6NR4YRKCNKVOQVSGWA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/67240.html
+post:
+  id: 67240
+  user: 17709
+  date: 2010-02-09T18:21:00
+  date_raw: 9 Feb 2010 — 6:21pm
+  votes: null
+  html: |-
+    <p>Hey, I was wondering if anyone could help me with a python script. I'm making a script font, and would like to substitute out the final glyph in each word (with one that has a finishing flourish).</p>
+    <p>I remember seeing something like that here before, but I can't find it now :(</p>
+  html_clean: |-
+    <p>Hey, I was wondering if anyone could help me with a python script. I'm making a script font, and would like to substitute out the final glyph in each word (with one that has a finishing flourish).</p>
+    <p>I remember seeing something like that here before, but I can't find it now :(</p>
+comments:
+  - id: 394961
+    user: 1043
+    date: 2010-02-09T19:23:00
+    date_raw: 9 Feb 2010 — 7:23pm
+    votes: null
+    html: |-
+      <p>Python? Do you mean coding an OpenType feature?</p>
+      <p>If so, it goes like this:</p>
+      <p>Make a few groups:</p>
+      <p>@any_letter = [ <em>a list of all letters from your font that could be part of a word</em> ] ;</p>
+      <p>@not_final = [ <em>a list of the non-final glyph forms</em> ] ;</p>
+      <p>@final = [ <em>a list of the final glyph forms (same order, same number of glyphs) </em>] ;</p>
+      <p>Here is the feature code, which should be put in the calt feature:</p>
+      <p>feature calt {</p>
+      <p>lookup fix_finals {<br>
+      ignore sub @not_final' @any_letter ;<br>
+      sub @not_final' by @final ;<br>
+      } fix_finals ;</p>
+      <p>} calt ;</p>
+      <p>The "ignore" part means skip the rest if another letter follows. If no letter follows, then the substitution happens.</p>
+    html_clean: |-
+      <p>Python? Do you mean coding an OpenType feature?</p>
+      <p>If so, it goes like this:</p>
+      <p>Make a few groups:</p>
+      <p>@any_letter = [ <em>a list of all letters from your font that could be part of a word</em> ] ;</p>
+      <p>@not_final = [ <em>a list of the non-final glyph forms</em> ] ;</p>
+      <p>@final = [ <em>a list of the final glyph forms (same order, same number of glyphs) </em>] ;</p>
+      <p>Here is the feature code, which should be put in the calt feature:</p>
+      <p>feature calt {</p>
+      <p>lookup fix_finals {<br>
+      ignore sub @not_final' @any_letter ;<br>
+      sub @not_final' by @final ;<br>
+      } fix_finals ;</p>
+      <p>} calt ;</p>
+      <p>The "ignore" part means skip the rest if another letter follows. If no letter follows, then the substitution happens.</p>
+  - id: 394963
+    user: 1043
+    date: 2010-02-09T19:23:00
+    date_raw: 9 Feb 2010 — 7:23pm
+    votes: null
+    html: |-
+      <p>By the way, the groups can be made either in the OT editor in FontLab, either just before the feature code, or in the lower pane of the OT editor panel. Or, you can use the Classes panel, select "New OpenType Class" from the pop-up, and use this syntax:</p>
+      <p>group_name: <em>list of glyphs</em></p>
+      <p>I prefer putting it all in the OT editor. Seems easier to manage.</p>
+    html_clean: |-
+      <p>By the way, the groups can be made either in the OT editor in FontLab, either just before the feature code, or in the lower pane of the OT editor panel. Or, you can use the Classes panel, select "New OpenType Class" from the pop-up, and use this syntax:</p>
+      <p>group_name: <em>list of glyphs</em></p>
+      <p>I prefer putting it all in the OT editor. Seems easier to manage.</p>
+  - id: 394964
+    user: 17709
+    date: 2010-02-09T19:34:00
+    date_raw: 9 Feb 2010 — 7:34pm
+    votes: null
+    html: <p>Thanks Mark :)</p>
+    html_clean: <p>Thanks Mark :)</p>
+  - id: 394970
+    user: 17709
+    date: 2010-02-09T20:26:00
+    date_raw: 9 Feb 2010 — 8:26pm
+    votes: null
+    html: |-
+      <p>So it's working when I test in the fontlab opentype tester window, but not when I use it in Indesign or Illustrator. Is there a feature in opentype I have to turn on for this to work? (all my other scripts are working though)</p>
+      <p>Or did I do something wrong :(</p>
+    html_clean: |-
+      <p>So it's working when I test in the fontlab opentype tester window, but not when I use it in Indesign or Illustrator. Is there a feature in opentype I have to turn on for this to work? (all my other scripts are working though)</p>
+      <p>Or did I do something wrong :(</p>
+  - id: 394972
+    user: 1043
+    date: 2010-02-09T20:59:00
+    date_raw: 9 Feb 2010 — 8:59pm
+    votes: null
+    html: |-
+      <p>Is this the only feature in the font? There is a bug in InDesign where it ignores a feature if it is the only one.</p>
+      <p>If that's not the case, it could be that you have contextual alternates unchecked in InDesign.</p>
+      <p>It's also possible that you are not including OT features when you generate the font. There is a checkbox for this in the preferences.</p>
+    html_clean: |-
+      <p>Is this the only feature in the font? There is a bug in InDesign where it ignores a feature if it is the only one.</p>
+      <p>If that's not the case, it could be that you have contextual alternates unchecked in InDesign.</p>
+      <p>It's also possible that you are not including OT features when you generate the font. There is a checkbox for this in the preferences.</p>

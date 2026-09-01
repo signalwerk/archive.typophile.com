@@ -1,0 +1,128 @@
+node: 106181
+title: Fontforge - File Open Warnings
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150420082107"
+  captured_at: 2015-04-20T08:21:07Z
+  url: http://typophile.com/node/106181
+  digest: 2T2QVOYHIZZZB6GYW3MTDW3CLXM673QZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106181.html
+  fingerprint: a7118277dd706612
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150420082107"
+      digest: 2T2QVOYHIZZZB6GYW3MTDW3CLXM673QZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106181.html
+post:
+  id: 106181
+  user: 65510
+  date: 2013-09-08T09:58:00
+  date_raw: 8 Sep 2013 — 9:58am
+  votes: null
+  html: |-
+    <p>I am using Perl (readpipe) to grab the fontname value from a font via Fontforge. For example:</p>
+    <p><code>my $psfontname = readpipe("/usr/local/bin/fontforge -script /webfont/getfontname.pe font.ttf");</code></p>
+    <p>The problem is, Fontforge always outputs all the warnings when it loads a font, so I end up with a multiline output of values I do not want. Anyone know how to disable Fontforge doing that on file open? I am using is via command line only. </p>
+    <p>Example warnings:<br>
+    <code>Warning: Mac and Windows entries in the 'name' table differ for the<br>
+    Family string in the language English (US)</code></p>
+  html_clean: |-
+    <p>I am using Perl (readpipe) to grab the fontname value from a font via Fontforge. For example:</p>
+    <p><code>my $psfontname = readpipe("/usr/local/bin/fontforge -script /webfont/getfontname.pe font.ttf");</code></p>
+    <p>The problem is, Fontforge always outputs all the warnings when it loads a font, so I end up with a multiline output of values I do not want. Anyone know how to disable Fontforge doing that on file open? I am using is via command line only. </p>
+    <p>Example warnings:<br>
+    <code>Warning: Mac and Windows entries in the 'name' table differ for the<br>
+    Family string in the language English (US)</code></p>
+comments:
+  - id: 564494
+    user: 18942
+    date: 2013-09-08T15:17:00
+    date_raw: 8 Sep 2013 — 3:17pm
+    votes: null
+    html: <p>duplicate - delete</p>
+    html_clean: <p>duplicate - delete</p>
+  - id: 564495
+    user: 18942
+    date: 2013-09-08T19:50:00
+    date_raw: 8 Sep 2013 — 7:50pm
+    votes: null
+    html: |-
+      <p>I don't know perl but here are some relevant remarks. According to perldoc, <code>readpipe</code> collects the standard output (which is  <code>stdout</code>) whereas FontForge warning messages are written to <code>stderr</code>. If you call <code>psname.pl</code> the following script</p>
+      <pre>my $font = $ARGV[0] ;
+      my $psfontname = 
+         readpipe("/opt/local/bin/fontforge -script psname.pe " 
+                     . $font) ;
+      print  $psfontname  ;
+      </pre><p>then the call</p>
+      <pre>perl psname.pl ArnoPro-Regular.otf &gt; savename
+      </pre><p>sends only the postscript name into the file <code>savename</code>. If you want to see only the standard output and no warning message, you can type</p>
+      <pre>perl psname.pl ArnoPro-Regular.otf 2&gt;/dev/null
+      </pre><p>You could also redirect <code>stderr</code> inside the perl script</p>
+      <pre>my $font = $ARGV[0] ;
+      my $psfontname = 
+         readpipe("/opt/local/bin/fontforge -script psname.pe " 
+                     . $font . 
+                     " 2&gt;/dev/null") ;
+      print  $psfontname  ;
+      </pre><p>where <code>2&gt;/dev/null</code> redirects <code>stderr</code> to <code>/dev/null</code>.</p>
+      <p>Instead of sending the messages to the garbage can, you could append them to a log file with <code>2&gt;&gt;file.log</code>.</p>
+    html_clean: |-
+      <p>I don't know perl but here are some relevant remarks. According to perldoc, <code>readpipe</code> collects the standard output (which is  <code>stdout</code>) whereas FontForge warning messages are written to <code>stderr</code>. If you call <code>psname.pl</code> the following script</p>
+      <pre>my $font = $ARGV[0] ;
+      my $psfontname = 
+         readpipe("/opt/local/bin/fontforge -script psname.pe " 
+                     . $font) ;
+      print  $psfontname  ;
+      </pre><p>then the call</p>
+      <pre>perl psname.pl ArnoPro-Regular.otf &gt; savename
+      </pre><p>sends only the postscript name into the file <code>savename</code>. If you want to see only the standard output and no warning message, you can type</p>
+      <pre>perl psname.pl ArnoPro-Regular.otf 2&gt;/dev/null
+      </pre><p>You could also redirect <code>stderr</code> inside the perl script</p>
+      <pre>my $font = $ARGV[0] ;
+      my $psfontname = 
+         readpipe("/opt/local/bin/fontforge -script psname.pe " 
+                     . $font . 
+                     " 2&gt;/dev/null") ;
+      print  $psfontname  ;
+      </pre><p>where <code>2&gt;/dev/null</code> redirects <code>stderr</code> to <code>/dev/null</code>.</p>
+      <p>Instead of sending the messages to the garbage can, you could append them to a log file with <code>2&gt;&gt;file.log</code>.</p>
+  - id: 566396
+    user: 16849
+    date: 2013-10-27T12:20:00
+    date_raw: 27 Oct 2013 — 12:20pm
+    votes: null
+    html: |-
+      <p>I just added a -quiet mode to not print non-essential information to stderr so now you can do this:</p>
+      <p>my $psfontname = readpipe("/usr/local/bin/fontforge -quiet -script /webfont/getfontname.pe font.ttf");</p>
+    html_clean: |-
+      <p>I just added a -quiet mode to not print non-essential information to stderr so now you can do this:</p>
+      <p>my $psfontname = readpipe("/usr/local/bin/fontforge -quiet -script /webfont/getfontname.pe font.ttf");</p>
+  - id: 566397
+    user: 16849
+    date: 2013-10-27T12:21:00
+    date_raw: 27 Oct 2013 — 12:21pm
+    votes: null
+    html: |-
+      <p>I just added a -quiet mode to not print non-essential information to stderr so now you can do this:</p>
+      <p>my $psfontname = readpipe("/usr/local/bin/fontforge -quiet -script /webfont/getfontname.pe font.ttf");</p>
+    html_clean: |-
+      <p>I just added a -quiet mode to not print non-essential information to stderr so now you can do this:</p>
+      <p>my $psfontname = readpipe("/usr/local/bin/fontforge -quiet -script /webfont/getfontname.pe font.ttf");</p>

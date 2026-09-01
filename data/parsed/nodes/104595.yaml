@@ -1,0 +1,83 @@
+node: 104595
+title: Help with standard stem calculation (and other hinting nonsense)!!!
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150419164354"
+  captured_at: 2015-04-19T16:43:54Z
+  url: http://typophile.com/node/104595
+  digest: 7TNVJEYVVFZ37DZJLSEZIFB3NHBW42Q2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/104595.html
+  fingerprint: 11dad6442c9c98fc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150419164354"
+      digest: 7TNVJEYVVFZ37DZJLSEZIFB3NHBW42Q2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/104595.html
+post:
+  id: 104595
+  user: 15289
+  date: 2013-07-13T12:15:00
+  date_raw: 13 Jul 2013 — 12:15pm
+  votes: null
+  html: |-
+    <p>So, after spending the last couple years on my first font family, I am extremely close to releasing it, except for the fact that PS hinting is making my brain explode. </p>
+    <p>I've figured out how to use the Adobe Font Development Kit for autohinting, but from my understanding, if you don't have good standard stems set up, the autohinting doesn't really help too much.</p>
+    <p>So my question is, what is the proper way to calculate the standard stem, and is there any sort of way to automate this? Even if there is a script that will do it to a decent level seems like something that would work better than my current understanding.</p>
+    <p>I've attached a screenshot showing how poorly my font is rendering on screen... (as you can see, the characters are hopping all around as if they were on a trampoline).</p>
+    <p>At this point, any help whatsoever will be greatly appreciated.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen Shot 2013-07-13 at 12_6023.03.52 PM.jpg"></div><p></p>
+  html_clean: |-
+    <p>So, after spending the last couple years on my first font family, I am extremely close to releasing it, except for the fact that PS hinting is making my brain explode. </p>
+    <p>I've figured out how to use the Adobe Font Development Kit for autohinting, but from my understanding, if you don't have good standard stems set up, the autohinting doesn't really help too much.</p>
+    <p>So my question is, what is the proper way to calculate the standard stem, and is there any sort of way to automate this? Even if there is a script that will do it to a decent level seems like something that would work better than my current understanding.</p>
+    <p>I've attached a screenshot showing how poorly my font is rendering on screen... (as you can see, the characters are hopping all around as if they were on a trampoline).</p>
+    <p>At this point, any help whatsoever will be greatly appreciated.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Screen Shot 2013-07-13 at 12_6023.03.52 PM.jpg"></div><p></p>
+comments:
+  - id: 560112
+    user: 3254
+    date: 2013-07-13T12:27:00
+    date_raw: 13 Jul 2013 — 12:27pm
+    votes: null
+    html: <p>You should probably mention what font editor you're using.</p>
+    html_clean: <p>You should probably mention what font editor you're using.</p>
+  - id: 560114
+    user: 15289
+    date: 2013-07-13T12:32:00
+    date_raw: 13 Jul 2013 — 12:32pm
+    votes: null
+    html: |-
+      <p>Sorry about that, Fontlab.</p>
+      <p>Ironically, after spending countless hours dealing with this over the last week or two, I realized my descender alignment zone (like for my /g/) was under the primary zone column, and by moving it to the secondary zone column in Fontlab it now looks 10x better!</p>
+    html_clean: |-
+      <p>Sorry about that, Fontlab.</p>
+      <p>Ironically, after spending countless hours dealing with this over the last week or two, I realized my descender alignment zone (like for my /g/) was under the primary zone column, and by moving it to the secondary zone column in Fontlab it now looks 10x better!</p>
+  - id: 560125
+    user: 20652
+    date: 2013-07-13T13:44:00
+    date_raw: 13 Jul 2013 — 1:44pm
+    votes: null
+    html: |-
+      <p>FontLab can fill in the stem weights automatically if you click the 'auto stems' button in the hinting settings page of font info. However, you ideally need as few as possible, so I'd recommend measuring the lowercase stem widths (horizontal and vertical) with the ruler and putting these in. If uppercase has significantly different weights you can add those secondarily.</p>
+      <p>It looks like you need to adjust your alignment zones a bit too; make sure they include all overshoots, and need to be entered in ascending numerical order (as you note, primary zones pull overshoots down, except the baseline and secondary zones pull overshoots up, like with the descenders).</p>
+    html_clean: |-
+      <p>FontLab can fill in the stem weights automatically if you click the 'auto stems' button in the hinting settings page of font info. However, you ideally need as few as possible, so I'd recommend measuring the lowercase stem widths (horizontal and vertical) with the ruler and putting these in. If uppercase has significantly different weights you can add those secondarily.</p>
+      <p>It looks like you need to adjust your alignment zones a bit too; make sure they include all overshoots, and need to be entered in ascending numerical order (as you note, primary zones pull overshoots down, except the baseline and secondary zones pull overshoots up, like with the descenders).</p>

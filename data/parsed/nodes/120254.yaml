@@ -1,0 +1,134 @@
+node: 120254
+title: Kerning problem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141111093740"
+  captured_at: 2014-11-11T09:37:40Z
+  url: http://typophile.com:80/node/120254
+  digest: BRO4CZQB6ZAKSTJMNYXH3MCGQIQDFK2D
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/120254.html
+  fingerprint: 7ca425f72dd0dca4
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141111093740"
+      digest: BRO4CZQB6ZAKSTJMNYXH3MCGQIQDFK2D
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/120254.html
+post:
+  id: 120254
+  user: 223507
+  date: 2014-10-07T02:36:00
+  date_raw: 7 Oct 2014 — 2:36am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>I recently spotted an issue with kerning in FL.<br>
+    In metrics window all kerning works fine but when i generate "kern" feature some pairs among classes are excluded. But it is only visible in OT preview and later in exported file. What interesting is, when I change the order of the code, e.g. I bring the missing pair to the top of the code, it works. Anyway the whole thing behave very random and I can't get the logic of this. I was searching the problem but didn't found the exact answer.  Putting extra "subtable" doesn't fix the problem.</p>
+    <p>Hope it sounds clear.</p>
+    <p>Any suggestions would be highly appreciated.</p>
+    <p>Thanks,</p>
+    <p>Rad.</p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I recently spotted an issue with kerning in FL.<br>
+    In metrics window all kerning works fine but when i generate "kern" feature some pairs among classes are excluded. But it is only visible in OT preview and later in exported file. What interesting is, when I change the order of the code, e.g. I bring the missing pair to the top of the code, it works. Anyway the whole thing behave very random and I can't get the logic of this. I was searching the problem but didn't found the exact answer.  Putting extra "subtable" doesn't fix the problem.</p>
+    <p>Hope it sounds clear.</p>
+    <p>Any suggestions would be highly appreciated.</p>
+    <p>Thanks,</p>
+    <p>Rad.</p>
+comments:
+  - id: 590059
+    user: 9108
+    date: 2014-10-07T10:27:00
+    date_raw: 7 Oct 2014 — 10:27am
+    votes: null
+    html: <p>Any error note or warning?</p>
+    html_clean: <p>Any error note or warning?</p>
+  - id: 590096
+    user: 223507
+    date: 2014-10-07T17:00:00
+    date_raw: 7 Oct 2014 — 5:00pm
+    votes: null
+    html: |-
+      <p>I'm not sure does it have any connection with the problem, but it shows up when compiled:<br>
+       [WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [E Eogonek Egrave Eacute Edieresis Ecircumflex AE Emacron Ecaron Edotaccent Ebreve] [igrave idieresis icircumflex imacron ibreve] [/Users/radek/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 596].</p>
+    html_clean: |-
+      <p>I'm not sure does it have any connection with the problem, but it shows up when compiled:<br>
+       [WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [E Eogonek Egrave Eacute Edieresis Ecircumflex AE Emacron Ecaron Edotaccent Ebreve] [igrave idieresis icircumflex imacron ibreve] [/Users/radek/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 596].</p>
+  - id: 590108
+    user: 9108
+    date: 2014-10-08T01:09:00
+    date_raw: 8 Oct 2014 — 1:09am
+    votes: null
+    html: |-
+      <p>Most probably you have the same glyph(s) in two kerning classes.<br>
+      see: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.b.iii" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.b.iii">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a><br>
+      The suspect is in the line 596 of your .fea file</p>
+    html_clean: |-
+      <p>Most probably you have the same glyph(s) in two kerning classes.<br>
+      see: <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.b.iii" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.b.iii">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.htm...</a><br>
+      The suspect is in the line 596 of your .fea file</p>
+  - id: 590132
+    user: 223507
+    date: 2014-10-08T05:58:00
+    date_raw: 8 Oct 2014 — 5:58am
+    votes: null
+    html: |-
+      <p>Ok, Thanks a lot, it fits to the problem. Does FontLab have any quick possibility to find all overlapping glyphs in classes, or I have to do it manually.</p>
+      <p>Thanks</p>
+    html_clean: |-
+      <p>Ok, Thanks a lot, it fits to the problem. Does FontLab have any quick possibility to find all overlapping glyphs in classes, or I have to do it manually.</p>
+      <p>Thanks</p>
+  - id: 590143
+    user: 9108
+    date: 2014-10-08T07:03:00
+    date_raw: 8 Oct 2014 — 7:03am
+    votes: null
+    html: |-
+      <p>see: <a href="http://typophile.com/node/65149#comment-382760" title="http://typophile.com/node/65149#comment-382760">http://typophile.com/node/65149#comment-382760</a> and following.<br>
+      [szukajka miejscowa nie działa za dobrze, używaj gógla: "site:typophile.com overlapping glyphs in classes"]</p>
+    html_clean: |-
+      <p>see: <a href="/node/65149/#comment-382760" title="http://typophile.com/node/65149#comment-382760">http://typophile.com/node/65149#comment-382760</a> and following.<br>
+      [szukajka miejscowa nie działa za dobrze, używaj gógla: "site:typophile.com overlapping glyphs in classes"]</p>
+  - id: 590159
+    user: 223507
+    date: 2014-10-08T10:22:00
+    date_raw: 8 Oct 2014 — 10:22am
+    votes: null
+    html: <p>Thanks for the link and help.</p>
+    html_clean: <p>Thanks for the link and help.</p>
+  - id: 590168
+    user: 223507
+    date: 2014-10-08T13:54:00
+    date_raw: 8 Oct 2014 — 1:54pm
+    votes: null
+    html: |-
+      <p>Yeah, that was it. I cleaned everything and there's no errors. It is tricky that this issue also appears when same glyph is putted in one class twice, it can be missed while coping and pasting. </p>
+      <p>That problem was quite haunting me, so thanks a lot one more time.</p>
+    html_clean: |-
+      <p>Yeah, that was it. I cleaned everything and there's no errors. It is tricky that this issue also appears when same glyph is putted in one class twice, it can be missed while coping and pasting. </p>
+      <p>That problem was quite haunting me, so thanks a lot one more time.</p>
+  - id: 590171
+    user: 9108
+    date: 2014-10-08T15:17:00
+    date_raw: 8 Oct 2014 — 3:17pm
+    votes: null
+    html: <p>Great :)</p>
+    html_clean: <p>Great :)</p>

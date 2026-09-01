@@ -1,0 +1,127 @@
+node: 83820
+title: can I script the FontLab "save as" behavior?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809200822"
+  captured_at: 2014-08-09T20:08:22Z
+  url: http://typophile.com/node/83820
+  digest: XOLG6ZHLBOHW2F7UPAUNH3BSJUJQKX4C
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/83820.html
+  fingerprint: 477c8e6403eabfe9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809200822"
+      digest: XOLG6ZHLBOHW2F7UPAUNH3BSJUJQKX4C
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/83820.html
+post:
+  id: 83820
+  user: 46471
+  date: 2011-07-15T18:24:00
+  date_raw: 15 Jul 2011 — 6:24pm
+  votes: null
+  html: |-
+    <p>Using python in Fontlab, I understand how to save a currently open VFB, or save a currently open VFB under a different name.</p>
+    <p>What I don't understand is how to get the "save as" behavior: keep the current VFB &amp; its windows open, but give it a new filename.</p>
+  html_clean: |-
+    <p>Using python in Fontlab, I understand how to save a currently open VFB, or save a currently open VFB under a different name.</p>
+    <p>What I don't understand is how to get the "save as" behavior: keep the current VFB &amp; its windows open, but give it a new filename.</p>
+comments:
+  - id: 471196
+    user: 1133
+    date: 2011-07-16T08:31:00
+    date_raw: 16 Jul 2011 — 8:31am
+    votes: null
+    html: |-
+      <p><code>fl.font.file_name = "your new path"<br>
+      fl.font.Save()</code><br>
+      or<br>
+      <code>fl.font.Save("your new path")</code></p>
+      <p>A.</p>
+    html_clean: |-
+      <p><code>fl.font.file_name = "your new path"<br>
+      fl.font.Save()</code><br>
+      or<br>
+      <code>fl.font.Save("your new path")</code></p>
+      <p>A.</p>
+  - id: 471206
+    user: 46471
+    date: 2011-07-16T09:25:00
+    date_raw: 16 Jul 2011 — 9:25am
+    votes: null
+    html: <p>Yep, I already tried that. What happens is that FL saves a duplicate of my open font at "your new path." But the filename on the open font doesn't change (and thus if I hit "save" again, any changes go into the old file.)</p>
+    html_clean: <p>Yep, I already tried that. What happens is that FL saves a duplicate of my open font at "your new path." But the filename on the open font doesn't change (and thus if I hit "save" again, any changes go into the old file.)</p>
+  - id: 471274
+    user: 1133
+    date: 2011-07-17T04:55:00
+    date_raw: 17 Jul 2011 — 4:55am
+    votes: null
+    html: |-
+      <p>How about:<br>
+      <code>fl.font.file_name = "your new path"<br>
+      fl.UpdateFont(-1)<br>
+      fl.font.Save(fl.font.file_name)</code><br>
+      ?</p>
+    html_clean: |-
+      <p>How about:<br>
+      <code>fl.font.file_name = "your new path"<br>
+      fl.UpdateFont(-1)<br>
+      fl.font.Save(fl.font.file_name)</code><br>
+      ?</p>
+  - id: 471342
+    user: 46471
+    date: 2011-07-17T14:01:00
+    date_raw: 17 Jul 2011 — 2:01pm
+    votes: null
+    html: |-
+      <p>That works. Thanks.</p>
+      <p>Does a fontindex of -1 have a predictable result in other functions that ask for a fontindex, or is this a special behavior of UpdateFont()?</p>
+    html_clean: |-
+      <p>That works. Thanks.</p>
+      <p>Does a fontindex of -1 have a predictable result in other functions that ask for a fontindex, or is this a special behavior of UpdateFont()?</p>
+  - id: 471351
+    user: 46471
+    date: 2011-07-17T15:36:00
+    date_raw: 17 Jul 2011 — 3:36pm
+    votes: null
+    html: |-
+      <p>Can also be done through Robofab</p>
+      <p>new_file_path = [whatever you want]<br>
+      this_font.save(new_file_path)<br>
+      this_font.update()</p>
+    html_clean: |-
+      <p>Can also be done through Robofab</p>
+      <p>new_file_path = [whatever you want]<br>
+      this_font.save(new_file_path)<br>
+      this_font.update()</p>
+  - id: 473006
+    user: 1133
+    date: 2011-08-03T09:17:00
+    date_raw: 3 Aug 2011 — 9:17am
+    votes: null
+    html: <p>fl.UpdateFont(-1) is synonymous with fl.UpdateFont(fl.ifont) in this case, but it's not universal behavior, I think. Actually, using fl.UpdateFont(fl.ifont) is more elegant to use than fl.UpdateFont(-1).</p>
+    html_clean: <p>fl.UpdateFont(-1) is synonymous with fl.UpdateFont(fl.ifont) in this case, but it's not universal behavior, I think. Actually, using fl.UpdateFont(fl.ifont) is more elegant to use than fl.UpdateFont(-1).</p>
+  - id: 573451
+    user: 909
+    date: 2014-03-11T16:29:00
+    date_raw: 11 Mar 2014 — 4:29pm
+    votes: null
+    html: <p>Geez. Amusingly, what I *need* is the behavior Matthew B was trying to avoid. Here I was going through some extra contortions to get this behavior. Re-reading this just enabled me to drop a bunch of lines of code as unnecessary.  :)</p>
+    html_clean: <p>Geez. Amusingly, what I *need* is the behavior Matthew B was trying to avoid. Here I was going through some extra contortions to get this behavior. Re-reading this just enabled me to drop a bunch of lines of code as unnecessary.  :)</p>

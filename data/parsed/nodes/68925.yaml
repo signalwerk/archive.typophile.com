@@ -1,0 +1,77 @@
+node: 68925
+title: Opentype Ranges Question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131016205912"
+  captured_at: 2013-10-16T20:59:12Z
+  url: http://typophile.com/node/68925
+  digest: 5HTVCRZHC4LKVUKZE5MZPC2MRQXFV4K2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/68925.html
+  fingerprint: dfcf12602b476dc3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131016205912"
+      digest: 5HTVCRZHC4LKVUKZE5MZPC2MRQXFV4K2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/68925.html
+post:
+  id: 68925
+  user: 41784
+  date: 2010-03-29T23:57:00
+  date_raw: 29 Mar 2010 — 11:57pm
+  votes: null
+  html: |-
+    <p>Hi, I'm dropping some substitution features into a new font, and I'm wondering about how to code OpenType ranges.</p>
+    <p>For example: [a-z] will cover your basic alphabet, but won't cover accented characters. </p>
+    <p>Is there a way to write out a range that includes, for example, all lowercase characters?</p>
+    <p>Is there any documentation on this, or basic principles involved?</p>
+    <p>Obviously, I can do write out every character manually, but would rather do it efficiently if possib.e</p>
+    <p>Rob</p>
+  html_clean: |-
+    <p>Hi, I'm dropping some substitution features into a new font, and I'm wondering about how to code OpenType ranges.</p>
+    <p>For example: [a-z] will cover your basic alphabet, but won't cover accented characters. </p>
+    <p>Is there a way to write out a range that includes, for example, all lowercase characters?</p>
+    <p>Is there any documentation on this, or basic principles involved?</p>
+    <p>Obviously, I can do write out every character manually, but would rather do it efficiently if possib.e</p>
+    <p>Rob</p>
+comments:
+  - id: 404135
+    user: 29994
+    date: 2010-03-30T12:57:00
+    date_raw: 30 Mar 2010 — 12:57pm
+    votes: null
+    html: |-
+      <p>Uppercase vs. lowercase is a somewhat fluid concept -- best illustrated by the <a href="http://typophile.com/node/48746" rel="nofollow">long-ongoing discussion</a> on where to put the eszet, and now it officially (or semi-officially) has an uppercase form, what to do with existing fonts, or indeed, with new fonts, and with new fonts in old software (and presumably also the other way around).</p>
+      <p>The Unicode consortium lists per code point what they consider "lowercase" and "uppercase" (for an introduction, read <a href="http://unicode.org/reports/tr21/tr21-3.html" rel="nofollow">their view on Case Mapping</a>). You can safely refer to the Unicode lists to decide which characters are uppercase or lowercase.</p>
+      <p>For example:<br>
+      U+2C60 LATIN CAPITAL LETTER L WITH DOUBLE BAR<br>
+      U+2C61 LATIN SMALL LETTER L WITH DOUBLE BAR</p>
+      <p>(etc.) Once you have decided which characters to put into your font, define named glyph classes:</p>
+      <p>@mylowercase = [ a b c ... x y z uni2C61 ];</p>
+      <p>It sounds like a lot of work, but of course you only have to do this once. If you ever add an uppercase of lowercase glyph later on, you only have to add it to the right glyph class.</p>
+    html_clean: |-
+      <p>Uppercase vs. lowercase is a somewhat fluid concept -- best illustrated by the <a href="/node/48746/" rel="nofollow">long-ongoing discussion</a> on where to put the eszet, and now it officially (or semi-officially) has an uppercase form, what to do with existing fonts, or indeed, with new fonts, and with new fonts in old software (and presumably also the other way around).</p>
+      <p>The Unicode consortium lists per code point what they consider "lowercase" and "uppercase" (for an introduction, read <a href="http://unicode.org/reports/tr21/tr21-3.html" rel="nofollow">their view on Case Mapping</a>). You can safely refer to the Unicode lists to decide which characters are uppercase or lowercase.</p>
+      <p>For example:<br>
+      U+2C60 LATIN CAPITAL LETTER L WITH DOUBLE BAR<br>
+      U+2C61 LATIN SMALL LETTER L WITH DOUBLE BAR</p>
+      <p>(etc.) Once you have decided which characters to put into your font, define named glyph classes:</p>
+      <p>@mylowercase = [ a b c ... x y z uni2C61 ];</p>
+      <p>It sounds like a lot of work, but of course you only have to do this once. If you ever add an uppercase of lowercase glyph later on, you only have to add it to the right glyph class.</p>

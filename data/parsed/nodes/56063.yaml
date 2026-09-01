@@ -1,0 +1,67 @@
+node: 56063
+title: Open Type CFF generation and kerning
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131106065138"
+  captured_at: 2013-11-06T06:51:38Z
+  url: http://typophile.com/node/56063
+  digest: LCR54DN4DV5LN43SOCSKRRFOILRRXYPW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/56063.html
+  fingerprint: bd40f2630fe01612
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131106065138"
+      digest: LCR54DN4DV5LN43SOCSKRRFOILRRXYPW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56063.html
+post:
+  id: 56063
+  user: 1137
+  date: 2009-03-20T01:28:00
+  date_raw: 20 Mar 2009 — 1:28am
+  votes: null
+  html: |-
+    <p>Hi there,</p>
+    <p>I am generating an Open Type (CFF) font and I don't know if I should check the option in Prefereces &gt; Generating Open Type and TrueType &gt; Kerning: "Export 'kern' table</p>
+    <p>Is it OK in an OT font to generate the flat kerning table together with the class-based kerning or only one of them should be chosen?</p>
+    <p>Thanks in advance.</p>
+    <p>Ramiro.</p>
+  html_clean: |-
+    <p>Hi there,</p>
+    <p>I am generating an Open Type (CFF) font and I don't know if I should check the option in Prefereces &gt; Generating Open Type and TrueType &gt; Kerning: "Export 'kern' table</p>
+    <p>Is it OK in an OT font to generate the flat kerning table together with the class-based kerning or only one of them should be chosen?</p>
+    <p>Thanks in advance.</p>
+    <p>Ramiro.</p>
+comments:
+  - id: 336568
+    user: 1262
+    date: 2009-03-20T09:57:00
+    date_raw: 20 Mar 2009 — 9:57am
+    votes: null
+    html: |-
+      <p>In a CFF OT font, you should not generate a flat kern table.</p>
+      <p>In a TTF, this is possible, although you may run unto difficulties in some applications (not a well-documented area, I'm afraid).</p>
+      <p>Note, however, that technically a kern table is only supposed to include kerning for encoded glyphs, i.e. not for unencoded variants such as ligatures or stylistic alternates. This is one of the reasons that the kern table should be superseded by GPOS kerning.</p>
+      <p>Note also that there is a practical size limit to the kern table, beyond which pairs will be ignored.</p>
+    html_clean: |-
+      <p>In a CFF OT font, you should not generate a flat kern table.</p>
+      <p>In a TTF, this is possible, although you may run unto difficulties in some applications (not a well-documented area, I'm afraid).</p>
+      <p>Note, however, that technically a kern table is only supposed to include kerning for encoded glyphs, i.e. not for unencoded variants such as ligatures or stylistic alternates. This is one of the reasons that the kern table should be superseded by GPOS kerning.</p>
+      <p>Note also that there is a practical size limit to the kern table, beyond which pairs will be ignored.</p>

@@ -1,0 +1,151 @@
+node: 57223
+title: Robofab generateGlyph ?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203083847"
+  captured_at: 2010-02-03T08:38:47Z
+  url: http://typophile.com/node/57223
+  digest: LDQKLB4D2JF565UZHAGBNXKTQLPO5D6R
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/57223.html
+  fingerprint: 7b18f226bccda8f0
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203083847"
+      digest: LDQKLB4D2JF565UZHAGBNXKTQLPO5D6R
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/57223.html
+post:
+  id: 57223
+  user: 16986
+  date: 2009-04-21T13:02:00
+  date_raw: 21.Apr.2009 1.02pm
+  votes: null
+  html: |-
+    <p>Hi all</p>
+    <p>I'm looking for a simple way to generate the Accents glyphs with a Robofab/Python script. From the Robofab documentation it looks like generateGlyph should do the trick.</p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()<br>
+    glyphs = ['ccaron','amacron','Cacute','Cdotaccent','Abreve','cdotaccent','ccircumflex','Aogonek','abreve','cacute','Ccaron','Amacron','aogonek','Ccircumflex']</code></p>
+    <p>for glyph in glyphs:<br>
+    	nglyph = f.generateGlyph(glyph)<br>
+    	nglyph.autoUnicodes()<br>
+    	nglyph.mark = 10<br>
+    #<br>
+    f.update()</p>
+    <p></p>
+    <p>This works fine for generating the glyphs and adding the base glyphs but doesn't add the accent. Is it possible to add the accent with Robofab so the code would work like - Glyph &gt; Generate Gkyohs in FontLab.</p>
+    <p>Rr</p>
+  html_clean: |-
+    <p>Hi all</p>
+    <p>I'm looking for a simple way to generate the Accents glyphs with a Robofab/Python script. From the Robofab documentation it looks like generateGlyph should do the trick.</p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()<br>
+    glyphs = ['ccaron','amacron','Cacute','Cdotaccent','Abreve','cdotaccent','ccircumflex','Aogonek','abreve','cacute','Ccaron','Amacron','aogonek','Ccircumflex']</code></p>
+    <p>for glyph in glyphs:<br>
+    	nglyph = f.generateGlyph(glyph)<br>
+    	nglyph.autoUnicodes()<br>
+    	nglyph.mark = 10<br>
+    #<br>
+    f.update()</p>
+    <p></p>
+    <p>This works fine for generating the glyphs and adding the base glyphs but doesn't add the accent. Is it possible to add the accent with Robofab so the code would work like - Glyph &gt; Generate Gkyohs in FontLab.</p>
+    <p>Rr</p>
+comments:
+  - id: 342914
+    user: 16321
+    date: 2009-04-21T14:35:00
+    date_raw: 21.Apr.2009 2.35pm
+    votes: null
+    html: |-
+      <p>Have you had a look at Ben Kiel's 'accentTools'? <a class="freelinking external" href="http://www.benkiel.com/typeDesign/">http://www.benkiel.com/typeDesign/</a><br>
+      It might be of inspiration, or actually what you are looking for.</p>
+    html_clean: |-
+      <p>Have you had a look at Ben Kiel's 'accentTools'? <a class="freelinking external" href="http://www.benkiel.com/typeDesign/">http://www.benkiel.com/typeDesign/</a><br>
+      It might be of inspiration, or actually what you are looking for.</p>
+  - id: 342917
+    user: 16986
+    date: 2009-04-21T14:48:00
+    date_raw: 21.Apr.2009 2.48pm
+    votes: null
+    html: <p>I tired that script but it seemed to be doing the same thing - adding the base glyph but not the accent.</p>
+    html_clean: <p>I tired that script but it seemed to be doing the same thing - adding the base glyph but not the accent.</p>
+  - id: 342919
+    user: 4346
+    date: 2009-04-21T15:28:00
+    date_raw: 21.Apr.2009 3.28pm
+    votes: null
+    html: <p>It sounds like you don't have your accents named correctly. Also, check that you have your anchors named correctly in your base glyphs and in the accents (and remember the accents are supposed to start with an _).</p>
+    html_clean: <p>It sounds like you don't have your accents named correctly. Also, check that you have your anchors named correctly in your base glyphs and in the accents (and remember the accents are supposed to start with an _).</p>
+  - id: 343292
+    user: 1289
+    date: 2009-04-23T17:01:00
+    date_raw: 23.Apr.2009 5.01pm
+    votes: null
+    html: |-
+      <p>Hi,</p>
+      <p>You can try with this:<br>
+      <code><br>
+      ----------------------------------------------------<br>
+      from robofab.world import CurrentFont<br>
+      from robofab.tools.accentBuilder import AccentTools</code></p>
+      <p>font = CurrentFont()</p>
+      <p>accents = ['ccaron','amacron','Cacute','Cdotaccent','Abreve','cdotaccent']<br>
+      accentTool = AccentTools(font, accents)</p>
+      <p>accentTool.buildAnchors(ucXOffset=30, ucYOffset=70, lcXOffset=20, lcYOffset=50, doProgress=True)</p>
+      <p>accentTool.printAnchorErrors()<br>
+      accentTool.buildAccents(doProgress=True)<br>
+      accentTool.printAccentErrors()<br>
+      font.autoUnicodes()</p>
+      <p>#font.update()<br>
+      # This glyph update isn't the best way, but it works...<br>
+      for glyph in font:<br>
+      		glyph.update()<br>
+      ----------------------------------------------------<br>
+      <code></code></p>
+    html_clean: |-
+      <p>Hi,</p>
+      <p>You can try with this:<br>
+      <code><br>
+      ----------------------------------------------------<br>
+      from robofab.world import CurrentFont<br>
+      from robofab.tools.accentBuilder import AccentTools</code></p>
+      <p>font = CurrentFont()</p>
+      <p>accents = ['ccaron','amacron','Cacute','Cdotaccent','Abreve','cdotaccent']<br>
+      accentTool = AccentTools(font, accents)</p>
+      <p>accentTool.buildAnchors(ucXOffset=30, ucYOffset=70, lcXOffset=20, lcYOffset=50, doProgress=True)</p>
+      <p>accentTool.printAnchorErrors()<br>
+      accentTool.buildAccents(doProgress=True)<br>
+      accentTool.printAccentErrors()<br>
+      font.autoUnicodes()</p>
+      <p>#font.update()<br>
+      # This glyph update isn't the best way, but it works...<br>
+      for glyph in font:<br>
+      		glyph.update()<br>
+      ----------------------------------------------------<br>
+      <code></code></p>
+  - id: 343303
+    user: 4886
+    date: 2009-04-23T18:34:00
+    date_raw: 23.Apr.2009 6.34pm
+    votes: null
+    html: <p>If you use standard names, you shouldn't even need a script. In the "Generate glyphs" dialog, you can just paste glyph names or link to a text file with the names of the glyphs you want to generate. I'm actually not really sure why people bother to use scripts. There is a FL system file which specifies how base glyphs and accents combine, so you can modify this if you want to use case specific accents.</p>
+    html_clean: <p>If you use standard names, you shouldn't even need a script. In the "Generate glyphs" dialog, you can just paste glyph names or link to a text file with the names of the glyphs you want to generate. I'm actually not really sure why people bother to use scripts. There is a FL system file which specifies how base glyphs and accents combine, so you can modify this if you want to use case specific accents.</p>

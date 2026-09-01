@@ -1,0 +1,184 @@
+node: 65321
+title: Outlines changing on generate...
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130823072129"
+  captured_at: 2013-08-23T07:21:29Z
+  url: http://typophile.com/node/65321
+  digest: LF7LJBSWXBCKPOBQOV34LC4IUQWL6PXZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/65321.html
+  fingerprint: c6827608bff26d64
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130823072129"
+      digest: LF7LJBSWXBCKPOBQOV34LC4IUQWL6PXZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/65321.html
+post:
+  id: 65321
+  user: 3771
+  date: 2009-12-12T23:32:00
+  date_raw: 12 Dec 2009 — 11:32pm
+  votes: null
+  html: |-
+    <p>Outlines drawn in Illustrator show bottom of feet as intended: a smooth concave curve. Outline brought into FontLab, all is well: the curve is still right. On generating OT font, however, the curve turns into a kind of wave. When the glyph is set in InDesign, there's the odd wave. But when I convert that glyph to outlines in InDesign, the wave converts back to the proper concave curve. PDF attached. Any ideas?</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/waved-foot.pdf">waved-foot.pdf</a></td><td>24.76 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Outlines drawn in Illustrator show bottom of feet as intended: a smooth concave curve. Outline brought into FontLab, all is well: the curve is still right. On generating OT font, however, the curve turns into a kind of wave. When the glyph is set in InDesign, there's the odd wave. But when I convert that glyph to outlines in InDesign, the wave converts back to the proper concave curve. PDF attached. Any ideas?</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/waved-foot.pdf">waved-foot.pdf</a></td><td>24.76 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 383664
+    user: 46071
+    date: 2009-12-13T03:24:00
+    date_raw: 13 Dec 2009 — 3:24am
+    votes: null
+    html: |-
+      <p>It's not a change in the outline, but a problem in the rendering by the Adobe apps.<br>
+      If you look at the PDF with Acrobat you see the "wave", but if you look at it with a different app (on OS X, for example, with Preview) you will see the proper concave curve.</p>
+    html_clean: |-
+      <p>It's not a change in the outline, but a problem in the rendering by the Adobe apps.<br>
+      If you look at the PDF with Acrobat you see the "wave", but if you look at it with a different app (on OS X, for example, with Preview) you will see the proper concave curve.</p>
+  - id: 383674
+    user: 21687
+    date: 2009-12-13T06:50:00
+    date_raw: 13 Dec 2009 — 6:50am
+    votes: null
+    html: |-
+      <p>I think it's a hinting problem. That could explain the different display in Preview and Adobe Reader (OS X Preview ignores hints, Adobe Reader interprets them for display). When you convert the font to outlines in InDesign, hinting is discarded and the outline looks good again.</p>
+      <p>What do your hints look like in FontLab Studio?</p>
+    html_clean: |-
+      <p>I think it's a hinting problem. That could explain the different display in Preview and Adobe Reader (OS X Preview ignores hints, Adobe Reader interprets them for display). When you convert the font to outlines in InDesign, hinting is discarded and the outline looks good again.</p>
+      <p>What do your hints look like in FontLab Studio?</p>
+  - id: 383689
+    user: 1250
+    date: 2009-12-13T08:56:00
+    date_raw: 13 Dec 2009 — 8:56am
+    votes: null
+    html: |-
+      <p>Some apps don't like curves where one end doesn't have a control point.<br>
+      Try adding a "nominal" BCP and see if it helps.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Some apps don't like curves where one end doesn't have a control point.<br>
+      Try adding a "nominal" BCP and see if it helps.</p>
+      <p>hhp</p>
+  - id: 383696
+    user: 3771
+    date: 2009-12-13T10:36:00
+    date_raw: 13 Dec 2009 — 10:36am
+    votes: null
+    html: <p>There was no hinting added to the font, and all three points along the bottom of the foot have BCPs in both directions. Also, the "wave" is showing up in InDesign as well, not just the PDF. I've added autohinting to test, but the wave is still there (this is essentially my first font, so I'll have to read up more on hinting). Please keep the suggestions coming...</p>
+    html_clean: <p>There was no hinting added to the font, and all three points along the bottom of the foot have BCPs in both directions. Also, the "wave" is showing up in InDesign as well, not just the PDF. I've added autohinting to test, but the wave is still there (this is essentially my first font, so I'll have to read up more on hinting). Please keep the suggestions coming...</p>
+  - id: 383699
+    user: 45774
+    date: 2009-12-13T11:11:00
+    date_raw: 13 Dec 2009 — 11:11am
+    votes: null
+    html: |-
+      <p>@ jason</p>
+      <p>Would you post the font, please? (Remove the glyphs except from the l. I think the easiest way of removing the outlines is to swap them with the mask layer and to globally delete the mask then. At the moment I don’t know, if there is a function in FontLab with the help of which you can directly remove outlines from more than one character at once.)</p>
+    html_clean: |-
+      <p>@ jason</p>
+      <p>Would you post the font, please? (Remove the glyphs except from the l. I think the easiest way of removing the outlines is to swap them with the mask layer and to globally delete the mask then. At the moment I don’t know, if there is a function in FontLab with the help of which you can directly remove outlines from more than one character at once.)</p>
+  - id: 383701
+    user: 3771
+    date: 2009-12-13T11:13:00
+    date_raw: 13 Dec 2009 — 11:13am
+    votes: null
+    html: |-
+      <p>Of the three points I had along the bottom of the foot, I've removed the middle point and the "wave" appears to go away. Here is the foot with three points, and with two. The latter seems to be rendering fine in InDesign and in PDF.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/bcps_5949.jpg"></div><p></p>
+    html_clean: |-
+      <p>Of the three points I had along the bottom of the foot, I've removed the middle point and the "wave" appears to go away. Here is the foot with three points, and with two. The latter seems to be rendering fine in InDesign and in PDF.</p>
+      <p></p><div class="imageWrap"><img src="/files/bcps_5949.jpg"></div><p></p>
+  - id: 383702
+    user: 45774
+    date: 2009-12-13T11:19:00
+    date_raw: 13 Dec 2009 — 11:19am
+    votes: null
+    html: |-
+      <p>@ jason</p>
+      <p>It is much easier to comprehend those problems, if I have access to the font file.</p>
+    html_clean: |-
+      <p>@ jason</p>
+      <p>It is much easier to comprehend those problems, if I have access to the font file.</p>
+  - id: 383706
+    user: 1250
+    date: 2009-12-13T12:01:00
+    date_raw: 13 Dec 2009 — 12:01pm
+    votes: null
+    html: |-
+      <p>What does the wave look like, exactly?</p>
+      <p>Is your Em something besides 1000?<br>
+      Are you generating PS outlines or TT?</p>
+      <p>I have a hunch the BCPs are snapping<br>
+      to a grid that's throwing off the curves.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>What does the wave look like, exactly?</p>
+      <p>Is your Em something besides 1000?<br>
+      Are you generating PS outlines or TT?</p>
+      <p>I have a hunch the BCPs are snapping<br>
+      to a grid that's throwing off the curves.</p>
+      <p>hhp</p>
+  - id: 383709
+    user: 3771
+    date: 2009-12-13T12:13:00
+    date_raw: 13 Dec 2009 — 12:13pm
+    votes: null
+    html: |-
+      <p>1000 unit em, generating OTPS font from FontLab. I'm drawing the outlines in Illustrator on the 1000 unit grid and, yes, I have everything set to snap to that grid. Then I've copied/pasted the glyphs into FontLab and fine-tuned them there. Here is a JPG to avoid rendering differences: the top is the outline as drawn with three BCPs, the bottom is the same foot as rendered in InDesign using the OTPS font.</p>
+      <p>As mentioned in my last post, though, removing the middle BCP from the feet and top serifs seems to fix the problem, so the font is now rendering properly.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/wave_5321.jpg"></div><p></p>
+    html_clean: |-
+      <p>1000 unit em, generating OTPS font from FontLab. I'm drawing the outlines in Illustrator on the 1000 unit grid and, yes, I have everything set to snap to that grid. Then I've copied/pasted the glyphs into FontLab and fine-tuned them there. Here is a JPG to avoid rendering differences: the top is the outline as drawn with three BCPs, the bottom is the same foot as rendered in InDesign using the OTPS font.</p>
+      <p>As mentioned in my last post, though, removing the middle BCP from the feet and top serifs seems to fix the problem, so the font is now rendering properly.<br>
+      </p><div class="imageWrap"><img src="/files/wave_5321.jpg"></div><p></p>
+  - id: 383710
+    user: 1250
+    date: 2009-12-13T12:31:00
+    date_raw: 13 Dec 2009 — 12:31pm
+    votes: null
+    html: |-
+      <p>I hear you about the grid-snapping, but I think<br>
+      maybe the points are in fact snapping to the wrong<br>
+      place when you're bringing them from Illustrator.<br>
+      And really, in general, the more that you do stuff<br>
+      natively in FontLab the better. This could all be<br>
+      FontLab's fault and not Illustrator's, but still.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I hear you about the grid-snapping, but I think<br>
+      maybe the points are in fact snapping to the wrong<br>
+      place when you're bringing them from Illustrator.<br>
+      And really, in general, the more that you do stuff<br>
+      natively in FontLab the better. This could all be<br>
+      FontLab's fault and not Illustrator's, but still.</p>
+      <p>hhp</p>

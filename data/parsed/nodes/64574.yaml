@@ -1,0 +1,166 @@
+node: 64574
+title: rasterizing fonts at low point sizes while keeping antialiasing and hinting active
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20100131095846"
+  captured_at: 2010-01-31T09:58:46Z
+  url: http://typophile.com/node/64574
+  digest: D46URLPPXT2335UEVCZAV7KDUQ4XH6CW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/64574.html
+  fingerprint: 46f60a0f8df1edb8
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100131095846"
+      digest: D46URLPPXT2335UEVCZAV7KDUQ4XH6CW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64574.html
+post:
+  id: 64574
+  user: 50481
+  date: 2009-11-22T01:34:00
+  date_raw: 22.Nov.2009 1.34am
+  votes: null
+  html: |-
+    <p>Hey all, some discussions here touched on this, but I still can't find a good answer.<br>
+    I'm using Windows, and I'm trying to render some true type fonts to fit into an 8x8 grid and then reduce the grayscale to 1 or 2 grays for use in old video game roms.  I tried several methods and most came out really crappy.  While trying to find a better way I found out that the solution is hinting to keep the clarity at low point sizes while still softening the edges of the curves.  This works really well, except Windows' font smoothing kicks out at those font sizes except in a few fonts I've tried it with.  So-far the only solution I found that might work - a CSS webpage tag that forces antialiasing at small sizes didn't work for me.  Does anyone know a program, dll modification, or font data modification to make windows keep it's antialiasing active at the font sizes I wish to use?  Will a mac computer's rasterizer do what I want?</p>
+  html_clean: |-
+    <p>Hey all, some discussions here touched on this, but I still can't find a good answer.<br>
+    I'm using Windows, and I'm trying to render some true type fonts to fit into an 8x8 grid and then reduce the grayscale to 1 or 2 grays for use in old video game roms.  I tried several methods and most came out really crappy.  While trying to find a better way I found out that the solution is hinting to keep the clarity at low point sizes while still softening the edges of the curves.  This works really well, except Windows' font smoothing kicks out at those font sizes except in a few fonts I've tried it with.  So-far the only solution I found that might work - a CSS webpage tag that forces antialiasing at small sizes didn't work for me.  Does anyone know a program, dll modification, or font data modification to make windows keep it's antialiasing active at the font sizes I wish to use?  Will a mac computer's rasterizer do what I want?</p>
+comments:
+  - id: 379886
+    user: 29994
+    date: 2009-11-22T04:39:00
+    date_raw: 22.Nov.2009 4.39am
+    votes: null
+    html: |-
+      <p>FreeType might be able to do that, although its defaults are exactly what you describe.</p>
+      <p>Although I seriously doubt a character on an 8x8 grid wil look <em>anything</em> like the original font.</p>
+      <p>(A post-edit thought: why not draw the characters in black &amp; white, at 200% scale, then downscale to get 4 levels of grey? Or indeed, as large as you want, and clip grey values when downscaling.)</p>
+    html_clean: |-
+      <p>FreeType might be able to do that, although its defaults are exactly what you describe.</p>
+      <p>Although I seriously doubt a character on an 8x8 grid wil look <em>anything</em> like the original font.</p>
+      <p>(A post-edit thought: why not draw the characters in black &amp; white, at 200% scale, then downscale to get 4 levels of grey? Or indeed, as large as you want, and clip grey values when downscaling.)</p>
+  - id: 379888
+    user: 21687
+    date: 2009-11-22T04:46:00
+    date_raw: 22.Nov.2009 4.46am
+    votes: null
+    html: |-
+      <p>You could try editing the font's GASP table, which controls which kinds of gridfitting/antialiasing are applied at which sizes:</p>
+      <p><a href="http://www.microsoft.com/typography/otspec/gasp.htm" title="http://www.microsoft.com/typography/otspec/gasp.htm">http://www.microsoft.com/typography/otspec/gasp.htm</a></p>
+    html_clean: |-
+      <p>You could try editing the font's GASP table, which controls which kinds of gridfitting/antialiasing are applied at which sizes:</p>
+      <p><a href="http://www.microsoft.com/typography/otspec/gasp.htm" title="http://www.microsoft.com/typography/otspec/gasp.htm">http://www.microsoft.com/typography/otspec/gasp.htm</a></p>
+  - id: 379890
+    user: 50481
+    date: 2009-11-22T06:01:00
+    date_raw: 22.Nov.2009 6.01am
+    votes: null
+    html: |-
+      <p>Thanks for the replies!<br>
+      Helvetica turned out really well in notepad.  I was amazed.<br>
+      <a href="http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif" title="http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif">http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif</a><br>
+      The 200+% method works, but the horizontal and vertical lines tend to come out as shades of gray with all the scaling methods I tried unless I moved the letters around trial-and-error like.  Too messy.</p>
+      <p>I'll try out Freetype and see if there's any way to coax it into doing what I want. Sourcecode is available so I may be able to do something with that.</p>
+      <p>Thanks for the link, I'll load up Fontographer and hunt down the GASP dialog.</p>
+      <p>I knew I was asking in the right place.</p>
+    html_clean: |-
+      <p>Thanks for the replies!<br>
+      Helvetica turned out really well in notepad.  I was amazed.<br>
+      <a href="http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif" title="http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif">http://www3.telus.net/anapan8/ldj/lsdjfonts_3.gif</a><br>
+      The 200+% method works, but the horizontal and vertical lines tend to come out as shades of gray with all the scaling methods I tried unless I moved the letters around trial-and-error like.  Too messy.</p>
+      <p>I'll try out Freetype and see if there's any way to coax it into doing what I want. Sourcecode is available so I may be able to do something with that.</p>
+      <p>Thanks for the link, I'll load up Fontographer and hunt down the GASP dialog.</p>
+      <p>I knew I was asking in the right place.</p>
+  - id: 379891
+    user: 1043
+    date: 2009-11-22T06:38:00
+    date_raw: 22.Nov.2009 6.38am
+    votes: null
+    html: <p>I don't think Fontographer gives you access to the GASP table. FontLab, Font Forge do. If that's all you want to do, you can use TTX.</p>
+    html_clean: <p>I don't think Fontographer gives you access to the GASP table. FontLab, Font Forge do. If that's all you want to do, you can use TTX.</p>
+  - id: 379902
+    user: 1250
+    date: 2009-11-22T08:09:00
+    date_raw: 22.Nov.2009 8.09am
+    votes: null
+    html: |-
+      <p>Did you try using Curves in Photoshop on a<br>
+      fully grayscale rendering of 8 point type?</p>
+      <p>&gt; for use in old video game roms.</p>
+      <p>Could you elaborate? Are you actually making new ROMs for old video game systems, and want to have the type rendered as nice as possible? Or are you trying to simulate the type from an old game system? I've heard of some old Atari games that used grayscaled bitmap fonts, but that was extremely rare - I've never seen it.</p>
+      <p>&gt; I seriously doubt a character on an 8x8<br>
+      &gt; grid wil look anything like the original font.</p>
+      <p>But remember: nothing looks like itself at a different size.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Did you try using Curves in Photoshop on a<br>
+      fully grayscale rendering of 8 point type?</p>
+      <p>&gt; for use in old video game roms.</p>
+      <p>Could you elaborate? Are you actually making new ROMs for old video game systems, and want to have the type rendered as nice as possible? Or are you trying to simulate the type from an old game system? I've heard of some old Atari games that used grayscaled bitmap fonts, but that was extremely rare - I've never seen it.</p>
+      <p>&gt; I seriously doubt a character on an 8x8<br>
+      &gt; grid wil look anything like the original font.</p>
+      <p>But remember: nothing looks like itself at a different size.</p>
+      <p>hhp</p>
+  - id: 379912
+    user: 50481
+    date: 2009-11-22T09:05:00
+    date_raw: 22.Nov.2009 9.05am
+    votes: null
+    html: |-
+      <p>Oh cool!  I think TTX is just what I'm looking for.</p>
+      <p>I'll give Photoshop a try first, I'm more familiar with Paint Shop Pro, so that's what I've been using.  It's rasterizer is OK, but doesn't seem to use hinting.  Still it worked better than the resizing method.</p>
+      <p>Right now I'm replacing the fonts in Little Sound DJ for Gameboy.  It's important to have a really readable font on a screen that small, and I didn't like the default fonts it had available.  I posted my first results to <a class="freelinking external" href="http://8bitcollective.com/forums/viewtopic.php?id=16226">8 Bit Collective</a>, and had requests for some True Type fonts.  I've done this kinda thing on other games and programs for older systems - Pocketnes for GBA, and some other rom hacks.  Whenever I tried to convert a TTF I got mixed results, and windows font smoothing (or lack of it) has always been where I hit a brick wall.  After Helvetica turned out so good I started searching for a way to replicate it with some other good fonts and wound up here.  I'm glad you guys have such good suggestions.  I've been trying to figure this one out on and off for years.</p>
+    html_clean: |-
+      <p>Oh cool!  I think TTX is just what I'm looking for.</p>
+      <p>I'll give Photoshop a try first, I'm more familiar with Paint Shop Pro, so that's what I've been using.  It's rasterizer is OK, but doesn't seem to use hinting.  Still it worked better than the resizing method.</p>
+      <p>Right now I'm replacing the fonts in Little Sound DJ for Gameboy.  It's important to have a really readable font on a screen that small, and I didn't like the default fonts it had available.  I posted my first results to <a class="freelinking external" href="http://8bitcollective.com/forums/viewtopic.php?id=16226">8 Bit Collective</a>, and had requests for some True Type fonts.  I've done this kinda thing on other games and programs for older systems - Pocketnes for GBA, and some other rom hacks.  Whenever I tried to convert a TTF I got mixed results, and windows font smoothing (or lack of it) has always been where I hit a brick wall.  After Helvetica turned out so good I started searching for a way to replicate it with some other good fonts and wound up here.  I'm glad you guys have such good suggestions.  I've been trying to figure this one out on and off for years.</p>
+  - id: 379915
+    user: 1250
+    date: 2009-11-22T09:15:00
+    date_raw: 22.Nov.2009 9.15am
+    votes: null
+    html: |-
+      <p>What you really need is a hand-made 8 ppem grayscale bitmap font.<br>
+      The people who do that sort of work can be counted on the fingers of<br>
+      one of Mickey's hands. I know because I happen to be one of them. :-)</p>
+      <p><a href="http://www.themicrofoundry.com/manademo/" title="http://www.themicrofoundry.com/manademo/">http://www.themicrofoundry.com/manademo/</a></p>
+      <p>But the smallest I've gone is 11. However, if you have<br>
+      a budget, I can make an 8 ppem one for your project.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>What you really need is a hand-made 8 ppem grayscale bitmap font.<br>
+      The people who do that sort of work can be counted on the fingers of<br>
+      one of Mickey's hands. I know because I happen to be one of them. :-)</p>
+      <p><a href="http://www.themicrofoundry.com/manademo/" title="http://www.themicrofoundry.com/manademo/">http://www.themicrofoundry.com/manademo/</a></p>
+      <p>But the smallest I've gone is 11. However, if you have<br>
+      a budget, I can make an 8 ppem one for your project.</p>
+      <p>hhp</p>
+  - id: 379937
+    user: 1049
+    date: 2009-11-22T12:31:00
+    date_raw: 22.Nov.2009 12.31pm
+    votes: null
+    html: |-
+      <p>&gt;and had requests for some True Type fonts.</p>
+      <p>Be sure to use only open-source or freeware fonts which are licensed for modification and/or redistribution. Posting hacked Helvetica TTFs will draw unwanted attention from Linotype's attorneys.</p>
+    html_clean: |-
+      <p>&gt;and had requests for some True Type fonts.</p>
+      <p>Be sure to use only open-source or freeware fonts which are licensed for modification and/or redistribution. Posting hacked Helvetica TTFs will draw unwanted attention from Linotype's attorneys.</p>

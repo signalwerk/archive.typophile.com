@@ -1,0 +1,143 @@
+node: 74942
+title: Contextual Lookups for Ordinals
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20131018124306"
+  captured_at: 2013-10-18T12:43:06Z
+  url: http://typophile.com/node/74942
+  digest: 3GM5WRQX6CP64FBQL2CUWNULUFLP76FS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/74942.html
+  fingerprint: 1800140ca1a2dd57
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131018124306"
+      digest: 3GM5WRQX6CP64FBQL2CUWNULUFLP76FS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/74942.html
+post:
+  id: 74942
+  user: 68267
+  date: 2010-10-06T02:36:00
+  date_raw: 6 Oct 2010 — 2:36am
+  votes: null
+  html: |-
+    <p>I have this lookup for ordinals. It works OK for 1st, 2nd, 3rd, 4th, etc., and for Caps, 1ST, 2ND, 3RD, etc., but not for ordinals in French or Spanish, which use one or three ordinals e.g. 2º or 1ème.</p>
+    <p>How can I change my code to cater for one or more alpha characters after the digits? One to three superscripts would be OK, but I think one or more would be more flexible. </p>
+    <p>feature Ordinals ordn {<br>
+        lookup Ordinals;<br>
+    }<br>
+        group @Digits [zero-nine];<br>
+        group @Alphas [A-Z a-z];</p>
+    <p>    lookup Ordinals{<br>
+        context (@Digits) @Alphas @Alphas;<br>
+        sub 0 Super;<br>
+        sub 1 Super;<br>
+    }  lookup Super {<br>
+        sub [A-Z] -&gt; [uniEAA1 - uniEABA];<br>
+        sub [a-z] -&gt; [uniEAC1 - uniEADA];<br>
+    }</p>
+    <p>I am using <a class="freelinking external" href="http://home.kabelfoon.nl/~slam/fonts/otcomp.html" rel="nofollow">OpenType Compiler</a>.</p>
+  html_clean: |-
+    <p>I have this lookup for ordinals. It works OK for 1st, 2nd, 3rd, 4th, etc., and for Caps, 1ST, 2ND, 3RD, etc., but not for ordinals in French or Spanish, which use one or three ordinals e.g. 2º or 1ème.</p>
+    <p>How can I change my code to cater for one or more alpha characters after the digits? One to three superscripts would be OK, but I think one or more would be more flexible. </p>
+    <p>feature Ordinals ordn {<br>
+        lookup Ordinals;<br>
+    }<br>
+        group @Digits [zero-nine];<br>
+        group @Alphas [A-Z a-z];</p>
+    <p>    lookup Ordinals{<br>
+        context (@Digits) @Alphas @Alphas;<br>
+        sub 0 Super;<br>
+        sub 1 Super;<br>
+    }  lookup Super {<br>
+        sub [A-Z] -&gt; [uniEAA1 - uniEABA];<br>
+        sub [a-z] -&gt; [uniEAC1 - uniEADA];<br>
+    }</p>
+    <p>I am using <a class="freelinking external" href="http://home.kabelfoon.nl/~slam/fonts/otcomp.html" rel="nofollow">OpenType Compiler</a>.</p>
+comments:
+  - id: 432918
+    user: 68267
+    date: 2010-10-07T00:08:00
+    date_raw: 7 Oct 2010 — 12:08am
+    votes: null
+    html: |-
+      <p>I found my own solution with some help from the Serif™ forums.</p>
+      <p>The following code does what is needed as long as the ordinal glyphs are included in the font and have the corresponding Postscript names.</p>
+      <p>feature Ordinals ordn {<br>
+          lookup Ordinals;<br>
+      }<br>
+          group @Ordinals [zero-nine uniE2C0-uniE2C9 uniEAA1 - uniEABA uniEAC1 - uniEADA uniEB28 uniEB3A uniEB48 uniEB5A];<br>
+          group @Alphas [A-Z a-z Egrave Uacute egrave uacute];</p>
+      <p>    lookup Ordinals{<br>
+          context (@Ordinals) @Alphas;<br>
+          sub 0 Super;<br>
+      }  lookup Super {<br>
+          sub [A-Z] -&gt; [uniEAA1 - uniEABA];<br>
+          sub [a-z] -&gt; [uniEAC1 - uniEADA];<br>
+          sub Egrave -&gt; uniEB28;<br>
+          sub Uacute -&gt; uniEB3A;<br>
+          sub egrave -&gt; uniEB48;<br>
+          sub uacute -&gt; uniEB5A;<br>
+      }</p>
+      <p>The @Ordinals group includes the digits, OldStyle figures, and the Superscripts, so any character in the @Alpha group following a digit or superscript in the @Ordinals group will use the "Super" lookup table, and will also be superscripted. As soon as a character not included in the @Alpha group is encountered, the superscripted text reverts to normal text.</p>
+      <p>I used FontCreator 6.1 to create my fonts. I wrote a script to map the ordinals, copy the base glyphs, scale them, and embolden them. That removes much of the donkey work. I included capitals for using ordinals in All Caps or Small Caps text.</p>
+    html_clean: |-
+      <p>I found my own solution with some help from the Serif™ forums.</p>
+      <p>The following code does what is needed as long as the ordinal glyphs are included in the font and have the corresponding Postscript names.</p>
+      <p>feature Ordinals ordn {<br>
+          lookup Ordinals;<br>
+      }<br>
+          group @Ordinals [zero-nine uniE2C0-uniE2C9 uniEAA1 - uniEABA uniEAC1 - uniEADA uniEB28 uniEB3A uniEB48 uniEB5A];<br>
+          group @Alphas [A-Z a-z Egrave Uacute egrave uacute];</p>
+      <p>    lookup Ordinals{<br>
+          context (@Ordinals) @Alphas;<br>
+          sub 0 Super;<br>
+      }  lookup Super {<br>
+          sub [A-Z] -&gt; [uniEAA1 - uniEABA];<br>
+          sub [a-z] -&gt; [uniEAC1 - uniEADA];<br>
+          sub Egrave -&gt; uniEB28;<br>
+          sub Uacute -&gt; uniEB3A;<br>
+          sub egrave -&gt; uniEB48;<br>
+          sub uacute -&gt; uniEB5A;<br>
+      }</p>
+      <p>The @Ordinals group includes the digits, OldStyle figures, and the Superscripts, so any character in the @Alpha group following a digit or superscript in the @Ordinals group will use the "Super" lookup table, and will also be superscripted. As soon as a character not included in the @Alpha group is encountered, the superscripted text reverts to normal text.</p>
+      <p>I used FontCreator 6.1 to create my fonts. I wrote a script to map the ordinals, copy the base glyphs, scale them, and embolden them. That removes much of the donkey work. I included capitals for using ordinals in All Caps or Small Caps text.</p>
+  - id: 434712
+    user: 68267
+    date: 2010-10-17T15:07:00
+    date_raw: 17 Oct 2010 — 3:07pm
+    votes: null
+    html: |-
+      <p>What a disappointing lack of response! Nearly two weeks, and no one has anything to say?  </p>
+      <p>Is it a good solution or have I missed something that could improve it?</p>
+    html_clean: |-
+      <p>What a disappointing lack of response! Nearly two weeks, and no one has anything to say?  </p>
+      <p>Is it a good solution or have I missed something that could improve it?</p>
+  - id: 434786
+    user: 46071
+    date: 2010-10-18T01:55:00
+    date_raw: 18 Oct 2010 — 1:55am
+    votes: null
+    html: |-
+      <p>Maybe you should post here:<br>
+      <a href="http://typophile.com/forum/6" title="http://typophile.com/forum/6">http://typophile.com/forum/6</a></p>
+    html_clean: |-
+      <p>Maybe you should post here:<br>
+      <a href="http://typophile.com/forum/6" title="http://typophile.com/forum/6">http://typophile.com/forum/6</a></p>

@@ -1,0 +1,142 @@
+node: 56359
+title: "Opentype: Substitution one-after-another - sub x by y; sub y by z;?"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130820081419"
+  captured_at: 2013-08-20T08:14:19Z
+  url: http://typophile.com/node/56359
+  digest: PHJPHMH7YEA3H6N2NKCVUUZGIBBAQ6XB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/56359.html
+  fingerprint: f931d836e5c57f23
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130820081419"
+      digest: PHJPHMH7YEA3H6N2NKCVUUZGIBBAQ6XB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/56359.html
+post:
+  id: 56359
+  user: 5444
+  date: 2009-03-29T08:46:00
+  date_raw: 29 Mar 2009 — 8:46am
+  votes: null
+  html: |-
+    <p>Dear Typophiles,</p>
+    <p>sorry for maybe asking a quite basic question, i just can't find a potent keyword that gets me to the for sure existing answers, so I'm asking for a link to other threads or a short explanation ... It should be simple, but it just does not work at the moment and I don't know what I am doing wrong. :(</p>
+    <p>I try to to a "multi-step" one-after-another-replacement with opentype (fontlab 5):</p>
+    <p>Let's say I have a glyph x.<br>
+    in calt-feature, i substitute x by x.alt<br>
+    after that, i want to check another condition,<br>
+    and in case it applies, want to sub x.alt by x.alt2</p>
+    <p>is this possible to do?</p>
+    <p>To explain what i actually want to achieve with this:<br>
+    i want to do a script font, that has three vertical levels of connectors to the glyph right before it. So i have 4 variations of each letter, i.e.   h h.low h.mid h.top<br>
+    depentent on its predecessors "end", the basic "h" is replaced by its low mid or top connector variant so it fits seamlessly.<br>
+    after that, i want to check if the glyph is set at the end of a word (followed by a space for the beginning), and if so, the .low .mid or .top variant is replaced by a .low.end .mid.end or .top.end variant ...</p>
+    <p>thanks for your help<br>
+    Sebastian</p>
+  html_clean: |-
+    <p>Dear Typophiles,</p>
+    <p>sorry for maybe asking a quite basic question, i just can't find a potent keyword that gets me to the for sure existing answers, so I'm asking for a link to other threads or a short explanation ... It should be simple, but it just does not work at the moment and I don't know what I am doing wrong. :(</p>
+    <p>I try to to a "multi-step" one-after-another-replacement with opentype (fontlab 5):</p>
+    <p>Let's say I have a glyph x.<br>
+    in calt-feature, i substitute x by x.alt<br>
+    after that, i want to check another condition,<br>
+    and in case it applies, want to sub x.alt by x.alt2</p>
+    <p>is this possible to do?</p>
+    <p>To explain what i actually want to achieve with this:<br>
+    i want to do a script font, that has three vertical levels of connectors to the glyph right before it. So i have 4 variations of each letter, i.e.   h h.low h.mid h.top<br>
+    depentent on its predecessors "end", the basic "h" is replaced by its low mid or top connector variant so it fits seamlessly.<br>
+    after that, i want to check if the glyph is set at the end of a word (followed by a space for the beginning), and if so, the .low .mid or .top variant is replaced by a .low.end .mid.end or .top.end variant ...</p>
+    <p>thanks for your help<br>
+    Sebastian</p>
+comments:
+  - id: 338394
+    user: 5890
+    date: 2009-03-29T17:03:00
+    date_raw: 29 Mar 2009 — 5:03pm
+    votes: null
+    html: |-
+      <p>Substitutions occur in sequence, in the order you wrote your lookups from the top to the bottom. So when you have your first lookup for changing x to x.alt1 , you have to pay attention for your second lookup whether the first condition has met, could be met or not. Whether for your second lookup you are dealing with x or x.alt1 or both, in order to change it to x.alt2<br>
+      So it is important to pay attention to the sequence of events and write the lookups accordingly.</p>
+      <p>You are right. There are a lot of good discussions about this in here but I don't remember the topics off hand. Keep looking. You'll find them.</p>
+    html_clean: |-
+      <p>Substitutions occur in sequence, in the order you wrote your lookups from the top to the bottom. So when you have your first lookup for changing x to x.alt1 , you have to pay attention for your second lookup whether the first condition has met, could be met or not. Whether for your second lookup you are dealing with x or x.alt1 or both, in order to change it to x.alt2<br>
+      So it is important to pay attention to the sequence of events and write the lookups accordingly.</p>
+      <p>You are right. There are a lot of good discussions about this in here but I don't remember the topics off hand. Keep looking. You'll find them.</p>
+  - id: 338608
+    user: 5444
+    date: 2009-03-30T14:08:00
+    date_raw: 30 Mar 2009 — 2:08pm
+    votes: null
+    html: |-
+      <p>thanks for this.<br>
+      I have found a (maybe not very sophisticated) solution.</p>
+      <p>To connect this thread to the font thread I have just created:<br>
+      <a href="http://typophile.com/node/56408" title="http://typophile.com/node/56408">http://typophile.com/node/56408</a></p>
+      <p>maybe it's better to discuss there.</p>
+    html_clean: |-
+      <p>thanks for this.<br>
+      I have found a (maybe not very sophisticated) solution.</p>
+      <p>To connect this thread to the font thread I have just created:<br>
+      <a href="/node/56408/" title="http://typophile.com/node/56408">http://typophile.com/node/56408</a></p>
+      <p>maybe it's better to discuss there.</p>
+  - id: 339543
+    user: 1133
+    date: 2009-04-03T08:47:00
+    date_raw: 3 Apr 2009 — 8:47am
+    votes: null
+    html: |-
+      <p>Sebastian, </p>
+      <p>After one lookup is processed, the application goes back to the beginning of the text string (or better: text run, i.e. the portion of the text string which has the same font, size, writing system/script, and directionality), and processes the next lookup. So your code should look like: </p>
+      <p><code>feature calt {<br>
+      lookup calt1 {<br>
+      sub @condition1 x' by x.alt;<br>
+      } calt;<br>
+      lookup calt2 {<br>
+      sub @condition2 x.alt' by x.alt2;<br>
+      } calt2<br>
+      } calt;</code></p>
+      <p>Cheers,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Sebastian, </p>
+      <p>After one lookup is processed, the application goes back to the beginning of the text string (or better: text run, i.e. the portion of the text string which has the same font, size, writing system/script, and directionality), and processes the next lookup. So your code should look like: </p>
+      <p><code>feature calt {<br>
+      lookup calt1 {<br>
+      sub @condition1 x' by x.alt;<br>
+      } calt;<br>
+      lookup calt2 {<br>
+      sub @condition2 x.alt' by x.alt2;<br>
+      } calt2<br>
+      } calt;</code></p>
+      <p>Cheers,<br>
+      Adam</p>
+  - id: 339863
+    user: 5444
+    date: 2009-04-05T00:37:00
+    date_raw: 5 Apr 2009 — 12:37am
+    votes: null
+    html: |-
+      <p>Thank you Adam, now it's perfectly clear what it does :)</p>
+      <p>(i should have known though ...)</p>
+    html_clean: |-
+      <p>Thank you Adam, now it's perfectly clear what it does :)</p>
+      <p>(i should have known though ...)</p>

@@ -1,0 +1,77 @@
+node: 88975
+title: "ldot: dysfunctional character, new method"
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20120515165308"
+  captured_at: 2012-05-15T16:53:08Z
+  url: http://typophile.com/node/88975
+  digest: SBAMCLNA2H3D4NWLZBMN262TX6JXH3TA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/88975.html
+  fingerprint: 1b69fc6222a7fad9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120515165308"
+      digest: SBAMCLNA2H3D4NWLZBMN262TX6JXH3TA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/88975.html
+post:
+  id: 88975
+  user: 2021
+  date: 2012-01-10T15:02:00
+  date_raw: 10 Jan 2012 — 3:02pm
+  votes: null
+  html: |-
+    <p>I don’t know the rationale that was employed when Unicode included the ldot characters, but it doesn’t make much sense typographically.</p>
+    <p>The main problem being that attaching the dot to one of the l’s means that l·l won’t justify with the dot evenly spaced.</p>
+    <p>**</p>
+    <p>As I understand it, this composite character is not keyed in manuscripts, with the standard procedure being to type “l periodcentered l”, the periodcentered (punta volanta) being at “Shift 3” on the Spanish keyboard (there being no Catalan keyboard).</p>
+    <p>Therefore, I propose that the best practice for dealing with this situation in OpenType fonts is:</p>
+    <p><code>feature liga {<br>
+    sub l periodcentered' l by periodcentered.ldot ;<br>
+    } liga;</code></p>
+    <p>—where "periodcentered.ldot" is placed vertically and fitted to purpose.</p>
+    <p>An alternate periodcentered glyph is required because the standard periodcentered glyph is the width of the period, which is generally much too wide for this purpose, especially in serifed faces.</p>
+    <p>This addition to the Ligature feature won’t interfere with documents where the editor/typographer uses the Unicode character for ldot, and has no bearing on documents in other languages, or math, where a periodcentered might conceivably be typed between two l’s.</p>
+  html_clean: |-
+    <p>I don’t know the rationale that was employed when Unicode included the ldot characters, but it doesn’t make much sense typographically.</p>
+    <p>The main problem being that attaching the dot to one of the l’s means that l·l won’t justify with the dot evenly spaced.</p>
+    <p>**</p>
+    <p>As I understand it, this composite character is not keyed in manuscripts, with the standard procedure being to type “l periodcentered l”, the periodcentered (punta volanta) being at “Shift 3” on the Spanish keyboard (there being no Catalan keyboard).</p>
+    <p>Therefore, I propose that the best practice for dealing with this situation in OpenType fonts is:</p>
+    <p><code>feature liga {<br>
+    sub l periodcentered' l by periodcentered.ldot ;<br>
+    } liga;</code></p>
+    <p>—where "periodcentered.ldot" is placed vertically and fitted to purpose.</p>
+    <p>An alternate periodcentered glyph is required because the standard periodcentered glyph is the width of the period, which is generally much too wide for this purpose, especially in serifed faces.</p>
+    <p>This addition to the Ligature feature won’t interfere with documents where the editor/typographer uses the Unicode character for ldot, and has no bearing on documents in other languages, or math, where a periodcentered might conceivably be typed between two l’s.</p>
+comments:
+  - id: 490946
+    user: 1262
+    date: 2012-01-10T19:51:00
+    date_raw: 10 Jan 2012 — 7:51pm
+    votes: null
+    html: |-
+      <p><em>I don’t know the rationale that was employed when Unicode included the ldot characters...</em></p>
+      <p>I'm pretty sure the rationale was pre-Unicode inclusion in one or more national standards. This explains a number of oddities in Unicode.</p>
+      <p>Your method looks fine, although I would implement this in the ccmp feature, whence it cannot be turned off by the user. The correct position of the dot in Catalan is not discretionary. Note that you can also decompose the Unicode L/l with dot in ccmp, which would enable better justification spacing even if the Unicode character is employed in text.</p>
+    html_clean: |-
+      <p><em>I don’t know the rationale that was employed when Unicode included the ldot characters...</em></p>
+      <p>I'm pretty sure the rationale was pre-Unicode inclusion in one or more national standards. This explains a number of oddities in Unicode.</p>
+      <p>Your method looks fine, although I would implement this in the ccmp feature, whence it cannot be turned off by the user. The correct position of the dot in Catalan is not discretionary. Note that you can also decompose the Unicode L/l with dot in ccmp, which would enable better justification spacing even if the Unicode character is employed in text.</p>

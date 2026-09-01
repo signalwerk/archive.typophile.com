@@ -1,0 +1,124 @@
+node: 58144
+title: Superscript and subscript positions
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141020005850"
+  captured_at: 2014-10-20T00:58:50Z
+  url: http://typophile.com:80/node/58144
+  digest: A5IJLDZSMAKDMRCVYS2MFSZOZT7CH72T
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/58144.html
+  fingerprint: 94b441539d7243f6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141020005850"
+      digest: A5IJLDZSMAKDMRCVYS2MFSZOZT7CH72T
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/58144.html
+post:
+  id: 58144
+  user: 16986
+  date: 2009-05-19T03:35:00
+  date_raw: 19 May 2009 — 3:35am
+  votes: null
+  html: |-
+    <p>How does the information in the "Superscript and subscript positions" table from the font info window relate to the position of the Super/Subscript ?</p>
+    <p>Is the Y pos taken from the bottom of the glyph ? </p>
+    <p>Are the X size and Y size average sizes ?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture-1_5603.gif"></div><p></p>
+  html_clean: |-
+    <p>How does the information in the "Superscript and subscript positions" table from the font info window relate to the position of the Super/Subscript ?</p>
+    <p>Is the Y pos taken from the bottom of the glyph ? </p>
+    <p>Are the X size and Y size average sizes ?</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture-1_5603.gif"></div><p></p>
+comments:
+  - id: 347453
+    user: 19560
+    date: 2009-05-19T07:55:00
+    date_raw: 19 May 2009 — 7:55am
+    votes: null
+    html: |-
+      <p>X/Y size values are scale factors relative to the em. e.g. a value of 700 on a font that is on a 1000-unit em would result in characters scaled to 7/10 size.</p>
+      <p>Y pos values are relative to the baseline; for subscript, positive values move *downward* from the baseline.</p>
+      <p>Normally leave X pos values at zero except for italics, where you generally want to calculate along the italic angle.</p>
+      <p>More detailed info on these settings at <a href="http://www.microsoft.com/typography/otspec/os2.htm#subxs" title="http://www.microsoft.com/typography/otspec/os2.htm#subxs">http://www.microsoft.com/typography/otspec/os2.htm#subxs</a></p>
+    html_clean: |-
+      <p>X/Y size values are scale factors relative to the em. e.g. a value of 700 on a font that is on a 1000-unit em would result in characters scaled to 7/10 size.</p>
+      <p>Y pos values are relative to the baseline; for subscript, positive values move *downward* from the baseline.</p>
+      <p>Normally leave X pos values at zero except for italics, where you generally want to calculate along the italic angle.</p>
+      <p>More detailed info on these settings at <a href="http://www.microsoft.com/typography/otspec/os2.htm#subxs" title="http://www.microsoft.com/typography/otspec/os2.htm#subxs">http://www.microsoft.com/typography/otspec/os2.htm#subxs</a></p>
+  - id: 347508
+    user: 16986
+    date: 2009-05-19T12:15:00
+    date_raw: 19 May 2009 — 12:15pm
+    votes: null
+    html: |-
+      <p>Thanks for that.</p>
+      <p>I'm still slightly confused as to the factor I should use.  I am using a UPM of 1000.  The ascender height of the subscript is 541 and the x height is 394</p>
+      <p>What should this work out to????</p>
+    html_clean: |-
+      <p>Thanks for that.</p>
+      <p>I'm still slightly confused as to the factor I should use.  I am using a UPM of 1000.  The ascender height of the subscript is 541 and the x height is 394</p>
+      <p>What should this work out to????</p>
+  - id: 347514
+    user: 1947
+    date: 2009-05-19T12:55:00
+    date_raw: 19 May 2009 — 12:55pm
+    votes: null
+    html: <p>Since these values only control the "fake" super/subscripts, the easiest thing to do is include real super and subscript glyphs and control their behavior with some OpenType programming. Then ignore these values (leave them as is as a default).</p>
+    html_clean: <p>Since these values only control the "fake" super/subscripts, the easiest thing to do is include real super and subscript glyphs and control their behavior with some OpenType programming. Then ignore these values (leave them as is as a default).</p>
+  - id: 347518
+    user: 16986
+    date: 2009-05-19T13:05:00
+    date_raw: 19 May 2009 — 1:05pm
+    votes: null
+    html: |-
+      <p>I have drawn the superscipt and subscript - can you tell me which OpenType programming you mean please?</p>
+      <p>Thanks</p>
+    html_clean: |-
+      <p>I have drawn the superscipt and subscript - can you tell me which OpenType programming you mean please?</p>
+      <p>Thanks</p>
+  - id: 347527
+    user: 19560
+    date: 2009-05-19T14:13:00
+    date_raw: 19 May 2009 — 2:13pm
+    votes: null
+    html: |-
+      <p>While it's true that these control the "fake" super/subs, many apps and operating systems *still* don't support super/subs via OpenType. So the best thing to do is at least take a decent whack at setting these values. At minimum, try to test in apps that use them (e.g. MS Word) and verify that the defaults are giving reasonable results.</p>
+      <p>As to the specifics:<br>
+      The X/Y size values represent a scale factor. Since X and Y are separated, this allows you to scale the width differently than the height, which you might want to do to give more weight to the stems, rather than just a straight scale. To figure out the values to use, look at your real, designed sups/subs, and calculate what percentage they are of the original (i.e. "zero superior is 65% of the size of the normal zero", use 650 for the size).</p>
+      <p>Per the spec: the Y pos ("offset") values "specif[y] a font designer's recommended vertical offset from the character baseline to the character baseline for subscript characters". So, work out where you want the baseline of the superscripts to be, relative to the normal baseline of the font, in em units, and enter that value. For example, if the superscript baseline is at 400 units above the normal baseline, enter 400. The only slightly odd thing as I mentioned above is that + values mean "down" for Y subscript pos...so if the subscript baseline is at -300, you'd just use 300 for that value.</p>
+      <p>The X pos values are used for italics, to control positioning along the italic angle. You can use some simple trigonometry to calculate that (using the Y pos value + italic angle).</p>
+    html_clean: |-
+      <p>While it's true that these control the "fake" super/subs, many apps and operating systems *still* don't support super/subs via OpenType. So the best thing to do is at least take a decent whack at setting these values. At minimum, try to test in apps that use them (e.g. MS Word) and verify that the defaults are giving reasonable results.</p>
+      <p>As to the specifics:<br>
+      The X/Y size values represent a scale factor. Since X and Y are separated, this allows you to scale the width differently than the height, which you might want to do to give more weight to the stems, rather than just a straight scale. To figure out the values to use, look at your real, designed sups/subs, and calculate what percentage they are of the original (i.e. "zero superior is 65% of the size of the normal zero", use 650 for the size).</p>
+      <p>Per the spec: the Y pos ("offset") values "specif[y] a font designer's recommended vertical offset from the character baseline to the character baseline for subscript characters". So, work out where you want the baseline of the superscripts to be, relative to the normal baseline of the font, in em units, and enter that value. For example, if the superscript baseline is at 400 units above the normal baseline, enter 400. The only slightly odd thing as I mentioned above is that + values mean "down" for Y subscript pos...so if the subscript baseline is at -300, you'd just use 300 for that value.</p>
+      <p>The X pos values are used for italics, to control positioning along the italic angle. You can use some simple trigonometry to calculate that (using the Y pos value + italic angle).</p>
+  - id: 347975
+    user: 4346
+    date: 2009-05-22T06:38:00
+    date_raw: 22 May 2009 — 6:38am
+    votes: null
+    html: |-
+      <p><cite>I have drawn the superscipt and subscript - can you tell me which OpenType programming you mean please?</cite></p>
+      <p><a href="http://typophile.com/node/16879" title="http://typophile.com/node/16879">http://typophile.com/node/16879</a></p>
+    html_clean: |-
+      <p><cite>I have drawn the superscipt and subscript - can you tell me which OpenType programming you mean please?</cite></p>
+      <p><a href="/node/16879/" title="http://typophile.com/node/16879">http://typophile.com/node/16879</a></p>

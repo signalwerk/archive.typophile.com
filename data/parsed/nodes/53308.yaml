@@ -1,0 +1,213 @@
+node: 53308
+title: Vertical Metrics Confusion
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131017023942"
+  captured_at: 2013-10-17T02:39:42Z
+  url: http://typophile.com/node/53308
+  digest: T7T6FPFAEMHN53DS7C4XH3HG6YIYR3VZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/53308.html
+  fingerprint: 4fc927e317ad765e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131017023942"
+      digest: T7T6FPFAEMHN53DS7C4XH3HG6YIYR3VZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/53308.html
+post:
+  id: 53308
+  user: 2951
+  date: 2009-01-09T17:26:00
+  date_raw: 9 Jan 2009 — 5:26pm
+  votes: null
+  html: |-
+    <p>I decided I wanted to configure the vertical metrics (TypoAscender, TypoDescender, etc.) instead of having fontlab do it manually. I'm very confused and after reading this: <a href="http://typophile.com/node/13081" title="http://typophile.com/node/13081">http://typophile.com/node/13081</a> even more confused.<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/verticalmetrics_6577.jpg"></div><br>
+    Here's a picture of the metrics. One question I have is: should the TypoAscender + TypoDescender + TypoLineGap equal the UPM size of 1000? I have many other questions but I'll start there.<p></p>
+    <p>Should I give up and go back to having it calculate the values automatically?</p>
+  html_clean: |-
+    <p>I decided I wanted to configure the vertical metrics (TypoAscender, TypoDescender, etc.) instead of having fontlab do it manually. I'm very confused and after reading this: <a href="/node/13081/" title="http://typophile.com/node/13081">http://typophile.com/node/13081</a> even more confused.<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/verticalmetrics_6577.jpg"></div><br>
+    Here's a picture of the metrics. One question I have is: should the TypoAscender + TypoDescender + TypoLineGap equal the UPM size of 1000? I have many other questions but I'll start there.<p></p>
+    <p>Should I give up and go back to having it calculate the values automatically?</p>
+comments:
+  - id: 321699
+    user: 2951
+    date: 2009-01-09T18:16:00
+    date_raw: 9 Jan 2009 — 6:16pm
+    votes: null
+    html: |-
+      <p>After reading the pdf that Karsten wrote I think I got it.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/verticalmetrics_improved_6040.jpg"></div><br>
+      Maybe? Thanks for the pdf Karsten.<p></p>
+    html_clean: |-
+      <p>After reading the pdf that Karsten wrote I think I got it.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/verticalmetrics_improved_6040.jpg"></div><br>
+      Maybe? Thanks for the pdf Karsten.<p></p>
+  - id: 321865
+    user: 8664
+    date: 2009-01-11T03:05:00
+    date_raw: 11 Jan 2009 — 3:05am
+    votes: null
+    html: |-
+      <p>Yes, this is ok (A). Possibly adjust values a bit as described in footnote **.</p>
+      <p>Another way (B) is what John Hudson describes in the Vertical Metrics How-to:*<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>"ideal" values:</em><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoAscender = Ascender = 750<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoDescender = Descender = -250<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoLineGap = LineGap = 200**<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>maximum extensions found in the font/family:</em><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WinAscent = 850**<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WinDescent = -350**<br>
+      This is the way these values are defined in latest Adobe and Microsoft fonts.<br>
+      In this case, it is recommended*** to also set the OS/2 table fsSelection bit 7 and increase the OS/2 table's version to 4. This will tell applications -- those that understand this setting -- that they should use Typo... values rather than Win... values to calculate the default line-to-line distance. (Please note that as soon as OS/2 table’s version is 4, bits 7-9 need to be set or not set intentionally because whether these bits are 0 or 1 has a special meaning. More in the <a href="http://www.microsoft.com/typography/otspec/os2.htm" target="_blank" rel="nofollow">OS/2 table</a> and <a href="http://www.microsoft.com/typography/otspec/name.htm" target="_blank" rel="nofollow">name table</a> specs.)</p>
+      <p>So both ways are possible, but for simplicity's sake I intend to either withdraw the PDF or change it so it reflects John Hudson's recommendation and Adobe's/Microsoft's practice, i.e. (B) -- much easier to describe and understand.</p>
+      <p>* Especially see the "Update to the Update to the Update".</p>
+      <p>** If you set WinAscent/WinDescent and Ascender/Descender e.g. to 800/-400 or 850/-350 (maybe future additional diacritic letters will get taller?), and TypoLineGap to 200, you get an "ideal" default line-to-line distance of 120%, comparable to setting 10/12pt.</p>
+      <p>*** There are fonts that don't, and since your values match the equation<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoAscender - TypoDescender + TypoLineGap<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= WinAscent - WinDescent<br>
+      there's nothing to worry anyway.</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Yes, this is ok (A). Possibly adjust values a bit as described in footnote **.</p>
+      <p>Another way (B) is what John Hudson describes in the Vertical Metrics How-to:*<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>"ideal" values:</em><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoAscender = Ascender = 750<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoDescender = Descender = -250<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoLineGap = LineGap = 200**<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>maximum extensions found in the font/family:</em><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WinAscent = 850**<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WinDescent = -350**<br>
+      This is the way these values are defined in latest Adobe and Microsoft fonts.<br>
+      In this case, it is recommended*** to also set the OS/2 table fsSelection bit 7 and increase the OS/2 table's version to 4. This will tell applications -- those that understand this setting -- that they should use Typo... values rather than Win... values to calculate the default line-to-line distance. (Please note that as soon as OS/2 table’s version is 4, bits 7-9 need to be set or not set intentionally because whether these bits are 0 or 1 has a special meaning. More in the <a href="http://www.microsoft.com/typography/otspec/os2.htm" target="_blank" rel="nofollow">OS/2 table</a> and <a href="http://www.microsoft.com/typography/otspec/name.htm" target="_blank" rel="nofollow">name table</a> specs.)</p>
+      <p>So both ways are possible, but for simplicity's sake I intend to either withdraw the PDF or change it so it reflects John Hudson's recommendation and Adobe's/Microsoft's practice, i.e. (B) -- much easier to describe and understand.</p>
+      <p>* Especially see the "Update to the Update to the Update".</p>
+      <p>** If you set WinAscent/WinDescent and Ascender/Descender e.g. to 800/-400 or 850/-350 (maybe future additional diacritic letters will get taller?), and TypoLineGap to 200, you get an "ideal" default line-to-line distance of 120%, comparable to setting 10/12pt.</p>
+      <p>*** There are fonts that don't, and since your values match the equation<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypoAscender - TypoDescender + TypoLineGap<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= WinAscent - WinDescent<br>
+      there's nothing to worry anyway.</p>
+      <p>Karsten</p>
+  - id: 321913
+    user: 2951
+    date: 2009-01-11T10:15:00
+    date_raw: 11 Jan 2009 — 10:15am
+    votes: null
+    html: "<p>I'm confused again. Maybe I should go back to selecting: Calculate values automatically. Does anyone know exactly how those values are calculated automatically? Can I trust the values that are calculated automatically?</p>"
+    html_clean: "<p>I'm confused again. Maybe I should go back to selecting: Calculate values automatically. Does anyone know exactly how those values are calculated automatically? Can I trust the values that are calculated automatically?</p>"
+  - id: 321919
+    user: 2951
+    date: 2009-01-11T11:35:00
+    date_raw: 11 Jan 2009 — 11:35am
+    votes: null
+    html: |-
+      <p>Using ttx to see how fontlab calculates the vertical metrics. This is how it looks (I typed in manually what the ttx xml file printed out):<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/verticals_rec_6081.jpg"></div><br>
+      If I follow the next to the last paragraph on pg 303 of the FL manual. I'm guessing it would look like this:<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/verticals_man_4423.jpg"></div><br>
+      and the last line says as an alternative I could choose to set the LineGap to match the TypoLineGap<br>
+      Does anyone have a list of applications and operating systems that each vertical metric set is used in so that I can do my own testing?<p></p>
+    html_clean: |-
+      <p>Using ttx to see how fontlab calculates the vertical metrics. This is how it looks (I typed in manually what the ttx xml file printed out):<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/verticals_rec_6081.jpg"></div><br>
+      If I follow the next to the last paragraph on pg 303 of the FL manual. I'm guessing it would look like this:<br>
+      <div class="imageWrap"><img src="http://typophile.com/files/verticals_man_4423.jpg"></div><br>
+      and the last line says as an alternative I could choose to set the LineGap to match the TypoLineGap<br>
+      Does anyone have a list of applications and operating systems that each vertical metric set is used in so that I can do my own testing?<p></p>
+  - id: 321922
+    user: 8664
+    date: 2009-01-11T11:58:00
+    date_raw: 11 Jan 2009 — 11:58am
+    votes: null
+    html: <p>No need to be confused. In essence what you did in your second post was ok!</p>
+    html_clean: <p>No need to be confused. In essence what you did in your second post was ok!</p>
+  - id: 321924
+    user: 3135
+    date: 2009-01-11T12:03:00
+    date_raw: 11 Jan 2009 — 12:03pm
+    votes: null
+    html: |-
+      <p>Tracking the words of the eminent Mr Luecke.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Tracking the words of the eminent Mr Luecke.</p>
+      <p>ChrisL</p>
+  - id: 322337
+    user: 2969
+    date: 2009-01-13T12:22:00
+    date_raw: 13 Jan 2009 — 12:22pm
+    votes: null
+    html: |-
+      <p>"This is the way these values are defined in latest Adobe and Microsoft fonts."<br>
+      But not all Adobe and Microsoft fonts are defined thus, and future Adobe and Microsoft fonts may not be, and this ideal/default is also the same as it was in Fontographer 1.0.</p>
+      <p>As I think we established some time ago, though I'm sure someone will correct me if I forgot, the Windows values were designed to inform applications of how much vertical space they have to write, (and erase) when composing text of a particular font. Some apps then took that for the em and confusion bestrode the issue. </p>
+      <p>bvfonts, there are two options for the type designer, not as clearly put forth as they could be. </p>
+      <p>Both are based first on the principle that the EM is split by the baseline at a ratio of 3 above and 1 below. Altering this ratio is done for all sorts of reidealizational purposes. And second that line gap is better expressed as "ideal leading"</p>
+      <p>Then one option says; Design your font on the 3/1 em but Put Guides at yyy and -yyy and make sure all glyphs Stay Inside the Lines without much if any padding. I think this is the "something to worry about" option. </p>
+      <p>And the second option says; Design your font on the 3/1 em, make reasonably sized accents and other kerns as the y dimension is filled up and down, and then push the button for Windows values. And I think <em>this,</em> is the "nothing to worry about" option, if it's not too late. ;)</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"This is the way these values are defined in latest Adobe and Microsoft fonts."<br>
+      But not all Adobe and Microsoft fonts are defined thus, and future Adobe and Microsoft fonts may not be, and this ideal/default is also the same as it was in Fontographer 1.0.</p>
+      <p>As I think we established some time ago, though I'm sure someone will correct me if I forgot, the Windows values were designed to inform applications of how much vertical space they have to write, (and erase) when composing text of a particular font. Some apps then took that for the em and confusion bestrode the issue. </p>
+      <p>bvfonts, there are two options for the type designer, not as clearly put forth as they could be. </p>
+      <p>Both are based first on the principle that the EM is split by the baseline at a ratio of 3 above and 1 below. Altering this ratio is done for all sorts of reidealizational purposes. And second that line gap is better expressed as "ideal leading"</p>
+      <p>Then one option says; Design your font on the 3/1 em but Put Guides at yyy and -yyy and make sure all glyphs Stay Inside the Lines without much if any padding. I think this is the "something to worry about" option. </p>
+      <p>And the second option says; Design your font on the 3/1 em, make reasonably sized accents and other kerns as the y dimension is filled up and down, and then push the button for Windows values. And I think <em>this,</em> is the "nothing to worry about" option, if it's not too late. ;)</p>
+      <p>Cheers!</p>
+  - id: 322369
+    user: 2951
+    date: 2009-01-13T14:09:00
+    date_raw: 13 Jan 2009 — 2:09pm
+    votes: null
+    html: <p>When you say "push the button" do you mean the recalculate button in fontlab and use those values for winasc and windesc? Do you think the Typoasc and Typodesc values should equal asc and desc in the key dimensions?</p>
+    html_clean: <p>When you say "push the button" do you mean the recalculate button in fontlab and use those values for winasc and windesc? Do you think the Typoasc and Typodesc values should equal asc and desc in the key dimensions?</p>
+  - id: 322377
+    user: 8664
+    date: 2009-01-13T14:38:00
+    date_raw: 13 Jan 2009 — 2:38pm
+    votes: null
+    html: "<p>D.B.: Yes! Vertical metrics -- or the relation of upm, ascenders, descenders, ideal leading -- were a trivial issue if type designers would only tame themselves and think of it before even starting to draw. But this seems more a wish than reality. You read the UPM=1100 thread too.&nbsp;&nbsp;:)</p>"
+    html_clean: "<p>D.B.: Yes! Vertical metrics -- or the relation of upm, ascenders, descenders, ideal leading -- were a trivial issue if type designers would only tame themselves and think of it before even starting to draw. But this seems more a wish than reality. You read the UPM=1100 thread too.&nbsp;&nbsp;:)</p>"
+  - id: 322533
+    user: 2969
+    date: 2009-01-14T08:21:00
+    date_raw: 14 Jan 2009 — 8:21am
+    votes: null
+    html: |-
+      <p>"...do you mean the recalculate button in fontlab..."</p>
+      <p>...yes sir!</p>
+      <p>"You read the UPM=1100 thread too..."</p>
+      <p>...couldn't help it, voodoo is trying to eclipse reason. ;)</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"...do you mean the recalculate button in fontlab..."</p>
+      <p>...yes sir!</p>
+      <p>"You read the UPM=1100 thread too..."</p>
+      <p>...couldn't help it, voodoo is trying to eclipse reason. ;)</p>
+      <p>Cheers!</p>
+  - id: 322768
+    user: 2951
+    date: 2009-01-15T08:56:00
+    date_raw: 15 Jan 2009 — 8:56am
+    votes: null
+    html: "<p>Thanks for the help Karsten &amp; David. : )</p>"
+    html_clean: "<p>Thanks for the help Karsten &amp; David. : )</p>"

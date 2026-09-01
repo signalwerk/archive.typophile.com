@@ -1,0 +1,95 @@
+node: 9265
+title: AAT feature names in Typography dialog
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131106203354"
+  captured_at: 2013-11-06T20:33:54Z
+  url: http://typophile.com/node/9265
+  digest: DWK74TADS42YPXBYOGQI7SL2VV2DGTH5
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/9265.html
+  fingerprint: 7b8b2ce3cbaca7fe
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131106203354"
+      digest: DWK74TADS42YPXBYOGQI7SL2VV2DGTH5
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/9265.html
+post:
+  id: 9265
+  user: 4098
+  date: 2005-02-15T14:52:00
+  date_raw: 15 Feb 2005 — 2:52pm
+  votes: null
+  html: |-
+    <p>More AAT troubles for you to point and laugh at, sorry for this, but I'm just a beginner. <br> <br>Anyway, I can't seem to get my Typography dialog to display the right titles for things. To see what i get, have a look at <a href="http://web.nickshanks.com/Name%20Errors.jpg" target="_blank">http://web.nickshanks.com/Name%20Errors.jpg</a> <br>In summary, the string from Setting is being used for the whole group, rather than just that setting, and for non-exclusive options, it does not appear next to the checkbox. <br>For reference, the top of the palette is supposed to look like this: <br> <br></p>
+    <pre>Ligatures <br>[ ] Diphthong Ligatures <br>[ ] Icelandic Ligatures <br>----------------- <br>Letter Case <br>( ) No Change <br>( ) All Capitals <br>etc...</pre><p> <br> <br>What am i doing wrong? <br>I tried putting dummy noncontextual headers in the MIF with no content and setting code 0, but these were ignored by ftxenhancer when updating the font (I've not tried using AATFontTool under classic yet, will do so while I await a reply :-). Any suggestions?</p>
+  html_clean: |-
+    <p>More AAT troubles for you to point and laugh at, sorry for this, but I'm just a beginner. <br> <br>Anyway, I can't seem to get my Typography dialog to display the right titles for things. To see what i get, have a look at <a href="http://web.nickshanks.com/Name%20Errors.jpg" target="_blank">http://web.nickshanks.com/Name%20Errors.jpg</a> <br>In summary, the string from Setting is being used for the whole group, rather than just that setting, and for non-exclusive options, it does not appear next to the checkbox. <br>For reference, the top of the palette is supposed to look like this: <br> <br></p>
+    <pre>Ligatures <br>[ ] Diphthong Ligatures <br>[ ] Icelandic Ligatures <br>----------------- <br>Letter Case <br>( ) No Change <br>( ) All Capitals <br>etc...</pre><p> <br> <br>What am i doing wrong? <br>I tried putting dummy noncontextual headers in the MIF with no content and setting code 0, but these were ignored by ftxenhancer when updating the font (I've not tried using AATFontTool under classic yet, will do so while I await a reply :-). Any suggestions?</p>
+comments:
+  - id: 59988
+    user: 1133
+    date: 2005-02-15T16:38:00
+    date_raw: 15 Feb 2005 — 4:38pm
+    votes: null
+    html: <p>Nicholas,  <br> <br>I have run into the same problem. I'm pretty sure that the ftxenhancer application has a bug so it assignes wrong names to wrong features. It's essentially "off by one". In a font I was trying to build, it assigned the small caps feature to the standard ligatures caption, the standard ligatures feature to the discretionary ligatures caption, the discretionary ligatures to the swash caption etc.  <br> <br>You may have luck by decompiling the font using TTX (<a href="http://www.font.org/software/ttx/" target="_blank">http://www.font.org/software/ttx/</a> ) and manually correcting the "feat" and "name" tables.  <br> <br>Adam</p>
+    html_clean: <p>Nicholas,  <br> <br>I have run into the same problem. I'm pretty sure that the ftxenhancer application has a bug so it assignes wrong names to wrong features. It's essentially "off by one". In a font I was trying to build, it assigned the small caps feature to the standard ligatures caption, the standard ligatures feature to the discretionary ligatures caption, the discretionary ligatures to the swash caption etc.  <br> <br>You may have luck by decompiling the font using TTX (<a href="http://www.font.org/software/ttx/" target="_blank">http://www.font.org/software/ttx/</a> ) and manually correcting the "feat" and "name" tables.  <br> <br>Adam</p>
+  - id: 59989
+    user: 5959
+    date: 2005-02-15T19:08:00
+    date_raw: 15 Feb 2005 — 7:08pm
+    votes: null
+    html: "<p>Yes, it is a bug in ftxenhancer. It is assigning each item in the <b>feat</b> table a value from the <b>name</b> table that is one too high. For example, if it should give you item 271 from the table, it's giving you item 272 instead. I'm guessing the code incorrectly started counting items at 1 rather than 0. <br> <br>You can work around it (and I do) by dumping the <b>feat</b> table as XML, fixing the ID references, and then fusing it back into place. If you automate this with a script, it's not so bad. <br> <br>Use: <br> <br>1. <b>ftxdumperfuser -t feat -o myname.feat.xml -f 'My Font Full Name' myfont.dfont</b> <i>(or myfont.ttf or whatever)</i> <br> <br>2. Edit the table with BBEdit or whatever. You're looking for lines that start with <b>featType</b>; you'll have one for each feature type in the font. Here's an example from one of my fonts: <br> <br>&lt;featType type=\"10\" settingCount=\"4\" settingOffset=\"00000080\" flags=\"8000\" isExclusive=\"YES\" nameIndex=\"263\" name=\"Vertical Position\"&gt; <br> <br>Subtract one from the \"nameIndex\" property. In this case, 263 would become 262. <br> <br>Don't edit the <b>featSelector</b> items (which are the specific actions in your font), however!! Their indexes are correct. <br> <br>3. <b>ftxdumperfuser -t feat -d myfont.feat.xml -f 'My Font Full Name' myfont.dfont</b> <br> <br>That's it. <br> <br>Note that the only difference in the two command lines is the -o vs. -d flag. Also, if you're not using a multi-font suitcase (.dfont), you can omit the -f 'My Font Full Name' part of the command. <br> <br>Brent</p>"
+    html_clean: "<p>Yes, it is a bug in ftxenhancer. It is assigning each item in the <b>feat</b> table a value from the <b>name</b> table that is one too high. For example, if it should give you item 271 from the table, it's giving you item 272 instead. I'm guessing the code incorrectly started counting items at 1 rather than 0. <br> <br>You can work around it (and I do) by dumping the <b>feat</b> table as XML, fixing the ID references, and then fusing it back into place. If you automate this with a script, it's not so bad. <br> <br>Use: <br> <br>1. <b>ftxdumperfuser -t feat -o myname.feat.xml -f 'My Font Full Name' myfont.dfont</b> <i>(or myfont.ttf or whatever)</i> <br> <br>2. Edit the table with BBEdit or whatever. You're looking for lines that start with <b>featType</b>; you'll have one for each feature type in the font. Here's an example from one of my fonts: <br> <br>&lt;featType type=\"10\" settingCount=\"4\" settingOffset=\"00000080\" flags=\"8000\" isExclusive=\"YES\" nameIndex=\"263\" name=\"Vertical Position\"&gt; <br> <br>Subtract one from the \"nameIndex\" property. In this case, 263 would become 262. <br> <br>Don't edit the <b>featSelector</b> items (which are the specific actions in your font), however!! Their indexes are correct. <br> <br>3. <b>ftxdumperfuser -t feat -d myfont.feat.xml -f 'My Font Full Name' myfont.dfont</b> <br> <br>That's it. <br> <br>Note that the only difference in the two command lines is the -o vs. -d flag. Also, if you're not using a multi-font suitcase (.dfont), you can omit the -f 'My Font Full Name' part of the command. <br> <br>Brent</p>"
+  - id: 59990
+    user: 5959
+    date: 2005-02-15T19:36:00
+    date_raw: 15 Feb 2005 — 7:36pm
+    votes: null
+    html: "<p>Also, a (perhaps?) little-known fact: your TrueType fonts can support both OpenType and AAT features at the same time; they each are stored in separate tables in the font file. <br> <br>Generate your font as a .ttf or .dfont with OT features from FontLab or wherever, then post-process with the ftx tools to add your desired AAT features. <br> <br>It's double the work, but until Apple adopts OpenType in its native text routines, it's a way to provide typographic functions in both InDesign and Apple apps (such as Pages).</p>"
+    html_clean: "<p>Also, a (perhaps?) little-known fact: your TrueType fonts can support both OpenType and AAT features at the same time; they each are stored in separate tables in the font file. <br> <br>Generate your font as a .ttf or .dfont with OT features from FontLab or wherever, then post-process with the ftx tools to add your desired AAT features. <br> <br>It's double the work, but until Apple adopts OpenType in its native text routines, it's a way to provide typographic functions in both InDesign and Apple apps (such as Pages).</p>"
+  - id: 59991
+    user: 1133
+    date: 2005-02-15T20:58:00
+    date_raw: 15 Feb 2005 — 8:58pm
+    votes: null
+    html: "<p>Brent,  <br> <br>I will jump in here with some breaking news. We at Fontlab Ltd. have just released TransType Pro 3, a new professional font converter: <a href=\"http://www.fontlab.com/\" target=\"_blank\">http://www.fontlab.com/</a>  <br> <br>One of its very cool features includes the conversion of GX/AAT advanced typographic features into OpenType features. The converted font that TransType outputs will contain only the OpenType layout tables, but a following scenario is possible:  <br> <br>1. You use FontLab 4.6 to create a font in OpenType PS (.otf) or OpenType TT / TrueType (.ttf) format without any features.  <br> <br>2. You create a MIF file that contains GX/AAT features and add them to the font using ftxenhancer. If needed, you correct the bugs produced by ftxenhancer.  <br> <br>3. You use TransType Pro 3 to convert the OpenType font with GX/AAT features into a font with OpenType features. The conversion does not 100% of all GX/AAT features, but a quite fair number, including some contextual features. I believe you can convert directly into FontLab's VFB format as well that will include the OpenType features code in source FEA notation but have not been able to verify it now.  <br> <br>4. (Optional) You open the font in FontLab. FontLab will decompile the OpenType features into source code and you tweak them manually. You generate a new OpenType font that includes the OpenType features.  <br> <br>5. You use ftx enhancer once again (with the same MIF file) to add the GX/AAT features to the new font. The resulted font will include both OpenType and GX/AAT features.  <br> <br>If you use the process, you will end up with only needing to write the MIF file from scratch. TransType Pro 3 will generate the OpenType features for you.  <br> <br>And to answer your questions in advance: TransType Pro 3 does not do the features conversion in the other direction, i.e. from OpenType features into GX/AAT features.  <br> <br>Regards, <br>Adam Twardoch <br>Fontlab Ltd. <br> <br>Ps. See you at TypoTechnica in London! I'm leaving to the airport in an hour <img src=\"http://www.typophile.com/forums/clipart/happy.gif\" alt=\":-)\" border=\"0\"></p>"
+    html_clean: "<p>Brent,  <br> <br>I will jump in here with some breaking news. We at Fontlab Ltd. have just released TransType Pro 3, a new professional font converter: <a href=\"http://www.fontlab.com/\" target=\"_blank\">http://www.fontlab.com/</a>  <br> <br>One of its very cool features includes the conversion of GX/AAT advanced typographic features into OpenType features. The converted font that TransType outputs will contain only the OpenType layout tables, but a following scenario is possible:  <br> <br>1. You use FontLab 4.6 to create a font in OpenType PS (.otf) or OpenType TT / TrueType (.ttf) format without any features.  <br> <br>2. You create a MIF file that contains GX/AAT features and add them to the font using ftxenhancer. If needed, you correct the bugs produced by ftxenhancer.  <br> <br>3. You use TransType Pro 3 to convert the OpenType font with GX/AAT features into a font with OpenType features. The conversion does not 100% of all GX/AAT features, but a quite fair number, including some contextual features. I believe you can convert directly into FontLab's VFB format as well that will include the OpenType features code in source FEA notation but have not been able to verify it now.  <br> <br>4. (Optional) You open the font in FontLab. FontLab will decompile the OpenType features into source code and you tweak them manually. You generate a new OpenType font that includes the OpenType features.  <br> <br>5. You use ftx enhancer once again (with the same MIF file) to add the GX/AAT features to the new font. The resulted font will include both OpenType and GX/AAT features.  <br> <br>If you use the process, you will end up with only needing to write the MIF file from scratch. TransType Pro 3 will generate the OpenType features for you.  <br> <br>And to answer your questions in advance: TransType Pro 3 does not do the features conversion in the other direction, i.e. from OpenType features into GX/AAT features.  <br> <br>Regards, <br>Adam Twardoch <br>Fontlab Ltd. <br> <br>Ps. See you at TypoTechnica in London! I'm leaving to the airport in an hour <img src=\"http://www.typophile.com/forums/clipart/happy.gif\" alt=\":-)\" border=\"0\"></p>"
+  - id: 59992
+    user: 1133
+    date: 2005-02-15T21:05:00
+    date_raw: 15 Feb 2005 — 9:05pm
+    votes: null
+    html: <p>&gt; I believe you can convert directly into  <br>&gt; FontLab's VFB format as well that will  <br>&gt; include the OpenType features code in  <br>&gt; source FEA notation but have not been  <br>&gt; able to verify it now.  <br> <br>Sorry, I was mistaken. This is not possible. TransType Pro 3 can convert *from* FontLab VFB but not into this format. Not however that TransType Pro 3 includes a similar conversion engine as FontLab Studio 5 so those of you who don't want to wait for FontLab Studio 5, can save their fonts in FontLab into the VFB format and use TrT Pro to generate their fonts.  <br> <br>Adam</p>
+    html_clean: <p>&gt; I believe you can convert directly into  <br>&gt; FontLab's VFB format as well that will  <br>&gt; include the OpenType features code in  <br>&gt; source FEA notation but have not been  <br>&gt; able to verify it now.  <br> <br>Sorry, I was mistaken. This is not possible. TransType Pro 3 can convert *from* FontLab VFB but not into this format. Not however that TransType Pro 3 includes a similar conversion engine as FontLab Studio 5 so those of you who don't want to wait for FontLab Studio 5, can save their fonts in FontLab into the VFB format and use TrT Pro to generate their fonts.  <br> <br>Adam</p>
+  - id: 59993
+    user: 711
+    date: 2005-02-16T03:50:00
+    date_raw: 16 Feb 2005 — 3:50am
+    votes: null
+    html: "<p>Adam: <br>What does TransType do with GX variations?</p>"
+    html_clean: "<p>Adam: <br>What does TransType do with GX variations?</p>"
+  - id: 59994
+    user: 1854
+    date: 2005-02-16T11:07:00
+    date_raw: 16 Feb 2005 — 11:07am
+    votes: null
+    html: "<p>In OS 8.6; <br>By default, the AAT Font Tool adds features for Icelandic Ligatures, Multiply glyph and Hyphen to Minus. The AAT Font Tool does not append the Dipthong Ligatures feature, but its predecessor the GXifier does. <br> <br>To add the Dipthongs feature, append this MIF;  <br> <br>Type\t\t\tLigatureList <br>Name\t\t\tLigatures <br>Namecode\t\t1 <br>Setting\t\tDipthong Ligatures <br>Settingcode\t\t10 <br>Default\t\tno <br>Orientation\t\tHV <br>Forward\t\tyes <br>Exclusive\t\tno <br> <br>List <br>\tae\t\t\ta e <br>\toe\t\t\to e <br>\tAE\t\t\tA E <br>\tOE\t\t\tO E <br> <br>Fontographer does strange things with fonts. In the test font, it deleted Multiply and y acute, but when the same font was saved as in TypeTool and AAT-enabled, the Icelandic Ligs, Multiply and Minus features worked. <br> <br>Re: FontLab <br> <br>Adam,  <br>a feature request for FontLab or TransType Pro 3;  <br>maybe it's too much to ask, but it would be very useful if an AAT font could be converted to a dual-format AAT/OT font in a single step.  <br> <br>Also, FontLab opens GX/AAT variations fonts, but can it create a variations font? If not, is there any chance of adding this? GX Variations are potentially very useful, but I</p>"
+    html_clean: "<p>In OS 8.6; <br>By default, the AAT Font Tool adds features for Icelandic Ligatures, Multiply glyph and Hyphen to Minus. The AAT Font Tool does not append the Dipthong Ligatures feature, but its predecessor the GXifier does. <br> <br>To add the Dipthongs feature, append this MIF;  <br> <br>Type\t\t\tLigatureList <br>Name\t\t\tLigatures <br>Namecode\t\t1 <br>Setting\t\tDipthong Ligatures <br>Settingcode\t\t10 <br>Default\t\tno <br>Orientation\t\tHV <br>Forward\t\tyes <br>Exclusive\t\tno <br> <br>List <br>\tae\t\t\ta e <br>\toe\t\t\to e <br>\tAE\t\t\tA E <br>\tOE\t\t\tO E <br> <br>Fontographer does strange things with fonts. In the test font, it deleted Multiply and y acute, but when the same font was saved as in TypeTool and AAT-enabled, the Icelandic Ligs, Multiply and Minus features worked. <br> <br>Re: FontLab <br> <br>Adam,  <br>a feature request for FontLab or TransType Pro 3;  <br>maybe it's too much to ask, but it would be very useful if an AAT font could be converted to a dual-format AAT/OT font in a single step.  <br> <br>Also, FontLab opens GX/AAT variations fonts, but can it create a variations font? If not, is there any chance of adding this? GX Variations are potentially very useful, but I</p>"

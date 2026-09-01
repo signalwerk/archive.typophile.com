@@ -1,0 +1,93 @@
+node: 60238
+title: Application level obliques?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131022010043"
+  captured_at: 2013-10-22T01:00:43Z
+  url: http://typophile.com/node/60238
+  digest: XIES6KTEWISRXGTHOIK3UI3ELPFE7BXO
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/60238.html
+  fingerprint: 40dca9ce5627b38c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131022010043"
+      digest: XIES6KTEWISRXGTHOIK3UI3ELPFE7BXO
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/60238.html
+post:
+  id: 60238
+  user: 14650
+  date: 2009-07-23T06:34:00
+  date_raw: 23 Jul 2009 — 6:34am
+  votes: null
+  html: |-
+    <p>I have the feeling the answer to this may be over my head technically, but here goes…<br>
+    Some Adobe fonts like as in the old Laserwriter 35 collection have oblique versions rather than Italic. My first reaction is to imagine fake italics. So I opened up Avant Garde Oblique in Fontlab and find the letters are perfectly upright and the Italic box is even unchecked. Yet if you open the suite in Font Book or view it in any application, the obliques are slanted. Where and how is this accomplished?</p>
+  html_clean: |-
+    <p>I have the feeling the answer to this may be over my head technically, but here goes…<br>
+    Some Adobe fonts like as in the old Laserwriter 35 collection have oblique versions rather than Italic. My first reaction is to imagine fake italics. So I opened up Avant Garde Oblique in Fontlab and find the letters are perfectly upright and the Italic box is even unchecked. Yet if you open the suite in Font Book or view it in any application, the obliques are slanted. Where and how is this accomplished?</p>
+comments:
+  - id: 357637
+    user: 21687
+    date: 2009-07-23T07:08:00
+    date_raw: 23 Jul 2009 — 7:08am
+    votes: null
+    html: <p>It's the "slant angle" (the setting next to Italic Angle in FontLab Studio). It works only with Type1 and OpenType CFF, not TrueType.</p>
+    html_clean: <p>It's the "slant angle" (the setting next to Italic Angle in FontLab Studio). It works only with Type1 and OpenType CFF, not TrueType.</p>
+  - id: 357644
+    user: 14650
+    date: 2009-07-23T07:46:00
+    date_raw: 23 Jul 2009 — 7:46am
+    votes: null
+    html: <p>It has both the italic angle and slant angle boxes left blank. Under that it has a check next to "Copy Slant angle to Italic angle". I'm still puzzled. How can it copy slant data if there is none showing?</p>
+    html_clean: <p>It has both the italic angle and slant angle boxes left blank. Under that it has a check next to "Copy Slant angle to Italic angle". I'm still puzzled. How can it copy slant data if there is none showing?</p>
+  - id: 357671
+    user: 21687
+    date: 2009-07-23T10:04:00
+    date_raw: 23 Jul 2009 — 10:04am
+    votes: null
+    html: |-
+      <p>Hmm ... seems that FontLab can't read the value from a font, but it works. Try entering a value into "slant angle" of an upright font, generate and test ...</p>
+      <p>“Copy Slant angle to Italic angle” just means that when the generated font is artificially slanted, this should be reflected in the Italic Angle property of the font.</p>
+    html_clean: |-
+      <p>Hmm ... seems that FontLab can't read the value from a font, but it works. Try entering a value into "slant angle" of an upright font, generate and test ...</p>
+      <p>“Copy Slant angle to Italic angle” just means that when the generated font is artificially slanted, this should be reflected in the Italic Angle property of the font.</p>
+  - id: 357676
+    user: 14650
+    date: 2009-07-23T10:31:00
+    date_raw: 23 Jul 2009 — 10:31am
+    votes: null
+    html: |-
+      <p>I will try that at some point. Are values equal to degrees of slant or is there some other sort if measurement?</p>
+      <p>Also...thanks for your response. There's always something new to learn.</p>
+    html_clean: |-
+      <p>I will try that at some point. Are values equal to degrees of slant or is there some other sort if measurement?</p>
+      <p>Also...thanks for your response. There's always something new to learn.</p>
+  - id: 358064
+    user: 29994
+    date: 2009-07-25T17:20:00
+    date_raw: 25 Jul 2009 — 5:20pm
+    votes: null
+    html: |-
+      <p>"Italic angle" is the exact value that the font file contains for "ItalicAngle". However, the Font Matrix in the file is what the renderer should use to transform each character, and that value may differ (a bit) from the Italic angle. This value is what FL calls its 'Slant' -- and notes it's only useful for Type 1.</p>
+      <p>The value for ItalicAngle should be in degrees, rotating RIGHT for a positive number (although the Slant is (apparently) <em>negative</em>, and changing it changes the ItalicAngle sign as well ...).</p>
+    html_clean: |-
+      <p>"Italic angle" is the exact value that the font file contains for "ItalicAngle". However, the Font Matrix in the file is what the renderer should use to transform each character, and that value may differ (a bit) from the Italic angle. This value is what FL calls its 'Slant' -- and notes it's only useful for Type 1.</p>
+      <p>The value for ItalicAngle should be in degrees, rotating RIGHT for a positive number (although the Slant is (apparently) <em>negative</em>, and changing it changes the ItalicAngle sign as well ...).</p>

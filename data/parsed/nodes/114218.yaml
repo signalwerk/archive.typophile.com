@@ -1,0 +1,108 @@
+node: 114218
+title: What are the windows requirements for an OpenType font to be installable?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809183704"
+  captured_at: 2014-08-09T18:37:04Z
+  url: http://typophile.com/node/114218
+  digest: AKKGPYTYRDGWGIJ4OAHGMUTIJ4EO6FQU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/114218.html
+  fingerprint: 3494038471c27f3e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809183704"
+      digest: AKKGPYTYRDGWGIJ4OAHGMUTIJ4EO6FQU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/114218.html
+post:
+  id: 114218
+  user: 62738
+  date: 2014-02-15T11:20:00
+  date_raw: 15 Feb 2014 — 11:20am
+  votes: null
+  html: |-
+    <p>I'm developing an OpenType font by byte-crafting it rather than using design tools, and now have a custom OpenType (CFF flavour) font that implements a really small subset of the Basic Latin unicode block (specifically it only implements .notdef and what under Basic Latin interpretation would be the tilde).</p>
+    <p>The CFF block passes "tx -3" validation, the font as a whole passes a round-trip de/recompile through TTX, and Microsoft's Font Validator does not report any errors in the font. Even loading it as a custom webfont (as plain otf in browsers that support otf, and wrapped as WOFF in browsers that don't) makes them style the implemented ~ glyph correctly.</p>
+    <p>However, even with all that apparent correctness, the windows font previewer reports that it is not a valid font file, and window will not let me install it (at least in windows 7. I do not have access to 8). I've looked high and low for information on what windows requires for a font to be installable, but haven't been able to find any decent docs; the internet seems to be filled with how to install a font as a user, rather than what requirements need to be met as developer =)</p>
+    <p>The font file, as both CFF block, .otf file, WOFF file, and TTX output, can be found over at <a href="https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries" title="https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries">https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries</a> (in the base dir, not the "with GSUB" dir)</p>
+    <p>If there are any additional tools that I can use to determine whether or not this font is "done" enough to be installable, or if anyone knows where to find the documentation that explains which criteria a font needs to meet before it can be installed, that information is extremely welcome. And of course, if someone happens to notice something actually wrong with the font itself based on the TTX readout, I'm also keenly interested in your findings =)</p>
+    <p>- Pomax</p>
+  html_clean: |-
+    <p>I'm developing an OpenType font by byte-crafting it rather than using design tools, and now have a custom OpenType (CFF flavour) font that implements a really small subset of the Basic Latin unicode block (specifically it only implements .notdef and what under Basic Latin interpretation would be the tilde).</p>
+    <p>The CFF block passes "tx -3" validation, the font as a whole passes a round-trip de/recompile through TTX, and Microsoft's Font Validator does not report any errors in the font. Even loading it as a custom webfont (as plain otf in browsers that support otf, and wrapped as WOFF in browsers that don't) makes them style the implemented ~ glyph correctly.</p>
+    <p>However, even with all that apparent correctness, the windows font previewer reports that it is not a valid font file, and window will not let me install it (at least in windows 7. I do not have access to 8). I've looked high and low for information on what windows requires for a font to be installable, but haven't been able to find any decent docs; the internet seems to be filled with how to install a font as a user, rather than what requirements need to be met as developer =)</p>
+    <p>The font file, as both CFF block, .otf file, WOFF file, and TTX output, can be found over at <a href="https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries" title="https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries">https://github.com/Pomax/CFF-glyphlet-fonts/tree/gh-pages/binaries</a> (in the base dir, not the "with GSUB" dir)</p>
+    <p>If there are any additional tools that I can use to determine whether or not this font is "done" enough to be installable, or if anyone knows where to find the documentation that explains which criteria a font needs to meet before it can be installed, that information is extremely welcome. And of course, if someone happens to notice something actually wrong with the font itself based on the TTX readout, I'm also keenly interested in your findings =)</p>
+    <p>- Pomax</p>
+comments:
+  - id: 571458
+    user: 217571
+    date: 2014-02-15T14:02:00
+    date_raw: 15 Feb 2014 — 2:02pm
+    votes: null
+    html: <p>When I was making my small test for advanced width hinting, I noticed that the space character seemed to be necessary as well.</p>
+    html_clean: <p>When I was making my small test for advanced width hinting, I noticed that the space character seemed to be necessary as well.</p>
+  - id: 571498
+    user: 9108
+    date: 2014-02-16T06:06:00
+    date_raw: 16 Feb 2014 — 6:06am
+    votes: null
+    html: <p>It looks like your "name" table is invalid. Changed with the one generated by FontForge and font works.</p>
+    html_clean: <p>It looks like your "name" table is invalid. Changed with the one generated by FontForge and font works.</p>
+  - id: 571515
+    user: 62738
+    date: 2014-02-16T08:56:00
+    date_raw: 16 Feb 2014 — 8:56am
+    votes: null
+    html: <p>Do you happen to have a TTX fragment for that corrected name table? If I round-trip the font through TTX, windows still rejects it, despite supposedly being in the right format, with the necessary data (MS Font Validator suggests the only requirements are font name, subfamily, and version strings)</p>
+    html_clean: <p>Do you happen to have a TTX fragment for that corrected name table? If I round-trip the font through TTX, windows still rejects it, despite supposedly being in the right format, with the necessary data (MS Font Validator suggests the only requirements are font name, subfamily, and version strings)</p>
+  - id: 571521
+    user: 62738
+    date: 2014-02-16T10:22:00
+    date_raw: 16 Feb 2014 — 10:22am
+    votes: null
+    html: |-
+      <p>Ran the font through font forge, and you're right. Apparently NameID #3 and #6 are required to make a font installable. So I suppose that solves half the problem; the other being "where might one find documentation on these requirements rather than discovering them through experimenting" =)</p>
+      <p>Thanks for pinpointing the name table!</p>
+    html_clean: |-
+      <p>Ran the font through font forge, and you're right. Apparently NameID #3 and #6 are required to make a font installable. So I suppose that solves half the problem; the other being "where might one find documentation on these requirements rather than discovering them through experimenting" =)</p>
+      <p>Thanks for pinpointing the name table!</p>
+  - id: 571563
+    user: 21309
+    date: 2014-02-17T02:59:00
+    date_raw: 17 Feb 2014 — 2:59am
+    votes: null
+    html: |-
+      <p>A decade ago Windows didn't complain about those missing naming fields.</p>
+      <p>So I'm afraid there is no easy answer as there are requirements, recommendations, and assumptions. The specs evolved. Same goes for Windows.</p>
+      <p>To make it worse; there might even be font validation or rasterizer bugs involved. But that is also an assumption ;-)</p>
+      <p>Also be aware Microsoft Font Validator doesn't check for all possible issues, and sometimes incorrectly detects an error.</p>
+    html_clean: |-
+      <p>A decade ago Windows didn't complain about those missing naming fields.</p>
+      <p>So I'm afraid there is no easy answer as there are requirements, recommendations, and assumptions. The specs evolved. Same goes for Windows.</p>
+      <p>To make it worse; there might even be font validation or rasterizer bugs involved. But that is also an assumption ;-)</p>
+      <p>Also be aware Microsoft Font Validator doesn't check for all possible issues, and sometimes incorrectly detects an error.</p>
+  - id: 571583
+    user: 62738
+    date: 2014-02-17T07:58:00
+    date_raw: 17 Feb 2014 — 7:58am
+    votes: null
+    html: <p>Yeah, it seems to not be maintained anymore either, so a format 4 OS/2 table gets flagged as error. I was just hoping there was *any* documentation that I could tap into for some more modern versions of windows (7 and 8 would be enough really). Thanks for all your help!</p>
+    html_clean: <p>Yeah, it seems to not be maintained anymore either, so a format 4 OS/2 table gets flagged as error. I was just hoping there was *any* documentation that I could tap into for some more modern versions of windows (7 and 8 would be enough really). Thanks for all your help!</p>

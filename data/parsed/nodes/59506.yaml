@@ -1,0 +1,679 @@
+node: 59506
+title: PostScript hinting -- number and weight of standard stems
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120330021131"
+  captured_at: 2012-03-30T02:11:31Z
+  url: http://typophile.com:80/node/59506
+  digest: VG7VKU3RDOVJYOKF5MPIAE5GU44C6IGF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/59506.html
+  fingerprint: b544cb958561009d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120330021131"
+      digest: VG7VKU3RDOVJYOKF5MPIAE5GU44C6IGF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59506.html
+post:
+  id: 59506
+  user: 45774
+  date: 2009-06-30T03:08:00
+  date_raw: 30 Jun 2009 — 3:08am
+  votes: null
+  html: |-
+    <p>David Lemon from Adobe writes in his tutorial <strong><em><a href="http://typophile.com/files/hinting.pdf" rel="nofollow">Basic Type 1 Hinting</a></em></strong> about the stem weights:</p>
+    <p><cite>"Another font-wide behavior is the stem weights provided for the font. It’s generally best to enter two values for vertical stems and one or two for horizontal, listing the values in ascending order. In a standard Latin font, the values should represent the optimal weight of the normal lowercase and capital stems (hence the two values). These values - especially the first vertical value - are used for a number of rasterization purposes, so it’s important to make them as representative as possible. Two of the most obvious uses include letting ATM know when to turn off synthetic emboldening in a bold design, and serving as target values, to ensure consistent stem weights at low resolutions. In a design where the stems vary slightly in weight, fine-tuning these target values can make a significant difference."</cite></p>
+    <p>But that is a try-and-error-solution. I would like to know, how I can find the optimal standard stem values in a more systematic way. And I have recognized, that Adobe (for example) does not use three or four values in all cases. Bold or black fonts, in which the contrast is stronger, seem to need more values. In my opinion the only thing in PostScript hinting, which is hard to do, is finding the optimal standard stems, especially because the output of the autohinting script contained in the <strong><em><a href="http://www.adobe.com/devnet/opentype/afdko/" rel="nofollow">Adobe Font Development Kit for OpenType (AFDKO)</a></em></strong> is extremely good. There is another script (setsnap.pl) contained in the AFDKO (coded by <strong><em><a href="http://lundestudio.com/" rel="nofollow">Ken Lunde</a></em></strong> in Perl), but the output was not helpful (even not with the non standard options). Unfortunately there is no tutorial, how to make the optimal use of the script (for the case, that it is useful and I am too stupid).</p>
+    <p><strong>So my request (because I bang my head against the wall):</strong><br>
+    Please teach me! I would like to know a systematic way, how to find the optimal standard stem weights and the optimal number of standard stems. These values are extremely important for PostScript hinting. Even if you do not define individual hints for the glyphs, the values of the standard stems help the rasterizer. (Just make a test: Generate a font file, in which the individual hints are removed only. And generate a second file, in which you additionally have removed the standard stem values. Compare them. If the standard stem values were well chosen, as in Adobe fonts for example, you can see, that the font, in which standard stem values exist, looks much better on screen.)</p>
+  html_clean: |-
+    <p>David Lemon from Adobe writes in his tutorial <strong><em><a href="/files/hinting.pdf" rel="nofollow">Basic Type 1 Hinting</a></em></strong> about the stem weights:</p>
+    <p><cite>"Another font-wide behavior is the stem weights provided for the font. It’s generally best to enter two values for vertical stems and one or two for horizontal, listing the values in ascending order. In a standard Latin font, the values should represent the optimal weight of the normal lowercase and capital stems (hence the two values). These values - especially the first vertical value - are used for a number of rasterization purposes, so it’s important to make them as representative as possible. Two of the most obvious uses include letting ATM know when to turn off synthetic emboldening in a bold design, and serving as target values, to ensure consistent stem weights at low resolutions. In a design where the stems vary slightly in weight, fine-tuning these target values can make a significant difference."</cite></p>
+    <p>But that is a try-and-error-solution. I would like to know, how I can find the optimal standard stem values in a more systematic way. And I have recognized, that Adobe (for example) does not use three or four values in all cases. Bold or black fonts, in which the contrast is stronger, seem to need more values. In my opinion the only thing in PostScript hinting, which is hard to do, is finding the optimal standard stems, especially because the output of the autohinting script contained in the <strong><em><a href="http://www.adobe.com/devnet/opentype/afdko/" rel="nofollow">Adobe Font Development Kit for OpenType (AFDKO)</a></em></strong> is extremely good. There is another script (setsnap.pl) contained in the AFDKO (coded by <strong><em><a href="http://lundestudio.com/" rel="nofollow">Ken Lunde</a></em></strong> in Perl), but the output was not helpful (even not with the non standard options). Unfortunately there is no tutorial, how to make the optimal use of the script (for the case, that it is useful and I am too stupid).</p>
+    <p><strong>So my request (because I bang my head against the wall):</strong><br>
+    Please teach me! I would like to know a systematic way, how to find the optimal standard stem weights and the optimal number of standard stems. These values are extremely important for PostScript hinting. Even if you do not define individual hints for the glyphs, the values of the standard stems help the rasterizer. (Just make a test: Generate a font file, in which the individual hints are removed only. And generate a second file, in which you additionally have removed the standard stem values. Compare them. If the standard stem values were well chosen, as in Adobe fonts for example, you can see, that the font, in which standard stem values exist, looks much better on screen.)</p>
+comments:
+  - id: 354369
+    user: 14722
+    date: 2009-06-30T05:23:00
+    date_raw: 30 Jun 2009 — 5:23am
+    votes: null
+    html: <p>I just the Fontlab autohinter and then use the autofill button to have it gather the standard stem values. Then just delete the Fontlab hints.</p>
+    html_clean: <p>I just the Fontlab autohinter and then use the autofill button to have it gather the standard stem values. Then just delete the Fontlab hints.</p>
+  - id: 354380
+    user: 45774
+    date: 2009-06-30T06:41:00
+    date_raw: 30 Jun 2009 — 6:41am
+    votes: null
+    html: |-
+      <p><cite>I just the Fontlab autohinter and then use the autofill button to have it gather the standard stem values. Then just delete the Fontlab hints.</cite></p>
+      <p>Up till now I also have used FontLab for computing the standard stems, but that solution is semioptimal. Just open an Adobe original font in FontLab and remove (and forget) the original standard stems. Then try to reproduce the same quality. I would like to know, what exactly I have to measure and why the optimal standard stems are dependent from the number of pixels, in which the font is displayed. The setsnap.pl script indicates, that there are no optimal stems independent from the absolute resolution. But for example, for which size does Adobe optimize the stems and how do they fine tune them? Additionally it does not seem to be needed, that the standard stems match with any real stem width, for example: You have three real horizontal stem widths 10, 18 and 32 units, but your tests show, that you should take one only. So you could sum the three values and devide them by three. The result is 20. Your whole font does not contain a stem with a width of 20, but the rasterizer can make use of the value 20. (This naturally does not mean, that just 20 is the optimal value.) I assume, that FontLab computes standard stems only, that match with real stems. And if not, I would like to know, how FontLab computes the values. By the way the computed values are dependent from the hints, that exist in the font. Change the hints and FontLab computes different standard stems. All this is too arbitrary for being professional. The fact, that there are still so many non Adobe fonts, that are not well hinted, indicates, that there is a need for clarifying the problem. PostScript hinting is not magic. I keep my hands from TrueType hinting, but I really want to understand, how exactly PostScript hinting works. David Lemon’s tutorial is cool and his writing style eases the understanding, but it is not enough. I need more info. The individual hints are not the problems, but the standard stems are a big one in my opinion. (I also have a need for clarifying the exact influence of the BlueShift and the BlueScale value. I got info about the meaning from the Type1 blackbook, but the info is too compressed and partly too cryptical.)</p>
+    html_clean: |-
+      <p><cite>I just the Fontlab autohinter and then use the autofill button to have it gather the standard stem values. Then just delete the Fontlab hints.</cite></p>
+      <p>Up till now I also have used FontLab for computing the standard stems, but that solution is semioptimal. Just open an Adobe original font in FontLab and remove (and forget) the original standard stems. Then try to reproduce the same quality. I would like to know, what exactly I have to measure and why the optimal standard stems are dependent from the number of pixels, in which the font is displayed. The setsnap.pl script indicates, that there are no optimal stems independent from the absolute resolution. But for example, for which size does Adobe optimize the stems and how do they fine tune them? Additionally it does not seem to be needed, that the standard stems match with any real stem width, for example: You have three real horizontal stem widths 10, 18 and 32 units, but your tests show, that you should take one only. So you could sum the three values and devide them by three. The result is 20. Your whole font does not contain a stem with a width of 20, but the rasterizer can make use of the value 20. (This naturally does not mean, that just 20 is the optimal value.) I assume, that FontLab computes standard stems only, that match with real stems. And if not, I would like to know, how FontLab computes the values. By the way the computed values are dependent from the hints, that exist in the font. Change the hints and FontLab computes different standard stems. All this is too arbitrary for being professional. The fact, that there are still so many non Adobe fonts, that are not well hinted, indicates, that there is a need for clarifying the problem. PostScript hinting is not magic. I keep my hands from TrueType hinting, but I really want to understand, how exactly PostScript hinting works. David Lemon’s tutorial is cool and his writing style eases the understanding, but it is not enough. I need more info. The individual hints are not the problems, but the standard stems are a big one in my opinion. (I also have a need for clarifying the exact influence of the BlueShift and the BlueScale value. I got info about the meaning from the Type1 blackbook, but the info is too compressed and partly too cryptical.)</p>
+  - id: 354570
+    user: 14653
+    date: 2009-07-01T06:39:00
+    date_raw: 1 Jul 2009 — 6:39am
+    votes: null
+    html: |-
+      <p>Arno,</p>
+      <p>The setsnap.pl Perl script was originally a C program that I wrote in the early 1990s. I ported it to Perl three or four years ago.</p>
+      <p>Like you, I do not run this script directly, but instead have a batch file, which happens to be another Perl script, that invokes it with specific options.</p>
+      <p>The default behavior of setsnap.pl is to simply indicate the highest-frequency stem widths. It is expected to use the output of another AFDKO tool, specifically stemHist, as its input. The stemHist tool outputs two files, one for horizontal stems, and another for vertical ones.</p>
+      <p>I have found that selecting appropriate stem values is a combination of art, science, and philosophy. The easiest and fastest approach is to simply take the highest-frequency stem values, for horizontal and vertical. For many purposes, this will provide adequate results. Our rendering experts have always claimed that having no hints is better than having poor hints. Selecting the highest-frequency stems could never be construed as having poor hints.</p>
+      <p>One point of more careful selection of stem values involves a range within which the stems result in the same relative rendered size. The parameters are resolution and point size. If you set these (the setsnap.pl tool has options for these, but also has defaults if they are not set, specifically 72-dpi for the resolution, and 9- through 24-point as the point size range), you can experiment with various values.</p>
+      <p>In the past, like nearly twenty years ago, we set the hinting parameters for our Japanese fonts by looking at only one or two rowfonts for each hint dictionary. For the kanji, this meant using only a small fraction of the glyphs to determine these values. When I originally wrote setsnap.pl in C, which was simply called setsnap, one purpose was to be able to use all of the rowfonts to calculate the stem values. (The purpose of setsnap.pl's "-s" option, which was also a feature of the original C version, is to additionally output a new stemHist file, and it assumes that its input is a bunch of them that have been concatenated from multiple rowfonts.) This resulted in much more accurate stem values, even if the highest-frequency one is to be selected.</p>
+      <p>If you select only one stem value for horizontal and vertical, these become the StdHW and StdVW values of the font dictionary, respectively. You can also set the StemSnapH and StemSnapV arrays, meaning that multiple values are specified. Whether multiple values need to be specified depends on the font data. My "rule of thumb" is to keep multiple StemSnapH and StemSnapV values at least 10 units apart. And, as you are no doubt aware, one of the StemSnapH and StemSnapV values must be the same as set for the StdHW and StdVW values, respectively. If the output of the setsnap.pl tool suggests that there are two or three high-frequency stems that are at least 10 units apart, it would be a good idea to specify these in the StemSnapH and StemSnapV arrays, being sure to include the highest-frequency one as the StdHW and StdVW values. (The setsnap.pl tool outputs the highest-frequency stem, so you need to look into the output of stemHist to find others.)</p>
+      <p>As an example, here is the horizontal stemHist output for the "Kanji" hint dictionary of RyoDispPlusN-Heavy (created by using the setsnap.pl "-s" option to concatenate multiple stemHist output files):</p>
+      <p>Count	Width<br>
+      536	7<br>
+      254	8<br>
+      262	9<br>
+      266	10<br>
+      879	11<br>
+      1623	12<br>
+      1033	13<br>
+      279	14<br>
+      167	15<br>
+      35275	16<br>
+      576	17<br>
+      559	18<br>
+      264	19<br>
+      207	20<br>
+      212	21<br>
+      218	22<br>
+      229	23<br>
+      414	24<br>
+      346	25<br>
+      383	26<br>
+      522	27<br>
+      626	28<br>
+      429	29<br>
+      615	30<br>
+      858	31<br>
+      774	32<br>
+      393	33<br>
+      1031	34<br>
+      201	35<br>
+      121	36<br>
+      43	37<br>
+      20	38<br>
+      47	39<br>
+      22	40<br>
+      72	41<br>
+      18	42<br>
+      12	43<br>
+      24	44<br>
+      17	45<br>
+      15	46<br>
+      26	47<br>
+      8	48<br>
+      11	49<br>
+      223	50<br>
+      9	51<br>
+      6	52<br>
+      12	53<br>
+      20	54<br>
+      10	55<br>
+      2	56<br>
+      16	57<br>
+      14	58<br>
+      8	59<br>
+      67	60<br>
+      15	61<br>
+      15	62<br>
+      4	63<br>
+      4	64<br>
+      2	65<br>
+      10	66<br>
+      6	67<br>
+      7	68<br>
+      4	69<br>
+      9	70<br>
+      12	71<br>
+      8	72<br>
+      8	73<br>
+      10	74<br>
+      15	75<br>
+      8	76<br>
+      17	77<br>
+      14	78<br>
+      15	79<br>
+      13	80<br>
+      14	81<br>
+      18	82<br>
+      10	83<br>
+      13	84<br>
+      21	85<br>
+      12	86<br>
+      20	87<br>
+      20	88<br>
+      24	89<br>
+      22	90<br>
+      19	91<br>
+      29	92<br>
+      41	93<br>
+      55	94<br>
+      22	95<br>
+      25	96<br>
+      33	97<br>
+      22	98<br>
+      35	99<br>
+      29	100<br>
+      32	101<br>
+      27	102<br>
+      35	103<br>
+      43	104<br>
+      50	105<br>
+      40	106<br>
+      67	107<br>
+      68	108<br>
+      51	109<br>
+      43	110<br>
+      61	111<br>
+      64	112<br>
+      45	113<br>
+      46	114<br>
+      40	115<br>
+      63	116<br>
+      69	117<br>
+      59	118<br>
+      40	119<br>
+      60	120<br>
+      52	121<br>
+      42	122<br>
+      84	123<br>
+      60	124<br>
+      67	125<br>
+      52	126<br>
+      45	127<br>
+      77	128<br>
+      158	129<br>
+      48	130<br>
+      99	131<br>
+      53	132<br>
+      24	133<br>
+      60	134<br>
+      29	135<br>
+      40	136<br>
+      37	137<br>
+      37	138<br>
+      15	139<br>
+      43	140<br>
+      35	141<br>
+      36	142<br>
+      51	143<br>
+      57	144<br>
+      43	145<br>
+      42	146<br>
+      18	147<br>
+      36	148<br>
+      35	149<br>
+      26	150<br>
+      17	151<br>
+      32	152<br>
+      35	153<br>
+      31	154<br>
+      27	155<br>
+      13	156<br>
+      34	157<br>
+      19	158<br>
+      28	159<br>
+      24	160<br>
+      14	161<br>
+      19	162<br>
+      12	163<br>
+      53	164<br>
+      11	165<br>
+      44	166<br>
+      22	167<br>
+      10	168<br>
+      41	169<br>
+      12	170<br>
+      6	171<br>
+      6	172<br>
+      66	173<br>
+      7	174<br>
+      10	175<br>
+      7	176<br>
+      4	177<br>
+      8	178<br>
+      3	179<br>
+      2	180<br>
+      47	181<br>
+      4	182<br>
+      6	183<br>
+      2	184<br>
+      1	185<br>
+      3	187<br>
+      2	188<br>
+      2	189<br>
+      3	190<br>
+      1	191<br>
+      4	192<br>
+      1	193<br>
+      3	195<br>
+      2	196<br>
+      1	199<br>
+      1	200<br>
+      1	201<br>
+      1	202<br>
+      1	206<br>
+      1	213<br>
+      1	222</p>
+      <p>It is little wonder that setsnap.pl indicates that "16" is the highest-frequency horizontal stem value, with 35,275 hits. (Keep in mind that the "Kanji" hint dictionary of this font includes glyphs for approximately 8,000 kanji.) In fact, the stem value of 16 is such a high frequency that we set only StdHW for this font, specifically a value of 16, and do not include a StemSnapH array. If I were to set a StemSnapH array, the stem value of 34 would be a likely candidate to include in it.</p>
+      <p>Hopefully this helps to some degree...</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+    html_clean: |-
+      <p>Arno,</p>
+      <p>The setsnap.pl Perl script was originally a C program that I wrote in the early 1990s. I ported it to Perl three or four years ago.</p>
+      <p>Like you, I do not run this script directly, but instead have a batch file, which happens to be another Perl script, that invokes it with specific options.</p>
+      <p>The default behavior of setsnap.pl is to simply indicate the highest-frequency stem widths. It is expected to use the output of another AFDKO tool, specifically stemHist, as its input. The stemHist tool outputs two files, one for horizontal stems, and another for vertical ones.</p>
+      <p>I have found that selecting appropriate stem values is a combination of art, science, and philosophy. The easiest and fastest approach is to simply take the highest-frequency stem values, for horizontal and vertical. For many purposes, this will provide adequate results. Our rendering experts have always claimed that having no hints is better than having poor hints. Selecting the highest-frequency stems could never be construed as having poor hints.</p>
+      <p>One point of more careful selection of stem values involves a range within which the stems result in the same relative rendered size. The parameters are resolution and point size. If you set these (the setsnap.pl tool has options for these, but also has defaults if they are not set, specifically 72-dpi for the resolution, and 9- through 24-point as the point size range), you can experiment with various values.</p>
+      <p>In the past, like nearly twenty years ago, we set the hinting parameters for our Japanese fonts by looking at only one or two rowfonts for each hint dictionary. For the kanji, this meant using only a small fraction of the glyphs to determine these values. When I originally wrote setsnap.pl in C, which was simply called setsnap, one purpose was to be able to use all of the rowfonts to calculate the stem values. (The purpose of setsnap.pl's "-s" option, which was also a feature of the original C version, is to additionally output a new stemHist file, and it assumes that its input is a bunch of them that have been concatenated from multiple rowfonts.) This resulted in much more accurate stem values, even if the highest-frequency one is to be selected.</p>
+      <p>If you select only one stem value for horizontal and vertical, these become the StdHW and StdVW values of the font dictionary, respectively. You can also set the StemSnapH and StemSnapV arrays, meaning that multiple values are specified. Whether multiple values need to be specified depends on the font data. My "rule of thumb" is to keep multiple StemSnapH and StemSnapV values at least 10 units apart. And, as you are no doubt aware, one of the StemSnapH and StemSnapV values must be the same as set for the StdHW and StdVW values, respectively. If the output of the setsnap.pl tool suggests that there are two or three high-frequency stems that are at least 10 units apart, it would be a good idea to specify these in the StemSnapH and StemSnapV arrays, being sure to include the highest-frequency one as the StdHW and StdVW values. (The setsnap.pl tool outputs the highest-frequency stem, so you need to look into the output of stemHist to find others.)</p>
+      <p>As an example, here is the horizontal stemHist output for the "Kanji" hint dictionary of RyoDispPlusN-Heavy (created by using the setsnap.pl "-s" option to concatenate multiple stemHist output files):</p>
+      <p>Count	Width<br>
+      536	7<br>
+      254	8<br>
+      262	9<br>
+      266	10<br>
+      879	11<br>
+      1623	12<br>
+      1033	13<br>
+      279	14<br>
+      167	15<br>
+      35275	16<br>
+      576	17<br>
+      559	18<br>
+      264	19<br>
+      207	20<br>
+      212	21<br>
+      218	22<br>
+      229	23<br>
+      414	24<br>
+      346	25<br>
+      383	26<br>
+      522	27<br>
+      626	28<br>
+      429	29<br>
+      615	30<br>
+      858	31<br>
+      774	32<br>
+      393	33<br>
+      1031	34<br>
+      201	35<br>
+      121	36<br>
+      43	37<br>
+      20	38<br>
+      47	39<br>
+      22	40<br>
+      72	41<br>
+      18	42<br>
+      12	43<br>
+      24	44<br>
+      17	45<br>
+      15	46<br>
+      26	47<br>
+      8	48<br>
+      11	49<br>
+      223	50<br>
+      9	51<br>
+      6	52<br>
+      12	53<br>
+      20	54<br>
+      10	55<br>
+      2	56<br>
+      16	57<br>
+      14	58<br>
+      8	59<br>
+      67	60<br>
+      15	61<br>
+      15	62<br>
+      4	63<br>
+      4	64<br>
+      2	65<br>
+      10	66<br>
+      6	67<br>
+      7	68<br>
+      4	69<br>
+      9	70<br>
+      12	71<br>
+      8	72<br>
+      8	73<br>
+      10	74<br>
+      15	75<br>
+      8	76<br>
+      17	77<br>
+      14	78<br>
+      15	79<br>
+      13	80<br>
+      14	81<br>
+      18	82<br>
+      10	83<br>
+      13	84<br>
+      21	85<br>
+      12	86<br>
+      20	87<br>
+      20	88<br>
+      24	89<br>
+      22	90<br>
+      19	91<br>
+      29	92<br>
+      41	93<br>
+      55	94<br>
+      22	95<br>
+      25	96<br>
+      33	97<br>
+      22	98<br>
+      35	99<br>
+      29	100<br>
+      32	101<br>
+      27	102<br>
+      35	103<br>
+      43	104<br>
+      50	105<br>
+      40	106<br>
+      67	107<br>
+      68	108<br>
+      51	109<br>
+      43	110<br>
+      61	111<br>
+      64	112<br>
+      45	113<br>
+      46	114<br>
+      40	115<br>
+      63	116<br>
+      69	117<br>
+      59	118<br>
+      40	119<br>
+      60	120<br>
+      52	121<br>
+      42	122<br>
+      84	123<br>
+      60	124<br>
+      67	125<br>
+      52	126<br>
+      45	127<br>
+      77	128<br>
+      158	129<br>
+      48	130<br>
+      99	131<br>
+      53	132<br>
+      24	133<br>
+      60	134<br>
+      29	135<br>
+      40	136<br>
+      37	137<br>
+      37	138<br>
+      15	139<br>
+      43	140<br>
+      35	141<br>
+      36	142<br>
+      51	143<br>
+      57	144<br>
+      43	145<br>
+      42	146<br>
+      18	147<br>
+      36	148<br>
+      35	149<br>
+      26	150<br>
+      17	151<br>
+      32	152<br>
+      35	153<br>
+      31	154<br>
+      27	155<br>
+      13	156<br>
+      34	157<br>
+      19	158<br>
+      28	159<br>
+      24	160<br>
+      14	161<br>
+      19	162<br>
+      12	163<br>
+      53	164<br>
+      11	165<br>
+      44	166<br>
+      22	167<br>
+      10	168<br>
+      41	169<br>
+      12	170<br>
+      6	171<br>
+      6	172<br>
+      66	173<br>
+      7	174<br>
+      10	175<br>
+      7	176<br>
+      4	177<br>
+      8	178<br>
+      3	179<br>
+      2	180<br>
+      47	181<br>
+      4	182<br>
+      6	183<br>
+      2	184<br>
+      1	185<br>
+      3	187<br>
+      2	188<br>
+      2	189<br>
+      3	190<br>
+      1	191<br>
+      4	192<br>
+      1	193<br>
+      3	195<br>
+      2	196<br>
+      1	199<br>
+      1	200<br>
+      1	201<br>
+      1	202<br>
+      1	206<br>
+      1	213<br>
+      1	222</p>
+      <p>It is little wonder that setsnap.pl indicates that "16" is the highest-frequency horizontal stem value, with 35,275 hits. (Keep in mind that the "Kanji" hint dictionary of this font includes glyphs for approximately 8,000 kanji.) In fact, the stem value of 16 is such a high frequency that we set only StdHW for this font, specifically a value of 16, and do not include a StemSnapH array. If I were to set a StemSnapH array, the stem value of 34 would be a likely candidate to include in it.</p>
+      <p>Hopefully this helps to some degree...</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+  - id: 354585
+    user: 45774
+    date: 2009-07-01T08:44:00
+    date_raw: 1 Jul 2009 — 8:44am
+    votes: null
+    html: <p>Thanks, Ken! I try again to comprehend and reproduce the standard stems of some Adobe fonts.</p>
+    html_clean: <p>Thanks, Ken! I try again to comprehend and reproduce the standard stems of some Adobe fonts.</p>
+  - id: 354587
+    user: 11526
+    date: 2009-07-01T09:00:00
+    date_raw: 1 Jul 2009 — 9:00am
+    votes: null
+    html: <p>You are overthinking this :)</p>
+    html_clean: <p>You are overthinking this :)</p>
+  - id: 354588
+    user: 14653
+    date: 2009-07-01T09:15:00
+    date_raw: 1 Jul 2009 — 9:15am
+    votes: null
+    html: |-
+      <p>Arno,</p>
+      <p>Your goal should not be to reproduce the standard stems of some of our fonts, because there are no "correct" values. Rather, think of this exercise in terms of choosing one of many possible "correct" or "appropriate" values.</p>
+      <p>Science is used to reveal candidate stem values, either through simplistic calculations (highest-frequency, for example), or more complex ones (as the "-o" option of setsnap.pl uses, which takes resolution and point size ranges into account).</p>
+      <p>Philosophy is then used to pick from among the candidate values, and a good rule is that if you cannot decide between two relatively close values, choose the lower of the two.</p>
+      <p>Art even comes into play. Experience is also another factor.</p>
+      <p>I also agree that you should not overthink this.</p>
+      <p>If you'd like me to take a stab at a font, feel free to send to me the stemHist output files, and I'll let you know what I think are appropriate stem values.</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+    html_clean: |-
+      <p>Arno,</p>
+      <p>Your goal should not be to reproduce the standard stems of some of our fonts, because there are no "correct" values. Rather, think of this exercise in terms of choosing one of many possible "correct" or "appropriate" values.</p>
+      <p>Science is used to reveal candidate stem values, either through simplistic calculations (highest-frequency, for example), or more complex ones (as the "-o" option of setsnap.pl uses, which takes resolution and point size ranges into account).</p>
+      <p>Philosophy is then used to pick from among the candidate values, and a good rule is that if you cannot decide between two relatively close values, choose the lower of the two.</p>
+      <p>Art even comes into play. Experience is also another factor.</p>
+      <p>I also agree that you should not overthink this.</p>
+      <p>If you'd like me to take a stab at a font, feel free to send to me the stemHist output files, and I'll let you know what I think are appropriate stem values.</p>
+      <p>Dr. Ken Lunde<br>
+      Senior Computer Scientist, CJKV Type Development<br>
+      Adobe Systems Incorporated<br>
+      <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+  - id: 354599
+    user: 2021
+    date: 2009-07-01T10:09:00
+    date_raw: 1 Jul 2009 — 10:09am
+    votes: null
+    html: |-
+      <p><em>Bold or black fonts, in which the contrast is stronger, seem to need more values.</em></p>
+      <p>I don't think it's the contrast. There are often more quite distinct (numerically far apart) stem widths in the heavier weights.<br>
+      That's because with reference to the desirability of an overall even quality in text, "colour" (or notan) is more apparent and more instrumental in bold weights than the thickness of stems.<br>
+      For instance, Futura:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/FutET_5116.jpg"></div><p></p>
+    html_clean: |-
+      <p><em>Bold or black fonts, in which the contrast is stronger, seem to need more values.</em></p>
+      <p>I don't think it's the contrast. There are often more quite distinct (numerically far apart) stem widths in the heavier weights.<br>
+      That's because with reference to the desirability of an overall even quality in text, "colour" (or notan) is more apparent and more instrumental in bold weights than the thickness of stems.<br>
+      For instance, Futura:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/FutET_5116.jpg"></div><p></p>
+  - id: 354602
+    user: 3135
+    date: 2009-07-01T10:18:00
+    date_raw: 1 Jul 2009 — 10:18am
+    votes: null
+    html: |-
+      <p>H<br>
+      H<br>
+      H<br>
+      H</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>H<br>
+      H<br>
+      H<br>
+      H</p>
+      <p>ChrisL</p>
+  - id: 354623
+    user: 45774
+    date: 2009-07-01T12:25:00
+    date_raw: 1 Jul 2009 — 12:25pm
+    votes: null
+    html: |-
+      <p><cite>If you’d like me to take a stab at a font, feel free to send to me the stemHist output files, and I’ll let you know what I think are appropriate stem values.</cite></p>
+      <p>Thanks, Ken. I would also send you a list of standard stems, from which I think, that they are well chosen.</p>
+      <p>But another question: Imagine, that you have a font with the following real stem widths. (The font does not have any curves.)</p>
+      <p>VERTICAL STEMS: 30 and 60<br>
+      HORIZONTAL STEMS: 40 and 50</p>
+      <p>Then I would set the following vertical standard stems:<br>
+      30 and 60</p>
+      <p>But I would think about deviding the sum of 40 and 50 for the one and only value of the horizontal standard stems, because the rasterizer tries to render in the width of the standard stems independent from the question, if their widths match with real stems. Would this be wrong? More to the point, there is no duty to choose standard stems, that really exist in the font, isn’t it? If, for example, the regular style and the italic style of a font are very similar in weight, I could use the same standard stems for both styles.</p>
+      <p>And another thing with regard to bold and black styles: In my opinion it sometimes is better, not to provide any hints for those bold and black styles, but standard stems only. This often looks more smooth. Or alternatively vertical and horizontal standard stems, but vertical hints only. (Vertical hints hint horizontal stems.) Or as very elegant alternate way, vertical and horizontal standard stems and vertical ghost hints, that are exactly on the top and under the bottom of each glyph. I don’t know, whether that works, but I had this idea, when I saw the bar of a small t, which should align with the other small letters. I could not extend the alignment zone down to the top of the bar of the t, because there seems to be a maximum allowed width of alignment zones, but I have successfully aligned the bar of the t with the help of a ghost hint. (When I tried to extend the alignment zone down to the bar of the t, the alignment of all the other small letters did not work anymore.) And, surprise, if the ghost hint overlaps with the bar of the t and with the alignment zone, it will be additionally hinted.</p>
+      <p>Yes, it may be, that I overthink this, but it really is hard to get detailed information about hinting without asking experts. The only tutorial with regard to PostScript-hinting seems to be David’s.</p>
+      <p>----------</p>
+      <p>Ken, I already have posted a bug report on the FontLab forum about the autohinting macro of the latest AFDKO. (The option "suppress hint substitution" does not work for sure and the option "allow changes in outlines" doesn’t seem to work.) But maybe it is better to contact the developers directly. Is there a better place, on which I can report bugs?</p>
+    html_clean: |-
+      <p><cite>If you’d like me to take a stab at a font, feel free to send to me the stemHist output files, and I’ll let you know what I think are appropriate stem values.</cite></p>
+      <p>Thanks, Ken. I would also send you a list of standard stems, from which I think, that they are well chosen.</p>
+      <p>But another question: Imagine, that you have a font with the following real stem widths. (The font does not have any curves.)</p>
+      <p>VERTICAL STEMS: 30 and 60<br>
+      HORIZONTAL STEMS: 40 and 50</p>
+      <p>Then I would set the following vertical standard stems:<br>
+      30 and 60</p>
+      <p>But I would think about deviding the sum of 40 and 50 for the one and only value of the horizontal standard stems, because the rasterizer tries to render in the width of the standard stems independent from the question, if their widths match with real stems. Would this be wrong? More to the point, there is no duty to choose standard stems, that really exist in the font, isn’t it? If, for example, the regular style and the italic style of a font are very similar in weight, I could use the same standard stems for both styles.</p>
+      <p>And another thing with regard to bold and black styles: In my opinion it sometimes is better, not to provide any hints for those bold and black styles, but standard stems only. This often looks more smooth. Or alternatively vertical and horizontal standard stems, but vertical hints only. (Vertical hints hint horizontal stems.) Or as very elegant alternate way, vertical and horizontal standard stems and vertical ghost hints, that are exactly on the top and under the bottom of each glyph. I don’t know, whether that works, but I had this idea, when I saw the bar of a small t, which should align with the other small letters. I could not extend the alignment zone down to the top of the bar of the t, because there seems to be a maximum allowed width of alignment zones, but I have successfully aligned the bar of the t with the help of a ghost hint. (When I tried to extend the alignment zone down to the bar of the t, the alignment of all the other small letters did not work anymore.) And, surprise, if the ghost hint overlaps with the bar of the t and with the alignment zone, it will be additionally hinted.</p>
+      <p>Yes, it may be, that I overthink this, but it really is hard to get detailed information about hinting without asking experts. The only tutorial with regard to PostScript-hinting seems to be David’s.</p>
+      <p>----------</p>
+      <p>Ken, I already have posted a bug report on the FontLab forum about the autohinting macro of the latest AFDKO. (The option "suppress hint substitution" does not work for sure and the option "allow changes in outlines" doesn’t seem to work.) But maybe it is better to contact the developers directly. Is there a better place, on which I can report bugs?</p>
+  - id: 354647
+    user: 45774
+    date: 2009-07-01T13:44:00
+    date_raw: 1 Jul 2009 — 1:44pm
+    votes: null
+    html: |-
+      <p><a href="http://forum.fontlab.com/adobe-fdk-for-opentype-afdko/bug-in-autohintscript-belonging-to-the-afdko-25-21898-t7057.0.html;msg23917#msg23917" rel="nofollow">My bug report of the autohinting macro, that is contained in the AFDKO.</a><br>
+      I have fixed the bug and attached it there.</p>
+      <p>I can edit my first message only. Why not the last one? That’s odd.</p>
+    html_clean: |-
+      <p><a href="http://forum.fontlab.com/adobe-fdk-for-opentype-afdko/bug-in-autohintscript-belonging-to-the-afdko-25-21898-t7057.0.html;msg23917#msg23917" rel="nofollow">My bug report of the autohinting macro, that is contained in the AFDKO.</a><br>
+      I have fixed the bug and attached it there.</p>
+      <p>I can edit my first message only. Why not the last one? That’s odd.</p>
+  - id: 354669
+    user: 45774
+    date: 2009-07-01T16:00:00
+    date_raw: 1 Jul 2009 — 4:00pm
+    votes: null
+    html: |-
+      <p>Quoting myself<br>
+      <cite>(Vertical hints hint horizontal stems.)</cite></p>
+      <p>This is a point, in which I am not sure. In Fontographer hints of horizontal stems are displayed as vertical arrows. In FontLab they are displayed as two dashed horizontal lines. And in the FontLab terminology a vertical hint hints a vertical stem. On the one side the FontLab terminology is more intuitive. On the other side it is contradictory regarding to the alignment function of hints. And it ignores the difference between a normal and a ghost hint. So I prefer<strong>ed</strong> to call a hint, that hints a vertical stem, a horizontal hint. But I am relatively sure, that it is defined in a specification. I only have to find it.</p>
+      <p>Edited:</p>
+      <p>From the Type1 blackbook:</p>
+      <p><cite>The vstem hint, for each vertical stem (such as the legs of the<br>
+      letter “n” or the leftmost and rightmost sections of the letter “o”)<br>
+      takes two x values (expressed as x and delta-x) as arguments. These<br>
+      two x values indicate the horizontal range that the vertical stem’s<br>
+      width occupies in character space.</cite></p>
+      <p>I change my opinion and call vstem hints vertical hints in future. Or vstem hints.</p>
+    html_clean: |-
+      <p>Quoting myself<br>
+      <cite>(Vertical hints hint horizontal stems.)</cite></p>
+      <p>This is a point, in which I am not sure. In Fontographer hints of horizontal stems are displayed as vertical arrows. In FontLab they are displayed as two dashed horizontal lines. And in the FontLab terminology a vertical hint hints a vertical stem. On the one side the FontLab terminology is more intuitive. On the other side it is contradictory regarding to the alignment function of hints. And it ignores the difference between a normal and a ghost hint. So I prefer<strong>ed</strong> to call a hint, that hints a vertical stem, a horizontal hint. But I am relatively sure, that it is defined in a specification. I only have to find it.</p>
+      <p>Edited:</p>
+      <p>From the Type1 blackbook:</p>
+      <p><cite>The vstem hint, for each vertical stem (such as the legs of the<br>
+      letter “n” or the leftmost and rightmost sections of the letter “o”)<br>
+      takes two x values (expressed as x and delta-x) as arguments. These<br>
+      two x values indicate the horizontal range that the vertical stem’s<br>
+      width occupies in character space.</cite></p>
+      <p>I change my opinion and call vstem hints vertical hints in future. Or vstem hints.</p>
+  - id: 355937
+    user: 42665
+    date: 2009-07-10T19:35:00
+    date_raw: 10 Jul 2009 — 7:35pm
+    votes: null
+    html: |-
+      <p>Sorry the hinting documentation is so limited. The tutorial I wrote so long ago was focused on Fontographer, and omitted things that FOG can't do. We are (more accurately: Miguel is) working on an expanded version, but it's a slow project and likely to take quite a while longer.</p>
+      <p>Arno asked:<br>
+      <cite>But I would think about dividing the sum of 40 and 50 for the one and only value of the horizontal standard stems, because the rasterizer tries to render in the width of the standard stems independent from the question, if their widths match with real stems. Would this be wrong? More to the point, there is no duty to choose standard stems, that really exist in the font, isn’t it?</cite></p>
+      <p>There's no requirement that the standard stem weights match actual stems. Often the best result is more of an average of several closely-related values. But it does need to really represent the weight of the design.</p>
+      <p><cite>If, for example, the regular style and the italic style of a font are very similar in weight, I could use the same standard stems for both styles.</cite></p>
+      <p>This would be a bad idea. The rasterizer tries to make a visible difference between the regular and bold weights at small sizes (where both may have one-pixel stems), and uses the stem weight values to figure out what weights it's dealing with. If you lie to the rasterizer you're not likely to get good results.</p>
+    html_clean: |-
+      <p>Sorry the hinting documentation is so limited. The tutorial I wrote so long ago was focused on Fontographer, and omitted things that FOG can't do. We are (more accurately: Miguel is) working on an expanded version, but it's a slow project and likely to take quite a while longer.</p>
+      <p>Arno asked:<br>
+      <cite>But I would think about dividing the sum of 40 and 50 for the one and only value of the horizontal standard stems, because the rasterizer tries to render in the width of the standard stems independent from the question, if their widths match with real stems. Would this be wrong? More to the point, there is no duty to choose standard stems, that really exist in the font, isn’t it?</cite></p>
+      <p>There's no requirement that the standard stem weights match actual stems. Often the best result is more of an average of several closely-related values. But it does need to really represent the weight of the design.</p>
+      <p><cite>If, for example, the regular style and the italic style of a font are very similar in weight, I could use the same standard stems for both styles.</cite></p>
+      <p>This would be a bad idea. The rasterizer tries to make a visible difference between the regular and bold weights at small sizes (where both may have one-pixel stems), and uses the stem weight values to figure out what weights it's dealing with. If you lie to the rasterizer you're not likely to get good results.</p>
+  - id: 400330
+    user: 45774
+    date: 2010-03-09T11:42:00
+    date_raw: 9 Mar 2010 — 11:42am
+    votes: null
+    html: |-
+      <p>@ David or Miguel</p>
+      <p>Is the expanded version already available? I even would be interested in it, if it is in a beta stadium.</p>
+    html_clean: |-
+      <p>@ David or Miguel</p>
+      <p>Is the expanded version already available? I even would be interested in it, if it is in a beta stadium.</p>

@@ -1,0 +1,211 @@
+node: 61489
+title: How big is a hint?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203120028"
+  captured_at: 2010-02-03T12:00:28Z
+  url: http://typophile.com/node/61489
+  digest: N72RDEEOTCIXYEWFQ57DXXQ5MESQWQGI
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/61489.html
+  fingerprint: 15b6a1f1ed4db37e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203120028"
+      digest: N72RDEEOTCIXYEWFQ57DXXQ5MESQWQGI
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/61489.html
+post:
+  id: 61489
+  user: 45572
+  date: 2009-08-30T08:36:00
+  date_raw: 30.Aug.2009 8.36am
+  votes: null
+  html: <p>I was wondering what the size of one hint is. Looking at the ruler in Fontlab while hinting at 12PPM I think one hint has a point size of 83. Is there a way to calculate the exact hint size at any given PPM?</p>
+  html_clean: <p>I was wondering what the size of one hint is. Looking at the ruler in Fontlab while hinting at 12PPM I think one hint has a point size of 83. Is there a way to calculate the exact hint size at any given PPM?</p>
+comments:
+  - id: 364990
+    user: 2969
+    date: 2009-08-30T13:05:00
+    date_raw: 30.Aug.2009 1.05pm
+    votes: null
+    html: |-
+      <p>A very good question. I think a large font has small hints, and a small font has large hints. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>A very good question. I think a large font has small hints, and a small font has large hints. </p>
+      <p>Cheers!</p>
+  - id: 365171
+    user: 45572
+    date: 2009-08-31T14:04:00
+    date_raw: 31.Aug.2009 2.04pm
+    votes: null
+    html: |-
+      <p><cite>A very good question.</cite></p>
+      <p>Thanks :)</p>
+      <p>I think there must be somekind of connection between the PPM size and the size of one hint. I'm almost certain that one hint at 12PPM is 83pt.<br>
+      There must be a calculation formula out there which tells me the point size of a hint at 13PPM, 14PPM and so on.</p>
+      <p>Can someone shed some light on this?</p>
+    html_clean: |-
+      <p><cite>A very good question.</cite></p>
+      <p>Thanks :)</p>
+      <p>I think there must be somekind of connection between the PPM size and the size of one hint. I'm almost certain that one hint at 12PPM is 83pt.<br>
+      There must be a calculation formula out there which tells me the point size of a hint at 13PPM, 14PPM and so on.</p>
+      <p>Can someone shed some light on this?</p>
+  - id: 365177
+    user: 1262
+    date: 2009-08-31T14:49:00
+    date_raw: 31.Aug.2009 2.49pm
+    votes: null
+    html: |-
+      <p>What kind of hints are you talking about? I'm guessing that you're talking about delta hints, which have particular ‘strength’ expressed as a fraction of a pixel. In FontLab, all deltas are expressed in 1/8th of a pixel, with the maximum strength for any individual delta being one pixel.</p>
+      <p>[You can shift things more than one pixel by combining medial and final deltas. In VTT, you can define the strength of deltas, so it is possible to shift by more than a pixel with a single delta or to use a smaller refinement than 1/8th of a pixel. When using deltas for fonts in black and white rendering, it is typical for many hinters to move things by whole pixels; whereas, witg greyscale rendering one can use smaller delta hints to ‘paint’ shades of grey. ClearType by default ignores x-direction deltas, because otherwise fonts hinted for black and white environments would get messed up. This is not an ideal solution to the problem!]</p>
+      <p>Now, if what you want to know is the relationship of the strength of a delta hint at a particular ppm size to a measurement in points, then you need to know the resolution of the output device, because you need to know at what nominal point size that ppm size will be used.</p>
+      <p>I'm pretty sure that whatever calculation you used to conclude that ‘one hint at 12PPM is 83pt’ is really badly wrong. Consider: a delta strength is less than or equal to one pixel at any ppm size; ergo, at 12ppm a delta is up to 1/12th of the nominal point size at which that 12ppm size is used. It would be an incredibly low resolution device at which 83pt = 1/12 of the nominal point size for a 12ppm bitmap.</p>
+    html_clean: |-
+      <p>What kind of hints are you talking about? I'm guessing that you're talking about delta hints, which have particular ‘strength’ expressed as a fraction of a pixel. In FontLab, all deltas are expressed in 1/8th of a pixel, with the maximum strength for any individual delta being one pixel.</p>
+      <p>[You can shift things more than one pixel by combining medial and final deltas. In VTT, you can define the strength of deltas, so it is possible to shift by more than a pixel with a single delta or to use a smaller refinement than 1/8th of a pixel. When using deltas for fonts in black and white rendering, it is typical for many hinters to move things by whole pixels; whereas, witg greyscale rendering one can use smaller delta hints to ‘paint’ shades of grey. ClearType by default ignores x-direction deltas, because otherwise fonts hinted for black and white environments would get messed up. This is not an ideal solution to the problem!]</p>
+      <p>Now, if what you want to know is the relationship of the strength of a delta hint at a particular ppm size to a measurement in points, then you need to know the resolution of the output device, because you need to know at what nominal point size that ppm size will be used.</p>
+      <p>I'm pretty sure that whatever calculation you used to conclude that ‘one hint at 12PPM is 83pt’ is really badly wrong. Consider: a delta strength is less than or equal to one pixel at any ppm size; ergo, at 12ppm a delta is up to 1/12th of the nominal point size at which that 12ppm size is used. It would be an incredibly low resolution device at which 83pt = 1/12 of the nominal point size for a 12ppm bitmap.</p>
+  - id: 365266
+    user: 45572
+    date: 2009-09-01T01:00:00
+    date_raw: 1.Sep.2009 1.00am
+    votes: null
+    html: |-
+      <p>I think my question is far more simpler. If you look at a monitor at 96DPI and you see a type 1 hint in Fontlab, you can calculate the width of this hint by using the ruler or Meter panel. If a hint at 12PPM is 83 points and at 13PPM 77 points in width what would it be at 14PPM and so on?</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/How big is a hint_4740.png"></div><p></p>
+    html_clean: |-
+      <p>I think my question is far more simpler. If you look at a monitor at 96DPI and you see a type 1 hint in Fontlab, you can calculate the width of this hint by using the ruler or Meter panel. If a hint at 12PPM is 83 points and at 13PPM 77 points in width what would it be at 14PPM and so on?</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/How big is a hint_4740.png"></div><p></p>
+  - id: 365292
+    user: 2969
+    date: 2009-09-01T05:01:00
+    date_raw: 1.Sep.2009 5.01am
+    votes: null
+    html: |-
+      <p>Those are pixels.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Those are pixels.</p>
+      <p>Cheers!</p>
+  - id: 365293
+    user: 2969
+    date: 2009-09-01T05:01:00
+    date_raw: 1.Sep.2009 5.01am
+    votes: null
+    html: |-
+      <p>Those are pixels.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Those are pixels.</p>
+      <p>Cheers!</p>
+  - id: 365428
+    user: 1262
+    date: 2009-09-01T14:38:00
+    date_raw: 1.Sep.2009 2.38pm
+    votes: null
+    html: <p>Um. This depends entirely on the scaling factor in your FontLab hinting window, and I suppose if the scaling value is consistent you can work out how large the actual width of a pixel at any given ppm size, in points or any other measurement. But what possible use is this information? You do understand, yes, that this doesn't actually relate to anything outside of the FL hinting window?</p>
+    html_clean: <p>Um. This depends entirely on the scaling factor in your FontLab hinting window, and I suppose if the scaling value is consistent you can work out how large the actual width of a pixel at any given ppm size, in points or any other measurement. But what possible use is this information? You do understand, yes, that this doesn't actually relate to anything outside of the FL hinting window?</p>
+  - id: 365490
+    user: 45572
+    date: 2009-09-02T00:31:00
+    date_raw: 2.Sep.2009 12.31am
+    votes: null
+    html: |-
+      <p>The use is, if you want your glyphs to look at their best at a certain PPM value, let's say 12PPM, that you can change the glyphs to the hint size of that PPM value accordingly. Adjust the glyphs to the hints, instead of the other way around.</p>
+      <p>By looking at the comments on this question I'm afraid there is no calculation formula for this :(</p>
+    html_clean: |-
+      <p>The use is, if you want your glyphs to look at their best at a certain PPM value, let's say 12PPM, that you can change the glyphs to the hint size of that PPM value accordingly. Adjust the glyphs to the hints, instead of the other way around.</p>
+      <p>By looking at the comments on this question I'm afraid there is no calculation formula for this :(</p>
+  - id: 365508
+    user: 2969
+    date: 2009-09-02T04:38:00
+    date_raw: 2.Sep.2009 4.38am
+    votes: null
+    html: |-
+      <p>&gt;...if you want your glyphs to look at their best at a certain PPM value...</p>
+      <p>forget the 'hints'. find the Units Per Em of your font,<br>
+      divide this value by the pixels per em of the target size,<br>
+      use this 'em units per pixel value' (you may have to round it yourself),<br>
+      to define the x and y grid steps in FL preferences,<br>
+      scale character groups  (a-z or A-Z, e.g.) modestly in y to fit the grid, (end of formula)<br>
+      leave more time for x-fitting to the grid (glyph by glyph),<br>
+      make sure to set each glyph's total width to a whole number of pixels, (don't forget space glyph), </p>
+      <p>Proof and serve.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>&gt;...if you want your glyphs to look at their best at a certain PPM value...</p>
+      <p>forget the 'hints'. find the Units Per Em of your font,<br>
+      divide this value by the pixels per em of the target size,<br>
+      use this 'em units per pixel value' (you may have to round it yourself),<br>
+      to define the x and y grid steps in FL preferences,<br>
+      scale character groups  (a-z or A-Z, e.g.) modestly in y to fit the grid, (end of formula)<br>
+      leave more time for x-fitting to the grid (glyph by glyph),<br>
+      make sure to set each glyph's total width to a whole number of pixels, (don't forget space glyph), </p>
+      <p>Proof and serve.</p>
+      <p>Cheers!</p>
+  - id: 365619
+    user: 1250
+    date: 2009-09-02T15:58:00
+    date_raw: 2.Sep.2009 3.58pm
+    votes: null
+    html: |-
+      <p>How big? Too big. About 50% of the filesize of the original MS core fonts was<br>
+      the hinting. And then they complained bitmaps take up too much room.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>How big? Too big. About 50% of the filesize of the original MS core fonts was<br>
+      the hinting. And then they complained bitmaps take up too much room.</p>
+      <p>hhp</p>
+  - id: 365663
+    user: 45572
+    date: 2009-09-03T02:38:00
+    date_raw: 3.Sep.2009 2.38am
+    votes: null
+    html: |-
+      <p>Thanks for thinking with me David.<br>
+      By using this method of working the glyphs look even better in Type 1 hinting at small sizes.<br>
+      It's more work, but I do recommend it when you have the time.</p>
+    html_clean: |-
+      <p>Thanks for thinking with me David.<br>
+      By using this method of working the glyphs look even better in Type 1 hinting at small sizes.<br>
+      It's more work, but I do recommend it when you have the time.</p>
+  - id: 365673
+    user: 40601
+    date: 2009-09-03T03:25:00
+    date_raw: 3.Sep.2009 3.25am
+    votes: null
+    html: |-
+      <p><em>It’s more work, but I do recommend it when you have the time</em></p>
+      <p>I am sure <a href="http://www.fontbureau.com/people/DavidBerlow">David</a> will be grateful for your advice.</p>
+    html_clean: |-
+      <p><em>It’s more work, but I do recommend it when you have the time</em></p>
+      <p>I am sure <a href="http://www.fontbureau.com/people/DavidBerlow">David</a> will be grateful for your advice.</p>
+  - id: 365690
+    user: 45572
+    date: 2009-09-03T06:12:00
+    date_raw: 3.Sep.2009 6.12am
+    votes: null
+    html: |-
+      <p><cite>I am sure David will be grateful for your advice.</cite></p>
+      <p>I thanked David for thinking with me. The advice that followed was not for David...</p>
+    html_clean: |-
+      <p><cite>I am sure David will be grateful for your advice.</cite></p>
+      <p>I thanked David for thinking with me. The advice that followed was not for David...</p>

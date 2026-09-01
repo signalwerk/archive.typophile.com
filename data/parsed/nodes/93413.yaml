@@ -1,0 +1,168 @@
+node: 93413
+title: Robofab script problem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130822223926"
+  captured_at: 2013-08-22T22:39:26Z
+  url: http://typophile.com/node/93413
+  digest: 2RWPV6CBHGAD5AGCB3BOR4LNMDNMSBZ6
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/93413.html
+  fingerprint: 2f46ca6f72d85218
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130822223926"
+      digest: 2RWPV6CBHGAD5AGCB3BOR4LNMDNMSBZ6
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/93413.html
+post:
+  id: 93413
+  user: 48056
+  date: 2012-05-28T03:50:00
+  date_raw: 28 May 2012 — 3:50am
+  votes: null
+  html: |-
+    <p>Robofab script problem</p>
+    <p>Hi all</p>
+    <p>I wrote this robofab script to adjust the height of accent - I know<br>
+    there are other ways of doing this but I like this way.</p>
+    <p>This will move the accents up 5 points.</p>
+    <p><code><br>
+          from robofab.world import CurrentFont<br>
+          #<br>
+          f = CurrentFont()<br>
+          #<br>
+          one = [</code></p>
+    <p>      'Aacute',<br>
+          'Abreve',<br>
+          'Acircumflex',<br>
+          'Adieresis',<br>
+          'Agrave',<br>
+          'Amacron',<br>
+          'Atilde',<br>
+          'AEacute',<br>
+          'Aring',<br>
+           …  </p>
+    <p>      ]</p>
+    <p>      #<br>
+          for g in one:<br>
+          	f[g].components[1].move((0,5))<br>
+          	f[g].mark = 10</p>
+    <p>      f.update()<br>
+    </p>
+    <p>I wanted to use the same code to move the accents down using -5 but I get an error</p>
+    <p>Traceback (most recent call last):<br>
+      File "", line 86, in<br>
+    IndexError: list index out of range</p>
+    <p><code><br>
+          from robofab.world import CurrentFont<br>
+          #<br>
+          f = CurrentFont()<br>
+          #<br>
+          one = [</code></p>
+    <p>      'Aacute',<br>
+          'Abreve',<br>
+          'Acircumflex',<br>
+          'Adieresis',<br>
+          'Agrave',<br>
+          'Amacron',<br>
+          'Atilde',<br>
+          'AEacute',<br>
+          'Aring',<br>
+           …  </p>
+    <p>      ]</p>
+    <p>      #<br>
+          for g in one:<br>
+          	f[g].components[1].move((0,-5))<br>
+          	f[g].mark = 10</p>
+    <p>      f.update()<br>
+    </p>
+    <p>How can I move the accents down?</p>
+  html_clean: |-
+    <p>Robofab script problem</p>
+    <p>Hi all</p>
+    <p>I wrote this robofab script to adjust the height of accent - I know<br>
+    there are other ways of doing this but I like this way.</p>
+    <p>This will move the accents up 5 points.</p>
+    <p><code><br>
+          from robofab.world import CurrentFont<br>
+          #<br>
+          f = CurrentFont()<br>
+          #<br>
+          one = [</code></p>
+    <p>      'Aacute',<br>
+          'Abreve',<br>
+          'Acircumflex',<br>
+          'Adieresis',<br>
+          'Agrave',<br>
+          'Amacron',<br>
+          'Atilde',<br>
+          'AEacute',<br>
+          'Aring',<br>
+           …  </p>
+    <p>      ]</p>
+    <p>      #<br>
+          for g in one:<br>
+          	f[g].components[1].move((0,5))<br>
+          	f[g].mark = 10</p>
+    <p>      f.update()<br>
+    </p>
+    <p>I wanted to use the same code to move the accents down using -5 but I get an error</p>
+    <p>Traceback (most recent call last):<br>
+      File "", line 86, in<br>
+    IndexError: list index out of range</p>
+    <p><code><br>
+          from robofab.world import CurrentFont<br>
+          #<br>
+          f = CurrentFont()<br>
+          #<br>
+          one = [</code></p>
+    <p>      'Aacute',<br>
+          'Abreve',<br>
+          'Acircumflex',<br>
+          'Adieresis',<br>
+          'Agrave',<br>
+          'Amacron',<br>
+          'Atilde',<br>
+          'AEacute',<br>
+          'Aring',<br>
+           …  </p>
+    <p>      ]</p>
+    <p>      #<br>
+          for g in one:<br>
+          	f[g].components[1].move((0,-5))<br>
+          	f[g].mark = 10</p>
+    <p>      f.update()<br>
+    </p>
+    <p>How can I move the accents down?</p>
+comments:
+  - id: 511246
+    user: 1043
+    date: 2012-05-28T12:19:00
+    date_raw: 28 May 2012 — 12:19pm
+    votes: null
+    html: <p>It works when I try it. The error suggests that the problem is in your list of glyph names, of which you're only showing a few here. Maybe there is an error in one of the glyph names or a missing comma or something.</p>
+    html_clean: <p>It works when I try it. The error suggests that the problem is in your list of glyph names, of which you're only showing a few here. Maybe there is an error in one of the glyph names or a missing comma or something.</p>
+  - id: 511299
+    user: 48056
+    date: 2012-05-29T01:15:00
+    date_raw: 29 May 2012 — 1:15am
+    votes: null
+    html: <p>Thanks Mark, My mistake I thought I had the same glyphs in each array but the array in the decrease function was different.</p>
+    html_clean: <p>Thanks Mark, My mistake I thought I had the same glyphs in each array but the array in the decrease function was different.</p>

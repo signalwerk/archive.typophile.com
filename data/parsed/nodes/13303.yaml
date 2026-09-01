@@ -1,0 +1,83 @@
+node: 13303
+title: Generating kern pairs for a font with a large character set
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20131013220200"
+  captured_at: 2013-10-13T22:02:00Z
+  url: http://typophile.com/node/13303
+  digest: UM44PKTIGOQXPTXVVD7L6VZ6ZT47GJ7D
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/13303.html
+  fingerprint: edab2d1e96a7efe5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131013220200"
+      digest: UM44PKTIGOQXPTXVVD7L6VZ6ZT47GJ7D
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/13303.html
+post:
+  id: 13303
+  user: 7509
+  date: 2005-06-26T02:43:00
+  date_raw: 26 Jun 2005 — 2:43am
+  votes: null
+  html: |-
+    <p>How do you go about producing a comprehensive kerning table for a font that implements many accented roman glyphs? I am not talking about auto-kerning, which guesses at kerning values, as I would prefer to adjust everything by eye. My problem is the sheer volume of kern pairs, once one goes beyond an alphabet without accents and modified letters.</p>
+    <p>In the font editor I use (Fontforge on Linux), I can kern by classes, so I can treat all accented capital As as one glyph, for example. The problem with this is that it produces a very large kerning table, which I am sure contains many kern pairs that could not occur in any real text, because no real alphabet uses all the accents. For example, say we produce a base kern pair for Ac. In the first three Unicode blocks, there are ten variants of A, and six variants of c, so we generate sixty kern pairs. We have a kern pair for Aring-ccedilla, but I am fairly sure that there is no word in any language that has such a combination.</p>
+    <p>This problem might be a limitation of the application I use, which is free software. Maybe commercial font editors eliminate impossible kern pairs. I would welcome comments about this.</p>
+    <p>Another point is whether a bloated kerning table is a real problem. Does it slow down typesetting applications? Is a font judged to be of lower quality if it has a bloated kerning table?</p>
+    <p>The approach I am looking at presently is write a programme to scan spelling dictionaries for actual letter pairs. I have downloaded a few dictionaries (French, Polish, and Czech) that are intended for use with the Unix ispell application. Ideally, I need dictionaries for all the languages supported by my character set. From these dictionaries, I hope to produce a big table of actual letter pairs. After generating a bloated kerning table using Fontforge, I would filter the generated kern pairs, eliminating any that are not represented in the letter pair table. So far, I have produced tables of letter pairs from various files that come with the dictionaries.</p>
+  html_clean: |-
+    <p>How do you go about producing a comprehensive kerning table for a font that implements many accented roman glyphs? I am not talking about auto-kerning, which guesses at kerning values, as I would prefer to adjust everything by eye. My problem is the sheer volume of kern pairs, once one goes beyond an alphabet without accents and modified letters.</p>
+    <p>In the font editor I use (Fontforge on Linux), I can kern by classes, so I can treat all accented capital As as one glyph, for example. The problem with this is that it produces a very large kerning table, which I am sure contains many kern pairs that could not occur in any real text, because no real alphabet uses all the accents. For example, say we produce a base kern pair for Ac. In the first three Unicode blocks, there are ten variants of A, and six variants of c, so we generate sixty kern pairs. We have a kern pair for Aring-ccedilla, but I am fairly sure that there is no word in any language that has such a combination.</p>
+    <p>This problem might be a limitation of the application I use, which is free software. Maybe commercial font editors eliminate impossible kern pairs. I would welcome comments about this.</p>
+    <p>Another point is whether a bloated kerning table is a real problem. Does it slow down typesetting applications? Is a font judged to be of lower quality if it has a bloated kerning table?</p>
+    <p>The approach I am looking at presently is write a programme to scan spelling dictionaries for actual letter pairs. I have downloaded a few dictionaries (French, Polish, and Czech) that are intended for use with the Unix ispell application. Ideally, I need dictionaries for all the languages supported by my character set. From these dictionaries, I hope to produce a big table of actual letter pairs. After generating a bloated kerning table using Fontforge, I would filter the generated kern pairs, eliminating any that are not represented in the letter pair table. So far, I have produced tables of letter pairs from various files that come with the dictionaries.</p>
+comments:
+  - id: 76900
+    user: 1353
+    date: 2005-06-26T17:56:00
+    date_raw: 26 Jun 2005 — 5:56pm
+    votes: null
+    html: <p>What font format? Assuming it is OT, you should work with class-kerning.</p>
+    html_clean: <p>What font format? Assuming it is OT, you should work with class-kerning.</p>
+  - id: 76942
+    user: 7509
+    date: 2005-06-27T00:35:00
+    date_raw: 27 Jun 2005 — 12:35am
+    votes: null
+    html: |-
+      <p>The font format I usually use is Postscript Type1. I have used kerning by classes in Fontforge, which greatly reduces the work involved in handling many glyph variants. However, a quick trial generated about 4500 kern pairs, which I thought looked excessive.</p>
+      <p>Does OpenType have class-kerning built in to the format?</p>
+      <p>By the way, there is a thread in Build which already covers this topic. I missed it before I posted here.</p>
+    html_clean: |-
+      <p>The font format I usually use is Postscript Type1. I have used kerning by classes in Fontforge, which greatly reduces the work involved in handling many glyph variants. However, a quick trial generated about 4500 kern pairs, which I thought looked excessive.</p>
+      <p>Does OpenType have class-kerning built in to the format?</p>
+      <p>By the way, there is a thread in Build which already covers this topic. I missed it before I posted here.</p>
+  - id: 77508
+    user: 1133
+    date: 2005-06-30T22:16:00
+    date_raw: 30 Jun 2005 — 10:16pm
+    votes: null
+    html: |-
+      <p>Yes, OpenType has class kerning built into the format. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Yes, OpenType has class kerning built into the format. </p>
+      <p>A.</p>

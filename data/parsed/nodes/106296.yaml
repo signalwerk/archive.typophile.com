@@ -1,0 +1,74 @@
+node: 106296
+title: Changing a font's scaling (FontForge/other)
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150204033253"
+  captured_at: 2015-02-04T03:32:53Z
+  url: http://typophile.com:80/node/106296
+  digest: IYVZW2TWDMKVXTEZHLXJ5PP4RU2PDNNV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106296.html
+  fingerprint: 2699325917cccad0
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150204033253"
+      digest: IYVZW2TWDMKVXTEZHLXJ5PP4RU2PDNNV
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106296.html
+post:
+  id: 106296
+  user: 214758
+  date: 2013-09-14T09:01:00
+  date_raw: 14 Sep 2013 — 9:01am
+  votes: null
+  html: |-
+    <p>I have a TrueType font that I created using FontStruct, an easy but rather limited web-based tool. It is a "pixel" font, intended to display only at a certain size (or integer multipliers thereof), so scale is important.</p>
+    <p>The issue is, my font is rendered at *double* the intended size.  At least in Windows, it only looks right at a size of 6pt - less than most programs would allow you to select.  I'd like to halve the scale of the font; in other words, I want to see at 12pt what I currently see at 6pt.</p>
+    <p>In FontForge, I've tried doubling the Em Size (under Font Information -&gt; General), without scaling the outlines.  This didn't help, and neither did doubling the metrics to match (under OS/2 -&gt; Metrics).<br>
+    Any tips on how to accomplish this, either using FontForge or some other free tool?</p>
+  html_clean: |-
+    <p>I have a TrueType font that I created using FontStruct, an easy but rather limited web-based tool. It is a "pixel" font, intended to display only at a certain size (or integer multipliers thereof), so scale is important.</p>
+    <p>The issue is, my font is rendered at *double* the intended size.  At least in Windows, it only looks right at a size of 6pt - less than most programs would allow you to select.  I'd like to halve the scale of the font; in other words, I want to see at 12pt what I currently see at 6pt.</p>
+    <p>In FontForge, I've tried doubling the Em Size (under Font Information -&gt; General), without scaling the outlines.  This didn't help, and neither did doubling the metrics to match (under OS/2 -&gt; Metrics).<br>
+    Any tips on how to accomplish this, either using FontForge or some other free tool?</p>
+comments:
+  - id: 564703
+    user: 18942
+    date: 2013-09-14T09:30:00
+    date_raw: 14 Sep 2013 — 9:30am
+    votes: null
+    html: |-
+      <p>With Fontforge, maybe this:</p>
+      <pre>Edit &gt; Select &gt; Glyphs worth outputting
+      Element &gt; Transformations &gt; Transform 
+          Select  Scale uniformly 50% Glyph Origin
+      </pre>
+    html_clean: |-
+      <p>With Fontforge, maybe this:</p>
+      <pre>Edit &gt; Select &gt; Glyphs worth outputting
+      Element &gt; Transformations &gt; Transform 
+          Select  Scale uniformly 50% Glyph Origin
+      </pre>
+  - id: 564714
+    user: 214758
+    date: 2013-09-14T18:20:00
+    date_raw: 14 Sep 2013 — 6:20pm
+    votes: null
+    html: <p>Thanks - this did the trick, along with halving the ascent/descent metrics. Appreciated!</p>
+    html_clean: <p>Thanks - this did the trick, along with halving the ascent/descent metrics. Appreciated!</p>

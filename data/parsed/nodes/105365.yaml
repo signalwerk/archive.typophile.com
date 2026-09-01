@@ -1,0 +1,217 @@
+node: 105365
+title: Batch process fonts > ufo?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150415054428"
+  captured_at: 2015-04-15T05:44:28Z
+  url: http://typophile.com/node/105365
+  digest: LLK73FSZTCJWDKP3FMHB55C4NI6CWQ4K
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/105365.html
+  fingerprint: 0497b4533ff07d1e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150415054428"
+      digest: LLK73FSZTCJWDKP3FMHB55C4NI6CWQ4K
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/105365.html
+post:
+  id: 105365
+  user: 16341
+  date: 2013-08-09T10:56:00
+  date_raw: 9 Aug 2013 — 10:56am
+  votes: null
+  html: |-
+    <p>Does anyone know a good way to batch process fonts into UFO format? I don't have RoboFont so unfortunately that's not an option.</p>
+    <p>Thanks</p>
+  html_clean: |-
+    <p>Does anyone know a good way to batch process fonts into UFO format? I don't have RoboFont so unfortunately that's not an option.</p>
+    <p>Thanks</p>
+comments:
+  - id: 562322
+    user: 9636
+    date: 2013-08-09T12:12:00
+    date_raw: 9 Aug 2013 — 12:12pm
+    votes: null
+    html: <p>from a VFB or from otf?</p>
+    html_clean: <p>from a VFB or from otf?</p>
+  - id: 562324
+    user: 54527
+    date: 2013-08-09T13:05:00
+    date_raw: 9 Aug 2013 — 1:05pm
+    votes: null
+    html: |-
+      <p>What do you mean by batch "process"?<br>
+      batch generate? batch edit font info? batch rename?</p>
+      <p>If batch Generate, you can use Area51<br>
+      if batch Edit Font Info, you can write some python scripts<br>
+      It depends on what you want to do...</p>
+    html_clean: |-
+      <p>What do you mean by batch "process"?<br>
+      batch generate? batch edit font info? batch rename?</p>
+      <p>If batch Generate, you can use Area51<br>
+      if batch Edit Font Info, you can write some python scripts<br>
+      It depends on what you want to do...</p>
+  - id: 562325
+    user: 18942
+    date: 2013-08-09T13:20:00
+    date_raw: 9 Aug 2013 — 1:20pm
+    votes: null
+    html: |-
+      <p>Did you find a problem with FontForge? For me the script</p>
+      <pre>---- fnt2ufo ----
+      #!/usr/bin/env fontforge -lang=ff
+
+      Open($1);
+      Generate($1:r + ".ufo");
+      Quit(0);
+      ---- cut here ---
+      </pre><p>appears to work. With linux or OS X, a simple</p>
+      <pre>find . -name "*.otf" -exec fnt2ufo {} \;
+      </pre><p>should do the job for all otf font files in the current directory and subdirectories. If that is not fast enough (due to one call to fontforge for each file) you can reduce the number of calls to one reusing some code of <a href="http://fontforge.org/scripting-tutorial.html" title="http://fontforge.org/scripting-tutorial.html">http://fontforge.org/scripting-tutorial.html</a></p>
+    html_clean: |-
+      <p>Did you find a problem with FontForge? For me the script</p>
+      <pre>---- fnt2ufo ----
+      #!/usr/bin/env fontforge -lang=ff
+
+      Open($1);
+      Generate($1:r + ".ufo");
+      Quit(0);
+      ---- cut here ---
+      </pre><p>appears to work. With linux or OS X, a simple</p>
+      <pre>find . -name "*.otf" -exec fnt2ufo {} \;
+      </pre><p>should do the job for all otf font files in the current directory and subdirectories. If that is not fast enough (due to one call to fontforge for each file) you can reduce the number of calls to one reusing some code of <a href="http://fontforge.org/scripting-tutorial.html" title="http://fontforge.org/scripting-tutorial.html">http://fontforge.org/scripting-tutorial.html</a></p>
+  - id: 562329
+    user: 18942
+    date: 2013-08-09T16:25:00
+    date_raw: 9 Aug 2013 — 4:25pm
+    votes: null
+    html: |-
+      <p>Now I remember that you have been using the <a href="http://fontforge.github.io/en-US/downloads/mac/" rel="nofollow">github version of FontForge</a>. If so, and if FontForge.app is in /Applications then save the following lines in a file, say sfnt2ufo</p>
+      <pre>#!/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -lang=ff
+      Open($1);
+      Generate($1:r + ".ufo");
+      </pre><p>Then execute the command</p>
+      <pre>chmod 755 sfnt2ufo
+      </pre><p> and put the file <code>sfnt2ufo</code> somewhere in your path (one of the folders listed when you type <code>echo $PATH</code>). Then, and only then, you can execute (in any folder)</p>
+      <pre>find . -iname "*.[ot]tf" -exec sfnt2ufo {} \;
+      </pre><p>to process all ttf and otf files or simply use</p>
+      <pre>sfnt2ufo &lt;fontfile&gt;
+      </pre><p>to get the corresponding ufo of one particular font file.</p>
+    html_clean: |-
+      <p>Now I remember that you have been using the <a href="http://fontforge.github.io/en-US/downloads/mac/" rel="nofollow">github version of FontForge</a>. If so, and if FontForge.app is in /Applications then save the following lines in a file, say sfnt2ufo</p>
+      <pre>#!/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -lang=ff
+      Open($1);
+      Generate($1:r + ".ufo");
+      </pre><p>Then execute the command</p>
+      <pre>chmod 755 sfnt2ufo
+      </pre><p> and put the file <code>sfnt2ufo</code> somewhere in your path (one of the folders listed when you type <code>echo $PATH</code>). Then, and only then, you can execute (in any folder)</p>
+      <pre>find . -iname "*.[ot]tf" -exec sfnt2ufo {} \;
+      </pre><p>to process all ttf and otf files or simply use</p>
+      <pre>sfnt2ufo &lt;fontfile&gt;
+      </pre><p>to get the corresponding ufo of one particular font file.</p>
+  - id: 562378
+    user: 18942
+    date: 2013-08-10T14:21:00
+    date_raw: 10 Aug 2013 — 2:21pm
+    votes: null
+    html: <p>I just tried on a MacBook Air with no programmer tool installed (no X code), just XQuartz and github FontForge and applications from the mac store. The input was 486 western fonts from Adobe Type Classics (something of about 10 years ago). It took about 2 minutes to generate the ufo, but FontForge would not process back some of the UFO files, telling it could not process the features in the ufo and scrapping them.</p>
+    html_clean: <p>I just tried on a MacBook Air with no programmer tool installed (no X code), just XQuartz and github FontForge and applications from the mac store. The input was 486 western fonts from Adobe Type Classics (something of about 10 years ago). It took about 2 minutes to generate the ufo, but FontForge would not process back some of the UFO files, telling it could not process the features in the ufo and scrapping them.</p>
+  - id: 566391
+    user: 16849
+    date: 2013-10-27T12:13:00
+    date_raw: 27 Oct 2013 — 12:13pm
+    votes: null
+    html: <p>Please post the exact error message so I can get this fixed :)</p>
+    html_clean: <p>Please post the exact error message so I can get this fixed :)</p>
+  - id: 566398
+    user: 18942
+    date: 2013-10-27T12:56:00
+    date_raw: 27 Oct 2013 — 12:56pm
+    votes: null
+    html: |-
+      <p>More that two months afterwards! You are lucky I did not scrap those files. Here is the answer I had prepared for your post.</p>
+      <p>----<br>
+      Here is a trace searching for a particular problem in the .fea files that were generated</p>
+      <pre> find . -name "*.fea" -exec grep 'by[ ]*;' {} \; | sort | uniq -c
+       102        sub [\uniF661 ]' [\slash \fraction \uni2215 ]' [\uniF661 ]'  by ;
+        12        sub [\uniF661 ]' [\slash \fraction ]' [\uniF661 ]'  by ;
+       128        sub [\zero ]' [\slash \fraction ]' [\zero ]'  by ;
+      </pre><p>This found all feature files and searched in them for lines where 'by ;' is written. There is a total of 102 + 12 +128 =242 lines. Those are the 242 lines that cause the problem with the 242 ufo files. </p>
+      <p>After executing </p>
+      <pre>find . -name "*.fea" -exec sed -i .orig '/by[ ]*;/d' {} \;
+      </pre><p>
+      to remove those lines, FontForge accepted the ufo files as input without scrapping the features.</p>
+    html_clean: |-
+      <p>More that two months afterwards! You are lucky I did not scrap those files. Here is the answer I had prepared for your post.</p>
+      <p>----<br>
+      Here is a trace searching for a particular problem in the .fea files that were generated</p>
+      <pre> find . -name "*.fea" -exec grep 'by[ ]*;' {} \; | sort | uniq -c
+       102        sub [\uniF661 ]' [\slash \fraction \uni2215 ]' [\uniF661 ]'  by ;
+        12        sub [\uniF661 ]' [\slash \fraction ]' [\uniF661 ]'  by ;
+       128        sub [\zero ]' [\slash \fraction ]' [\zero ]'  by ;
+      </pre><p>This found all feature files and searched in them for lines where 'by ;' is written. There is a total of 102 + 12 +128 =242 lines. Those are the 242 lines that cause the problem with the 242 ufo files. </p>
+      <p>After executing </p>
+      <pre>find . -name "*.fea" -exec sed -i .orig '/by[ ]*;/d' {} \;
+      </pre><p>
+      to remove those lines, FontForge accepted the ufo files as input without scrapping the features.</p>
+  - id: 566402
+    user: 18942
+    date: 2013-10-27T14:36:00
+    date_raw: 27 Oct 2013 — 2:36pm
+    votes: null
+    html: |-
+      <p><cite>Please post the exact error message so I can get this fixed :)</cite></p>
+      <p>Here is the stderr file that was generated when reading in the .ufo file for Utopia Standard Regular</p>
+      <blockquote><p>
+      Copyright (c) 2000-2012 by George Williams. See AUTHORS for contributors.<br>
+       License GPLv3+: GNU GPL version 3 or later<br>
+       with many parts BSD . Please read LICENSE.<br>
+       Executable based on sources from 12:29 EST 18-Jul-2013-ML-NoPython-D.<br>
+       Library based on sources from 12:29 EST 18-Jul-2013.<br>
+       Based on source from git with hash:f8dc0063ea93c64e70e5ab1402a840e8c9801cc8<br>
+      No substitution specified on line 583 of /Users/boyer/Desktop/Western Fonts/Utopia Std Opticals/UtopiaStd-Regular.ufo/feature.fea<br>
+      There were errors when parsing the feature file and the features have not been applied
+      </p></blockquote>
+      <p>Line 583 is</p>
+      <pre>    sub [\uniF661 ]' [\slash \fraction \uni2215 ]' [\uniF661 ]'  by ;
+      </pre>
+    html_clean: |-
+      <p><cite>Please post the exact error message so I can get this fixed :)</cite></p>
+      <p>Here is the stderr file that was generated when reading in the .ufo file for Utopia Standard Regular</p>
+      <blockquote><p>
+      Copyright (c) 2000-2012 by George Williams. See AUTHORS for contributors.<br>
+       License GPLv3+: GNU GPL version 3 or later<br>
+       with many parts BSD . Please read LICENSE.<br>
+       Executable based on sources from 12:29 EST 18-Jul-2013-ML-NoPython-D.<br>
+       Library based on sources from 12:29 EST 18-Jul-2013.<br>
+       Based on source from git with hash:f8dc0063ea93c64e70e5ab1402a840e8c9801cc8<br>
+      No substitution specified on line 583 of /Users/boyer/Desktop/Western Fonts/Utopia Std Opticals/UtopiaStd-Regular.ufo/feature.fea<br>
+      There were errors when parsing the feature file and the features have not been applied
+      </p></blockquote>
+      <p>Line 583 is</p>
+      <pre>    sub [\uniF661 ]' [\slash \fraction \uni2215 ]' [\uniF661 ]'  by ;
+      </pre>
+  - id: 594274
+    user: 224569
+    date: 2014-11-25T02:32:00
+    date_raw: 25 Nov 2014 — 2:32am
+    votes: null
+    html: <p>There are many ways my friend. However, if you know the coding well you can do this. Batch processing a font to UFO format requires certain steps that should be coded carefully. You can contact through me this and all your doubts will be over.	<a href="http://www.windows10versions.com" title="http://www.windows10versions.com">http://www.windows10versions.com</a></p>
+    html_clean: <p>There are many ways my friend. However, if you know the coding well you can do this. Batch processing a font to UFO format requires certain steps that should be coded carefully. You can contact through me this and all your doubts will be over.	<a href="http://www.windows10versions.com" title="http://www.windows10versions.com">http://www.windows10versions.com</a></p>

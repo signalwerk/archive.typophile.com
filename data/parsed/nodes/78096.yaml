@@ -1,0 +1,153 @@
+node: 78096
+title: Glyph Inventories within families
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120720120635"
+  captured_at: 2012-07-20T12:06:35Z
+  url: http://typophile.com/node/78096
+  digest: DF5AJHFEPLSGVKTAMUDWGT2V2ZJ35JB7
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/78096.html
+  fingerprint: 19b95c23190a50a5
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120720120635"
+      digest: DF5AJHFEPLSGVKTAMUDWGT2V2ZJ35JB7
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/78096.html
+post:
+  id: 78096
+  user: 31798
+  date: 2011-01-16T01:42:00
+  date_raw: 16 Jan 2011 — 1:42am
+  votes: null
+  html: |-
+    <p>I'm wondering if there are any practical reasons requiring that all members of a particular family should have the same glyph complement.</p>
+    <p>As a concrete example, I have a font in which the cedilla and combining cedilla have slightly different forms for uppercase characters, but only in the most extended versions of the font. Currently, even in the condensed forms I have created distinct glyphs for cedilla/cedilla.case and uni0327/uni0327.case even though they are simple copies. I've done this primarily because it allows me to maintain a single set of class definitions and GSUB code for the entire family, but I'm wondering whether these superfluous glyphs can be removed from the more condensed versions once everything is finalized.</p>
+    <p>The only compelling reason I can think of for keeping them in is that it will ensure that GIDs remain consistent throughout the family. This occurs for more glyphs than just cedilla, so even if the glyphs are placed at the end of the font there is no way to get consistent GIDs if these glyphs are removed. I'm wondering, though, if this is actually something one needs to be concerned with.</p>
+    <p>I'm interested in this mainly from a theoretical standpoint since the inclusion of a handful of unneeded glyphs is hardly a big deal. I'm just trying to get a handle on what sorts of things are/aren't important to consider when trying to harmonize fonts into a family.</p>
+    <p>André</p>
+  html_clean: |-
+    <p>I'm wondering if there are any practical reasons requiring that all members of a particular family should have the same glyph complement.</p>
+    <p>As a concrete example, I have a font in which the cedilla and combining cedilla have slightly different forms for uppercase characters, but only in the most extended versions of the font. Currently, even in the condensed forms I have created distinct glyphs for cedilla/cedilla.case and uni0327/uni0327.case even though they are simple copies. I've done this primarily because it allows me to maintain a single set of class definitions and GSUB code for the entire family, but I'm wondering whether these superfluous glyphs can be removed from the more condensed versions once everything is finalized.</p>
+    <p>The only compelling reason I can think of for keeping them in is that it will ensure that GIDs remain consistent throughout the family. This occurs for more glyphs than just cedilla, so even if the glyphs are placed at the end of the font there is no way to get consistent GIDs if these glyphs are removed. I'm wondering, though, if this is actually something one needs to be concerned with.</p>
+    <p>I'm interested in this mainly from a theoretical standpoint since the inclusion of a handful of unneeded glyphs is hardly a big deal. I'm just trying to get a handle on what sorts of things are/aren't important to consider when trying to harmonize fonts into a family.</p>
+    <p>André</p>
+comments:
+  - id: 447686
+    user: 6470
+    date: 2011-01-16T10:09:00
+    date_raw: 16 Jan 2011 — 10:09am
+    votes: null
+    html: |-
+      <p><em>any practical reasons requiring that all members of a particular family should have the same glyph complement.</em></p>
+      <p>How about, no surprises? Assume that someone has set a project in a regular width of a font, but the amount of copy requires that the font be set in a smaller size than desired. If the author were to substitute a condensed weight of the font, he or she would expect the font to contain the same characters...</p>
+    html_clean: |-
+      <p><em>any practical reasons requiring that all members of a particular family should have the same glyph complement.</em></p>
+      <p>How about, no surprises? Assume that someone has set a project in a regular width of a font, but the amount of copy requires that the font be set in a smaller size than desired. If the author were to substitute a condensed weight of the font, he or she would expect the font to contain the same characters...</p>
+  - id: 447724
+    user: 31798
+    date: 2011-01-16T14:59:00
+    date_raw: 16 Jan 2011 — 2:59pm
+    votes: null
+    html: |-
+      <p>Yes, I certainly understand why the character set needs to be the same. Here I'm talking about the <em> glyph </em> set. Not all variant glyphs are necessarily appropriate for all widths/weights.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Yes, I certainly understand why the character set needs to be the same. Here I'm talking about the <em> glyph </em> set. Not all variant glyphs are necessarily appropriate for all widths/weights.</p>
+      <p>André</p>
+  - id: 447737
+    user: 1133
+    date: 2011-01-16T16:50:00
+    date_raw: 16 Jan 2011 — 4:50pm
+    votes: null
+    html: |-
+      <p>The inclusion of .case accent glyphs is merely a simplification in the font development process. The designer can place the glyph outlines in the .case variants higher than in the glyphs intended for lowercase letters. I.e. the difference between the caps height and the x-height can be "hardcoded" in the accent glyphs. Then, when generating composite glyphs, the designer does not need to shift each component accent in all the composite glyphs up by the same value, but instead, all accent components can rest at the y=0 position. Then it's easier to make changes. When I move the outlines of the acute.case or dotaccent.case up or down, the changes will be immediately reflected in all the uppercase accented letters, but the lowercase letters won't change. And in general, when using the .case approach, the designer only needs to adjust the x-position (left-right) of the components in the composite letters, and does not need to worry about remembering to set the correct y-position. </p>
+      <p>If we use the same accent glyph for lowercase and uppercase letters, then any change will require going through all the uppercase glyphs and making the change for each (and we need to pay attention that those changes are consistent). </p>
+      <p>In addition, those .case variants can be used "ad hoc" as a "poor man's" method to create additional composites while typesetting (through the use of kerning). Finally, this simplifies hinting a bit because we can define additional alignment zones just for the .case accents. </p>
+      <p>So it's merely a way to simplify the creation of composite glyphs. But of course, some designers may choose to do it differently. They can write a "mark" feature or use Python scripting to produce the correct placements, but the practice has shown that using the .case method is the simplest, and works even in font-creation tools such as Fontographer or TypeTool that do not have the more advanced features. </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>The inclusion of .case accent glyphs is merely a simplification in the font development process. The designer can place the glyph outlines in the .case variants higher than in the glyphs intended for lowercase letters. I.e. the difference between the caps height and the x-height can be "hardcoded" in the accent glyphs. Then, when generating composite glyphs, the designer does not need to shift each component accent in all the composite glyphs up by the same value, but instead, all accent components can rest at the y=0 position. Then it's easier to make changes. When I move the outlines of the acute.case or dotaccent.case up or down, the changes will be immediately reflected in all the uppercase accented letters, but the lowercase letters won't change. And in general, when using the .case approach, the designer only needs to adjust the x-position (left-right) of the components in the composite letters, and does not need to worry about remembering to set the correct y-position. </p>
+      <p>If we use the same accent glyph for lowercase and uppercase letters, then any change will require going through all the uppercase glyphs and making the change for each (and we need to pay attention that those changes are consistent). </p>
+      <p>In addition, those .case variants can be used "ad hoc" as a "poor man's" method to create additional composites while typesetting (through the use of kerning). Finally, this simplifies hinting a bit because we can define additional alignment zones just for the .case accents. </p>
+      <p>So it's merely a way to simplify the creation of composite glyphs. But of course, some designers may choose to do it differently. They can write a "mark" feature or use Python scripting to produce the correct placements, but the practice has shown that using the .case method is the simplest, and works even in font-creation tools such as Fontographer or TypeTool that do not have the more advanced features. </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 447738
+    user: 1133
+    date: 2011-01-16T16:55:00
+    date_raw: 16 Jan 2011 — 4:55pm
+    votes: null
+    html: |-
+      <p>Actually, I just realized that most of what I've written applies to accents placed on top of the letters. For commaaccent, cedilla and ogonek, it is, indeed, less common to include .case variants (and the standard Fontographer 5 encodings do not have slots for these). </p>
+      <p>In general, I'd say, including a few superfluous glyphs does not do any harm. In OpenType PS, those will be compressed with their identical counterparts using subroutines, and in OpenType TT they will only occupy a few more bytes. I wouldn't worry about it. </p>
+      <p>I'd even say: any methods used in the font for the creator's benefit (i.e. methods that improve the speed and consistency of the font creation) that do not IMPEDE or LIMIT the usability of the font for the user, are fine. </p>
+      <p>Of course this depends on the font creator's priorities. If one's goal is to create a "technically ultra-perfect font", which is optimized to the point of perfection, the designer may choose to employ any optimization he or she wishes. </p>
+      <p>In the end, it's a matter of decision, really.</p>
+    html_clean: |-
+      <p>Actually, I just realized that most of what I've written applies to accents placed on top of the letters. For commaaccent, cedilla and ogonek, it is, indeed, less common to include .case variants (and the standard Fontographer 5 encodings do not have slots for these). </p>
+      <p>In general, I'd say, including a few superfluous glyphs does not do any harm. In OpenType PS, those will be compressed with their identical counterparts using subroutines, and in OpenType TT they will only occupy a few more bytes. I wouldn't worry about it. </p>
+      <p>I'd even say: any methods used in the font for the creator's benefit (i.e. methods that improve the speed and consistency of the font creation) that do not IMPEDE or LIMIT the usability of the font for the user, are fine. </p>
+      <p>Of course this depends on the font creator's priorities. If one's goal is to create a "technically ultra-perfect font", which is optimized to the point of perfection, the designer may choose to employ any optimization he or she wishes. </p>
+      <p>In the end, it's a matter of decision, really.</p>
+  - id: 447741
+    user: 32723
+    date: 2011-01-16T18:25:00
+    date_raw: 16 Jan 2011 — 6:25pm
+    votes: null
+    html: |-
+      <p><cite>(...) we can define additional alignment zones just for the .case accents.</cite></p>
+      <p>It seems I lost this lesson. How to create alignment zones just for a partial set of glyphs? I just know that way, where zones are always global:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01172011_001915_5658.gif"></div><p></p>
+      <p><em>FL alignment zones dialog.</em></p>
+      <p>I suppose alignment zones for a given set is especially important because overshoots usually are not the same between different cases (for example, I use 24 for lowercase, small caps and petite caps, and 32 for uppercase, within a 2048 UPM).</p>
+    html_clean: |-
+      <p><cite>(...) we can define additional alignment zones just for the .case accents.</cite></p>
+      <p>It seems I lost this lesson. How to create alignment zones just for a partial set of glyphs? I just know that way, where zones are always global:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01172011_001915_5658.gif"></div><p></p>
+      <p><em>FL alignment zones dialog.</em></p>
+      <p>I suppose alignment zones for a given set is especially important because overshoots usually are not the same between different cases (for example, I use 24 for lowercase, small caps and petite caps, and 32 for uppercase, within a 2048 UPM).</p>
+  - id: 447742
+    user: 1133
+    date: 2011-01-16T18:43:00
+    date_raw: 16 Jan 2011 — 6:43pm
+    votes: null
+    html: |-
+      <p>You can only define global alignment zones. What I mean is that you can have a alignment zone specifically for the .case glyphs, which are typically drawn way above the caps height and even ascender height, and by default don't have an alignment zone on their own. </p>
+      <p>(By the way, I do think that the ability to define per-class alignment zones would be useful). </p>
+      <p>Best,<br>
+      Adam</p>
+    html_clean: |-
+      <p>You can only define global alignment zones. What I mean is that you can have a alignment zone specifically for the .case glyphs, which are typically drawn way above the caps height and even ascender height, and by default don't have an alignment zone on their own. </p>
+      <p>(By the way, I do think that the ability to define per-class alignment zones would be useful). </p>
+      <p>Best,<br>
+      Adam</p>
+  - id: 447749
+    user: 32723
+    date: 2011-01-16T19:42:00
+    date_raw: 16 Jan 2011 — 7:42pm
+    votes: null
+    html: |-
+      <p>Thanks, Adam. As usual, clear and precise.</p>
+      <p>I imagine class alignment zones could be useful when doing automatic hinting in the situation I cited, with different overshoot for UC and lc. A global 0,–24 is not adequate to UC overshoot 0,–32, I guess. I add a secondary zone at –24,–32 to compliment this difference, but have no idea if this has any real sense.</p>
+    html_clean: |-
+      <p>Thanks, Adam. As usual, clear and precise.</p>
+      <p>I imagine class alignment zones could be useful when doing automatic hinting in the situation I cited, with different overshoot for UC and lc. A global 0,–24 is not adequate to UC overshoot 0,–32, I guess. I add a secondary zone at –24,–32 to compliment this difference, but have no idea if this has any real sense.</p>

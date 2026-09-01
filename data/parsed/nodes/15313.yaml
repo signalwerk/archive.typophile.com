@@ -1,0 +1,272 @@
+node: 15313
+title: long s substitution??
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20091212144408"
+  captured_at: 2009-12-12T14:44:08Z
+  url: http://typophile.com:80/node/15313
+  digest: MJ3GVKDNXX3KZ3LVLKKNDFERBJDGLIOB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/15313.html
+  fingerprint: c862d76f9be27f1b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20091212144408"
+      digest: MJ3GVKDNXX3KZ3LVLKKNDFERBJDGLIOB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/15313.html
+post:
+  id: 15313
+  user: 7497
+  date: 2005-09-23T12:23:00
+  date_raw: 23.Sep.2005 12.23pm
+  votes: null
+  html: |-
+    <p>Hi!</p>
+    <p>Im working on a distressed font based on<br>
+    characters from an ancient tombstone for my diploma.</p>
+    <p>Does anyone have tips on how to implement<br>
+    conextually glyph substitution for long s?</p>
+    <p>Id like to have it done automatically but there are<br>
+    just too many exceptions to the rules and im quite<br>
+    new to opentype programming, so maybe i’d just<br>
+    stick with including it as a special character which<br>
+    can be accessed via glyph pallette?</p>
+    <p>what do you think?</p>
+    <p>thanks a lot, this forum has already been extremely useful!<br>
+    hannes.</p>
+  html_clean: |-
+    <p>Hi!</p>
+    <p>Im working on a distressed font based on<br>
+    characters from an ancient tombstone for my diploma.</p>
+    <p>Does anyone have tips on how to implement<br>
+    conextually glyph substitution for long s?</p>
+    <p>Id like to have it done automatically but there are<br>
+    just too many exceptions to the rules and im quite<br>
+    new to opentype programming, so maybe i’d just<br>
+    stick with including it as a special character which<br>
+    can be accessed via glyph pallette?</p>
+    <p>what do you think?</p>
+    <p>thanks a lot, this forum has already been extremely useful!<br>
+    hannes.</p>
+comments:
+  - id: 88227
+    user: 7006
+    date: 2005-09-23T12:26:00
+    date_raw: 23.Sep.2005 12.26pm
+    votes: null
+    html: <p>I think <a href="/wiki/Adam%252BTwardoch" class="wiki">Adam Twardoch</a> answers the problems to this quite well <a href="http://typophile.com/node/5663#comment-40329">in an old thread on a similar topic</a>.</p>
+    html_clean: <p>I think <a href="/wiki/Adam%252BTwardoch" class="wiki">Adam Twardoch</a> answers the problems to this quite well <a href="/node/5663/#comment-40329">in an old thread on a similar topic</a>.</p>
+  - id: 88238
+    user: 1336
+    date: 2005-09-23T13:36:00
+    date_raw: 23.Sep.2005 1.36pm
+    votes: null
+    html: |-
+      <p>Should be a pretty simple OT feature:<br>
+      Make “tall s” the s in your font. (Mapped to lowercase s.)<br>
+      Create a new glyph using the “regular s” and call it “s.alt”.<br>
+      Create a class with space, all punctuation, and “s”.<br>
+      Whenever “s” is followed by your class, use “s.alt”.</p>
+    html_clean: |-
+      <p>Should be a pretty simple OT feature:<br>
+      Make “tall s” the s in your font. (Mapped to lowercase s.)<br>
+      Create a new glyph using the “regular s” and call it “s.alt”.<br>
+      Create a class with space, all punctuation, and “s”.<br>
+      Whenever “s” is followed by your class, use “s.alt”.</p>
+  - id: 88257
+    user: 909
+    date: 2005-09-23T16:37:00
+    date_raw: 23.Sep.2005 4.37pm
+    votes: null
+    html: |-
+      <p>As explained by Adam (and as we found in our own research), it isn’t that simple. The correct usage of the long s varies by location and time. Chester’s code example would work well enough for latter-day English usage of the long s, though.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>As explained by Adam (and as we found in our own research), it isn’t that simple. The correct usage of the long s varies by location and time. Chester’s code example would work well enough for latter-day English usage of the long s, though.</p>
+      <p>T</p>
+  - id: 88319
+    user: 8664
+    date: 2005-09-24T02:03:00
+    date_raw: 24.Sep.2005 2.03am
+    votes: null
+    html: |-
+      <p>Chester’s advice is good.<br>
+      Or do it the other way round —</p>
+      <p>Glyph names: “s” remains the round/end s and “longs” is the long s.<br>
+      Define a class containing all lowercase (ligatures included), say @LC_for_longs. </p>
+      <p>Make a “hist” feature with a contextual substitution:<br>
+      sub s’ @LC_for_longs by longs;</p>
+      <p>This means: Long s replaces normal s only if another lowercase follows. Not so if any other letter (uppercase, punctuation &amp; spaces included) follows. Same result as with Chester’s sample, but it’s easier to collect lowercase than all possible exceptions (like quotation marks &amp;c).<br>
+      Moreover, you can also use the font without long s. E.g. if the app doesn’t support any features.</p>
+      <p>Works well for English which has very simple long s rules: always except at the end of a word.<br>
+      For German, you create a paragraph style with this feature switched on, and create a character style with this feature switched off. Then go through your text manually to apply the character style to normal s’s that should be round/end s ...</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Chester’s advice is good.<br>
+      Or do it the other way round —</p>
+      <p>Glyph names: “s” remains the round/end s and “longs” is the long s.<br>
+      Define a class containing all lowercase (ligatures included), say @LC_for_longs. </p>
+      <p>Make a “hist” feature with a contextual substitution:<br>
+      sub s’ @LC_for_longs by longs;</p>
+      <p>This means: Long s replaces normal s only if another lowercase follows. Not so if any other letter (uppercase, punctuation &amp; spaces included) follows. Same result as with Chester’s sample, but it’s easier to collect lowercase than all possible exceptions (like quotation marks &amp;c).<br>
+      Moreover, you can also use the font without long s. E.g. if the app doesn’t support any features.</p>
+      <p>Works well for English which has very simple long s rules: always except at the end of a word.<br>
+      For German, you create a paragraph style with this feature switched on, and create a character style with this feature switched off. Then go through your text manually to apply the character style to normal s’s that should be round/end s ...</p>
+      <p>Karsten</p>
+  - id: 88445
+    user: 7497
+    date: 2005-09-25T01:37:00
+    date_raw: 25.Sep.2005 1.37am
+    votes: null
+    html: |-
+      <p>thanks for all the posts,<br>
+      I think I’ll stick with Karstens method,<br>
+      it seems to work pretty well!</p>
+      <p>thanks again!<br>
+      hannes</p>
+    html_clean: |-
+      <p>thanks for all the posts,<br>
+      I think I’ll stick with Karstens method,<br>
+      it seems to work pretty well!</p>
+      <p>thanks again!<br>
+      hannes</p>
+  - id: 88463
+    user: 1336
+    date: 2005-09-25T07:56:00
+    date_raw: 25.Sep.2005 7.56am
+    votes: null
+    html: <p>Indeed, my feature is very simple, and is meant to be used for English. Karsten is your man for OpenType coding; he takes a great deal of care in making his types so that they can be beautifully set in many languages and idioms. Hi Litteratra typeface is bursting with alternates, ligatures, contextual alternates and contextual positioning options. (He uses Stylistic Sets very well.)</p>
+    html_clean: <p>Indeed, my feature is very simple, and is meant to be used for English. Karsten is your man for OpenType coding; he takes a great deal of care in making his types so that they can be beautifully set in many languages and idioms. Hi Litteratra typeface is bursting with alternates, ligatures, contextual alternates and contextual positioning options. (He uses Stylistic Sets very well.)</p>
+  - id: 88563
+    user: 7497
+    date: 2005-09-26T01:07:00
+    date_raw: 26.Sep.2005 1.07am
+    votes: null
+    html: |-
+      <p>well, I still seem to have some problems.</p>
+      <p>In fontlab the hist feature works well,<br>
+      in IndesignCS2 it doesnt seem to work at all,<br>
+      contextual substitution and ligatures work well.</p>
+      <p>I only have the three features</p>
+      <p>liga<br>
+      calt<br>
+      hist</p>
+      <p>and somehow the hist feature gets lost<br>
+      in indesign?</p>
+      <p>greetigs and thanks,<br>
+      hannes.</p>
+    html_clean: |-
+      <p>well, I still seem to have some problems.</p>
+      <p>In fontlab the hist feature works well,<br>
+      in IndesignCS2 it doesnt seem to work at all,<br>
+      contextual substitution and ligatures work well.</p>
+      <p>I only have the three features</p>
+      <p>liga<br>
+      calt<br>
+      hist</p>
+      <p>and somehow the hist feature gets lost<br>
+      in indesign?</p>
+      <p>greetigs and thanks,<br>
+      hannes.</p>
+  - id: 88566
+    user: 7006
+    date: 2005-09-26T01:49:00
+    date_raw: 26.Sep.2005 1.49am
+    votes: null
+    html: <p>InDesign doesn’t support the hist feature by any type of automatic substitution. See page 14 of Adobe’s <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf">OT User’s Guide</a> for a list of currently supported features.</p>
+    html_clean: <p>InDesign doesn’t support the hist feature by any type of automatic substitution. See page 14 of Adobe’s <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf">OT User’s Guide</a> for a list of currently supported features.</p>
+  - id: 88567
+    user: 7497
+    date: 2005-09-26T02:42:00
+    date_raw: 26.Sep.2005 2.42am
+    votes: null
+    html: |-
+      <p>I see, so which feature is most useful to implement long_s substitution? </p>
+      <p>should I just go with contextual alternates?</p>
+      <p>thanks,<br>
+      hannes.</p>
+    html_clean: |-
+      <p>I see, so which feature is most useful to implement long_s substitution? </p>
+      <p>should I just go with contextual alternates?</p>
+      <p>thanks,<br>
+      hannes.</p>
+  - id: 88592
+    user: 1336
+    date: 2005-09-26T06:36:00
+    date_raw: 26.Sep.2005 6.36am
+    votes: null
+    html: |-
+      <p>You could do contextual alternates, but that is ON by default, so you have to want the feature to be ON unless you specifically turn it OFF. What you should do (in any event) is duplicate that hist feature and have the second version as “ss01”: you’ll be able to turn the feature ON using InDesign, which supports Stylistic Sets. If you also want to use the feature in Illustrator, you might consider making it a “titl”: Titling Alternates.</p>
+      <p>It’s annoying that Adobe released a generation of products together as Creative Suite 2, but that they all have different type handling. I hope that they get their act together in the next version and all play nice and adopt the InDesign model.</p>
+      <p>FYI, I have posted screengrabs of CS2’s OpenType “interfaces” here:<br>
+      <a href="http://vllg.com/files/cs2/" title="http://vllg.com/files/cs2/">http://vllg.com/files/cs2/</a></p>
+    html_clean: |-
+      <p>You could do contextual alternates, but that is ON by default, so you have to want the feature to be ON unless you specifically turn it OFF. What you should do (in any event) is duplicate that hist feature and have the second version as “ss01”: you’ll be able to turn the feature ON using InDesign, which supports Stylistic Sets. If you also want to use the feature in Illustrator, you might consider making it a “titl”: Titling Alternates.</p>
+      <p>It’s annoying that Adobe released a generation of products together as Creative Suite 2, but that they all have different type handling. I hope that they get their act together in the next version and all play nice and adopt the InDesign model.</p>
+      <p>FYI, I have posted screengrabs of CS2’s OpenType “interfaces” here:<br>
+      <a href="http://vllg.com/files/cs2/" title="http://vllg.com/files/cs2/">http://vllg.com/files/cs2/</a></p>
+  - id: 88614
+    user: 8664
+    date: 2005-09-26T09:56:00
+    date_raw: 26.Sep.2005 9.56am
+    votes: null
+    html: |-
+      <p>Sorry yes, I forgot to mention that ID doesn’t support hist ...<br>
+      As Chester said, mirroring unsupported features (ornm is<br>
+      another one) in an ssXX helps.</p>
+      <p>If it shall work in old ID (non-CS) 2 or other apps too,<br>
+      you need to use one of the standard features indeed.<br>
+      ID CS2 is the only application so far which supports ssXX<br>
+      features.<br>
+      Which one, depends —<br>
+      maybe not liga as you type might have ligatures,<br>
+      maybe not dlig as your type might have abbreviations,<br>
+      &amp;c<br>
+      — titling is really a good choice!</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Sorry yes, I forgot to mention that ID doesn’t support hist ...<br>
+      As Chester said, mirroring unsupported features (ornm is<br>
+      another one) in an ssXX helps.</p>
+      <p>If it shall work in old ID (non-CS) 2 or other apps too,<br>
+      you need to use one of the standard features indeed.<br>
+      ID CS2 is the only application so far which supports ssXX<br>
+      features.<br>
+      Which one, depends —<br>
+      maybe not liga as you type might have ligatures,<br>
+      maybe not dlig as your type might have abbreviations,<br>
+      &amp;c<br>
+      — titling is really a good choice!</p>
+      <p>Karsten</p>
+  - id: 88865
+    user: 7497
+    date: 2005-09-28T04:51:00
+    date_raw: 28.Sep.2005 4.51am
+    votes: null
+    html: |-
+      <p>thanks! </p>
+      <p>Titling seems to be the right descision, that way I can also avoid any problems between the contextual subs and the long s sub.</p>
+      <p>works well!</p>
+      <p>thanks for your help again!</p>
+    html_clean: |-
+      <p>thanks! </p>
+      <p>Titling seems to be the right descision, that way I can also avoid any problems between the contextual subs and the long s sub.</p>
+      <p>works well!</p>
+      <p>thanks for your help again!</p>

@@ -1,0 +1,132 @@
+node: 30416
+title: Adding space to all Caps via OpenType?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131108134717"
+  captured_at: 2013-11-08T13:47:17Z
+  url: http://typophile.com/node/30416
+  digest: OAWM64ADJSCY5WED6RYCZRSXCH5KNMEW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/30416.html
+  fingerprint: e4f9ddadf8a2f447
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131108134717"
+      digest: OAWM64ADJSCY5WED6RYCZRSXCH5KNMEW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/30416.html
+post:
+  id: 30416
+  user: 3135
+  date: 2007-01-07T17:20:00
+  date_raw: 7 Jan 2007 — 5:20pm
+  votes: null
+  html: |-
+    <p>I thought someone had once mentioned that it was possible to increase letterspacing in all Caps above what the normal sidebearings make by using some opentype feature. Is this possible and how would I code it?</p>
+    <p>Thanks for all geekly advice!</p>
+    <p>ChrisL</p>
+  html_clean: |-
+    <p>I thought someone had once mentioned that it was possible to increase letterspacing in all Caps above what the normal sidebearings make by using some opentype feature. Is this possible and how would I code it?</p>
+    <p>Thanks for all geekly advice!</p>
+    <p>ChrisL</p>
+comments:
+  - id: 176567
+    user: 12938
+    date: 2007-01-07T19:08:00
+    date_raw: 7 Jan 2007 — 7:08pm
+    votes: null
+    html: |-
+      <p>Hey ChrisL,</p>
+      <p>I'm sure other people know much more than I do, but I was trying teaching myself how to do this the other day so I'll at least get you started. If all of your caps are in a class (we'll call the class "caps" in this example), then you can just use the OpenType cpsp feature do add units (xx) to the sidebearings as such:</p>
+      <p>feature cpsp {<br>
+          pos @caps &lt;xx 0 xx 0&gt;;<br>
+      } cpsp;</p>
+      <p>I bet I'm missing something important, so I encourage others to respond and fill in the gaps.</p>
+      <p>Good luck,<br>
+      David</p>
+    html_clean: |-
+      <p>Hey ChrisL,</p>
+      <p>I'm sure other people know much more than I do, but I was trying teaching myself how to do this the other day so I'll at least get you started. If all of your caps are in a class (we'll call the class "caps" in this example), then you can just use the OpenType cpsp feature do add units (xx) to the sidebearings as such:</p>
+      <p>feature cpsp {<br>
+          pos @caps &lt;xx 0 xx 0&gt;;<br>
+      } cpsp;</p>
+      <p>I bet I'm missing something important, so I encourage others to respond and fill in the gaps.</p>
+      <p>Good luck,<br>
+      David</p>
+  - id: 176638
+    user: 3135
+    date: 2007-01-08T05:58:00
+    date_raw: 8 Jan 2007 — 5:58am
+    votes: null
+    html: |-
+      <p>David,<br>
+      Thanks for the info! I am not clear on the x's and o's though. I asume your "xx" equals the value of increase in units. Is the "o" the glyph? or could it be the class name?</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>David,<br>
+      Thanks for the info! I am not clear on the x's and o's though. I asume your "xx" equals the value of increase in units. Is the "o" the glyph? or could it be the class name?</p>
+      <p>ChrisL</p>
+  - id: 176654
+    user: 8664
+    date: 2007-01-08T07:32:00
+    date_raw: 8 Jan 2007 — 7:32am
+    votes: null
+    html: |-
+      <p>At best with two examples:</p>
+      <p>pos Adieresis &lt;5 0 10 0&gt;;<br>
+      pos @caps &lt;5 0 10 0&gt;;</p>
+      <p>The 'pos' command is followed either by a glyph name or a class name.</p>
+      <p>Enclosed are, left to right: x placement adjustment, y placement adjustment, x advance adjustment, y advance adjustment.<br>
+      So, the example says: The outlines of glyph 'Adieresis' are moved to the right at 5 units, and then the advance width is increased by ten.<br>
+      This looks a bit complicated at first, but has to do with the fact that a font does not know about a rightside bearing; rather, the rightside bearing is advance width  -- the glyph's total width including leftside and rightside bearings -- minus leftside bearing.<br>
+      What the example does is: it increases both leftside and rightside bearing at 5 units each.</p>
+      <p>The second and forth number remain zero because you do not want to move the glyph up or down.<br>
+      (Instead of adding extra glyphs and substitute them in the 'case' feature, you could as well add a lookup with commands like<br>
+      pos parenleft &lt;0 20 0 0&gt;;<br>
+      pos parenright &lt;0 20 0 0&gt;;<br>
+      which will raise glyphs a bit if you select 'All Caps'.)</p>
+      <p>The Feature File Syntax (html) document which accompanies the AFDKO is a very good reference for this.</p>
+    html_clean: |-
+      <p>At best with two examples:</p>
+      <p>pos Adieresis &lt;5 0 10 0&gt;;<br>
+      pos @caps &lt;5 0 10 0&gt;;</p>
+      <p>The 'pos' command is followed either by a glyph name or a class name.</p>
+      <p>Enclosed are, left to right: x placement adjustment, y placement adjustment, x advance adjustment, y advance adjustment.<br>
+      So, the example says: The outlines of glyph 'Adieresis' are moved to the right at 5 units, and then the advance width is increased by ten.<br>
+      This looks a bit complicated at first, but has to do with the fact that a font does not know about a rightside bearing; rather, the rightside bearing is advance width  -- the glyph's total width including leftside and rightside bearings -- minus leftside bearing.<br>
+      What the example does is: it increases both leftside and rightside bearing at 5 units each.</p>
+      <p>The second and forth number remain zero because you do not want to move the glyph up or down.<br>
+      (Instead of adding extra glyphs and substitute them in the 'case' feature, you could as well add a lookup with commands like<br>
+      pos parenleft &lt;0 20 0 0&gt;;<br>
+      pos parenright &lt;0 20 0 0&gt;;<br>
+      which will raise glyphs a bit if you select 'All Caps'.)</p>
+      <p>The Feature File Syntax (html) document which accompanies the AFDKO is a very good reference for this.</p>
+  - id: 176659
+    user: 3135
+    date: 2007-01-08T08:02:00
+    date_raw: 8 Jan 2007 — 8:02am
+    votes: null
+    html: |-
+      <p>Karsten,</p>
+      <p>Thanks! That certainly helps sort it out for me nicely!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Karsten,</p>
+      <p>Thanks! That certainly helps sort it out for me nicely!</p>
+      <p>ChrisL</p>

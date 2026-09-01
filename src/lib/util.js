@@ -137,6 +137,16 @@ function sanitizeSegment(segment) {
   return out;
 }
 
+// A segment that is going to hold other files must never be spelled the same
+// way as a file, or a URL like `/index.php/member/register` cannot be stored
+// beside the capture of `/index.php` itself -- mkdir walks into the existing
+// file and fails with ENOTDIR. A leaf always ends in an extension (the mime
+// type supplies one when the URL does not), so dropping the dots from the
+// segments above it keeps the two sets disjoint by construction.
+function directorySegment(segment) {
+  return clampLength(segment.replace(/\./g, "%2E"));
+}
+
 const MAX_SEGMENT = 180;
 
 function clampLength(name) {
@@ -178,7 +188,7 @@ export function localPathFor(urlkey, mime) {
 
   name = clampLength(stem) + ext;
 
-  return [hostDir, ...segments.map(clampLength), name].join("/");
+  return [hostDir, ...segments.map(directorySegment), name].join("/");
 }
 
 // --- io helpers ------------------------------------------------------------

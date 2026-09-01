@@ -1,0 +1,104 @@
+node: 113935
+title: Internet Explorer - support for Font Data URLs in @font-face CSS declarations?
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20141018045700"
+  captured_at: 2014-10-18T04:57:00Z
+  url: http://typophile.com:80/node/113935
+  digest: 7TG3OJBE2TIZMJQYXF74UXJD26A5JBJA
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/113935.html
+  fingerprint: 421f69cd2db4157e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141018045700"
+      digest: 7TG3OJBE2TIZMJQYXF74UXJD26A5JBJA
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/113935.html
+post:
+  id: 113935
+  user: 44873
+  date: 2014-02-05T10:56:00
+  date_raw: 5 Feb 2014 — 10:56am
+  votes: null
+  html: |-
+    <p>Does anybody know what's up with using Data URLS for embedded fonts in Internet Explorer?<br>
+    (Si, I'm lookin' at you, kiddo.)</p>
+    <p>I've noticed that Data URLS are supported in IE 11 - or so my webfont test pages tell me.</p>
+    <p>(If you're unfamiliar with them, data urls in a @font-face CSS declaration use base 64 encoding and look like this:<br>
+    @font-face{font-family:'backdrop';src:url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAo.....}</p>
+    <p>But oddly, I've heard nothing about it via the grapevine. No blog posts mentioning it, no twitterin', nothin'. </p>
+    <p>Did support start prior to IE 11 or is IE 11 the first version to do so? Are there any limitations like the size of the data? Is the format an issue - will TTF, OTF,  WOFF and EOT all work?</p>
+    <p>Are there any support docs explaining it? (If so, they seem to be buried deep - I don't see Data URLS for fonts mentioned at all  in the usual places on the Microsoft Developer Network where you'd expect to find it.)</p>
+    <p>Any help appreciated.</p>
+    <p>rich</p>
+  html_clean: |-
+    <p>Does anybody know what's up with using Data URLS for embedded fonts in Internet Explorer?<br>
+    (Si, I'm lookin' at you, kiddo.)</p>
+    <p>I've noticed that Data URLS are supported in IE 11 - or so my webfont test pages tell me.</p>
+    <p>(If you're unfamiliar with them, data urls in a @font-face CSS declaration use base 64 encoding and look like this:<br>
+    @font-face{font-family:'backdrop';src:url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAo.....}</p>
+    <p>But oddly, I've heard nothing about it via the grapevine. No blog posts mentioning it, no twitterin', nothin'. </p>
+    <p>Did support start prior to IE 11 or is IE 11 the first version to do so? Are there any limitations like the size of the data? Is the format an issue - will TTF, OTF,  WOFF and EOT all work?</p>
+    <p>Are there any support docs explaining it? (If so, they seem to be buried deep - I don't see Data URLS for fonts mentioned at all  in the usual places on the Microsoft Developer Network where you'd expect to find it.)</p>
+    <p>Any help appreciated.</p>
+    <p>rich</p>
+comments:
+  - id: 570870
+    user: 3085
+    date: 2014-02-06T18:48:00
+    date_raw: 6 Feb 2014 — 6:48pm
+    votes: null
+    html: |-
+      <p>Hi Rich,</p>
+      <p>Data uri for fonts is supported since IE9 when we introduced full support for @font-face rules. Some webfont providers serve fonts this way for a long time.<br>
+      There is nothing special about data uri in regards to fonts. They are just data blobs and processed as regular externally downloaded file, it doesn't matter what format is actually inside it. There was a limitation of 32k on data uri size in IE8, but in IE9 it was removed.<br>
+      Is this information helpful?<br>
+      Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>Hi Rich,</p>
+      <p>Data uri for fonts is supported since IE9 when we introduced full support for @font-face rules. Some webfont providers serve fonts this way for a long time.<br>
+      There is nothing special about data uri in regards to fonts. They are just data blobs and processed as regular externally downloaded file, it doesn't matter what format is actually inside it. There was a limitation of 32k on data uri size in IE8, but in IE9 it was removed.<br>
+      Is this information helpful?<br>
+      Thanks,<br>
+      Sergey</p>
+  - id: 570927
+    user: 44873
+    date: 2014-02-07T10:16:00
+    date_raw: 7 Feb 2014 — 10:16am
+    votes: null
+    html: |-
+      <p>&gt;Is this information helpful?</p>
+      <p>Hey Sergey...</p>
+      <p>Yes, it's very helpful. Thanks. </p>
+      <p>To the extent that I can, I like to write web font test pages that have everything necessary written into the page with no need for supporting CSS or JS files.<br>
+      So embedding a font using a Data URI is indeed useful.<br>
+      It's been available since IE9?  Wow - I'll bet a lot of developers have absolutely no idea that's the case and are feeding all versions of IE either an EOT, a WOFF, or a TTF file thinking they absolutely must do so.</p>
+      <p>Thanks again.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>&gt;Is this information helpful?</p>
+      <p>Hey Sergey...</p>
+      <p>Yes, it's very helpful. Thanks. </p>
+      <p>To the extent that I can, I like to write web font test pages that have everything necessary written into the page with no need for supporting CSS or JS files.<br>
+      So embedding a font using a Data URI is indeed useful.<br>
+      It's been available since IE9?  Wow - I'll bet a lot of developers have absolutely no idea that's the case and are feeding all versions of IE either an EOT, a WOFF, or a TTF file thinking they absolutely must do so.</p>
+      <p>Thanks again.</p>
+      <p>Rich</p>

@@ -1,0 +1,217 @@
+node: 116336
+title: Swash/Small caps problem
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416045216"
+  captured_at: 2015-04-16T04:52:16Z
+  url: http://typophile.com/node/116336
+  digest: ASAMHBHONJDI75E6VTUGNLEYRCDUWWMY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/116336.html
+  fingerprint: 1461419c082a1061
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416045216"
+      digest: ASAMHBHONJDI75E6VTUGNLEYRCDUWWMY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/116336.html
+post:
+  id: 116336
+  user: 3834
+  date: 2014-05-07T05:00:00
+  date_raw: 7 May 2014 — 5:00am
+  votes: null
+  html: |-
+    <p>I have created c2sc, smcp and swsh features which all work as they should. However, when applying the smcp together with the swsh, the two ligatures for n_g.swsh and h_y.swsh appear instead of N, G, H and Y small caps. How can I have the two features together and somehow override the ligatures?</p>
+    <p>Here's the code:<br>
+    feature swsh {<br>
+        sub @swsh1 by @swsh2;<br>
+        sub N i by N_i.swsh;<br>
+        sub h y by h_y.swsh;<br>
+        sub n g by n_g.swsh;<br>
+        sub n y by n_y.swsh;<br>
+        sub r h by r_h.swsh;<br>
+        sub r i by r_i.swsh;<br>
+        sub r j by r_j.swsh;<br>
+        sub r k by r_k.swsh;<br>
+        sub r t by r_t.swsh;<br>
+        sub r.swsh' @fligs by r;<br>
+        sub @swsh3 by @swsh4;<br>
+    } swsh;</p>
+    <p>I've been messing about with it for so long I can't think straight.</p>
+    <p>Any help gratefully received.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/featuresgrab_4746.png"></div><p></p>
+  html_clean: |-
+    <p>I have created c2sc, smcp and swsh features which all work as they should. However, when applying the smcp together with the swsh, the two ligatures for n_g.swsh and h_y.swsh appear instead of N, G, H and Y small caps. How can I have the two features together and somehow override the ligatures?</p>
+    <p>Here's the code:<br>
+    feature swsh {<br>
+        sub @swsh1 by @swsh2;<br>
+        sub N i by N_i.swsh;<br>
+        sub h y by h_y.swsh;<br>
+        sub n g by n_g.swsh;<br>
+        sub n y by n_y.swsh;<br>
+        sub r h by r_h.swsh;<br>
+        sub r i by r_i.swsh;<br>
+        sub r j by r_j.swsh;<br>
+        sub r k by r_k.swsh;<br>
+        sub r t by r_t.swsh;<br>
+        sub r.swsh' @fligs by r;<br>
+        sub @swsh3 by @swsh4;<br>
+    } swsh;</p>
+    <p>I've been messing about with it for so long I can't think straight.</p>
+    <p>Any help gratefully received.</p>
+    <p></p><div class="imageWrap"><img src="/files/featuresgrab_4746.png"></div><p></p>
+comments:
+  - id: 577776
+    user: 3834
+    date: 2014-05-07T05:03:00
+    date_raw: 7 May 2014 — 5:03am
+    votes: null
+    html: |-
+      <p>What happened to edit?</p>
+      <p>1. (top) C/l/c<br>
+      2. Small Caps<br>
+      3. c2sc, swsh<br>
+      4. c2sc, swsh, smcp</p>
+    html_clean: |-
+      <p>What happened to edit?</p>
+      <p>1. (top) C/l/c<br>
+      2. Small Caps<br>
+      3. c2sc, swsh<br>
+      4. c2sc, swsh, smcp</p>
+  - id: 577789
+    user: 181984
+    date: 2014-05-07T11:04:00
+    date_raw: 7 May 2014 — 11:04am
+    votes: null
+    html: <p>Maybe change the order of features help? 'smcp' before 'swsh'...</p>
+    html_clean: <p>Maybe change the order of features help? 'smcp' before 'swsh'...</p>
+  - id: 577839
+    user: 3834
+    date: 2014-05-07T23:35:00
+    date_raw: 7 May 2014 — 11:35pm
+    votes: null
+    html: <p>I've tried that, but the swash ligs always remain.</p>
+    html_clean: <p>I've tried that, but the swash ligs always remain.</p>
+  - id: 577856
+    user: 181984
+    date: 2014-05-08T05:14:00
+    date_raw: 8 May 2014 — 5:14am
+    votes: null
+    html: |-
+      <p>Interesting, I try to test code below, and it work corect.<br>
+      When I change the order, it work like in Your example.</p>
+      <p><code><br>
+      lookup smcp {<br>
+       lookupflag 0;<br>
+        sub \n by \n.smcp;<br>
+      } smcp;</code></p>
+      <p>lookup swshLiga {<br>
+       lookupflag 0;<br>
+        sub \n \g  by \n_g.swsh;<br>
+      } swshLiga;</p>
+      <p>lookup swshSub {<br>
+       lookupflag 0;<br>
+        sub \n by \n.swsh;<br>
+      } swshSub;</p>
+      <p>feature smcp {<br>
+       script DFLT;<br>
+        language dflt;<br>
+        lookup smcp;<br>
+       script latn;<br>
+        language dflt;<br>
+        lookup smcp;<br>
+      } smcp;</p>
+      <p>feature swsh {<br>
+       script DFLT;<br>
+        language dflt;<br>
+         lookup swshLiga;<br>
+         lookup swshSub;<br>
+       script latn;<br>
+        language dflt;<br>
+         lookup swshLiga;<br>
+         lookup swshSub;<br>
+      } swsh;<br>
+      </p>
+    html_clean: |-
+      <p>Interesting, I try to test code below, and it work corect.<br>
+      When I change the order, it work like in Your example.</p>
+      <p><code><br>
+      lookup smcp {<br>
+       lookupflag 0;<br>
+        sub \n by \n.smcp;<br>
+      } smcp;</code></p>
+      <p>lookup swshLiga {<br>
+       lookupflag 0;<br>
+        sub \n \g  by \n_g.swsh;<br>
+      } swshLiga;</p>
+      <p>lookup swshSub {<br>
+       lookupflag 0;<br>
+        sub \n by \n.swsh;<br>
+      } swshSub;</p>
+      <p>feature smcp {<br>
+       script DFLT;<br>
+        language dflt;<br>
+        lookup smcp;<br>
+       script latn;<br>
+        language dflt;<br>
+        lookup smcp;<br>
+      } smcp;</p>
+      <p>feature swsh {<br>
+       script DFLT;<br>
+        language dflt;<br>
+         lookup swshLiga;<br>
+         lookup swshSub;<br>
+       script latn;<br>
+        language dflt;<br>
+         lookup swshLiga;<br>
+         lookup swshSub;<br>
+      } swsh;<br>
+      </p>
+  - id: 577923
+    user: 3834
+    date: 2014-05-09T04:36:00
+    date_raw: 9 May 2014 — 4:36am
+    votes: null
+    html: <p>Thanks Gluk, but I've no idea what this means. I copied and pasted it into smcp and that didn't work, so I tried it in swsh and that didn't either. I'm more of a designer than a programmer, so my coding is at a very rudimentary level and I don't know what goes where.</p>
+    html_clean: <p>Thanks Gluk, but I've no idea what this means. I copied and pasted it into smcp and that didn't work, so I tried it in swsh and that didn't either. I'm more of a designer than a programmer, so my coding is at a very rudimentary level and I don't know what goes where.</p>
+  - id: 577951
+    user: 3320
+    date: 2014-05-09T10:28:00
+    date_raw: 9 May 2014 — 10:28am
+    votes: null
+    html: |-
+      <p>Hi Nick</p>
+      <p>Having a guess at what is happen here, it could be that the 'swsh' feature may be happening before 'smcp' and/or 'c2sc'. You probably want all the standard replacements to happen first - then have the swash ligatures lookups act on what's there after.<br>
+      Also if changing text with swash ligs into small caps, you may need to decompose the swash ligs back to standard glyphs in a separate lookup before applying smcp lookups.</p>
+    html_clean: |-
+      <p>Hi Nick</p>
+      <p>Having a guess at what is happen here, it could be that the 'swsh' feature may be happening before 'smcp' and/or 'c2sc'. You probably want all the standard replacements to happen first - then have the swash ligatures lookups act on what's there after.<br>
+      Also if changing text with swash ligs into small caps, you may need to decompose the swash ligs back to standard glyphs in a separate lookup before applying smcp lookups.</p>
+  - id: 577983
+    user: 31798
+    date: 2014-05-09T19:24:00
+    date_raw: 9 May 2014 — 7:24pm
+    votes: null
+    html: |-
+      <p>Maybe post the full code rather than just the code for 'swsh'?</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Maybe post the full code rather than just the code for 'swsh'?</p>
+      <p>André</p>

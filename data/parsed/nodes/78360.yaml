@@ -1,0 +1,398 @@
+node: 78360
+title: TrueType Hinting question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120212222250"
+  captured_at: 2012-02-12T22:22:50Z
+  url: http://typophile.com:80/node/78360
+  digest: MXUSOVBWFKJXZSISMDUQ65OZACJH6TBH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/78360.html
+  fingerprint: 32ef1acdf1de671b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120212222250"
+      digest: MXUSOVBWFKJXZSISMDUQ65OZACJH6TBH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/78360.html
+post:
+  id: 78360
+  user: 39971
+  date: 2011-01-24T14:55:00
+  date_raw: 24.Jan.2011 2.55pm
+  votes: null
+  html: |-
+    <p>Let me ask the question first and explain the context after that.</p>
+    <p><em>Is it possible to hint TTF in a way that would make a glyph render 1 pixel wider (at certain pixel size) than its unhinted version?</em></p>
+    <p>This is in the context of trying to reliably tell ClearType and Standard anti-aliasing apart in the confines of the HTML/CSS/JavaScript. </p>
+    <p>I figured out how to do it in Firefox and Chrome. In the IE I can detect CT in some cases, but not always and this relies on using Flash, which makes it am untidy hack. Here's a <a href="http://typophile.com/node/77635" rel="nofollow">thread</a> where it all started.</p>
+    <p>One option that I'd like to explore is making a custom single-glyph TTF font and then hinting for ClearType so that the glyph would render with a different width depending on whether the CT is enabled. This difference can be detected by CSS and so I have my solution. </p>
+    <p>I have very rudimentary undertsanding of hinting, and I am looking for a simple "yes, possible" / "no, not possible" guidance. If it <em>is</em> possible, I will look into the hinting subject at detail and figure things out.</p>
+    <p>Thanks</p>
+  html_clean: |-
+    <p>Let me ask the question first and explain the context after that.</p>
+    <p><em>Is it possible to hint TTF in a way that would make a glyph render 1 pixel wider (at certain pixel size) than its unhinted version?</em></p>
+    <p>This is in the context of trying to reliably tell ClearType and Standard anti-aliasing apart in the confines of the HTML/CSS/JavaScript. </p>
+    <p>I figured out how to do it in Firefox and Chrome. In the IE I can detect CT in some cases, but not always and this relies on using Flash, which makes it am untidy hack. Here's a <a href="/node/77635/" rel="nofollow">thread</a> where it all started.</p>
+    <p>One option that I'd like to explore is making a custom single-glyph TTF font and then hinting for ClearType so that the glyph would render with a different width depending on whether the CT is enabled. This difference can be detected by CSS and so I have my solution. </p>
+    <p>I have very rudimentary undertsanding of hinting, and I am looking for a simple "yes, possible" / "no, not possible" guidance. If it <em>is</em> possible, I will look into the hinting subject at detail and figure things out.</p>
+    <p>Thanks</p>
+comments:
+  - id: 448875
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>It should be possible, by setting the stem's ppm2 value (the value at which it jumps from one to two pixels) to something very low. Although doing the opposite—hinting a glyph that renders 1 pixel wide at a certain size, but appears wider with ClearType enabled—might be an easier approach due to CT's natural tendency to add pixels to vertical stems.</p>
+    html_clean: <p>It should be possible, by setting the stem's ppm2 value (the value at which it jumps from one to two pixels) to something very low. Although doing the opposite—hinting a glyph that renders 1 pixel wide at a certain size, but appears wider with ClearType enabled—might be an easier approach due to CT's natural tendency to add pixels to vertical stems.</p>
+  - id: 448900
+    user: 9636
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Yes, you could do this. Since CT effectively ignores X hints, you could use an X delta hint to change the width of a stem or glyph (not sure which one you're trying to do), and the delta hint would be ignored by the CT rasterizer. In fact this would work with any X-hint, but a delta is probably the easiest way for you to do this. </p>
+      <p>For that matter, there are delta hints which are rasterizer-dependent, at least for the Win Rasterizers. For example, you could apply a delta to move a point a certain distance, but only if the current rasterizer was using "black and white" rendering. </p>
+      <p>Jason C</p>
+    html_clean: |-
+      <p>Yes, you could do this. Since CT effectively ignores X hints, you could use an X delta hint to change the width of a stem or glyph (not sure which one you're trying to do), and the delta hint would be ignored by the CT rasterizer. In fact this would work with any X-hint, but a delta is probably the easiest way for you to do this. </p>
+      <p>For that matter, there are delta hints which are rasterizer-dependent, at least for the Win Rasterizers. For example, you could apply a delta to move a point a certain distance, but only if the current rasterizer was using "black and white" rendering. </p>
+      <p>Jason C</p>
+  - id: 448906
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Justin, Jason, thank you for the answers. </p>
+      <p>I read there were conditional (CT) instructions, and it really helps to know more specific areas to look at. What I was not sure about was if a glyph was pre-allocated a fixed space on the rasterization surface and if the hinting program was not allowed to push the glyph outside of such space. It sounds like it's not the case, which is great. Hence the next question :) -</p>
+      <p>Is there a good starting place for learning more about hinting? I know general idea behind the hinting, but I come from the computer programming background, so some sort of condensed crash course on hinting would be ideal.</p>
+    html_clean: |-
+      <p>Justin, Jason, thank you for the answers. </p>
+      <p>I read there were conditional (CT) instructions, and it really helps to know more specific areas to look at. What I was not sure about was if a glyph was pre-allocated a fixed space on the rasterization surface and if the hinting program was not allowed to push the glyph outside of such space. It sounds like it's not the case, which is great. Hence the next question :) -</p>
+      <p>Is there a good starting place for learning more about hinting? I know general idea behind the hinting, but I come from the computer programming background, so some sort of condensed crash course on hinting would be ideal.</p>
+  - id: 448918
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Hang on, I don't think I was entirely clear on which width you're trying to manipulate. Do you mean the number of horizontal pixels used to fill the glyph, or the total number of pixels in the advance width of the glyph (including sidebearings)? The latter is more problematic, because ClearType in GDI typically renders glyphs using <a href="http://msdn.microsoft.com/en-us/library/aa480221.aspx#wp_topic6" rel="nofollow">"compatible widths"</a> that match the advance widths of black and white / grayscale rendering. While it's possible to <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035734" rel="nofollow">query whether compatible widths or "natural widths" are being used</a> (and alter the hinting program accordingly), it's not possible to change the rendering mode from the within the font. So unless the GDI program has been set to use natural widths, the advance width of a ClearType-rendered glyph will always be the same as Standard smoothing.</p>
+    html_clean: <p>Hang on, I don't think I was entirely clear on which width you're trying to manipulate. Do you mean the number of horizontal pixels used to fill the glyph, or the total number of pixels in the advance width of the glyph (including sidebearings)? The latter is more problematic, because ClearType in GDI typically renders glyphs using <a href="http://msdn.microsoft.com/en-us/library/aa480221.aspx#wp_topic6" rel="nofollow">"compatible widths"</a> that match the advance widths of black and white / grayscale rendering. While it's possible to <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035734" rel="nofollow">query whether compatible widths or "natural widths" are being used</a> (and alter the hinting program accordingly), it's not possible to change the rendering mode from the within the font. So unless the GDI program has been set to use natural widths, the advance width of a ClearType-rendered glyph will always be the same as Standard smoothing.</p>
+  - id: 448920
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt; <em>The latter is more problematic..</em></p>
+      <p>Hm. Say, we are in a compatible width mode, and the rasterizer is about to render a glyph. I am assuming that it allocates N pixels for the advance width of the glyph and - then what? - does it run the hinting program and then sort of squishes resulting curves into the allotted space? Does it have any threshold for how badly it can mangle the curves? </p>
+      <p>Or more generally - can you think of any condition under which the rasterizer would change the advance width <em>after</em> the hinting program is run?</p>
+    html_clean: |-
+      <p>&gt; <em>The latter is more problematic..</em></p>
+      <p>Hm. Say, we are in a compatible width mode, and the rasterizer is about to render a glyph. I am assuming that it allocates N pixels for the advance width of the glyph and - then what? - does it run the hinting program and then sort of squishes resulting curves into the allotted space? Does it have any threshold for how badly it can mangle the curves? </p>
+      <p>Or more generally - can you think of any condition under which the rasterizer would change the advance width <em>after</em> the hinting program is run?</p>
+  - id: 448925
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>In the hinting process, the advance width and the em are rounded  before the hints are applied. Then the hints are based on the pre rounded solutions to em ht and set width. The instructions then can reference the rounded width to prevent the hints from smudging the glyph. The hints can also be used to change the widths and if they do, this is stored and may be referenced  in the horizontal device metrics table, per size. I don't know any thing that would change the width after the hinting, but if chaos is desired, as seems the case, it could be unwisely done. </p>
+      <p>&gt;For example, you could apply a delta to move a point a certain distance, but only if the current rasterizer was using "black and white" rendering.</p>
+      <p>Simon says not on windows, the only place it'd matter.</p>
+    html_clean: |-
+      <p>In the hinting process, the advance width and the em are rounded  before the hints are applied. Then the hints are based on the pre rounded solutions to em ht and set width. The instructions then can reference the rounded width to prevent the hints from smudging the glyph. The hints can also be used to change the widths and if they do, this is stored and may be referenced  in the horizontal device metrics table, per size. I don't know any thing that would change the width after the hinting, but if chaos is desired, as seems the case, it could be unwisely done. </p>
+      <p>&gt;For example, you could apply a delta to move a point a certain distance, but only if the current rasterizer was using "black and white" rendering.</p>
+      <p>Simon says not on windows, the only place it'd matter.</p>
+  - id: 449019
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>David, can you elaborate a bit on these two points?</p>
+      <p>&gt;<em>The hints can also be used to change the widths and if they do, this is stored and may be referenced in the horizontal device metrics table, per size.</em></p>
+      <p>What should I be looking at in hinting instruction set here?</p>
+      <p>&gt;<em>but if chaos is desired, as seems the case, it could be unwisely done.</em></p>
+      <p>I have a growing suspicion that it cannot be done. If I were implementing a compatible width mode in CT, I would've made damn sure the glyphs do not leak outside of their boundaries, because that would defeat the very purpose of the mode. Or in the worst case I would allow the glyph to spill out, but won't adjust the advance width (i.e. let the glyph overlap with the next one).</p>
+    html_clean: |-
+      <p>David, can you elaborate a bit on these two points?</p>
+      <p>&gt;<em>The hints can also be used to change the widths and if they do, this is stored and may be referenced in the horizontal device metrics table, per size.</em></p>
+      <p>What should I be looking at in hinting instruction set here?</p>
+      <p>&gt;<em>but if chaos is desired, as seems the case, it could be unwisely done.</em></p>
+      <p>I have a growing suspicion that it cannot be done. If I were implementing a compatible width mode in CT, I would've made damn sure the glyphs do not leak outside of their boundaries, because that would defeat the very purpose of the mode. Or in the worst case I would allow the glyph to spill out, but won't adjust the advance width (i.e. let the glyph overlap with the next one).</p>
+  - id: 449026
+    user: 1133
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Apankrat, </p>
+      <p>By refining this method:<br>
+      <a href="http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing-using-javascript/" title="http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing-using-javascript/">http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing...</a><br>
+      you can render a commonly-known font's glyph (such as Arial's "o") into HTML canvas, and then use JavaScript to analyze the pixels. Check for color pixels, grayscale pixels, or just black-and-white, plus potentially lots of other things. Or calculate the rendering's checksum and compare it against a number of pre-populated checksums to get a very precise lookup of the user's viewing environment. </p>
+      <p>(You can even send it per <code>canvas.toDataURL("image/png");</code> back to the server as a PNG and have it analyzed there.)</p>
+      <p>Or are you trying to do this in IE7/IE8?</p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Apankrat, </p>
+      <p>By refining this method:<br>
+      <a href="http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing-using-javascript/" title="http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing-using-javascript/">http://www.useragentman.com/blog/2009/11/29/how-to-detect-font-smoothing...</a><br>
+      you can render a commonly-known font's glyph (such as Arial's "o") into HTML canvas, and then use JavaScript to analyze the pixels. Check for color pixels, grayscale pixels, or just black-and-white, plus potentially lots of other things. Or calculate the rendering's checksum and compare it against a number of pre-populated checksums to get a very precise lookup of the user's viewing environment. </p>
+      <p>(You can even send it per <code>canvas.toDataURL("image/png");</code> back to the server as a PNG and have it analyzed there.)</p>
+      <p>Or are you trying to do this in IE7/IE8?</p>
+      <p>A.</p>
+  - id: 449036
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt;<em>Or are you trying to do this is IE7/IE8?</em></p>
+      <p>That would appear to be the case. Presently, querying IE's <code>screen.fontSmoothingEnabled</code> property seems to be the only reliable method for detecting font smoothing in IE, but it doesn't distinguish between Standard and ClearType.</p>
+    html_clean: |-
+      <p>&gt;<em>Or are you trying to do this is IE7/IE8?</em></p>
+      <p>That would appear to be the case. Presently, querying IE's <code>screen.fontSmoothingEnabled</code> property seems to be the only reliable method for detecting font smoothing in IE, but it doesn't distinguish between Standard and ClearType.</p>
+  - id: 449044
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Adam, thanks for the comment. Yes, IE is the issue (surprise). </p>
+      <p>The canvas option is where I started. Subpixel smoothing is trivial to recognize by looking for non-gray pixels when rendering a gray glyph. No canvas in IE though.</p>
+      <p>As Justin mentioned, IE has a <em>fontSmoothingEnabled</em> variable, but it is set to <em>true</em> for both CT and Standard smoothing. I then tried few other things including VML and Flash. VML doesn't appear to have any CT support. Flash rendering is a viable option, but it uses system CT setting and not browser's -- and these can be different as you probably know.</p>
+      <p>I am scraping the bottom of the barrel here with TTF hinting option. If anyone has any other crazy ideas, do tell them.</p>
+    html_clean: |-
+      <p>Adam, thanks for the comment. Yes, IE is the issue (surprise). </p>
+      <p>The canvas option is where I started. Subpixel smoothing is trivial to recognize by looking for non-gray pixels when rendering a gray glyph. No canvas in IE though.</p>
+      <p>As Justin mentioned, IE has a <em>fontSmoothingEnabled</em> variable, but it is set to <em>true</em> for both CT and Standard smoothing. I then tried few other things including VML and Flash. VML doesn't appear to have any CT support. Flash rendering is a viable option, but it uses system CT setting and not browser's -- and these can be different as you probably know.</p>
+      <p>I am scraping the bottom of the barrel here with TTF hinting option. If anyone has any other crazy ideas, do tell them.</p>
+  - id: 449060
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>TrueType's <a href="http://developer.apple.com/fonts/TTRefMan/RM05/Chap5.html#GETINFO" rel="nofollow">GETINFO</a> instruction can <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035732" rel="nofollow">query for ClearType rendering</a>, but I have no idea what kind of voodoo it would take to pass a value returned by a TT program over to javascript, if it's possible at all.</p>
+    html_clean: <p>TrueType's <a href="http://developer.apple.com/fonts/TTRefMan/RM05/Chap5.html#GETINFO" rel="nofollow">GETINFO</a> instruction can <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035732" rel="nofollow">query for ClearType rendering</a>, but I have no idea what kind of voodoo it would take to pass a value returned by a TT program over to javascript, if it's possible at all.</p>
+  - id: 449066
+    user: 1133
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>ActiveX controls can be queried through JavaScript.</p>
+    html_clean: <p>ActiveX controls can be queried through JavaScript.</p>
+  - id: 449069
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Actually... using the ability of the hinting program to query for ClearType rendering, combined with your initial idea of measuring the glyph width... that might lead to a solution. It would involve writing TT instructions that would run some kind of width-altering function <em>only if</em> the ClearType bit was set. But you'd need to get familiar with writing TT assembly code, or find somebody who is.</p>
+    html_clean: <p>Actually... using the ability of the hinting program to query for ClearType rendering, combined with your initial idea of measuring the glyph width... that might lead to a solution. It would involve writing TT instructions that would run some kind of width-altering function <em>only if</em> the ClearType bit was set. But you'd need to get familiar with writing TT assembly code, or find somebody who is.</p>
+  - id: 449131
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Apankrat&gt; Say, we are in a compatible width mode in CT</p>
+      <p>I should point out, and this is my fault for not insisting MS do better documentation, that compatible mode CT is not there for developers to use on any font. It's strictly for MS and MS fonts that had a previous life with aliased metrics different from the metrics arrived at via CT rendering. Font developers are only to use natural mode, making compatible mode on non-MS fonts quite similar to using a light switch attached to a burnt out bulb. The documentation of this is terrible, as far as it's been explained to me, in that it implies otherwise.</p>
+      <p>Also, the post above asks that hints change widths in CT mode, and this not possible as far as I know  for either the width of the glyph or the advance width.</p>
+      <p> But what if the hints changed the height of a glyph when CT was on?</p>
+    html_clean: |-
+      <p>Apankrat&gt; Say, we are in a compatible width mode in CT</p>
+      <p>I should point out, and this is my fault for not insisting MS do better documentation, that compatible mode CT is not there for developers to use on any font. It's strictly for MS and MS fonts that had a previous life with aliased metrics different from the metrics arrived at via CT rendering. Font developers are only to use natural mode, making compatible mode on non-MS fonts quite similar to using a light switch attached to a burnt out bulb. The documentation of this is terrible, as far as it's been explained to me, in that it implies otherwise.</p>
+      <p>Also, the post above asks that hints change widths in CT mode, and this not possible as far as I know  for either the width of the glyph or the advance width.</p>
+      <p> But what if the hints changed the height of a glyph when CT was on?</p>
+  - id: 449134
+    user: 44873
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>@db</p>
+      <p>&gt;But what if the hints changed the height of a glyph when CT was on?</p>
+      <p>Does this already happen, to your knowledge? Measuring the height could work just as well. And if not, can it be forced with a font set up a certain way?</p>
+      <p>@apankrat<br>
+      I understand your quest. My only problem is, if reliable detection can be acheived, then what? What remedy do you apply? Back to the system fonts in that environment?</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@db</p>
+      <p>&gt;But what if the hints changed the height of a glyph when CT was on?</p>
+      <p>Does this already happen, to your knowledge? Measuring the height could work just as well. And if not, can it be forced with a font set up a certain way?</p>
+      <p>@apankrat<br>
+      I understand your quest. My only problem is, if reliable detection can be acheived, then what? What remedy do you apply? Back to the system fonts in that environment?</p>
+      <p>Rich</p>
+  - id: 449163
+    user: 15065
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I yearn for the days when +300 PPI monitors become the standard…</p>
+    html_clean: <p>I yearn for the days when +300 PPI monitors become the standard…</p>
+  - id: 449176
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt; But what if the hints changed the height of a glyph when CT was on?</p>
+      <p>Worth a try I guess, but I doubt it's going to work. If the line-height is 15px and a glyph wants to be 16px, it will be clipped. I saw it happened to some auto-hinted fonts on FontSpring.</p>
+    html_clean: |-
+      <p>&gt; But what if the hints changed the height of a glyph when CT was on?</p>
+      <p>Worth a try I guess, but I doubt it's going to work. If the line-height is 15px and a glyph wants to be 16px, it will be clipped. I saw it happened to some auto-hinted fonts on FontSpring.</p>
+  - id: 449181
+    user: 46071
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><cite>I yearn for the days when +300 PPI monitors become the standard…</cite></p>
+      <p>Which will alleviate but not solve the problem: at smaller sizes, hinting affects even the output of a laser printer.</p>
+    html_clean: |-
+      <p><cite>I yearn for the days when +300 PPI monitors become the standard…</cite></p>
+      <p>Which will alleviate but not solve the problem: at smaller sizes, hinting affects even the output of a laser printer.</p>
+  - id: 449201
+    user: 15065
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Posted elsewhere, taken from <a href="http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/" title="http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/">http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/</a></p>
+      <p>"So, if a normal human eye can discriminate two points separated by 1 arcminute/cycle at a distance of a foot, we should be able to discriminate two points 89 micrometers apart which would work out to about 287 pixels per inch.  Since the iPhone 4G display is comfortably higher than that measure at 326 pixels per inch, I’d find Apple’s claims stand up to what the human eye can perceive."</p>
+      <p>Also see:</p>
+      <p>Curcio, C. A., Sloan, K. R., Kalina, R. E. &amp; Hendrickson, A. E. (1990). Human photoreceptor topography. Journal of Comparative Neurology. 292, 497-523.</p>
+      <p>Long short, there’s only so much detail the human eye is physically capable of detecting based upon physiology. Sure, if we get in an look at the type 1cm away we'll see a difference, but at 12 inches, ~300 DIP is our threshold.</p>
+    html_clean: |-
+      <p>Posted elsewhere, taken from <a href="http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/" title="http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/">http://prometheus.med.utah.edu/~bwjones/2010/06/apple-retina-display/</a></p>
+      <p>"So, if a normal human eye can discriminate two points separated by 1 arcminute/cycle at a distance of a foot, we should be able to discriminate two points 89 micrometers apart which would work out to about 287 pixels per inch.  Since the iPhone 4G display is comfortably higher than that measure at 326 pixels per inch, I’d find Apple’s claims stand up to what the human eye can perceive."</p>
+      <p>Also see:</p>
+      <p>Curcio, C. A., Sloan, K. R., Kalina, R. E. &amp; Hendrickson, A. E. (1990). Human photoreceptor topography. Journal of Comparative Neurology. 292, 497-523.</p>
+      <p>Long short, there’s only so much detail the human eye is physically capable of detecting based upon physiology. Sure, if we get in an look at the type 1cm away we'll see a difference, but at 12 inches, ~300 DIP is our threshold.</p>
+  - id: 449232
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt;<em>The documentation of this is terrible...</em></p>
+      <p>I guess so, since <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035732" rel="nofollow">the documentation</a> implies that compatible widths and natural widths are rasterization modes dependent on the rendering environment (ie. GDI, WPF), which would be dictated by OS and application developers rather than font developers. The only direct control over ClearType rendering afforded to font devs is setting the interpreter to "native" mode using the INSTCTRL selector flag 3.</p>
+      <p>&gt;<em>Also, the post above asks that hints change widths in CT mode, and this not possible as far as I know for either the width of the glyph or the advance width.</em></p>
+      <p>Per the [terrible] documentation:</p>
+      <blockquote><p>...additional instructions that may improve the rendering of ClearType may also be surrounded by a conditional IF that is executed only if ClearType is enabled.</p></blockquote>
+      <p>If this is accurate, would it not then be possible for the "additional instructions" to alter the width of a glyph?</p>
+    html_clean: |-
+      <p>&gt;<em>The documentation of this is terrible...</em></p>
+      <p>I guess so, since <a href="http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx#Toc227035732" rel="nofollow">the documentation</a> implies that compatible widths and natural widths are rasterization modes dependent on the rendering environment (ie. GDI, WPF), which would be dictated by OS and application developers rather than font developers. The only direct control over ClearType rendering afforded to font devs is setting the interpreter to "native" mode using the INSTCTRL selector flag 3.</p>
+      <p>&gt;<em>Also, the post above asks that hints change widths in CT mode, and this not possible as far as I know for either the width of the glyph or the advance width.</em></p>
+      <p>Per the [terrible] documentation:</p>
+      <blockquote><p>...additional instructions that may improve the rendering of ClearType may also be surrounded by a conditional IF that is executed only if ClearType is enabled.</p></blockquote>
+      <p>If this is accurate, would it not then be possible for the "additional instructions" to alter the width of a glyph?</p>
+  - id: 449244
+    user: 44873
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>@christopher</p>
+      <p><em>"Long short, there’s only so much detail the human eye is physically capable of detecting based upon physiology. Sure, if we get in an look at the type 1cm away we'll see a difference, but at 12 inches, ~300 DIP is our threshold."</em></p>
+      <p>Hadn't thought about this. Does cap out, doesn't it?</p>
+    html_clean: |-
+      <p>@christopher</p>
+      <p><em>"Long short, there’s only so much detail the human eye is physically capable of detecting based upon physiology. Sure, if we get in an look at the type 1cm away we'll see a difference, but at 12 inches, ~300 DIP is our threshold."</em></p>
+      <p>Hadn't thought about this. Does cap out, doesn't it?</p>
+  - id: 449269
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt;...that compatible widths and natural widths are rasterization modes dependent on the rendering environment (ie. GDI, WPF),</p>
+      <p>I think the dependency is on a document's contents first.</p>
+      <p>&gt;If this is accurate, would it not then be possible for the "additional instructions" to alter the width of a glyph?</p>
+      <p>Again, I'll say that CT does not use x direction hints, which width altering instructions among the ignored hints.</p>
+    html_clean: |-
+      <p>&gt;...that compatible widths and natural widths are rasterization modes dependent on the rendering environment (ie. GDI, WPF),</p>
+      <p>I think the dependency is on a document's contents first.</p>
+      <p>&gt;If this is accurate, would it not then be possible for the "additional instructions" to alter the width of a glyph?</p>
+      <p>Again, I'll say that CT does not use x direction hints, which width altering instructions among the ignored hints.</p>
+  - id: 449320
+    user: 2438
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt;<em>I think the dependency is on a document's contents first.</em></p>
+      <p>I don't follow how the contents of a document would have any effect on compatible/natural widths. It was explained in <a href="http://www.typophile.com/node/62675#comment-373519" rel="nofollow">an older thread</a> that the widths mode is set by the application, not changeable by the font program.</p>
+      <p>&gt;<em>Again, I'll say that CT does not use x direction hints, which width altering instructions among the ignored hints.</em></p>
+      <p>If that's always the case, then it should be easy enough to hint a glyph in such a way that its advance width is one value with Standard smoothing (which follows x-direction hints), and a different value with ClearType (since it ignores those hints). Problem solved. Except that GDI apps default to using compatible widths, making the advance widths identical between Standard and CT rendering. Thus, if the advance width of the glyph is altered through hinting, that altered width does in fact get carried over to ClearType when rendered using compatible widths.</p>
+      <p>In any case, it's possible for a hinting program to query for ClearType rendering, and to query for compatible widths mode, and to limit the application of hints based on such conditions. That <em>may</em> provide enough flexibility to create a font that achieves the original goal, though not as easily as one might have hoped.</p>
+    html_clean: |-
+      <p>&gt;<em>I think the dependency is on a document's contents first.</em></p>
+      <p>I don't follow how the contents of a document would have any effect on compatible/natural widths. It was explained in <a href="/node/62675/#comment-373519" rel="nofollow">an older thread</a> that the widths mode is set by the application, not changeable by the font program.</p>
+      <p>&gt;<em>Again, I'll say that CT does not use x direction hints, which width altering instructions among the ignored hints.</em></p>
+      <p>If that's always the case, then it should be easy enough to hint a glyph in such a way that its advance width is one value with Standard smoothing (which follows x-direction hints), and a different value with ClearType (since it ignores those hints). Problem solved. Except that GDI apps default to using compatible widths, making the advance widths identical between Standard and CT rendering. Thus, if the advance width of the glyph is altered through hinting, that altered width does in fact get carried over to ClearType when rendered using compatible widths.</p>
+      <p>In any case, it's possible for a hinting program to query for ClearType rendering, and to query for compatible widths mode, and to limit the application of hints based on such conditions. That <em>may</em> provide enough flexibility to create a font that achieves the original goal, though not as easily as one might have hoped.</p>
+  - id: 449339
+    user: 15065
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>@Richard: Yes, that is my understanding of the literature. There are a finite number of rods and cones an eye. As such, depending on viewing distance, there is a finite resolution that the eye is physically capable of detecting.</p>"
+    html_clean: "<p>@Richard: Yes, that is my understanding of the literature. There are a finite number of rods and cones an eye. As such, depending on viewing distance, there is a finite resolution that the eye is physically capable of detecting.</p>"
+  - id: 449428
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt; <em>@apankrat<br>
+      I understand your quest. My only problem is, if reliable detection can be acheived, then what? What remedy do you apply? Back to the system fonts in that environment?</em></p>
+      <p>Oh, my apologies, Rich. I thought I replied.</p>
+      <p>Yes, the idea is to fallback to the system fonts. At least 25% of visitors I have to cater to are on XP, but designing around them is too limiting. Hence the trying to detect when I can have an expressive freedom and when I cannot :)</p>
+    html_clean: |-
+      <p>&gt; <em>@apankrat<br>
+      I understand your quest. My only problem is, if reliable detection can be acheived, then what? What remedy do you apply? Back to the system fonts in that environment?</em></p>
+      <p>Oh, my apologies, Rich. I thought I replied.</p>
+      <p>Yes, the idea is to fallback to the system fonts. At least 25% of visitors I have to cater to are on XP, but designing around them is too limiting. Hence the trying to detect when I can have an expressive freedom and when I cannot :)</p>
+  - id: 481289
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>Reviving this old thread: If telling Greyscale and Cleartype apart is the problem, why not just eliminate Greyscale with the GASP table? Or am I missing something here? And, btw: while I'm at it: I can see the script is up and running, but the statistics page is down. What are your numbers so far?</p>"
+    html_clean: "<p>Reviving this old thread: If telling Greyscale and Cleartype apart is the problem, why not just eliminate Greyscale with the GASP table? Or am I missing something here? And, btw: while I'm at it: I can see the script is up and running, but the statistics page is down. What are your numbers so far?</p>"
+  - id: 482222
+    user: 39971
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>You are looking at it from the wrong end. It is a matter of trying to decide if to use specific given font (that cannot be changed) when showing a page to a specific user.</p>
+      <p>With regards to the stats - haven't got a chance to put the page up yet. Let me see what I can do, perhaps by hand. By the way, the detection script also collects the availability information for a handful of fonts, websafe and others - another interesting statistic to look at.</p>
+    html_clean: |-
+      <p>You are looking at it from the wrong end. It is a matter of trying to decide if to use specific given font (that cannot be changed) when showing a page to a specific user.</p>
+      <p>With regards to the stats - haven't got a chance to put the page up yet. Let me see what I can do, perhaps by hand. By the way, the detection script also collects the availability information for a handful of fonts, websafe and others - another interesting statistic to look at.</p>
+  - id: 482225
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Ah, sorry. I misread. Canvas doesn't work. I'd really like to see those numbers!</p>
+    html_clean: <p>Ah, sorry. I misread. Canvas doesn't work. I'd really like to see those numbers!</p>

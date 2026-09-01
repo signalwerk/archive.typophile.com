@@ -1,0 +1,78 @@
+node: 58676
+title: How should I configure a font with extreme ascenders/descenders?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203091159"
+  captured_at: 2010-02-03T09:11:59Z
+  url: http://typophile.com/node/58676
+  digest: EC77YAF7BCXFXFEMYQIVJIGOWCHE3IMF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/58676.html
+  fingerprint: 437c8a6bb527f99f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203091159"
+      digest: EC77YAF7BCXFXFEMYQIVJIGOWCHE3IMF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/58676.html
+post:
+  id: 58676
+  user: 14722
+  date: 2009-06-03T07:46:00
+  date_raw: 3.Jun.2009 7.46am
+  votes: null
+  html: <p>I am working on a simple font of signatures and corporate graphics, and I would like to keep them all at a similar scale, but some of the signatures will shoot a few hundred units far above or below a standard 1000-unit em quad. What is the best practice for configuring a font like this to work properly—specifically with the MS Office apps?</p>
+  html_clean: <p>I am working on a simple font of signatures and corporate graphics, and I would like to keep them all at a similar scale, but some of the signatures will shoot a few hundred units far above or below a standard 1000-unit em quad. What is the best practice for configuring a font like this to work properly—specifically with the MS Office apps?</p>
+comments:
+  - id: 350172
+    user: 1262
+    date: 2009-06-03T10:51:00
+    date_raw: 3.Jun.2009 10.51am
+    votes: null
+    html: |-
+      <p>Make sure that the WinAscent and WinDescent values in the OS/2 table metrics exceed the height of the tallest glyphs in the font. This will prevent the extenders from being clipped.</p>
+      <p>By default, most apps on Windows will also use the WinAscent and WinDescent values to calculate default linespacing. You probably want to make the TypoAscender + TypoDescender + TypoLineGap (and corresponding hhea metrics) sum to the same number of units as WinAscent + WinDescent. This will give you the best all-round compatibility between different apps and platforms. The neatest way to do this is to make the TypoAscender + TypoDescender sum to the UPM value (treating all values as positive for the purpose of this calculation), and then set the TypoLineGap to equal the difference between the UPM value and the sum of the WinAscend + WinDescent.</p>
+    html_clean: |-
+      <p>Make sure that the WinAscent and WinDescent values in the OS/2 table metrics exceed the height of the tallest glyphs in the font. This will prevent the extenders from being clipped.</p>
+      <p>By default, most apps on Windows will also use the WinAscent and WinDescent values to calculate default linespacing. You probably want to make the TypoAscender + TypoDescender + TypoLineGap (and corresponding hhea metrics) sum to the same number of units as WinAscent + WinDescent. This will give you the best all-round compatibility between different apps and platforms. The neatest way to do this is to make the TypoAscender + TypoDescender sum to the UPM value (treating all values as positive for the purpose of this calculation), and then set the TypoLineGap to equal the difference between the UPM value and the sum of the WinAscend + WinDescent.</p>
+  - id: 350178
+    user: 3135
+    date: 2009-06-03T11:19:00
+    date_raw: 3.Jun.2009 11.19am
+    votes: null
+    html: |-
+      <p>Perfect summary by John Hudson just as you would expect from him ;-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Perfect summary by John Hudson just as you would expect from him ;-)</p>
+      <p>ChrisL</p>
+  - id: 350183
+    user: 14722
+    date: 2009-06-03T11:35:00
+    date_raw: 3.Jun.2009 11.35am
+    votes: null
+    html: <p>Is there some sort of practical limit to how big the Winascent, Windescent, HHEA Ascender and HHEA Descender can actually be? Mine are 1325 and -1290. The font appears to be fine, it works in TextEdit and Indesign, it validates as fine in Fontbook, but if I try using the font in Word it insists that the font is bad and disables it.</p>
+    html_clean: <p>Is there some sort of practical limit to how big the Winascent, Windescent, HHEA Ascender and HHEA Descender can actually be? Mine are 1325 and -1290. The font appears to be fine, it works in TextEdit and Indesign, it validates as fine in Fontbook, but if I try using the font in Word it insists that the font is bad and disables it.</p>
+  - id: 350208
+    user: 14722
+    date: 2009-06-03T13:51:00
+    date_raw: 3.Jun.2009 1.51pm
+    votes: null
+    html: <p>Nevermind. It turns out that my problems have something to do with Mac Word going bonkers when it sees extremely wide/complex characters that pop up in logo fonts. There’s a day I’m never getting back…</p>
+    html_clean: <p>Nevermind. It turns out that my problems have something to do with Mac Word going bonkers when it sees extremely wide/complex characters that pop up in logo fonts. There’s a day I’m never getting back…</p>

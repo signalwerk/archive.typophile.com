@@ -1,0 +1,343 @@
+node: 70992
+title: Easy way to generate a Glyph/Character Map of fonts?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131012113139"
+  captured_at: 2013-10-12T11:31:39Z
+  url: http://typophile.com/node/70992
+  digest: 66FO3M6G4NUNKZ7J4R22AUQ3DP33YJFN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/70992.html
+  fingerprint: 7aaea6033bf3931c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131012113139"
+      digest: 66FO3M6G4NUNKZ7J4R22AUQ3DP33YJFN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/70992.html
+post:
+  id: 70992
+  user: 65510
+  date: 2010-06-03T01:09:00
+  date_raw: 3 Jun 2010 — 1:09am
+  votes: null
+  html: |-
+    <p>Does any one know how to create a Glyph/Character map, say like how myfonts.com uses? <a href="http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html" title="http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html">http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html</a></p>
+    <p>I am trying to create some previews of my font designs, but cannot find a way to do something like this, and in a batch process. Any ideas?</p>
+  html_clean: |-
+    <p>Does any one know how to create a Glyph/Character map, say like how myfonts.com uses? <a href="http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html" title="http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html">http://new.myfonts.com/fonts/fontbureau/juliana/text-roman/characters.html</a></p>
+    <p>I am trying to create some previews of my font designs, but cannot find a way to do something like this, and in a batch process. Any ideas?</p>
+comments:
+  - id: 414178
+    user: 45774
+    date: 2010-06-03T02:04:00
+    date_raw: 3 Jun 2010 — 2:04am
+    votes: null
+    html: |-
+      <p>You may try fontplot. It belongs to the AFDKO (Adobe Font Development Kit for OpenType).</p>
+      <p>Command "fontplot -h" and "fontplot -help_params". Fontplot stores the character map as PDF. I am not sure, if there is an option for putting the index numbers into the boxes, but if not, maybe someone is willing to modify the Python script.</p>
+      <p>I did not try it, but you also could redirect the output of the print commands of FontLab and convert the Postscript file to PDF.</p>
+      <p>But I think, there are more comfortable ways.</p>
+    html_clean: |-
+      <p>You may try fontplot. It belongs to the AFDKO (Adobe Font Development Kit for OpenType).</p>
+      <p>Command "fontplot -h" and "fontplot -help_params". Fontplot stores the character map as PDF. I am not sure, if there is an option for putting the index numbers into the boxes, but if not, maybe someone is willing to modify the Python script.</p>
+      <p>I did not try it, but you also could redirect the output of the print commands of FontLab and convert the Postscript file to PDF.</p>
+      <p>But I think, there are more comfortable ways.</p>
+  - id: 414183
+    user: 18942
+    date: 2010-06-03T02:28:00
+    date_raw: 3 Jun 2010 — 2:28am
+    votes: null
+    html: |-
+      <p>The AFDKO command tx does what you want.<br>
+      <code><br>
+      tx -pdf fontfilename.extension &gt; fontfilename.pdf<br>
+      </code><br>
+       does it. Here is the result on the TeX Gyre Pagella font (<a href="http://www.iro.umontreal.ca/~boyer/typophile/texgyrepagella.pdf" rel="nofollow"><strong>pdf</strong></a> 1.2Mb)</p>
+    html_clean: |-
+      <p>The AFDKO command tx does what you want.<br>
+      <code><br>
+      tx -pdf fontfilename.extension &gt; fontfilename.pdf<br>
+      </code><br>
+       does it. Here is the result on the TeX Gyre Pagella font (<a href="http://www.iro.umontreal.ca/~boyer/typophile/texgyrepagella.pdf" rel="nofollow"><strong>pdf</strong></a> 1.2Mb)</p>
+  - id: 414184
+    user: 65510
+    date: 2010-06-03T02:42:00
+    date_raw: 3 Jun 2010 — 2:42am
+    votes: null
+    html: <p>I have never seen/messed with this AFDKO setup, are these command line tools for os x?</p>
+    html_clean: <p>I have never seen/messed with this AFDKO setup, are these command line tools for os x?</p>
+  - id: 414185
+    user: 18942
+    date: 2010-06-03T02:47:00
+    date_raw: 3 Jun 2010 — 2:47am
+    votes: null
+    html: <p>I use them on OS X. You can download from <a href="http://www.adobe.com/devnet/opentype/afdko/" rel="nofollow"><strong>here</strong></a>. Just follow the instructions.</p>
+    html_clean: <p>I use them on OS X. You can download from <a href="http://www.adobe.com/devnet/opentype/afdko/" rel="nofollow"><strong>here</strong></a>. Just follow the instructions.</p>
+  - id: 414188
+    user: 45774
+    date: 2010-06-03T03:10:00
+    date_raw: 3 Jun 2010 — 3:10am
+    votes: null
+    html: |-
+      <p>You may also try this with fontplot:</p>
+      <p>fontplot --drawMeta_Hints 0 --drawMeta_SideBearings 0 --drawGlyph_XAdvance 0 --pageTitleFont Helvetica --metaDataFont Helvetica --metaDataNameSize 110 YOURFONT.otf</p>
+      <p>But the tx command seems to fill better your purposes. It even includes the Unicode point.</p>
+    html_clean: |-
+      <p>You may also try this with fontplot:</p>
+      <p>fontplot --drawMeta_Hints 0 --drawMeta_SideBearings 0 --drawGlyph_XAdvance 0 --pageTitleFont Helvetica --metaDataFont Helvetica --metaDataNameSize 110 YOURFONT.otf</p>
+      <p>But the tx command seems to fill better your purposes. It even includes the Unicode point.</p>
+  - id: 414191
+    user: 18942
+    date: 2010-06-03T03:33:00
+    date_raw: 3 Jun 2010 — 3:33am
+    votes: null
+    html: |-
+      <p>You can also try </p>
+      <p><code>tx -pdf -1 fontname.otf &gt; fontname.pdf</code></p>
+      <p>Each character is then clickable to view more in details. The file generated is much larger (<a href="http://www.iro.umontreal.ca/~boyer/typophile/texgyrepagella-regular.pdf" rel="nofollow"><strong>pdf</strong></a> 3.9Mb).</p>
+    html_clean: |-
+      <p>You can also try </p>
+      <p><code>tx -pdf -1 fontname.otf &gt; fontname.pdf</code></p>
+      <p>Each character is then clickable to view more in details. The file generated is much larger (<a href="http://www.iro.umontreal.ca/~boyer/typophile/texgyrepagella-regular.pdf" rel="nofollow"><strong>pdf</strong></a> 3.9Mb).</p>
+  - id: 414253
+    user: 45774
+    date: 2010-06-03T10:43:00
+    date_raw: 3 Jun 2010 — 10:43am
+    votes: null
+    html: |-
+      <p>@ Michel</p>
+      <p>Is the redirection per &gt; required on the Mac?</p>
+      <p>On Windows it is more comfortable to write the command in this way:<br>
+      tx -pdf -a fontFileName.extension</p>
+      <p>The -a-option arranges the name of the output by taking the fontFileName as filename and the mode-option (in this case pdf) as extension. (Have you tried the -bc-mode-option? ASCII-art.)</p>
+      <p>And -A instead of -a takes the internal fontname instead of the name of the input file.</p>
+      <p>But I need a bit help with the options -dd and -sd. I get an error there: file error  [NameOfInputDirectory/-]</p>
+    html_clean: |-
+      <p>@ Michel</p>
+      <p>Is the redirection per &gt; required on the Mac?</p>
+      <p>On Windows it is more comfortable to write the command in this way:<br>
+      tx -pdf -a fontFileName.extension</p>
+      <p>The -a-option arranges the name of the output by taking the fontFileName as filename and the mode-option (in this case pdf) as extension. (Have you tried the -bc-mode-option? ASCII-art.)</p>
+      <p>And -A instead of -a takes the internal fontname instead of the name of the input file.</p>
+      <p>But I need a bit help with the options -dd and -sd. I get an error there: file error  [NameOfInputDirectory/-]</p>
+  - id: 414306
+    user: 18942
+    date: 2010-06-03T14:15:00
+    date_raw: 3 Jun 2010 — 2:15pm
+    votes: null
+    html: |-
+      <p>Redirection is not required. What you suggest also works on the mac.  I use Unix pipes a lot (with sed, grep and awk), and the last thing I do is to redirect; with programs whose output is the standard output, it is the thing to do.  I was in fact not aware of the -a or -A options. I just tried the dd option. I was in /library/fonts and, after creating the folder $HOME/Arno typed</p>
+      <p><code>tx -pdf -a -dd $HOME/Arno Arno*otf</code></p>
+      <p>which took as input all the files Arno*otf, applied tx -pdf on them, named the result with a pdf extension and put them in the folder $HOME/Arno. </p>
+      <p>That is something I would have done with the line command</p>
+      <p><code>for i in Arno*.otf; do tx -pdf $i &gt; $HOME/Arno/${i%.otf}.pdf; done<code></code></code></p>
+      <p>It is faster to type than to read the output of <code>tx -u</code> but that is probably not the kind of text for a typophile thread. It is just to explain why I often miss many options in programs.</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>Redirection is not required. What you suggest also works on the mac.  I use Unix pipes a lot (with sed, grep and awk), and the last thing I do is to redirect; with programs whose output is the standard output, it is the thing to do.  I was in fact not aware of the -a or -A options. I just tried the dd option. I was in /library/fonts and, after creating the folder $HOME/Arno typed</p>
+      <p><code>tx -pdf -a -dd $HOME/Arno Arno*otf</code></p>
+      <p>which took as input all the files Arno*otf, applied tx -pdf on them, named the result with a pdf extension and put them in the folder $HOME/Arno. </p>
+      <p>That is something I would have done with the line command</p>
+      <p><code>for i in Arno*.otf; do tx -pdf $i &gt; $HOME/Arno/${i%.otf}.pdf; done<code></code></code></p>
+      <p>It is faster to type than to read the output of <code>tx -u</code> but that is probably not the kind of text for a typophile thread. It is just to explain why I often miss many options in programs.</p>
+      <p>Michel</p>
+  - id: 414312
+    user: 18942
+    date: 2010-06-03T15:06:00
+    date_raw: 3 Jun 2010 — 3:06pm
+    votes: null
+    html: <p>Hmm. I wonder what the bc option can be used for. There are lots of interesting things in the AFDKO suite that I have not tried. Most of the time, FontForge answers my needs.</p>
+    html_clean: <p>Hmm. I wonder what the bc option can be used for. There are lots of interesting things in the AFDKO suite that I have not tried. Most of the time, FontForge answers my needs.</p>
+  - id: 414375
+    user: 45774
+    date: 2010-06-04T02:55:00
+    date_raw: 4 Jun 2010 — 2:55am
+    votes: null
+    html: |-
+      <p>I have done it in this way now (in a batch file):</p>
+      <p>set "p=path to directory with fonts with spaces in path"<br>
+      for %%f in ("%p%\*.*") do tx -pdf -dd "%p%" -a "%%f"</p>
+      <p>I wonder, why this did not work:</p>
+      <p>for %%f in ("path to directory with fonts with spaces in path\*.*") do tx -pdf -dd "%%~dpf" -a "%%f"</p>
+      <p>And I still have problems with the options sd and sr, when jokers are included. The problem is, that I meanwhile have forgotten so much, that I did know about batch programming.</p>
+    html_clean: |-
+      <p>I have done it in this way now (in a batch file):</p>
+      <p>set "p=path to directory with fonts with spaces in path"<br>
+      for %%f in ("%p%\*.*") do tx -pdf -dd "%p%" -a "%%f"</p>
+      <p>I wonder, why this did not work:</p>
+      <p>for %%f in ("path to directory with fonts with spaces in path\*.*") do tx -pdf -dd "%%~dpf" -a "%%f"</p>
+      <p>And I still have problems with the options sd and sr, when jokers are included. The problem is, that I meanwhile have forgotten so much, that I did know about batch programming.</p>
+  - id: 414387
+    user: 18942
+    date: 2010-06-04T07:29:00
+    date_raw: 4 Jun 2010 — 7:29am
+    votes: null
+    html: |-
+      <p>I am not familiar with windows command files. I don't know what "%%~dpf" is meant to be. If you don't use the -dd option, the pdf files go to the current directory. I tried something similar to your last command:<br>
+      <code>for %%f in ("C:\windows\fonts\*.OTF") do tx -pdf -dd "%~dp0" -A "%%f"</code><br>
+      which should do the same as<br>
+      <code>for %%f in ("C:\windows\fonts\*.OTF") do tx -pdf  -A "%%f"</code><br>
+      and it did not work; the <code>"%~dp0"</code> expands with a backslash at the end and tx does not seem to like it.</p>
+    html_clean: |-
+      <p>I am not familiar with windows command files. I don't know what "%%~dpf" is meant to be. If you don't use the -dd option, the pdf files go to the current directory. I tried something similar to your last command:<br>
+      <code>for %%f in ("C:\windows\fonts\*.OTF") do tx -pdf -dd "%~dp0" -A "%%f"</code><br>
+      which should do the same as<br>
+      <code>for %%f in ("C:\windows\fonts\*.OTF") do tx -pdf  -A "%%f"</code><br>
+      and it did not work; the <code>"%~dp0"</code> expands with a backslash at the end and tx does not seem to like it.</p>
+  - id: 414393
+    user: 45774
+    date: 2010-06-04T08:11:00
+    date_raw: 4 Jun 2010 — 8:11am
+    votes: null
+    html: |-
+      <p>@ Michel</p>
+      <p>%%~dpf is the path to f inclusively the drive and exclusively file name and extension.</p>
+      <p>-------</p>
+      <p>For the Windows users. I would like to attach a few batch files, but this does not seem to be possible here.</p>
+      <p>Create the folders Input and Output in the directory of your choice (same drive as [A]FDK[O]) and create the following batch files:</p>
+      <p><strong>FDKvars.bat</strong> (Change path to the FDK [in the batch file], if it is different.)<br>
+      <code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"</code></p>
+      <p><strong>Make Character-Map-PDF [Boxes link to ExtraInfo].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do %FDK%\tx -pdf -1 -dd Output "%%f" "%%~nf_Character-Map_and_Extra-Info.pdf"</code></p>
+      <p><strong>Make Character-Map-PDF.bat</strong><br>
+      @echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do %FDK%\tx -pdf -dd Output "%%f" "%%~nf_Character-Map.pdf"</p>
+      <p><strong>Empty In- and Output.bat</strong><br>
+      <code>for %%f in (Input\*.*; Output\*.*) do del "%%f"</code></p>
+      <p><strong>TX Help.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDK%\tx -h<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+      <p><strong>TX Usage.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDK%\tx -u<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+    html_clean: |-
+      <p>@ Michel</p>
+      <p>%%~dpf is the path to f inclusively the drive and exclusively file name and extension.</p>
+      <p>-------</p>
+      <p>For the Windows users. I would like to attach a few batch files, but this does not seem to be possible here.</p>
+      <p>Create the folders Input and Output in the directory of your choice (same drive as [A]FDK[O]) and create the following batch files:</p>
+      <p><strong>FDKvars.bat</strong> (Change path to the FDK [in the batch file], if it is different.)<br>
+      <code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"</code></p>
+      <p><strong>Make Character-Map-PDF [Boxes link to ExtraInfo].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do %FDK%\tx -pdf -1 -dd Output "%%f" "%%~nf_Character-Map_and_Extra-Info.pdf"</code></p>
+      <p><strong>Make Character-Map-PDF.bat</strong><br>
+      @echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do %FDK%\tx -pdf -dd Output "%%f" "%%~nf_Character-Map.pdf"</p>
+      <p><strong>Empty In- and Output.bat</strong><br>
+      <code>for %%f in (Input\*.*; Output\*.*) do del "%%f"</code></p>
+      <p><strong>TX Help.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDK%\tx -h<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+      <p><strong>TX Usage.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDK%\tx -u<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+  - id: 414423
+    user: 45774
+    date: 2010-06-04T11:04:00
+    date_raw: 4 Jun 2010 — 11:04am
+    votes: null
+    html: |-
+      <p>Addition/correction (FDKvars.bat)</p>
+      <p><strong>FDKvars.bat</strong> (Change path to the FDK [in the batch file], if it is different.)<br>
+      <code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"<br>
+      set "FDKPython=%FDK%\Python\Current\python"<br>
+      set "FDKScripts=C:\FDK_25_21898\Tools\SharedData\FDKScripts"</code></p>
+      <p><strong>Make Character-Map-PDF with Fontplot.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do (<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -o "Output\%%~nf_Character-Map_[Fontplot].pdf" -fontplot --openPDFWhenDone 0 --drawMeta_Hints 0 --drawMeta_SideBearings 0 --drawGlyph_XAdvance 0 --pageTitleFont Helvetica --metaDataFont Helvetica --metaDataNameSize 110 "%%f"<br>
+      start Output\"%%~nf_Character-Map_[Fontplot].pdf")</code></p>
+      <p>Note: The parameter for opening the pdf is set to 0, because on my PC the script starts it, before it is saved. So I have added the start command separately (start Output…).</p>
+      <p><strong>Proof PDF Help-Params [Fontplot for example].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -help_params<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+      <p><strong>Proof PDF Help [Fontplot for example].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -h<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+    html_clean: |-
+      <p>Addition/correction (FDKvars.bat)</p>
+      <p><strong>FDKvars.bat</strong> (Change path to the FDK [in the batch file], if it is different.)<br>
+      <code>@echo off<br>
+      set "FDK=C:\FDK_25_21898\Tools\win"<br>
+      set "FDKPython=%FDK%\Python\Current\python"<br>
+      set "FDKScripts=C:\FDK_25_21898\Tools\SharedData\FDKScripts"</code></p>
+      <p><strong>Make Character-Map-PDF with Fontplot.bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      for %%f in (Input\*.*) do (<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -o "Output\%%~nf_Character-Map_[Fontplot].pdf" -fontplot --openPDFWhenDone 0 --drawMeta_Hints 0 --drawMeta_SideBearings 0 --drawGlyph_XAdvance 0 --pageTitleFont Helvetica --metaDataFont Helvetica --metaDataNameSize 110 "%%f"<br>
+      start Output\"%%~nf_Character-Map_[Fontplot].pdf")</code></p>
+      <p>Note: The parameter for opening the pdf is set to 0, because on my PC the script starts it, before it is saved. So I have added the start command separately (start Output…).</p>
+      <p><strong>Proof PDF Help-Params [Fontplot for example].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -help_params<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>
+      <p><strong>Proof PDF Help [Fontplot for example].bat</strong><br>
+      <code>@echo off<br>
+      call FDKvars<br>
+      %FDKPython% %FDKScripts%\ProofPDF.py -h<br>
+      echo.<br>
+      echo.<br>
+      echo.<br>
+      pause</code></p>

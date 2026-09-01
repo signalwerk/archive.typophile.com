@@ -1,0 +1,111 @@
+node: 106518
+title: Opentype and Arabic script
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416010314"
+  captured_at: 2015-04-16T01:03:14Z
+  url: http://typophile.com/node/106518
+  digest: AJZ5RSY6DAMGPM2MLA4K66WHTZY4VXDQ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/106518.html
+  fingerprint: dbe62a3230f58222
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416010314"
+      digest: AJZ5RSY6DAMGPM2MLA4K66WHTZY4VXDQ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/106518.html
+post:
+  id: 106518
+  user: 16942
+  date: 2013-09-24T02:05:00
+  date_raw: 24 Sep 2013 — 2:05am
+  votes: null
+  html: |-
+    <p>Opentype is the most common rendering engine which has facilitated implementing Arabic script and so many other non latin writing systems in computer. But apparently there are many shortcomings in opentype and tools which are used to develop arabic/persian fonts using opentype. Part of these problems stems from the fact that the geniuses who have created the tools were not familiar with the nature of arabic script, so they have tried to solve the problems using the ideas they have learned while they were trying to implement latin script in computer. Other problems comes from the restrictions in opentype language, which is developed to be understood very easily and it made opentype an inflexible computer language. Opentype is a great invention and maybe there is a way to overcome these problems and a discussion about this might bring new ideas and help the developers and other people whom are trying to use opentype for rendering arabic script in computer to solve their issues.</p>
+    <p>I start with a topic here but it will not end here:<br>
+    Positive kerning<br>
+    Positive kerning between connected letters is not straight forward. We don't have proper tools to implement it and some tools which are developed for this purpose have problems. In this example which I'm showing a sample of Adobe Arabic font, you can see that when a short kashida is inserted between two letters in order to avoid collision of dots and diacritics; mark positioning breaks on the first letter. Problem here is not critical but what if a designer wants to use dots as diacritics when he is developing a font? in that situation he will not be able to use positive kerning in this situation (actually there is project and one of my colleagues has this problem).<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/arabic-diacritic-kashida-problem_6044.png"></div><br>
+    So far I haven't found any solution to this. First I thought reordering of features might help, but apparently mark positioning is placed after contextual alternative feature in VOLT, and I couldn't find any GSUB feature that could be placed after mark positioning. I think solution would be a flag to ignore certain glyphs in mark positioning lookup. In opentype we have a flag to ignore marks but we don't have a flag to ignore some glyphs like this short kashida. What do you think?<p></p>
+  html_clean: |-
+    <p>Opentype is the most common rendering engine which has facilitated implementing Arabic script and so many other non latin writing systems in computer. But apparently there are many shortcomings in opentype and tools which are used to develop arabic/persian fonts using opentype. Part of these problems stems from the fact that the geniuses who have created the tools were not familiar with the nature of arabic script, so they have tried to solve the problems using the ideas they have learned while they were trying to implement latin script in computer. Other problems comes from the restrictions in opentype language, which is developed to be understood very easily and it made opentype an inflexible computer language. Opentype is a great invention and maybe there is a way to overcome these problems and a discussion about this might bring new ideas and help the developers and other people whom are trying to use opentype for rendering arabic script in computer to solve their issues.</p>
+    <p>I start with a topic here but it will not end here:<br>
+    Positive kerning<br>
+    Positive kerning between connected letters is not straight forward. We don't have proper tools to implement it and some tools which are developed for this purpose have problems. In this example which I'm showing a sample of Adobe Arabic font, you can see that when a short kashida is inserted between two letters in order to avoid collision of dots and diacritics; mark positioning breaks on the first letter. Problem here is not critical but what if a designer wants to use dots as diacritics when he is developing a font? in that situation he will not be able to use positive kerning in this situation (actually there is project and one of my colleagues has this problem).<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/arabic-diacritic-kashida-problem_6044.png"></div><br>
+    So far I haven't found any solution to this. First I thought reordering of features might help, but apparently mark positioning is placed after contextual alternative feature in VOLT, and I couldn't find any GSUB feature that could be placed after mark positioning. I think solution would be a flag to ignore certain glyphs in mark positioning lookup. In opentype we have a flag to ignore marks but we don't have a flag to ignore some glyphs like this short kashida. What do you think?<p></p>
+comments:
+  - id: 565141
+    user: 10971
+    date: 2013-09-24T13:55:00
+    date_raw: 24 Sep 2013 — 1:55pm
+    votes: null
+    html: <p>{to follow}</p>
+    html_clean: <p>{to follow}</p>
+  - id: 565176
+    user: 1262
+    date: 2013-09-27T17:52:00
+    date_raw: 27 Sep 2013 — 5:52pm
+    votes: null
+    html: |-
+      <p>Bhaman, in your illustration, it looks very much like the vowel mark is being ordered after the kashida glyph, and this is why the positioning is broken: in fact, the mark is being positioned relative to the kashida, rather than relative to the preceding letter. This implies the glyph order after GSUB is</p>
+      <p><code>yeh.init kashida kasra alif.fina hamzabelow</code></p>
+      <p>If you restructure the contextual substitution so that it inserts the kashida before the second letter, rather than after the first letter, that should solve the problem. In VOLT syntax, the example you give could be handled like this (presuming NFD decomposed text):</p>
+      <p><code>alif.fina -&gt; kashida alif.fina</code></p>
+      <p>in context</p>
+      <p><code>yeh.init kasra | hamzabelow</code></p>
+      <p>and the resulting glyph string should be</p>
+      <p><code>yeh.init kasra kashida alif.fina hamzabelow</code></p>
+      <p>and your kasra will be positioned on the yeh.init base.</p>
+    html_clean: |-
+      <p>Bhaman, in your illustration, it looks very much like the vowel mark is being ordered after the kashida glyph, and this is why the positioning is broken: in fact, the mark is being positioned relative to the kashida, rather than relative to the preceding letter. This implies the glyph order after GSUB is</p>
+      <p><code>yeh.init kashida kasra alif.fina hamzabelow</code></p>
+      <p>If you restructure the contextual substitution so that it inserts the kashida before the second letter, rather than after the first letter, that should solve the problem. In VOLT syntax, the example you give could be handled like this (presuming NFD decomposed text):</p>
+      <p><code>alif.fina -&gt; kashida alif.fina</code></p>
+      <p>in context</p>
+      <p><code>yeh.init kasra | hamzabelow</code></p>
+      <p>and the resulting glyph string should be</p>
+      <p><code>yeh.init kasra kashida alif.fina hamzabelow</code></p>
+      <p>and your kasra will be positioned on the yeh.init base.</p>
+  - id: 565189
+    user: 16942
+    date: 2013-09-28T06:21:00
+    date_raw: 28 Sep 2013 — 6:21am
+    votes: null
+    html: |-
+      <p>That is the case and it was a clever solution. You know we examined lots of other options that didn't' work but your option is pretty much easier and it works! :D</p>
+      <p>Thanks John</p>
+    html_clean: |-
+      <p>That is the case and it was a clever solution. You know we examined lots of other options that didn't' work but your option is pretty much easier and it works! :D</p>
+      <p>Thanks John</p>
+  - id: 565191
+    user: 16942
+    date: 2013-09-28T06:59:00
+    date_raw: 28 Sep 2013 — 6:59am
+    votes: null
+    html: <p>{double post}</p>
+    html_clean: <p>{double post}</p>
+  - id: 565195
+    user: 12550
+    date: 2013-09-28T23:32:00
+    date_raw: 28 Sep 2013 — 11:32pm
+    votes: null
+    html: <p><a href="http://neshanmagazine.com/articles.asp?id=392" title="http://neshanmagazine.com/articles.asp?id=392">http://neshanmagazine.com/articles.asp?id=392</a></p>
+    html_clean: <p><a href="http://neshanmagazine.com/articles.asp?id=392" title="http://neshanmagazine.com/articles.asp?id=392">http://neshanmagazine.com/articles.asp?id=392</a></p>

@@ -1,0 +1,1040 @@
+node: 71247
+title: TypeSet - better justified web text
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150311072626"
+  captured_at: 2015-03-11T07:26:26Z
+  url: http://www.typophile.com:80/node/71247
+  digest: 4Y27E5Z626S2NR5ZPKJCIPJLUX5FYU3L
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/71247.html
+  fingerprint: 7455d0930e463fca
+  parser: 94e5e8fd0094d753
+pages:
+  total: 2
+  recovered: 2
+  complete: true
+  have:
+    - 0
+    - 1
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150311072626"
+      digest: 4Y27E5Z626S2NR5ZPKJCIPJLUX5FYU3L
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71247.html
+    - page: 1
+      archive: web.archive.org
+      timestamp: "20111007135729"
+      digest: I6HEM3ID6KIL77V3HBCCMCHYM6V3RK53
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71247__q_page=1.html
+post:
+  id: 71247
+  user: 17101
+  date: 2010-06-10T16:31:00
+  date_raw: 10 Jun 2010 — 4:31pm
+  votes: null
+  html: |-
+    <p>I just came across <a class="freelinking external" href="http://www.bramstein.com/projects/typeset/" rel="nofollow">this</a>. It’s a really interesting idea. He use a javascript algorithm to manipulate the inter-word spacing.</p>
+    <p>Below: A screen shot from Opera/OSX (Firefox/OSX is not working correctly yet).<br>
+    </p><div class="imageWrap"><img src="http://typophile.com/files/ex_5129.png"></div><p></p>
+  html_clean: |-
+    <p>I just came across <a class="freelinking external" href="http://www.bramstein.com/projects/typeset/" rel="nofollow">this</a>. It’s a really interesting idea. He use a javascript algorithm to manipulate the inter-word spacing.</p>
+    <p>Below: A screen shot from Opera/OSX (Firefox/OSX is not working correctly yet).<br>
+    </p><div class="imageWrap"><img src="/files/ex_5129.png"></div><p></p>
+comments:
+  - id: 415391
+    user: 14722
+    date: 2010-06-10T17:02:00
+    date_raw: 10 Jun 2010 — 5:02pm
+    votes: null
+    html: <p>The difference is quite noticeable, and in this example, in TypeSet’s favor. And of course, this raises an interesting question about H&amp;J on the web—should it be done by the browser, or should designers have more control as they do in print?</p>
+    html_clean: <p>The difference is quite noticeable, and in this example, in TypeSet’s favor. And of course, this raises an interesting question about H&amp;J on the web—should it be done by the browser, or should designers have more control as they do in print?</p>
+  - id: 415392
+    user: 17101
+    date: 2010-06-10T17:24:00
+    date_raw: 10 Jun 2010 — 5:24pm
+    votes: null
+    html: |-
+      <p>Thing is, depending on the device it’s displayed on and the users settings the width of a text block will vary. That is the nature of the web, but also what gives it it’s unique quality. </p>
+      <p>I’d love to see this as a CSS feature, with desired justification specified as a percentage number or a few level keywords like for example “tight”, “normal” and “loose”. </p>
+      <p>font-align: justify;<br>
+      desired-justification: 90%;</p>
+      <p>It would have to be smart enough to adjust the percentage according to the width, though.</p>
+    html_clean: |-
+      <p>Thing is, depending on the device it’s displayed on and the users settings the width of a text block will vary. That is the nature of the web, but also what gives it it’s unique quality. </p>
+      <p>I’d love to see this as a CSS feature, with desired justification specified as a percentage number or a few level keywords like for example “tight”, “normal” and “loose”. </p>
+      <p>font-align: justify;<br>
+      desired-justification: 90%;</p>
+      <p>It would have to be smart enough to adjust the percentage according to the width, though.</p>
+  - id: 415401
+    user: 44873
+    date: 2010-06-10T18:33:00
+    date_raw: 10 Jun 2010 — 6:33pm
+    votes: null
+    html: |-
+      <p>@frode</p>
+      <p><em>By “smart” I’m thinking it should be able to detect the width of the block and adjust the desired percentage accordingly.</em></p>
+      <p>Thanks for this. I've done quite a bit of experimentation with H&amp;J in browsers but I never really thought about handling the column width (measure) as a "liquid" variable before now. Just fixed-width. (In pixels at least, which isn't physically fixed like print.) There is probably some ratio that can be determined.</p>
+      <p>@james puckett<br>
+      <em>And of course, this raises an interesting question about H&amp;J on the web—should it be done by the browser, or should designers have more control as they do in print?</em></p>
+      <p>As far as justification, there's already quite a lot of control using the CSS word-spacing and letter-spacing properties along with either the HTML spacer entities or the Unicode general punctuation spaces. (But the font needs to have them to use them.) These things in combination will give control down to the pixel level, at least. Just tightening or loosening the word-spacing can have a big effect. In a print style sheet, where things don't have to be rounded for the raster grid, I would imagine you get about as much control as you can in any app. (Gotta test that, though. Never checked.)<br>
+      As far as hyphenation, the soft hyphen is supported now in every major browser and there's a javascript implementation of Franklin M. Liangs hyphenation algorithm from LaTex available that works pretty darned well. I suppose a native in-browser implementation would be a bit more thorough, but not by much. (I can only vouch for how it works for English.)<br>
+      The biggest problems I've run into stem from how different browsers work with the em unit. Rounding and such. Plus, I've never been able to get rid of at least some reflow on Zoom which runs the risk of text that looks fine at 100% but sprouts widows and orphans and other undesirables at, say, 130%.<br>
+      And then, because soft hyphens are added at every available breakpoint, there's also a need to remove them via javascript on cut-and-paste. Detecting line endings and placing the soft hyphens more selectively would be more elegant, but tough to do cross-browser right now.<br>
+      It's a pain. But a lot of control <em>is</em> already there with CSS. And whether or not the browser handles hyphenation, that won't change.</p>
+    html_clean: |-
+      <p>@frode</p>
+      <p><em>By “smart” I’m thinking it should be able to detect the width of the block and adjust the desired percentage accordingly.</em></p>
+      <p>Thanks for this. I've done quite a bit of experimentation with H&amp;J in browsers but I never really thought about handling the column width (measure) as a "liquid" variable before now. Just fixed-width. (In pixels at least, which isn't physically fixed like print.) There is probably some ratio that can be determined.</p>
+      <p>@james puckett<br>
+      <em>And of course, this raises an interesting question about H&amp;J on the web—should it be done by the browser, or should designers have more control as they do in print?</em></p>
+      <p>As far as justification, there's already quite a lot of control using the CSS word-spacing and letter-spacing properties along with either the HTML spacer entities or the Unicode general punctuation spaces. (But the font needs to have them to use them.) These things in combination will give control down to the pixel level, at least. Just tightening or loosening the word-spacing can have a big effect. In a print style sheet, where things don't have to be rounded for the raster grid, I would imagine you get about as much control as you can in any app. (Gotta test that, though. Never checked.)<br>
+      As far as hyphenation, the soft hyphen is supported now in every major browser and there's a javascript implementation of Franklin M. Liangs hyphenation algorithm from LaTex available that works pretty darned well. I suppose a native in-browser implementation would be a bit more thorough, but not by much. (I can only vouch for how it works for English.)<br>
+      The biggest problems I've run into stem from how different browsers work with the em unit. Rounding and such. Plus, I've never been able to get rid of at least some reflow on Zoom which runs the risk of text that looks fine at 100% but sprouts widows and orphans and other undesirables at, say, 130%.<br>
+      And then, because soft hyphens are added at every available breakpoint, there's also a need to remove them via javascript on cut-and-paste. Detecting line endings and placing the soft hyphens more selectively would be more elegant, but tough to do cross-browser right now.<br>
+      It's a pain. But a lot of control <em>is</em> already there with CSS. And whether or not the browser handles hyphenation, that won't change.</p>
+  - id: 415403
+    user: 17101
+    date: 2010-06-10T19:34:00
+    date_raw: 10 Jun 2010 — 7:34pm
+    votes: null
+    html: <p>I did a late editing there, hence the wrong quote.</p>
+    html_clean: <p>I did a late editing there, hence the wrong quote.</p>
+  - id: 415439
+    user: 66098
+    date: 2010-06-11T05:01:00
+    date_raw: 11 Jun 2010 — 5:01am
+    votes: null
+    html: |-
+      <p>Frode told me you were having an interesting discussion here about my line breaking implementation so I thought I would chime in. In my opinion justification should be done by the browser, preferably with some user defined properties. However, this won't be that much of an improvement until browsers also support hyphenation, which in turn requires them to know or detect the language of any given page. Even though those features won't be implemented any time soon, I believe that replacing the current text layout engines with a Knuth and Plass based algorithm would increase the quality of justification on the web. The Knuth and Plass line breaking algorithm guarantees results no worse than the naive implementation browsers currently use.</p>
+      <p>If I remember correctly, Internet Explorer exposes a <a href="http://msdn.microsoft.com/en-us/library/ms534671(VS.85).aspx" rel="nofollow">CSS property</a> that affects justification. There is also a proposal for a <a href="http://www.w3.org/TR/css3-text/#text-justify" rel="nofollow">CSS3 text-justify property</a>, but it seems they leave the actual justification algorithm up to the browser.</p>
+      <p>I ran into similar problems as those mentioned by Richard Fink. Wrapping each line in an element and setting the word spacing is fragile (at best) since there is no way to get reliable font metrics back from the browser. Print stylesheets would still need flexible widths as there are different paper sizes and orientations, all out of your control. That's the beauty of the web :)</p>
+    html_clean: |-
+      <p>Frode told me you were having an interesting discussion here about my line breaking implementation so I thought I would chime in. In my opinion justification should be done by the browser, preferably with some user defined properties. However, this won't be that much of an improvement until browsers also support hyphenation, which in turn requires them to know or detect the language of any given page. Even though those features won't be implemented any time soon, I believe that replacing the current text layout engines with a Knuth and Plass based algorithm would increase the quality of justification on the web. The Knuth and Plass line breaking algorithm guarantees results no worse than the naive implementation browsers currently use.</p>
+      <p>If I remember correctly, Internet Explorer exposes a <a href="http://msdn.microsoft.com/en-us/library/ms534671(VS.85).aspx" rel="nofollow">CSS property</a> that affects justification. There is also a proposal for a <a href="http://www.w3.org/TR/css3-text/#text-justify" rel="nofollow">CSS3 text-justify property</a>, but it seems they leave the actual justification algorithm up to the browser.</p>
+      <p>I ran into similar problems as those mentioned by Richard Fink. Wrapping each line in an element and setting the word spacing is fragile (at best) since there is no way to get reliable font metrics back from the browser. Print stylesheets would still need flexible widths as there are different paper sizes and orientations, all out of your control. That's the beauty of the web :)</p>
+  - id: 415590
+    user: 21217
+    date: 2010-06-12T10:02:00
+    date_raw: 12 Jun 2010 — 10:02am
+    votes: null
+    html: |-
+      <p>@ Bram Stein</p>
+      <p>Out of curiosity, how much overlap between your code and<br>
+      <a href="http://code.google.com/p/hyphenator/" title="http://code.google.com/p/hyphenator/">http://code.google.com/p/hyphenator/</a>, since hyphenation and justification are closely related, is it possible to combine both works?</p>
+    html_clean: |-
+      <p>@ Bram Stein</p>
+      <p>Out of curiosity, how much overlap between your code and<br>
+      <a href="http://code.google.com/p/hyphenator/" title="http://code.google.com/p/hyphenator/">http://code.google.com/p/hyphenator/</a>, since hyphenation and justification are closely related, is it possible to combine both works?</p>
+  - id: 415643
+    user: 32120
+    date: 2010-06-12T22:52:00
+    date_raw: 12 Jun 2010 — 10:52pm
+    votes: null
+    html: <p>Since this uses canvas to render text as a graphic, don't we lose selection/searching/indexing/accessibility? As much as I love decent H&amp;J, that's a high price to pay.</p>
+    html_clean: <p>Since this uses canvas to render text as a graphic, don't we lose selection/searching/indexing/accessibility? As much as I love decent H&amp;J, that's a high price to pay.</p>
+  - id: 416717
+    user: 66098
+    date: 2010-06-20T13:12:00
+    date_raw: 20 Jun 2010 — 1:12pm
+    votes: null
+    html: |-
+      <p>@Khaled Hosny</p>
+      <p>Actual code, not so much. It is already possible to manually insert hyphenation points in my implementation, and adding hyphenator would just automate that process (i.e. the algorithm doesn't need to change, just the way the input is generated.) My current implementation just assumes there are no legal break points within a word.</p>
+      <p>@maxgraphic</p>
+      <p>Correct, this example uses canvas for rendering. It is however not limited to canvas. I have an implementation lying around that uses the browsers rendering engine, making text selectable, etc. I haven't released it, because I think justification should be a browser feature and not a JavaScript add-on.</p>
+    html_clean: |-
+      <p>@Khaled Hosny</p>
+      <p>Actual code, not so much. It is already possible to manually insert hyphenation points in my implementation, and adding hyphenator would just automate that process (i.e. the algorithm doesn't need to change, just the way the input is generated.) My current implementation just assumes there are no legal break points within a word.</p>
+      <p>@maxgraphic</p>
+      <p>Correct, this example uses canvas for rendering. It is however not limited to canvas. I have an implementation lying around that uses the browsers rendering engine, making text selectable, etc. I haven't released it, because I think justification should be a browser feature and not a JavaScript add-on.</p>
+  - id: 416810
+    user: 44873
+    date: 2010-06-21T09:21:00
+    date_raw: 21 Jun 2010 — 9:21am
+    votes: null
+    html: |-
+      <p>@bram stein</p>
+      <p>I understand your having an opinion on how and where H&amp;J should be deployed, but holding back code seems an odd way to make a statement! Anyway, could I perhaps get a look at what you've done?<br>
+      rfink [..] readableweb.com or just post a comment to my blog, readableweb.com.</p>
+      <p>It's going to be a long time until we see hyphenation dictionaries within browsers. Meanwhile, JavaScript engines have become very fast, and the performance hit is neglegible in comparison to network costs - the costs in time of gathering the resources. It takes far longer for the browser to layout the page and parse the CSS rules than interpret the JS.<br>
+      Let me know. Thanks.</p>
+      <p><a href="http://readableweb.com" rel="nofollow">Rich</a></p>
+    html_clean: |-
+      <p>@bram stein</p>
+      <p>I understand your having an opinion on how and where H&amp;J should be deployed, but holding back code seems an odd way to make a statement! Anyway, could I perhaps get a look at what you've done?<br>
+      rfink [..] readableweb.com or just post a comment to my blog, readableweb.com.</p>
+      <p>It's going to be a long time until we see hyphenation dictionaries within browsers. Meanwhile, JavaScript engines have become very fast, and the performance hit is neglegible in comparison to network costs - the costs in time of gathering the resources. It takes far longer for the browser to layout the page and parse the CSS rules than interpret the JS.<br>
+      Let me know. Thanks.</p>
+      <p><a href="http://readableweb.com" rel="nofollow">Rich</a></p>
+  - id: 417455
+    user: 66098
+    date: 2010-06-25T05:45:00
+    date_raw: 25 Jun 2010 — 5:45am
+    votes: null
+    html: |-
+      <p>@Richard Fink</p>
+      <p>Perhaps my statement about not releasing the code came out a bit weird. I'm not holding back any code for idealogical reasons. :) I merely made a proof-of-concept implementation but never actively promoted it because there are some limitations to it. I have now added the proof-of-concept to the Typeset page at:</p>
+      <p><a href="http://www.bramstein.com/projects/typeset/" title="http://www.bramstein.com/projects/typeset/">http://www.bramstein.com/projects/typeset/</a></p>
+      <p>The code can be found on my Github page (browser-assist.js):</p>
+      <p><a href="http://github.com/bramstein/javascript/tree/master/src/typeset/" title="http://github.com/bramstein/javascript/tree/master/src/typeset/">http://github.com/bramstein/javascript/tree/master/src/typeset/</a></p>
+      <p>What it does is split a paragraph into lines according to the line breaks found by the Knuth and Plass algorithm and then wraps each line in a span element with an individual CSS word-spacing attribute.</p>
+      <p>The main problem with this approach---and the main reason I think this should be done in the browser---is floating elements (i.e. elements that affect the layout of the text.) A JavaScript implementation would need to measure the "shape" of the text before it can do line breaking. As far as I know there is no easy way to get this text "shape" back from a browser, you can only approximate it by trying to lay out text and see where line breaks happen.</p>
+      <p>I'm still thinking about an efficient way of solving the above problem in JavaScript. If successful it would be possible to create a script that fixes both justification and hyphenation until browsers implement it natively.</p>
+      <p>As an aside, someone (@lqd on Twitter) combined my Typeset code with hyphenator.js and sent me the following screenshots:<br>
+      * <a href="http://twitpic.com/1zdlh6" title="http://twitpic.com/1zdlh6">http://twitpic.com/1zdlh6</a><br>
+      * <a href="http://twitpic.com/1zdh4a" title="http://twitpic.com/1zdh4a">http://twitpic.com/1zdh4a</a></p>
+    html_clean: |-
+      <p>@Richard Fink</p>
+      <p>Perhaps my statement about not releasing the code came out a bit weird. I'm not holding back any code for idealogical reasons. :) I merely made a proof-of-concept implementation but never actively promoted it because there are some limitations to it. I have now added the proof-of-concept to the Typeset page at:</p>
+      <p><a href="http://www.bramstein.com/projects/typeset/" title="http://www.bramstein.com/projects/typeset/">http://www.bramstein.com/projects/typeset/</a></p>
+      <p>The code can be found on my Github page (browser-assist.js):</p>
+      <p><a href="http://github.com/bramstein/javascript/tree/master/src/typeset/" title="http://github.com/bramstein/javascript/tree/master/src/typeset/">http://github.com/bramstein/javascript/tree/master/src/typeset/</a></p>
+      <p>What it does is split a paragraph into lines according to the line breaks found by the Knuth and Plass algorithm and then wraps each line in a span element with an individual CSS word-spacing attribute.</p>
+      <p>The main problem with this approach---and the main reason I think this should be done in the browser---is floating elements (i.e. elements that affect the layout of the text.) A JavaScript implementation would need to measure the "shape" of the text before it can do line breaking. As far as I know there is no easy way to get this text "shape" back from a browser, you can only approximate it by trying to lay out text and see where line breaks happen.</p>
+      <p>I'm still thinking about an efficient way of solving the above problem in JavaScript. If successful it would be possible to create a script that fixes both justification and hyphenation until browsers implement it natively.</p>
+      <p>As an aside, someone (@lqd on Twitter) combined my Typeset code with hyphenator.js and sent me the following screenshots:<br>
+      * <a href="http://twitpic.com/1zdlh6" title="http://twitpic.com/1zdlh6">http://twitpic.com/1zdlh6</a><br>
+      * <a href="http://twitpic.com/1zdh4a" title="http://twitpic.com/1zdh4a">http://twitpic.com/1zdh4a</a></p>
+  - id: 417504
+    user: 44873
+    date: 2010-06-25T11:19:00
+    date_raw: 25 Jun 2010 — 11:19am
+    votes: null
+    html: |-
+      <p>@bram stein<br>
+      thanks. I'll take a long look. I'm working on code (and an accompanying article) about H&amp;J for browsers and it's looking pretty good, frankly. (The H&amp;J, that is.)</p>
+      <p>I'm not quite sure what you mean by the "shape" of the text but I'll try to figure that one out. Got your email, BTW.</p>
+      <p>One problem I'd like to solve is exactly where the line breaks occur in all browsers. You could do it in IE7 but that got re-worked and broken in IE8. And I can proceed without it, but it would solve a few remaining problems.<br>
+      (If anybody has any ideas? Please...)</p>
+      <p>Thanks again.</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@bram stein<br>
+      thanks. I'll take a long look. I'm working on code (and an accompanying article) about H&amp;J for browsers and it's looking pretty good, frankly. (The H&amp;J, that is.)</p>
+      <p>I'm not quite sure what you mean by the "shape" of the text but I'll try to figure that one out. Got your email, BTW.</p>
+      <p>One problem I'd like to solve is exactly where the line breaks occur in all browsers. You could do it in IE7 but that got re-worked and broken in IE8. And I can proceed without it, but it would solve a few remaining problems.<br>
+      (If anybody has any ideas? Please...)</p>
+      <p>Thanks again.</p>
+      <p>rich</p>
+  - id: 417531
+    user: 17101
+    date: 2010-06-25T14:32:00
+    date_raw: 25 Jun 2010 — 2:32pm
+    votes: null
+    html: <p>Am I missing something, or is this still canvas and non-selectable/searchable?</p>
+    html_clean: <p>Am I missing something, or is this still canvas and non-selectable/searchable?</p>
+  - id: 417636
+    user: 66098
+    date: 2010-06-26T08:51:00
+    date_raw: 26 Jun 2010 — 8:51am
+    votes: null
+    html: |-
+      <p>@frode frank</p>
+      <p>See the "Assisted browser line breaks" section and below.</p>
+      <p>@Richard Fink</p>
+      <p>I had a go at a bit more serious implementation today:</p>
+      <p><a href="http://www.bramstein.com/projects/typeset/flatland/flatland.html" title="http://www.bramstein.com/projects/typeset/flatland/flatland.html">http://www.bramstein.com/projects/typeset/flatland/flatland.html</a></p>
+      <p>The page contains two texts: the one on the left is justified by your browser, the text on the right is justified by my implementation and hyphenated by Hyphenator.js. Canvas is not used. Both texts use fonts from Google's Font Directory. I have tested it in Firefox, Safari and Chrome, and all seem to work.</p>
+      <p>There are some (small) problems but I think most of them can be worked out:<br>
+      * Selection looks ugly (this is to workaround a bug in Webkit that ignores subpixel word-spacing)<br>
+      * Copied and pasted text includes the soft hyphens<br>
+      * Chrome sometimes executes the H&amp;J before activating the font (refreshing usually fixes it.)<br>
+      * Floating elements are not yet supported (that is what I meant with the "shape" of the text, the line breaking algorithm needs to take the space that floating elements take up into account.)</p>
+      <p>Loading may look slow, but that is mostly caused by downloading the fonts from Google's Font Directory. Only then can the H&amp;J algorithm run (as it needs the correct font metrics.)</p>
+      <p>What exactly do you mean by finding where line-breaks occur in all browsers?</p>
+    html_clean: |-
+      <p>@frode frank</p>
+      <p>See the "Assisted browser line breaks" section and below.</p>
+      <p>@Richard Fink</p>
+      <p>I had a go at a bit more serious implementation today:</p>
+      <p><a href="http://www.bramstein.com/projects/typeset/flatland/flatland.html" title="http://www.bramstein.com/projects/typeset/flatland/flatland.html">http://www.bramstein.com/projects/typeset/flatland/flatland.html</a></p>
+      <p>The page contains two texts: the one on the left is justified by your browser, the text on the right is justified by my implementation and hyphenated by Hyphenator.js. Canvas is not used. Both texts use fonts from Google's Font Directory. I have tested it in Firefox, Safari and Chrome, and all seem to work.</p>
+      <p>There are some (small) problems but I think most of them can be worked out:<br>
+      * Selection looks ugly (this is to workaround a bug in Webkit that ignores subpixel word-spacing)<br>
+      * Copied and pasted text includes the soft hyphens<br>
+      * Chrome sometimes executes the H&amp;J before activating the font (refreshing usually fixes it.)<br>
+      * Floating elements are not yet supported (that is what I meant with the "shape" of the text, the line breaking algorithm needs to take the space that floating elements take up into account.)</p>
+      <p>Loading may look slow, but that is mostly caused by downloading the fonts from Google's Font Directory. Only then can the H&amp;J algorithm run (as it needs the correct font metrics.)</p>
+      <p>What exactly do you mean by finding where line-breaks occur in all browsers?</p>
+  - id: 417650
+    user: 17101
+    date: 2010-06-26T09:59:00
+    date_raw: 26 Jun 2010 — 9:59am
+    votes: null
+    html: |-
+      <p>It breaks when when you change text size.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/ex_3489.png"></div><p></p>
+    html_clean: |-
+      <p>It breaks when when you change text size.</p>
+      <p></p><div class="imageWrap"><img src="/files/ex_3489.png"></div><p></p>
+  - id: 417655
+    user: 66098
+    date: 2010-06-26T10:54:00
+    date_raw: 26 Jun 2010 — 10:54am
+    votes: null
+    html: |-
+      <p>@frode frank</p>
+      <p>Don't do that :P</p>
+      <p>Seriously though, I think this is the result of my "fix" for Chrome (Webkit?) which doesn't support subpixel word-spacing (it rounds it to the nearest integer.) I hardcoded the spacing between words for all browsers to fix it. This will result in strange behaviour when changing the text size (and is also the cause of the odd looking selection.) This probably wouldn't happen if Chrome supported subpixel word-spacing. I have some other ideas on how to attack this particular problem, and hopefully I come up with something that works with text size changes.</p>
+    html_clean: |-
+      <p>@frode frank</p>
+      <p>Don't do that :P</p>
+      <p>Seriously though, I think this is the result of my "fix" for Chrome (Webkit?) which doesn't support subpixel word-spacing (it rounds it to the nearest integer.) I hardcoded the spacing between words for all browsers to fix it. This will result in strange behaviour when changing the text size (and is also the cause of the odd looking selection.) This probably wouldn't happen if Chrome supported subpixel word-spacing. I have some other ideas on how to attack this particular problem, and hopefully I come up with something that works with text size changes.</p>
+  - id: 417659
+    user: 17101
+    date: 2010-06-26T11:02:00
+    date_raw: 26 Jun 2010 — 11:02am
+    votes: null
+    html: |-
+      <p>Sorry, Bram! :) Seriously though, when you start running into more problems then you had before you started, it’s usually time to restart the process. </p>
+      <p>Ever seen the roads these guys patch up? It’s sort of like that.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/asphalt_4746.jpg"></div><p></p>
+    html_clean: |-
+      <p>Sorry, Bram! :) Seriously though, when you start running into more problems then you had before you started, it’s usually time to restart the process. </p>
+      <p>Ever seen the roads these guys patch up? It’s sort of like that.<br>
+      </p><div class="imageWrap"><img src="/files/asphalt_4746.jpg"></div><p></p>
+  - id: 417665
+    user: 44873
+    date: 2010-06-26T12:09:00
+    date_raw: 26 Jun 2010 — 12:09pm
+    votes: null
+    html: |-
+      <p>frode&gt;It breaks when when you change text size.</p>
+      <p>stein&gt;Don't do that!</p>
+      <p>hah!<br>
+      I've run into this one before. This would not be a problem if browsers had a "zoom" event and/or an "ontextsizechange" event. Then you could handle it programatically. At least refresh the page or let the reader know what's going on.</p>
+      <p>@bram stein<br>
+      <em>Copied and pasted text includes the soft hyphens</em><br>
+      This was a deal-killer for me until recently. Got this one figured out. (Not my work but I've improved it some.)</p>
+      <p>I'll take a closer look at your demo and be back.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>frode&gt;It breaks when when you change text size.</p>
+      <p>stein&gt;Don't do that!</p>
+      <p>hah!<br>
+      I've run into this one before. This would not be a problem if browsers had a "zoom" event and/or an "ontextsizechange" event. Then you could handle it programatically. At least refresh the page or let the reader know what's going on.</p>
+      <p>@bram stein<br>
+      <em>Copied and pasted text includes the soft hyphens</em><br>
+      This was a deal-killer for me until recently. Got this one figured out. (Not my work but I've improved it some.)</p>
+      <p>I'll take a closer look at your demo and be back.</p>
+      <p>Rich</p>
+  - id: 417850
+    user: 44873
+    date: 2010-06-28T07:07:00
+    date_raw: 28 Jun 2010 — 7:07am
+    votes: null
+    html: |-
+      <p>@bram</p>
+      <p>I took a brief look and am still trying to figure out what your algorithm does that can't be done just by fiddling with the value of word-spacing. In that brief look, I'm having a bit of trouble figuring out exactly what the code is doing. (But I'll get back to you on that.)</p>
+      <p>&gt;What exactly do you mean by finding where line-breaks occur in all browsers?</p>
+      <p>As you know, hyphenator.js takes a "shotgun" approach and adds soft-hyphens everywhere. But they are only visible where the browser breaks the word.<br>
+      Here's what would be helpful: being able to identify only those soft hyphens that the browser displays. (Those breaking words at the end of lines.)<br>
+      I need to identify them because I need to remove them, yet preserve the amount of space the soft-hyphen takes up horizontally and also preserve the line break. (Sounds odd, I know. Seems I can do the preserving, but it's the identifying that's hanging me up. I have an idea I want to try, but haven't had the time to write some code and test. But I will.)</p>
+      <p>In the meantime, maybe you're smarter than me, any ideas on how to identify only the soft hyphens that appear at the end of lines?</p>
+      <p>Also - do you think your algorithm would be useful in preventing widows? (Like I said, I'm still trying to follow the logic of your code. Sooner or later I'll firebug it. Or you'll explain!)</p>
+      <p>Thanks.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@bram</p>
+      <p>I took a brief look and am still trying to figure out what your algorithm does that can't be done just by fiddling with the value of word-spacing. In that brief look, I'm having a bit of trouble figuring out exactly what the code is doing. (But I'll get back to you on that.)</p>
+      <p>&gt;What exactly do you mean by finding where line-breaks occur in all browsers?</p>
+      <p>As you know, hyphenator.js takes a "shotgun" approach and adds soft-hyphens everywhere. But they are only visible where the browser breaks the word.<br>
+      Here's what would be helpful: being able to identify only those soft hyphens that the browser displays. (Those breaking words at the end of lines.)<br>
+      I need to identify them because I need to remove them, yet preserve the amount of space the soft-hyphen takes up horizontally and also preserve the line break. (Sounds odd, I know. Seems I can do the preserving, but it's the identifying that's hanging me up. I have an idea I want to try, but haven't had the time to write some code and test. But I will.)</p>
+      <p>In the meantime, maybe you're smarter than me, any ideas on how to identify only the soft hyphens that appear at the end of lines?</p>
+      <p>Also - do you think your algorithm would be useful in preventing widows? (Like I said, I'm still trying to follow the logic of your code. Sooner or later I'll firebug it. Or you'll explain!)</p>
+      <p>Thanks.</p>
+      <p>Rich</p>
+  - id: 417908
+    user: 66098
+    date: 2010-06-28T13:07:00
+    date_raw: 28 Jun 2010 — 1:07pm
+    votes: null
+    html: |-
+      <p>To understand what my algorithm (or rather the Knuth and Plass algorithm) does I need to explain how browsers currently implement justification. Most browsers implement justification by employing a first fit strategy (except Internet Explorer which uses the Knuth and Plass algorithm if enabled with "text-justify: newspaper;".) Words are inserted one by one using normal word-spacing. A line break is inserted before the first word that doesn't fit on a given line. The browser then adjusts the word-spacing on that line so that the line is stretched to the maximum width it can have (defined by the width of the text column.) Note that this strategy always increases word-spacing, it never decreases. Rivers are created by large words at the end of the line that do not fit and are moved to the next line. Large word-space values need to make up for that missing word so as to justify that line.</p>
+      <p>Hyphenation can avoid rivers by creating more break points in a line. So instead of just being able to insert a line-break between words, hyphenation makes it possible to also insert line-break in words (defined by a hyphenation algorithm or dictionary.)</p>
+      <p>My JavaScript implementation of the Knuth and Plass line breaking algorithm takes over line breaking from the browser. The major differences is that instead of just increasing the word-spacing it also allows decreasing of word spacing, and instead of basing its line breaking on one line it tries to minimize the word-spacing over the whole paragraph. For example, it might take a slightly less than optimal word-spacing in one line to prevent an even worse word-spacing in the next line. It also tries to prevent two consecutive lines from having a too large difference in word-spacing.</p>
+      <p>In my earlier Typeset examples I did not consider hyphenation and only focused on justification. I have since then added hyphenation using Hyphenator.js. This basically gives the algorithm more break-points to work with. The result is an even better justification (i.e. closer to the global minimum amount of word-spacing per paragraph.) </p>
+      <p>My implementation returns a list of line-break points that represent the global minimum of word-spacing. I split the original paragraph by the line-break points and calculate the amount of word-spacing required to justify each line. In my first tests I just passed the word-spacing as a CSS attribute on a line-by-line basis, but I quickly found out that Webkit (Safari &amp; Chrome) do not support word-spacing with values less than 1 pixel. The necessary word-spacing is often less than 1 pixel so I had to resort to some hacks to fake it. I do this by adding fixed-width spaces. It unfortunately does have some side-effects as I mentioned (the strange selections.)</p>
+      <p>As my implementation completely replaces the browser's built-in line-breaking it knows exactly when and where line-breaks occur. As you can see in the Flatland example, I only insert soft hyphens where they are needed.</p>
+      <p>Prevention of widows ands orphans can be added to the Knuth and Plass line-breaking algorithm as an extension. I have not implemented this since I didn't see the need for it on a web page. Apart from printing there is plenty of vertical space. Though, adding it is about 10 lines of code as my implementation already calculates the necessary information---it just ignores it at the moment.</p>
+      <p>Regarding the detection of line-breaks. I've done something similar on my Typeset page. The basic idea is that you iterate through each word in the paragraph and check its Y position. If the Y position is different from the previous word, then you know the browser has inserted a line break. I'm not sure exactly if that is what you are after, but perhaps it is of help.</p>
+    html_clean: |-
+      <p>To understand what my algorithm (or rather the Knuth and Plass algorithm) does I need to explain how browsers currently implement justification. Most browsers implement justification by employing a first fit strategy (except Internet Explorer which uses the Knuth and Plass algorithm if enabled with "text-justify: newspaper;".) Words are inserted one by one using normal word-spacing. A line break is inserted before the first word that doesn't fit on a given line. The browser then adjusts the word-spacing on that line so that the line is stretched to the maximum width it can have (defined by the width of the text column.) Note that this strategy always increases word-spacing, it never decreases. Rivers are created by large words at the end of the line that do not fit and are moved to the next line. Large word-space values need to make up for that missing word so as to justify that line.</p>
+      <p>Hyphenation can avoid rivers by creating more break points in a line. So instead of just being able to insert a line-break between words, hyphenation makes it possible to also insert line-break in words (defined by a hyphenation algorithm or dictionary.)</p>
+      <p>My JavaScript implementation of the Knuth and Plass line breaking algorithm takes over line breaking from the browser. The major differences is that instead of just increasing the word-spacing it also allows decreasing of word spacing, and instead of basing its line breaking on one line it tries to minimize the word-spacing over the whole paragraph. For example, it might take a slightly less than optimal word-spacing in one line to prevent an even worse word-spacing in the next line. It also tries to prevent two consecutive lines from having a too large difference in word-spacing.</p>
+      <p>In my earlier Typeset examples I did not consider hyphenation and only focused on justification. I have since then added hyphenation using Hyphenator.js. This basically gives the algorithm more break-points to work with. The result is an even better justification (i.e. closer to the global minimum amount of word-spacing per paragraph.) </p>
+      <p>My implementation returns a list of line-break points that represent the global minimum of word-spacing. I split the original paragraph by the line-break points and calculate the amount of word-spacing required to justify each line. In my first tests I just passed the word-spacing as a CSS attribute on a line-by-line basis, but I quickly found out that Webkit (Safari &amp; Chrome) do not support word-spacing with values less than 1 pixel. The necessary word-spacing is often less than 1 pixel so I had to resort to some hacks to fake it. I do this by adding fixed-width spaces. It unfortunately does have some side-effects as I mentioned (the strange selections.)</p>
+      <p>As my implementation completely replaces the browser's built-in line-breaking it knows exactly when and where line-breaks occur. As you can see in the Flatland example, I only insert soft hyphens where they are needed.</p>
+      <p>Prevention of widows ands orphans can be added to the Knuth and Plass line-breaking algorithm as an extension. I have not implemented this since I didn't see the need for it on a web page. Apart from printing there is plenty of vertical space. Though, adding it is about 10 lines of code as my implementation already calculates the necessary information---it just ignores it at the moment.</p>
+      <p>Regarding the detection of line-breaks. I've done something similar on my Typeset page. The basic idea is that you iterate through each word in the paragraph and check its Y position. If the Y position is different from the previous word, then you know the browser has inserted a line break. I'm not sure exactly if that is what you are after, but perhaps it is of help.</p>
+  - id: 417926
+    user: 29994
+    date: 2010-06-28T15:16:00
+    date_raw: 28 Jun 2010 — 3:16pm
+    votes: null
+    html: |-
+      <p><cite>(i.e. closer to the global minimum amount of word-spacing per paragraph.)</cite></p>
+      <p>Shouldn't that be the global <em>optimal</em> word-spacing?</p>
+      <p>As for 'widows and orphans', those are per definition page terms. On a web page, the page vertically never ends, so you'll never have to worry about windows or orphans! I think Richard may mean 'runts' -- a very short last line of a paragraph. Those can be avoided by stopping scanning for feasible breakpoints before the end of the actual paragraph is reached.</p>
+    html_clean: |-
+      <p><cite>(i.e. closer to the global minimum amount of word-spacing per paragraph.)</cite></p>
+      <p>Shouldn't that be the global <em>optimal</em> word-spacing?</p>
+      <p>As for 'widows and orphans', those are per definition page terms. On a web page, the page vertically never ends, so you'll never have to worry about windows or orphans! I think Richard may mean 'runts' -- a very short last line of a paragraph. Those can be avoided by stopping scanning for feasible breakpoints before the end of the actual paragraph is reached.</p>
+  - id: 417948
+    user: 66098
+    date: 2010-06-28T23:41:00
+    date_raw: 28 Jun 2010 — 11:41pm
+    votes: null
+    html: |-
+      <p>@Theunis de Jong</p>
+      <p>I wrote "global optimum amount of word-spacing" at first, but then I changed it to "minimum" because of the way CSS word-spacing works (i.e. it is not an absolute value but an additional value added to the default word-spacing, which in the case of CSS should be kept to a minimum.) What I meant is that the word-spacing changes should be as close as possible to the default word-spacing. You are correct in pointing out that is technically a global optimum.</p>
+      <p>I think runts are related to widows and orphans as well (at least in the algorithm.) The Knuth and Plass algorithm usually finds multiple sets of line-breaks. It would be possible to avoid runts by choosing one that might be (slightly) less optimal but has one line more or less to avoid single word lines. I think early stopping might also work, but I haven't tried that yet.</p>
+    html_clean: |-
+      <p>@Theunis de Jong</p>
+      <p>I wrote "global optimum amount of word-spacing" at first, but then I changed it to "minimum" because of the way CSS word-spacing works (i.e. it is not an absolute value but an additional value added to the default word-spacing, which in the case of CSS should be kept to a minimum.) What I meant is that the word-spacing changes should be as close as possible to the default word-spacing. You are correct in pointing out that is technically a global optimum.</p>
+      <p>I think runts are related to widows and orphans as well (at least in the algorithm.) The Knuth and Plass algorithm usually finds multiple sets of line-breaks. It would be possible to avoid runts by choosing one that might be (slightly) less optimal but has one line more or less to avoid single word lines. I think early stopping might also work, but I haven't tried that yet.</p>
+  - id: 417958
+    user: 29994
+    date: 2010-06-29T02:40:00
+    date_raw: 29 Jun 2010 — 2:40am
+    votes: null
+    html: |-
+      <p>Ah, yes: from a point of view of <em>adjustment</em> to space it should be as minimal as possible, either positive or negative.</p>
+      <p><cite> It would be possible to avoid runts by choosing one that might be (slightly) less optimal but has one line more or less to avoid single word lines. I think early stopping might also work, but I haven't tried that yet.</cite></p>
+      <p>I don't even know why I wrote that down! I was, in fact, thinking of the TeX way: find all breakpoints but assign a penalty for the final line length; huge for a very short line, small for a rather short line, and perhaps a negative value ("I want this!") if it's an exceptionally <em>good</em> last line (by some objective definition ...).</p>
+      <p>I don't think this will need any adjustment of the rest of your code -- i.e., a paragraph <em>is</em> typeset optimally if it avoids an ugly runt at the end.</p>
+    html_clean: |-
+      <p>Ah, yes: from a point of view of <em>adjustment</em> to space it should be as minimal as possible, either positive or negative.</p>
+      <p><cite> It would be possible to avoid runts by choosing one that might be (slightly) less optimal but has one line more or less to avoid single word lines. I think early stopping might also work, but I haven't tried that yet.</cite></p>
+      <p>I don't even know why I wrote that down! I was, in fact, thinking of the TeX way: find all breakpoints but assign a penalty for the final line length; huge for a very short line, small for a rather short line, and perhaps a negative value ("I want this!") if it's an exceptionally <em>good</em> last line (by some objective definition ...).</p>
+      <p>I don't think this will need any adjustment of the rest of your code -- i.e., a paragraph <em>is</em> typeset optimally if it avoids an ugly runt at the end.</p>
+  - id: 417991
+    user: 66098
+    date: 2010-06-29T07:55:00
+    date_raw: 29 Jun 2010 — 7:55am
+    votes: null
+    html: |-
+      <p>@Theunis de Jong</p>
+      <p>This presentation (given tomorrow) seems relevant:<br>
+      <a href="http://tug.org/tug2010/abstracts/rundell.txt" title="http://tug.org/tug2010/abstracts/rundell.txt">http://tug.org/tug2010/abstracts/rundell.txt</a></p>
+      <p>I'll keep an eye on it and see if I can get my hands on a copy.</p>
+    html_clean: |-
+      <p>@Theunis de Jong</p>
+      <p>This presentation (given tomorrow) seems relevant:<br>
+      <a href="http://tug.org/tug2010/abstracts/rundell.txt" title="http://tug.org/tug2010/abstracts/rundell.txt">http://tug.org/tug2010/abstracts/rundell.txt</a></p>
+      <p>I'll keep an eye on it and see if I can get my hands on a copy.</p>
+  - id: 418005
+    user: 29994
+    date: 2010-06-29T08:56:00
+    date_raw: 29 Jun 2010 — 8:56am
+    votes: null
+    html: |-
+      <p>Finally! Knuth on this in <em>The TeXbook</em> (1984):</p>
+      <p>"TeX breaks lists of lines into pages by computing badness ratings and penalties, more or less as it does when breaking paragraphs into lines. But pages are made up one at a time and removed from TeX's memory; there is no looking ahead to see how one page break will affect the next one. In other words, TeX uses a special method to find the optimum breakpoints for the lines in an entire paragraph, but it doesn't attempt to find the optimum breakpoints for the pages in an entire document. <em>The computer doesn't have enough high-speed memory capacity to remember the contents of several pages</em>, so TeX simply chooses each page break as best it can, by a process of "local" rather than "global" optimization."</p>
+      <p>(my emph.)</p>
+      <p>(It's possible you already read and memorized every page.)</p>
+    html_clean: |-
+      <p>Finally! Knuth on this in <em>The TeXbook</em> (1984):</p>
+      <p>"TeX breaks lists of lines into pages by computing badness ratings and penalties, more or less as it does when breaking paragraphs into lines. But pages are made up one at a time and removed from TeX's memory; there is no looking ahead to see how one page break will affect the next one. In other words, TeX uses a special method to find the optimum breakpoints for the lines in an entire paragraph, but it doesn't attempt to find the optimum breakpoints for the pages in an entire document. <em>The computer doesn't have enough high-speed memory capacity to remember the contents of several pages</em>, so TeX simply chooses each page break as best it can, by a process of "local" rather than "global" optimization."</p>
+      <p>(my emph.)</p>
+      <p>(It's possible you already read and memorized every page.)</p>
+  - id: 418039
+    user: 4406
+    date: 2010-06-29T13:39:00
+    date_raw: 29 Jun 2010 — 1:39pm
+    votes: null
+    html: |-
+      <p>For the record, I think this is a great proof of concept. I've kicked around the idea of coding up something similar for a while now, and am very glad that someone has finally done it.</p>
+      <p>Making it really useful and usable is hard. I'm not sure whether the best path for that is to grind through the slog of fixing the problems one by one: (async loading and size-change issues, copy and paste, etc, etc), or to advocate for browsers to implement this natively. All I know is that I want high quality text layout in my browser before I grow old.</p>
+    html_clean: |-
+      <p>For the record, I think this is a great proof of concept. I've kicked around the idea of coding up something similar for a while now, and am very glad that someone has finally done it.</p>
+      <p>Making it really useful and usable is hard. I'm not sure whether the best path for that is to grind through the slog of fixing the problems one by one: (async loading and size-change issues, copy and paste, etc, etc), or to advocate for browsers to implement this natively. All I know is that I want high quality text layout in my browser before I grow old.</p>
+  - id: 418123
+    user: 66098
+    date: 2010-06-30T00:51:00
+    date_raw: 30 Jun 2010 — 12:51am
+    votes: null
+    html: |-
+      <p>@raph<br>
+      Thanks for the kind words. I see you were also involved with Google's font API---very nice work.</p>
+      <p>I'm kind of on the side of advocating the browsers to implement this natively. I have been looking through the Webkit and Gecko source, but I'm not that familiar with either engine internals (that, plus limited time.) As you said, I would love to have high quality text layout on the web as well, preferably sooner than later.</p>
+      <p>For now I'm trying to see how far I can take it in JavaScript. I have fixed some of the bugs I mentioned before: selections are working, resizing as well, and copy and paste is no worse than a normal paragraph with soft-hyphens in it (these fixes are not yet online though.) The big issue remaining is floating items; I'm planning to measure all floating elements I encounter, create space for them in the text and absolute position them in the appropriate place. The trick is making it generic enough.</p>
+    html_clean: |-
+      <p>@raph<br>
+      Thanks for the kind words. I see you were also involved with Google's font API---very nice work.</p>
+      <p>I'm kind of on the side of advocating the browsers to implement this natively. I have been looking through the Webkit and Gecko source, but I'm not that familiar with either engine internals (that, plus limited time.) As you said, I would love to have high quality text layout on the web as well, preferably sooner than later.</p>
+      <p>For now I'm trying to see how far I can take it in JavaScript. I have fixed some of the bugs I mentioned before: selections are working, resizing as well, and copy and paste is no worse than a normal paragraph with soft-hyphens in it (these fixes are not yet online though.) The big issue remaining is floating items; I'm planning to measure all floating elements I encounter, create space for them in the text and absolute position them in the appropriate place. The trick is making it generic enough.</p>
+  - id: 418256
+    user: 44873
+    date: 2010-06-30T14:49:00
+    date_raw: 30 Jun 2010 — 2:49pm
+    votes: null
+    html: |-
+      <p>@bram</p>
+      <p>Thanks for the explanation. It does help some. And glad to know after all these years that text-justify:newspaper in IE is the Knuth-Plass alg. Never knew until you told me. Live and learn.</p>
+      <p>Theunis is correct - I'm more concerned about runts. (And BTW - IE has a widow/orphan preventing CSS property for print stylesheets if I remember correctly.)</p>
+      <p>[Note: I'm not totally free to go into this in depth in a public forum because it's part of a larger article and the publisher understandably doesn't want to run the risk of someone popping out of nowhere when the thing is published and saying, "Hey, that was published on my blog! Take it down!" However, any help I get will be duly and happily credited and I'm perfectly free to send or publish links to my experiments and so I will do that. All info will be published free and clear for anyone to use, anyway.]</p>
+      <p>I'm convinced that decent H&amp;J is now a practical proposition for the web. My instincts tell me that hyphenator.js's shotgun approach (along with text-align:justify) is the more flexible approach. The browser engine does more of the work. I've been keeping an eye on hyphenator.js for a year and half now and Mathias Nater has done an excellent job.<br>
+      Want to see a case in point? Check out the browser-as-e-reader approach at ibisreader.com. Check out the adjustable page width feature. Your code would require a complete re-rendering. With hyphenator.js, the text would just reflow with the hyphens appearing where they need to be. Similar to the text size change issue. With that, too, hyphenator.js presents no problems. Floats present no problems, either.</p>
+      <p>I've put together a variation of hyphenator.js that I'm pretty happy with so far.<br>
+      1) First, there was the cut and paste problem. (That is, if you select the words, "Helping the homeless", you get "Help-ing the home-less". WTF! But it's fixable as it turns out.)<br>
+      2) My next step will be to add a generic CSS selector engine. Probably Sizzle from jQuery. This will add a lot more flexibility. So it won't be necessary to add the class "hyphenate" when there are already enough identifiers in the markup to select the elements you want to H&amp;J.<br>
+      3) After that, there is the problem of the context menu. For some reason, the soft hyphens are showing up as spaces. Help ing the home less. Another WTF. This too, looks fixable, though.</p>
+      <p>As soon as I've got the selector engine cooking, I'll get some test pages up somewhere for input. Maybe find a way to tackle the runts.</p>
+      <p>Thanks much. I'll be back.</p>
+    html_clean: |-
+      <p>@bram</p>
+      <p>Thanks for the explanation. It does help some. And glad to know after all these years that text-justify:newspaper in IE is the Knuth-Plass alg. Never knew until you told me. Live and learn.</p>
+      <p>Theunis is correct - I'm more concerned about runts. (And BTW - IE has a widow/orphan preventing CSS property for print stylesheets if I remember correctly.)</p>
+      <p>[Note: I'm not totally free to go into this in depth in a public forum because it's part of a larger article and the publisher understandably doesn't want to run the risk of someone popping out of nowhere when the thing is published and saying, "Hey, that was published on my blog! Take it down!" However, any help I get will be duly and happily credited and I'm perfectly free to send or publish links to my experiments and so I will do that. All info will be published free and clear for anyone to use, anyway.]</p>
+      <p>I'm convinced that decent H&amp;J is now a practical proposition for the web. My instincts tell me that hyphenator.js's shotgun approach (along with text-align:justify) is the more flexible approach. The browser engine does more of the work. I've been keeping an eye on hyphenator.js for a year and half now and Mathias Nater has done an excellent job.<br>
+      Want to see a case in point? Check out the browser-as-e-reader approach at ibisreader.com. Check out the adjustable page width feature. Your code would require a complete re-rendering. With hyphenator.js, the text would just reflow with the hyphens appearing where they need to be. Similar to the text size change issue. With that, too, hyphenator.js presents no problems. Floats present no problems, either.</p>
+      <p>I've put together a variation of hyphenator.js that I'm pretty happy with so far.<br>
+      1) First, there was the cut and paste problem. (That is, if you select the words, "Helping the homeless", you get "Help-ing the home-less". WTF! But it's fixable as it turns out.)<br>
+      2) My next step will be to add a generic CSS selector engine. Probably Sizzle from jQuery. This will add a lot more flexibility. So it won't be necessary to add the class "hyphenate" when there are already enough identifiers in the markup to select the elements you want to H&amp;J.<br>
+      3) After that, there is the problem of the context menu. For some reason, the soft hyphens are showing up as spaces. Help ing the home less. Another WTF. This too, looks fixable, though.</p>
+      <p>As soon as I've got the selector engine cooking, I'll get some test pages up somewhere for input. Maybe find a way to tackle the runts.</p>
+      <p>Thanks much. I'll be back.</p>
+  - id: 418322
+    user: 66098
+    date: 2010-07-01T06:22:00
+    date_raw: 1 Jul 2010 — 6:22am
+    votes: null
+    html: |-
+      <p>@Richard Fink</p>
+      <p>For the record, I do not know for sure that Internet Explorer uses the Knuth and Plass algorithm for justification when <code>text-justify</code> is set to <code>newspaper</code>. I only compared the justification of my implementation with the one created by Internet Explorer, and found them to be identical for my sample text.</p>
+      <p>I agree that just hyphenation (using Hyphenator.js or some other script) is the more practical solution right now. I'm hoping to convince browser authors to implement the Knuth and Plass algorithm instead of trying to provide this as a drop-in script. I'm looking forward to your article (is it going to be published at ALA again?) Are you planning on mentioning the sub-optimal justification done by most browsers? I was planning to write a technical article on that, but perhaps I don't need if you cover it as well.</p>
+      <p>With regards to re-rendering; almost every change to a page requires re-rendering, the question is where that re-rendering is executed. With Hyphenator.js it is done by the browser, with my implementation it is done by JavaScript. Both are doing essentially the same---calculating font metrics, and re-doing the justification. The greatest slow down in my implementation is not actually the Knuth and Plass algorithm (which runs very fast) but getting font metrics back from the browser. I'm currently not caching any of the measurements I do, so there is room for improvement there. There are however a myriad of other problems as you mentioned. I'm slowly working my way through them, but I doubt it will ever be as good as a native implementation. It is kind of fun to see how far I can push it though :)</p>
+    html_clean: |-
+      <p>@Richard Fink</p>
+      <p>For the record, I do not know for sure that Internet Explorer uses the Knuth and Plass algorithm for justification when <code>text-justify</code> is set to <code>newspaper</code>. I only compared the justification of my implementation with the one created by Internet Explorer, and found them to be identical for my sample text.</p>
+      <p>I agree that just hyphenation (using Hyphenator.js or some other script) is the more practical solution right now. I'm hoping to convince browser authors to implement the Knuth and Plass algorithm instead of trying to provide this as a drop-in script. I'm looking forward to your article (is it going to be published at ALA again?) Are you planning on mentioning the sub-optimal justification done by most browsers? I was planning to write a technical article on that, but perhaps I don't need if you cover it as well.</p>
+      <p>With regards to re-rendering; almost every change to a page requires re-rendering, the question is where that re-rendering is executed. With Hyphenator.js it is done by the browser, with my implementation it is done by JavaScript. Both are doing essentially the same---calculating font metrics, and re-doing the justification. The greatest slow down in my implementation is not actually the Knuth and Plass algorithm (which runs very fast) but getting font metrics back from the browser. I'm currently not caching any of the measurements I do, so there is room for improvement there. There are however a myriad of other problems as you mentioned. I'm slowly working my way through them, but I doubt it will ever be as good as a native implementation. It is kind of fun to see how far I can push it though :)</p>
+  - id: 418458
+    user: 29351
+    date: 2010-07-01T20:19:00
+    date_raw: 1 Jul 2010 — 8:19pm
+    votes: null
+    html: |-
+      <p>One thing to note here, hyphenation controls are included in the Editor's Draft of the CSS3 Paged Media spec:</p>
+      <p>  <a href="http://dev.w3.org/csswg/css3-gcpm/#hyphenation" title="http://dev.w3.org/csswg/css3-gcpm/#hyphenation">http://dev.w3.org/csswg/css3-gcpm/#hyphenation</a></p>
+      <p>I don't know if there are any implementations of this already (Prince? Antenna House?) but it would interesting to hear opinions as to whether these properties cover the desired functionality.  The hyphenation resource property is interesting, it avoids the problem of how to cover a wide set of languages.  Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
+    html_clean: |-
+      <p>One thing to note here, hyphenation controls are included in the Editor's Draft of the CSS3 Paged Media spec:</p>
+      <p>  <a href="http://dev.w3.org/csswg/css3-gcpm/#hyphenation" title="http://dev.w3.org/csswg/css3-gcpm/#hyphenation">http://dev.w3.org/csswg/css3-gcpm/#hyphenation</a></p>
+      <p>I don't know if there are any implementations of this already (Prince? Antenna House?) but it would interesting to hear opinions as to whether these properties cover the desired functionality.  The hyphenation resource property is interesting, it avoids the problem of how to cover a wide set of languages.  Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
+  - id: 418671
+    user: 44873
+    date: 2010-07-03T14:32:00
+    date_raw: 3 Jul 2010 — 2:32pm
+    votes: null
+    html: |-
+      <p>@jdaggett</p>
+      <p>Thanks very much for the heads up. I'll look over that spec carefully.<br>
+      I do think Prince supports H&amp;J but not sure how they're implementing it.<br>
+      Must look.</p>
+      <p>@bram stein, frode, theunis, et al:</p>
+      <p>Here's a crude and <a href="http://readableweb.com/justify/Conrad_Heart_chap1.htm" rel="nofollow">basic page</a>, but with pretty decent H&amp;J, I think.<br>
+      Using a font stack of constantia, georgia, serif.<br>
+      It's the first chapter of Joseph Conrad's Heart Of Darkness.<br>
+      Looking good in Chrome, FF, IE, Opera, Safari.<br>
+      You can Page Zoom it, Text Zoom it, and it still holds up. (The font-size is px, so IE's text size menu won't do squat.)</p>
+      <p>Uses Sizzle as the selector engine and my own fork-in-progress of hyphenate.js.<br>
+      Many improvements to make, still, but so far, I like the results.<br>
+      (I would love some font-family/font-size/word-spacing/line-height/column-width widgets on the page to speed up the design process instead of bouncing back and forth from the style sheet to the browser. Only a matter of time, I guess.)</p>
+      <p>My next move might be to do a print style sheet using points and inches instead of pixel values and see how that pans out. Try some different stuff and print to PDF's to see what's coming out. Break out of the pixel grid a little.</p>
+      <p>Print stylesheets never got much traction - they remain largely unexplored territory. But if you can include a printable version of a document with really nice typography along with the screen version, that would seem to make a lot of sense to do. No?</p>
+      <p>Anyway, that seems to be what the folks at Prince and Antennae House that JD mentioned are banking on - with PDF as the intermediary format.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@jdaggett</p>
+      <p>Thanks very much for the heads up. I'll look over that spec carefully.<br>
+      I do think Prince supports H&amp;J but not sure how they're implementing it.<br>
+      Must look.</p>
+      <p>@bram stein, frode, theunis, et al:</p>
+      <p>Here's a crude and <a href="http://readableweb.com/justify/Conrad_Heart_chap1.htm" rel="nofollow">basic page</a>, but with pretty decent H&amp;J, I think.<br>
+      Using a font stack of constantia, georgia, serif.<br>
+      It's the first chapter of Joseph Conrad's Heart Of Darkness.<br>
+      Looking good in Chrome, FF, IE, Opera, Safari.<br>
+      You can Page Zoom it, Text Zoom it, and it still holds up. (The font-size is px, so IE's text size menu won't do squat.)</p>
+      <p>Uses Sizzle as the selector engine and my own fork-in-progress of hyphenate.js.<br>
+      Many improvements to make, still, but so far, I like the results.<br>
+      (I would love some font-family/font-size/word-spacing/line-height/column-width widgets on the page to speed up the design process instead of bouncing back and forth from the style sheet to the browser. Only a matter of time, I guess.)</p>
+      <p>My next move might be to do a print style sheet using points and inches instead of pixel values and see how that pans out. Try some different stuff and print to PDF's to see what's coming out. Break out of the pixel grid a little.</p>
+      <p>Print stylesheets never got much traction - they remain largely unexplored territory. But if you can include a printable version of a document with really nice typography along with the screen version, that would seem to make a lot of sense to do. No?</p>
+      <p>Anyway, that seems to be what the folks at Prince and Antennae House that JD mentioned are banking on - with PDF as the intermediary format.</p>
+      <p>Rich</p>
+  - id: 418672
+    user: 3135
+    date: 2010-07-03T15:11:00
+    date_raw: 3 Jul 2010 — 3:11pm
+    votes: null
+    html: <p>Flatland was one of my favorite books as a child!</p>
+    html_clean: <p>Flatland was one of my favorite books as a child!</p>
+  - id: 418676
+    user: 17101
+    date: 2010-07-03T15:38:00
+    date_raw: 3 Jul 2010 — 3:38pm
+    votes: null
+    html: |-
+      <p>This looks real nice, Richard! An external javascript file is a viable solution until browsers start moving.</p>
+      <p>Why not ems and/or percentage?<br>
+      Are there any issues with @font-face?</p>
+    html_clean: |-
+      <p>This looks real nice, Richard! An external javascript file is a viable solution until browsers start moving.</p>
+      <p>Why not ems and/or percentage?<br>
+      Are there any issues with @font-face?</p>
+  - id: 418684
+    user: 29994
+    date: 2010-07-03T16:08:00
+    date_raw: 3 Jul 2010 — 4:08pm
+    votes: null
+    html: <p>Your sample looks awesome! Congratulations, it looks just like a PDF from InDesign!</p>
+    html_clean: <p>Your sample looks awesome! Congratulations, it looks just like a PDF from InDesign!</p>
+  - id: 418689
+    user: 17101
+    date: 2010-07-03T17:21:00
+    date_raw: 3 Jul 2010 — 5:21pm
+    votes: null
+    html: <p>What does the word-spacing in the CSS have to say your method?</p>
+    html_clean: <p>What does the word-spacing in the CSS have to say your method?</p>
+  - id: 418704
+    user: 46071
+    date: 2010-07-03T23:57:00
+    date_raw: 3 Jul 2010 — 11:57pm
+    votes: null
+    html: <p>@Richard Fink (3.Jul.2010 2.32pm) It looks good even in Camino (nightly)! :-)</p>
+    html_clean: <p>@Richard Fink (3.Jul.2010 2.32pm) It looks good even in Camino (nightly)! :-)</p>
+  - id: 418749
+    user: 44873
+    date: 2010-07-04T14:22:00
+    date_raw: 4 Jul 2010 — 2:22pm
+    votes: null
+    html: |-
+      <p>@frode<br>
+      &gt;Why not ems and/or percentage?<br>
+      Are there any issues with @font-face?<br>
+      Ems and percentages will work fine. Remember, the font always gets rounded out to a pixel "computed style". So if ems and percentages are your preference, not a problem.</p>
+      <p>&gt;Are there any issues with @font-face?<br>
+      No problem in IE. But I'm not sure what's going on with the other browsers. Last I checked, FF *did not* print with an @font-face font. It's an important question - I have to check that out.</p>
+      <p>&gt;What does the word-spacing in the CSS have to say your method?<br>
+      I just usually prefer a tighter word spacing than the browser usually provides. And, of course, if you tighten it up (or loosen) it will affect where the line breaks occur.<br>
+      And the font plays a role, too - for word-space values you should always use ems.</p>
+      <p>@theunis<br>
+      why thanks. I've read Heart of Darkness I think, twice, in my life. Today I found myself reading it again. Now I'm going to have to set the other two chapters so I'm not frustrated.</p>
+      <p>@riccard0<br>
+      Thanks for checking in Camino. I just bought a Mac for the first time in my life about a week ago but believe it or not I haven't turned it on yet. (Been too busy and I want to take my time with it.)<br>
+      You reminded me that soon I'll be able to test outside of Windows. Yay!</p>
+    html_clean: |-
+      <p>@frode<br>
+      &gt;Why not ems and/or percentage?<br>
+      Are there any issues with @font-face?<br>
+      Ems and percentages will work fine. Remember, the font always gets rounded out to a pixel "computed style". So if ems and percentages are your preference, not a problem.</p>
+      <p>&gt;Are there any issues with @font-face?<br>
+      No problem in IE. But I'm not sure what's going on with the other browsers. Last I checked, FF *did not* print with an @font-face font. It's an important question - I have to check that out.</p>
+      <p>&gt;What does the word-spacing in the CSS have to say your method?<br>
+      I just usually prefer a tighter word spacing than the browser usually provides. And, of course, if you tighten it up (or loosen) it will affect where the line breaks occur.<br>
+      And the font plays a role, too - for word-space values you should always use ems.</p>
+      <p>@theunis<br>
+      why thanks. I've read Heart of Darkness I think, twice, in my life. Today I found myself reading it again. Now I'm going to have to set the other two chapters so I'm not frustrated.</p>
+      <p>@riccard0<br>
+      Thanks for checking in Camino. I just bought a Mac for the first time in my life about a week ago but believe it or not I haven't turned it on yet. (Been too busy and I want to take my time with it.)<br>
+      You reminded me that soon I'll be able to test outside of Windows. Yay!</p>
+  - id: 418913
+    user: 67893
+    date: 2010-07-05T14:53:00
+    date_raw: 5 Jul 2010 — 2:53pm
+    votes: null
+    html: |-
+      <p>Hi</p>
+      <p>Thanks for all your nice words about hyphenator.js (It makes me feeling great;-)<br>
+      I just stumbled upon this very interesting discussion and I'd like to share some thoughts:</p>
+      <p>(a) When I started the hyphenator.js-project I wasn't sure if it is right to do such things in Javascript. In my opinion this definitely should be done by the browser. But the parts of the CSS3-Specification treating hyphenation haven't changed for a long time and there seems not to be much work on it currently. So I thought it would be nice to have this 'crutch'. And I hope that it is used and that the demand for a native solution grows with it. I think that Bram Steins excellent work tends to create the same demand.<br>
+      And if there are some browsers supporting hyphenation and/or hq linebreaking it's great to have this 'crutches' for the others in the meantime.</p>
+      <p>(b) As every JS-library guy, I'm struggling with browser flaws an inconsistencies. It's often hard to decide, if I should wait for the browser to fix it or if I should do a hack to work around it.<br>
+      The issue with copy and paste is just one example. BTW: it's fixed. Thanks to <a class="freelinking external" href="http://github.com/aristus/sweet-justice" rel="nofollow">sweet-justice</a><br>
+      @Richard Fink: it's the same approach you made. We did some double work here. Are there more such nice things to come?</p>
+      <p>(c) Many people are asking for new features. Meanwhile I'm trying to hold the library as small as possible and for most requests there are two answers: 'it's already in there' or 'it shouldn't be in there'.<br>
+      Having a selector engine to select elements to be hyphenated is one of it. In hyphenator.js one can redefine the <a class="freelinking external" href="http://code.google.com/p/hyphenator/wiki/en_PublicAPI#property_selectorfunction" rel="nofollow">'selectorfunction'</a> so it's not necessary to include an engine that has to be loaded twice if there are other libs that use it.</p>
+      <p>(d) I did a lot of investigation about how to avoid the 'shotgun method' (nice wording, though;-). The problem is that changing the DOM is very expensive and measuring lines and getting hints about where the line is broken means inserting a lot of spans (and re-doing the whole process upon resizings). So the actual method is ugly but turned out to be very effective.</p>
+      <p>Greetings from Switzerland,<br>
+      Mathias</p>
+    html_clean: |-
+      <p>Hi</p>
+      <p>Thanks for all your nice words about hyphenator.js (It makes me feeling great;-)<br>
+      I just stumbled upon this very interesting discussion and I'd like to share some thoughts:</p>
+      <p>(a) When I started the hyphenator.js-project I wasn't sure if it is right to do such things in Javascript. In my opinion this definitely should be done by the browser. But the parts of the CSS3-Specification treating hyphenation haven't changed for a long time and there seems not to be much work on it currently. So I thought it would be nice to have this 'crutch'. And I hope that it is used and that the demand for a native solution grows with it. I think that Bram Steins excellent work tends to create the same demand.<br>
+      And if there are some browsers supporting hyphenation and/or hq linebreaking it's great to have this 'crutches' for the others in the meantime.</p>
+      <p>(b) As every JS-library guy, I'm struggling with browser flaws an inconsistencies. It's often hard to decide, if I should wait for the browser to fix it or if I should do a hack to work around it.<br>
+      The issue with copy and paste is just one example. BTW: it's fixed. Thanks to <a class="freelinking external" href="http://github.com/aristus/sweet-justice" rel="nofollow">sweet-justice</a><br>
+      @Richard Fink: it's the same approach you made. We did some double work here. Are there more such nice things to come?</p>
+      <p>(c) Many people are asking for new features. Meanwhile I'm trying to hold the library as small as possible and for most requests there are two answers: 'it's already in there' or 'it shouldn't be in there'.<br>
+      Having a selector engine to select elements to be hyphenated is one of it. In hyphenator.js one can redefine the <a class="freelinking external" href="http://code.google.com/p/hyphenator/wiki/en_PublicAPI#property_selectorfunction" rel="nofollow">'selectorfunction'</a> so it's not necessary to include an engine that has to be loaded twice if there are other libs that use it.</p>
+      <p>(d) I did a lot of investigation about how to avoid the 'shotgun method' (nice wording, though;-). The problem is that changing the DOM is very expensive and measuring lines and getting hints about where the line is broken means inserting a lot of spans (and re-doing the whole process upon resizings). So the actual method is ugly but turned out to be very effective.</p>
+      <p>Greetings from Switzerland,<br>
+      Mathias</p>
+  - id: 419023
+    user: 1262
+    date: 2010-07-06T11:11:00
+    date_raw: 6 Jul 2010 — 11:11am
+    votes: null
+    html: |-
+      <p>Rich, the justified Conrad example looks really good. It even works pretty well on my mobile with, obviously, a narrower column and text a bit too small.</p>
+      <p>By the way, ‘Justified Conrad’ sounds like an indie rock band.</p>
+    html_clean: |-
+      <p>Rich, the justified Conrad example looks really good. It even works pretty well on my mobile with, obviously, a narrower column and text a bit too small.</p>
+      <p>By the way, ‘Justified Conrad’ sounds like an indie rock band.</p>
+  - id: 419054
+    user: 44873
+    date: 2010-07-06T14:14:00
+    date_raw: 6 Jul 2010 — 2:14pm
+    votes: null
+    html: |-
+      <p>@John Hudson<br>
+      JH&gt;It even works pretty well on my mobile with, obviously, a narrower column and text a bit too small.</p>
+      <p>Thanks.<br>
+      Media Queries (CSS3) hold the most promise for getting the text to fit the viewport with the least amount of hassle. But there's stuff that can be done now, today, that will work pretty well, too.<br>
+      I played around with H&amp;J quite a bit last year and there's tricks I didn't pull out for this demo.<br>
+      For font sizing - unless you provide a Text Size widget in the page itself - we're stuck with Zoom. But it does Zoom and re-hyphenate without any hiccups.<br>
+      Makes you wonder WTF is up with iBooks, doesn't it?</p>
+      <p>@Mathias Nater </p>
+      <p>You da man! I like the way you constructed hyphenator.js a lot. It's easy to follow what function is doing what. Easy to see where to hook in something like a selector engine, for example. Or the copy-paste fix. (Next problem is dealing with the right-click contextmenu.) The browser makers should be automatically stripping the soft-hyphens. I'm going to file bug reports on it and personally bug the sh-t out of them about that.<br>
+      &gt;the actual method is ugly but turned out to be very effective<br>
+      It seems wasteful but because the text is sure to reflow due to Zoom or Text Size or the size of the container element or viewport, it's the *necessary* approach.<br>
+      It works.<br>
+      &gt;We did some double work here.<br>
+      I was going to contact you, we should join forces, definitely. Now that the copy/paste issue is pretty well solved, I think H&amp;J can fly. Even if it remains in JavaScript for a long time, I don't necessarily see performance as an issue. The javascript engines in modern browsers are incredibly fast and if you look at the stats, script execution time is almost never the bottleneck.<br>
+      Hyphenator.js as a jQuery plug-in perhaps?</p>
+      <p>(BTW - my wife's family on her mother's side are Swiss. Lugano. Emigrated to the states after the war. She spent summers there growing up.)</p>
+    html_clean: |-
+      <p>@John Hudson<br>
+      JH&gt;It even works pretty well on my mobile with, obviously, a narrower column and text a bit too small.</p>
+      <p>Thanks.<br>
+      Media Queries (CSS3) hold the most promise for getting the text to fit the viewport with the least amount of hassle. But there's stuff that can be done now, today, that will work pretty well, too.<br>
+      I played around with H&amp;J quite a bit last year and there's tricks I didn't pull out for this demo.<br>
+      For font sizing - unless you provide a Text Size widget in the page itself - we're stuck with Zoom. But it does Zoom and re-hyphenate without any hiccups.<br>
+      Makes you wonder WTF is up with iBooks, doesn't it?</p>
+      <p>@Mathias Nater </p>
+      <p>You da man! I like the way you constructed hyphenator.js a lot. It's easy to follow what function is doing what. Easy to see where to hook in something like a selector engine, for example. Or the copy-paste fix. (Next problem is dealing with the right-click contextmenu.) The browser makers should be automatically stripping the soft-hyphens. I'm going to file bug reports on it and personally bug the sh-t out of them about that.<br>
+      &gt;the actual method is ugly but turned out to be very effective<br>
+      It seems wasteful but because the text is sure to reflow due to Zoom or Text Size or the size of the container element or viewport, it's the *necessary* approach.<br>
+      It works.<br>
+      &gt;We did some double work here.<br>
+      I was going to contact you, we should join forces, definitely. Now that the copy/paste issue is pretty well solved, I think H&amp;J can fly. Even if it remains in JavaScript for a long time, I don't necessarily see performance as an issue. The javascript engines in modern browsers are incredibly fast and if you look at the stats, script execution time is almost never the bottleneck.<br>
+      Hyphenator.js as a jQuery plug-in perhaps?</p>
+      <p>(BTW - my wife's family on her mother's side are Swiss. Lugano. Emigrated to the states after the war. She spent summers there growing up.)</p>
+  - id: 419102
+    user: 67893
+    date: 2010-07-07T02:50:00
+    date_raw: 7 Jul 2010 — 2:50am
+    votes: null
+    html: |-
+      <p>&gt;Hyphenator.js as a jQuery plug-in perhaps?<br>
+      <a href="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" title="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home">http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</a></p>
+    html_clean: |-
+      <p>&gt;Hyphenator.js as a jQuery plug-in perhaps?<br>
+      <a href="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" title="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home">http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</a></p>
+  - id: 419200
+    user: 44873
+    date: 2010-07-07T16:03:00
+    date_raw: 7 Jul 2010 — 4:03pm
+    votes: null
+    html: |-
+      <p>@Mathias Nater<br>
+      &gt;http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</p>
+      <p>Thanks! I have to experiment with it. I'll post a page along with some other plugins that add some touchscroll functionality and other fun stuff.<br>
+      (I don't know about anybody else, but I find it easier to read a scrolling document if I can push it up slowly with my mouse acting like a finger on a touchscreen. Like you can do in a PDF. Makes it easier to keep my place in the text.)</p>
+      <p>I also found out just today that the epub format can be unpacked, the individual files posted on a web server, and read by a javascript library.</p>
+      <p>This is all getting more and more interesting.<br>
+      Being done <a href="http://threepress.org/static/epubjs/" rel="nofollow">here</a> with <a href="http://blog.threepress.org/2009/02/09/introducing-epubjs/" rel="nofollow">epubjs</a>.</p>
+      <p>Now, I don't think anybody's incorporated hyphenator.js into *that* yet.</p>
+      <p>Here's more info, it seems there are some other ePub javascript readers, too:<br>
+      <a href="http://ajaxian.com/by/topic/ebooks" title="http://ajaxian.com/by/topic/ebooks">http://ajaxian.com/by/topic/ebooks</a></p>
+      <p>I'm going to start writing my article in earnest now, and shine a light on all this stuff.<br>
+      I'll email you and come back here, too.</p>
+      <p>@frode<br>
+      &gt;Are there any issues with @font-face?<br>
+      No.<br>
+      And as far as printing I found -  testing in IE and Firefox - that as long as the style sheet has the right media attribute or @media rule: "all" or "print", an external font prints fine, too. And I'm able, in the print style sheet, to get the in-between font sizes: like the difference between 16pt, 16.5pt, and 17pt that the browser won't distinguish because everything has to snap to the pixel grid. (Values of 12.5 px not being allowed.)<br>
+      Makes me wonder what's going to happen when screens are high-res enough to do it, too.</p>
+    html_clean: |-
+      <p>@Mathias Nater<br>
+      &gt;http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</p>
+      <p>Thanks! I have to experiment with it. I'll post a page along with some other plugins that add some touchscroll functionality and other fun stuff.<br>
+      (I don't know about anybody else, but I find it easier to read a scrolling document if I can push it up slowly with my mouse acting like a finger on a touchscreen. Like you can do in a PDF. Makes it easier to keep my place in the text.)</p>
+      <p>I also found out just today that the epub format can be unpacked, the individual files posted on a web server, and read by a javascript library.</p>
+      <p>This is all getting more and more interesting.<br>
+      Being done <a href="http://threepress.org/static/epubjs/" rel="nofollow">here</a> with <a href="http://blog.threepress.org/2009/02/09/introducing-epubjs/" rel="nofollow">epubjs</a>.</p>
+      <p>Now, I don't think anybody's incorporated hyphenator.js into *that* yet.</p>
+      <p>Here's more info, it seems there are some other ePub javascript readers, too:<br>
+      <a href="http://ajaxian.com/by/topic/ebooks" title="http://ajaxian.com/by/topic/ebooks">http://ajaxian.com/by/topic/ebooks</a></p>
+      <p>I'm going to start writing my article in earnest now, and shine a light on all this stuff.<br>
+      I'll email you and come back here, too.</p>
+      <p>@frode<br>
+      &gt;Are there any issues with @font-face?<br>
+      No.<br>
+      And as far as printing I found -  testing in IE and Firefox - that as long as the style sheet has the right media attribute or @media rule: "all" or "print", an external font prints fine, too. And I'm able, in the print style sheet, to get the in-between font sizes: like the difference between 16pt, 16.5pt, and 17pt that the browser won't distinguish because everything has to snap to the pixel grid. (Values of 12.5 px not being allowed.)<br>
+      Makes me wonder what's going to happen when screens are high-res enough to do it, too.</p>
+  - id: 419295
+    user: 66098
+    date: 2010-07-08T06:54:00
+    date_raw: 8 Jul 2010 — 6:54am
+    votes: null
+    html: |-
+      <p>@Mathias Nater,</p>
+      <p>Good to see you join the discussion! How was BachoTeX? I couldn't make it unfortunately.</p>
+      <p>I'm not sure if I can take justification to the same level that you've taken hyphenation. Doing proper justification requires a lot of measuring and DOM modifications. What it comes down to is redoing (in JavaScript) most of the work the browser has already done. I'm actually surprised by how far I've gotten.</p>
+      <p>You said people are asking for more Hyphenator.js features. Here's a new one, I would like to have less features. Do you have any plans to make Hyphenator.js more modular? I am mainly interested in the hyphenation core and don't have much need for all the DOM manipulation code. You could of course bundle the modules in a single file for distribution like you do now.</p>
+      <p>@Richard Fink</p>
+      <p>I'm actually working on an ePub reader with proper hyphenation and justification, hence my interest and recent work on the subject :)</p>
+      <p>Dealing with the pixel grid has been interesting: it seems Webkit based browsers actually round values before they use them in their calculations while Gecko (Firefox) based browsers use the values and then round the result. The latter is of course preferred by me because I can then set word-spacing to values less than one pixel, and have it distribute the word-spacing evenly before snapping to the pixel grid. (You can do this manually in Webkit based browsers, but it is a bit more involved.)</p>
+    html_clean: |-
+      <p>@Mathias Nater,</p>
+      <p>Good to see you join the discussion! How was BachoTeX? I couldn't make it unfortunately.</p>
+      <p>I'm not sure if I can take justification to the same level that you've taken hyphenation. Doing proper justification requires a lot of measuring and DOM modifications. What it comes down to is redoing (in JavaScript) most of the work the browser has already done. I'm actually surprised by how far I've gotten.</p>
+      <p>You said people are asking for more Hyphenator.js features. Here's a new one, I would like to have less features. Do you have any plans to make Hyphenator.js more modular? I am mainly interested in the hyphenation core and don't have much need for all the DOM manipulation code. You could of course bundle the modules in a single file for distribution like you do now.</p>
+      <p>@Richard Fink</p>
+      <p>I'm actually working on an ePub reader with proper hyphenation and justification, hence my interest and recent work on the subject :)</p>
+      <p>Dealing with the pixel grid has been interesting: it seems Webkit based browsers actually round values before they use them in their calculations while Gecko (Firefox) based browsers use the values and then round the result. The latter is of course preferred by me because I can then set word-spacing to values less than one pixel, and have it distribute the word-spacing evenly before snapping to the pixel grid. (You can do this manually in Webkit based browsers, but it is a bit more involved.)</p>
+  - id: 419367
+    user: 67893
+    date: 2010-07-08T14:02:00
+    date_raw: 8 Jul 2010 — 2:02pm
+    votes: null
+    html: |-
+      <p>@Richard Fink<br>
+      &gt;Now, I don't think anybody's incorporated hyphenator.js into *that* yet.<br>
+      I think calibre has.</p>
+      <p>@Bram Stein<br>
+      BachoTeX was great. Really friendly and very interesting people. The talks (at least the english ones) were great and led to the future. I got a bunch of work to do;-)</p>
+      <p>I'll think about making Hyphenator.js modular. It seems to be a logical step now. But you'll have to be patient.</p>
+    html_clean: |-
+      <p>@Richard Fink<br>
+      &gt;Now, I don't think anybody's incorporated hyphenator.js into *that* yet.<br>
+      I think calibre has.</p>
+      <p>@Bram Stein<br>
+      BachoTeX was great. Really friendly and very interesting people. The talks (at least the english ones) were great and led to the future. I got a bunch of work to do;-)</p>
+      <p>I'll think about making Hyphenator.js modular. It seems to be a logical step now. But you'll have to be patient.</p>
+  - id: 419372
+    user: 44873
+    date: 2010-07-08T14:37:00
+    date_raw: 8 Jul 2010 — 2:37pm
+    votes: null
+    html: |-
+      <p>@mathias nater<br>
+      &gt;I think calibre has.<br>
+      thanks for the info. I'll check it out.</p>
+      <p>I was just quickly looking over the additions to version 3 - absolutely excellent.<br>
+      Adding DOM storage was a great idea.<br>
+      BTW - one thing of convenience that's easy to provide is a minified version of hyphenator.js. Can do?<br>
+      Or would you rather users do it on their own?</p>
+      <p>Also, one thing I just ran into with a little iPhone demo page I was playing with is the need to add an event to each paragraph. Where in the code might *you* see that fitting in?</p>
+      <p>Anyway, great, great, great - (you too Bram!) - and I guess I'll start posting questions and suggestions on the Hyphenator.js Google Code site.</p>
+      <p>Regards,</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@mathias nater<br>
+      &gt;I think calibre has.<br>
+      thanks for the info. I'll check it out.</p>
+      <p>I was just quickly looking over the additions to version 3 - absolutely excellent.<br>
+      Adding DOM storage was a great idea.<br>
+      BTW - one thing of convenience that's easy to provide is a minified version of hyphenator.js. Can do?<br>
+      Or would you rather users do it on their own?</p>
+      <p>Also, one thing I just ran into with a little iPhone demo page I was playing with is the need to add an event to each paragraph. Where in the code might *you* see that fitting in?</p>
+      <p>Anyway, great, great, great - (you too Bram!) - and I guess I'll start posting questions and suggestions on the Hyphenator.js Google Code site.</p>
+      <p>Regards,</p>
+      <p>Rich</p>
+  - id: 419377
+    user: 44873
+    date: 2010-07-08T15:07:00
+    date_raw: 8 Jul 2010 — 3:07pm
+    votes: null
+    html: |-
+      <p>Back already - just got twittered with a link to an interesting page.<br>
+      Needs hyphenation, though!</p>
+      <p><a href="http://lamb.cc/typograph/" title="http://lamb.cc/typograph/">http://lamb.cc/typograph/</a></p>
+      <p>rich</p>
+    html_clean: |-
+      <p>Back already - just got twittered with a link to an interesting page.<br>
+      Needs hyphenation, though!</p>
+      <p><a href="http://lamb.cc/typograph/" title="http://lamb.cc/typograph/">http://lamb.cc/typograph/</a></p>
+      <p>rich</p>
+  - id: 419435
+    user: 67893
+    date: 2010-07-09T02:21:00
+    date_raw: 9 Jul 2010 — 2:21am
+    votes: null
+    html: |-
+      <p>There's a tool called mergeAndPack in the bundle (<a href="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html" title="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html">http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html</a>)<br>
+      It merges core patterns and settings in one single file and packs it. It's really easy to handle but on most sites the source version is used. People don't read the how-to's:-)</p>
+      <p>Those upcoming features (webstorage) are great. I'm planing to use webworkers, too. Already did some work, but it was too early. The time has come now…</p>
+    html_clean: |-
+      <p>There's a tool called mergeAndPack in the bundle (<a href="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html" title="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html">http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html</a>)<br>
+      It merges core patterns and settings in one single file and packs it. It's really easy to handle but on most sites the source version is used. People don't read the how-to's:-)</p>
+      <p>Those upcoming features (webstorage) are great. I'm planing to use webworkers, too. Already did some work, but it was too early. The time has come now…</p>
+  - id: 419521
+    user: 44873
+    date: 2010-07-09T11:34:00
+    date_raw: 9 Jul 2010 — 11:34am
+    votes: null
+    html: |-
+      <p>@mn<br>
+      Yeah, I saw the merge and pack. An excellent idea as well. There's a lot more optimization is to be had by cutting down the HTTP requests through incorporating everything into a single .js file than anything else. At least on the first visit, with nothing in the browser cache, that's for sure.</p>
+      <p>Also, as long as we're rockin' and rollin' in the optimization department, there's a little used default behavior in IE6, 7, and 8 (don't know about 9 yet) called the userData behavior that gives you expanded local storage. Like a super-large cookie. Sort of a precursor to webstorage.</p>
+      <p>http://msdn.microsoft.com/en-us/library/ms531424(VS.85).aspx<br>
+      <em>The userData behavior persists information across sessions by writing to a UserData store. This provides a data structure that is more dynamic and has a greater capacity than cookies. The capacity of the UserData store depends on the security zone of the domain. The following table shows the maximum amount of UserData storage that is available for an individual document and also the total available for an entire domain, based on the security zone.</em></p>
+      <p>I've used it and it works. I'll play around with it as time allows and let you know if I think it can be helpful to Hyphenator.</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@mn<br>
+      Yeah, I saw the merge and pack. An excellent idea as well. There's a lot more optimization is to be had by cutting down the HTTP requests through incorporating everything into a single .js file than anything else. At least on the first visit, with nothing in the browser cache, that's for sure.</p>
+      <p>Also, as long as we're rockin' and rollin' in the optimization department, there's a little used default behavior in IE6, 7, and 8 (don't know about 9 yet) called the userData behavior that gives you expanded local storage. Like a super-large cookie. Sort of a precursor to webstorage.</p>
+      <p>http://msdn.microsoft.com/en-us/library/ms531424(VS.85).aspx<br>
+      <em>The userData behavior persists information across sessions by writing to a UserData store. This provides a data structure that is more dynamic and has a greater capacity than cookies. The capacity of the UserData store depends on the security zone of the domain. The following table shows the maximum amount of UserData storage that is available for an individual document and also the total available for an entire domain, based on the security zone.</em></p>
+      <p>I've used it and it works. I'll play around with it as time allows and let you know if I think it can be helpful to Hyphenator.</p>
+      <p>rich</p>
+  - id: 419631
+    user: 67893
+    date: 2010-07-10T09:33:00
+    date_raw: 10 Jul 2010 — 9:33am
+    votes: null
+    html: |-
+      <p>@rich<br>
+      &gt;the userData behavior that gives you expanded local storage.</p>
+      <p>IE8 does support DOM Storage (http://msdn.microsoft.com/en-us/library/cc197062(VS.85).aspx) and Hyphenator degrades gracefully for older versions. Adding code for non standard features in outdated browsers isn't the right way (imho) as long as it is degrading.<br>
+      So there is no use for that. Thanks anyway.</p>
+    html_clean: |-
+      <p>@rich<br>
+      &gt;the userData behavior that gives you expanded local storage.</p>
+      <p>IE8 does support DOM Storage (http://msdn.microsoft.com/en-us/library/cc197062(VS.85).aspx) and Hyphenator degrades gracefully for older versions. Adding code for non standard features in outdated browsers isn't the right way (imho) as long as it is degrading.<br>
+      So there is no use for that. Thanks anyway.</p>
+  - id: 419770
+    user: 44873
+    date: 2010-07-12T04:26:00
+    date_raw: 12 Jul 2010 — 4:26am
+    votes: null
+    html: |-
+      <p>@mathias<br>
+      Well, it would all depend on how much bang you get for the buck. In this case, I think you're right. Not worth the extra code for IE7 and 6. 'Twas just a thought.</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@mathias<br>
+      Well, it would all depend on how much bang you get for the buck. In this case, I think you're right. Not worth the extra code for IE7 and 6. 'Twas just a thought.</p>
+      <p>rich</p>
+  - id: 422228
+    user: 66098
+    date: 2010-07-27T02:13:00
+    date_raw: 27 Jul 2010 — 2:13am
+    votes: null
+    html: |-
+      <p>For those interested, I've fixed some of the bugs that were mentioned here before and created a new example: <a href="http://www.bramstein.com/projects/typeset/flatland/" title="http://www.bramstein.com/projects/typeset/flatland/">http://www.bramstein.com/projects/typeset/flatland/</a></p>
+      <p>It doesn't use external fonts so it is pretty fast (and in my measurements about twice as expensive as hyphenation.)</p>
+    html_clean: |-
+      <p>For those interested, I've fixed some of the bugs that were mentioned here before and created a new example: <a href="http://www.bramstein.com/projects/typeset/flatland/" title="http://www.bramstein.com/projects/typeset/flatland/">http://www.bramstein.com/projects/typeset/flatland/</a></p>
+      <p>It doesn't use external fonts so it is pretty fast (and in my measurements about twice as expensive as hyphenation.)</p>
+  - id: 422280
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Very impressive, Bram.</p>
+      <p>The example displays in Minion on my system, which is a poor choice since CFF font rendering under Windows GDI is so bad.</p>
+    html_clean: |-
+      <p>Very impressive, Bram.</p>
+      <p>The example displays in Minion on my system, which is a poor choice since CFF font rendering under Windows GDI is so bad.</p>
+  - id: 422323
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>John, you'll have to find a Mac to savour this:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/flatland_4779.png"></div><p></p>
+      <p>-- the Future of On-Line Reading is Upon us!</p>
+      <p>(Now When Will the Ipad Follow?)</p>
+    html_clean: |-
+      <p>John, you'll have to find a Mac to savour this:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/flatland_4779.png"></div><p></p>
+      <p>-- the Future of On-Line Reading is Upon us!</p>
+      <p>(Now When Will the Ipad Follow?)</p>
+  - id: 422354
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>you'll have to find a Mac to savour this</em></p>
+      <p>I can use Safari on Windows, with it’s Mac rendering emulation, but a) Safari has an unnerving ability to crash my entire system like no other software has for a decade and b) I don't actually like the Mac rendering. It's better than the Windows GDI CFF rendering, but I suppose what I should really do is finish getting the IE9 beta installed on one of my machines so I can look at Bram’s justification example in DWrite rendering.</p>
+    html_clean: |-
+      <p><em>you'll have to find a Mac to savour this</em></p>
+      <p>I can use Safari on Windows, with it’s Mac rendering emulation, but a) Safari has an unnerving ability to crash my entire system like no other software has for a decade and b) I don't actually like the Mac rendering. It's better than the Windows GDI CFF rendering, but I suppose what I should really do is finish getting the IE9 beta installed on one of my machines so I can look at Bram’s justification example in DWrite rendering.</p>
+  - id: 422492
+    user: 2969
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Bram&gt;There is also a proposal for a CSS3 text-justify property, but it seems they leave the actual justification algorithm up to the browser.</p>
+      <p>So this is pretty exciting. </p>
+      <p>JDagget&gt; Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
+      <p>I think it'd be cool to survey the roles of the Composer (in an old letterpress shop), a role which the browsers don't seem quick to embrace and foundries are not likely to fully play. Role 1 is computing which glyphs are required for a particular document (subsetting, not traditionally foundry business), Role 2 is knowing which of the glyphs to use when the right pairs or groups of characters occur, (with OT, founders and browsers can-do together, someday), Role 3's knowing how to break lines according to every language, including the rules of role 2, (hyphenation, nice like you see it here for English), so in Role 4 the composer can be getting even lines at a given column width if "the boss" says so, (justification, nice like you see it here for English in this font at this size, leading and line length).</p>
+      <p>I don't know how that relates to the hooks and barbs CSS has and needs, but the role of the Composer is hardly diminishing over time on the web. No party in the modern process except the browsers can actually put it all together. Can they?</p>
+      <p>I can't wait for the next episode.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Bram&gt;There is also a proposal for a CSS3 text-justify property, but it seems they leave the actual justification algorithm up to the browser.</p>
+      <p>So this is pretty exciting. </p>
+      <p>JDagget&gt; Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
+      <p>I think it'd be cool to survey the roles of the Composer (in an old letterpress shop), a role which the browsers don't seem quick to embrace and foundries are not likely to fully play. Role 1 is computing which glyphs are required for a particular document (subsetting, not traditionally foundry business), Role 2 is knowing which of the glyphs to use when the right pairs or groups of characters occur, (with OT, founders and browsers can-do together, someday), Role 3's knowing how to break lines according to every language, including the rules of role 2, (hyphenation, nice like you see it here for English), so in Role 4 the composer can be getting even lines at a given column width if "the boss" says so, (justification, nice like you see it here for English in this font at this size, leading and line length).</p>
+      <p>I don't know how that relates to the hooks and barbs CSS has and needs, but the role of the Composer is hardly diminishing over time on the web. No party in the modern process except the browsers can actually put it all together. Can they?</p>
+      <p>I can't wait for the next episode.</p>
+      <p>Cheers!</p>
+  - id: 423134
+    user: 44873
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>@bram</p>
+      <p>Thanks for the updated link, Bram. Looking good.<br>
+      I'll look at what you've done closely. Keep that link live.</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@bram</p>
+      <p>Thanks for the updated link, Bram. Looking good.<br>
+      I'll look at what you've done closely. Keep that link live.</p>
+      <p>rich</p>
+  - id: 423138
+    user: 44873
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>@all</p>
+      <p>One other thing - since last posting, I've done a lot playing around with hyphenator.js and gone off on a three week tangent of creating HTML e-books. I've also been looking closely at so-called E-Readers - for example - the Kindle's browser-like PC app.</p>
+      <p>With little effort, I can get a far, far better result in any modern browser than what Amazon offers with its downloadable app. It's not even close.</p>
+      <p>What's wrong with this picture?<br>
+      Good golly, we've got ourselves an <em>incongruity</em>. I just love 'em.</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@all</p>
+      <p>One other thing - since last posting, I've done a lot playing around with hyphenator.js and gone off on a three week tangent of creating HTML e-books. I've also been looking closely at so-called E-Readers - for example - the Kindle's browser-like PC app.</p>
+      <p>With little effort, I can get a far, far better result in any modern browser than what Amazon offers with its downloadable app. It's not even close.</p>
+      <p>What's wrong with this picture?<br>
+      Good golly, we've got ourselves an <em>incongruity</em>. I just love 'em.</p>
+      <p>rich</p>

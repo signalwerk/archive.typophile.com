@@ -1,0 +1,180 @@
+node: 31039
+title: creatin ligatures with fontlab
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130903084030"
+  captured_at: 2013-09-03T08:40:30Z
+  url: http://typophile.com:80/node/31039
+  digest: 3FG7SBMZDEGCWUQDDA2PRQ6DBA7SHDR3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/31039.html
+  fingerprint: 96de531861328c3b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130903084030"
+      digest: 3FG7SBMZDEGCWUQDDA2PRQ6DBA7SHDR3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/31039.html
+post:
+  id: 31039
+  user: 16574
+  date: 2007-01-31T09:49:00
+  date_raw: 31 Jan 2007 — 9:49am
+  votes: null
+  html: |-
+    <p>hi there,<br>
+    i'm actually creatin a new font and i want to create ligatures in the font. but i've problems with it. i am able to create ligatures as new characters but they doesn't work in the preview panel, not as fontlab data and neither as opentype or truetype. can anyone help me, what's my problem.<br>
+    thx</p>
+  html_clean: |-
+    <p>hi there,<br>
+    i'm actually creatin a new font and i want to create ligatures in the font. but i've problems with it. i am able to create ligatures as new characters but they doesn't work in the preview panel, not as fontlab data and neither as opentype or truetype. can anyone help me, what's my problem.<br>
+    thx</p>
+comments:
+  - id: 181750
+    user: 8664
+    date: 2007-02-01T01:37:00
+    date_raw: 1 Feb 2007 — 1:37am
+    votes: null
+    html: |-
+      <p>Glyphs are just glyphs, you have to tell the font which substitutions to perform:<br>
+      In the OpenType panel, add a new feature (click the plus in the bottom left part of the panel) which creates a new empty feature (displayed in the top right part). There, enter something like:</p>
+      <p>feature liga {<br>
+      &nbsp;&nbsp;&nbsp;sub f i by f_i;<br>
+      &nbsp;&nbsp;&nbsp;sub f l by f_l;<br>
+      &nbsp;&nbsp;&nbsp;[etc]<br>
+      } liga;</p>
+      <p>which tells the OpenType interpreter to replace single "f" and "i" by the ligature glyph named "f_i" (or "fi" if you call it like that).<br>
+      You can add other substitution commands by the same scheme.</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Glyphs are just glyphs, you have to tell the font which substitutions to perform:<br>
+      In the OpenType panel, add a new feature (click the plus in the bottom left part of the panel) which creates a new empty feature (displayed in the top right part). There, enter something like:</p>
+      <p>feature liga {<br>
+      &nbsp;&nbsp;&nbsp;sub f i by f_i;<br>
+      &nbsp;&nbsp;&nbsp;sub f l by f_l;<br>
+      &nbsp;&nbsp;&nbsp;[etc]<br>
+      } liga;</p>
+      <p>which tells the OpenType interpreter to replace single "f" and "i" by the ligature glyph named "f_i" (or "fi" if you call it like that).<br>
+      You can add other substitution commands by the same scheme.</p>
+      <p>Karsten</p>
+  - id: 181759
+    user: 3834
+    date: 2007-02-01T02:48:00
+    date_raw: 1 Feb 2007 — 2:48am
+    votes: null
+    html: |-
+      <p>Also, make sure that you have more than one feature; eg. kern, or it won't work when generated.</p>
+      <p>Nick Cooke</p>
+    html_clean: |-
+      <p>Also, make sure that you have more than one feature; eg. kern, or it won't work when generated.</p>
+      <p>Nick Cooke</p>
+  - id: 181821
+    user: 7345
+    date: 2007-02-01T07:38:00
+    date_raw: 1 Feb 2007 — 7:38am
+    votes: null
+    html: <p>is it easily possible to have ligatures that involve three letters? i made a www-ligature for my grotesk in the making and remember reading here about not being able to make normal ligatures that involve three letters.</p>
+    html_clean: <p>is it easily possible to have ligatures that involve three letters? i made a www-ligature for my grotesk in the making and remember reading here about not being able to make normal ligatures that involve three letters.</p>
+  - id: 181823
+    user: 7006
+    date: 2007-02-01T07:40:00
+    date_raw: 1 Feb 2007 — 7:40am
+    votes: null
+    html: |-
+      <p><em>is it easily possible to have ligatures that involve three letters?</em></p>
+      <p>yes.</p>
+    html_clean: |-
+      <p><em>is it easily possible to have ligatures that involve three letters?</em></p>
+      <p>yes.</p>
+  - id: 181874
+    user: 16574
+    date: 2007-02-01T09:43:00
+    date_raw: 1 Feb 2007 — 9:43am
+    votes: null
+    html: <p>thx for your replies. i'll try it.</p>
+    html_clean: <p>thx for your replies. i'll try it.</p>
+  - id: 182350
+    user: 7345
+    date: 2007-02-03T06:58:00
+    date_raw: 3 Feb 2007 — 6:58am
+    votes: null
+    html: |-
+      <p>three letter ligatures:</p>
+      <p>i'd go like that with it?</p>
+      <p>feature liga {<br>
+         sub w w w by lig_www;<br>
+      } liga;</p>
+      <p>(if the name of the glyph is lig_www)</p>
+      <p>on another note: if i do a www-lig, wouldnt it be good to make it "www.", because then i can make sure that there's not a strange word in a language that has three w's following each other and getting replaced - also, makes kerning easier.</p>
+    html_clean: |-
+      <p>three letter ligatures:</p>
+      <p>i'd go like that with it?</p>
+      <p>feature liga {<br>
+         sub w w w by lig_www;<br>
+      } liga;</p>
+      <p>(if the name of the glyph is lig_www)</p>
+      <p>on another note: if i do a www-lig, wouldnt it be good to make it "www.", because then i can make sure that there's not a strange word in a language that has three w's following each other and getting replaced - also, makes kerning easier.</p>
+  - id: 182353
+    user: 8664
+    date: 2007-02-03T07:33:00
+    date_raw: 3 Feb 2007 — 7:33am
+    votes: null
+    html: |-
+      <p>Since glyph names still matter, you better name the glyph "w_w_w" so e.g. Acrobat knows it is a ligature and must be decomposed to w w w if you copy/paste text from a PDF. So:<br>
+      &nbsp;&nbsp;&nbsp;sub w w w by w_w_w;</p>
+      <p>Or, if you like:<br>
+      &nbsp;&nbsp;&nbsp;sub w w w period by w_w_w_period;</p>
+      <p>Also, you can use contextual substitution:<br>
+      &nbsp;&nbsp;&nbsp;sub w' w' w' period by w_w_w;<br>
+      So w w w will be substituted only if period follows, but the period itself remains.<br>
+      (You could put w_w_w into your w kerning class. Might be that XPress7 ignores this then, I don't know, you have to try.)</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Since glyph names still matter, you better name the glyph "w_w_w" so e.g. Acrobat knows it is a ligature and must be decomposed to w w w if you copy/paste text from a PDF. So:<br>
+      &nbsp;&nbsp;&nbsp;sub w w w by w_w_w;</p>
+      <p>Or, if you like:<br>
+      &nbsp;&nbsp;&nbsp;sub w w w period by w_w_w_period;</p>
+      <p>Also, you can use contextual substitution:<br>
+      &nbsp;&nbsp;&nbsp;sub w' w' w' period by w_w_w;<br>
+      So w w w will be substituted only if period follows, but the period itself remains.<br>
+      (You could put w_w_w into your w kerning class. Might be that XPress7 ignores this then, I don't know, you have to try.)</p>
+      <p>Karsten</p>
+  - id: 182362
+    user: 1133
+    date: 2007-02-03T08:34:00
+    date_raw: 3 Feb 2007 — 8:34am
+    votes: null
+    html: |-
+      <p>&gt; Or, if you like:<br>
+      &gt;   sub w w w period by w_w_w_period;<br>
+      &gt; Also, you can use contextual substitution:<br>
+      &gt;   sub w’ w’ w’ period by w_w_w;<br>
+      &gt; So w w w will be substituted only if period follows,<br>
+      &gt; but the period itself remains.</p>
+      <p>But note that not all OpenType-savvy applications support contextual substitutions. The contextual ligature will work in InDesign, Illustrator, Photoshop, QuarkXPress 7 but will not work in Apple TextEdit, Keynote or Pages (under Mac OS X 10.4), while the plain ligature will work in all of the above. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>&gt; Or, if you like:<br>
+      &gt;   sub w w w period by w_w_w_period;<br>
+      &gt; Also, you can use contextual substitution:<br>
+      &gt;   sub w’ w’ w’ period by w_w_w;<br>
+      &gt; So w w w will be substituted only if period follows,<br>
+      &gt; but the period itself remains.</p>
+      <p>But note that not all OpenType-savvy applications support contextual substitutions. The contextual ligature will work in InDesign, Illustrator, Photoshop, QuarkXPress 7 but will not work in Apple TextEdit, Keynote or Pages (under Mac OS X 10.4), while the plain ligature will work in all of the above. </p>
+      <p>Adam</p>

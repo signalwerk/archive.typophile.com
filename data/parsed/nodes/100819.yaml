@@ -1,0 +1,216 @@
+node: 100819
+title: Danish OpenType Numerals
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140810045514"
+  captured_at: 2014-08-10T04:55:14Z
+  url: http://typophile.com/node/100819
+  digest: G2SETG5LGY2QMMYIEKXXKSRWV6KKGRFX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/100819.html
+  fingerprint: 8bb39e908c511a6e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140810045514"
+      digest: G2SETG5LGY2QMMYIEKXXKSRWV6KKGRFX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/100819.html
+post:
+  id: 100819
+  user: 17101
+  date: 2013-02-24T13:32:00
+  date_raw: 24 Feb 2013 — 1:32pm
+  votes: null
+  html: |-
+    <p>I wonder, could OpenType automatically convert regular numerals to <em>spelled-out</em> Danish numerals without a crazy number of ligatures? Can OT do one-to-many and many-to-many?</p>
+    <p>More on the Danish counting system: <a href="http://www.olestig.dk/dansk/numbers.html" title="http://www.olestig.dk/dansk/numbers.html">http://www.olestig.dk/dansk/numbers.html</a></p>
+  html_clean: |-
+    <p>I wonder, could OpenType automatically convert regular numerals to <em>spelled-out</em> Danish numerals without a crazy number of ligatures? Can OT do one-to-many and many-to-many?</p>
+    <p>More on the Danish counting system: <a href="http://www.olestig.dk/dansk/numbers.html" title="http://www.olestig.dk/dansk/numbers.html">http://www.olestig.dk/dansk/numbers.html</a></p>
+comments:
+  - id: 544515
+    user: 1262
+    date: 2013-02-24T13:40:00
+    date_raw: 24 Feb 2013 — 1:40pm
+    votes: null
+    html: |-
+      <p>OT does one-to-many (type 2 GSUB lookup) easily enough. In theory, it can be made to do many-to-many, but in fact this is nowhere supported in either tools or apps. So you'd probably have to do some clever contextual one-to-many substitutions. In other words, you would have to analyse the decimal positions in the number, and substitute the appropriate word for the letters in each position. So, for an English example you might have a number '625', and you would need context to isolate the initial numeral and capture that it is in the hundreds position (followed by two integers), then substitute</p>
+      <p><code>six -&gt; s i x space h u n d r e d space a n d</code></p>
+      <p>then you would capture the 2 in the tens position:</p>
+      <p><code>two -&gt; t w e n t y hyphen</code></p>
+      <p>and finally the five in the ones position:</p>
+      <p><code>five -&gt; f i v e</code></p>
+      <p>The biggest risk in this kind of approach is failure of context, which means you need to carefully think through all the permutations of situations in which a number might occur. I think the feature would need to be like the 'frac' feature, i.e. explicitly applied by a user to a selected string of characters, and not the sort of feature one could safely turn on for an entire document.</p>
+    html_clean: |-
+      <p>OT does one-to-many (type 2 GSUB lookup) easily enough. In theory, it can be made to do many-to-many, but in fact this is nowhere supported in either tools or apps. So you'd probably have to do some clever contextual one-to-many substitutions. In other words, you would have to analyse the decimal positions in the number, and substitute the appropriate word for the letters in each position. So, for an English example you might have a number '625', and you would need context to isolate the initial numeral and capture that it is in the hundreds position (followed by two integers), then substitute</p>
+      <p><code>six -&gt; s i x space h u n d r e d space a n d</code></p>
+      <p>then you would capture the 2 in the tens position:</p>
+      <p><code>two -&gt; t w e n t y hyphen</code></p>
+      <p>and finally the five in the ones position:</p>
+      <p><code>five -&gt; f i v e</code></p>
+      <p>The biggest risk in this kind of approach is failure of context, which means you need to carefully think through all the permutations of situations in which a number might occur. I think the feature would need to be like the 'frac' feature, i.e. explicitly applied by a user to a selected string of characters, and not the sort of feature one could safely turn on for an entire document.</p>
+  - id: 544516
+    user: 17101
+    date: 2013-02-24T13:43:00
+    date_raw: 24 Feb 2013 — 1:43pm
+    votes: null
+    html: |-
+      <p>Correct me if I’m wrong, but here’s an example: The number “78” in Danish is “otteoghalvfjers”. The ordinal version (the 78th) is “otteoghalvfjerssindstyvende”. It’s a bit complicated.</p>
+      <p>(Edit: John, I wrote this before I saw your post.)</p>
+    html_clean: |-
+      <p>Correct me if I’m wrong, but here’s an example: The number “78” in Danish is “otteoghalvfjers”. The ordinal version (the 78th) is “otteoghalvfjerssindstyvende”. It’s a bit complicated.</p>
+      <p>(Edit: John, I wrote this before I saw your post.)</p>
+  - id: 544517
+    user: 16321
+    date: 2013-02-24T13:56:00
+    date_raw: 24 Feb 2013 — 1:56pm
+    votes: null
+    html: <p>He he he.</p>
+    html_clean: <p>He he he.</p>
+  - id: 544520
+    user: 5094
+    date: 2013-02-24T14:10:00
+    date_raw: 24 Feb 2013 — 2:10pm
+    votes: null
+    html: |-
+      <p>Nothing of substance, but the usual editorial style with English numbers spelled out does not use  "and," so the replacement string would be</p>
+      <p>six -&gt; s i x space h u n d r e d space </p>
+      <p>E.g., 625 written out is, "six hundred twenty five" ...</p>
+    html_clean: |-
+      <p>Nothing of substance, but the usual editorial style with English numbers spelled out does not use  "and," so the replacement string would be</p>
+      <p>six -&gt; s i x space h u n d r e d space </p>
+      <p>E.g., 625 written out is, "six hundred twenty five" ...</p>
+  - id: 544523
+    user: 17101
+    date: 2013-02-24T14:21:00
+    date_raw: 24 Feb 2013 — 2:21pm
+    votes: null
+    html: "<p>Hmm, there’s the flip: In Danish it’s not “seventy-eight”, it’s “eight and seventy”.</p>"
+    html_clean: "<p>Hmm, there’s the flip: In Danish it’s not “seventy-eight”, it’s “eight and seventy”.</p>"
+  - id: 544524
+    user: 5094
+    date: 2013-02-24T14:32:00
+    date_raw: 24 Feb 2013 — 2:32pm
+    votes: null
+    html: |-
+      <p>There is a problem with the zero in any language -- in English, 70 is not "seventy-zero," and I'd bet in Danish, it's not "zero and seventy."</p>
+      <p>That aside, with some work, you could probably get the font to do the job, even in Danish. But if you're working on a document, it might be better to do search &amp; replaces. If you do the work in the font, what's in the underlying document (say, the XML exported from an InDesign file...)?</p>
+    html_clean: |-
+      <p>There is a problem with the zero in any language -- in English, 70 is not "seventy-zero," and I'd bet in Danish, it's not "zero and seventy."</p>
+      <p>That aside, with some work, you could probably get the font to do the job, even in Danish. But if you're working on a document, it might be better to do search &amp; replaces. If you do the work in the font, what's in the underlying document (say, the XML exported from an InDesign file...)?</p>
+  - id: 544558
+    user: 1262
+    date: 2013-02-24T22:23:00
+    date_raw: 24 Feb 2013 — 10:23pm
+    votes: null
+    html: <p>BTW, I think this is a really bad idea. 'Six hundred twenty five' is not a glyph variant of the character string '625', it is a different character string, a different convention for recording a number in writing.</p>
+    html_clean: <p>BTW, I think this is a really bad idea. 'Six hundred twenty five' is not a glyph variant of the character string '625', it is a different character string, a different convention for recording a number in writing.</p>
+  - id: 544571
+    user: 17101
+    date: 2013-02-25T03:06:00
+    date_raw: 25 Feb 2013 — 3:06am
+    votes: null
+    html: <p>We all know it’s a bad idea, John. These are the very same people who decided to name the biggest ice flake in the world <em>Green</em>land.</p>
+    html_clean: <p>We all know it’s a bad idea, John. These are the very same people who decided to name the biggest ice flake in the world <em>Green</em>land.</p>
+  - id: 544577
+    user: 16321
+    date: 2013-02-25T05:14:00
+    date_raw: 25 Feb 2013 — 5:14am
+    votes: null
+    html: <p>Even back then they knew a thing or two about marketing. Tip of the helmet gentlemen.</p>
+    html_clean: <p>Even back then they knew a thing or two about marketing. Tip of the helmet gentlemen.</p>
+  - id: 544723
+    user: 39515
+    date: 2013-02-26T05:02:00
+    date_raw: 26 Feb 2013 — 5:02am
+    votes: null
+    html: <p>No way, it was called Greenland (or rather Grœnland) by its first settler, the Norwegian-born Icelander Eirikr hinn rauði (Erik the Red). But it was a marketing ploy, yes.</p>
+    html_clean: <p>No way, it was called Greenland (or rather Grœnland) by its first settler, the Norwegian-born Icelander Eirikr hinn rauði (Erik the Red). But it was a marketing ploy, yes.</p>
+  - id: 544726
+    user: 17101
+    date: 2013-02-26T06:08:00
+    date_raw: 26 Feb 2013 — 6:08am
+    votes: null
+    html: <p>Thanks for clearing that up, Sindre.</p>
+    html_clean: <p>Thanks for clearing that up, Sindre.</p>
+  - id: 544731
+    user: 1250
+    date: 2013-02-26T06:25:00
+    date_raw: 26 Feb 2013 — 6:25am
+    votes: null
+    html: |-
+      <p>He was there.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>He was there.</p>
+      <p>hhp</p>
+  - id: 544955
+    user: 17101
+    date: 2013-02-27T12:01:00
+    date_raw: 27 Feb 2013 — 12:01pm
+    votes: null
+    html: |-
+      <p>Is there a way to change the order of glyphs?</p>
+      <p>dnum {<br>
+        sub @lnum' by @dnum;<br>
+        sub @dnum' @dnum by @dnum_tens;<br>
+        ??? swap @dnum for @dnum_tens and vice versa ???<br>
+      }</p>
+    html_clean: |-
+      <p>Is there a way to change the order of glyphs?</p>
+      <p>dnum {<br>
+        sub @lnum' by @dnum;<br>
+        sub @dnum' @dnum by @dnum_tens;<br>
+        ??? swap @dnum for @dnum_tens and vice versa ???<br>
+      }</p>
+  - id: 545105
+    user: 1262
+    date: 2013-02-28T14:13:00
+    date_raw: 28 Feb 2013 — 2:13pm
+    votes: null
+    html: |-
+      <p>Reordering glyphs using GSUB is a bit tricky. I do it sometimes in order to be able to ligate reordered characters in Indic fonts, but I'm never entirely comfortable doing so. You have to do it in two steps: contextually insert the new glyph where you want it, and then contextually delete the old glyph from the unwanted location. Since there are no insert/delete GSUB lookup types per se, what you need to do is first use a one-to-many lookup, and then a many-to-one lookups. So, for example, let's say I want to reorder the glyphs in the sequence ABC so that they are BAC, I would first have a lookup (VOLT syntax; sorry the Adobe stuff makes no sense to me).</p>
+      <p><code>A -&gt; B A<br>
+      |C</code></p>
+      <p>which would result in BABC; then a second lookup something like</p>
+      <p><code>A B -&gt; A<br>
+      B|</code></p>
+      <p>resulting in BAC.</p>
+    html_clean: |-
+      <p>Reordering glyphs using GSUB is a bit tricky. I do it sometimes in order to be able to ligate reordered characters in Indic fonts, but I'm never entirely comfortable doing so. You have to do it in two steps: contextually insert the new glyph where you want it, and then contextually delete the old glyph from the unwanted location. Since there are no insert/delete GSUB lookup types per se, what you need to do is first use a one-to-many lookup, and then a many-to-one lookups. So, for example, let's say I want to reorder the glyphs in the sequence ABC so that they are BAC, I would first have a lookup (VOLT syntax; sorry the Adobe stuff makes no sense to me).</p>
+      <p><code>A -&gt; B A<br>
+      |C</code></p>
+      <p>which would result in BABC; then a second lookup something like</p>
+      <p><code>A B -&gt; A<br>
+      B|</code></p>
+      <p>resulting in BAC.</p>
+  - id: 545153
+    user: 17101
+    date: 2013-03-01T01:03:00
+    date_raw: 1 Mar 2013 — 1:03am
+    votes: null
+    html: <p>I can’t seem to get one-to-many working with classes.</p>
+    html_clean: <p>I can’t seem to get one-to-many working with classes.</p>
+  - id: 545257
+    user: 16321
+    date: 2013-03-01T16:18:00
+    date_raw: 1 Mar 2013 — 4:18pm
+    votes: null
+    html: "<p>Wait, didn’t I post a comment here about how Danish cheques are formatted in the Swedish style of cardinal numbers? Or was that on twitter? I can find it neither place, so let me put it up here again for posterity’s sake: On Danish cheques, when writing out the cardinal, eg. kr. 768,32 you would write <em>syvhundredesekstiottekronerogtretitoøre</em> (like in Swedish common use), and not <em>syvhundredeottetredskronerogtoogtrediveøre</em> (like in Danish common use).</p>"
+    html_clean: "<p>Wait, didn’t I post a comment here about how Danish cheques are formatted in the Swedish style of cardinal numbers? Or was that on twitter? I can find it neither place, so let me put it up here again for posterity’s sake: On Danish cheques, when writing out the cardinal, eg. kr. 768,32 you would write <em>syvhundredesekstiottekronerogtretitoøre</em> (like in Swedish common use), and not <em>syvhundredeottetredskronerogtoogtrediveøre</em> (like in Danish common use).</p>"

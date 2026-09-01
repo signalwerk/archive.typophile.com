@@ -1,0 +1,75 @@
+node: 86317
+title: Cursive attachment Problem in Arabic Font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141202021254"
+  captured_at: 2014-12-02T02:12:54Z
+  url: http://typophile.com:80/node/86317
+  digest: TKLFCZT77S6AXT3UZROEJZ2ANYEZJRXL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/86317.html
+  fingerprint: 381530977d13bbb0
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141202021254"
+      digest: TKLFCZT77S6AXT3UZROEJZ2ANYEZJRXL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/86317.html
+post:
+  id: 86317
+  user: 43535
+  date: 2011-10-12T07:33:00
+  date_raw: 12 Oct 2011 — 7:33am
+  votes: null
+  html: |-
+    <p>I am facing a problem in cursive attachment in an arabic font. I apply mark positioning on a certain character but when I join this character with other words by cursive attachment the marks remain on their previous level.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/Graphic1_4515.jpg"></div><p></p>
+    <p>For example I made a "yehfinal" and adjusted marks on it. When this yehfinal remain at its level then the marks appear at right places as shown in first word on the right side of the image. But when I attach this yehfinal with other characters (above or below yehfinal's original level) through cursive attachment, the character yehfinal appears at the required adjusted level but the marks remain at their previous level and as a result collide with characters as shown in the second word on the left. In the image it is clear that the yehfinal in the second word (on left side) is a little lower than the first word (on right side) and as a result the marks collide with Ijam.</p>
+    <p>Is there a way to solve this problem? i.e. the mark position changes according to the glyph level.</p>
+  html_clean: |-
+    <p>I am facing a problem in cursive attachment in an arabic font. I apply mark positioning on a certain character but when I join this character with other words by cursive attachment the marks remain on their previous level.</p>
+    <p></p><div class="imageWrap"><img src="/files/graphic1_4515.jpg"></div><p></p>
+    <p>For example I made a "yehfinal" and adjusted marks on it. When this yehfinal remain at its level then the marks appear at right places as shown in first word on the right side of the image. But when I attach this yehfinal with other characters (above or below yehfinal's original level) through cursive attachment, the character yehfinal appears at the required adjusted level but the marks remain at their previous level and as a result collide with characters as shown in the second word on the left. In the image it is clear that the yehfinal in the second word (on left side) is a little lower than the first word (on right side) and as a result the marks collide with Ijam.</p>
+    <p>Is there a way to solve this problem? i.e. the mark position changes according to the glyph level.</p>
+comments:
+  - id: 480593
+    user: 1262
+    date: 2011-10-12T23:24:00
+    date_raw: 12 Oct 2011 — 11:24pm
+    votes: null
+    html: <p>You need to order your GPOS lookups so that mark positioning comes after cursive attachment lookups. The recommended order for GPOS feature lookups is kern, curs, mark, mkmk. If the mark lookups precede the curs lookups, the marks will not be positioned relative to the curs shifted bases.</p>
+    html_clean: <p>You need to order your GPOS lookups so that mark positioning comes after cursive attachment lookups. The recommended order for GPOS feature lookups is kern, curs, mark, mkmk. If the mark lookups precede the curs lookups, the marks will not be positioned relative to the curs shifted bases.</p>
+  - id: 480595
+    user: 21217
+    date: 2011-10-12T23:31:00
+    date_raw: 12 Oct 2011 — 11:31pm
+    votes: null
+    html: <p>You have to order mark lookups after curs one, just like John is saying, although I don't think every OpenType layout engine requires this (e.g. HarfBuzz will position marks correctly regardless of lookup order).</p>
+    html_clean: <p>You have to order mark lookups after curs one, just like John is saying, although I don't think every OpenType layout engine requires this (e.g. HarfBuzz will position marks correctly regardless of lookup order).</p>
+  - id: 534327
+    user: 205415
+    date: 2012-12-16T22:11:00
+    date_raw: 16 Dec 2012 — 10:11pm
+    votes: null
+    html: |-
+      <p>I am interested in this font. Could you please let me know which Arabic font is this? and where can I get it?<br>
+      Thanks</p>
+    html_clean: |-
+      <p>I am interested in this font. Could you please let me know which Arabic font is this? and where can I get it?<br>
+      Thanks</p>

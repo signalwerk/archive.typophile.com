@@ -1,0 +1,125 @@
+node: 14280
+title: FontLab Windows OTF troubles
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120203225226"
+  captured_at: 2012-02-03T22:52:26Z
+  url: http://typophile.com:80/node/14280
+  digest: PZVM3ZXWGEGYCJPYWMFKM6YSEMK4X4ZY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/14280.html
+  fingerprint: b353c48d996a0591
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120203225226"
+      digest: PZVM3ZXWGEGYCJPYWMFKM6YSEMK4X4ZY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/14280.html
+post:
+  id: 14280
+  user: 8555
+  date: 2005-07-31T10:08:00
+  date_raw: 31.Jul.2005 10.08am
+  votes: null
+  html: |-
+    <p>I am having some difficulties with FL 4.6 in windows when generating OTF fonts. I used to use Fontographer and then load T1 fonts into fontforge/Cygwin to generate OTF fonts. With some experimentation, I got it working fairly well. You would think that after mastering that process, I would be able to get FL to generate some OTF fonts that work properly.</p>
+    <p>My problem is this. I have 6 faces in a family, Promethian. I generate all 6 (A standard 4, with 2 small caps variants.) The main face, Promethian generates its name properly, but has no kerning in Illustrator or Indesign, but it does in Photoshop. The other five generate, but in Indesign they are segregated to the bottom with (cyrillic). It's just a standard windows font- I took out all mentions of anything weird in the scripts. Some of these come through with ok kerning (in Illustrator and InDesign), some don't. All of them have kerning in Photoshop.</p>
+    <p>This is bizarre. Any thoughts? I'm seriously thinking of going back to my old workflow. I bought FL to streamline generation, but this has taken me weeks to try to figure out. Hoping for some good expert advice. It's probably as simple as a checkmark I forgot somewhere. Let me know if you need any more information.</p>
+    <p>Much appreciated!</p>
+  html_clean: |-
+    <p>I am having some difficulties with FL 4.6 in windows when generating OTF fonts. I used to use Fontographer and then load T1 fonts into fontforge/Cygwin to generate OTF fonts. With some experimentation, I got it working fairly well. You would think that after mastering that process, I would be able to get FL to generate some OTF fonts that work properly.</p>
+    <p>My problem is this. I have 6 faces in a family, Promethian. I generate all 6 (A standard 4, with 2 small caps variants.) The main face, Promethian generates its name properly, but has no kerning in Illustrator or Indesign, but it does in Photoshop. The other five generate, but in Indesign they are segregated to the bottom with (cyrillic). It's just a standard windows font- I took out all mentions of anything weird in the scripts. Some of these come through with ok kerning (in Illustrator and InDesign), some don't. All of them have kerning in Photoshop.</p>
+    <p>This is bizarre. Any thoughts? I'm seriously thinking of going back to my old workflow. I bought FL to streamline generation, but this has taken me weeks to try to figure out. Hoping for some good expert advice. It's probably as simple as a checkmark I forgot somewhere. Let me know if you need any more information.</p>
+    <p>Much appreciated!</p>
+comments:
+  - id: 81122
+    user: 5267
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>I'm not an expert but I've had similar problems.</p>
+      <p><strong>Kerning</strong>. You may already know this but if not: prior to generating the font make certain to do two things.<br>
+      1. Go to Tools&gt;Kerning Assistance&gt; Apply and Save<br>
+      2. Open the OT panel and compile the tables.<br>
+      You have to do the above two steps before generating the font if you've changed any of the kerning or feature definitions!</p>
+      <p><strong>Naming</strong>. This is a bitch. Through trial and error I've discovered a method that works, although it may be <em>The Wromg Way™</em>. One or more of the following steps may be completely unnecessary or even BAD, but it works, InDesign gets it, and ATM gets it. I think you need to make certain that you've set OpenType Export Options to "Export only OpenType name records". (but I may be confused about that). What I do know that works for families larger than the basic 4 (Regular, Bold, Italic, BoldItalic) is the following.</p>
+      <p>Say you have font MyFont and you want to add an ExtraBold weight and have it appear in the subfamily menu in InDesign (where the Regular and Italic appear). Do the following:</p>
+      <p>In the Font Info dialog go to Names &amp; Copyright &gt; Basic set of font names</p>
+      <p>Family Name: <strong>MyFont ExtraBold</strong><br>
+      Weight: ExtraBold [800]<br>
+      <em>don't check "font is bold" it confuses things</em><br>
+      Style Name: ExtraBold<br>
+      Font Name: MyFont-ExtraBold<br>
+      Full Name: MyFont ExtraBold<br>
+      Menu Name: MyFont ExtraBold<br>
+      FOND Name: MyFont ExtraBold</p>
+      <p>Go to the next page <strong>OpenType-specific names</strong> There are three fields.<br>
+      Family Name: MyFont ExtraBold<br>
+      Style Name: ExtraBold<br>
+      MacName: MyFont ExtraBold</p>
+      <p>Now the fun part. Page 3, <strong>Additional OpenType names</strong></p>
+      <p>Click the auto generate button. That should do the trick. Of course, I may have forgotten something. If so, let me know and I'll try again.</p>
+    html_clean: |-
+      <p>I'm not an expert but I've had similar problems.</p>
+      <p><strong>Kerning</strong>. You may already know this but if not: prior to generating the font make certain to do two things.<br>
+      1. Go to Tools&gt;Kerning Assistance&gt; Apply and Save<br>
+      2. Open the OT panel and compile the tables.<br>
+      You have to do the above two steps before generating the font if you've changed any of the kerning or feature definitions!</p>
+      <p><strong>Naming</strong>. This is a bitch. Through trial and error I've discovered a method that works, although it may be <em>The Wromg Way™</em>. One or more of the following steps may be completely unnecessary or even BAD, but it works, InDesign gets it, and ATM gets it. I think you need to make certain that you've set OpenType Export Options to "Export only OpenType name records". (but I may be confused about that). What I do know that works for families larger than the basic 4 (Regular, Bold, Italic, BoldItalic) is the following.</p>
+      <p>Say you have font MyFont and you want to add an ExtraBold weight and have it appear in the subfamily menu in InDesign (where the Regular and Italic appear). Do the following:</p>
+      <p>In the Font Info dialog go to Names &amp; Copyright &gt; Basic set of font names</p>
+      <p>Family Name: <strong>MyFont ExtraBold</strong><br>
+      Weight: ExtraBold [800]<br>
+      <em>don't check "font is bold" it confuses things</em><br>
+      Style Name: ExtraBold<br>
+      Font Name: MyFont-ExtraBold<br>
+      Full Name: MyFont ExtraBold<br>
+      Menu Name: MyFont ExtraBold<br>
+      FOND Name: MyFont ExtraBold</p>
+      <p>Go to the next page <strong>OpenType-specific names</strong> There are three fields.<br>
+      Family Name: MyFont ExtraBold<br>
+      Style Name: ExtraBold<br>
+      MacName: MyFont ExtraBold</p>
+      <p>Now the fun part. Page 3, <strong>Additional OpenType names</strong></p>
+      <p>Click the auto generate button. That should do the trick. Of course, I may have forgotten something. If so, let me know and I'll try again.</p>
+  - id: 81124
+    user: 5267
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Oh, and two questions.<br>
+      Why not include the small-caps in the font? You can use smcp for one and a stylistic alternative for the other.  Question 2, with the standard four have you made certain to select "font is italic" for the italic, "font is bold" for the bold, and both for the bolditalic?</p>
+    html_clean: |-
+      <p>Oh, and two questions.<br>
+      Why not include the small-caps in the font? You can use smcp for one and a stylistic alternative for the other.  Question 2, with the standard four have you made certain to select "font is italic" for the italic, "font is bold" for the bold, and both for the bolditalic?</p>
+  - id: 81222
+    user: 8555
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thanks for the post grod. I knew about the "apply and save" but that doesn't seem to have any effect.</p>
+      <p>As far as the naming, you and I have come to the exact same conclusion. To get it to work right with ATM and Adobe products that appears to be the only way. It seems like every Adobe product has a different way of getting the names/ or kerning from the OTF. Wasen't this supposed to be a new *standard*? Macs seem to be able to interpret anything I throw at them, otf-wise.</p>
+      <p>As far as the small caps, I decided to have the small caps as an additional font so I could charge an extra $20 for it.</p>
+    html_clean: |-
+      <p>Thanks for the post grod. I knew about the "apply and save" but that doesn't seem to have any effect.</p>
+      <p>As far as the naming, you and I have come to the exact same conclusion. To get it to work right with ATM and Adobe products that appears to be the only way. It seems like every Adobe product has a different way of getting the names/ or kerning from the OTF. Wasen't this supposed to be a new *standard*? Macs seem to be able to interpret anything I throw at them, otf-wise.</p>
+      <p>As far as the small caps, I decided to have the small caps as an additional font so I could charge an extra $20 for it.</p>

@@ -1,0 +1,443 @@
+node: 81465
+title: Opentype Features Order / Coding Question
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20120203223015"
+  captured_at: 2012-02-03T22:30:15Z
+  url: http://typophile.com:80/node/81465
+  digest: L2ACR4JEXQFKWTF6IEDNFRUUDIXJ6FAT
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/81465.html
+  fingerprint: f4ccc6ad10822f52
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120203223015"
+      digest: L2ACR4JEXQFKWTF6IEDNFRUUDIXJ6FAT
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/81465.html
+post:
+  id: 81465
+  user: 20652
+  date: 2011-04-21T03:17:00
+  date_raw: 21.Apr.2011 3.17am
+  votes: null
+  html: |-
+    <p>I'm trying to code my opentype features in the most efficient way, but not sure about what order they need to go in.</p>
+    <p>Here's what I'm trying to achieve using dlig and salt.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/opentypeligs_6336.jpg"></div><p></p>
+    <p>The first line is what appears by default, using just <code>liga</code>. The f has a slightly shorter hood.</p>
+    <p>Second, the only difference is the descender, this should be a stylistic set.</p>
+    <p>Third, using <code>dlig</code>, the crossbar or hood joins onto the next glyph.</p>
+    <p>Fourth, if we want descending and joining ligatures, we can apply the stylistic set and the <code>dlig</code> feature.</p>
+    <p>Codewise:</p>
+    <p><code>liga</code><br>
+    #something like<br>
+    sub f'f' by ff; #where ff is a tweaked composite of two fs.<br>
+    #etc for other ligs</p>
+    <p><code>ss01</code><br>
+    #sub f' [b f h i j k l t] by f.alt; #where f.alt is the descending version.<br>
+    #plus some other substition to fix the double f ligs.</p>
+    <p><code>dlig</code><br>
+    sub f' f' by f_f; #where f_f is the connected variant<br>
+    #etc for other ligs</p>
+    <p>Now where do I stick the code that applies when both ss01 and dlig are applied? In both features? Is my code really messy?</p>
+  html_clean: |-
+    <p>I'm trying to code my opentype features in the most efficient way, but not sure about what order they need to go in.</p>
+    <p>Here's what I'm trying to achieve using dlig and salt.</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/opentypeligs_6336.jpg"></div><p></p>
+    <p>The first line is what appears by default, using just <code>liga</code>. The f has a slightly shorter hood.</p>
+    <p>Second, the only difference is the descender, this should be a stylistic set.</p>
+    <p>Third, using <code>dlig</code>, the crossbar or hood joins onto the next glyph.</p>
+    <p>Fourth, if we want descending and joining ligatures, we can apply the stylistic set and the <code>dlig</code> feature.</p>
+    <p>Codewise:</p>
+    <p><code>liga</code><br>
+    #something like<br>
+    sub f'f' by ff; #where ff is a tweaked composite of two fs.<br>
+    #etc for other ligs</p>
+    <p><code>ss01</code><br>
+    #sub f' [b f h i j k l t] by f.alt; #where f.alt is the descending version.<br>
+    #plus some other substition to fix the double f ligs.</p>
+    <p><code>dlig</code><br>
+    sub f' f' by f_f; #where f_f is the connected variant<br>
+    #etc for other ligs</p>
+    <p>Now where do I stick the code that applies when both ss01 and dlig are applied? In both features? Is my code really messy?</p>
+comments:
+  - id: 461263
+    user: 3254
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>It would only have to appear in one feature, and that would be whichever comes later, I would think.</p>
+    html_clean: <p>It would only have to appear in one feature, and that would be whichever comes later, I would think.</p>
+  - id: 461264
+    user: 7508
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>My first impression:</p>
+      <p>—If you want the descender AND the ligatures in the same glyph, I’d say that you need to add some new glyphs to the font.<br>
+      —You could call those new glyphs using another stylistic alternate (ss02).</p>
+    html_clean: |-
+      <p>My first impression:</p>
+      <p>—If you want the descender AND the ligatures in the same glyph, I’d say that you need to add some new glyphs to the font.<br>
+      —You could call those new glyphs using another stylistic alternate (ss02).</p>
+  - id: 461265
+    user: 7508
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>[Not really sure about this, too early for me. I’ll come back in a couple of hours.]</p>
+    html_clean: <p>[Not really sure about this, too early for me. I’ll come back in a couple of hours.]</p>
+  - id: 461308
+    user: 1262
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>For something like this, my inclination is usually to do the stylistic variation first, and then the ligation. Since your ligatures seem to be all variants on the common f-ligature, I don't think 'dlig' is appropriate. I would use 'ss01' and 'liga', in that order. In other words, the input for the 'liga' feature will include output forms from the 'ss01' feature, e.g.</p>
+      <p>'ss01'<br>
+      f -&gt; f.ss01<br>
+      ...</p>
+      <p>'liga'<br>
+      f f -&gt; f_f<br>
+      f.ss01 f.ss01 -&gt; f_f.ss01<br>
+      ...</p>
+      <p>What you should consider is what behaviour would be appropriate if a user has turned on 'ss01' for only part of a ligating sequence, i.e. what should happen in 'liga' if the input sequence is</p>
+      <p>f f.ss01</p>
+      <p>or</p>
+      <p>f.ss01 f</p>
+    html_clean: |-
+      <p>For something like this, my inclination is usually to do the stylistic variation first, and then the ligation. Since your ligatures seem to be all variants on the common f-ligature, I don't think 'dlig' is appropriate. I would use 'ss01' and 'liga', in that order. In other words, the input for the 'liga' feature will include output forms from the 'ss01' feature, e.g.</p>
+      <p>'ss01'<br>
+      f -&gt; f.ss01<br>
+      ...</p>
+      <p>'liga'<br>
+      f f -&gt; f_f<br>
+      f.ss01 f.ss01 -&gt; f_f.ss01<br>
+      ...</p>
+      <p>What you should consider is what behaviour would be appropriate if a user has turned on 'ss01' for only part of a ligating sequence, i.e. what should happen in 'liga' if the input sequence is</p>
+      <p>f f.ss01</p>
+      <p>or</p>
+      <p>f.ss01 f</p>
+  - id: 461316
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>And maybe the first f’s as calt (if they are shorter than the default f, that is)?</p>
+    html_clean: <p>And maybe the first f’s as calt (if they are shorter than the default f, that is)?</p>
+  - id: 461325
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt;Since your ligatures seem to be all variants on the common f-ligature, I don't think 'dlig' is appropriate</p>
+      <p>John, thanks...well, I didn't put the other ligatures in that image, there are LOTS of them :)</p>
+      <p>I'll try what you suggest and see what happens. I'll check what happens with the half-and-half situation too. Good catch.</p>
+      <p>Frode, maybe, is calt on by default? My knowledge of this stuff is very patchy! First step is to make some classes to make the code neater...back soon.</p>
+    html_clean: |-
+      <p>&gt;Since your ligatures seem to be all variants on the common f-ligature, I don't think 'dlig' is appropriate</p>
+      <p>John, thanks...well, I didn't put the other ligatures in that image, there are LOTS of them :)</p>
+      <p>I'll try what you suggest and see what happens. I'll check what happens with the half-and-half situation too. Good catch.</p>
+      <p>Frode, maybe, is calt on by default? My knowledge of this stuff is very patchy! First step is to make some classes to make the code neater...back soon.</p>
+  - id: 461331
+    user: 17101
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Calt is on by default in Indesign and Photoshop, but not in Illustrator (at least not CS3). The latter is a bug, I think. Although for me it is on for some wierd reason.</p>
+    html_clean: <p>Calt is on by default in Indesign and Photoshop, but not in Illustrator (at least not CS3). The latter is a bug, I think. Although for me it is on for some wierd reason.</p>
+  - id: 461473
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Got it working. The descending f is in ss02.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/opentype-features_3774.gif"></div><br>
+      Thanks everyone!<p></p>
+      <p>John, by the way, if the features are applied to one part of a sequence, all of it stays as the default glyphs. Not sure what would be best in that instance, and also where would the code go?</p>
+    html_clean: |-
+      <p>Got it working. The descending f is in ss02.<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/opentype-features_3774.gif"></div><br>
+      Thanks everyone!<p></p>
+      <p>John, by the way, if the features are applied to one part of a sequence, all of it stays as the default glyphs. Not sure what would be best in that instance, and also where would the code go?</p>
+  - id: 461518
+    user: 7508
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><cite> &gt; if the features are applied to one part of a sequence, all of it stays as the default glyphs […] and also where would the code go?</cite></p>
+      <p>Bendy, could you please post the code you finally used? This way it would be easier to think in complementary code…</p>
+    html_clean: |-
+      <p><cite> &gt; if the features are applied to one part of a sequence, all of it stays as the default glyphs […] and also where would the code go?</cite></p>
+      <p>Bendy, could you please post the code you finally used? This way it would be easier to think in complementary code…</p>
+  - id: 461558
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Sure Cristobal. Here we go. It's messy tho' ;)</p>
+      <p>feature liga {#this tweaks glyphs for better fit. Should perhaps be calt rather than liga<br>
+         sub f f f by fff;<br>
+         sub f' f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f_f.short;<br>
+         sub f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f.short;<br>
+         sub f f by ff; #standard ligs for backward compatability. Small tweaks to shapes<br>
+         sub f i by fi;<br>
+         sub f l by fl;<br>
+         } liga;</p>
+      <p>feature dlig {#this joins up the ligatures and there are lots of them. I may move some to hlig<br>
+        sub c b by c_b;<br>
+        sub c h by c_h;<br>
+        sub c i by c_i;<br>
+        sub c k by c_k;<br>
+        sub c l by c_l;<br>
+        sub c t by c_t;<br>
+        sub f f b by f_f_b;<br>
+        sub ff b by f_f_b;<br>
+        sub f f f by f_f_f;<br>
+        sub fff by f_f_f;<br>
+        sub f f h by f_f_h;<br>
+        sub ff h by f_f_h;<br>
+        sub f f i by f_f_i;<br>
+        sub ff i by f_f_i;<br>
+        sub f f j by f_f_j;<br>
+        sub ff j by f_f_j;<br>
+        sub f f k by f_f_k;<br>
+        sub ff k by f_f_k;<br>
+        sub f f l by f_f_l;<br>
+        sub ff l by f_f_l;<br>
+        sub f f t by f_f_t;<br>
+        sub ff t by f_f_t;<br>
+        sub f b by f_b;<br>
+        sub ff by f_f.alt;<br>
+        sub f f by f_f.alt;<br>
+        sub f h by f_h;<br>
+        sub f i by f_i.alt;<br>
+        sub fi by f_i.alt;<br>
+        sub f j by f_j;<br>
+        sub f k by f_k;<br>
+        sub f l by f_l.alt;<br>
+        sub fl by f_l.alt;<br>
+        sub f thorn by f_thorn;<br>
+        sub f t by f_t;<br>
+        sub g h by g_h;<br>
+        sub g i by g_i;<br>
+        sub g j by g_j;<br>
+        sub g l by g_l;<br>
+        sub g thorn by g_thorn;<br>
+        sub i t by i_t;<br>
+        sub j t by j_t;<br>
+        sub o h by o_h;<br>
+        sub o k by o_k;<br>
+        sub o l by o_l;<br>
+        sub p h by p_h;<br>
+        sub p i by p_i;<br>
+        sub p l by p_l;<br>
+        sub p p by p_p;<br>
+        sub s b by s_b;<br>
+        sub s h by s_h;<br>
+        sub s i by s_i;<br>
+        sub s k by s_k;<br>
+        sub s l by s_l;<br>
+        sub s p l by s_p_l;<br>
+        sub s p by s_p;<br>
+        sub s thorn by s_thorn;<br>
+        sub s t by s_t;<br>
+        sub T h by T_h;<br>
+        sub t t by t_t;<br>
+        } dlig;</p>
+      <p>feature ss02 {#descending f<br>
+        #non connected<br>
+         sub f f f by fff.001;<br>
+         sub fff by fff.001;<br>
+         sub f' f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f_f.short.001;<br>
+         sub f' f' [b f h i j k l t thorn] by ff.001;<br>
+         sub f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f.short.001;<br>
+         sub f' [b h i j k l t thorn] by f.alt;<br>
+         sub ff by ff.001;<br>
+         sub fi by fi.001;<br>
+         sub fl by fl.001;<br>
+         sub f f by ff.001;<br>
+        #and for the connected ligatures<br>
+         sub f_b by f_b.001;<br>
+         sub f_f.alt by f_f.001;<br>
+         sub f_f_b by f_f_b.001;<br>
+         sub f_f_f by f_f_f.001;<br>
+         sub f_f_h by f_f_h.001;<br>
+         sub f_f_i by f_f_i.001;<br>
+         sub f_f_j by f_f_j.001;<br>
+         sub f_f_k by f_f_k.001;<br>
+         sub f_f_l by f_f_l.001;<br>
+         sub f_f_t by f_f_t.001;<br>
+         sub f_h by f_h.001;<br>
+         sub f_i.alt by f_i.001;<br>
+         sub f_l.alt by f_l.001;<br>
+         sub f_j by f_j.001;<br>
+         sub f_k by f_k.001;<br>
+         sub f_thorn by f_thorn.001;<br>
+         sub f_t by f_t.001;<br>
+      } ss02;</p>
+      <p>The code is messy because I thought I'd get very confused with everything in classes. </p>
+      <p>I haven't made connected glyphs for the f_igrave etc yet, not sure if that's really a good use of time...!</p>
+      <p>Let me know if this needs more explanation; some of the glyph names are not immediately clear I know.</p>
+    html_clean: |-
+      <p>Sure Cristobal. Here we go. It's messy tho' ;)</p>
+      <p>feature liga {#this tweaks glyphs for better fit. Should perhaps be calt rather than liga<br>
+         sub f f f by fff;<br>
+         sub f' f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f_f.short;<br>
+         sub f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f.short;<br>
+         sub f f by ff; #standard ligs for backward compatability. Small tweaks to shapes<br>
+         sub f i by fi;<br>
+         sub f l by fl;<br>
+         } liga;</p>
+      <p>feature dlig {#this joins up the ligatures and there are lots of them. I may move some to hlig<br>
+        sub c b by c_b;<br>
+        sub c h by c_h;<br>
+        sub c i by c_i;<br>
+        sub c k by c_k;<br>
+        sub c l by c_l;<br>
+        sub c t by c_t;<br>
+        sub f f b by f_f_b;<br>
+        sub ff b by f_f_b;<br>
+        sub f f f by f_f_f;<br>
+        sub fff by f_f_f;<br>
+        sub f f h by f_f_h;<br>
+        sub ff h by f_f_h;<br>
+        sub f f i by f_f_i;<br>
+        sub ff i by f_f_i;<br>
+        sub f f j by f_f_j;<br>
+        sub ff j by f_f_j;<br>
+        sub f f k by f_f_k;<br>
+        sub ff k by f_f_k;<br>
+        sub f f l by f_f_l;<br>
+        sub ff l by f_f_l;<br>
+        sub f f t by f_f_t;<br>
+        sub ff t by f_f_t;<br>
+        sub f b by f_b;<br>
+        sub ff by f_f.alt;<br>
+        sub f f by f_f.alt;<br>
+        sub f h by f_h;<br>
+        sub f i by f_i.alt;<br>
+        sub fi by f_i.alt;<br>
+        sub f j by f_j;<br>
+        sub f k by f_k;<br>
+        sub f l by f_l.alt;<br>
+        sub fl by f_l.alt;<br>
+        sub f thorn by f_thorn;<br>
+        sub f t by f_t;<br>
+        sub g h by g_h;<br>
+        sub g i by g_i;<br>
+        sub g j by g_j;<br>
+        sub g l by g_l;<br>
+        sub g thorn by g_thorn;<br>
+        sub i t by i_t;<br>
+        sub j t by j_t;<br>
+        sub o h by o_h;<br>
+        sub o k by o_k;<br>
+        sub o l by o_l;<br>
+        sub p h by p_h;<br>
+        sub p i by p_i;<br>
+        sub p l by p_l;<br>
+        sub p p by p_p;<br>
+        sub s b by s_b;<br>
+        sub s h by s_h;<br>
+        sub s i by s_i;<br>
+        sub s k by s_k;<br>
+        sub s l by s_l;<br>
+        sub s p l by s_p_l;<br>
+        sub s p by s_p;<br>
+        sub s thorn by s_thorn;<br>
+        sub s t by s_t;<br>
+        sub T h by T_h;<br>
+        sub t t by t_t;<br>
+        } dlig;</p>
+      <p>feature ss02 {#descending f<br>
+        #non connected<br>
+         sub f f f by fff.001;<br>
+         sub fff by fff.001;<br>
+         sub f' f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f_f.short.001;<br>
+         sub f' f' [b f h i j k l t thorn] by ff.001;<br>
+         sub f' [igrave icircumflex idieresis itilde imacron ibreve jcircumflex uni0209 uni020B uni01D0 uni1E2F uni1EC9] by f.short.001;<br>
+         sub f' [b h i j k l t thorn] by f.alt;<br>
+         sub ff by ff.001;<br>
+         sub fi by fi.001;<br>
+         sub fl by fl.001;<br>
+         sub f f by ff.001;<br>
+        #and for the connected ligatures<br>
+         sub f_b by f_b.001;<br>
+         sub f_f.alt by f_f.001;<br>
+         sub f_f_b by f_f_b.001;<br>
+         sub f_f_f by f_f_f.001;<br>
+         sub f_f_h by f_f_h.001;<br>
+         sub f_f_i by f_f_i.001;<br>
+         sub f_f_j by f_f_j.001;<br>
+         sub f_f_k by f_f_k.001;<br>
+         sub f_f_l by f_f_l.001;<br>
+         sub f_f_t by f_f_t.001;<br>
+         sub f_h by f_h.001;<br>
+         sub f_i.alt by f_i.001;<br>
+         sub f_l.alt by f_l.001;<br>
+         sub f_j by f_j.001;<br>
+         sub f_k by f_k.001;<br>
+         sub f_thorn by f_thorn.001;<br>
+         sub f_t by f_t.001;<br>
+      } ss02;</p>
+      <p>The code is messy because I thought I'd get very confused with everything in classes. </p>
+      <p>I haven't made connected glyphs for the f_igrave etc yet, not sure if that's really a good use of time...!</p>
+      <p>Let me know if this needs more explanation; some of the glyph names are not immediately clear I know.</p>
+  - id: 461719
+    user: 909
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>You have some minor issues with glyph names. For example, "fff" is not a great glyph name, better off as "f_f_f"....</p>
+    html_clean: <p>You have some minor issues with glyph names. For example, "fff" is not a great glyph name, better off as "f_f_f"....</p>
+  - id: 461723
+    user: 20652
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Thanks Thomas, I wondered if that might be a problem, and already renamed some of them. I'll have to think up some alternative names as f_f_f is the connected form. Maybe it's best to call them f.dlig and f.ss02 for clarity's sake.</p>
+      <p>I was also slightly wondering if the non-connected forms of fi should appear in a contextual alternate feature, but not sure why that would be better so left in the liga one.</p>
+    html_clean: |-
+      <p>Thanks Thomas, I wondered if that might be a problem, and already renamed some of them. I'll have to think up some alternative names as f_f_f is the connected form. Maybe it's best to call them f.dlig and f.ss02 for clarity's sake.</p>
+      <p>I was also slightly wondering if the non-connected forms of fi should appear in a contextual alternate feature, but not sure why that would be better so left in the liga one.</p>
+  - id: 461986
+    user: 909
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt; f.dlig</p>
+      <p>That would be an alternate of a single f, not a replacement for three f's. How about f_f_f.dlig?</p>
+      <p>The main thing as far as what features to put things in, is whether the feature is on or off by default, and whether the user will be confused or comfortable with the groupings of alternates together in a single feature....</p>
+      <p>cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>&gt; f.dlig</p>
+      <p>That would be an alternate of a single f, not a replacement for three f's. How about f_f_f.dlig?</p>
+      <p>The main thing as far as what features to put things in, is whether the feature is on or off by default, and whether the user will be confused or comfortable with the groupings of alternates together in a single feature....</p>
+      <p>cheers,</p>
+      <p>T</p>

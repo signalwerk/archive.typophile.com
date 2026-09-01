@@ -1,0 +1,306 @@
+node: 90819
+title: OT features problem
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20120720085924"
+  captured_at: 2012-07-20T08:59:24Z
+  url: http://typophile.com/node/90819
+  digest: MHDUGVKPVXAN7N5YRQAQCQHPIPRWM4DG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/90819.html
+  fingerprint: 0448f970a305cfb9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120720085924"
+      digest: MHDUGVKPVXAN7N5YRQAQCQHPIPRWM4DG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/90819.html
+post:
+  id: 90819
+  user: 22078
+  date: 2012-03-07T10:28:00
+  date_raw: 7 Mar 2012 — 10:28am
+  votes: null
+  html: |-
+    <p>Hello everybody,<br>
+    I'm working on a new font and I would like to make few non-standard OT features. But I cannot figure out how to make them work:</p>
+    <p>The First one should make a special underline or strikethrough effect. It would be most probably Stylistic set. I want it to insert a special zero-with "underline" character I made after every single glyph in my font except for space (and maybe few more glyphs). I have made a huge class including all characters but space, and tried to make some substitutions, but no success yet. </p>
+    <p>The second feature should make quite simple substitution for letter pairs like "oo" "ee" "ll" "gg". It would not be problem if there wasn't so many combinations to list them all individually. Let's suppose two classes are defined: @class01 (o e l g) and @class02 (o.alt e.alt l.alt g.alt). I thought something like <em>sub @class1 @class1 by @class1 @class2</em> but this kind of substitution does not work.</p>
+    <p>This feature could also work in two ways:<br>
+    - substitute just the same letter pairs like "o-o" to "o-o.alt" (and ignore "o-g"), or<br>
+    - substitute all combinations from defined classes, e.g also "o-g" to "o-g.alt"<br>
+    I would put this in Calt feature, but it also does not work yet :(</p>
+    <p>Could anyone help, please?</p>
+  html_clean: |-
+    <p>Hello everybody,<br>
+    I'm working on a new font and I would like to make few non-standard OT features. But I cannot figure out how to make them work:</p>
+    <p>The First one should make a special underline or strikethrough effect. It would be most probably Stylistic set. I want it to insert a special zero-with "underline" character I made after every single glyph in my font except for space (and maybe few more glyphs). I have made a huge class including all characters but space, and tried to make some substitutions, but no success yet. </p>
+    <p>The second feature should make quite simple substitution for letter pairs like "oo" "ee" "ll" "gg". It would not be problem if there wasn't so many combinations to list them all individually. Let's suppose two classes are defined: @class01 (o e l g) and @class02 (o.alt e.alt l.alt g.alt). I thought something like <em>sub @class1 @class1 by @class1 @class2</em> but this kind of substitution does not work.</p>
+    <p>This feature could also work in two ways:<br>
+    - substitute just the same letter pairs like "o-o" to "o-o.alt" (and ignore "o-g"), or<br>
+    - substitute all combinations from defined classes, e.g also "o-g" to "o-g.alt"<br>
+    I would put this in Calt feature, but it also does not work yet :(</p>
+    <p>Could anyone help, please?</p>
+comments:
+  - id: 498028
+    user: 3254
+    date: 2012-03-07T10:36:00
+    date_raw: 7 Mar 2012 — 10:36am
+    votes: null
+    html: |-
+      <p>instead of<br>
+      sub @class1 @class1 by @class1 @class2<br>
+      you should use<br>
+      sub @class1 @class1' by @class2</p>
+      <p>The tick (') indicates the piece that should be substituted for.<br>
+      That should work whereas your "many-to-many" substitution won't.</p>
+    html_clean: |-
+      <p>instead of<br>
+      sub @class1 @class1 by @class1 @class2<br>
+      you should use<br>
+      sub @class1 @class1' by @class2</p>
+      <p>The tick (') indicates the piece that should be substituted for.<br>
+      That should work whereas your "many-to-many" substitution won't.</p>
+  - id: 498140
+    user: 22078
+    date: 2012-03-08T08:07:00
+    date_raw: 8 Mar 2012 — 8:07am
+    votes: null
+    html: |-
+      <p>Thank you for the tip! It works :)<br>
+      This feature substitutes all the combinations (not just two identical characters one after another) which works quite well for me. </p>
+      <p>Any suggestions for the first Feature?<br>
+      What I want is actually to change the string like "abcd" to "aXbXcXdX" only with exception for space (or few more characters).</p>
+      <p>I have been trying something like sub @All by @All X and few more, but still no success...</p>
+      <p>Also is there any command which can "invert" current class to its opposite? This could help to avoid creating very huge classes. For instance my class @All would contain hundreds of glyphs while its negative only one or two. This could be very useful.</p>
+    html_clean: |-
+      <p>Thank you for the tip! It works :)<br>
+      This feature substitutes all the combinations (not just two identical characters one after another) which works quite well for me. </p>
+      <p>Any suggestions for the first Feature?<br>
+      What I want is actually to change the string like "abcd" to "aXbXcXdX" only with exception for space (or few more characters).</p>
+      <p>I have been trying something like sub @All by @All X and few more, but still no success...</p>
+      <p>Also is there any command which can "invert" current class to its opposite? This could help to avoid creating very huge classes. For instance my class @All would contain hundreds of glyphs while its negative only one or two. This could be very useful.</p>
+  - id: 498145
+    user: 31798
+    date: 2012-03-08T08:50:00
+    date_raw: 8 Mar 2012 — 8:50am
+    votes: null
+    html: |-
+      <p><cite> Any suggestions for the first Feature?<br>
+      What I want is actually to change the string like "abcd" to "aXbXcXdX" only with exception for space (or few more characters). </cite></p>
+      <p>One to many substitutions can only be applied to individual glyphs, not to glyph classes, so you'd need something like:</p>
+      <p>sub a by a X;<br>
+      sub b by b X;<br>
+      etc.</p>
+      <p>You might want to look at <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">the adobe feature file syntax guide</a></p>
+      <p>As for 'inverting' classes, that's best done using the <code>ignore</code> keyword, also described in the above guide.</p>
+      <p>André</p>
+    html_clean: |-
+      <p><cite> Any suggestions for the first Feature?<br>
+      What I want is actually to change the string like "abcd" to "aXbXcXdX" only with exception for space (or few more characters). </cite></p>
+      <p>One to many substitutions can only be applied to individual glyphs, not to glyph classes, so you'd need something like:</p>
+      <p>sub a by a X;<br>
+      sub b by b X;<br>
+      etc.</p>
+      <p>You might want to look at <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">the adobe feature file syntax guide</a></p>
+      <p>As for 'inverting' classes, that's best done using the <code>ignore</code> keyword, also described in the above guide.</p>
+      <p>André</p>
+  - id: 498153
+    user: 22078
+    date: 2012-03-08T09:37:00
+    date_raw: 8 Mar 2012 — 9:37am
+    votes: null
+    html: |-
+      <p>Thank you André,<br>
+      this should definitely work but in my specific case there would be hundreds of substitutions. I'm still hoping there could be a more sophisticated way to do this... ?</p>
+      <p>(v)</p>
+    html_clean: |-
+      <p>Thank you André,<br>
+      this should definitely work but in my specific case there would be hundreds of substitutions. I'm still hoping there could be a more sophisticated way to do this... ?</p>
+      <p>(v)</p>
+  - id: 498181
+    user: 31798
+    date: 2012-03-08T13:03:00
+    date_raw: 8 Mar 2012 — 1:03pm
+    votes: null
+    html: |-
+      <p>Unfortunately, there's no shorter way of doing this of which I am aware.</p>
+      <p>Also, be advised that a number of major applications (including the Adobe CS applications) don't actually support one-to-many substitutions so if you do go this route your font will not work for all users.</p>
+      <p>You might achieve better results by simply including underlined variants of all applicable glyphs.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Unfortunately, there's no shorter way of doing this of which I am aware.</p>
+      <p>Also, be advised that a number of major applications (including the Adobe CS applications) don't actually support one-to-many substitutions so if you do go this route your font will not work for all users.</p>
+      <p>You might achieve better results by simply including underlined variants of all applicable glyphs.</p>
+      <p>André</p>
+  - id: 498206
+    user: 2021
+    date: 2012-03-08T14:59:00
+    date_raw: 8 Mar 2012 — 2:59pm
+    votes: null
+    html: |-
+      <p><em>Also is there any command which can "invert" current class to its opposite? </em></p>
+      <p>Take a look at how “ignore” is used to substitute initial and final alternates, after or before a space/punctuation; this is primarily in script fonts.</p>
+    html_clean: |-
+      <p><em>Also is there any command which can "invert" current class to its opposite? </em></p>
+      <p>Take a look at how “ignore” is used to substitute initial and final alternates, after or before a space/punctuation; this is primarily in script fonts.</p>
+  - id: 498208
+    user: 2021
+    date: 2012-03-08T15:01:00
+    date_raw: 8 Mar 2012 — 3:01pm
+    votes: null
+    html: <p>(It’s in the Fontlab manual.)</p>
+    html_clean: <p>(It’s in the Fontlab manual.)</p>
+  - id: 498210
+    user: 2021
+    date: 2012-03-08T15:05:00
+    date_raw: 8 Mar 2012 — 3:05pm
+    votes: null
+    html: <p>Vit, this topic should be in the BUILD forum.</p>
+    html_clean: <p>Vit, this topic should be in the BUILD forum.</p>
+  - id: 498211
+    user: 22078
+    date: 2012-03-08T15:12:00
+    date_raw: 8 Mar 2012 — 3:12pm
+    votes: null
+    html: |-
+      <p>Thanks for you explanation. </p>
+      <p>I think I will do it in slightly different way, however it wouldn't be as user friendly as I wanted. But it is not that principal "feature" to make so many alternates.</p>
+      <p>To achieve the desired "underline" effect, the source string should be a_b_c_ and then simple substitution will change the underscore to its special.alt version. </p>
+      <p>Although it would be quite tedious for the user to write down all those underscores. It would be much pleasant just to select desired portion of text and then apply Stylistic set. On the other hand it would be mostly applicable just to one or few word, so it's not that big deal.</p>
+      <p>Thank you anyway :)</p>
+    html_clean: |-
+      <p>Thanks for you explanation. </p>
+      <p>I think I will do it in slightly different way, however it wouldn't be as user friendly as I wanted. But it is not that principal "feature" to make so many alternates.</p>
+      <p>To achieve the desired "underline" effect, the source string should be a_b_c_ and then simple substitution will change the underscore to its special.alt version. </p>
+      <p>Although it would be quite tedious for the user to write down all those underscores. It would be much pleasant just to select desired portion of text and then apply Stylistic set. On the other hand it would be mostly applicable just to one or few word, so it's not that big deal.</p>
+      <p>Thank you anyway :)</p>
+  - id: 498215
+    user: 22078
+    date: 2012-03-08T15:25:00
+    date_raw: 8 Mar 2012 — 3:25pm
+    votes: null
+    html: |-
+      <p>I'm sorry Nick, I will be more careful next time.</p>
+      <p>(v)</p>
+    html_clean: |-
+      <p>I'm sorry Nick, I will be more careful next time.</p>
+      <p>(v)</p>
+  - id: 498222
+    user: 2021
+    date: 2012-03-08T16:22:00
+    date_raw: 8 Mar 2012 — 4:22pm
+    votes: null
+    html: |-
+      <p>The simplest thing to do is to create alternate glyphs that include the underscore, for every character. “Sophistication” would be needless complexity—featuritis—in this instance. </p>
+      <p>If you’re working in FontLab, the “new glyph” command will make your alternate glyphs with the original glyph vector paths and width, which is a huge timesaver.</p>
+      <p>Class size is not an issue: if the end users have access to software that supports OpenType features, then their hardware is powerful enough to blast through fonts with large numbers of glyphs. That’s digitech synergy.<br>
+      I’ve made fonts with multiple alternates of every character (for pseudo-randomization), and they work just fine.</p>
+      <p>The worst that happens is that documents with many pages and much text take a fraction longer to open, but that fraction is marginal, compared to, for instance, the lag caused by image files.</p>
+    html_clean: |-
+      <p>The simplest thing to do is to create alternate glyphs that include the underscore, for every character. “Sophistication” would be needless complexity—featuritis—in this instance. </p>
+      <p>If you’re working in FontLab, the “new glyph” command will make your alternate glyphs with the original glyph vector paths and width, which is a huge timesaver.</p>
+      <p>Class size is not an issue: if the end users have access to software that supports OpenType features, then their hardware is powerful enough to blast through fonts with large numbers of glyphs. That’s digitech synergy.<br>
+      I’ve made fonts with multiple alternates of every character (for pseudo-randomization), and they work just fine.</p>
+      <p>The worst that happens is that documents with many pages and much text take a fraction longer to open, but that fraction is marginal, compared to, for instance, the lag caused by image files.</p>
+  - id: 498223
+    user: 31798
+    date: 2012-03-08T16:43:00
+    date_raw: 8 Mar 2012 — 4:43pm
+    votes: null
+    html: |-
+      <p><cite> I think I will do it in slightly different way, however it wouldn't be as user friendly as I wanted. But it is not that principal "feature" to make so many alternates.</cite></p>
+      <p><cite>To achieve the desired "underline" effect, the source string should be a_b_c_ and then simple substitution will change the underscore to its special.alt version.</cite></p>
+      <p>This seems like a misguided approach. Requiring the user to enter underscores will not only add extra work for them, but it will interfere with spellchecking, hyphenation, etc.</p>
+      <p>Adding underlined alternates would require very little time or effort on your part since its a purely mechanical procedure which doesn't involve drawing any new glyphs -- just copying the old ones and then adding the underline.</p>
+      <p>André</p>
+    html_clean: |-
+      <p><cite> I think I will do it in slightly different way, however it wouldn't be as user friendly as I wanted. But it is not that principal "feature" to make so many alternates.</cite></p>
+      <p><cite>To achieve the desired "underline" effect, the source string should be a_b_c_ and then simple substitution will change the underscore to its special.alt version.</cite></p>
+      <p>This seems like a misguided approach. Requiring the user to enter underscores will not only add extra work for them, but it will interfere with spellchecking, hyphenation, etc.</p>
+      <p>Adding underlined alternates would require very little time or effort on your part since its a purely mechanical procedure which doesn't involve drawing any new glyphs -- just copying the old ones and then adding the underline.</p>
+      <p>André</p>
+  - id: 498858
+    user: 22078
+    date: 2012-03-09T07:17:00
+    date_raw: 9 Mar 2012 — 7:17am
+    votes: null
+    html: |-
+      <p>Thank you both. </p>
+      <p>May I have one more question? If class size is not a big issue, do also features with lot of substitutions (let's say 400) work fine? It still seems to me better to solve this problem via features than add so many new glyphs for no "real" reason (even if the "auto-generation" would be quite easy)</p>
+    html_clean: |-
+      <p>Thank you both. </p>
+      <p>May I have one more question? If class size is not a big issue, do also features with lot of substitutions (let's say 400) work fine? It still seems to me better to solve this problem via features than add so many new glyphs for no "real" reason (even if the "auto-generation" would be quite easy)</p>
+  - id: 498863
+    user: 185912
+    date: 2012-03-09T08:37:00
+    date_raw: 9 Mar 2012 — 8:37am
+    votes: null
+    html: "<p>My humble opinion is : simplicity is best. A new glyph is the simpliest solution to 99% of problems, and you can propose a single substitution feature with it, like calt, salt or clig, supported by the largest panel of softwares. More simple will be your font encoding, more easy (and enjoyed) will be your font to be used.</p>"
+    html_clean: "<p>My humble opinion is : simplicity is best. A new glyph is the simpliest solution to 99% of problems, and you can propose a single substitution feature with it, like calt, salt or clig, supported by the largest panel of softwares. More simple will be your font encoding, more easy (and enjoyed) will be your font to be used.</p>"
+  - id: 498907
+    user: 29994
+    date: 2012-03-09T12:22:00
+    date_raw: 9 Mar 2012 — 12:22pm
+    votes: null
+    html: |-
+      <p>Vit, it seems you are concerned over font file size vs. processing speed. Remember that <em>each of the characters</em> in the user's text in your font has to be processed. It takes only one step in the feature table to swap a glyph for an underlined one, or it takes a dozen steps to coax precisely the right "underline" character into position.</p>
+      <p>Swapping one glyph for another is an extremely efficient operation due to the way Opentype feature tables are internally represented. One could say it's the cornerstone of the entire features idea.</p>
+    html_clean: |-
+      <p>Vit, it seems you are concerned over font file size vs. processing speed. Remember that <em>each of the characters</em> in the user's text in your font has to be processed. It takes only one step in the feature table to swap a glyph for an underlined one, or it takes a dozen steps to coax precisely the right "underline" character into position.</p>
+      <p>Swapping one glyph for another is an extremely efficient operation due to the way Opentype feature tables are internally represented. One could say it's the cornerstone of the entire features idea.</p>
+  - id: 499004
+    user: 22078
+    date: 2012-03-10T11:25:00
+    date_raw: 10 Mar 2012 — 11:25am
+    votes: null
+    html: |-
+      <p>Thank you all for you advices!<br>
+      I'll keep it on mind.</p>
+    html_clean: |-
+      <p>Thank you all for you advices!<br>
+      I'll keep it on mind.</p>
+  - id: 499019
+    user: 29994
+    date: 2012-03-10T13:18:00
+    date_raw: 10 Mar 2012 — 1:18pm
+    votes: null
+    html: |-
+      <p>André: what is your</p>
+      <p><cite>[..] be advised that a number of major applications (including the Adobe CS applications) don't actually support one-to-many substitutions so if you do go this route your font will not work for all users</cite></p>
+      <p>based on? InDesign CS4 seems to support this; a ligature 'fi', when put in small caps, changes to "small cap f, small cap i", <em>not</em> a single "f_i.smcap" character. It appears as a single selectable character inside InDesign but on exporting to PDF one can select each single character.</p>
+    html_clean: |-
+      <p>André: what is your</p>
+      <p><cite>[..] be advised that a number of major applications (including the Adobe CS applications) don't actually support one-to-many substitutions so if you do go this route your font will not work for all users</cite></p>
+      <p>based on? InDesign CS4 seems to support this; a ligature 'fi', when put in small caps, changes to "small cap f, small cap i", <em>not</em> a single "f_i.smcap" character. It appears as a single selectable character inside InDesign but on exporting to PDF one can select each single character.</p>
+  - id: 499074
+    user: 31798
+    date: 2012-03-11T07:33:00
+    date_raw: 11 Mar 2012 — 7:33am
+    votes: null
+    html: |-
+      <p>Theunis,</p>
+      <p>I'm actually still using CS3, so things may have changed. But in CS3 one-to-many substitutions are *definitely* not supported, as can be confirmed by simply adding random stylistic sets to a font which involve such substitutions and noting that they don't work.</p>
+      <p>Even in CS3, though, hardcoded fi will be rendered as FI regardless of whether this glyph is included in any opentype feature. This is because InDesign does some preprocessing before applying a font's features. ﬁ (UFB01) will be converted to either fi (U0066+U0069) or FI (U0045+U0049) before any case-related GSUB features are applied to this sequence. This conversion is done by InDesign's type engine, not by any type-2 lookup defined by the font.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Theunis,</p>
+      <p>I'm actually still using CS3, so things may have changed. But in CS3 one-to-many substitutions are *definitely* not supported, as can be confirmed by simply adding random stylistic sets to a font which involve such substitutions and noting that they don't work.</p>
+      <p>Even in CS3, though, hardcoded fi will be rendered as FI regardless of whether this glyph is included in any opentype feature. This is because InDesign does some preprocessing before applying a font's features. ﬁ (UFB01) will be converted to either fi (U0066+U0069) or FI (U0045+U0049) before any case-related GSUB features are applied to this sequence. This conversion is done by InDesign's type engine, not by any type-2 lookup defined by the font.</p>
+      <p>André</p>

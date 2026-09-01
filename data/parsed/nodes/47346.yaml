@@ -1,0 +1,96 @@
+node: 47346
+title: Ligature Marks
+forum:
+  id: 366
+  title: Arabic Typography & Type Design
+source:
+  archive: web.archive.org
+  timestamp: "20150414232949"
+  captured_at: 2015-04-14T23:29:49Z
+  url: http://typophile.com/node/47346
+  digest: OSTFHT2XPIFCHHPIGEWETXJFF3W3GSUU
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/47346.html
+  fingerprint: 9652f42bad8b132c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150414232949"
+      digest: OSTFHT2XPIFCHHPIGEWETXJFF3W3GSUU
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/47346.html
+post:
+  id: 47346
+  user: 33782
+  date: 2008-07-12T08:24:00
+  date_raw: 12 Jul 2008 — 8:24am
+  votes: null
+  html: |-
+    <p>Hi<br>
+    I have noticed that WPF Text Formatter does not show ligature marks in Arabic OpenType fonts correctly, that is when it tries to render a lam+kasra+alef+fatha, for example, it palces both kasra and fatha marks after lamalef ligature.<br>
+    It seems that WPF does not use Uniscribe and may be the ligature-mark feature of OpenType is not yet implemented in it or I am missing some point.<br>
+    Please advise me.<br>
+    Thanks</p>
+  html_clean: |-
+    <p>Hi<br>
+    I have noticed that WPF Text Formatter does not show ligature marks in Arabic OpenType fonts correctly, that is when it tries to render a lam+kasra+alef+fatha, for example, it palces both kasra and fatha marks after lamalef ligature.<br>
+    It seems that WPF does not use Uniscribe and may be the ligature-mark feature of OpenType is not yet implemented in it or I am missing some point.<br>
+    Please advise me.<br>
+    Thanks</p>
+comments:
+  - id: 293413
+    user: 1262
+    date: 2008-08-04T15:20:00
+    date_raw: 4 Aug 2008 — 3:20pm
+    votes: null
+    html: <p>As I understand it, WPF does not use Uniscribe, but its own text handler should produce the same results as Uniscribe. I will bring this discussion to the attention of Uniscribe and WPF engineers.</p>
+    html_clean: <p>As I understand it, WPF does not use Uniscribe, but its own text handler should produce the same results as Uniscribe. I will bring this discussion to the attention of Uniscribe and WPF engineers.</p>
+  - id: 293445
+    user: 3085
+    date: 2008-08-04T20:29:00
+    date_raw: 4 Aug 2008 — 8:29pm
+    votes: null
+    html: |-
+      <p>WPF implements complete OpenType layout format specification. It is not using Unisribe and does not share code with it. There are may be bugs in it. Although we spent lots of time testing it and endure it produces the same results as Uniscribe, it is relatively new product and less people outside Microsoft had a chance to test it with various fonts and scripts. </p>
+      <p>You may want to provide more details about what is not working for you, so we can invesigate. Does it happen with all or only particular Arabic fonts? What is special about the string you are shaping?</p>
+      <p>Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>WPF implements complete OpenType layout format specification. It is not using Unisribe and does not share code with it. There are may be bugs in it. Although we spent lots of time testing it and endure it produces the same results as Uniscribe, it is relatively new product and less people outside Microsoft had a chance to test it with various fonts and scripts. </p>
+      <p>You may want to provide more details about what is not working for you, so we can invesigate. Does it happen with all or only particular Arabic fonts? What is special about the string you are shaping?</p>
+      <p>Thanks,<br>
+      Sergey</p>
+  - id: 293497
+    user: 1262
+    date: 2008-08-05T04:32:00
+    date_raw: 5 Aug 2008 — 4:32am
+    votes: null
+    html: <p>Sergey, I've confirmed this bug in WPF Arabic handling. If you enter the characters لَاِ within WPF both marks are positioned relative to the left letter (alif) of the ligature, rather than the first, above marks being positioned relative to the right letter (lam). I tested this with a randomly selected Linotype Arabic font and also with Microsoft's own Arabic Typesetting font. It appears that WPF is failing to correctly enumerate ligature components.</p>
+    html_clean: <p>Sergey, I've confirmed this bug in WPF Arabic handling. If you enter the characters لَاِ within WPF both marks are positioned relative to the left letter (alif) of the ligature, rather than the first, above marks being positioned relative to the right letter (lam). I tested this with a randomly selected Linotype Arabic font and also with Microsoft's own Arabic Typesetting font. It appears that WPF is failing to correctly enumerate ligature components.</p>
+  - id: 293531
+    user: 12550
+    date: 2008-08-05T07:21:00
+    date_raw: 5 Aug 2008 — 7:21am
+    votes: null
+    html: |-
+      <p>I guess ZARNEGAR (old+new version) is the Middle east version of WPF.ME<br>
+      <a href="http://www.sinasoft.com/ZARNEGAR/index.asp" title="http://www.sinasoft.com/ZARNEGAR/index.asp">http://www.sinasoft.com/ZARNEGAR/index.asp</a><br>
+      It is the most powerful Arabic Typesetting system ever developed.<br>
+      Version 6 can now handle M$OTFs besides its own OTFs.</p>
+    html_clean: |-
+      <p>I guess ZARNEGAR (old+new version) is the Middle east version of WPF.ME<br>
+      <a href="http://www.sinasoft.com/ZARNEGAR/index.asp" title="http://www.sinasoft.com/ZARNEGAR/index.asp">http://www.sinasoft.com/ZARNEGAR/index.asp</a><br>
+      It is the most powerful Arabic Typesetting system ever developed.<br>
+      Version 6 can now handle M$OTFs besides its own OTFs.</p>

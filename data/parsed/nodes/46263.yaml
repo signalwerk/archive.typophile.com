@@ -1,0 +1,111 @@
+node: 46263
+title: "{calt} code for one to many substitution workaround"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081203163636"
+  captured_at: 2008-12-03T16:36:36Z
+  url: http://www.typophile.com/node/46263
+  digest: HDZMX56LCQMHD4W2MADQ5SRZM44OPSY3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/46263.html
+  fingerprint: 6f153144cafe1c6f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081203163636"
+      digest: HDZMX56LCQMHD4W2MADQ5SRZM44OPSY3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/46263.html
+post:
+  id: 46263
+  user: 3135
+  date: 2008-06-09T20:58:00
+  date_raw: 9.Jun.2008 8.58pm
+  votes: null
+  html: |-
+    <p>I have been putzing with some feature code to try to do what seems like a simple thing, replace 3 glyphs with 3 other glyphs contextually. Some day maybe Adobe et al will allow for one to many substitutions.<br>
+    In the mean time, here is a screen grab of my code. The only way I got it to work was to make a succession of 3 lines of code to do what it seems one line should work. I am sure Karsten or someone else has done it far more elegantly so I am hoping they will show us the better way to do it.<br>
+    In the following, I am substituting the combinations TT, TTY, and TY with alternates for better spacing. I am repeating similar code for smallcap version in succeeding lines. The last few lines are just part of another substitution.</p>
+    <p>Here is hoping you Obbeewon code warriors have a better way than my hack.</p>
+    <p>Thanks,</p>
+    <p></p><div class="imageWrap"><img src="/files/caltboulder_5292.png"></div><p></p>
+    <p>ChrisL</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/46310" class="topic-previous" title="Go to previous forum topic">‹ RoboFab Kerning - Add Pair ?</a> <a href="/node/46198" class="topic-next" title="Go to next forum topic">Advice on EULA? ›</a></div>
+  html_clean: |-
+    <p>I have been putzing with some feature code to try to do what seems like a simple thing, replace 3 glyphs with 3 other glyphs contextually. Some day maybe Adobe et al will allow for one to many substitutions.<br>
+    In the mean time, here is a screen grab of my code. The only way I got it to work was to make a succession of 3 lines of code to do what it seems one line should work. I am sure Karsten or someone else has done it far more elegantly so I am hoping they will show us the better way to do it.<br>
+    In the following, I am substituting the combinations TT, TTY, and TY with alternates for better spacing. I am repeating similar code for smallcap version in succeeding lines. The last few lines are just part of another substitution.</p>
+    <p>Here is hoping you Obbeewon code warriors have a better way than my hack.</p>
+    <p>Thanks,</p>
+    <p></p><div class="imageWrap"><img src="/files/caltboulder_5292.png"></div><p></p>
+    <p>ChrisL</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/46310/" class="topic-previous" title="Go to previous forum topic">‹ RoboFab Kerning - Add Pair ?</a> <a href="/node/46198/" class="topic-next" title="Go to next forum topic">Advice on EULA? ›</a></div>
+comments:
+  - id: 283076
+    user: 9349
+    date: 2008-06-09T21:56:00
+    date_raw: 9.Jun.2008 9.56pm
+    votes: null
+    html: |-
+      <p>The first line: sub T’ T by T.alt2;<br>
+      Looks like you’re substituting instances of two T’s with a single “TT” glyph (T.alt2), and this alt is a ligature?</p>
+      <p>Then in the second line you’re substituting instances of T.alt2 plus T.alt plus T plus Y with T.alt3.</p>
+      <p>The third line substitutes instances of T.alt2 plus T with T.alt.</p>
+      <p>Have I interpreted this correctly? Correct me if I’m wrong.</p>
+      <p>It’s a bit confusing not knowing exactly what these alternate glyphs look like, but a few things jump out at me here: What are the apostrophes (quotesingle) for? I’m accustomed to using the quotesingle after the key glyph in a class definition for kerning, eg:<br>
+      _kern01: a’ a.1 a.2 agrave aacute acircumflex adieresis [etc etc]</p>
+      <p>In that example a.1 and a.2 are stylistic alternates, and the other a’s are the familiar western diactritics.</p>
+      <p>But in the code box for defining OT features I’ve never found quotesingle to be of any use. This is how I code similar sequences to your calt examples:</p>
+      <p>sub T T by T_T;<br>
+      sub T T Y by T_T_Y;<br>
+      sub T_T Y by T_T_Y;</p>
+      <p>That coding works, compiles without a hiccup. It’s good practice by the way to use an underscore in the names of ligature glyphs to avoid coincidences with standard unicode glyph names.</p>
+      <p>j a m e s</p>
+    html_clean: |-
+      <p>The first line: sub T’ T by T.alt2;<br>
+      Looks like you’re substituting instances of two T’s with a single “TT” glyph (T.alt2), and this alt is a ligature?</p>
+      <p>Then in the second line you’re substituting instances of T.alt2 plus T.alt plus T plus Y with T.alt3.</p>
+      <p>The third line substitutes instances of T.alt2 plus T with T.alt.</p>
+      <p>Have I interpreted this correctly? Correct me if I’m wrong.</p>
+      <p>It’s a bit confusing not knowing exactly what these alternate glyphs look like, but a few things jump out at me here: What are the apostrophes (quotesingle) for? I’m accustomed to using the quotesingle after the key glyph in a class definition for kerning, eg:<br>
+      _kern01: a’ a.1 a.2 agrave aacute acircumflex adieresis [etc etc]</p>
+      <p>In that example a.1 and a.2 are stylistic alternates, and the other a’s are the familiar western diactritics.</p>
+      <p>But in the code box for defining OT features I’ve never found quotesingle to be of any use. This is how I code similar sequences to your calt examples:</p>
+      <p>sub T T by T_T;<br>
+      sub T T Y by T_T_Y;<br>
+      sub T_T Y by T_T_Y;</p>
+      <p>That coding works, compiles without a hiccup. It’s good practice by the way to use an underscore in the names of ligature glyphs to avoid coincidences with standard unicode glyph names.</p>
+      <p>j a m e s</p>
+  - id: 283079
+    user: 9349
+    date: 2008-06-09T22:08:00
+    date_raw: 9.Jun.2008 10.08pm
+    votes: null
+    html: |-
+      <p>Also, also three sample lines I’ve written above belong in the LIGA feature rather than CALT. CALT you only use for one-to-one substitutions, eg: sub a by a.2;</p>
+      <p>j a m e s</p>
+    html_clean: |-
+      <p>Also, also three sample lines I’ve written above belong in the LIGA feature rather than CALT. CALT you only use for one-to-one substitutions, eg: sub a by a.2;</p>
+      <p>j a m e s</p>
+  - id: 283087
+    user: 25546
+    date: 2008-06-10T00:14:00
+    date_raw: 10.Jun.2008 12.14am
+    votes: null
+    html: <p>I think Chris (“the Salmon”) is not substituting a single glyph with two T’s for two, but rather an alternate form of T for one of them, much like it’s becoming popular to replac</p>
+    html_clean: <p>I think Chris (“the Salmon”) is not substituting a single glyph with two T’s for two, but rather an alternate form of T for one of them, much like it’s becoming popular to replac</p>

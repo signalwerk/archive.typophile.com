@@ -1,0 +1,181 @@
+node: 100834
+title: File size increase after font modification
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809090816"
+  captured_at: 2014-08-09T09:08:16Z
+  url: http://typophile.com/node/100834
+  digest: RHJ5EZIDHKUKPMUHLCATUQRVH4XJUI3U
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/100834.html
+  fingerprint: b63ac11d04cfd9e2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809090816"
+      digest: RHJ5EZIDHKUKPMUHLCATUQRVH4XJUI3U
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/100834.html
+post:
+  id: 100834
+  user: 17803
+  date: 2013-02-25T02:38:00
+  date_raw: 25 Feb 2013 — 2:38am
+  votes: null
+  html: |-
+    <p>Hello,</p>
+    <p>I need to modify an existing font (OFL) to add a few characters (ç and Ç), to use it in french.<br>
+    I opened the .ttf font file in Fontlab Studio 5, duplicated the c with copy/paste, and added the tail.</p>
+    <p>The generated file is 36ko while the original is 17ko.</p>
+    <p>What did I do wrong ?</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I need to modify an existing font (OFL) to add a few characters (ç and Ç), to use it in french.<br>
+    I opened the .ttf font file in Fontlab Studio 5, duplicated the c with copy/paste, and added the tail.</p>
+    <p>The generated file is 36ko while the original is 17ko.</p>
+    <p>What did I do wrong ?</p>
+comments:
+  - id: 544572
+    user: 11578
+    date: 2013-02-25T03:10:00
+    date_raw: 25 Feb 2013 — 3:10am
+    votes: null
+    html: |-
+      <p>I just did something similar, just opening a font in Fontlab and then generating it again, resulting in a size increase from 70kb to 116kb. I then compared the two, using MS Font Validator, and found that some tables were added and some were deleted. Specifically:<br>
+      Added:  LTSH, VDMX, hdmx<br>
+      Deleted: FFTM, GPOS<br>
+      In addition, the contents of some tables were changed.<br>
+      So, no, you did nothing wrong.<br>
+      - Herb</p>
+    html_clean: |-
+      <p>I just did something similar, just opening a font in Fontlab and then generating it again, resulting in a size increase from 70kb to 116kb. I then compared the two, using MS Font Validator, and found that some tables were added and some were deleted. Specifically:<br>
+      Added:  LTSH, VDMX, hdmx<br>
+      Deleted: FFTM, GPOS<br>
+      In addition, the contents of some tables were changed.<br>
+      So, no, you did nothing wrong.<br>
+      - Herb</p>
+  - id: 544602
+    user: 17803
+    date: 2013-02-25T08:38:00
+    date_raw: 25 Feb 2013 — 8:38am
+    votes: null
+    html: |-
+      <p>Thank you for your input.</p>
+      <p>The font I'm willing to modify is going to be served as a webfont.<br>
+      File size is critical.</p>
+      <p>Any ideas ?</p>
+    html_clean: |-
+      <p>Thank you for your input.</p>
+      <p>The font I'm willing to modify is going to be served as a webfont.<br>
+      File size is critical.</p>
+      <p>Any ideas ?</p>
+  - id: 544605
+    user: 11578
+    date: 2013-02-25T08:47:00
+    date_raw: 25 Feb 2013 — 8:47am
+    votes: null
+    html: <p>There are many free websites and utilities that will convert fonts to more web-compatible formats. For example, search for 'make web fonts'.</p>
+    html_clean: <p>There are many free websites and utilities that will convert fonts to more web-compatible formats. For example, search for 'make web fonts'.</p>
+  - id: 544608
+    user: 1250
+    date: 2013-02-25T08:55:00
+    date_raw: 25 Feb 2013 — 8:55am
+    votes: null
+    html: |-
+      <p>Laurent, a quick red flag: chances seem low that a font missing ç and Ç is good enough otherwise...  :-/</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Laurent, a quick red flag: chances seem low that a font missing ç and Ç is good enough otherwise...  :-/</p>
+      <p>hhp</p>
+  - id: 544611
+    user: 48268
+    date: 2013-02-25T09:10:00
+    date_raw: 25 Feb 2013 — 9:10am
+    votes: null
+    html: |-
+      <p>You might find some of the discussion on this thread at TypeDrawers relevant:</p>
+      <p><a href="http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts" title="http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts">http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts</a></p>
+    html_clean: |-
+      <p>You might find some of the discussion on this thread at TypeDrawers relevant:</p>
+      <p><a href="http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts" title="http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts">http://typedrawers.com/discussion/250/upm-in-a-family-with-web-fonts</a></p>
+  - id: 544687
+    user: 9636
+    date: 2013-02-25T19:08:00
+    date_raw: 25 Feb 2013 — 7:08pm
+    votes: null
+    html: |-
+      <p>It's all guess work given what you've provided for info.</p>
+      <p>But perhaps you've left the check box for "autohint unhinted glyphs" in the generate ttf section. Hinting could certainly add even more than that to the total size.</p>
+    html_clean: |-
+      <p>It's all guess work given what you've provided for info.</p>
+      <p>But perhaps you've left the check box for "autohint unhinted glyphs" in the generate ttf section. Hinting could certainly add even more than that to the total size.</p>
+  - id: 544703
+    user: 17803
+    date: 2013-02-25T22:31:00
+    date_raw: 25 Feb 2013 — 10:31pm
+    votes: null
+    html: |-
+      <p>Thank you all for your valuable input.</p>
+      <p>By the way, we're talking about <a class="freelinking external" href="http://www.google.com/webfonts/specimen/Karla" rel="nofollow">karla</a></p>
+      <p>@jasonc, I'll look into this and try to be more specific in my questions if I'm still stuck.</p>
+      <p>@hrant, sure, but I plan to make it better !</p>
+    html_clean: |-
+      <p>Thank you all for your valuable input.</p>
+      <p>By the way, we're talking about <a class="freelinking external" href="http://www.google.com/webfonts/specimen/Karla" rel="nofollow">karla</a></p>
+      <p>@jasonc, I'll look into this and try to be more specific in my questions if I'm still stuck.</p>
+      <p>@hrant, sure, but I plan to make it better !</p>
+  - id: 544808
+    user: 9108
+    date: 2013-02-26T12:12:00
+    date_raw: 26 Feb 2013 — 12:12pm
+    votes: null
+    html: |-
+      <p>I opened the .ttf font file in FontForge, duplicated the c/C with copy/paste, and added the tail.<br>
+      The generated file is 16.1 ko while the original is 16.8 ko.</p>
+    html_clean: |-
+      <p>I opened the .ttf font file in FontForge, duplicated the c/C with copy/paste, and added the tail.<br>
+      The generated file is 16.1 ko while the original is 16.8 ko.</p>
+  - id: 545151
+    user: 17803
+    date: 2013-02-28T22:40:00
+    date_raw: 28 Feb 2013 — 10:40pm
+    votes: null
+    html: |-
+      <p>I don't have a degree in x11 rocket science, so FontForge is not an option for me.<br>
+      Too bad...</p>
+    html_clean: |-
+      <p>I don't have a degree in x11 rocket science, so FontForge is not an option for me.<br>
+      Too bad...</p>
+  - id: 545154
+    user: 48268
+    date: 2013-03-01T01:21:00
+    date_raw: 1 Mar 2013 — 1:21am
+    votes: null
+    html: |-
+      <blockquote><p>I don't have a degree in x11 rocket science, so FontForge is not an option for me.</p></blockquote>
+      <p>Neither do I but I have managed to get it up and running on both Mac (10.7 and 10.8) and Windows (7). It is definitely worth the effort in my opinion.</p>
+    html_clean: |-
+      <blockquote><p>I don't have a degree in x11 rocket science, so FontForge is not an option for me.</p></blockquote>
+      <p>Neither do I but I have managed to get it up and running on both Mac (10.7 and 10.8) and Windows (7). It is definitely worth the effort in my opinion.</p>
+  - id: 545571
+    user: 17803
+    date: 2013-03-04T02:37:00
+    date_raw: 4 Mar 2013 — 2:37am
+    votes: null
+    html: <p>The documentation is daunting, I've been looking for a step by step for hours, but had no luck. Might give it another try, though.</p>
+    html_clean: <p>The documentation is daunting, I've been looking for a step by step for hours, but had no luck. Might give it another try, though.</p>

@@ -1,0 +1,167 @@
+node: 64444
+title: Can anybody help me with a RoboFab script?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809070157"
+  captured_at: 2014-08-09T07:01:57Z
+  url: http://typophile.com/node/64444
+  digest: H2JQEPQFEVTXD2K7UQF22CPJOCJQO6SS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/64444.html
+  fingerprint: 3f6358266326a7df
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809070157"
+      digest: H2JQEPQFEVTXD2K7UQF22CPJOCJQO6SS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64444.html
+post:
+  id: 64444
+  user: 12433
+  date: 2009-11-19T05:42:00
+  date_raw: 19 Nov 2009 — 5:42am
+  votes: null
+  html: |-
+    <p>I'm tying to make a small script with robafab far a multiple master Font.<br>
+    Basically my script will move a component inside a diacritic glyph.</p>
+    <p>For intance moving the "acute" accent inside "oacute".<br>
+    This is the script:<br>
+    ____________</p>
+    <p>from robofab.world import CurrentFont<br>
+    f = CurrentFont()</p>
+    <p>g = f["oacute"]<br>
+    g.components[1].move((-100,-100))<br>
+    ____________</p>
+    <p>The problem is:<br>
+    Since my font is a multiple master with two weight masters, when I run this script, it moves the accent in the both masters.</p>
+    <p>Is there any way to move the accent only in one of the masters?</p>
+    <p>Thanks in advanced.</p>
+  html_clean: |-
+    <p>I'm tying to make a small script with robafab far a multiple master Font.<br>
+    Basically my script will move a component inside a diacritic glyph.</p>
+    <p>For intance moving the "acute" accent inside "oacute".<br>
+    This is the script:<br>
+    ____________</p>
+    <p>from robofab.world import CurrentFont<br>
+    f = CurrentFont()</p>
+    <p>g = f["oacute"]<br>
+    g.components[1].move((-100,-100))<br>
+    ____________</p>
+    <p>The problem is:<br>
+    Since my font is a multiple master with two weight masters, when I run this script, it moves the accent in the both masters.</p>
+    <p>Is there any way to move the accent only in one of the masters?</p>
+    <p>Thanks in advanced.</p>
+comments:
+  - id: 379344
+    user: 17208
+    date: 2009-11-19T08:24:00
+    date_raw: 19 Nov 2009 — 8:24am
+    votes: null
+    html: |-
+      <p>As far as I know, RoboFab is not able to deal with individual instances in a multiple master file. You might be able to achieve your goal by using FontLab’s native Python implementation instead.</p>
+      <p>Otherwise, why not use anchors for placing accents? If done correctly it will save you the hassle of dealing with individual accented glyphs.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+    html_clean: |-
+      <p>As far as I know, RoboFab is not able to deal with individual instances in a multiple master file. You might be able to achieve your goal by using FontLab’s native Python implementation instead.</p>
+      <p>Otherwise, why not use anchors for placing accents? If done correctly it will save you the hassle of dealing with individual accented glyphs.</p>
+      <p>-Paul van der Laan<br>
+      <a href="http://www.type-invaders.com" title="www.type-invaders.com">www.type-invaders.com</a></p>
+  - id: 379350
+    user: 12433
+    date: 2009-11-19T08:47:00
+    date_raw: 19 Nov 2009 — 8:47am
+    votes: null
+    html: |-
+      <p>Yes I think it is not possible to deal with individual instances with Robofab.</p>
+      <p>I've never used ancors, but I check it out and it seems great. Thanks for the sugestion, this was something I didn't know.</p>
+    html_clean: |-
+      <p>Yes I think it is not possible to deal with individual instances with Robofab.</p>
+      <p>I've never used ancors, but I check it out and it seems great. Thanks for the sugestion, this was something I didn't know.</p>
+  - id: 448207
+    user: 63902
+    date: 2011-01-20T07:22:00
+    date_raw: 20 Jan 2011 — 7:22am
+    votes: null
+    html: |-
+      <p>Hello,</p>
+      <p>Couple of years too late, but maybe can help someone.<br>
+      It is possible to move component inside MM font. I made those based on typical fontlab scripts. Karsten Lucke have some nice MM helpers.</p>
+      <p>Here comes code, dont forget indetation in the "for loop" and if/else.</p>
+      <p>PS. Does someone have a good method how to "append" a component inside MM fglyph?<br>
+      I've tried many methods, but so far no luck.<br>
+      Anton<br>
+      #--------------------------------------------------</p>
+      <p>#FLM: Move MM compnt 1<br>
+      # made by AK 2010<br>
+      # to move component in single master</p>
+      <p>from FL import *<br>
+      from robofab.world import CurrentGlyph<br>
+      rfg = CurrentGlyph()</p>
+      <p>g = fl.glyph<br>
+      m = fl.master</p>
+      <p># here specify amount and what to move<br>
+      xmov = -50<br>
+      # first identify FL component index! Name wont work.<br>
+      compnt = 14</p>
+      <p>print "master:", m</p>
+      <p>for n in g.components:<br>
+         if n.index == compnt:<br>
+             print "there is specific compnt to move"<br>
+             n.deltas[m].x += xmov<br>
+         else:<br>
+             print "use compo tester to get to know:"</p>
+      <p>fl.UpdateGlyph()<br>
+      print "manipul in action"	</p>
+      <p>'''<br>
+      ##<br>
+      '''</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p>Couple of years too late, but maybe can help someone.<br>
+      It is possible to move component inside MM font. I made those based on typical fontlab scripts. Karsten Lucke have some nice MM helpers.</p>
+      <p>Here comes code, dont forget indetation in the "for loop" and if/else.</p>
+      <p>PS. Does someone have a good method how to "append" a component inside MM fglyph?<br>
+      I've tried many methods, but so far no luck.<br>
+      Anton<br>
+      #--------------------------------------------------</p>
+      <p>#FLM: Move MM compnt 1<br>
+      # made by AK 2010<br>
+      # to move component in single master</p>
+      <p>from FL import *<br>
+      from robofab.world import CurrentGlyph<br>
+      rfg = CurrentGlyph()</p>
+      <p>g = fl.glyph<br>
+      m = fl.master</p>
+      <p># here specify amount and what to move<br>
+      xmov = -50<br>
+      # first identify FL component index! Name wont work.<br>
+      compnt = 14</p>
+      <p>print "master:", m</p>
+      <p>for n in g.components:<br>
+         if n.index == compnt:<br>
+             print "there is specific compnt to move"<br>
+             n.deltas[m].x += xmov<br>
+         else:<br>
+             print "use compo tester to get to know:"</p>
+      <p>fl.UpdateGlyph()<br>
+      print "manipul in action"	</p>
+      <p>'''<br>
+      ##<br>
+      '''</p>

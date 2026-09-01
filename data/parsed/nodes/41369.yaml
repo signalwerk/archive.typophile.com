@@ -1,0 +1,385 @@
+node: 41369
+title: OpenType in InDesign via scripting
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20081102221942"
+  captured_at: 2008-11-02T22:19:42Z
+  url: http://typophile.com:80/node/41369
+  digest: CH3UBWUNKHX2CFTEMC4RUK3LBJBPS2HN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/41369.html
+  fingerprint: ed4718ee3fcc1372
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20081102221942"
+      digest: CH3UBWUNKHX2CFTEMC4RUK3LBJBPS2HN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/41369.html
+post:
+  id: 41369
+  user: 1844
+  date: 2008-01-25T15:10:00
+  date_raw: 25.Jan.2008 3.10pm
+  votes: null
+  html: |-
+    <p>Hey, I just compiled a list of all the JavaScript commands to apply/remove OpenType features in InDesign through scripting. They should work in both CS2 &amp; CS3, except the ones marked as ’CS3 only’.</p>
+    <p><code><strong>myObject</strong></code> can be anything that accepts the properties, from a whole Story to a single Character. So, if you want to apply the properties to the first story in the document, you’ll need to declare ’myObject’ as:<br>
+    <code>var myObject = app.documents[0].stories[0];</code></p>
+    <p>If you only want to change the first line of text in a document, ’myObject’ should be declared like:<br>
+    <code>var myObject = app.documents[0].stories[0].lines[0];</code></p>
+    <p>And if what you want to change is the first character in a document, ’myObject’ should be:<br>
+    <code>var myObject = app.documents[0].stories[0].characters[0];</code></p>
+    <p>The properties can also be applied to paragraphs, text frames, words, etc.</p>
+    <p>Happy coding!!</p>
+    <p><code>################<br>
+    // All Caps (case+cpsp)<br>
+    myObject.capitalization = Capitalization.ALL_CAPS;</code></p><code>
+    <p>// Small Caps (smcp)<br>
+    myObject.capitalization = Capitalization.SMALL_CAPS;</p>
+    <p>// All Small Caps (c2sc+smcp)<br>
+    myObject.capitalization = Capitalization.CAP_TO_SMALL_CAP;</p>
+    <p>// to reset capitalization<br>
+    myObject.capitalization = Capitalization.NORMAL;</p>
+    <p>// Ligatures (liga)<br>
+    myObject.ligatures = false; // to turn off<br>
+    myObject.ligatures = true; // to turn on</p>
+    <p>###</p>
+    <p>// Discretionary Ligatures (dlig+hlig)<br>
+    myObject.otfDiscretionaryLigature = true;</p>
+    <p>// Fractions (frac)<br>
+    myObject.otfFraction = true;</p>
+    <p>// Ordinal (ordn)<br>
+    myObject.otfOrdinal = true;</p>
+    <p>// Swash (swsh+cswh)<br>
+    myObject.otfSwash = true;</p>
+    <p>// Titling Alternates (titl)<br>
+    myObject.otfTitling = true;</p>
+    <p>// Contextual Alternates (calt+clig)<br>
+    myObject.otfContextualAlternate = true;</p>
+    <p>// Slashed Zero (zero)<br>
+    myObject.otfSlashedZero = true;</p>
+    <p>// Stylistic Sets (ssXX)<br>
+    myObject.otfStylisticSets = 8; // to apply Set 3 (ss03)<br>
+    /*<br>
+    0 = None<br>
+    2 = ss01<br>
+    4 = ss02<br>
+    6 = ss01+ss02<br>
+    8 = ss03<br>
+    10 = ss01+03<br>
+    12 = ss02+03<br>
+    14 = ss01+02+03<br>
+    16 = ss04<br>
+    32 = ss05<br>
+    64 = ss06<br>
+    128 = ss07<br>
+    ...<br>
+    OR<br>
+    1 = None<br>
+    3 = ss01<br>
+    5 = ss02<br>
+    7 = ss01+02<br>
+    9 = ss03<br>
+    11 = ss01+03<br>
+    13 = ss02+03<br>
+    15 = ss01+02+03<br>
+    17 = ss04<br>
+    19 = ss01+04<br>
+    21 = ss02+04<br>
+    ...<br>
+    */</p>
+    <p>// Positional Forms (init, medi, fina, isol) -- CS3 only<br>
+    //// General Form<br>
+    myObject.positionalForm = PositionalForms.NONE;<br>
+    //// Automatic Form<br>
+    myObject.positionalForm = PositionalForms.CALCULATE;<br>
+    //// Initial Form<br>
+    myObject.positionalForm = PositionalForms.INITIAL;<br>
+    //// Medial Form<br>
+    myObject.positionalForm = PositionalForms.MEDIAL;<br>
+    //// Final Form<br>
+    myObject.positionalForm = PositionalForms.FINAL;<br>
+    //// Isolated Form<br>
+    myObject.positionalForm = PositionalForms.ISOLATED;</p>
+    <p>###</p>
+    <p>// Superscript/Superior (sups)<br>
+    myObject.position = Position.OT_SUPERSCRIPT;</p>
+    <p>// Subscript/Inferior (subs if present, else sinf)<br>
+    myObject.position = Position.OT_SUBSCRIPT;</p>
+    <p>// Numerator (numr)<br>
+    myObject.position = Position.OT_NUMERATOR;</p>
+    <p>// Denominator (dnom)<br>
+    myObject.position = Position.OT_DENOMINATOR;</p>
+    <p>// to reset position<br>
+    myObject.position = Position.NORMAL;</p>
+    <p>###</p>
+    <p>// Tabular Lining (tnum+lnum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.TABULAR_LINING;</p>
+    <p>// Proportional Oldstyle (pnum+onum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.PROPORTIONAL_OLDSTYLE;</p>
+    <p>// Proportional Lining (pnum+lnum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.PROPORTIONAL_LINING;</p>
+    <p>// Tabular Oldstyle (tnum+onum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.TABULAR_OLDSTYLE;</p>
+    <p>// Default Figure Style<br>
+    myObject.otfFigureStyle = OTFFigureStyle.DEFAULT_VALUE;</p>
+    <p>###  Not available through the UI</p>
+    <p>// Historical Forms (hist)<br>
+    myObject.otfHistorical = true;</p>
+    <p>// Localized Forms (locl) -- CS3 only<br>
+    myObject.otfLocale = true;</p>
+    <p>// Mark Positioning, Required Ligatures,<br>
+    // Glyph Composition / Decomposition<br>
+    // (mark, mkmk, mset, rlig, ccmp) -- CS3 only<br>
+    myObject.otfMark = true;</p>
+    </code><p><code>// Access any feature available in the font<br>
+    // and specify the index of the alternate glyph<br>
+    myObject.opentypeFeatures = [["salt", 0]]; // default glyph<br>
+    myObject.opentypeFeatures = [["salt", 1]]; // 1st alternate glyph<br>
+    </code></p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/41398" class="topic-previous" title="Go to previous forum topic">‹ Ligatures on PC</a> <a href="/node/41081" class="topic-next" title="Go to next forum topic">OT Case Feature ›</a></div>
+  html_clean: |-
+    <p>Hey, I just compiled a list of all the JavaScript commands to apply/remove OpenType features in InDesign through scripting. They should work in both CS2 &amp; CS3, except the ones marked as ’CS3 only’.</p>
+    <p><code><strong>myObject</strong></code> can be anything that accepts the properties, from a whole Story to a single Character. So, if you want to apply the properties to the first story in the document, you’ll need to declare ’myObject’ as:<br>
+    <code>var myObject = app.documents[0].stories[0];</code></p>
+    <p>If you only want to change the first line of text in a document, ’myObject’ should be declared like:<br>
+    <code>var myObject = app.documents[0].stories[0].lines[0];</code></p>
+    <p>And if what you want to change is the first character in a document, ’myObject’ should be:<br>
+    <code>var myObject = app.documents[0].stories[0].characters[0];</code></p>
+    <p>The properties can also be applied to paragraphs, text frames, words, etc.</p>
+    <p>Happy coding!!</p>
+    <p><code>################<br>
+    // All Caps (case+cpsp)<br>
+    myObject.capitalization = Capitalization.ALL_CAPS;</code></p><code>
+    <p>// Small Caps (smcp)<br>
+    myObject.capitalization = Capitalization.SMALL_CAPS;</p>
+    <p>// All Small Caps (c2sc+smcp)<br>
+    myObject.capitalization = Capitalization.CAP_TO_SMALL_CAP;</p>
+    <p>// to reset capitalization<br>
+    myObject.capitalization = Capitalization.NORMAL;</p>
+    <p>// Ligatures (liga)<br>
+    myObject.ligatures = false; // to turn off<br>
+    myObject.ligatures = true; // to turn on</p>
+    <p>###</p>
+    <p>// Discretionary Ligatures (dlig+hlig)<br>
+    myObject.otfDiscretionaryLigature = true;</p>
+    <p>// Fractions (frac)<br>
+    myObject.otfFraction = true;</p>
+    <p>// Ordinal (ordn)<br>
+    myObject.otfOrdinal = true;</p>
+    <p>// Swash (swsh+cswh)<br>
+    myObject.otfSwash = true;</p>
+    <p>// Titling Alternates (titl)<br>
+    myObject.otfTitling = true;</p>
+    <p>// Contextual Alternates (calt+clig)<br>
+    myObject.otfContextualAlternate = true;</p>
+    <p>// Slashed Zero (zero)<br>
+    myObject.otfSlashedZero = true;</p>
+    <p>// Stylistic Sets (ssXX)<br>
+    myObject.otfStylisticSets = 8; // to apply Set 3 (ss03)<br>
+    /*<br>
+    0 = None<br>
+    2 = ss01<br>
+    4 = ss02<br>
+    6 = ss01+ss02<br>
+    8 = ss03<br>
+    10 = ss01+03<br>
+    12 = ss02+03<br>
+    14 = ss01+02+03<br>
+    16 = ss04<br>
+    32 = ss05<br>
+    64 = ss06<br>
+    128 = ss07<br>
+    ...<br>
+    OR<br>
+    1 = None<br>
+    3 = ss01<br>
+    5 = ss02<br>
+    7 = ss01+02<br>
+    9 = ss03<br>
+    11 = ss01+03<br>
+    13 = ss02+03<br>
+    15 = ss01+02+03<br>
+    17 = ss04<br>
+    19 = ss01+04<br>
+    21 = ss02+04<br>
+    ...<br>
+    */</p>
+    <p>// Positional Forms (init, medi, fina, isol) -- CS3 only<br>
+    //// General Form<br>
+    myObject.positionalForm = PositionalForms.NONE;<br>
+    //// Automatic Form<br>
+    myObject.positionalForm = PositionalForms.CALCULATE;<br>
+    //// Initial Form<br>
+    myObject.positionalForm = PositionalForms.INITIAL;<br>
+    //// Medial Form<br>
+    myObject.positionalForm = PositionalForms.MEDIAL;<br>
+    //// Final Form<br>
+    myObject.positionalForm = PositionalForms.FINAL;<br>
+    //// Isolated Form<br>
+    myObject.positionalForm = PositionalForms.ISOLATED;</p>
+    <p>###</p>
+    <p>// Superscript/Superior (sups)<br>
+    myObject.position = Position.OT_SUPERSCRIPT;</p>
+    <p>// Subscript/Inferior (subs if present, else sinf)<br>
+    myObject.position = Position.OT_SUBSCRIPT;</p>
+    <p>// Numerator (numr)<br>
+    myObject.position = Position.OT_NUMERATOR;</p>
+    <p>// Denominator (dnom)<br>
+    myObject.position = Position.OT_DENOMINATOR;</p>
+    <p>// to reset position<br>
+    myObject.position = Position.NORMAL;</p>
+    <p>###</p>
+    <p>// Tabular Lining (tnum+lnum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.TABULAR_LINING;</p>
+    <p>// Proportional Oldstyle (pnum+onum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.PROPORTIONAL_OLDSTYLE;</p>
+    <p>// Proportional Lining (pnum+lnum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.PROPORTIONAL_LINING;</p>
+    <p>// Tabular Oldstyle (tnum+onum)<br>
+    myObject.otfFigureStyle = OTFFigureStyle.TABULAR_OLDSTYLE;</p>
+    <p>// Default Figure Style<br>
+    myObject.otfFigureStyle = OTFFigureStyle.DEFAULT_VALUE;</p>
+    <p>###  Not available through the UI</p>
+    <p>// Historical Forms (hist)<br>
+    myObject.otfHistorical = true;</p>
+    <p>// Localized Forms (locl) -- CS3 only<br>
+    myObject.otfLocale = true;</p>
+    <p>// Mark Positioning, Required Ligatures,<br>
+    // Glyph Composition / Decomposition<br>
+    // (mark, mkmk, mset, rlig, ccmp) -- CS3 only<br>
+    myObject.otfMark = true;</p>
+    </code><p><code>// Access any feature available in the font<br>
+    // and specify the index of the alternate glyph<br>
+    myObject.opentypeFeatures = [["salt", 0]]; // default glyph<br>
+    myObject.opentypeFeatures = [["salt", 1]]; // 1st alternate glyph<br>
+    </code></p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/41398/" class="topic-previous" title="Go to previous forum topic">‹ Ligatures on PC</a> <a href="/node/41081" class="topic-next" title="Go to next forum topic">OT Case Feature ›</a></div>
+comments:
+  - id: 254236
+    user: 3135
+    date: 2008-01-25T15:30:00
+    date_raw: 25.Jan.2008 3.30pm
+    votes: null
+    html: |-
+      <p>Not sure what these do, Miguel, but thanks for sharing!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Not sure what these do, Miguel, but thanks for sharing!</p>
+      <p>ChrisL</p>
+  - id: 254250
+    user: 8664
+    date: 2008-01-25T16:12:00
+    date_raw: 25.Jan.2008 4.12pm
+    votes: null
+    html: <p>Hey thanks!</p>
+    html_clean: <p>Hey thanks!</p>
+  - id: 254251
+    user: 1844
+    date: 2008-01-25T16:27:00
+    date_raw: 25.Jan.2008 4.27pm
+    votes: null
+    html: |-
+      <p>You’re welcome!</p>
+      <p>BTW, I’ve added a few lines to the Stylistic Sets section.</p>
+    html_clean: |-
+      <p>You’re welcome!</p>
+      <p>BTW, I’ve added a few lines to the Stylistic Sets section.</p>
+  - id: 254381
+    user: 8664
+    date: 2008-01-26T13:26:00
+    date_raw: 26.Jan.2008 1.26pm
+    votes: null
+    html: |-
+      <p><cite>I’ve added a few lines to the Stylistic Sets section.</cite></p>
+      <p>You didn’t even give me a chance to ask.&nbsp;&nbsp;:)&nbsp;&nbsp;Indeed</p>
+      <p><cite>2 = ss01&nbsp;&nbsp;/&nbsp;&nbsp;4 = ss02&nbsp;&nbsp;/&nbsp;&nbsp;6 = ss01+ss02</cite></p>
+      <p>makes more sense to me than</p>
+      <p><cite>3 = ss01&nbsp;&nbsp;/&nbsp;&nbsp;5 = ss02&nbsp;&nbsp;/&nbsp;&nbsp;7 = ss01+02</cite></p>
+      <p>because 2+4=6 looks fine, while 3+5=7 ...</p>
+    html_clean: |-
+      <p><cite>I’ve added a few lines to the Stylistic Sets section.</cite></p>
+      <p>You didn’t even give me a chance to ask.&nbsp;&nbsp;:)&nbsp;&nbsp;Indeed</p>
+      <p><cite>2 = ss01&nbsp;&nbsp;/&nbsp;&nbsp;4 = ss02&nbsp;&nbsp;/&nbsp;&nbsp;6 = ss01+ss02</cite></p>
+      <p>makes more sense to me than</p>
+      <p><cite>3 = ss01&nbsp;&nbsp;/&nbsp;&nbsp;5 = ss02&nbsp;&nbsp;/&nbsp;&nbsp;7 = ss01+02</cite></p>
+      <p>because 2+4=6 looks fine, while 3+5=7 ...</p>
+  - id: 254431
+    user: 1844
+    date: 2008-01-27T00:21:00
+    date_raw: 27.Jan.2008 12.21am
+    votes: null
+    html: <p>The list with even numbers is the “official” one (Thanks Eric!). I kept the other list just for the sake of completeness.</p>
+    html_clean: <p>The list with even numbers is the “official” one (Thanks Eric!). I kept the other list just for the sake of completeness.</p>
+  - id: 254451
+    user: 1133
+    date: 2008-01-27T05:39:00
+    date_raw: 27.Jan.2008 5.39am
+    votes: null
+    html: |-
+      <p>Miguel, does <code>opentypeFeatures</code> allow the use of fully arbitrary features such as <code>pcap</code> or <code>unic</code>?</p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Miguel, does <code>opentypeFeatures</code> allow the use of fully arbitrary features such as <code>pcap</code> or <code>unic</code>?</p>
+      <p>A.</p>
+  - id: 254589
+    user: 1133
+    date: 2008-01-28T04:05:00
+    date_raw: 28.Jan.2008 4.05am
+    votes: null
+    html: |-
+      <p>Eric, </p>
+      <p>which version of InDesign was first to support the opentypeFeatures property? </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Eric, </p>
+      <p>which version of InDesign was first to support the opentypeFeatures property? </p>
+      <p>A.</p>
+  - id: 254493
+    user: 19133
+    date: 2008-01-28T08:41:00
+    date_raw: 28.Jan.2008 8.41am
+    votes: null
+    html: |-
+      <p>Yes, you can use any OpenType feature and InDesign will apply them blindly. However, you can have trouble if you apply a feature (example ’swsh’) that InDesign has an alternate way of applying — in this case, InDesign may turn it off.  Both GPOS &amp; GSUB features should work. Of course, any 1:many glyph substitutions will still fail.<br>
+      Also, you can create character or paragraph styles and modify them via scripting to add features using the code above — a style is another “text target” for these commands. Or, you can apply the feature to text and it the “new style” button which will load these attributes into the style, even though the UI doesn’t support them.<br>
+      WARNING: this is a way to confuse less savvy users who may get the documents later...</p>
+    html_clean: |-
+      <p>Yes, you can use any OpenType feature and InDesign will apply them blindly. However, you can have trouble if you apply a feature (example ’swsh’) that InDesign has an alternate way of applying — in this case, InDesign may turn it off.  Both GPOS &amp; GSUB features should work. Of course, any 1:many glyph substitutions will still fail.<br>
+      Also, you can create character or paragraph styles and modify them via scripting to add features using the code above — a style is another “text target” for these commands. Or, you can apply the feature to text and it the “new style” button which will load these attributes into the style, even though the UI doesn’t support them.<br>
+      WARNING: this is a way to confuse less savvy users who may get the documents later...</p>
+  - id: 254637
+    user: 19133
+    date: 2008-01-28T08:51:00
+    date_raw: 28.Jan.2008 8.51am
+    votes: null
+    html: |-
+      <p>There was an older mechanism that was replaced by the syntax above in CS2. I think the older one was “OpenTypeFeatures” (not sure how the capitalization is done between the different scripting systems). It specified 2 integers instead of a string &amp; an integer, so it would be harder to use.<br>
+      New<br>
+      <code>myObject.opentypeFeatures = [ ["salt", 0], ["pcap", 0] ];</code></p>
+      <p>Old (something like this)<br>
+      <code>myObject.openTypeFeatures = [0x81617282, 0, 0x7a63617a, 0];</code></p>
+      <p>I made up those hexadecimal numbers, but you get the drift.</p>
+    html_clean: |-
+      <p>There was an older mechanism that was replaced by the syntax above in CS2. I think the older one was “OpenTypeFeatures” (not sure how the capitalization is done between the different scripting systems). It specified 2 integers instead of a string &amp; an integer, so it would be harder to use.<br>
+      New<br>
+      <code>myObject.opentypeFeatures = [ ["salt", 0], ["pcap", 0] ];</code></p>
+      <p>Old (something like this)<br>
+      <code>myObject.openTypeFeatures = [0x81617282, 0, 0x7a63617a, 0];</code></p>
+      <p>I made up those hexadecimal numbers, but you get the drift.</p>

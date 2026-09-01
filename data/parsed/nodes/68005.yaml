@@ -1,0 +1,84 @@
+node: 68005
+title: '"Segoe Script" Scripts list and calts'
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416035934"
+  captured_at: 2015-04-16T03:59:34Z
+  url: http://typophile.com/node/68005
+  digest: XLBJ7FXAK23UYNKAO3R5DNC5KDYJI64H
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/68005.html
+  fingerprint: 540f2a268a8a4b3d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416035934"
+      digest: XLBJ7FXAK23UYNKAO3R5DNC5KDYJI64H
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/68005.html
+post:
+  id: 68005
+  user: 29994
+  date: 2010-03-03T13:12:00
+  date_raw: 3 Mar 2010 — 1:12pm
+  votes: null
+  html: |-
+    <p>Is there anything odd in the calt list of Vista/Windows 7's font "Segoe Script"? I was alerted today by an InDesign user that contextual alternates <em>do</em> work for Latin script, but don't appear to get activated for Cyrillic text.</p>
+    <p>I examined the OTF tables, and, sure enough, the calt tables for Latin are only defined in the Latin Script part, and the Cyrillic Script section has its own calt list. Nothing out of the ordinary, I presume.</p>
+    <p>Theoretically, the used program ought to recognize a series of Cyrillic characters and automatically switch over to the Cyrillic section -- right? I think that was the entire purpose of the Scripts sections. Could it be an error in InDesign CS4? Or am I misinterpreting the use of the Script tags and how they would work in practice?</p>
+  html_clean: |-
+    <p>Is there anything odd in the calt list of Vista/Windows 7's font "Segoe Script"? I was alerted today by an InDesign user that contextual alternates <em>do</em> work for Latin script, but don't appear to get activated for Cyrillic text.</p>
+    <p>I examined the OTF tables, and, sure enough, the calt tables for Latin are only defined in the Latin Script part, and the Cyrillic Script section has its own calt list. Nothing out of the ordinary, I presume.</p>
+    <p>Theoretically, the used program ought to recognize a series of Cyrillic characters and automatically switch over to the Cyrillic section -- right? I think that was the entire purpose of the Scripts sections. Could it be an error in InDesign CS4? Or am I misinterpreting the use of the Script tags and how they would work in practice?</p>
+comments:
+  - id: 399226
+    user: 9584
+    date: 2010-03-03T14:00:00
+    date_raw: 3 Mar 2010 — 2:00pm
+    votes: null
+    html: "<p>Not right: text typed directly into InDesign must be marked out as one of the language that used Cyrillic manually. Or you can import already automatically marked text f.e. from MSWord.</p>"
+    html_clean: "<p>Not right: text typed directly into InDesign must be marked out as one of the language that used Cyrillic manually. Or you can import already automatically marked text f.e. from MSWord.</p>"
+  - id: 399241
+    user: 29994
+    date: 2010-03-03T15:00:00
+    date_raw: 3 Mar 2010 — 3:00pm
+    votes: null
+    html: <p>Yes, fortunately, the OP already found that out. Apparently, the use of scripts is selected through the applied language.</p>
+    html_clean: <p>Yes, fortunately, the OP already found that out. Apparently, the use of scripts is selected through the applied language.</p>
+  - id: 399257
+    user: 1133
+    date: 2010-03-03T18:08:00
+    date_raw: 3 Mar 2010 — 6:08pm
+    votes: null
+    html: |-
+      <p>Indeed. Up until version CS3, Adobe InDesign only applied OpenType Layout features registered in the "latn" script to all text. In InDesign CS3, they switched to a method where the OpenType script used to apply features is determined by the spelling language assigned to that piece of text. This means that if you define a piece of text as "Russian", then OpenType features registered in the "cyrl" script will be applied to all that text, even to letters that are set in Latin script. </p>
+      <p>Adobe's approach here is rather different from Microsoft's who always split the text into text runs of a given script and directionality, and then automatically apply features for the determined script. I think Microsoft's method is certainly better. </p>
+      <p>The repercussions of Adobe's approach are not so visible in Adobe's own European multilingual OTF fonts because in those fonts, the feature contents that covers glyphs belonging to all scripts is duplicated across all the relevant script tags. This means that in Minion Pro, the "smcp" feature contents of the "latn", "cyrl" and "grek" scripts always covers all Latin, Cyrillic and Greek glyphs. In fonts made using the Microsoft method, Latin small caps would only be registered in "latn", Cyrillic small caps in "cyrl" and Greek small caps in "grek". </p>
+      <p>Adobe's method is more "catch-all safe", Microsoft's method more precise.</p>
+    html_clean: |-
+      <p>Indeed. Up until version CS3, Adobe InDesign only applied OpenType Layout features registered in the "latn" script to all text. In InDesign CS3, they switched to a method where the OpenType script used to apply features is determined by the spelling language assigned to that piece of text. This means that if you define a piece of text as "Russian", then OpenType features registered in the "cyrl" script will be applied to all that text, even to letters that are set in Latin script. </p>
+      <p>Adobe's approach here is rather different from Microsoft's who always split the text into text runs of a given script and directionality, and then automatically apply features for the determined script. I think Microsoft's method is certainly better. </p>
+      <p>The repercussions of Adobe's approach are not so visible in Adobe's own European multilingual OTF fonts because in those fonts, the feature contents that covers glyphs belonging to all scripts is duplicated across all the relevant script tags. This means that in Minion Pro, the "smcp" feature contents of the "latn", "cyrl" and "grek" scripts always covers all Latin, Cyrillic and Greek glyphs. In fonts made using the Microsoft method, Latin small caps would only be registered in "latn", Cyrillic small caps in "cyrl" and Greek small caps in "grek". </p>
+      <p>Adobe's method is more "catch-all safe", Microsoft's method more precise.</p>
+  - id: 399262
+    user: 1262
+    date: 2010-03-03T19:17:00
+    date_raw: 3 Mar 2010 — 7:17pm
+    votes: null
+    html: "<p>I agree, Adam, that Microsoft's approach is generally better, although I wish glyph runs were not split by direction changes, although perhaps this is unavoidable. There are situations in Arabic bi-di layout when it would be really nice to be able to run context lookups across direction changes. For example: following the sequence of year sign (RTL) and number (LTR) one wants to be able to substitute a variant form of isolated mim (RTL), but there is no way to trigger this substitition because the glyphs of different direction belong to separate runs.</p>"
+    html_clean: "<p>I agree, Adam, that Microsoft's approach is generally better, although I wish glyph runs were not split by direction changes, although perhaps this is unavoidable. There are situations in Arabic bi-di layout when it would be really nice to be able to run context lookups across direction changes. For example: following the sequence of year sign (RTL) and number (LTR) one wants to be able to substitute a variant form of isolated mim (RTL), but there is no way to trigger this substitition because the glyphs of different direction belong to separate runs.</p>"

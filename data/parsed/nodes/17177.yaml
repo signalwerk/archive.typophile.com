@@ -1,0 +1,581 @@
+node: 17177
+title: Random feature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131019084924"
+  captured_at: 2013-10-19T08:49:24Z
+  url: http://typophile.com/node/17177
+  digest: KI7EWTYWZ3FBHGURCMJO3ZXJSQYQLHTL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/17177.html
+  fingerprint: 6df73f0b86f0aadc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131019084924"
+      digest: KI7EWTYWZ3FBHGURCMJO3ZXJSQYQLHTL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/17177.html
+post:
+  id: 17177
+  user: 5585
+  date: 2006-01-10T03:35:00
+  date_raw: 10 Jan 2006 — 3:35am
+  votes: null
+  html: |-
+    <p>Hello all,<br>
+    I like to build a random feature in a typeface I'm working on.<br>
+    Every character has four alternates and I like the fontsoftware to choose between them.<br>
+    Can I do this in OpenType? And if so, how?<br>
+    Thanks.<br>
+    Pieter</p>
+  html_clean: |-
+    <p>Hello all,<br>
+    I like to build a random feature in a typeface I'm working on.<br>
+    Every character has four alternates and I like the fontsoftware to choose between them.<br>
+    Can I do this in OpenType? And if so, how?<br>
+    Thanks.<br>
+    Pieter</p>
+comments:
+  - id: 103388
+    user: 4895
+    date: 2006-01-10T07:28:00
+    date_raw: 10 Jan 2006 — 7:28am
+    votes: null
+    html: |-
+      <p>Although rand is in the OT spec, no application currently support it (or are likely to any time soon).</p>
+      <p>You can emulate it in some way using calt though. Check our Thomas Phinney's sample code from the Adobe FDK forums: <a href="http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4" title="http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4">http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4</a></p>
+    html_clean: |-
+      <p>Although rand is in the OT spec, no application currently support it (or are likely to any time soon).</p>
+      <p>You can emulate it in some way using calt though. Check our Thomas Phinney's sample code from the Adobe FDK forums: <a href="http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4" title="http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4">http://www.adobeforums.com/cgi-bin/webx?50@755.561rfSM0Gas.1@.3bbc5ea4</a></p>
+  - id: 103397
+    user: 5585
+    date: 2006-01-10T08:27:00
+    date_raw: 10 Jan 2006 — 8:27am
+    votes: null
+    html: |-
+      <p>Thanks you, but it's not working. I made a test font with code like this:</p>
+      <p>feature calt { # Connection or other contextual Forms<br>
+      # Latin<br>
+      lookup rotate {<br>
+      sub @default @default' by @calt1;<br>
+      sub @calt1 @default' by @calt2;<br>
+      sub @calt2 @default' by @calt3;<br>
+      sub @calt3 @default' by @calt4;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p>@default = [a b c d e f g h i j];<br>
+      @calt1 = [b c d e f g h i j a];<br>
+      @calt2 = [c d e f g h i j a b];<br>
+      @calt3 = [d e f g h i j a b c];<br>
+      @calt4 = [e f g h i j a b c d];</p>
+      <p>I only get an a followed by a b. Is there something wrong in the code?<br>
+      Thanks!</p>
+    html_clean: |-
+      <p>Thanks you, but it's not working. I made a test font with code like this:</p>
+      <p>feature calt { # Connection or other contextual Forms<br>
+      # Latin<br>
+      lookup rotate {<br>
+      sub @default @default' by @calt1;<br>
+      sub @calt1 @default' by @calt2;<br>
+      sub @calt2 @default' by @calt3;<br>
+      sub @calt3 @default' by @calt4;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p>@default = [a b c d e f g h i j];<br>
+      @calt1 = [b c d e f g h i j a];<br>
+      @calt2 = [c d e f g h i j a b];<br>
+      @calt3 = [d e f g h i j a b c];<br>
+      @calt4 = [e f g h i j a b c d];</p>
+      <p>I only get an a followed by a b. Is there something wrong in the code?<br>
+      Thanks!</p>
+  - id: 103407
+    user: 4895
+    date: 2006-01-10T09:22:00
+    date_raw: 10 Jan 2006 — 9:22am
+    votes: null
+    html: |-
+      <p>If I'm understanding your problem correctly, I think it's because each of your groups is effectively equivalent to the next. A better example would be</p>
+      <p>*****</p>
+      <p>@default = [a b c d];<br>
+      @calt1 = [e g h i];<br>
+      @calt2 = [j k l m];<br>
+      @calt3 = [n o p q];</p>
+      <p>*****</p>
+      <p>where each of the groups contain unique characters.</p>
+      <p>so, aaaa becomes aejn.</p>
+    html_clean: |-
+      <p>If I'm understanding your problem correctly, I think it's because each of your groups is effectively equivalent to the next. A better example would be</p>
+      <p>*****</p>
+      <p>@default = [a b c d];<br>
+      @calt1 = [e g h i];<br>
+      @calt2 = [j k l m];<br>
+      @calt3 = [n o p q];</p>
+      <p>*****</p>
+      <p>where each of the groups contain unique characters.</p>
+      <p>so, aaaa becomes aejn.</p>
+  - id: 103409
+    user: 5585
+    date: 2006-01-10T09:45:00
+    date_raw: 10 Jan 2006 — 9:45am
+    votes: null
+    html: |-
+      <p>Yes, that's it. It's working. Thanks!<br>
+      Is there a reason why 'lookup rotate' is repeated 13 times? It also works when it's only one time in the code.</p>
+    html_clean: |-
+      <p>Yes, that's it. It's working. Thanks!<br>
+      Is there a reason why 'lookup rotate' is repeated 13 times? It also works when it's only one time in the code.</p>
+  - id: 103411
+    user: 4895
+    date: 2006-01-10T10:24:00
+    date_raw: 10 Jan 2006 — 10:24am
+    votes: null
+    html: <p>To be honest, I'm stratching my head about that too. Seeing this thread reminded me to investigate that aspect of it further - if I find out, I'll post back here :)</p>
+    html_clean: <p>To be honest, I'm stratching my head about that too. Seeing this thread reminded me to investigate that aspect of it further - if I find out, I'll post back here :)</p>
+  - id: 103428
+    user: 5585
+    date: 2006-01-10T12:00:00
+    date_raw: 10 Jan 2006 — 12:00pm
+    votes: null
+    html: <p>That will be great. Thanks for your help!</p>
+    html_clean: <p>That will be great. Thanks for your help!</p>
+  - id: 103452
+    user: 3247
+    date: 2006-01-10T13:05:00
+    date_raw: 10 Jan 2006 — 1:05pm
+    votes: null
+    html: |-
+      <p>I've never done any <a href="/wiki/OpenType" class="freelinking" rel="nofollow">OpenType</a> programming, but I would guess that the 13 lookups work like modulo.</p>
+      <p>So instead of the eight alternatives coming in this order:<br>
+      1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8</p>
+      <p>You get a pseudo-random order:<br>
+      1 6 3 8 5 2 7 4 1 6 3 8 5 2 7 4</p>
+      <p>But there's probably more to it since I get the same series repeating...</p>
+    html_clean: |-
+      <p>I've never done any <a href="/wiki/OpenType" class="freelinking" rel="nofollow">OpenType</a> programming, but I would guess that the 13 lookups work like modulo.</p>
+      <p>So instead of the eight alternatives coming in this order:<br>
+      1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8</p>
+      <p>You get a pseudo-random order:<br>
+      1 6 3 8 5 2 7 4 1 6 3 8 5 2 7 4</p>
+      <p>But there's probably more to it since I get the same series repeating...</p>
+  - id: 103526
+    user: 1336
+    date: 2006-01-10T21:15:00
+    date_raw: 10 Jan 2006 — 9:15pm
+    votes: null
+    html: <p>You can make seemingly-random randomization, but not actually-random randomization. The OpenType version of LetTerror's <a href="http://www.eccentrifuge.com/clients/KosmikOT.html" rel="nofollow">Kosmik</a> by John Butler does this, as does Christian Schwartz's <a href="http://www.orangeitalic.com/local.shtml" rel="nofollow">Local Gothic</a>, thanks to Tal Leming's brilliant code.</p>
+    html_clean: <p>You can make seemingly-random randomization, but not actually-random randomization. The OpenType version of LetTerror's <a href="http://www.eccentrifuge.com/clients/KosmikOT.html" rel="nofollow">Kosmik</a> by John Butler does this, as does Christian Schwartz's <a href="http://www.orangeitalic.com/local.shtml" rel="nofollow">Local Gothic</a>, thanks to Tal Leming's brilliant code.</p>
+  - id: 103536
+    user: 2021
+    date: 2006-01-10T23:11:00
+    date_raw: 10 Jan 2006 — 11:11pm
+    votes: null
+    html: |-
+      <p>Does the OT Kozmik still utilize just the three variants of each glyph, as in the original?</p>
+      <p>How many variants in Local Gothic?</p>
+    html_clean: |-
+      <p>Does the OT Kozmik still utilize just the three variants of each glyph, as in the original?</p>
+      <p>How many variants in Local Gothic?</p>
+  - id: 104589
+    user: 1133
+    date: 2006-01-17T18:37:00
+    date_raw: 17 Jan 2006 — 6:37pm
+    votes: null
+    html: |-
+      <p>Zapfino Extra LT Pro uses approx. 600 contextual substitutions to simulate pseudorandom typesetting. Each letter has between 4 and 7 variants. Some of the feature definition code was generated by Python code that I wrote. </p>
+      <p>The slides that I showed at TypoTechnica in London show some excerpts from the Python code and the OT code for Zapfino Extra LT Pro that I developed:<br>
+      <a href="http://www.twardoch.com/adam/project.php?pid=0049" title="http://www.twardoch.com/adam/project.php?pid=0049">http://www.twardoch.com/adam/project.php?pid=0049</a></p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Zapfino Extra LT Pro uses approx. 600 contextual substitutions to simulate pseudorandom typesetting. Each letter has between 4 and 7 variants. Some of the feature definition code was generated by Python code that I wrote. </p>
+      <p>The slides that I showed at TypoTechnica in London show some excerpts from the Python code and the OT code for Zapfino Extra LT Pro that I developed:<br>
+      <a href="http://www.twardoch.com/adam/project.php?pid=0049" title="http://www.twardoch.com/adam/project.php?pid=0049">http://www.twardoch.com/adam/project.php?pid=0049</a></p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 106180
+    user: 7006
+    date: 2006-01-26T10:50:00
+    date_raw: 26 Jan 2006 — 10:50am
+    votes: null
+    html: |-
+      <p>yay! i found a cached version of <a href="/wiki/Christian%20Robertson" class="freelinking" rel="nofollow">Christian Robertson</a>'s thread for <a href="/wiki/Dear%20Sarah" class="freelinking" rel="nofollow">Dear Sarah</a> on Google. Here it is with Christian's OT code hacks intact:</p>
+      <p>Excerpt of Christian's comments:</p>
+      <p><cite>It's not true randomness. The OT code looks something like this:</cite></p>
+      <p><code>@random_set_1 = [a d g j l m n o c];<br>
+      @random_set_2 = [k e i n p q t v z];<br>
+      @letter = [a b c d e f g h i j k l m n o p q r s t u v w x y z];<br>
+      @letter_alt = [a.alt b.alt c.alt d.alt e.alt f.alt g.alt h.alt i.alt j.alt k.alt l.alt m.alt n.alt o.alt p.alt q.alt r.alt s.alt t.alt u.alt v.alt w.alt x.alt y.alt z.alt];</code></p>
+      <p>feature calt {<br>
+      sub @random_set_1 @letter @letter' by @letter_alt;<br>
+      sub @random_set_2 @letter @letter' by @letter_alt2;<br>
+      } calt;</p>
+      <p><cite>If you put in enough of these ugly hacks it starts to appear random. You would also want to make sure that no two letters were ever the same right next to each other. There are only so many of those that happen regularly in English, so I have added specific substitution rules for each of those cases (ee ff gg ll mm nn oo, etc.) Also notice that I have placed an @letter between the @random character. This makes the pattern even more difficult to spot. You might notice the funky h after every t, but you wouldn't notice the funky h after t-anycharacter, (unless you were freaking crazy).</cite></p>
+      <p><cite>In the case of this font, the fact that there are a different set of characters to connect to the o b v w also helps the font appear more random. The randomness feature above needs to be adjusted to get the connectors right for this one, which makes it more complicated. To be honest, I haven't completely figured it out.</cite></p>
+      <p><a href="http://72.14.203.104/search?q=cache:xsEFmPhUpBIJ:www.typophile.com/forums/messages/29/34366.html%3F1096994612+dear+sarah+site:typophile.com&amp;hl=en&amp;gl=us&amp;ct=clnk&amp;cd=2&amp;client=firefox-a" rel="nofollow">Full Thread Here</a></p>
+      <p>also, for a bit of pseudo randomness, i think you could combine a couple contextual lookups that do different things. For example, you could have 2 sets of letters and have every third one switch to an alternate. Then have another lookup that changes double letter combinations so that the second letter in the combo gets switched out by its alternate. the interplay of these two functions will give a predictable, but somewhat random appearing effect. this is just one example, there are probably endless ways of combining effects such as this to get something that approaches randomness.</p>
+    html_clean: |-
+      <p>yay! i found a cached version of <a href="/wiki/Christian%20Robertson" class="freelinking" rel="nofollow">Christian Robertson</a>'s thread for <a href="/wiki/Dear%20Sarah" class="freelinking" rel="nofollow">Dear Sarah</a> on Google. Here it is with Christian's OT code hacks intact:</p>
+      <p>Excerpt of Christian's comments:</p>
+      <p><cite>It's not true randomness. The OT code looks something like this:</cite></p>
+      <p><code>@random_set_1 = [a d g j l m n o c];<br>
+      @random_set_2 = [k e i n p q t v z];<br>
+      @letter = [a b c d e f g h i j k l m n o p q r s t u v w x y z];<br>
+      @letter_alt = [a.alt b.alt c.alt d.alt e.alt f.alt g.alt h.alt i.alt j.alt k.alt l.alt m.alt n.alt o.alt p.alt q.alt r.alt s.alt t.alt u.alt v.alt w.alt x.alt y.alt z.alt];</code></p>
+      <p>feature calt {<br>
+      sub @random_set_1 @letter @letter' by @letter_alt;<br>
+      sub @random_set_2 @letter @letter' by @letter_alt2;<br>
+      } calt;</p>
+      <p><cite>If you put in enough of these ugly hacks it starts to appear random. You would also want to make sure that no two letters were ever the same right next to each other. There are only so many of those that happen regularly in English, so I have added specific substitution rules for each of those cases (ee ff gg ll mm nn oo, etc.) Also notice that I have placed an @letter between the @random character. This makes the pattern even more difficult to spot. You might notice the funky h after every t, but you wouldn't notice the funky h after t-anycharacter, (unless you were freaking crazy).</cite></p>
+      <p><cite>In the case of this font, the fact that there are a different set of characters to connect to the o b v w also helps the font appear more random. The randomness feature above needs to be adjusted to get the connectors right for this one, which makes it more complicated. To be honest, I haven't completely figured it out.</cite></p>
+      <p><a href="http://72.14.203.104/search?q=cache:xsEFmPhUpBIJ:www.typophile.com/forums/messages/29/34366.html%3F1096994612+dear+sarah+site:typophile.com&amp;hl=en&amp;gl=us&amp;ct=clnk&amp;cd=2&amp;client=firefox-a" rel="nofollow">Full Thread Here</a></p>
+      <p>also, for a bit of pseudo randomness, i think you could combine a couple contextual lookups that do different things. For example, you could have 2 sets of letters and have every third one switch to an alternate. Then have another lookup that changes double letter combinations so that the second letter in the combo gets switched out by its alternate. the interplay of these two functions will give a predictable, but somewhat random appearing effect. this is just one example, there are probably endless ways of combining effects such as this to get something that approaches randomness.</p>
+  - id: 106303
+    user: 5585
+    date: 2006-01-27T04:12:00
+    date_raw: 27 Jan 2006 — 4:12am
+    votes: null
+    html: |-
+      <p>Thanks for the information Paul, but I don't get this line:</p>
+      <p>sub @random_set_2 @letter @letter' by @letter_alt2;</p>
+      <p>You mean I have to make and @letter_alt2 class?</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Thanks for the information Paul, but I don't get this line:</p>
+      <p>sub @random_set_2 @letter @letter' by @letter_alt2;</p>
+      <p>You mean I have to make and @letter_alt2 class?</p>
+      <p>Pieter</p>
+  - id: 106321
+    user: 7006
+    date: 2006-01-27T08:24:00
+    date_raw: 27 Jan 2006 — 8:24am
+    votes: null
+    html: <p>hmmm, i'm not sure exactly what christian meant, but i think just using the @letter_alt class again would work...</p>
+    html_clean: <p>hmmm, i'm not sure exactly what christian meant, but i think just using the @letter_alt class again would work...</p>
+  - id: 488513
+    user: 175296
+    date: 2011-12-24T12:21:00
+    date_raw: 24 Dec 2011 — 12:21pm
+    votes: null
+    html: |-
+      <p>How should I change my OTF code to get the line “I need“ (image link <a href="http://clip2net.com/s/1qAvm" title="http://clip2net.com/s/1qAvm">http://clip2net.com/s/1qAvm</a>)?</p>
+      <p>My code:</p>
+      <p>@letter = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @letter1 = [a c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @letter2 = [a b d e f g h i j k l m n o p q r s t u v w x y z space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub a a' by a.calt1;<br>
+      sub a.calt1 a' by a.calt2;<br>
+      sub a.calt2 a' by a;<br>
+      sub a @letter a' by a.calt1;<br>
+      sub a.calt1 @letter a' by a.calt2;<br>
+      sub a.calt2 @letter a' by a;<br>
+      sub a @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter a' by a;<br>
+      sub a @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter @letter @letter a' by a;</p>
+      <p>sub b b' by b.calt1;<br>
+      sub b.calt1 b' by b.calt2;<br>
+      sub b.calt2 b' by b;<br>
+      sub b @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b;</p>
+      <p>sub c c' by c.calt1;<br>
+      sub c.calt1 c' by c.calt2;<br>
+      sub c.calt2 c' by c;<br>
+      sub c @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      } rotate;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>How should I change my OTF code to get the line “I need“ (image link <a href="http://clip2net.com/s/1qAvm" title="http://clip2net.com/s/1qAvm">http://clip2net.com/s/1qAvm</a>)?</p>
+      <p>My code:</p>
+      <p>@letter = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @letter1 = [a c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @letter2 = [a b d e f g h i j k l m n o p q r s t u v w x y z space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub a a' by a.calt1;<br>
+      sub a.calt1 a' by a.calt2;<br>
+      sub a.calt2 a' by a;<br>
+      sub a @letter a' by a.calt1;<br>
+      sub a.calt1 @letter a' by a.calt2;<br>
+      sub a.calt2 @letter a' by a;<br>
+      sub a @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter a' by a;<br>
+      sub a @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter @letter a' by a;<br>
+      sub a @letter @letter @letter @letter @letter @letter a' by a.calt1;<br>
+      sub a.calt1 @letter @letter @letter @letter @letter @letter a' by a.calt2;<br>
+      sub a.calt2 @letter @letter @letter @letter @letter @letter a' by a;</p>
+      <p>sub b b' by b.calt1;<br>
+      sub b.calt1 b' by b.calt2;<br>
+      sub b.calt2 b' by b;<br>
+      sub b @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b;<br>
+      sub b @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt1;<br>
+      sub b.calt1 @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b.calt2;<br>
+      sub b.calt2 @letter1 @letter1 @letter1 @letter1 @letter1 @letter1 b' by b;</p>
+      <p>sub c c' by c.calt1;<br>
+      sub c.calt1 c' by c.calt2;<br>
+      sub c.calt2 c' by c;<br>
+      sub c @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      sub c @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt1;<br>
+      sub c.calt1 @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c.calt2;<br>
+      sub c.calt2 @letter2 @letter2 @letter2 @letter2 @letter2 @letter2 c' by c;<br>
+      } rotate;<br>
+      } calt;</p>
+  - id: 488518
+    user: 14722
+    date: 2011-12-24T14:45:00
+    date_raw: 24 Dec 2011 — 2:45pm
+    votes: null
+    html: |-
+      <p>@default = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt1 = [a c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt2 = [a b d e f g h i j k l m n o p q r s t u v w x y z space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub @default @default' by @alt1;<br>
+      sub @alt1 @default' by @alt2;<br>
+      sub @alt2 @alt2' by @default;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>@default = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt1 = [a c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt2 = [a b d e f g h i j k l m n o p q r s t u v w x y z space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub @default @default' by @alt1;<br>
+      sub @alt1 @default' by @alt2;<br>
+      sub @alt2 @alt2' by @default;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+  - id: 488539
+    user: 175296
+    date: 2011-12-24T23:05:00
+    date_raw: 24 Dec 2011 — 11:05pm
+    votes: null
+    html: |-
+      <p>Thank You.  </p>
+      <p>I understand that it's the general code.<br>
+      But I don't understand how I should change it.<br>
+      Could you explain me how to apply it to my case?</p>
+    html_clean: |-
+      <p>Thank You.  </p>
+      <p>I understand that it's the general code.<br>
+      But I don't understand how I should change it.<br>
+      Could you explain me how to apply it to my case?</p>
+  - id: 488540
+    user: 175296
+    date: 2011-12-24T23:52:00
+    date_raw: 24 Dec 2011 — 11:52pm
+    votes: null
+    html: |-
+      <p>Every character have two alternates.<br>
+      This code doesn't show b.calt1 and c.calt2.<br>
+      This code does not include the work of all the other letters.<br>
+      How can I do it?</p>
+      <p>Your code:</p>
+      <p>@default = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt1 = [a.calt1 c.calt1 ....... space];<br>
+      @alt2 = [a.calt2 b.calt2 ....... space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub @default @default' by @alt1;<br>
+      sub @alt1 @default' by @alt2;<br>
+      sub @alt2 @alt2' by @default;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>Every character have two alternates.<br>
+      This code doesn't show b.calt1 and c.calt2.<br>
+      This code does not include the work of all the other letters.<br>
+      How can I do it?</p>
+      <p>Your code:</p>
+      <p>@default = [b c d e f g h i j k l m n o p q r s t u v w x y z space];<br>
+      @alt1 = [a.calt1 c.calt1 ....... space];<br>
+      @alt2 = [a.calt2 b.calt2 ....... space];</p>
+      <p>feature calt {<br>
+      lookup rotate {<br>
+      sub @default @default' by @alt1;<br>
+      sub @alt1 @default' by @alt2;<br>
+      sub @alt2 @alt2' by @default;<br>
+      } rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+  - id: 488544
+    user: 175296
+    date: 2011-12-25T01:58:00
+    date_raw: 25 Dec 2011 — 1:58am
+    votes: null
+    html: |-
+      <p>I correct my code. All works.<br>
+      Do not work correctly only a and j characters.</p>
+      <p>why?</p>
+      <p>My new code:</p>
+      <p>feature calt {<br>
+      lookup rotate {</p>
+      <p>sub @default @default' by @calt1;<br>
+      sub @calt1 @default' by @calt2;<br>
+      sub @calt2 @default' by @default;</p>
+      <p>sub @default_jpqx @default_jpqx' by @calt1_jpqx;<br>
+      sub @calt1_jpqx @default_jpqx' by @default_jpqx;</p>
+      <p>} rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p>@default = [a b c d e f g h i k l m n o r s t u v w y z space];<br>
+      @calt1 = [a.calt1 b.calt1 c.calt1 d.calt1 e.calt1 f.calt1 g.calt1 h.calt1 i.calt1 k.calt1 l.calt1 m.calt1 n.calt1 o.calt1 r.calt1 s.calt1 t.calt1 u.calt1 v.calt1 w.calt1 y.calt1 z.calt1 space];<br>
+      @calt2 = [a.calt2 b.calt2 c.calt2 d.calt2 e.calt2 f.calt2 g.calt2 h.calt2 i.calt2 k.calt2 l.calt2 m.calt2 n.calt2 o.calt2 r.calt2 s.calt2 t.calt2 u.calt2 v.calt2 w.calt2 y.calt2 z.calt2 space];</p>
+      <p>@default_jpqx = [j p q x space];<br>
+      @calt1_jpqx = [j.calt1 p.calt1 q.calt1 x.calt1 space];</p>
+    html_clean: |-
+      <p>I correct my code. All works.<br>
+      Do not work correctly only a and j characters.</p>
+      <p>why?</p>
+      <p>My new code:</p>
+      <p>feature calt {<br>
+      lookup rotate {</p>
+      <p>sub @default @default' by @calt1;<br>
+      sub @calt1 @default' by @calt2;<br>
+      sub @calt2 @default' by @default;</p>
+      <p>sub @default_jpqx @default_jpqx' by @calt1_jpqx;<br>
+      sub @calt1_jpqx @default_jpqx' by @default_jpqx;</p>
+      <p>} rotate;<br>
+      lookup rotate;<br>
+      } calt;</p>
+      <p>@default = [a b c d e f g h i k l m n o r s t u v w y z space];<br>
+      @calt1 = [a.calt1 b.calt1 c.calt1 d.calt1 e.calt1 f.calt1 g.calt1 h.calt1 i.calt1 k.calt1 l.calt1 m.calt1 n.calt1 o.calt1 r.calt1 s.calt1 t.calt1 u.calt1 v.calt1 w.calt1 y.calt1 z.calt1 space];<br>
+      @calt2 = [a.calt2 b.calt2 c.calt2 d.calt2 e.calt2 f.calt2 g.calt2 h.calt2 i.calt2 k.calt2 l.calt2 m.calt2 n.calt2 o.calt2 r.calt2 s.calt2 t.calt2 u.calt2 v.calt2 w.calt2 y.calt2 z.calt2 space];</p>
+      <p>@default_jpqx = [j p q x space];<br>
+      @calt1_jpqx = [j.calt1 p.calt1 q.calt1 x.calt1 space];</p>
+  - id: 488662
+    user: 2462
+    date: 2011-12-26T15:05:00
+    date_raw: 26 Dec 2011 — 3:05pm
+    votes: null
+    html: <p>I don't fully understand this, but a and j are the first in each group. If there is no better answer, you can probably go around the problem by starting each group with another character that has no alternates. I assume each group ends with space for a similar reason.</p>
+    html_clean: <p>I don't fully understand this, but a and j are the first in each group. If there is no better answer, you can probably go around the problem by starting each group with another character that has no alternates. I assume each group ends with space for a similar reason.</p>

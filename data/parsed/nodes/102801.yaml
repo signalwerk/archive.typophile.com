@@ -1,0 +1,73 @@
+node: 102801
+title: Opentype features in single style cause Indesign to crash when generating pdf.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140718095052"
+  captured_at: 2014-07-18T09:50:52Z
+  url: http://typophile.com/node/102801
+  digest: SOKBCYZ2DHPKU3TJKMW5ZMUQ34IQZCF2
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/102801.html
+  fingerprint: dc582ba4a47ee4fc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140718095052"
+      digest: SOKBCYZ2DHPKU3TJKMW5ZMUQ34IQZCF2
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/102801.html
+post:
+  id: 102801
+  user: 30114
+  date: 2013-05-06T12:38:00
+  date_raw: 6 May 2013 — 12:38pm
+  votes: null
+  html: |-
+    <p>Hey technicians,</p>
+    <p>A fontfamily of twelve styles seems to work just fine in Indesign. Indesign won't let me export a pdf when the fontfamily is used, though. After a while I found the Italic style was causing the problem. Then I found out, the opentype features in the Italic style are causing the problem. So Italic without opentype feature works fine, and is exportable to pdf, but Italic with opentype feature isn't.</p>
+    <p>Thing is, the opentype features in all styles have been imported from the same .fea file (except the 'kern' feature of course). I've been trying to solve this issue for two entire days now, so all help is much appreciated! I'm kinda desperate here...</p>
+    <p>Cheers,<br>
+    jasper</p>
+  html_clean: |-
+    <p>Hey technicians,</p>
+    <p>A fontfamily of twelve styles seems to work just fine in Indesign. Indesign won't let me export a pdf when the fontfamily is used, though. After a while I found the Italic style was causing the problem. Then I found out, the opentype features in the Italic style are causing the problem. So Italic without opentype feature works fine, and is exportable to pdf, but Italic with opentype feature isn't.</p>
+    <p>Thing is, the opentype features in all styles have been imported from the same .fea file (except the 'kern' feature of course). I've been trying to solve this issue for two entire days now, so all help is much appreciated! I'm kinda desperate here...</p>
+    <p>Cheers,<br>
+    jasper</p>
+comments:
+  - id: 553392
+    user: 30114
+    date: 2013-05-06T12:57:00
+    date_raw: 6 May 2013 — 12:57pm
+    votes: null
+    html: <p>Never mind this. It's fixed :)</p>
+    html_clean: <p>Never mind this. It's fixed :)</p>
+  - id: 553416
+    user: 29994
+    date: 2013-05-06T15:55:00
+    date_raw: 6 May 2013 — 3:55pm
+    votes: null
+    html: <p>Can you tell what went wrong?</p>
+    html_clean: <p>Can you tell what went wrong?</p>
+  - id: 553753
+    user: 30114
+    date: 2013-05-09T15:40:00
+    date_raw: 9 May 2013 — 3:40pm
+    votes: null
+    html: <p>Yes. I'm not sure why the problem was only visible in the Italic (might have something to do with Indesign) but the smcp feature (the opentype classes it involved, to be precise) contained a few glyph names which were not actually in the fontfile. I had created the smcp feature before I deleted the glyphs, and forgot to remove them from the opentype class. When I deleted them, everything worked again :)</p>
+    html_clean: <p>Yes. I'm not sure why the problem was only visible in the Italic (might have something to do with Indesign) but the smcp feature (the opentype classes it involved, to be precise) contained a few glyph names which were not actually in the fontfile. I had created the smcp feature before I deleted the glyphs, and forgot to remove them from the opentype class. When I deleted them, everything worked again :)</p>

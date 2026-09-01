@@ -1,0 +1,218 @@
+node: 72215
+title: Firefox Leading Bug
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20131023080034"
+  captured_at: 2013-10-23T08:00:34Z
+  url: http://typophile.com/node/72215
+  digest: 7SNZY54JEP2FKFIJKE4ZEIC4ADFXWMHV
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/72215.html
+  fingerprint: 9a5aba672a35ed0b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131023080034"
+      digest: 7SNZY54JEP2FKFIJKE4ZEIC4ADFXWMHV
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/72215.html
+post:
+  id: 72215
+  user: 45774
+  date: 2010-07-13T08:13:00
+  date_raw: 13 Jul 2010 — 8:13am
+  votes: null
+  html: |-
+    <p>Not yet fixed, but very bothering. Firefox tries to provide the CSS line-height as precise as possible with the result of an uneven line height. It rounds up <strong>and</strong> down.</p>
+    <ul>
+    <li><a href="http://typophile.com/files/Firefox-Leading-Bug.html" rel="nofollow">Firefox-Leading-Bug.html</a></li>
+    <li><a href="http://typophile.com/files/Firefox-Leading-Bug.gif" rel="nofollow">Firefox-Leading-Bug.gif</a></li>
+    </ul>
+    <p><code>&lt;style type="text/css"&gt;&lt;!--<br>
+    pre {<br>
+    line-height: 0.95em !important;<br>
+    font-size: 16px !important;<br>
+    font-family: Arial, Helvetica, sans-serif !important;<br>
+    }<br>
+    --&gt;&lt;/style&gt;</code></p>
+  html_clean: |-
+    <p>Not yet fixed, but very bothering. Firefox tries to provide the CSS line-height as precise as possible with the result of an uneven line height. It rounds up <strong>and</strong> down.</p>
+    <ul>
+    <li><a href="http://typophile.com/files/Firefox-Leading-Bug.html" rel="nofollow">Firefox-Leading-Bug.html</a></li>
+    <li><a href="/files/firefox-leading-bug.gif" rel="nofollow">Firefox-Leading-Bug.gif</a></li>
+    </ul>
+    <p><code>&lt;style type="text/css"&gt;&lt;!--<br>
+    pre {<br>
+    line-height: 0.95em !important;<br>
+    font-size: 16px !important;<br>
+    font-family: Arial, Helvetica, sans-serif !important;<br>
+    }<br>
+    --&gt;&lt;/style&gt;</code></p>
+comments:
+  - id: 420013
+    user: 1049
+    date: 2010-07-13T08:25:00
+    date_raw: 13 Jul 2010 — 8:25am
+    votes: null
+    html: <p>I think this bug is likely "by design". If you want pixel level control you should specify pixels?</p>
+    html_clean: <p>I think this bug is likely "by design". If you want pixel level control you should specify pixels?</p>
+  - id: 420019
+    user: 45774
+    date: 2010-07-13T09:04:00
+    date_raw: 13 Jul 2010 — 9:04am
+    votes: null
+    html: |-
+      <p>Pixel is a bad unit for the font-size (line-height, letter-spacing, padding and borders as substitution for text-decoration and so on). I used it here for demonstration purposes only. If you use pt or em, you cannot use px for the line-height anymore, because one pt is converted to different numbers of pixels dependent from the relative screen resolution. On a high resolution screen you would need more pixel for correcting the line height.</p>
+      <p>(Typographers have the tendency to design web pages pixel precise. I think, that it is one of the reasons, why typographers are not the best web designers.)</p>
+      <p>I have an untested workaround for the Firefox versions, that support @font-face: You could provide a font, that contains the space only, and put it into the first place of a font stack. You can correct the line height by the font dimensions of the space-only-font.</p>
+      <p>But I would prefer it, if Mozilla would fix this bug. It is not directly a bug, but they had the specifications in mind only. They simply wanted to compute the height of the block as precise as possible. But the evenness of the leading is a thousand times more important. In case of the leading of body text one pixel is much.</p>
+    html_clean: |-
+      <p>Pixel is a bad unit for the font-size (line-height, letter-spacing, padding and borders as substitution for text-decoration and so on). I used it here for demonstration purposes only. If you use pt or em, you cannot use px for the line-height anymore, because one pt is converted to different numbers of pixels dependent from the relative screen resolution. On a high resolution screen you would need more pixel for correcting the line height.</p>
+      <p>(Typographers have the tendency to design web pages pixel precise. I think, that it is one of the reasons, why typographers are not the best web designers.)</p>
+      <p>I have an untested workaround for the Firefox versions, that support @font-face: You could provide a font, that contains the space only, and put it into the first place of a font stack. You can correct the line height by the font dimensions of the space-only-font.</p>
+      <p>But I would prefer it, if Mozilla would fix this bug. It is not directly a bug, but they had the specifications in mind only. They simply wanted to compute the height of the block as precise as possible. But the evenness of the leading is a thousand times more important. In case of the leading of body text one pixel is much.</p>
+  - id: 420140
+    user: 29351
+    date: 2010-07-14T00:09:00
+    date_raw: 14 Jul 2010 — 12:09am
+    votes: null
+    html: |-
+      <p>Logged in bugzilla.</p>
+      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=578615" title="https://bugzilla.mozilla.org/show_bug.cgi?id=578615">https://bugzilla.mozilla.org/show_bug.cgi?id=578615</a></p>
+    html_clean: |-
+      <p>Logged in bugzilla.</p>
+      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=578615" title="https://bugzilla.mozilla.org/show_bug.cgi?id=578615">https://bugzilla.mozilla.org/show_bug.cgi?id=578615</a></p>
+  - id: 420144
+    user: 45774
+    date: 2010-07-14T00:38:00
+    date_raw: 14 Jul 2010 — 12:38am
+    votes: null
+    html: <p>That was fast, John. Thanks! A few years ago I stopped my commitment to Mozilla, when I was suspended on mozillazine (because I wrote, that some changes of the skin of Firefox were “bullshit”, but that word seemed already too dirty for a few child protecting extremist moderators and a certain exorcist with a licence for being arrogant as bounty for more than 10000 posts). Well, my reaction was not less ridiculous. I thought, that anybody else would see the problem and report that bug, but I should have reported it by myself.</p>
+    html_clean: <p>That was fast, John. Thanks! A few years ago I stopped my commitment to Mozilla, when I was suspended on mozillazine (because I wrote, that some changes of the skin of Firefox were “bullshit”, but that word seemed already too dirty for a few child protecting extremist moderators and a certain exorcist with a licence for being arrogant as bounty for more than 10000 posts). Well, my reaction was not less ridiculous. I thought, that anybody else would see the problem and report that bug, but I should have reported it by myself.</p>
+  - id: 431326
+    user: 45774
+    date: 2010-09-26T23:17:00
+    date_raw: 26 Sep 2010 — 11:17pm
+    votes: null
+    html: <p>The bug is not yet fixed in Firefox 4.0 beta 6.</p>
+    html_clean: <p>The bug is not yet fixed in Firefox 4.0 beta 6.</p>
+  - id: 431329
+    user: 45774
+    date: 2010-09-26T23:40:00
+    date_raw: 26 Sep 2010 — 11:40pm
+    votes: null
+    html: |-
+      <p>Maybe they need more people that confirm the bug.</p>
+      <p><strong><a href="https://bugzilla.mozilla.org/attachment.cgi?id=457497" rel="nofollow">Test case</a></strong></p>
+      <p><strong><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=442139" rel="nofollow">Bug report</a></strong></p>
+    html_clean: |-
+      <p>Maybe they need more people that confirm the bug.</p>
+      <p><strong><a href="https://bugzilla.mozilla.org/attachment.cgi?id=457497" rel="nofollow">Test case</a></strong></p>
+      <p><strong><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=442139" rel="nofollow">Bug report</a></strong></p>
+  - id: 432227
+    user: 45774
+    date: 2010-10-02T12:58:00
+    date_raw: 2 Oct 2010 — 12:58pm
+    votes: null
+    html: |-
+      <p>Please register at Bugzilla and vote for the importance of that bug. Mozilla does not seem to be interested in fixing this bug. I cannot imagine, that you like uneven line spacing.</p>
+      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=442139" title="https://bugzilla.mozilla.org/show_bug.cgi?id=442139">https://bugzilla.mozilla.org/show_bug.cgi?id=442139</a></p>
+    html_clean: |-
+      <p>Please register at Bugzilla and vote for the importance of that bug. Mozilla does not seem to be interested in fixing this bug. I cannot imagine, that you like uneven line spacing.</p>
+      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=442139" title="https://bugzilla.mozilla.org/show_bug.cgi?id=442139">https://bugzilla.mozilla.org/show_bug.cgi?id=442139</a></p>
+  - id: 432484
+    user: 1461
+    date: 2010-10-04T08:31:00
+    date_raw: 4 Oct 2010 — 8:31am
+    votes: null
+    html: |-
+      <p>Firefox does this up and down rounding in other places, where it's actually a huge benefit compared to what the other browsers do (namely when dealing with horizontal percentage widths in a flexible container). </p>
+      <p>So I can see it being the 'norm' by design.</p>
+      <p>That said, I can't see a reason for it remain that way for line spacing. So while it may not be a bug, it really is something that should be looked at and fixed.</p>
+    html_clean: |-
+      <p>Firefox does this up and down rounding in other places, where it's actually a huge benefit compared to what the other browsers do (namely when dealing with horizontal percentage widths in a flexible container). </p>
+      <p>So I can see it being the 'norm' by design.</p>
+      <p>That said, I can't see a reason for it remain that way for line spacing. So while it may not be a bug, it really is something that should be looked at and fixed.</p>
+  - id: 432489
+    user: 1049
+    date: 2010-10-04T08:52:00
+    date_raw: 4 Oct 2010 — 8:52am
+    votes: null
+    html: |-
+      <p>A "fix" would require subpixel baseline positioning, right? Anyone know which popular apps, OS, or frameworks don’t put text baselines on whole pixel boundaries? If InDesign or Acrobat can get away with it, then that might push browsers in the same direction.</p>
+      <p>Cheers, Si</p>
+    html_clean: |-
+      <p>A "fix" would require subpixel baseline positioning, right? Anyone know which popular apps, OS, or frameworks don’t put text baselines on whole pixel boundaries? If InDesign or Acrobat can get away with it, then that might push browsers in the same direction.</p>
+      <p>Cheers, Si</p>
+  - id: 432497
+    user: 45774
+    date: 2010-10-04T09:32:00
+    date_raw: 4 Oct 2010 — 9:32am
+    votes: null
+    html: |-
+      <p>Subpixel baseline positioning? No, I don’t think, that this has to do with subpixel baseline positioning. 0.95 em are equal tp 15.2 px, if 1 em is 16 px. So, if the font size is 16 px and the line height 0.95 em, Firefox creates a line height of 16 px for every sixth line. And the height of the other lines is 15 px. Dependent from the fraction of em you have different line heights in the same text block. There is no other browser with that bug. I assume, it is a question of minutes to fix that bug! But it is not yet fixed, although it is documented since 2008.</p>
+      <p>Again, the problem can also appear, if the unit for the font size is em or any other unit.</p>
+    html_clean: |-
+      <p>Subpixel baseline positioning? No, I don’t think, that this has to do with subpixel baseline positioning. 0.95 em are equal tp 15.2 px, if 1 em is 16 px. So, if the font size is 16 px and the line height 0.95 em, Firefox creates a line height of 16 px for every sixth line. And the height of the other lines is 15 px. Dependent from the fraction of em you have different line heights in the same text block. There is no other browser with that bug. I assume, it is a question of minutes to fix that bug! But it is not yet fixed, although it is documented since 2008.</p>
+      <p>Again, the problem can also appear, if the unit for the font size is em or any other unit.</p>
+  - id: 432538
+    user: 1461
+    date: 2010-10-04T12:44:00
+    date_raw: 4 Oct 2010 — 12:44pm
+    votes: null
+    html: |-
+      <p>"I assume, it is a question of minutes to fix that bug!"</p>
+      <p>Anyone that has ever written software will roll their eyes at you if you say that. ;)</p>
+      <p>It may, though I have a hunch it's tied into the overall rounding algorithms used everywhere (see previous post). They likely don't see it as a bug, and perhaps a more useful approach would be to present to the Mozilla group as it being an exception that needs to be added.</p>
+    html_clean: |-
+      <p>"I assume, it is a question of minutes to fix that bug!"</p>
+      <p>Anyone that has ever written software will roll their eyes at you if you say that. ;)</p>
+      <p>It may, though I have a hunch it's tied into the overall rounding algorithms used everywhere (see previous post). They likely don't see it as a bug, and perhaps a more useful approach would be to present to the Mozilla group as it being an exception that needs to be added.</p>
+  - id: 432542
+    user: 45774
+    date: 2010-10-04T13:14:00
+    date_raw: 4 Oct 2010 — 1:14pm
+    votes: null
+    html: |-
+      <p>@ aluminium</p>
+      <p>About which algorthm are you talking?</p>
+      <p>If the em is 16 px and the lineheight is defined as 0.95 em for the same element, then it has do be rounded down from 15.2 px to 15 px. That’s the whole "algorithm", isn’t it? If it exceeds 15.4 px, because the line height is defined as 0.975 em for example, it has to be rounded up to 16 px.</p>
+    html_clean: |-
+      <p>@ aluminium</p>
+      <p>About which algorthm are you talking?</p>
+      <p>If the em is 16 px and the lineheight is defined as 0.95 em for the same element, then it has do be rounded down from 15.2 px to 15 px. That’s the whole "algorithm", isn’t it? If it exceeds 15.4 px, because the line height is defined as 0.975 em for example, it has to be rounded up to 16 px.</p>
+  - id: 432552
+    user: 21217
+    date: 2010-10-04T13:54:00
+    date_raw: 4 Oct 2010 — 1:54pm
+    votes: null
+    html: <p>You know, "font" people think the only complex (and the only important) piece of software are the fonts themselves, every thing else is trivial and its bugs can be fixed in minutes :p</p>
+    html_clean: <p>You know, "font" people think the only complex (and the only important) piece of software are the fonts themselves, every thing else is trivial and its bugs can be fixed in minutes :p</p>
+  - id: 432557
+    user: 1461
+    date: 2010-10-04T14:31:00
+    date_raw: 4 Oct 2010 — 2:31pm
+    votes: null
+    html: |-
+      <p>@arno:</p>
+      <p>It's just a hunch. I'm basing that hunch on how Firefox does rounding elsewhere. For instance, if you set up a horizontal layout with TDs or DIVs all set to percentage widths, it does the same thing...it rounds up AND down to make sure the total = 100%. This is different than other browsers. IE rounds everything up OR down (so you end up short or over). Opera rounds everything down (so you end up short).</p>
+      <p>My thought was maybe it's a universal aspect of Firefox so not necessarily easy to change for one particular element (in this case line-spacing).</p>
+    html_clean: |-
+      <p>@arno:</p>
+      <p>It's just a hunch. I'm basing that hunch on how Firefox does rounding elsewhere. For instance, if you set up a horizontal layout with TDs or DIVs all set to percentage widths, it does the same thing...it rounds up AND down to make sure the total = 100%. This is different than other browsers. IE rounds everything up OR down (so you end up short or over). Opera rounds everything down (so you end up short).</p>
+      <p>My thought was maybe it's a universal aspect of Firefox so not necessarily easy to change for one particular element (in this case line-spacing).</p>

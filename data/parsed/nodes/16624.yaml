@@ -1,0 +1,91 @@
+node: 16624
+title: creating a "sometimes" styalistic alternative?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20071109102618"
+  captured_at: 2007-11-09T10:26:18Z
+  url: http://www.typophile.com:80/node/16624
+  digest: N6BBE6M6OTPVH7IAOTRF3FQCXQ45MKYC
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/16624.html
+  fingerprint: 8a714afba9b7cf20
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20071109102618"
+      digest: N6BBE6M6OTPVH7IAOTRF3FQCXQ45MKYC
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/16624.html
+post:
+  id: 16624
+  user: 5094
+  date: 2005-12-05T19:39:00
+  date_raw: 5.Dec.2005 7.39pm
+  votes: null
+  html: |-
+    <p>We have a job in to typeset, the first in what will be a long series, the letters of Henry James. It turns out that the publisher wants to use a special ampersand in some places where James used “his” ampersand. While the publisher has not yet found money for an XML version of the book(s), It does seem likely, especially since the eventual publication of all the letters will run many years. </p>
+    <p>So while it is not hard to create and set the “special” ampersand, if I put it as such in the composition file, there will be a problem downstream.</p>
+    <p>I believe InDesign CS II does not support salt, which might be one way to typeset different ampersands, while retaining the general Unicode number for an ampersand.</p>
+    <p>The other way I can think of is to embed a “private use” character of zero width in the file before all the ampersands to be rendered with the special character, then use “contextual alternatives” to set the special ampersand in the book. From limited testing on another matter, the private use character will drop out in plain text, leaving just the call for the ampersand, so an XML file using any font will at least display an ampersand – though not, of course, James’ rendition.</p>
+    <p>Sill it bugs me to approach the matter this way. Anybody think of a better solution?</p>
+    <p>TIA<br>
+    </p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/16626" class="topic-previous" title="Go to previous forum topic">‹ Making shapes of certain sizes in FontLab</a> <a href="/node/15453" class="topic-next" title="Go to next forum topic">typeface testing ›</a></div>
+  html_clean: |-
+    <p>We have a job in to typeset, the first in what will be a long series, the letters of Henry James. It turns out that the publisher wants to use a special ampersand in some places where James used “his” ampersand. While the publisher has not yet found money for an XML version of the book(s), It does seem likely, especially since the eventual publication of all the letters will run many years. </p>
+    <p>So while it is not hard to create and set the “special” ampersand, if I put it as such in the composition file, there will be a problem downstream.</p>
+    <p>I believe InDesign CS II does not support salt, which might be one way to typeset different ampersands, while retaining the general Unicode number for an ampersand.</p>
+    <p>The other way I can think of is to embed a “private use” character of zero width in the file before all the ampersands to be rendered with the special character, then use “contextual alternatives” to set the special ampersand in the book. From limited testing on another matter, the private use character will drop out in plain text, leaving just the call for the ampersand, so an XML file using any font will at least display an ampersand – though not, of course, James’ rendition.</p>
+    <p>Sill it bugs me to approach the matter this way. Anybody think of a better solution?</p>
+    <p>TIA<br>
+    </p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/16626/" class="topic-previous" title="Go to previous forum topic">‹ Making shapes of certain sizes in FontLab</a> <a href="/node/15453/" class="topic-next" title="Go to next forum topic">typeface testing ›</a></div>
+comments:
+  - id: 98581
+    user: 1043
+    date: 2005-12-05T21:31:00
+    date_raw: 5.Dec.2005 9.31pm
+    votes: null
+    html: <p>InDesign CS2 supports Stylistic Sets (ss01 - ss20).</p>
+    html_clean: <p>InDesign CS2 supports Stylistic Sets (ss01 - ss20).</p>
+  - id: 98606
+    user: 5094
+    date: 2005-12-06T06:41:00
+    date_raw: 6.Dec.2005 6.41am
+    votes: null
+    html: |-
+      <p>Yes, thanks. I was thinking that the appropriate use of sets is</p>
+      <p>“Function: In addition to, or instead of, stylistic alternatives of individual glyphs (see ’salt’ feature), some fonts may contain sets of stylistic variant glyphs corresponding to portions of the character set, e.g. multiple variants for lowercase letters in a Latin font.”</p>
+      <p>There aren’t going to be multiple variants, but I suppose this is a case of whatever works.</p>
+    html_clean: |-
+      <p>Yes, thanks. I was thinking that the appropriate use of sets is</p>
+      <p>“Function: In addition to, or instead of, stylistic alternatives of individual glyphs (see ’salt’ feature), some fonts may contain sets of stylistic variant glyphs corresponding to portions of the character set, e.g. multiple variants for lowercase letters in a Latin font.”</p>
+      <p>There aren’t going to be multiple variants, but I suppose this is a case of whatever works.</p>
+  - id: 98635
+    user: 1336
+    date: 2005-12-06T09:54:00
+    date_raw: 6.Dec.2005 9.54am
+    votes: null
+    html: |-
+      <p>You could also use the titl - Titling - feature, though that’s probably not as Kosher as a Stylistic Set, but it would be supported by Illustrator and Photoshop. (Stylistic Sets are presently only supported by InDesign CS2.) </p>
+      <p>As long as your alternate ampersand is named “right”, you shouldn’t have problems. The correct form would be ampersand.alt (or ampersand.James, or something like that, but I would stick with .alt.)</p>
+      <p>Another alternative might be to have a separate version of the face with the “basic” ampersand changed to the Jamesian ampersand, and use that font for all James quotations.</p>
+    html_clean: |-
+      <p>You could also use the titl - Titling - feature, though that’s probably not as Kosher as a Stylistic Set, but it would be supported by Illustrator and Photoshop. (Stylistic Sets are presently only supported by InDesign CS2.) </p>
+      <p>As long as your alternate ampersand is named “right”, you shouldn’t have problems. The correct form would be ampersand.alt (or ampersand.James, or something like that, but I would stick with .alt.)</p>
+      <p>Another alternative might be to have a separate version of the face with the “basic” ampersand changed to the Jamesian ampersand, and use that font for all James quotations.</p>

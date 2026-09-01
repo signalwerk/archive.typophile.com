@@ -1,0 +1,314 @@
+node: 114576
+title: Creating a font family with TTX
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150218042920"
+  captured_at: 2015-02-18T04:29:20Z
+  url: http://typophile.com:80/node/114576
+  digest: GW324WZK3TWQ6P67QV2V3PY7PRD4G67C
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/114576.html
+  fingerprint: 5f4f1014b5981ba0
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150218042920"
+      digest: GW324WZK3TWQ6P67QV2V3PY7PRD4G67C
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/114576.html
+post:
+  id: 114576
+  user: 216066
+  date: 2014-02-27T05:08:00
+  date_raw: 27 Feb 2014 — 5:08am
+  votes: null
+  html: |-
+    <p>Hi,<br>
+    I have got a set of four .OTF fonts that in the font menu of MS Office 2003 are displayed as follow:</p>
+    <p>Times Regular<br>
+    Times Italic<br>
+    Times Bold<br>
+    Times Bold Italic</p>
+    <p>I would like to edit the font files so that in the font menu they are displayed as a single line "Times".<br>
+    Picking "Times" from the menu I should get Regular.<br>
+    Italic, Bold and Bold Italic should be activated via the correspondent button in the toolbar.</p>
+    <p>I've already installed TTX and I have concerted the OTF files to XML. What lines should I edit to get what I want?</p>
+    <p>Thank you</p>
+  html_clean: |-
+    <p>Hi,<br>
+    I have got a set of four .OTF fonts that in the font menu of MS Office 2003 are displayed as follow:</p>
+    <p>Times Regular<br>
+    Times Italic<br>
+    Times Bold<br>
+    Times Bold Italic</p>
+    <p>I would like to edit the font files so that in the font menu they are displayed as a single line "Times".<br>
+    Picking "Times" from the menu I should get Regular.<br>
+    Italic, Bold and Bold Italic should be activated via the correspondent button in the toolbar.</p>
+    <p>I've already installed TTX and I have concerted the OTF files to XML. What lines should I edit to get what I want?</p>
+    <p>Thank you</p>
+comments:
+  - id: 572628
+    user: 216066
+    date: 2014-03-02T10:36:00
+    date_raw: 2 Mar 2014 — 10:36am
+    votes: null
+    html: <p>Can someone help me with this?</p>
+    html_clean: <p>Can someone help me with this?</p>
+  - id: 572686
+    user: 19493
+    date: 2014-03-03T07:43:00
+    date_raw: 3 Mar 2014 — 7:43am
+    votes: null
+    html: <p>Please search for what is called font style linking. It’s quite a common topic and it’s been dealt with many times here on Typophile alone. You should have no problem finding detailed instructions if you do some search by these keywords, I’m sure.</p>
+    html_clean: <p>Please search for what is called font style linking. It’s quite a common topic and it’s been dealt with many times here on Typophile alone. You should have no problem finding detailed instructions if you do some search by these keywords, I’m sure.</p>
+  - id: 572697
+    user: 9636
+    date: 2014-03-03T11:09:00
+    date_raw: 3 Mar 2014 — 11:09am
+    votes: null
+    html: |-
+      <p>see if this helps:</p>
+      <p><a href="http://www.kltf.de/downloads/FontNaming-kltf.pdf" title="http://www.kltf.de/downloads/FontNaming-kltf.pdf">http://www.kltf.de/downloads/FontNaming-kltf.pdf</a></p>
+    html_clean: |-
+      <p>see if this helps:</p>
+      <p><a href="http://www.kltf.de/downloads/FontNaming-kltf.pdf" title="http://www.kltf.de/downloads/FontNaming-kltf.pdf">http://www.kltf.de/downloads/FontNaming-kltf.pdf</a></p>
+  - id: 572703
+    user: 18942
+    date: 2014-03-03T12:51:00
+    date_raw: 3 Mar 2014 — 12:51pm
+    votes: null
+    html: |-
+      <p>How to do it with FontLab will not help. The relevant Microsoft information for the Naming table is</p>
+      <p><a href="https://www.microsoft.com/typography/otspec/name.htm" title="https://www.microsoft.com/typography/otspec/name.htm">https://www.microsoft.com/typography/otspec/name.htm</a></p>
+      <p>The Name IDs need to be fixed. </p>
+      <p>In the xml file produced by ttx, the line after <code>namerecord nameID="1"</code> should be the family name, here <code>Times</code>; the line after <code>namerecord nameID="2"</code> should be the subfamily, here either <code>Regular</code> or <code>Italic</code> or <code>Bold</code> or <code>Bold Italic</code>; the line after <code>namerecord nameID="4"</code> should be the full name, i.e. either <code>Times Regular</code> or <code>Times Italic</code> or <code>Times Bold</code> or <code>Times Bold Italic</code>.</p>
+      <p>Notice that <code>nameID="1"</code>, <code>nameID="2"</code> and <code>nameID="4"</code> normally appear at least twice, once for the Macintosh, once for Windows.</p>
+    html_clean: |-
+      <p>How to do it with FontLab will not help. The relevant Microsoft information for the Naming table is</p>
+      <p><a href="https://www.microsoft.com/typography/otspec/name.htm" title="https://www.microsoft.com/typography/otspec/name.htm">https://www.microsoft.com/typography/otspec/name.htm</a></p>
+      <p>The Name IDs need to be fixed. </p>
+      <p>In the xml file produced by ttx, the line after <code>namerecord nameID="1"</code> should be the family name, here <code>Times</code>; the line after <code>namerecord nameID="2"</code> should be the subfamily, here either <code>Regular</code> or <code>Italic</code> or <code>Bold</code> or <code>Bold Italic</code>; the line after <code>namerecord nameID="4"</code> should be the full name, i.e. either <code>Times Regular</code> or <code>Times Italic</code> or <code>Times Bold</code> or <code>Times Bold Italic</code>.</p>
+      <p>Notice that <code>nameID="1"</code>, <code>nameID="2"</code> and <code>nameID="4"</code> normally appear at least twice, once for the Macintosh, once for Windows.</p>
+  - id: 572704
+    user: 1688
+    date: 2014-03-03T13:28:00
+    date_raw: 3 Mar 2014 — 1:28pm
+    votes: null
+    html: |-
+      <p>Michel: ‘<em>The Name IDs need to be fixed.’ </em></p>
+      <p>Probably you’ll have to ﬁddle with the style-bit setting too (as mentioned in the <em>Name IDs</em> part):</p>
+      <p><a href="https://www.microsoft.com/typography/otspec/os2.htm#fss" title="https://www.microsoft.com/typography/otspec/os2.htm#fss">https://www.microsoft.com/typography/otspec/os2.htm#fss</a></p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Michel: ‘<em>The Name IDs need to be fixed.’ </em></p>
+      <p>Probably you’ll have to ﬁddle with the style-bit setting too (as mentioned in the <em>Name IDs</em> part):</p>
+      <p><a href="https://www.microsoft.com/typography/otspec/os2.htm#fss" title="https://www.microsoft.com/typography/otspec/os2.htm#fss">https://www.microsoft.com/typography/otspec/os2.htm#fss</a></p>
+      <p>FEB</p>
+  - id: 572707
+    user: 216066
+    date: 2014-03-03T13:30:00
+    date_raw: 3 Mar 2014 — 1:30pm
+    votes: null
+    html: |-
+      <p>Hello,</p>
+      <p>first of all thank you for your precious help! I'm reading the pages you've linked: they are really interesting...</p>
+      <p>I have another question for you. I've just found a software that promises to solve my "font style linking" issue through a gui: <a class="freelinking external" href="http://www.fontlab.com/font-converter/transtype/" rel="nofollow">TransType 4</a>. It's not cheap but it could be very practical for my needs...</p>
+      <p>Is there any problem with using TranType 4 to link font styles? Is there any reason I should use TTX instead?</p>
+      <p>Manosk</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p>first of all thank you for your precious help! I'm reading the pages you've linked: they are really interesting...</p>
+      <p>I have another question for you. I've just found a software that promises to solve my "font style linking" issue through a gui: <a class="freelinking external" href="http://www.fontlab.com/font-converter/transtype/" rel="nofollow">TransType 4</a>. It's not cheap but it could be very practical for my needs...</p>
+      <p>Is there any problem with using TranType 4 to link font styles? Is there any reason I should use TTX instead?</p>
+      <p>Manosk</p>
+  - id: 572709
+    user: 18942
+    date: 2014-03-03T13:45:00
+    date_raw: 3 Mar 2014 — 1:45pm
+    votes: null
+    html: <p>I don't know TransType 4 but TTX is normally a last resort.</p>
+    html_clean: <p>I don't know TransType 4 but TTX is normally a last resort.</p>
+  - id: 572715
+    user: 18942
+    date: 2014-03-03T15:29:00
+    date_raw: 3 Mar 2014 — 3:29pm
+    votes: null
+    html: |-
+      <p>Frank: <em>Probably you’ll have to ﬁddle with the style-bit setting too (as mentioned in the Name IDs part):</em></p>
+      <p>I see that FontForge adjusts those bits automatically.</p>
+    html_clean: |-
+      <p>Frank: <em>Probably you’ll have to ﬁddle with the style-bit setting too (as mentioned in the Name IDs part):</em></p>
+      <p>I see that FontForge adjusts those bits automatically.</p>
+  - id: 572762
+    user: 1688
+    date: 2014-03-04T08:34:00
+    date_raw: 4 Mar 2014 — 8:34am
+    votes: null
+    html: |-
+      <p>Michel: <em>‘I see that FontForge adjusts those bits automatically.’</em></p>
+      <p>Remains the question whether what FF automatically does with this bits is what you want it to do. In case of the four styles/weights in question this will be no problem, I reckon. But working with FF requires decompilation of the fonts to FF’s internal format, which is not the case with TTX or DTL OTMaster (OTM). Depending on the (quality of the) program used for the conversion of .ttf to .otf (is that allowed anyway?) that could be considered a disadvantage or an advantage though.</p>
+      <p>My advise is to ﬁrst check the consistency of the font naming and style bits with the free <em>Light</em> version of OTM, which can be downloaded from the <a href="http://www.fontmaster.nl/" rel="nofollow">FM website</a>.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Michel: <em>‘I see that FontForge adjusts those bits automatically.’</em></p>
+      <p>Remains the question whether what FF automatically does with this bits is what you want it to do. In case of the four styles/weights in question this will be no problem, I reckon. But working with FF requires decompilation of the fonts to FF’s internal format, which is not the case with TTX or DTL OTMaster (OTM). Depending on the (quality of the) program used for the conversion of .ttf to .otf (is that allowed anyway?) that could be considered a disadvantage or an advantage though.</p>
+      <p>My advise is to ﬁrst check the consistency of the font naming and style bits with the free <em>Light</em> version of OTM, which can be downloaded from the <a href="http://www.fontmaster.nl/" rel="nofollow">FM website</a>.</p>
+      <p>FEB</p>
+  - id: 572764
+    user: 18942
+    date: 2014-03-04T17:09:00
+    date_raw: 4 Mar 2014 — 5:09pm
+    votes: null
+    html: |-
+      <p>Frank</p>
+      <p>I agree with what you say. However, even with your light version of DTL, the user needs to know what to look for, and where, and for fsSelection the display is hardly better than with TTX. </p>
+      <p><img src="/files/fssel_6146.png"></p>
+      <p>In my opinion, to properly display the relevant information, some very basic python code using the fonttools would be preferable. Just to read the fsSelection bits, here is some code that assumes that AFDKO is installed; just copy the lines between the cut lines and paste them in a terminal window (on the macintosh).</p>
+      <pre>---- cut line
+      TTX=`which AFDKOPython`
+      TTXF=`dirname $TTX`
+      cat &gt; ${TTXF}/fssel &lt;&lt;'EOF'
+      #!/usr/bin/env AFDKOPython
+
+      from fontTools.ttLib import TTFont
+      import sys
+      fsbits = {0x001:'Italic',
+                0x002:'Underscore',
+                0x004:'Reverse video',
+                0x008:'Outlined',
+                0x010:'Striked out',
+                0x020:'Bold',
+                0x040:'Regular',
+                0x080:'Use Windows spacing metrics',
+                0x100:'WWW',
+                0x200:'Oblique'}
+
+      f=TTFont(sys.argv[1])
+      fs = f["OS/2"].fsSelection
+      print "The fsSelection bits say:"
+      for bit in fsbits:
+        if fs &amp; bit:
+          print "     ", fsbits[bit]
+      EOF
+      chmod 755 ${TTXF}/fssel
+      ---- cut line
+      </pre>
+      That saves an executable called <code>fssel</code> in your path. Now, here is a trace of execution on the same file as the grab above:
+      <pre>----
+      605 % fssel /Library/Fonts/ArnoPro-BoldItalic.otf
+      The fsSelection bits say:
+            Italic
+            Bold
+            Use Windows spacing metrics
+      ----
+      </pre>
+      Slightly more readable, no?
+    html_clean: |-
+      <p>Frank</p>
+      <p>I agree with what you say. However, even with your light version of DTL, the user needs to know what to look for, and where, and for fsSelection the display is hardly better than with TTX. </p>
+      <p><img src="/files/fssel_6146.png"></p>
+      <p>In my opinion, to properly display the relevant information, some very basic python code using the fonttools would be preferable. Just to read the fsSelection bits, here is some code that assumes that AFDKO is installed; just copy the lines between the cut lines and paste them in a terminal window (on the macintosh).</p>
+      <pre>---- cut line
+      TTX=`which AFDKOPython`
+      TTXF=`dirname $TTX`
+      cat &gt; ${TTXF}/fssel &lt;&lt;'EOF'
+      #!/usr/bin/env AFDKOPython
+
+      from fontTools.ttLib import TTFont
+      import sys
+      fsbits = {0x001:'Italic',
+                0x002:'Underscore',
+                0x004:'Reverse video',
+                0x008:'Outlined',
+                0x010:'Striked out',
+                0x020:'Bold',
+                0x040:'Regular',
+                0x080:'Use Windows spacing metrics',
+                0x100:'WWW',
+                0x200:'Oblique'}
+
+      f=TTFont(sys.argv[1])
+      fs = f["OS/2"].fsSelection
+      print "The fsSelection bits say:"
+      for bit in fsbits:
+        if fs &amp; bit:
+          print "     ", fsbits[bit]
+      EOF
+      chmod 755 ${TTXF}/fssel
+      ---- cut line
+      </pre>
+      That saves an executable called <code>fssel</code> in your path. Now, here is a trace of execution on the same file as the grab above:
+      <pre>----
+      605 % fssel /Library/Fonts/ArnoPro-BoldItalic.otf
+      The fsSelection bits say:
+            Italic
+            Bold
+            Use Windows spacing metrics
+      ----
+      </pre>
+      Slightly more readable, no?
+  - id: 572765
+    user: 1688
+    date: 2014-03-04T09:47:00
+    date_raw: 4 Mar 2014 — 9:47am
+    votes: null
+    html: |-
+      <p>Michel: ‘<em>However, even with your light version of DTL, the user needs to know what to look for and where and for fsSelection, the display is hardly better than with TTX.</em>’</p>
+      <p>Perhaps if one goes directly to the ‘OS/2’ table, but the <em>Consistency Checker</em> (‘Tools’ menu) is quite convenient IMHO:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_20_6516.jpg"></div><p></p>
+      <p>The <em>Consistency Checker</em> in the OTM 370 full version provides even more information:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_370_5294.jpg"></div><p></p>
+      <p>Also the consistency of the font naming can be checked with OTM (Light):</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_20_2_5364.jpg"></div><p></p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Michel: ‘<em>However, even with your light version of DTL, the user needs to know what to look for and where and for fsSelection, the display is hardly better than with TTX.</em>’</p>
+      <p>Perhaps if one goes directly to the ‘OS/2’ table, but the <em>Consistency Checker</em> (‘Tools’ menu) is quite convenient IMHO:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_20_6516.jpg"></div><p></p>
+      <p>The <em>Consistency Checker</em> in the OTM 370 full version provides even more information:<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_370_5294.jpg"></div><p></p>
+      <p>Also the consistency of the font naming can be checked with OTM (Light):</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/OTM_Light_20_2_5364.jpg"></div><p></p>
+      <p>FEB</p>
+  - id: 573458
+    user: 909
+    date: 2014-03-11T19:11:00
+    date_raw: 11 Mar 2014 — 7:11pm
+    votes: null
+    html: <p>TransType is pretty much the ideal tool for fixing/updating family groups and style linking. The GUI is dead easy, and technically it does the Right Things with few opportunities for error.</p>
+    html_clean: <p>TransType is pretty much the ideal tool for fixing/updating family groups and style linking. The GUI is dead easy, and technically it does the Right Things with few opportunities for error.</p>
+  - id: 582696
+    user: 216066
+    date: 2014-07-12T11:28:00
+    date_raw: 12 Jul 2014 — 11:28am
+    votes: null
+    html: "<p>Frankly ttx is a little intimidating for me. I would prefer to use a gui to create font families working in Word from original single OTF fonts. What is the best software to create OTF font families: TransType 4 or OTMaster? The latter is currently on offer, so their prices are similar.</p>"
+    html_clean: "<p>Frankly ttx is a little intimidating for me. I would prefer to use a gui to create font families working in Word from original single OTF fonts. What is the best software to create OTF font families: TransType 4 or OTMaster? The latter is currently on offer, so their prices are similar.</p>"
+  - id: 582697
+    user: 909
+    date: 2014-07-12T12:14:00
+    date_raw: 12 Jul 2014 — 12:14pm
+    votes: null
+    html: |-
+      <p>If you are looking for GUI and ease of use, then go with TransType.</p>
+      <p>OTMaster is much more powerful and flexible in this area, but it does not hold your hand nearly so much or present family info nearly so visually.</p>
+      <p>I now work at FontLab, and we sell both tools.  :)</p>
+    html_clean: |-
+      <p>If you are looking for GUI and ease of use, then go with TransType.</p>
+      <p>OTMaster is much more powerful and flexible in this area, but it does not hold your hand nearly so much or present family info nearly so visually.</p>
+      <p>I now work at FontLab, and we sell both tools.  :)</p>

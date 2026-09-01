@@ -1,0 +1,176 @@
+node: 34776
+title: Opentype scripts, swash
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150222133132"
+  captured_at: 2015-02-22T13:31:32Z
+  url: http://typophile.com:80/node/34776
+  digest: NOGMWUTEK7GPJYUYTUGIS2CWPHJF3HWM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/34776.html
+  fingerprint: 641f966c4ca27d38
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150222133132"
+      digest: NOGMWUTEK7GPJYUYTUGIS2CWPHJF3HWM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/34776.html
+post:
+  id: 34776
+  user: 2642
+  date: 2007-06-27T02:18:00
+  date_raw: 27 Jun 2007 — 2:18am
+  votes: null
+  html: |-
+    <p>Hi Guys,</p>
+    <p>I have a question about Fontlab and Opentype-features:<br>
+    I want to make a OpenType-script for <a href="/wiki/swash" class="freelinking" rel="nofollow">swash</a> characters. One script for<br>
+    beginning characters, and one for the last.<br>
+    But whatever I do, not only the beginning character are changed, but also<br>
+    other Uppercase-letters inside the text-string....<br>
+    What's going wrong??</p>
+    <p>Best regards and thanks for your help,<br>
+    Morten</p>
+  html_clean: |-
+    <p>Hi Guys,</p>
+    <p>I have a question about Fontlab and Opentype-features:<br>
+    I want to make a OpenType-script for <a href="/wiki/swash" class="freelinking" rel="nofollow">swash</a> characters. One script for<br>
+    beginning characters, and one for the last.<br>
+    But whatever I do, not only the beginning character are changed, but also<br>
+    other Uppercase-letters inside the text-string....<br>
+    What's going wrong??</p>
+    <p>Best regards and thanks for your help,<br>
+    Morten</p>
+comments:
+  - id: 210775
+    user: 1794
+    date: 2007-06-27T02:31:00
+    date_raw: 27 Jun 2007 — 2:31am
+    votes: null
+    html: |-
+      <p>Show us your feature code. </p>
+      <p>Ralf</p>
+    html_clean: |-
+      <p>Show us your feature code. </p>
+      <p>Ralf</p>
+  - id: 210776
+    user: 5585
+    date: 2007-06-27T02:43:00
+    date_raw: 27 Jun 2007 — 2:43am
+    votes: null
+    html: |-
+      <p>Hello Morten,</p>
+      <p>I use this feature code for it and it works:</p>
+      <p>feature swsh {<br>
+      lookup cswsh {<br>
+        ignore sub @call @cswsh1';<br>
+        sub @cswsh1' by @cswsh2;<br>
+      } cswsh;<br>
+      } swsh;</p>
+      <p>@call = all characters including the space<br>
+      @cswsh1 = all uppercase character names<br>
+      @cswsh2 = all uppercase character with swash names</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Morten,</p>
+      <p>I use this feature code for it and it works:</p>
+      <p>feature swsh {<br>
+      lookup cswsh {<br>
+        ignore sub @call @cswsh1';<br>
+        sub @cswsh1' by @cswsh2;<br>
+      } cswsh;<br>
+      } swsh;</p>
+      <p>@call = all characters including the space<br>
+      @cswsh1 = all uppercase character names<br>
+      @cswsh2 = all uppercase character with swash names</p>
+      <p>Pieter</p>
+  - id: 210787
+    user: 2642
+    date: 2007-06-27T05:00:00
+    date_raw: 27 Jun 2007 — 5:00am
+    votes: null
+    html: |-
+      <p>Hello Pieter and Ralf,</p>
+      <p>Thanks a lot – unfortunately, it dont works perfect...please look at the attached screenshot.<br>
+      Of course, the must be a reason, but I can't see it. After the 'A', the Uppercase looks right,<br>
+      but 'PH' should only the P be a swash!   </p>
+      <p>Morten</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_4310.jpg"></div><p></p>
+    html_clean: |-
+      <p>Hello Pieter and Ralf,</p>
+      <p>Thanks a lot – unfortunately, it dont works perfect...please look at the attached screenshot.<br>
+      Of course, the must be a reason, but I can't see it. After the 'A', the Uppercase looks right,<br>
+      but 'PH' should only the P be a swash!   </p>
+      <p>Morten</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_4310.jpg"></div><p></p>
+  - id: 210808
+    user: 7006
+    date: 2007-06-27T06:29:00
+    date_raw: 27 Jun 2007 — 6:29am
+    votes: null
+    html: <p><a href="http://typophile.com/node/19839" rel="nofollow">Contextual swashes for beginnings</a></p>
+    html_clean: <p><a href="/node/19839/" rel="nofollow">Contextual swashes for beginnings</a></p>
+  - id: 211035
+    user: 8664
+    date: 2007-06-28T02:36:00
+    date_raw: 28 Jun 2007 — 2:36am
+    votes: null
+    html: '<p>In addition: You should name your @cswsh2-class glyphs the other way round. Not "scwsh.P" but "P.cswsh". "P" is the relevant glypyh name and ".cswsh" the suffix indicating an alternate form ...</p>'
+    html_clean: '<p>In addition: You should name your @cswsh2-class glyphs the other way round. Not "scwsh.P" but "P.cswsh". "P" is the relevant glypyh name and ".cswsh" the suffix indicating an alternate form ...</p>'
+  - id: 211044
+    user: 2642
+    date: 2007-06-28T04:24:00
+    date_raw: 28 Jun 2007 — 4:24am
+    votes: null
+    html: |-
+      <p>Thanks for your help – well, scripting is a hard work...;-)</p>
+      <p>Regards and thanks,<br>
+      Morten</p>
+    html_clean: |-
+      <p>Thanks for your help – well, scripting is a hard work...;-)</p>
+      <p>Regards and thanks,<br>
+      Morten</p>
+  - id: 211615
+    user: 1133
+    date: 2007-07-04T21:11:00
+    date_raw: 4 Jul 2007 — 9:11pm
+    votes: null
+    html: |-
+      <p>Morten, </p>
+      <p>1. Your @call class should include all text glyphs, not just the plain uppercase and lowercase letters. </p>
+      <p>2. You might consider adding simple-substitution "init" and "fina" features into your font. The "init" would substitute regular letters with their initial forms, and "fina" would do the same for the final forms. These features are supported now (on user's discretion) in InDesign CS3. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Morten, </p>
+      <p>1. Your @call class should include all text glyphs, not just the plain uppercase and lowercase letters. </p>
+      <p>2. You might consider adding simple-substitution "init" and "fina" features into your font. The "init" would substitute regular letters with their initial forms, and "fina" would do the same for the final forms. These features are supported now (on user's discretion) in InDesign CS3. </p>
+      <p>A.</p>
+  - id: 212298
+    user: 2642
+    date: 2007-07-09T01:23:00
+    date_raw: 9 Jul 2007 — 1:23am
+    votes: null
+    html: |-
+      <p>Hi Adam,</p>
+      <p>Yes, thanks, now it all works fine...great!</p>
+      <p>Morten</p>
+    html_clean: |-
+      <p>Hi Adam,</p>
+      <p>Yes, thanks, now it all works fine...great!</p>
+      <p>Morten</p>

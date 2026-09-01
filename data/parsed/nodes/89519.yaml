@@ -1,0 +1,138 @@
+node: 89519
+title: An "Extreme" OpenType font for stress-testing
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131016203621"
+  captured_at: 2013-10-16T20:36:21Z
+  url: http://typophile.com/node/89519
+  digest: PALHFT7TXRB7ISI2YSAZBHHSR4HPWYSM
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/89519.html
+  fingerprint: bd4b23ce7bf45e2a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131016203621"
+      digest: PALHFT7TXRB7ISI2YSAZBHHSR4HPWYSM
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/89519.html
+post:
+  id: 89519
+  user: 14653
+  date: 2012-01-28T06:13:00
+  date_raw: 28 Jan 2012 — 6:13am
+  votes: null
+  html: |-
+    <p>I really like building fonts, especially with lots of glyphs, and last year I built what is best described as an "extreme" OpenType/CFF font that is useful for stress-testing applications and environments that consume fonts, to include font resource editing software.</p>
+    <p>I upped the proverbial ante this past week by adding a third axis of extremeness to this font, and blogged about it (and also make it available for download). See: <a class="freelinking external" href="http://blogs.adobe.com/CCJKType/2012/01/extreme-otf.html" rel="nofollow">CJK Type Blog 01/26/2012 Post: An “Extreme” OpenType Font</a></p>
+    <p>Dr. Ken Lunde<br>
+    CJKV Type Development, Adobe Systems Incorporated<br>
+    San José, CA, USA, Earth<br>
+    <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+  html_clean: |-
+    <p>I really like building fonts, especially with lots of glyphs, and last year I built what is best described as an "extreme" OpenType/CFF font that is useful for stress-testing applications and environments that consume fonts, to include font resource editing software.</p>
+    <p>I upped the proverbial ante this past week by adding a third axis of extremeness to this font, and blogged about it (and also make it available for download). See: <a class="freelinking external" href="http://blogs.adobe.com/CCJKType/2012/01/extreme-otf.html" rel="nofollow">CJK Type Blog 01/26/2012 Post: An “Extreme” OpenType Font</a></p>
+    <p>Dr. Ken Lunde<br>
+    CJKV Type Development, Adobe Systems Incorporated<br>
+    San José, CA, USA, Earth<br>
+    <a href="mailto:lunde@adobe.com">lunde@adobe.com</a></p>
+comments:
+  - id: 495148
+    user: 29994
+    date: 2012-02-15T07:11:00
+    date_raw: 15 Feb 2012 — 7:11am
+    votes: null
+    html: |-
+      <p>Ken, this is excellent! As a matter of fact, it made my own home grown OTF checker crash (and in the middle of charstring #167 at that -- I need to check for integer overflows, methinks), so it is indeed a good stress test.</p>
+      <p>Are you aware of a similar font on which I could do tests for a CFF charstring parser?</p>
+    html_clean: |-
+      <p>Ken, this is excellent! As a matter of fact, it made my own home grown OTF checker crash (and in the middle of charstring #167 at that -- I need to check for integer overflows, methinks), so it is indeed a good stress test.</p>
+      <p>Are you aware of a similar font on which I could do tests for a CFF charstring parser?</p>
+  - id: 495562
+    user: 14653
+    date: 2012-02-17T15:34:00
+    date_raw: 17 Feb 2012 — 3:34pm
+    votes: null
+    html: |-
+      <p>I am glad to hear that this font could serve a useful purpose. For me, I dropped it into the OS (Mac OS X), and it is serving as a fallback font.</p>
+      <p>About your request, I would need to know more about what limits you're looking to test. Charstring length?</p>
+    html_clean: |-
+      <p>I am glad to hear that this font could serve a useful purpose. For me, I dropped it into the OS (Mac OS X), and it is serving as a fallback font.</p>
+      <p>About your request, I would need to know more about what limits you're looking to test. Charstring length?</p>
+  - id: 495760
+    user: 29994
+    date: 2012-02-20T05:22:00
+    date_raw: 20 Feb 2012 — 5:22am
+    votes: null
+    html: |-
+      <p><cite>I would need to know more about what limits you're looking to test. Charstring length?</cite></p>
+      <p>Uh, no (that maxes out at 64K - 1, IIRC). It wasn't a really well thought out question: after some more studying I don't think there is any requirement at all to be able to 'test charstrings'.<br>
+      Either a charstring is syntactically correct (i.e. leading to a valid stream of numbers and operators, where each operator clears the stack as per Spec.5177, and does not exceed the implementation limits in there), or it may be considered "malformed", and then there is probably something wrong with the charstring generator that was used.</p>
+      <p>A charstring generator is what I'm attempting to code; and indeed, encoding of outlines is straightforward (all just syntax) but problems in the "semantics" of outlines are much harder to detect, avoid, and/or automatically solve: overlapping shapes (I don't think there is an actual <em>rule</em> against this, but I gather it's "seriously frowned upon"), renegade curves (where 3 or more curve data points are 0), and artefacts cause by rounding from floating point coordinates to the 1,000 Unit Fixed Square.</p>
+      <p>A fun project, nevertheless.</p>
+    html_clean: |-
+      <p><cite>I would need to know more about what limits you're looking to test. Charstring length?</cite></p>
+      <p>Uh, no (that maxes out at 64K - 1, IIRC). It wasn't a really well thought out question: after some more studying I don't think there is any requirement at all to be able to 'test charstrings'.<br>
+      Either a charstring is syntactically correct (i.e. leading to a valid stream of numbers and operators, where each operator clears the stack as per Spec.5177, and does not exceed the implementation limits in there), or it may be considered "malformed", and then there is probably something wrong with the charstring generator that was used.</p>
+      <p>A charstring generator is what I'm attempting to code; and indeed, encoding of outlines is straightforward (all just syntax) but problems in the "semantics" of outlines are much harder to detect, avoid, and/or automatically solve: overlapping shapes (I don't think there is an actual <em>rule</em> against this, but I gather it's "seriously frowned upon"), renegade curves (where 3 or more curve data points are 0), and artefacts cause by rounding from floating point coordinates to the 1,000 Unit Fixed Square.</p>
+      <p>A fun project, nevertheless.</p>
+  - id: 495769
+    user: 29994
+    date: 2012-02-20T07:31:00
+    date_raw: 20 Feb 2012 — 7:31am
+    votes: null
+    html: |-
+      <p>Let me expand a bit on that for interested lurkers.</p>
+      <p>The byte stream<br>
+      <code>00 00 01 80 00 0A</code></p>
+      <p>is <em>invalid</em> because <code>00</code> does not produce valid code. This one is better:<br>
+      <code>FF 00 01 80 00 0A</code></p>
+      <p>because the first 5 bytes translate in a floating point number: 1.5. The sixth byte translates into the opcode "callsubr", so this sequence correctly translates into<br>
+      <code>1.5 callsubr</code></p>
+      <p>... but a subr number must be an integer (it is a simple table based lookup). So this is still "wrong", but on a higher level. But even when we change this code into<br>
+      <code>F6 0A</code></p>
+      <p>which translates into<br>
+      <code>-1 callsubr</code></p>
+      <p>we cannot be sure if this is "correct". According to Adobe's Charstring Specification #5177, there is a limit of 10 nested callsubr calls, and there is no way we can check if this one is the eleventh without actually parsing the entire charstring.</p>
+      <p>Still, these checks can be done by a fairly basic program. More insidious are syntactically correct constructs such as<br>
+      <code>10 0 10 vlineto</code></p>
+      <p>or indeed<br>
+      <code>10 0 -10 vlineto</code></p>
+      <p>(I'm <em>certain</em> that's not allowed), or self-crossing:<br>
+      <code>2 1 -1 -2 hlineto</code></p>
+      <p>... which is where the fun starts for me :)</p>
+    html_clean: |-
+      <p>Let me expand a bit on that for interested lurkers.</p>
+      <p>The byte stream<br>
+      <code>00 00 01 80 00 0A</code></p>
+      <p>is <em>invalid</em> because <code>00</code> does not produce valid code. This one is better:<br>
+      <code>FF 00 01 80 00 0A</code></p>
+      <p>because the first 5 bytes translate in a floating point number: 1.5. The sixth byte translates into the opcode "callsubr", so this sequence correctly translates into<br>
+      <code>1.5 callsubr</code></p>
+      <p>... but a subr number must be an integer (it is a simple table based lookup). So this is still "wrong", but on a higher level. But even when we change this code into<br>
+      <code>F6 0A</code></p>
+      <p>which translates into<br>
+      <code>-1 callsubr</code></p>
+      <p>we cannot be sure if this is "correct". According to Adobe's Charstring Specification #5177, there is a limit of 10 nested callsubr calls, and there is no way we can check if this one is the eleventh without actually parsing the entire charstring.</p>
+      <p>Still, these checks can be done by a fairly basic program. More insidious are syntactically correct constructs such as<br>
+      <code>10 0 10 vlineto</code></p>
+      <p>or indeed<br>
+      <code>10 0 -10 vlineto</code></p>
+      <p>(I'm <em>certain</em> that's not allowed), or self-crossing:<br>
+      <code>2 1 -1 -2 hlineto</code></p>
+      <p>... which is where the fun starts for me :)</p>

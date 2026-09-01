@@ -1,0 +1,383 @@
+node: 84168
+title: sub [Tcommaaccent] to [Tcedilla]?
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20140723152404"
+  captured_at: 2014-07-23T15:24:04Z
+  url: http://typophile.com/node/84168
+  digest: N2RHA4LLJ773KV3QWYOGOGIUOMN6JV4O
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/84168.html
+  fingerprint: 0854f226f5beaf61
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140723152404"
+      digest: N2RHA4LLJ773KV3QWYOGOGIUOMN6JV4O
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84168.html
+post:
+  id: 84168
+  user: 35635
+  date: 2011-07-29T21:23:00
+  date_raw: 29 Jul 2011 — 9:23pm
+  votes: null
+  html: |-
+    <p>Greetings</p>
+    <p>Adobe has released in the AGL changes such as <strong>Tcommaaccent</strong> and <strong>Tcedilla</strong>, but I do not understand when and where its use. </p>
+    <p>I saw the unicode codepoint of the Tcommaacent uppercase (uni0162/uni021A) and uni0163/uni021B for lowercase</p>
+    <p>I'm not native speaking of these glyphs, So can anyone explain the substitution of them?</p>
+    <p>Thank you so much.</p>
+    <p>Best regards</p>
+  html_clean: |-
+    <p>Greetings</p>
+    <p>Adobe has released in the AGL changes such as <strong>Tcommaaccent</strong> and <strong>Tcedilla</strong>, but I do not understand when and where its use. </p>
+    <p>I saw the unicode codepoint of the Tcommaacent uppercase (uni0162/uni021A) and uni0163/uni021B for lowercase</p>
+    <p>I'm not native speaking of these glyphs, So can anyone explain the substitution of them?</p>
+    <p>Thank you so much.</p>
+    <p>Best regards</p>
+comments:
+  - id: 472533
+    user: 31798
+    date: 2011-07-30T11:18:00
+    date_raw: 30 Jul 2011 — 11:18am
+    votes: null
+    html: |-
+      <p>I'm not clear on what you're asking here, but I suspect it actually concerns substituting Tcedilla with Tcommaaccent rather than vice versa.</p>
+      <p>As far as I know, Tcedilla does not actually occur in any language. However, it is included as a distinct unicode code point for legacy reasons.</p>
+      <p>In Rumanian, we find both Scommaaccent and Tcommaaccent. However, these were originally encoded as Scedilla and Tcedilla as the comma accent was viewed simply as an alternate form of the cedilla despite the fact that some languages (e.g. Romanian, Latvian) prefer the former form and others (e.g. Turkish) prefer the latter form.</p>
+      <p>This means that originally Turkish scedilla and Rumanian scommaaccent were assigned the same code point despite the fact that they have a different appearance. These were later disunified and both scommacccent and tcommaaccent were given their own code points distinct from scedilla and (non-occuring) tcedilla.</p>
+      <p>One will commonly include a substitution rule as follows:</p>
+      <p><code>feature locl {</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;script latn;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language ROM;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup Romanian {</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub Scedilla by Scommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub scedilla by scommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub Tcedilla by Tcommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub tcedilla by tcommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} Romanian;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language MOL</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup Romanian;</code></p>
+      <p><code>} locl; </code></p>
+      <p>This will ensure that the form with the comma is used for Rumanian regardless of whether the actual text uses S/T cedilla or S/T comma accent.</p>
+      <p>The Tcedilla should still be included despite the fact that no language uses it as its preferred form because a t with a commaaccent will look strange in rumanian if it occurs alongside an s with a cedilla.</p>
+      <p>Not sure if this is very clear or if it addresses your question.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>I'm not clear on what you're asking here, but I suspect it actually concerns substituting Tcedilla with Tcommaaccent rather than vice versa.</p>
+      <p>As far as I know, Tcedilla does not actually occur in any language. However, it is included as a distinct unicode code point for legacy reasons.</p>
+      <p>In Rumanian, we find both Scommaaccent and Tcommaaccent. However, these were originally encoded as Scedilla and Tcedilla as the comma accent was viewed simply as an alternate form of the cedilla despite the fact that some languages (e.g. Romanian, Latvian) prefer the former form and others (e.g. Turkish) prefer the latter form.</p>
+      <p>This means that originally Turkish scedilla and Rumanian scommaaccent were assigned the same code point despite the fact that they have a different appearance. These were later disunified and both scommacccent and tcommaaccent were given their own code points distinct from scedilla and (non-occuring) tcedilla.</p>
+      <p>One will commonly include a substitution rule as follows:</p>
+      <p><code>feature locl {</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;script latn;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language ROM;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup Romanian {</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub Scedilla by Scommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub scedilla by scommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub Tcedilla by Tcommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub tcedilla by tcommaaccent;</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} Romanian;</code></p>
+      <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language MOL</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup Romanian;</code></p>
+      <p><code>} locl; </code></p>
+      <p>This will ensure that the form with the comma is used for Rumanian regardless of whether the actual text uses S/T cedilla or S/T comma accent.</p>
+      <p>The Tcedilla should still be included despite the fact that no language uses it as its preferred form because a t with a commaaccent will look strange in rumanian if it occurs alongside an s with a cedilla.</p>
+      <p>Not sure if this is very clear or if it addresses your question.</p>
+      <p>André</p>
+  - id: 472544
+    user: 35635
+    date: 2011-07-30T12:58:00
+    date_raw: 30 Jul 2011 — 12:58pm
+    votes: null
+    html: |-
+      <p>Thanks <strong>André</strong>, nice to know you.</p>
+      <p>I have wrong question, but thoroughly answer:)</p>
+      <p>Suspected you've shown that I was really blind in this matter. I do not even know what to substitute any glyphs;) I see the script OTLF roughly as you demonstrated in several fonts with extended codepage, but I really do not understand why I had to do that. I just know they need it.</p>
+      <blockquote><p><em>"This means that originally Turkish scedilla and Rumanian scommaaccent were assigned the same code point despite the fact that they have a different appearance. These were later disunified and both scommacccent and tcommaaccent were given their own code points distinct from scedilla and (non-occuring) tcedilla."</em></p></blockquote>
+      <p>Just confirm, whether this explains that the substitution occurs only at MOL and the ROM and not on the Azeri and TRK?</p>
+      <p>Thanks<br>
+      Gretings to your family</p>
+      <p>Best regards</p>
+    html_clean: |-
+      <p>Thanks <strong>André</strong>, nice to know you.</p>
+      <p>I have wrong question, but thoroughly answer:)</p>
+      <p>Suspected you've shown that I was really blind in this matter. I do not even know what to substitute any glyphs;) I see the script OTLF roughly as you demonstrated in several fonts with extended codepage, but I really do not understand why I had to do that. I just know they need it.</p>
+      <blockquote><p><em>"This means that originally Turkish scedilla and Rumanian scommaaccent were assigned the same code point despite the fact that they have a different appearance. These were later disunified and both scommacccent and tcommaaccent were given their own code points distinct from scedilla and (non-occuring) tcedilla."</em></p></blockquote>
+      <p>Just confirm, whether this explains that the substitution occurs only at MOL and the ROM and not on the Azeri and TRK?</p>
+      <p>Thanks<br>
+      Gretings to your family</p>
+      <p>Best regards</p>
+  - id: 472572
+    user: 31798
+    date: 2011-07-30T19:17:00
+    date_raw: 30 Jul 2011 — 7:17pm
+    votes: null
+    html: |-
+      <p>Since the original unicode codepoints now more explictly encode the cedilla-form rather than the comma-form of the diacritic, and since this is the preferred form of the accent in the Turkic languages, nothing needs to be done for Turkish, Azeri, etc.</p>
+      <p>I'm still not 100% sure if I'm understanding what your question is.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Since the original unicode codepoints now more explictly encode the cedilla-form rather than the comma-form of the diacritic, and since this is the preferred form of the accent in the Turkic languages, nothing needs to be done for Turkish, Azeri, etc.</p>
+      <p>I'm still not 100% sure if I'm understanding what your question is.</p>
+      <p>André</p>
+  - id: 472587
+    user: 35635
+    date: 2011-07-31T01:54:00
+    date_raw: 31 Jul 2011 — 1:54am
+    votes: null
+    html: |-
+      <p>That's my point.</p>
+      <p>Please forgive me if there is a language barriers here. I have written inaccurate without the express reason that I have researched some fonts that did not substitute them for the script TRK and  Azeri on locl features. The example:</p>
+      <ul>feature locl {<br>
+       # Latin<br>
+       language AZE  exclude_dflt; # Azeri
+      <ul>sub i by i.dot;</ul>
+      <p> language TRK  exclude_dflt; # Turkish</p>
+      <ul>sub i by i.dot;</ul>
+      <p> language MOL  exclude_dflt; # Moldavian</p>
+      <ul>sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</ul>
+      <p> language ROM  exclude_dflt; # Romanian</p>
+      <ul>sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</ul>
+      <p> language CRT  exclude_dflt; # Crimean Tatar</p>
+      <ul>sub i by i.dot;</ul>
+      <p>} locl;
+      </p></ul>
+      <p>But your explanations meet my question.</p>
+      <p>Thank you for your time and your willingness to share knowledge</p>
+      <p>Best regards<br>
+      Andi</p>
+    html_clean: |-
+      <p>That's my point.</p>
+      <p>Please forgive me if there is a language barriers here. I have written inaccurate without the express reason that I have researched some fonts that did not substitute them for the script TRK and  Azeri on locl features. The example:</p>
+      <ul>feature locl {<br>
+       # Latin<br>
+       language AZE  exclude_dflt; # Azeri
+      <ul>sub i by i.dot;</ul>
+      <p> language TRK  exclude_dflt; # Turkish</p>
+      <ul>sub i by i.dot;</ul>
+      <p> language MOL  exclude_dflt; # Moldavian</p>
+      <ul>sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</ul>
+      <p> language ROM  exclude_dflt; # Romanian</p>
+      <ul>sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</ul>
+      <p> language CRT  exclude_dflt; # Crimean Tatar</p>
+      <ul>sub i by i.dot;</ul>
+      <p>} locl;
+      </p></ul>
+      <p>But your explanations meet my question.</p>
+      <p>Thank you for your time and your willingness to share knowledge</p>
+      <p>Best regards<br>
+      Andi</p>
+  - id: 472611
+    user: 31798
+    date: 2011-07-31T07:07:00
+    date_raw: 31 Jul 2011 — 7:07am
+    votes: null
+    html: |-
+      <p>The example you give looks almost correct to me. There's no reason for TRK, CRT, or AZE to include any substitutions involving Tcedilla or Scedilla in the locl feature. ROM and MOL, though, should include Tcedilla as well as Scedilla to deal with cases where the text includes uni0162/uni0163 rather than the preferred uni021A/uni021B.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>The example you give looks almost correct to me. There's no reason for TRK, CRT, or AZE to include any substitutions involving Tcedilla or Scedilla in the locl feature. ROM and MOL, though, should include Tcedilla as well as Scedilla to deal with cases where the text includes uni0162/uni0163 rather than the preferred uni021A/uni021B.</p>
+      <p>André</p>
+  - id: 472757
+    user: 909
+    date: 2011-08-01T14:01:00
+    date_raw: 1 Aug 2011 — 2:01pm
+    votes: null
+    html: |-
+      <p>If you're going to do those sorts of substitutions, better for text-preservation purposes to build a glyph named "Scedilla.alt" (or something like that) to get the comma accent form, rather than literally substituting the default glyph for one codepoint by the default glyph for another codepoint. The latter kind of substitution is considered bad form; that's why features such as 'crcy' and 'dpng' have been deprecated.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>If you're going to do those sorts of substitutions, better for text-preservation purposes to build a glyph named "Scedilla.alt" (or something like that) to get the comma accent form, rather than literally substituting the default glyph for one codepoint by the default glyph for another codepoint. The latter kind of substitution is considered bad form; that's why features such as 'crcy' and 'dpng' have been deprecated.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 472769
+    user: 1262
+    date: 2011-08-01T16:40:00
+    date_raw: 1 Aug 2011 — 4:40pm
+    votes: null
+    html: "<p>Thomas, in this case though, since the purpose of the substitution for ROM and MOL is to visually correct an encoding issue, one could make the argument that having the parseable glyph name point to the desired character rather than the originally encoded one makes some sense. This depends very much, however, on the desired behaviour of parsed PDF text and how it is likely to be used by native users: even if the newer disunified Unicode characters are technically preferred, they won't help anyone used to working with the older unified encoding.</p>"
+    html_clean: "<p>Thomas, in this case though, since the purpose of the substitution for ROM and MOL is to visually correct an encoding issue, one could make the argument that having the parseable glyph name point to the desired character rather than the originally encoded one makes some sense. This depends very much, however, on the desired behaviour of parsed PDF text and how it is likely to be used by native users: even if the newer disunified Unicode characters are technically preferred, they won't help anyone used to working with the older unified encoding.</p>"
+  - id: 472886
+    user: 909
+    date: 2011-08-02T11:36:00
+    date_raw: 2 Aug 2011 — 11:36am
+    votes: null
+    html: |-
+      <p>I would buy that argument more if all PDF creation would give the same results and if indeed the font could affect the underlying text in general. But that isn't the case here. When creating a PDF from a document using this font, you'll get a transform of the text encoding in some cases, but not others, depending on the workflow used to create the PDF. That seems undesirable.</p>
+      <p>It seems to me that you don't want changes in what characters work in (for instance) a search when going from source document to PDF, and especially not if the occurrence of those changes is unreliable and inconsistent. (From a typical end user POV, at least; I know that you and I know how to trigger them.) So I'm suggesting is that "always give the desired visual appearance, but never change the text encoding" is a good rule of thumb. Let a sophisticated user do such transformations by search and replace if they need them, but don't sneak transformations in corner cases of PDF creation.</p>
+      <p>Regards,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>I would buy that argument more if all PDF creation would give the same results and if indeed the font could affect the underlying text in general. But that isn't the case here. When creating a PDF from a document using this font, you'll get a transform of the text encoding in some cases, but not others, depending on the workflow used to create the PDF. That seems undesirable.</p>
+      <p>It seems to me that you don't want changes in what characters work in (for instance) a search when going from source document to PDF, and especially not if the occurrence of those changes is unreliable and inconsistent. (From a typical end user POV, at least; I know that you and I know how to trigger them.) So I'm suggesting is that "always give the desired visual appearance, but never change the text encoding" is a good rule of thumb. Let a sophisticated user do such transformations by search and replace if they need them, but don't sneak transformations in corner cases of PDF creation.</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 472894
+    user: 12009
+    date: 2011-08-02T12:40:00
+    date_raw: 2 Aug 2011 — 12:40pm
+    votes: null
+    html: |-
+      <p>One could conceivably have a Romanian text that includes a Turkish name that uses the S cedilla, like Şahin. In this case, the S cedilla would be the correct character and it would be wrong to replace it with the S comma. Indeed, it would be wrong even to change only its appearance to look like the S comma. Unfortunately, there's no way of dealing with this kind of thing automatically at the font level. Someone will just have to deal with the encoding of the text manually.</p>
+      <p>It is indeed highly unfortunate that so much Romanian text is incorrectly encoded.</p>
+      <p><cite>As far as I know, Tcedilla does not actually occur in any language.</cite></p>
+      <p>That may be true, but it does occur in specialist contexts. The phonetician Luciano Canepari uses the small t cedilla in his own extension of the International Phonetic Alphabet (IPA) to represent the sound that would be written tʲ in the usual IPA. He similarly uses b, d, h, m, n, p, z, and some other phonetic symbols with cedilla.</p>
+    html_clean: |-
+      <p>One could conceivably have a Romanian text that includes a Turkish name that uses the S cedilla, like Şahin. In this case, the S cedilla would be the correct character and it would be wrong to replace it with the S comma. Indeed, it would be wrong even to change only its appearance to look like the S comma. Unfortunately, there's no way of dealing with this kind of thing automatically at the font level. Someone will just have to deal with the encoding of the text manually.</p>
+      <p>It is indeed highly unfortunate that so much Romanian text is incorrectly encoded.</p>
+      <p><cite>As far as I know, Tcedilla does not actually occur in any language.</cite></p>
+      <p>That may be true, but it does occur in specialist contexts. The phonetician Luciano Canepari uses the small t cedilla in his own extension of the International Phonetic Alphabet (IPA) to represent the sound that would be written tʲ in the usual IPA. He similarly uses b, d, h, m, n, p, z, and some other phonetic symbols with cedilla.</p>
+  - id: 473047
+    user: 909
+    date: 2011-08-03T14:35:00
+    date_raw: 3 Aug 2011 — 2:35pm
+    votes: null
+    html: |-
+      <p>&gt; Unfortunately, there's no way of dealing with this kind of thing automatically at the font level. Someone will just have to deal with the encoding of the text manually.</p>
+      <p>However, if the font is trying to be overly clever, it will mask that encoding with glyph substitutions. In such a case, the typesetter's only resort would be to explicitly label the one word as being Turkish, assuming they are in an environment that allows that (for example, InDesign).</p>
+      <p>Regards,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>&gt; Unfortunately, there's no way of dealing with this kind of thing automatically at the font level. Someone will just have to deal with the encoding of the text manually.</p>
+      <p>However, if the font is trying to be overly clever, it will mask that encoding with glyph substitutions. In such a case, the typesetter's only resort would be to explicitly label the one word as being Turkish, assuming they are in an environment that allows that (for example, InDesign).</p>
+      <p>Regards,</p>
+      <p>T</p>
+  - id: 473050
+    user: 20652
+    date: 2011-08-03T14:59:00
+    date_raw: 3 Aug 2011 — 2:59pm
+    votes: null
+    html: <p>(Thomas, if [most/some] other fonts in the marketplace are doing character substitutions, wouldn't the <code>sub scedilla by scommaaccent</code> be rather practical?)</p>
+    html_clean: <p>(Thomas, if [most/some] other fonts in the marketplace are doing character substitutions, wouldn't the <code>sub scedilla by scommaaccent</code> be rather practical?)</p>
+  - id: 473286
+    user: 909
+    date: 2011-08-05T16:26:00
+    date_raw: 5 Aug 2011 — 4:26pm
+    votes: null
+    html: |-
+      <p>Some fonts have character substitutions, but not most. Some fonts are really badly made in all sorts of ways; that doesn't make a good argument for making a new font badly, IMO.</p>
+      <p>Though to be fair, this is a pretty small detail, really.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Some fonts have character substitutions, but not most. Some fonts are really badly made in all sorts of ways; that doesn't make a good argument for making a new font badly, IMO.</p>
+      <p>Though to be fair, this is a pretty small detail, really.</p>
+      <p>T</p>
+  - id: 473416
+    user: 35635
+    date: 2011-08-09T09:41:00
+    date_raw: 9 Aug 2011 — 9:41am
+    votes: null
+    html: |-
+      <p>I see that uni0162/uni0163 reflected as Tcommaaccent and  tcommaaccent in glyph template. Though they were assigned as Tcedilla / tcedilla (at. NAM file). This became the initial source of my confusion. But now is clear.</p>
+      <p>However I still need a little opinion for the conclusion.<br>
+      In your opinion which one is better: glyph Tcedilla (uni0162/uni0163) remained drawn and further substitution is still being done on the feature LOCL. Substitution tag looks something like tags:</p>
+      <ol>
+      <code><br>
+      feature locl {<br>
+      #Latin</code>
+      <p><code>language MOL exclude_dflt;<br>
+          sub [Tcedilla tcedilla Scedilla scedilla] by [Tcommaaccent tcommaaccent Scommaaccent scommaaccent];</code></p>
+      <p><code>language ROM exclude_dflt;<br>
+          sub [Tcedilla tcedilla Scedilla scedilla] by [Tcommaaccent tcommaaccent Scommaaccent scommaaccent];</code></p>
+      <p><code>} locl;<br>
+      </code></p></ol>
+      <p>Or only drawn as glyph Tcommaaccent at uni0162/uni0163 without substitution? So the tags were following are:</p>
+      <ol>
+      <code>feature locl {<br>
+      #Latin</code>
+      <p><code>language MOL exclude_dflt;<br>
+         sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</code></p>
+      <p><code>language ROM exclude_dflt;<br>
+         sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</code></p>
+      <p><code>} locl;<br>
+      </code></p></ol>
+      <p>Thanks in advance<br>
+      Best regards</p>
+    html_clean: |-
+      <p>I see that uni0162/uni0163 reflected as Tcommaaccent and  tcommaaccent in glyph template. Though they were assigned as Tcedilla / tcedilla (at. NAM file). This became the initial source of my confusion. But now is clear.</p>
+      <p>However I still need a little opinion for the conclusion.<br>
+      In your opinion which one is better: glyph Tcedilla (uni0162/uni0163) remained drawn and further substitution is still being done on the feature LOCL. Substitution tag looks something like tags:</p>
+      <ol>
+      <code><br>
+      feature locl {<br>
+      #Latin</code>
+      <p><code>language MOL exclude_dflt;<br>
+          sub [Tcedilla tcedilla Scedilla scedilla] by [Tcommaaccent tcommaaccent Scommaaccent scommaaccent];</code></p>
+      <p><code>language ROM exclude_dflt;<br>
+          sub [Tcedilla tcedilla Scedilla scedilla] by [Tcommaaccent tcommaaccent Scommaaccent scommaaccent];</code></p>
+      <p><code>} locl;<br>
+      </code></p></ol>
+      <p>Or only drawn as glyph Tcommaaccent at uni0162/uni0163 without substitution? So the tags were following are:</p>
+      <ol>
+      <code>feature locl {<br>
+      #Latin</code>
+      <p><code>language MOL exclude_dflt;<br>
+         sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</code></p>
+      <p><code>language ROM exclude_dflt;<br>
+         sub [Scedilla scedilla] by [Scommaaccent scommaaccent];</code></p>
+      <p><code>} locl;<br>
+      </code></p></ol>
+      <p>Thanks in advance<br>
+      Best regards</p>
+  - id: 473473
+    user: 1262
+    date: 2011-08-09T17:08:00
+    date_raw: 9 Aug 2011 — 5:08pm
+    votes: null
+    html: |-
+      <p>Feedback from Microsoft's Romanian users indicated that they preferred consistency, so that if software is unable to correctly display S/s with comma-like accent it is judged best if the T/t is also not displayed with comma-like accent. So now I design</p>
+      <p>U+015E S with cedilla<br>
+      U+015F s with cedilla</p>
+      <p>U+0162 T with cedilla<br>
+      U+0163 T with cedilla</p>
+      <p>U+0218 S with comma-like accent<br>
+      U+0219 s with comma-like accent</p>
+      <p>U+021A T with comma-like accent<br>
+      U+021B t with comma-like accent</p>
+      <p>and then I perform a ROM+MOL 'locl' substitution of the cedilla forms of both S/s and T/t to the comma-like forms.</p>
+    html_clean: |-
+      <p>Feedback from Microsoft's Romanian users indicated that they preferred consistency, so that if software is unable to correctly display S/s with comma-like accent it is judged best if the T/t is also not displayed with comma-like accent. So now I design</p>
+      <p>U+015E S with cedilla<br>
+      U+015F s with cedilla</p>
+      <p>U+0162 T with cedilla<br>
+      U+0163 T with cedilla</p>
+      <p>U+0218 S with comma-like accent<br>
+      U+0219 s with comma-like accent</p>
+      <p>U+021A T with comma-like accent<br>
+      U+021B t with comma-like accent</p>
+      <p>and then I perform a ROM+MOL 'locl' substitution of the cedilla forms of both S/s and T/t to the comma-like forms.</p>
+  - id: 473557
+    user: 35635
+    date: 2011-08-10T07:26:00
+    date_raw: 10 Aug 2011 — 7:26am
+    votes: null
+    html: |-
+      <p>Thanks <strong>John</strong></p>
+      <p>This is very helpful.<br>
+      Also thanks to all who have contributed to this thread.</p>
+      <p>Best regards<br>
+      AWM</p>
+    html_clean: |-
+      <p>Thanks <strong>John</strong></p>
+      <p>This is very helpful.<br>
+      Also thanks to all who have contributed to this thread.</p>
+      <p>Best regards<br>
+      AWM</p>

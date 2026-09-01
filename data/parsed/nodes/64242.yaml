@@ -1,0 +1,169 @@
+node: 64242
+title: Designing for a specific point size
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416011438"
+  captured_at: 2015-04-16T01:14:38Z
+  url: http://typophile.com/node/64242
+  digest: MMYLORDUG7WGYTAZQ6ULELJZXJUMXB67
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/64242.html
+  fingerprint: 747c944585888ec6
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416011438"
+      digest: MMYLORDUG7WGYTAZQ6ULELJZXJUMXB67
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64242.html
+post:
+  id: 64242
+  user: 27718
+  date: 2009-11-13T20:20:00
+  date_raw: 13 Nov 2009 — 8:20pm
+  votes: null
+  html: |-
+    <p>I just started working on a typeface for personal use and I want to design it work at a specific point size (11 pts to be exact). For this specific type project, it doesn't matter to me if it works at any other point or if it works in print, just on screen at 11pts.</p>
+    <p>With that in mind, how should I get started? I've been playing with UPM and different cap, x, ascender and descender heights in Fontlab but I haven't been able to settle on the right starting point. I guess my big question is, how would you get started on a project like this and what should I keep in mind to optimize a font for one really specific situation like this?</p>
+  html_clean: |-
+    <p>I just started working on a typeface for personal use and I want to design it work at a specific point size (11 pts to be exact). For this specific type project, it doesn't matter to me if it works at any other point or if it works in print, just on screen at 11pts.</p>
+    <p>With that in mind, how should I get started? I've been playing with UPM and different cap, x, ascender and descender heights in Fontlab but I haven't been able to settle on the right starting point. I guess my big question is, how would you get started on a project like this and what should I keep in mind to optimize a font for one really specific situation like this?</p>
+comments:
+  - id: 378405
+    user: 1250
+    date: 2009-11-13T21:48:00
+    date_raw: 13 Nov 2009 — 9:48pm
+    votes: null
+    html: |-
+      <p>If you're shooting for a single PPEM size, you make a pixelfont.<br>
+      You use a 125 x 125 unit grid, and set the font at 8 pt (72 dpi)<br>
+      no matter how big it actually is.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>If you're shooting for a single PPEM size, you make a pixelfont.<br>
+      You use a 125 x 125 unit grid, and set the font at 8 pt (72 dpi)<br>
+      no matter how big it actually is.</p>
+      <p>hhp</p>
+  - id: 378414
+    user: 46051
+    date: 2009-11-13T23:38:00
+    date_raw: 13 Nov 2009 — 11:38pm
+    votes: null
+    html: |-
+      <p>Despite the belief of many Mac users ;-) there is no exact pixel height for a given point size on screen. Different people have different monitors.</p>
+      <p>Andreas</p>
+    html_clean: |-
+      <p>Despite the belief of many Mac users ;-) there is no exact pixel height for a given point size on screen. Different people have different monitors.</p>
+      <p>Andreas</p>
+  - id: 378431
+    user: 2969
+    date: 2009-11-14T05:13:00
+    date_raw: 14 Nov 2009 — 5:13am
+    votes: null
+    html: |-
+      <p>I think yo want to make a new font </p>
+      <p>set units per em to 256, so as not to waste precious units per em.</p>
+      <p>set grid step to 256/11, or 23 units per em, per pixel x and y.</p>
+      <p>set metrics window to 11 pt.</p>
+      <p>draw... look... draw... look... until generation time. </p>
+      <p>It is true that the optimization may not always appear when any user selects "11", but this is just for you, and you are not just "any user."</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>I think yo want to make a new font </p>
+      <p>set units per em to 256, so as not to waste precious units per em.</p>
+      <p>set grid step to 256/11, or 23 units per em, per pixel x and y.</p>
+      <p>set metrics window to 11 pt.</p>
+      <p>draw... look... draw... look... until generation time. </p>
+      <p>It is true that the optimization may not always appear when any user selects "11", but this is just for you, and you are not just "any user."</p>
+      <p>Cheers!</p>
+  - id: 378435
+    user: 1250
+    date: 2009-11-14T07:37:00
+    date_raw: 14 Nov 2009 — 7:37am
+    votes: null
+    html: |-
+      <p>Andreas, as long as the dpi is fixed a<br>
+      given point size maps to a specific PPEM.</p>
+      <p>Windows can change the dpi (although it's very<br>
+      rarely actually done). Can MacOS do that now?</p>
+      <p>&gt; set grid step to 256/11</p>
+      <p>1)What about systems that assume an EM of 1000?<br>
+      Are those safe to ignore these days?</p>
+      <p>2) Since that's not a whole number, doesn't it all<br>
+      end up looking blurry?</p>
+      <p>--</p>
+      <p>BTW, my view of good vertical proportions for an 11 PPEM font are:</p>
+      <p>x: 7<br>
+      ascenders: 9<br>
+      descenders: -2<br>
+      caps: 8<br>
+      lining nums: 8<br>
+      OS* nums: 7</p>
+      <p>If you want a smaller x-height you can go to 6, but then I'd leave the<br>
+      rest the same (in fact that makes the ascenders nicely longer than<br>
+      the descenders - a good thing).</p>
+      <p>* No room for hybrids.  :-(</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Andreas, as long as the dpi is fixed a<br>
+      given point size maps to a specific PPEM.</p>
+      <p>Windows can change the dpi (although it's very<br>
+      rarely actually done). Can MacOS do that now?</p>
+      <p>&gt; set grid step to 256/11</p>
+      <p>1)What about systems that assume an EM of 1000?<br>
+      Are those safe to ignore these days?</p>
+      <p>2) Since that's not a whole number, doesn't it all<br>
+      end up looking blurry?</p>
+      <p>--</p>
+      <p>BTW, my view of good vertical proportions for an 11 PPEM font are:</p>
+      <p>x: 7<br>
+      ascenders: 9<br>
+      descenders: -2<br>
+      caps: 8<br>
+      lining nums: 8<br>
+      OS* nums: 7</p>
+      <p>If you want a smaller x-height you can go to 6, but then I'd leave the<br>
+      rest the same (in fact that makes the ascenders nicely longer than<br>
+      the descenders - a good thing).</p>
+      <p>* No room for hybrids.  :-(</p>
+      <p>hhp</p>
+  - id: 378441
+    user: 2162
+    date: 2009-11-14T08:56:00
+    date_raw: 14 Nov 2009 — 8:56am
+    votes: null
+    html: <p>(I'm tracking this thread)</p>
+    html_clean: <p>(I'm tracking this thread)</p>
+  - id: 378451
+    user: 46051
+    date: 2009-11-14T11:36:00
+    date_raw: 14 Nov 2009 — 11:36am
+    votes: null
+    html: <p>Hrant, the problem is, not every screen has the same dpi. I'm not sure the OP knows what he means by <em>"just on screen at 11pts"</em> Many web designers are not really aware of how different their stuff will look on other computer screens. I for one have 97 dpi on my desktop and 133 dpi on my netbook.</p>
+    html_clean: <p>Hrant, the problem is, not every screen has the same dpi. I'm not sure the OP knows what he means by <em>"just on screen at 11pts"</em> Many web designers are not really aware of how different their stuff will look on other computer screens. I for one have 97 dpi on my desktop and 133 dpi on my netbook.</p>
+  - id: 378457
+    user: 1250
+    date: 2009-11-14T12:10:00
+    date_raw: 14 Nov 2009 — 12:10pm
+    votes: null
+    html: |-
+      <p>Oh, but the OS's dpi is what determines if the pixels in a pixelfont map correctly or not. It's just that on a higher-dpi display the pixels are smaller; so we're not (or rather, we shouldn't be) talking about actual height in inches. That's why it's less confusing to use "PPEM" instead of "point size".</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Oh, but the OS's dpi is what determines if the pixels in a pixelfont map correctly or not. It's just that on a higher-dpi display the pixels are smaller; so we're not (or rather, we shouldn't be) talking about actual height in inches. That's why it's less confusing to use "PPEM" instead of "point size".</p>
+      <p>hhp</p>

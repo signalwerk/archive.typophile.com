@@ -1,0 +1,89 @@
+node: 15547
+title: Problems in fontlab 4
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20080502224530"
+  captured_at: 2008-05-02T22:45:30Z
+  url: http://www.typophile.com:80/node/15547
+  digest: SA2ENRCSX5JHVYPPMLLTV2XHLHJBTXI4
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/15547.html
+  fingerprint: 7a6e8f7343437732
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20080502224530"
+      digest: SA2ENRCSX5JHVYPPMLLTV2XHLHJBTXI4
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/15547.html
+post:
+  id: 15547
+  user: 8424
+  date: 2005-10-10T16:57:00
+  date_raw: 10.Oct.2005 4.57pm
+  votes: null
+  html: |-
+    <p>I am trying to create some alternate ampersand glyphs in fontlab but I can’t figure out how to get them to actually work.<br>
+    Also (and I am sure that it is an obvious question) I can’t get the ’smart quotes’ to work in the typeface either.<br>
+    Nobody wants to see inch marks in place of proper quotes do they?</p>
+    <p>I would appreciate any help that anyone has.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/15458" class="topic-previous" title="Go to previous forum topic">‹ CorelDraw/FontLab Problem: ttfs won't export, or otf will look different in different programs!</a> <a href="/node/15498" class="topic-next" title="Go to next forum topic">Setting type in Greek ›</a></div>
+  html_clean: |-
+    <p>I am trying to create some alternate ampersand glyphs in fontlab but I can’t figure out how to get them to actually work.<br>
+    Also (and I am sure that it is an obvious question) I can’t get the ’smart quotes’ to work in the typeface either.<br>
+    Nobody wants to see inch marks in place of proper quotes do they?</p>
+    <p>I would appreciate any help that anyone has.</p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/15458/" class="topic-previous" title="Go to previous forum topic">‹ CorelDraw/FontLab Problem: ttfs won't export, or otf will look different in different programs!</a> <a href="/node/15498" class="topic-next" title="Go to next forum topic">Setting type in Greek ›</a></div>
+comments:
+  - id: 89891
+    user: 1043
+    date: 2005-10-10T17:55:00
+    date_raw: 10.Oct.2005 5.55pm
+    votes: null
+    html: |-
+      <p>There was a discussion here a while back about the idea of using OpenType to do smart quotes. The consensus was that it would be a bad idea; that it should be left to the application to do. There was a good reason, but I can’t quite remember what it was.</p>
+      <p>Doing alternate ampersands is easy. Create your normal ampersand in the normal ampersand slot. Then create your alternate ampersands, naming them ampersand.alt1, ampersand.alt2, etc. (The alternates do not need Unicode values assigned, but you may use PUA codes if you want programs like MS Word for Windows that don’t yet support alternates to be able to access them.)</p>
+      <p>Create a “salt” feature defined thusly:</p>
+      <p>feature salt {<br>
+        sub ampersand by ampersand.alt1 ;<br>
+      } salt;</p>
+      <p>Then create stylistic sets like this:</p>
+      <p>feature ss01 {<br>
+        sub ampersand by ampersand.alt1 ;<br>
+      } ss01;</p>
+      <p>feature ss02 {<br>
+        sub ampersand by ampersand.alt2 ;<br>
+      } ss02;</p>
+      <p>etc., for however many alternate ampersands you have. </p>
+      <p>The “salt” feature is the default alternate for programs that don’t support more than one alternate. The “ss0x” features are for programs that support “stylistic sets”. You will see all of them in programs with glyph or character palettes. In Adobe apps, they will also show up together in a pop-up under the ampersand in the Glyph Palette.</p>
+    html_clean: |-
+      <p>There was a discussion here a while back about the idea of using OpenType to do smart quotes. The consensus was that it would be a bad idea; that it should be left to the application to do. There was a good reason, but I can’t quite remember what it was.</p>
+      <p>Doing alternate ampersands is easy. Create your normal ampersand in the normal ampersand slot. Then create your alternate ampersands, naming them ampersand.alt1, ampersand.alt2, etc. (The alternates do not need Unicode values assigned, but you may use PUA codes if you want programs like MS Word for Windows that don’t yet support alternates to be able to access them.)</p>
+      <p>Create a “salt” feature defined thusly:</p>
+      <p>feature salt {<br>
+        sub ampersand by ampersand.alt1 ;<br>
+      } salt;</p>
+      <p>Then create stylistic sets like this:</p>
+      <p>feature ss01 {<br>
+        sub ampersand by ampersand.alt1 ;<br>
+      } ss01;</p>
+      <p>feature ss02 {<br>
+        sub ampersand by ampersand.alt2 ;<br>
+      } ss02;</p>
+      <p>etc., for however many alternate ampersands you have. </p>
+      <p>The “salt” feature is the default alternate for programs that don’t support more than one alternate. The “ss0x” features are for programs that support “stylistic sets”. You will see all of them in programs with glyph or character palettes. In Adobe apps, they will also show up together in a pop-up under the ampersand in the Glyph Palette.</p>

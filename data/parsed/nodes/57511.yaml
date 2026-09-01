@@ -1,0 +1,142 @@
+node: 57511
+title: correct use of rlig?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203075839"
+  captured_at: 2010-02-03T07:58:39Z
+  url: http://typophile.com/node/57511
+  digest: LA64YAE76LHZUOTCBXK3ELESIQZ4YYZG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/57511.html
+  fingerprint: efae035a0adacc55
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203075839"
+      digest: LA64YAE76LHZUOTCBXK3ELESIQZ4YYZG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/57511.html
+post:
+  id: 57511
+  user: 5094
+  date: 2009-04-29T14:41:00
+  date_raw: 29.Apr.2009 2.41pm
+  votes: null
+  html: |-
+    <p>I was looking at the Charis font, and in the features, found</p>
+    <p>feature rlig { # Required Ligatures<br>
+     # from AAT 'morx'; type 1, sel: 0, cvrg: 20000002<br>
+     # Latin<br>
+    lookup rlig35 {<br>
+        sub equal uni0338 by notequal;<br>
+        sub A acutecomb by Aacute;<br>
+        sub A gravecomb by Agrave;<br>
+        sub A uni030F by uni0200;<br>
+        sub A uni0302 by Acircumflex;<br>
+        sub A uni0311 by uni0202;</p>
+    <p>etc. . .</p>
+    <p>Is this considered appropriate for rlig, or should it really be in a ccmp feature? Does anyone care? (Hey, at least I didn't ask "What does it all mean?")</p>
+    <p>BTW, does anyone know of a discussion forum for working on Charis?</p>
+    <p>TIA,</p>
+    <p>Charles</p>
+  html_clean: |-
+    <p>I was looking at the Charis font, and in the features, found</p>
+    <p>feature rlig { # Required Ligatures<br>
+     # from AAT 'morx'; type 1, sel: 0, cvrg: 20000002<br>
+     # Latin<br>
+    lookup rlig35 {<br>
+        sub equal uni0338 by notequal;<br>
+        sub A acutecomb by Aacute;<br>
+        sub A gravecomb by Agrave;<br>
+        sub A uni030F by uni0200;<br>
+        sub A uni0302 by Acircumflex;<br>
+        sub A uni0311 by uni0202;</p>
+    <p>etc. . .</p>
+    <p>Is this considered appropriate for rlig, or should it really be in a ccmp feature? Does anyone care? (Hey, at least I didn't ask "What does it all mean?")</p>
+    <p>BTW, does anyone know of a discussion forum for working on Charis?</p>
+    <p>TIA,</p>
+    <p>Charles</p>
+comments:
+  - id: 344631
+    user: 1262
+    date: 2009-05-01T12:31:00
+    date_raw: 1.May.2009 12.31pm
+    votes: null
+    html: <p>I would say these definitely belong in ccmp, rather than rlig. I can imagine that SIL might have decided to put them in rlig for compatibility reasons with some software that didn't support ccmp but did support rlig (I'm not sure what software that would have been).</p>
+    html_clean: <p>I would say these definitely belong in ccmp, rather than rlig. I can imagine that SIL might have decided to put them in rlig for compatibility reasons with some software that didn't support ccmp but did support rlig (I'm not sure what software that would have been).</p>
+  - id: 345065
+    user: 1133
+    date: 2009-05-04T12:39:00
+    date_raw: 4.May.2009 12.39pm
+    votes: null
+    html: |-
+      <p>John, </p>
+      <p>The comment line<br>
+      <code># from AAT ’morx’; type 1, sel: 0, cvrg: 20000002</code><br>
+      reveals that the OpenType Layout feature definition was not taken directly from the OpenType Layout tables but instead, was converted from the AAT "morx" table. For this conversion, FontLab Studio is mapping some morx functions into OTL features with the approximately same functionality, which in this case happens to be "rlig". This conversion never is perfect or accurate, since AAT and OpenType Layout use entirely different models. </p>
+      <p>We do have the AAT -&gt; OTL conversion practically just for the handful of developers who would like to develop AAT tables and then semi-automatically create matching OTL tables. However, since Mac OS X 10.4 added OpenType Layout support, the necessity of creating AAT tables is of less and less importance. It only makes sense now for complex script fonts, as long as Apple does not implement all the major complex scripts in OpenType Layout. In Mac OS X 10.5, basic support for Arabic has been added and I hope that in 10.6, more will be done (but I don't know anything specific). </p>
+      <p>Charles, </p>
+      <p>Some fonts made by SIL contain both OTL and AAT code. To just get the OTL code, disable "Interpret GX/AAT mort &amp; morx tables" in FLS Preferences, and re-open the font again. </p>
+      <p>Cheers,<br>
+      Adam</p>
+    html_clean: |-
+      <p>John, </p>
+      <p>The comment line<br>
+      <code># from AAT ’morx’; type 1, sel: 0, cvrg: 20000002</code><br>
+      reveals that the OpenType Layout feature definition was not taken directly from the OpenType Layout tables but instead, was converted from the AAT "morx" table. For this conversion, FontLab Studio is mapping some morx functions into OTL features with the approximately same functionality, which in this case happens to be "rlig". This conversion never is perfect or accurate, since AAT and OpenType Layout use entirely different models. </p>
+      <p>We do have the AAT -&gt; OTL conversion practically just for the handful of developers who would like to develop AAT tables and then semi-automatically create matching OTL tables. However, since Mac OS X 10.4 added OpenType Layout support, the necessity of creating AAT tables is of less and less importance. It only makes sense now for complex script fonts, as long as Apple does not implement all the major complex scripts in OpenType Layout. In Mac OS X 10.5, basic support for Arabic has been added and I hope that in 10.6, more will be done (but I don't know anything specific). </p>
+      <p>Charles, </p>
+      <p>Some fonts made by SIL contain both OTL and AAT code. To just get the OTL code, disable "Interpret GX/AAT mort &amp; morx tables" in FLS Preferences, and re-open the font again. </p>
+      <p>Cheers,<br>
+      Adam</p>
+  - id: 345793
+    user: 5094
+    date: 2009-05-07T12:07:00
+    date_raw: 7.May.2009 12.07pm
+    votes: null
+    html: |-
+      <p>Thanks, Adam. I made the change and the features file (as seen by FontStudio) is much better.</p>
+      <p>Perhaps there is another switch that I need to change? With neither setting did the lookups come through, so of course the features won't compile.</p>
+      <p>I am trying to get Charis in shape to use for bookwork when the general topic is linguistics. I have made up a fair number of extra glyphs in Minion, but there are several problems, including (1) There are some glyphs I do not have the skill to draw well, (2) The final fonts cannot in any case be released to a customer for "repurposing," and (3) certain ideosyncrocies of Minion, such as the differing accents on caps from lower case -- make some people prefer a more regularized font.</p>
+      <p>With kerning and old-style numbers, Charis should function well for linguistics. I notice SIL has just released a version with small capitals.</p>
+      <p>If I have to start over with the OT features I will, but it seems a shame to not incorporate what has already been done.</p>
+      <p>Thanks again,</p>
+      <p>Charles</p>
+    html_clean: |-
+      <p>Thanks, Adam. I made the change and the features file (as seen by FontStudio) is much better.</p>
+      <p>Perhaps there is another switch that I need to change? With neither setting did the lookups come through, so of course the features won't compile.</p>
+      <p>I am trying to get Charis in shape to use for bookwork when the general topic is linguistics. I have made up a fair number of extra glyphs in Minion, but there are several problems, including (1) There are some glyphs I do not have the skill to draw well, (2) The final fonts cannot in any case be released to a customer for "repurposing," and (3) certain ideosyncrocies of Minion, such as the differing accents on caps from lower case -- make some people prefer a more regularized font.</p>
+      <p>With kerning and old-style numbers, Charis should function well for linguistics. I notice SIL has just released a version with small capitals.</p>
+      <p>If I have to start over with the OT features I will, but it seems a shame to not incorporate what has already been done.</p>
+      <p>Thanks again,</p>
+      <p>Charles</p>
+  - id: 345796
+    user: 1133
+    date: 2009-05-07T12:18:00
+    date_raw: 7.May.2009 12.18pm
+    votes: null
+    html: |-
+      <p>Charles, </p>
+      <p>perhaps you can ask SIL to send you the source files, including the source files for the OpenType Layout tables? Working with original files is usually less problematic than decompiling and recompiling feature definitions. </p>
+      <p>Cheers,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Charles, </p>
+      <p>perhaps you can ask SIL to send you the source files, including the source files for the OpenType Layout tables? Working with original files is usually less problematic than decompiling and recompiling feature definitions. </p>
+      <p>Cheers,<br>
+      Adam</p>

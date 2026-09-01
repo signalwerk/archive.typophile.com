@@ -1,0 +1,119 @@
+node: 5893
+title: Print screen on 300 dpi Print
+forum:
+  id: 5
+  title: Design
+source:
+  archive: web.archive.org
+  timestamp: "20111217181412"
+  captured_at: 2011-12-17T18:14:12Z
+  url: http://typophile.com:80/node/5893
+  digest: YGLI6MKI6GRQOPDBZDAO2WJ2DJWNY7KH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/5893.html
+  fingerprint: 369bba172502f37f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20111217181412"
+      digest: YGLI6MKI6GRQOPDBZDAO2WJ2DJWNY7KH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/5893.html
+post:
+  id: 5893
+  user: 1735
+  date: 2004-08-03T08:32:00
+  date_raw: 3.Aug.2004 8.32am
+  votes: null
+  html: <p>What's the best way to include print screens on a magazine/book without a low quality vibe? I guess it depends on the printing specs for the book/magazine.  <br> <br>Take a look at the WEB DESIGN INDEX or any other simmilar book that has a print screen site/ interface (I saw a book yesterday with the photoshop interface on the cover).  <br> <br>What's the best way? Hot to transform a 72dpi print screen on a good looking printed photo?</p>
+  html_clean: <p>What's the best way to include print screens on a magazine/book without a low quality vibe? I guess it depends on the printing specs for the book/magazine.  <br> <br>Take a look at the WEB DESIGN INDEX or any other simmilar book that has a print screen site/ interface (I saw a book yesterday with the photoshop interface on the cover).  <br> <br>What's the best way? Hot to transform a 72dpi print screen on a good looking printed photo?</p>
+comments:
+  - id: 41891
+    user: 1461
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>A print screen contains exactly the number of pixels that there can be. You do not change the resolution of a screen capture. You just run it as-is. 'Upping' the resolution of a screen capture will do nothing but make it look blurry and not at all like a screen capture. <br> <br>So, simple answer, just leave it as is. </p>
+    html_clean: <p>A print screen contains exactly the number of pixels that there can be. You do not change the resolution of a screen capture. You just run it as-is. 'Upping' the resolution of a screen capture will do nothing but make it look blurry and not at all like a screen capture. <br> <br>So, simple answer, just leave it as is. </p>
+  - id: 41892
+    user: 1735
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Good point. I guess what I saw was a 640x480 print screen on a &gt;21" monitor. This way the photoshop toolbar and top left menu matches the book cover. Nice. <img src="http://www.typophile.com/forums/clipart/happy.gif" alt=":-)" border="0"></p>
+    html_clean: <p>Good point. I guess what I saw was a 640x480 print screen on a &gt;21" monitor. This way the photoshop toolbar and top left menu matches the book cover. Nice. <img src="http://www.typophile.com/forums/clipart/happy.gif" alt=":-)" border="0"></p>
+  - id: 41893
+    user: 1461
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>"If you shrink it down to about 2.5 inches it will interpolate up to 300dpi..." <br> <br>It won't interpolate at all. It will just print smaller. <br> <br>If the screen shot is only 640 pixels wide, that's all you have to work with. If you print it at 1", it will technically be 640 PPI. If you print it at  4" in width, it will be 160 PPI. <br> <br>Now, if you tell Photoshop to print it at 4", but at 300 DPI, that's when it WILL interpolate and, most likely, just give you a blurry, muddy image.  <br> <br>I'd prefer crisp, albeit larger pixels when showing screen shots in print.</p>
+    html_clean: <p>"If you shrink it down to about 2.5 inches it will interpolate up to 300dpi..." <br> <br>It won't interpolate at all. It will just print smaller. <br> <br>If the screen shot is only 640 pixels wide, that's all you have to work with. If you print it at 1", it will technically be 640 PPI. If you print it at  4" in width, it will be 160 PPI. <br> <br>Now, if you tell Photoshop to print it at 4", but at 300 DPI, that's when it WILL interpolate and, most likely, just give you a blurry, muddy image.  <br> <br>I'd prefer crisp, albeit larger pixels when showing screen shots in print.</p>
+  - id: 41894
+    user: 3480
+    date: null
+    date_raw: null
+    votes: null
+    html: "<p>If you're going to resize a pixellated image and retain the clarity, you need to resample using the Nearest Neighbour setting in Photoshop (as opposed to any of the different flavours of Bicubic), and you need to stick to values which are factors of both the horizontal and vertical dimensions (ie you can resize a 640 x 480 image to 320 x 240, but not 330 x whatever). <br> <br>The other part of making screen graphics look good is the way you separate them to CMYK. <br> <br>When you convert an image from RGB (or L*a*b, for that matter) to CMYK, a black channel has to be generated. (We need a black channel in the first place because cyan ink reflects a lot of red light, so black generated from only C, M and Y looks muddy-brown.) <br> <br>Basically, the separating algorithm creates black where R, G and B are equal (or nearly equal). It then removes some of the CMY inks from those areas to avoid over-inking. The amount of CMY it removes can be controlled using Photoshop's Black Generation setting in the Custom CMYK set-up. <br> <br>When you separate an image with very definite areas of black -- a screen-grab is an ideal example -- you want to use Maximum Black Generation. This replaces all R=G=B areas with black and removes all CMY from those areas, and it aggressively replaces near-neutral mixes with black also. <br> <br>Result: you get nice clear black lines instead of slightly off-register CMYK mixes, and everything (text particularly) looks crisp and clear. <br> <br>(As an aside, when you separate images with very continuous tone -- like photographs -- you use a much, much lighter black generation. Printers call it 'Skeleton Black'. This preserves subtle tonal shifts and bright colour mixes and is more colour-controllable on press). <br> <br>HTH <br> <br>Rob</p>"
+    html_clean: "<p>If you're going to resize a pixellated image and retain the clarity, you need to resample using the Nearest Neighbour setting in Photoshop (as opposed to any of the different flavours of Bicubic), and you need to stick to values which are factors of both the horizontal and vertical dimensions (ie you can resize a 640 x 480 image to 320 x 240, but not 330 x whatever). <br> <br>The other part of making screen graphics look good is the way you separate them to CMYK. <br> <br>When you convert an image from RGB (or L*a*b, for that matter) to CMYK, a black channel has to be generated. (We need a black channel in the first place because cyan ink reflects a lot of red light, so black generated from only C, M and Y looks muddy-brown.) <br> <br>Basically, the separating algorithm creates black where R, G and B are equal (or nearly equal). It then removes some of the CMY inks from those areas to avoid over-inking. The amount of CMY it removes can be controlled using Photoshop's Black Generation setting in the Custom CMYK set-up. <br> <br>When you separate an image with very definite areas of black -- a screen-grab is an ideal example -- you want to use Maximum Black Generation. This replaces all R=G=B areas with black and removes all CMY from those areas, and it aggressively replaces near-neutral mixes with black also. <br> <br>Result: you get nice clear black lines instead of slightly off-register CMYK mixes, and everything (text particularly) looks crisp and clear. <br> <br>(As an aside, when you separate images with very continuous tone -- like photographs -- you use a much, much lighter black generation. Printers call it 'Skeleton Black'. This preserves subtle tonal shifts and bright colour mixes and is more colour-controllable on press). <br> <br>HTH <br> <br>Rob</p>"
+  - id: 41895
+    user: 4354
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+    html_clean: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+  - id: 41896
+    user: 4354
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+    html_clean: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+  - id: 41897
+    user: 4354
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+    html_clean: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+  - id: 41898
+    user: 4354
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+    html_clean: <p>Hi, I wonder if someone knows where I can find more information about this topic in SPANISH. <br>Any help would be Greatly Appreciated.  <br>thanks in advance <br> <br>Mariano</p>
+  - id: 41899
+    user: 1461
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Does this work? <br> <br><a href="http://translate.google.com/translate?u=http%3A%2F%2Fwww.typophile.com%2Fforums%2Fmessages%2F4100%2F41961.html%3F1091718284&amp;langpair=en%7Ces&amp;hl=en&amp;ie=UTF-8&amp;ie=UTF-8&amp;oe=UTF-8&amp;prev=%2Flanguage_tools" target="_blank">http://translate.google.com/translate?u=http%3A%2F%2Fwww.typophile.com%2Fforums%2Fmessages%2F4100%2F41961.html%3F1091718284&amp;langpair=en%7Ces&amp;hl=en&amp;ie=UTF-8&amp;ie=UTF-8&amp;oe=UTF-8&amp;prev=%2Flanguage_tools</a></p>
+    html_clean: <p>Does this work? <br> <br><a href="http://translate.google.com/translate?u=http%3A%2F%2Fwww.typophile.com%2Fforums%2Fmessages%2F4100%2F41961.html%3F1091718284&amp;langpair=en%7Ces&amp;hl=en&amp;ie=UTF-8&amp;ie=UTF-8&amp;oe=UTF-8&amp;prev=%2Flanguage_tools" target="_blank">http://translate.google.com/translate?u=http%3A%2F%2Fwww.typophile.com%2Fforums%2Fmessages%2F4100%2F41961.html%3F1091718284&amp;langpair=en%7Ces&amp;hl=en&amp;ie=UTF-8&amp;ie=UTF-8&amp;oe=UTF-8&amp;prev=%2Flanguage_tools</a></p>
+  - id: 41900
+    user: 3480
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>I like that it translates my name as 'Robo'. <br> <br>Rob</p>
+    html_clean: <p>I like that it translates my name as 'Robo'. <br> <br>Rob</p>
+  - id: 144475
+    user: 108
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>If I understand correctly, you have an image that is 640x480 @ 72 dpi and you'd like it to be 300 dpi? <br> <br>If you shrink it down to about 2.5 inches it will interpolate up to 300dpi...</p>
+    html_clean: <p>If I understand correctly, you have an image that is 640x480 @ 72 dpi and you'd like it to be 300 dpi? <br> <br>If you shrink it down to about 2.5 inches it will interpolate up to 300dpi...</p>

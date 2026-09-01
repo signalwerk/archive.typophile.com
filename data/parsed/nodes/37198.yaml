@@ -1,0 +1,215 @@
+node: 37198
+title: Substitute the first letter of a word using opentype?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131019042353"
+  captured_at: 2013-10-19T04:23:53Z
+  url: http://typophile.com/node/37198
+  digest: 3THHTPU5ZHBSAFPJBXHGYHXYCCRZDVFF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/37198.html
+  fingerprint: b8779bfe05085ccc
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131019042353"
+      digest: 3THHTPU5ZHBSAFPJBXHGYHXYCCRZDVFF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/37198.html
+post:
+  id: 37198
+  user: 553
+  date: 2007-09-17T10:57:00
+  date_raw: 17 Sep 2007 — 10:57am
+  votes: null
+  html: |-
+    <p>I'm trying to figure out if there's a way to substitute the first letter of a word for an alternate version. I don't want the rest of the s's in the word to swap also like how standard swashes would work. I'd like it to be automatic so you don't have to hit the alternates every time.</p>
+    <p>The only way I can think to do it is to substitute the s using the space before the word as a ligature. But that doesn't help when there is other punctuation going on.</p>
+    <p>Any ideas?</p>
+  html_clean: |-
+    <p>I'm trying to figure out if there's a way to substitute the first letter of a word for an alternate version. I don't want the rest of the s's in the word to swap also like how standard swashes would work. I'd like it to be automatic so you don't have to hit the alternates every time.</p>
+    <p>The only way I can think to do it is to substitute the s using the space before the word as a ligature. But that doesn't help when there is other punctuation going on.</p>
+    <p>Any ideas?</p>
+comments:
+  - id: 227620
+    user: 19133
+    date: 2007-09-17T11:25:00
+    date_raw: 17 Sep 2007 — 11:25am
+    votes: null
+    html: |-
+      <p>This isn't a great option because it only works with InDesign CS3, but we started supporting the OpenType features <code>'init', 'fina', 'isol',</code> and <code>'medi'</code> which can be dynamically applied to characters. These correspond with "initial letter", "final letter", "isolated letter" and "medial letter". It is only semi-smart, but can handle punctuation around words for example.<br>
+      A more universal approach involves some complex contextual processing which is why Thomas Phinney suggested adding support for the positional forms feature.</p>
+    html_clean: |-
+      <p>This isn't a great option because it only works with InDesign CS3, but we started supporting the OpenType features <code>'init', 'fina', 'isol',</code> and <code>'medi'</code> which can be dynamically applied to characters. These correspond with "initial letter", "final letter", "isolated letter" and "medial letter". It is only semi-smart, but can handle punctuation around words for example.<br>
+      A more universal approach involves some complex contextual processing which is why Thomas Phinney suggested adding support for the positional forms feature.</p>
+  - id: 227622
+    user: 3135
+    date: 2007-09-17T11:34:00
+    date_raw: 17 Sep 2007 — 11:34am
+    votes: null
+    html: |-
+      <p>Are not positional forms required for proper Arabic anyway?</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Are not positional forms required for proper Arabic anyway?</p>
+      <p>ChrisL</p>
+  - id: 227628
+    user: 553
+    date: 2007-09-17T12:04:00
+    date_raw: 17 Sep 2007 — 12:04pm
+    votes: null
+    html: |-
+      <p>Yeah, would prefer something that works in CS2 apps (AI, InDesign).</p>
+      <p>I may just have to resort to the manual swashes and the client will just have to use them at their leisure.</p>
+      <p>Matt</p>
+    html_clean: |-
+      <p>Yeah, would prefer something that works in CS2 apps (AI, InDesign).</p>
+      <p>I may just have to resort to the manual swashes and the client will just have to use them at their leisure.</p>
+      <p>Matt</p>
+  - id: 227632
+    user: 1043
+    date: 2007-09-17T12:14:00
+    date_raw: 17 Sep 2007 — 12:14pm
+    votes: null
+    html: |-
+      <p>Create a class that contains all glyphs that are letters (or anything else you consider to be part of a word). Then, set up a contextual substitution in which if a glyph is not preceded by a member of that class, use the alternate. </p>
+      <p>Here's one way to do it. In the following code, the classes are defined thus:</p>
+      <p><code>@letter</code> = any glyphs you consider part of a word;<br>
+      <code>@normal_letter</code> = any glyphs that have a different form for the beginning of a word<br>
+      <code>@alternate_letter</code> = the alternate versions of the glyphs in <code>@normal_letter</code></p>
+      <p>The contextual substitution (to be placed in the <code>calt</code> feature):</p>
+      <p><code><br>
+      &nbsp;&nbsp;&nbsp;lookup beginnings  {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore sub @letter @normal_letter' ;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @normal_letter' by @alternate_letter;<br>
+      &nbsp;&nbsp;&nbsp;} beginnings;<br>
+      </code></p>
+    html_clean: |-
+      <p>Create a class that contains all glyphs that are letters (or anything else you consider to be part of a word). Then, set up a contextual substitution in which if a glyph is not preceded by a member of that class, use the alternate. </p>
+      <p>Here's one way to do it. In the following code, the classes are defined thus:</p>
+      <p><code>@letter</code> = any glyphs you consider part of a word;<br>
+      <code>@normal_letter</code> = any glyphs that have a different form for the beginning of a word<br>
+      <code>@alternate_letter</code> = the alternate versions of the glyphs in <code>@normal_letter</code></p>
+      <p>The contextual substitution (to be placed in the <code>calt</code> feature):</p>
+      <p><code><br>
+      &nbsp;&nbsp;&nbsp;lookup beginnings  {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore sub @letter @normal_letter' ;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub @normal_letter' by @alternate_letter;<br>
+      &nbsp;&nbsp;&nbsp;} beginnings;<br>
+      </code></p>
+  - id: 227642
+    user: 553
+    date: 2007-09-17T12:48:00
+    date_raw: 17 Sep 2007 — 12:48pm
+    votes: null
+    html: |-
+      <p>Ahh, must be smarter than fontlab.</p>
+      <p>This looks like it should work, but I'm getting a weird "invalid token (text was "@")" error when I try to compile.</p>
+    html_clean: |-
+      <p>Ahh, must be smarter than fontlab.</p>
+      <p>This looks like it should work, but I'm getting a weird "invalid token (text was "@")" error when I try to compile.</p>
+  - id: 227645
+    user: 1043
+    date: 2007-09-17T13:43:00
+    date_raw: 17 Sep 2007 — 1:43pm
+    votes: null
+    html: <p>If you copied the text from here and pasted it in, you might get some trouble with the non-breaking spaces I used for the indents at the beginning of the lines. If not, then make sure you've got all your ticks and semicolons accounted for...</p>
+    html_clean: <p>If you copied the text from here and pasted it in, you might get some trouble with the non-breaking spaces I used for the indents at the beginning of the lines. If not, then make sure you've got all your ticks and semicolons accounted for...</p>
+  - id: 227646
+    user: 19133
+    date: 2007-09-17T13:59:00
+    date_raw: 17 Sep 2007 — 1:59pm
+    votes: null
+    html: "<p>To belatedly reply to Chris:  yes, positional forms are required for some scripts (including Arabic) and are applied automatically by InDesign ME (all versions, not just CS3) but the new thing added in CS3 was adding positional forms as an option for non-ME InDesign.</p>"
+    html_clean: "<p>To belatedly reply to Chris:  yes, positional forms are required for some scripts (including Arabic) and are applied automatically by InDesign ME (all versions, not just CS3) but the new thing added in CS3 was adding positional forms as an option for non-ME InDesign.</p>"
+  - id: 227647
+    user: 3135
+    date: 2007-09-17T14:02:00
+    date_raw: 17 Sep 2007 — 2:02pm
+    votes: null
+    html: |-
+      <p>Oh, I see. Prior to that, an ME version was required. Thanks!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Oh, I see. Prior to that, an ME version was required. Thanks!</p>
+      <p>ChrisL</p>
+  - id: 227658
+    user: 553
+    date: 2007-09-17T14:51:00
+    date_raw: 17 Sep 2007 — 2:51pm
+    votes: null
+    html: <p>OK, got rid of the error. Now I got this script to work with one letter substitution... What If I have dupes for all 26 letters? Do I need to make classes for each letter?</p>
+    html_clean: <p>OK, got rid of the error. Now I got this script to work with one letter substitution... What If I have dupes for all 26 letters? Do I need to make classes for each letter?</p>
+  - id: 227660
+    user: 553
+    date: 2007-09-17T14:55:00
+    date_raw: 17 Sep 2007 — 2:55pm
+    votes: null
+    html: |-
+      <p>Never mind. I'm dim sometimes. It was replacing the letters with the blank spots I had for all of the glyphs. D'oh, it's beer time.</p>
+      <p>Thanks a ton Mark!!!</p>
+    html_clean: |-
+      <p>Never mind. I'm dim sometimes. It was replacing the letters with the blank spots I had for all of the glyphs. D'oh, it's beer time.</p>
+      <p>Thanks a ton Mark!!!</p>
+  - id: 227810
+    user: 11526
+    date: 2007-09-18T07:49:00
+    date_raw: 18 Sep 2007 — 7:49am
+    votes: null
+    html: <p>I was just looking for that kind of thing, thanks for a quick way of describing it.</p>
+    html_clean: <p>I was just looking for that kind of thing, thanks for a quick way of describing it.</p>
+  - id: 228139
+    user: 553
+    date: 2007-09-19T13:09:00
+    date_raw: 19 Sep 2007 — 1:09pm
+    votes: null
+    html: |-
+      <p>Paging Mark Simonson! </p>
+      <p>I understand how this method works now.<br>
+      Is there a way to use this same technique for replacing the end letter of a word?</p>
+      <p>I am just no good at making the code do what I want it to do...</p>
+    html_clean: |-
+      <p>Paging Mark Simonson! </p>
+      <p>I understand how this method works now.<br>
+      Is there a way to use this same technique for replacing the end letter of a word?</p>
+      <p>I am just no good at making the code do what I want it to do...</p>
+  - id: 228141
+    user: 7006
+    date: 2007-09-19T13:17:00
+    date_raw: 19 Sep 2007 — 1:17pm
+    votes: null
+    html: |-
+      <p>check this thread:</p>
+      <p><a href="http://www.typophile.com/node/19839" rel="nofollow">Contextual Swashes for Beginnings</a></p>
+    html_clean: |-
+      <p>check this thread:</p>
+      <p><a href="/node/19839/" rel="nofollow">Contextual Swashes for Beginnings</a></p>
+  - id: 228149
+    user: 553
+    date: 2007-09-19T13:35:00
+    date_raw: 19 Sep 2007 — 1:35pm
+    votes: null
+    html: <p>After reading that other thread, I got it. Thanks Paul.</p>
+    html_clean: <p>After reading that other thread, I got it. Thanks Paul.</p>
+  - id: 228150
+    user: 7006
+    date: 2007-09-19T13:38:00
+    date_raw: 19 Sep 2007 — 1:38pm
+    votes: null
+    html: <p>sorry i didn't link to it earlier. :^p</p>
+    html_clean: <p>sorry i didn't link to it earlier. :^p</p>

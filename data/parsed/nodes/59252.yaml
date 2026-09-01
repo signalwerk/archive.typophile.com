@@ -1,0 +1,192 @@
+node: 59252
+title: how to make several glyphs for the same character?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203100313"
+  captured_at: 2010-02-03T10:03:13Z
+  url: http://typophile.com/node/59252
+  digest: PD3CWV34OQ63QQ6GQTGK6G4WIILGV6BF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/59252.html
+  fingerprint: a8ce78fc06a5bd40
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203100313"
+      digest: PD3CWV34OQ63QQ6GQTGK6G4WIILGV6BF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59252.html
+post:
+  id: 59252
+  user: 45114
+  date: 2009-06-22T05:42:00
+  date_raw: 22.Jun.2009 5.42am
+  votes: null
+  html: |-
+    <p>hello,</p>
+    <p>i'm verry new to font making and am stuck on the feature i want to make. there are all glyphs made and in some typing occasions i want them to be different: when i type "gj", or "jj" or "yj" i want them to join in a specific way (j is shorter). should i make a separate glyph of those pairs or should i make different glyphs of the same letters and put some script that says how they should join when follow each other?</p>
+  html_clean: |-
+    <p>hello,</p>
+    <p>i'm verry new to font making and am stuck on the feature i want to make. there are all glyphs made and in some typing occasions i want them to be different: when i type "gj", or "jj" or "yj" i want them to join in a specific way (j is shorter). should i make a separate glyph of those pairs or should i make different glyphs of the same letters and put some script that says how they should join when follow each other?</p>
+comments:
+  - id: 353061
+    user: 43580
+    date: 2009-06-22T08:07:00
+    date_raw: 22.Jun.2009 8.07am
+    votes: null
+    html: |-
+      <p>You could make them ligatures, that is two joined letters. Check the internet for them. To make this work in a font, you need to "program" this. I have put this between quotes because it is not that hard to do, it is required to make your font in a software package like fontlab, if you need help a lot of people can help (you could already check the manual on their website). But why a jj ligature? Are there words that use jj combinations? In what language?</p>
+      <p>Good luck</p>
+    html_clean: |-
+      <p>You could make them ligatures, that is two joined letters. Check the internet for them. To make this work in a font, you need to "program" this. I have put this between quotes because it is not that hard to do, it is required to make your font in a software package like fontlab, if you need help a lot of people can help (you could already check the manual on their website). But why a jj ligature? Are there words that use jj combinations? In what language?</p>
+      <p>Good luck</p>
+  - id: 353069
+    user: 45114
+    date: 2009-06-22T08:27:00
+    date_raw: 22.Jun.2009 8.27am
+    votes: null
+    html: |-
+      <p>Sidney, thanks for the answer. i use Fontlab and understand that it goes to "programming", but i don't know how. if you know those manuals, please show the links.<br>
+      maybe there are no words with jjjj, but if someone would want to write so, i want text to look the right way. anyway, most important is yj combination. there are some lithuanian words like: lyja, ryja, gyja...</p>
+    html_clean: |-
+      <p>Sidney, thanks for the answer. i use Fontlab and understand that it goes to "programming", but i don't know how. if you know those manuals, please show the links.<br>
+      maybe there are no words with jjjj, but if someone would want to write so, i want text to look the right way. anyway, most important is yj combination. there are some lithuanian words like: lyja, ryja, gyja...</p>
+  - id: 353087
+    user: 14604
+    date: 2009-06-22T09:59:00
+    date_raw: 22.Jun.2009 9.59am
+    votes: null
+    html: |-
+      <p>I'm not such an expert on this, but I think you do this:</p>
+      <p>You make a new character by going to Glyph -&gt; Generate Glyphs. In the top field in the window that appears you can name the new glyph, use something like y_j. Open the glyph, and design your yj ligature.</p>
+      <p>Then go to Window -&gt; Panels -&gt; OpenType. Click the little + sign on the lower left of the OpenType panel. This creates a new (but empty) opentype feature.</p>
+      <p>Select the new feature in the left field of the window, and replace the default:</p>
+      <p><code>feature xxxx {<br>
+        sub by ;<br>
+      } xxxx;</code></p>
+      <p>with:</p>
+      <p><code>feature liga {<br>
+      sub y j by y_j;<br>
+      } liga;</code></p>
+      <p>If you have more ligatures, just place them underneath the last one, above the bottom "} liga;".</p>
+    html_clean: |-
+      <p>I'm not such an expert on this, but I think you do this:</p>
+      <p>You make a new character by going to Glyph -&gt; Generate Glyphs. In the top field in the window that appears you can name the new glyph, use something like y_j. Open the glyph, and design your yj ligature.</p>
+      <p>Then go to Window -&gt; Panels -&gt; OpenType. Click the little + sign on the lower left of the OpenType panel. This creates a new (but empty) opentype feature.</p>
+      <p>Select the new feature in the left field of the window, and replace the default:</p>
+      <p><code>feature xxxx {<br>
+        sub by ;<br>
+      } xxxx;</code></p>
+      <p>with:</p>
+      <p><code>feature liga {<br>
+      sub y j by y_j;<br>
+      } liga;</code></p>
+      <p>If you have more ligatures, just place them underneath the last one, above the bottom "} liga;".</p>
+  - id: 353106
+    user: 2162
+    date: 2009-06-22T11:00:00
+    date_raw: 22.Jun.2009 11.00am
+    votes: null
+    html: |-
+      <p>Alec Julien's ligature tutorials on Vimeo:<br>
+      <a href="http://vimeo.com/745129" title="http://vimeo.com/745129">http://vimeo.com/745129</a><br>
+      <a href="http://vimeo.com/679844" title="http://vimeo.com/679844">http://vimeo.com/679844</a></p>
+    html_clean: |-
+      <p>Alec Julien's ligature tutorials on Vimeo:<br>
+      <a href="http://vimeo.com/745129" title="http://vimeo.com/745129">http://vimeo.com/745129</a><br>
+      <a href="http://vimeo.com/679844" title="http://vimeo.com/679844">http://vimeo.com/679844</a></p>
+  - id: 353144
+    user: 45114
+    date: 2009-06-22T14:28:00
+    date_raw: 22.Jun.2009 2.28pm
+    votes: null
+    html: <p>thank you guys, that was exactly what i needed.</p>
+    html_clean: <p>thank you guys, that was exactly what i needed.</p>
+  - id: 353230
+    user: 12009
+    date: 2009-06-23T03:44:00
+    date_raw: 23.Jun.2009 3.44am
+    votes: null
+    html: |-
+      <p>In case you are only changing the design of the 'j' and not the letters that precede it, it would make more sense to use contextual alternate (calt) feature.</p>
+      <p><cite>Are there words that use jj combinations?</cite><br>
+      The Thai Prime Minister Vejjajiva comes to mind. <a href="http://www.as8.it/linguistics/languages_at_a_glance.html">"Languages at a Glance"</a> compiled by Eben Sorkin further provides the Danish hajjæger, the Dutch pijjekker, the English avijja and hajji, the Hungarian ujjak, the Norwegian hasjjag, the Polish trójjęzyczność, and the Swedish nojja.</p>
+    html_clean: |-
+      <p>In case you are only changing the design of the 'j' and not the letters that precede it, it would make more sense to use contextual alternate (calt) feature.</p>
+      <p><cite>Are there words that use jj combinations?</cite><br>
+      The Thai Prime Minister Vejjajiva comes to mind. <a href="http://www.as8.it/linguistics/languages_at_a_glance.html">"Languages at a Glance"</a> compiled by Eben Sorkin further provides the Danish hajjæger, the Dutch pijjekker, the English avijja and hajji, the Hungarian ujjak, the Norwegian hasjjag, the Polish trójjęzyczność, and the Swedish nojja.</p>
+  - id: 353246
+    user: 5094
+    date: 2009-06-23T05:12:00
+    date_raw: 23.Jun.2009 5.12am
+    votes: null
+    html: |-
+      <p>Ah. Using fonts. My favorite horse. Or perhaps Sancho's donkey? Isn't that a windmill over yonder?</p>
+      <p>Whether you use ligatures or contextual alternates depends. First of all, only a little current software supports OpenType features. Of those that do, most support ligatures, fewer support contextual alternates.</p>
+      <p>Ligatures may revert to the base characters when a certain tracking value is reached. You may or may not want them to. If not, contextual alternates would be best. If you want the end user to think about whether or not to use them, they are discretionary ligatures (*dlig*). If you want him/her to take effort to not use them, put them in *liga*.</p>
+      <p>Currently, contextual alternates -- or ligatures -- are a group that is either on or off. That is, you get all or none. If you want several stylistic variations which are independent of each other, put them in stylistic sets -- which even less software supports.</p>
+      <p>Finally, almost all letter pairs in the Latin alphabet occur. I learned that with King Arthur's mom, suddenly needing to kern Yg (Ygraine).</p>
+    html_clean: |-
+      <p>Ah. Using fonts. My favorite horse. Or perhaps Sancho's donkey? Isn't that a windmill over yonder?</p>
+      <p>Whether you use ligatures or contextual alternates depends. First of all, only a little current software supports OpenType features. Of those that do, most support ligatures, fewer support contextual alternates.</p>
+      <p>Ligatures may revert to the base characters when a certain tracking value is reached. You may or may not want them to. If not, contextual alternates would be best. If you want the end user to think about whether or not to use them, they are discretionary ligatures (*dlig*). If you want him/her to take effort to not use them, put them in *liga*.</p>
+      <p>Currently, contextual alternates -- or ligatures -- are a group that is either on or off. That is, you get all or none. If you want several stylistic variations which are independent of each other, put them in stylistic sets -- which even less software supports.</p>
+      <p>Finally, almost all letter pairs in the Latin alphabet occur. I learned that with King Arthur's mom, suddenly needing to kern Yg (Ygraine).</p>
+  - id: 353266
+    user: 43580
+    date: 2009-06-23T06:48:00
+    date_raw: 23.Jun.2009 6.48am
+    votes: null
+    html: |-
+      <p>Jongseong:</p>
+      <p>Thanks for replying to my question, maybe something for a new post: what ligatures and kerning might be needed world wide for the support in different languages?</p>
+    html_clean: |-
+      <p>Jongseong:</p>
+      <p>Thanks for replying to my question, maybe something for a new post: what ligatures and kerning might be needed world wide for the support in different languages?</p>
+  - id: 353272
+    user: 12009
+    date: 2009-06-23T07:04:00
+    date_raw: 23.Jun.2009 7.04am
+    votes: null
+    html: <p>With the Latin alphabet, it may be more fruitful to wonder which potential troublesome letter pairs we <em>don't</em> have to worry about. As Charles says, almost all letter pairs occur. But yes, this is a topic for another thread.</p>
+    html_clean: <p>With the Latin alphabet, it may be more fruitful to wonder which potential troublesome letter pairs we <em>don't</em> have to worry about. As Charles says, almost all letter pairs occur. But yes, this is a topic for another thread.</p>
+  - id: 354488
+    user: 1344
+    date: 2009-06-30T16:11:00
+    date_raw: 30.Jun.2009 4.11pm
+    votes: null
+    html: "<p>There are also many Czech words where jj occurs. Typically in words containing prefix nej- (the most): nejjasnější, nejjedovatější, nejjižnější...</p>"
+    html_clean: "<p>There are also many Czech words where jj occurs. Typically in words containing prefix nej- (the most): nejjasnější, nejjedovatější, nejjižnější...</p>"
+  - id: 354514
+    user: 2021
+    date: 2009-06-30T18:36:00
+    date_raw: 30.Jun.2009 6.36pm
+    votes: null
+    html: |-
+      <p><em>Are there words that use jj combinations?</em></p>
+      <p><a href="http://en.wikipedia.org/wiki/Ujjal_Dosanjh">Ujjal Dosanjh</a>, Canadian politician of Sikh origin.</p>
+    html_clean: |-
+      <p><em>Are there words that use jj combinations?</em></p>
+      <p><a href="http://en.wikipedia.org/wiki/Ujjal_Dosanjh">Ujjal Dosanjh</a>, Canadian politician of Sikh origin.</p>
+  - id: 355071
+    user: 45114
+    date: 2009-07-05T15:44:00
+    date_raw: 5.Jul.2009 3.44pm
+    votes: null
+    html: <p>thank you all. really, in this case the calt feature is better, because only one glyph should change when it goes after another. when using liga feature i write jjjjjjjj (of course there's no such word, but in such crazy moments i want it to look correct). only first pair goes to right combination and then the third j goes without ligature. with calt feature i made that every j goes in good way no matter how many of them will go.</p>
+    html_clean: <p>thank you all. really, in this case the calt feature is better, because only one glyph should change when it goes after another. when using liga feature i write jjjjjjjj (of course there's no such word, but in such crazy moments i want it to look correct). only first pair goes to right combination and then the third j goes without ligature. with calt feature i made that every j goes in good way no matter how many of them will go.</p>

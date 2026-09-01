@@ -1,0 +1,113 @@
+node: 75020
+title: Taking account of diacritical marks within the em square?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130427133112"
+  captured_at: 2013-04-27T13:31:12Z
+  url: http://www.typophile.com:80/node/75020
+  digest: N6CAWFN7AHPXZ2DLBCYTXB2FIXDCEFFX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/75020.html
+  fingerprint: 46b03a2f05b6d856
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130427133112"
+      digest: N6CAWFN7AHPXZ2DLBCYTXB2FIXDCEFFX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/75020.html
+post:
+  id: 75020
+  user: 8260
+  date: 2010-10-08T05:37:00
+  date_raw: 8 Oct 2010 — 5:37am
+  votes: null
+  html: |-
+    <p>I'm making tentative steps towards designing my first typeface and I've been thinking about vertical metrics.</p>
+    <p>What should be accounted for within the height of the em square? My instinct is that it would be a tidy solution to allow space for the height of diacritical marks within the em to avoid clipping / crashing, but I can see a number of disadvantages too.</p>
+    <p><strong>Advantages</strong></p>
+    <ul>
+    <li>A degree of future proofing if extending into other character sets. No need to break backwards compatibility of vertical metrics.</li>
+    <li>Assuming the em square retains a fraction of space at the top and bottom, solid setting wouldn't cause crashes.</li>
+    <li>Possibly simplifies the setting of vertical metrics values? I still need to fully read John Hudson's wiki entry on this.</li>
+    </ul>
+    <p><strong>Disadvantages</strong></p>
+    <ul>
+    <li>The result will be 'small on the body' making the apparent size smaller for a given point size.</li>
+    <li>The default linespacing (ie when set solid) becomes dependent on the tallest glyph + diacritical combination (Would this be Aringacute? <a href="http://typophile.com/node/35221" title="http://typophile.com/node/35221">http://typophile.com/node/35221</a>).</li>
+    <li>As a result of the above, a text using no diacritics may need negative leading.</li>
+    <li>Mixing typefaces within the same line may be problematic.</li>
+    <li>Reduces the effective vertical resolution for placing points.</li>
+    </ul>
+    <p>I remember a thread which compared the 'size on the body' of recent Microsoft type families to that of older ones such as Arial, and found the new releases were significantly 'smaller on the body'. Has there been a move in this direction for other designers / foundries, or is it one of those personal preferences which splits opinion?</p>
+  html_clean: |-
+    <p>I'm making tentative steps towards designing my first typeface and I've been thinking about vertical metrics.</p>
+    <p>What should be accounted for within the height of the em square? My instinct is that it would be a tidy solution to allow space for the height of diacritical marks within the em to avoid clipping / crashing, but I can see a number of disadvantages too.</p>
+    <p><strong>Advantages</strong></p>
+    <ul>
+    <li>A degree of future proofing if extending into other character sets. No need to break backwards compatibility of vertical metrics.</li>
+    <li>Assuming the em square retains a fraction of space at the top and bottom, solid setting wouldn't cause crashes.</li>
+    <li>Possibly simplifies the setting of vertical metrics values? I still need to fully read John Hudson's wiki entry on this.</li>
+    </ul>
+    <p><strong>Disadvantages</strong></p>
+    <ul>
+    <li>The result will be 'small on the body' making the apparent size smaller for a given point size.</li>
+    <li>The default linespacing (ie when set solid) becomes dependent on the tallest glyph + diacritical combination (Would this be Aringacute? <a href="/node/35221/" title="http://typophile.com/node/35221">http://typophile.com/node/35221</a>).</li>
+    <li>As a result of the above, a text using no diacritics may need negative leading.</li>
+    <li>Mixing typefaces within the same line may be problematic.</li>
+    <li>Reduces the effective vertical resolution for placing points.</li>
+    </ul>
+    <p>I remember a thread which compared the 'size on the body' of recent Microsoft type families to that of older ones such as Arial, and found the new releases were significantly 'smaller on the body'. Has there been a move in this direction for other designers / foundries, or is it one of those personal preferences which splits opinion?</p>
+comments:
+  - id: 435124
+    user: 68267
+    date: 2010-10-19T13:43:00
+    date_raw: 19 Oct 2010 — 1:43pm
+    votes: null
+    html: |-
+      <p>Look at Gentium for some solutions to this problem.</p>
+      <p>1. Capital A ring acute — put the acute accent to the right of the ring.</p>
+      <p>2. Use low profile diacritics for uppercase glyphs, that is slant them less.</p>
+    html_clean: |-
+      <p>Look at Gentium for some solutions to this problem.</p>
+      <p>1. Capital A ring acute — put the acute accent to the right of the ring.</p>
+      <p>2. Use low profile diacritics for uppercase glyphs, that is slant them less.</p>
+  - id: 435132
+    user: 2021
+    date: 2010-10-19T14:24:00
+    date_raw: 19 Oct 2010 — 2:24pm
+    votes: null
+    html: |-
+      <p>No need for Aring acute, unless you expect publishers of Danish dictionaries to license your font.</p>
+      <p>But they will no doubt require fonts including IPA (phonetic) symbols, so unless you plan to also include *those* Unicode glyphs, you are wasting your time on this character.</p>
+    html_clean: |-
+      <p>No need for Aring acute, unless you expect publishers of Danish dictionaries to license your font.</p>
+      <p>But they will no doubt require fonts including IPA (phonetic) symbols, so unless you plan to also include *those* Unicode glyphs, you are wasting your time on this character.</p>
+  - id: 435141
+    user: 32723
+    date: 2010-10-19T15:26:00
+    date_raw: 19 Oct 2010 — 3:26pm
+    votes: null
+    html: |-
+      <p>Chris, your doubt was also mine when I begun to develop my font.</p>
+      <p>The solution I did adopt was to set height limits according to <strong>single</strong> accent above and below, plus a small extra space. I also followed Bhikku's second suggestion so my diacritics are different for each set of glyphs (lowercase, uppercase, small caps, petite caps).</p>
+      <p>About characters with <strong>double</strong> accents, I built them preserving design and exceeded the height limits. This would cause collisions between lines, but I believe that people who use languages with these glyphs, like Vietnamese, are familiar with this problem and already use larger leadings.</p>
+    html_clean: |-
+      <p>Chris, your doubt was also mine when I begun to develop my font.</p>
+      <p>The solution I did adopt was to set height limits according to <strong>single</strong> accent above and below, plus a small extra space. I also followed Bhikku's second suggestion so my diacritics are different for each set of glyphs (lowercase, uppercase, small caps, petite caps).</p>
+      <p>About characters with <strong>double</strong> accents, I built them preserving design and exceeded the height limits. This would cause collisions between lines, but I believe that people who use languages with these glyphs, like Vietnamese, are familiar with this problem and already use larger leadings.</p>

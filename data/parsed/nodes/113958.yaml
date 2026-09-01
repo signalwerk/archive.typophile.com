@@ -1,0 +1,775 @@
+node: 113958
+title: Pseudo Random Repeat Contextual Alternate
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809201646"
+  captured_at: 2014-08-09T20:16:46Z
+  url: http://typophile.com/node/113958
+  digest: RXX3LHJY63BWTY2E3CP3KODUOZ2MBP76
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/113958.html
+  fingerprint: 71c5ee193f23ac8c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809201646"
+      digest: RXX3LHJY63BWTY2E3CP3KODUOZ2MBP76
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/113958.html
+post:
+  id: 113958
+  user: 217459
+  date: 2014-02-06T02:27:00
+  date_raw: 6 Feb 2014 — 2:27am
+  votes: null
+  html: |-
+    <p>Hi,<br>
+    I've been testing and googling for a while now, but I can't get this work.<br>
+    I'm working on an experimental type project. What I'm trying to do is to repeat a character in a random way</p>
+    <p>I have following 5 characters: </p>
+    <pre>zero, zero.001, zero.002, zero.003, zero.004, zero.005
+    </pre><p>Currently I am using this code to repeat them, when they are typed after each other:</p>
+    <pre>lookup rotate {
+     sub zero zero'  by zero.001 ;
+     sub zero.001 zero' by zero.002 ;
+     sub zero.002 zero' by zero.003 ;
+     sub zero.003 zero' by zero.004 ;
+     sub zero.004 zero' by zero.005 ;
+     sub zero.005 zero' by zero ;
+    }rotate;
+    lookup rotate;
+    </pre><p>I attached an image of how it looks like now (the worm poops are the character "zero, zero.001... zero.005"), but I would like to repeat them differently for the second, third and fourth loop, so that the repeat patter can not be recognized easily. </p>
+    <p>Can anyone help me with this?<br>
+    /Gerolin</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Bildschirmfoto 2014-02-05 um 15.26.55.png">Bildschirmfoto 2014-02-05 um 15.26.55.png</a></td><td>24.18 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hi,<br>
+    I've been testing and googling for a while now, but I can't get this work.<br>
+    I'm working on an experimental type project. What I'm trying to do is to repeat a character in a random way</p>
+    <p>I have following 5 characters: </p>
+    <pre>zero, zero.001, zero.002, zero.003, zero.004, zero.005
+    </pre><p>Currently I am using this code to repeat them, when they are typed after each other:</p>
+    <pre>lookup rotate {
+     sub zero zero'  by zero.001 ;
+     sub zero.001 zero' by zero.002 ;
+     sub zero.002 zero' by zero.003 ;
+     sub zero.003 zero' by zero.004 ;
+     sub zero.004 zero' by zero.005 ;
+     sub zero.005 zero' by zero ;
+    }rotate;
+    lookup rotate;
+    </pre><p>I attached an image of how it looks like now (the worm poops are the character "zero, zero.001... zero.005"), but I would like to repeat them differently for the second, third and fourth loop, so that the repeat patter can not be recognized easily. </p>
+    <p>Can anyone help me with this?<br>
+    /Gerolin</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Bildschirmfoto 2014-02-05 um 15.26.55.png">Bildschirmfoto 2014-02-05 um 15.26.55.png</a></td><td>24.18 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 570828
+    user: 21309
+    date: 2014-02-06T08:29:00
+    date_raw: 6 Feb 2014 — 8:29am
+    votes: null
+    html: |-
+      <p>This should do it:</p>
+      <p><code><br>
+      group @Group1 [zero];<br>
+      group @Group2 [zero.2];<br>
+      group @Group3 [zero.3];<br>
+      group @Group4 [zero.4];<br>
+      group @Group5 [zero.5];</code></p>
+      <p>feature ContextualAlternates1 calt {<br>
+        # Contextual Alternates<br>
+        lookup Lookup1;<br>
+        lookup Lookup2;<br>
+      }</p>
+      <p>lookup Lookup1 {<br>
+        # Referenced by feature "ContextualAlternates1"<br>
+        context (@Group1) @Group1;<br>
+        sub 0 Lookup3;<br>
+        context (@Group2) @Group1;<br>
+        sub 0 Lookup4;<br>
+        context (@Group3) @Group1;<br>
+        sub 0 Lookup5;<br>
+        context (@Group4) @Group1;<br>
+        sub 0 Lookup6;<br>
+      }</p>
+      <p>lookup Lookup2 {<br>
+        # Referenced by feature "ContextualAlternates1"<br>
+        context (@Group5 @Group4) @Group1;<br>
+        sub 0 Lookup7;<br>
+        context (@Group2 @Group5) @Group2;<br>
+        sub 0 Lookup7;<br>
+        context (@Group4 @Group2) @Group3;<br>
+        sub 0 Lookup7;<br>
+        context (@Group1 @Group4) @Group4;<br>
+        sub 0 Lookup7;<br>
+        context (@Group5 @Group1) @Group5;<br>
+        sub 0 Lookup7;<br>
+        context (@Group3 @Group5) @Group1;<br>
+        sub 0 Lookup7;<br>
+        context (@Group2 @Group3) @Group2;<br>
+        sub 0 Lookup8;<br>
+        context (@Group1 @Group2) @Group3;<br>
+        sub 0 Lookup8;<br>
+        context (@Group4 @Group1) @Group4;<br>
+        sub 0 Lookup8;<br>
+        context (@Group3 @Group4) @Group4;<br>
+        sub 0 Lookup9;<br>
+      }</p>
+      <p>lookup Lookup3 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.2;<br>
+      }</p>
+      <p>lookup Lookup4 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup5 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.4;<br>
+      }</p>
+      <p>lookup Lookup6 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.5;<br>
+      }</p>
+      <p>lookup Lookup7 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero -&gt; zero.2;<br>
+        sub zero.2 -&gt; zero.4;<br>
+        sub zero.3 -&gt; zero;<br>
+        sub zero.4 -&gt; zero.5;<br>
+        sub zero.5 -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup8 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero.2 -&gt; zero;<br>
+        sub zero.3 -&gt; zero.4;<br>
+        sub zero.4 -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup9 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero.4 -&gt; zero.5;<br>
+      }<br>
+      </p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontwofftest_4242.png"></div><p></p>
+      <p>I've provided some more information along with the FontCreator project file here:<br>
+      <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797" rel="nofollow">http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797</a></p>
+    html_clean: |-
+      <p>This should do it:</p>
+      <p><code><br>
+      group @Group1 [zero];<br>
+      group @Group2 [zero.2];<br>
+      group @Group3 [zero.3];<br>
+      group @Group4 [zero.4];<br>
+      group @Group5 [zero.5];</code></p>
+      <p>feature ContextualAlternates1 calt {<br>
+        # Contextual Alternates<br>
+        lookup Lookup1;<br>
+        lookup Lookup2;<br>
+      }</p>
+      <p>lookup Lookup1 {<br>
+        # Referenced by feature "ContextualAlternates1"<br>
+        context (@Group1) @Group1;<br>
+        sub 0 Lookup3;<br>
+        context (@Group2) @Group1;<br>
+        sub 0 Lookup4;<br>
+        context (@Group3) @Group1;<br>
+        sub 0 Lookup5;<br>
+        context (@Group4) @Group1;<br>
+        sub 0 Lookup6;<br>
+      }</p>
+      <p>lookup Lookup2 {<br>
+        # Referenced by feature "ContextualAlternates1"<br>
+        context (@Group5 @Group4) @Group1;<br>
+        sub 0 Lookup7;<br>
+        context (@Group2 @Group5) @Group2;<br>
+        sub 0 Lookup7;<br>
+        context (@Group4 @Group2) @Group3;<br>
+        sub 0 Lookup7;<br>
+        context (@Group1 @Group4) @Group4;<br>
+        sub 0 Lookup7;<br>
+        context (@Group5 @Group1) @Group5;<br>
+        sub 0 Lookup7;<br>
+        context (@Group3 @Group5) @Group1;<br>
+        sub 0 Lookup7;<br>
+        context (@Group2 @Group3) @Group2;<br>
+        sub 0 Lookup8;<br>
+        context (@Group1 @Group2) @Group3;<br>
+        sub 0 Lookup8;<br>
+        context (@Group4 @Group1) @Group4;<br>
+        sub 0 Lookup8;<br>
+        context (@Group3 @Group4) @Group4;<br>
+        sub 0 Lookup9;<br>
+      }</p>
+      <p>lookup Lookup3 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.2;<br>
+      }</p>
+      <p>lookup Lookup4 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup5 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.4;<br>
+      }</p>
+      <p>lookup Lookup6 {<br>
+        # Referenced by lookup "Lookup1"<br>
+        sub zero -&gt; zero.5;<br>
+      }</p>
+      <p>lookup Lookup7 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero -&gt; zero.2;<br>
+        sub zero.2 -&gt; zero.4;<br>
+        sub zero.3 -&gt; zero;<br>
+        sub zero.4 -&gt; zero.5;<br>
+        sub zero.5 -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup8 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero.2 -&gt; zero;<br>
+        sub zero.3 -&gt; zero.4;<br>
+        sub zero.4 -&gt; zero.3;<br>
+      }</p>
+      <p>lookup Lookup9 {<br>
+        # Referenced by lookup "Lookup2"<br>
+        sub zero.4 -&gt; zero.5;<br>
+      }<br>
+      </p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontwofftest_4242.png"></div><p></p>
+      <p>I've provided some more information along with the FontCreator project file here:<br>
+      <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797" rel="nofollow">http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797</a></p>
+  - id: 570832
+    user: 1250
+    date: 2014-02-06T09:29:00
+    date_raw: 6 Feb 2014 — 9:29am
+    votes: null
+    html: |-
+      <p>Thank you for saying "pseudo".</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Thank you for saying "pseudo".</p>
+      <p>hhp</p>
+  - id: 570882
+    user: 217459
+    date: 2014-02-07T01:13:00
+    date_raw: 7 Feb 2014 — 1:13am
+    votes: null
+    html: |-
+      <div class="comment-spam-body"><p>Thanks for your code, @erwindenissen. Unfortunately I have some troubles with it.<br>
+      I work with <a class="freelinking external" href="http://www.glyphsapp.com" rel="nofollow">Glyphs app</a>  and somehow the code does not work.</p>
+      <p>For example, I have never seen "-&gt;" in a code.<br>
+      Is this: </p>
+      <pre>sub zero -&gt; zero.2</pre><p> the same as this?: </p>
+      <pre>sub zero by zero.2; </pre><p>
+      Can anyone figure out how the code would look like in Glyphs app?</p>
+      <p>@hrant: your welcome. :-)</p>
+      </div>
+    html_clean: |-
+      <div class="comment-spam-body"><p>Thanks for your code, @erwindenissen. Unfortunately I have some troubles with it.<br>
+      I work with <a class="freelinking external" href="http://www.glyphsapp.com" rel="nofollow">Glyphs app</a>  and somehow the code does not work.</p>
+      <p>For example, I have never seen "-&gt;" in a code.<br>
+      Is this: </p>
+      <pre>sub zero -&gt; zero.2</pre><p> the same as this?: </p>
+      <pre>sub zero by zero.2; </pre><p>
+      Can anyone figure out how the code would look like in Glyphs app?</p>
+      <p>@hrant: your welcome. :-)</p>
+      </div>
+  - id: 570893
+    user: 21309
+    date: 2014-02-07T02:32:00
+    date_raw: 7 Feb 2014 — 2:32am
+    votes: null
+    html: |-
+      <p>Yes, I think that is very likely.</p>
+      <p>To be sure, just open the font I made with <a class="freelinking external" href="http://www.high-logic.com/font-editor/fontcreator.html" rel="nofollow">FontCreator</a> and see how it looks in your font editor.</p>
+      <p>You can download the font from here:<br>
+      <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797&amp;p=20920#p20920" rel="nofollow">AlmostRandom</a></p>
+      <p>Let us know your results.</p>
+    html_clean: |-
+      <p>Yes, I think that is very likely.</p>
+      <p>To be sure, just open the font I made with <a class="freelinking external" href="http://www.high-logic.com/font-editor/fontcreator.html" rel="nofollow">FontCreator</a> and see how it looks in your font editor.</p>
+      <p>You can download the font from here:<br>
+      <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=4&amp;t=4797&amp;p=20920#p20920" rel="nofollow">AlmostRandom</a></p>
+      <p>Let us know your results.</p>
+  - id: 570901
+    user: 217459
+    date: 2014-02-07T06:49:00
+    date_raw: 7 Feb 2014 — 6:49am
+    votes: null
+    html: |-
+      <p>Unfortunately I can not open the .fcp file with Glyphs app. The coding seams to be a bit different in FontCreator.<br>
+      Can you explain a bit more in detail what happens in lookup1 and lookup2? I don't understand the function "context" and "sub 0". It seems like the problem is something with this part of the code:</p>
+      <pre>lookup Lookup1 {
+      &nbsp; # Referenced by feature "ContextualAlternates1"
+      &nbsp; context (@Group1) @Group1 ;
+      &nbsp; sub 0 Lookup3 ;
+      &nbsp; context (@Group2) @Group1 ;
+      &nbsp; sub 0 Lookup4 ;
+      &nbsp; context (@Group3) @Group1 ;
+      &nbsp; sub 0 Lookup5 ;
+      &nbsp; context (@Group4) @Group1 ;
+      &nbsp; sub 0 Lookup6 ;
+      }Lookup1;
+
+      lookup Lookup2 {
+      &nbsp; # Referenced by feature "ContextualAlternates1"
+      &nbsp; context (@Group5 @Group4) @Group1;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group2 @Group5) @Group2;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group4 @Group2) @Group3;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group1 @Group4) @Group4;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group5 @Group1) @Group5;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group3 @Group5) @Group1;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group2 @Group3) @Group2;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group1 @Group2) @Group3;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group4 @Group1) @Group4;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group3 @Group4) @Group4;
+      &nbsp; sub 0 Lookup9;
+      }Lookup2;
+      </pre>
+    html_clean: |-
+      <p>Unfortunately I can not open the .fcp file with Glyphs app. The coding seams to be a bit different in FontCreator.<br>
+      Can you explain a bit more in detail what happens in lookup1 and lookup2? I don't understand the function "context" and "sub 0". It seems like the problem is something with this part of the code:</p>
+      <pre>lookup Lookup1 {
+      &nbsp; # Referenced by feature "ContextualAlternates1"
+      &nbsp; context (@Group1) @Group1 ;
+      &nbsp; sub 0 Lookup3 ;
+      &nbsp; context (@Group2) @Group1 ;
+      &nbsp; sub 0 Lookup4 ;
+      &nbsp; context (@Group3) @Group1 ;
+      &nbsp; sub 0 Lookup5 ;
+      &nbsp; context (@Group4) @Group1 ;
+      &nbsp; sub 0 Lookup6 ;
+      }Lookup1;
+
+      lookup Lookup2 {
+      &nbsp; # Referenced by feature "ContextualAlternates1"
+      &nbsp; context (@Group5 @Group4) @Group1;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group2 @Group5) @Group2;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group4 @Group2) @Group3;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group1 @Group4) @Group4;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group5 @Group1) @Group5;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group3 @Group5) @Group1;
+      &nbsp; sub 0 Lookup7;
+      &nbsp; context (@Group2 @Group3) @Group2;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group1 @Group2) @Group3;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group4 @Group1) @Group4;
+      &nbsp; sub 0 Lookup8;
+      &nbsp; context (@Group3 @Group4) @Group4;
+      &nbsp; sub 0 Lookup9;
+      }Lookup2;
+      </pre>
+  - id: 570911
+    user: 83217
+    date: 2014-02-07T08:01:00
+    date_raw: 7 Feb 2014 — 8:01am
+    votes: null
+    html: |-
+      <p>Maybe I'm missing something, but would it not be simpler to say</p>
+      <p>sub zero from zero-class</p>
+    html_clean: |-
+      <p>Maybe I'm missing something, but would it not be simpler to say</p>
+      <p>sub zero from zero-class</p>
+  - id: 570917
+    user: 217459
+    date: 2014-02-07T08:29:00
+    date_raw: 7 Feb 2014 — 8:29am
+    votes: null
+    html: |-
+      <p>Maybe it is: </p>
+      <pre> "sub zero by lookup 3" </pre><p>I don't really understand the logic behind the code, which makes it hard to find the mistake.<br>
+      I've never seen a code with "context", and the "sub 0" is also weird:</p>
+      <pre>context (@Group1) @Group1 ;
+      &nbsp; sub 0 Lookup3 ;</pre><p>
+      any hints?</p>
+    html_clean: |-
+      <p>Maybe it is: </p>
+      <pre> "sub zero by lookup 3" </pre><p>I don't really understand the logic behind the code, which makes it hard to find the mistake.<br>
+      I've never seen a code with "context", and the "sub 0" is also weird:</p>
+      <pre>context (@Group1) @Group1 ;
+      &nbsp; sub 0 Lookup3 ;</pre><p>
+      any hints?</p>
+  - id: 570924
+    user: 9108
+    date: 2014-02-07T09:50:00
+    date_raw: 7 Feb 2014 — 9:50am
+    votes: null
+    html: |-
+      <p>[FontForge code, font from erwindenissen ]</p>
+      <p>lookup caltContextualAlternatesinLatin {<br>
+        lookupflag 0;<br>
+          sub [\zero ] [\zero ]'  by [\zero.2 ];<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero ]'  by [\zero.3 ];<br>
+        subtable;<br>
+          sub [\zero.3 ] [\zero ]'  by [\zero.4 ];<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero ]'  by [\zero.5 ];<br>
+      } caltContextualAlternatesinLatin;</p>
+      <p>lookup SingleSubstitutionlookup6 {<br>
+        lookupflag 0;<br>
+          sub \zero by \zero.2 ;<br>
+          sub \zero.2 by \zero.4 ;<br>
+          sub \zero.3 by \zero ;<br>
+          sub \zero.4 by \zero.5 ;<br>
+          sub \zero.5 by \zero.3 ;<br>
+      } SingleSubstitutionlookup6;</p>
+      <p>lookup SingleSubstitutionlookup7 {<br>
+        lookupflag 0;<br>
+          sub \zero.2 by \zero ;<br>
+          sub \zero.3 by \zero.4 ;<br>
+          sub \zero.4 by \zero.3 ;<br>
+      } SingleSubstitutionlookup7;</p>
+      <p>lookup sub_chain_caltlatn_0 {<br>
+        lookupflag 0;<br>
+          sub [\zero.4 ] [\zero.5 ] [\zero ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.5 ] [\zero.2 ] [\zero.2 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero.4 ] [\zero.3 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero ] [\zero.4 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero ] [\zero.5 ] [\zero.5 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.5 ] [\zero.3 ] [\zero ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.3 ] [\zero.2 ] [\zero.2 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero ] [\zero.3 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero ] [\zero.4 ] [\zero.4 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero.3 ] [\zero.4 ]'  by [\zero.5 ];<br>
+      } sub_chain_caltlatn_0;</p>
+      <p>feature calt {<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup caltContextualAlternatesinLatin;<br>
+            lookup sub_chain_caltlatn_0;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup caltContextualAlternatesinLatin;<br>
+            lookup sub_chain_caltlatn_0;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>[FontForge code, font from erwindenissen ]</p>
+      <p>lookup caltContextualAlternatesinLatin {<br>
+        lookupflag 0;<br>
+          sub [\zero ] [\zero ]'  by [\zero.2 ];<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero ]'  by [\zero.3 ];<br>
+        subtable;<br>
+          sub [\zero.3 ] [\zero ]'  by [\zero.4 ];<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero ]'  by [\zero.5 ];<br>
+      } caltContextualAlternatesinLatin;</p>
+      <p>lookup SingleSubstitutionlookup6 {<br>
+        lookupflag 0;<br>
+          sub \zero by \zero.2 ;<br>
+          sub \zero.2 by \zero.4 ;<br>
+          sub \zero.3 by \zero ;<br>
+          sub \zero.4 by \zero.5 ;<br>
+          sub \zero.5 by \zero.3 ;<br>
+      } SingleSubstitutionlookup6;</p>
+      <p>lookup SingleSubstitutionlookup7 {<br>
+        lookupflag 0;<br>
+          sub \zero.2 by \zero ;<br>
+          sub \zero.3 by \zero.4 ;<br>
+          sub \zero.4 by \zero.3 ;<br>
+      } SingleSubstitutionlookup7;</p>
+      <p>lookup sub_chain_caltlatn_0 {<br>
+        lookupflag 0;<br>
+          sub [\zero.4 ] [\zero.5 ] [\zero ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.5 ] [\zero.2 ] [\zero.2 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero.4 ] [\zero.3 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero ] [\zero.4 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero ] [\zero.5 ] [\zero.5 ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.5 ] [\zero.3 ] [\zero ]'lookup SingleSubstitutionlookup6  ;<br>
+        subtable;<br>
+          sub [\zero.3 ] [\zero.2 ] [\zero.2 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero.2 ] [\zero ] [\zero.3 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero ] [\zero.4 ] [\zero.4 ]'lookup SingleSubstitutionlookup7  ;<br>
+        subtable;<br>
+          sub [\zero.4 ] [\zero.3 ] [\zero.4 ]'  by [\zero.5 ];<br>
+      } sub_chain_caltlatn_0;</p>
+      <p>feature calt {<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup caltContextualAlternatesinLatin;<br>
+            lookup sub_chain_caltlatn_0;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup caltContextualAlternatesinLatin;<br>
+            lookup sub_chain_caltlatn_0;<br>
+      } calt;</p>
+  - id: 570959
+    user: 18942
+    date: 2014-02-07T20:49:00
+    date_raw: 7 Feb 2014 — 8:49pm
+    votes: null
+    html: |-
+      <p>The following code works in FontForge and gives the same behaviour as the lookups in AlmostRandom.otf.</p>
+      <pre>lookup contextofone {
+        lookupflag 0;
+          sub [\zero  ] [\zero]'  by [\zero.2] ;
+          sub [\zero.2] [\zero]'  by [\zero.3] ;
+          sub [\zero.3] [\zero]'  by [\zero.4] ;
+          sub [\zero.4] [\zero]'  by [\zero.5] ;
+      } contextofone ;
+
+      lookup contextoftwo {
+        lookupflag 0;
+          sub [\zero.4] [\zero.5] [\zero]'    by [\zero.2] ;
+          sub [\zero.5] [\zero.2] [\zero.2]'  by [\zero.4] ;
+          sub [\zero.2] [\zero.4] [\zero.3]'  by [\zero  ] ;
+          sub [\zero.4] [\zero  ] [\zero.4]'  by [\zero.5] ;
+          sub [\zero  ] [\zero.5] [\zero.5]'  by [\zero.3] ;
+          sub [\zero.5] [\zero.3] [\zero  ]'  by [\zero.2] ;
+          sub [\zero.3] [\zero.2] [\zero.2]'  by [\zero  ] ;
+          sub [\zero.2] [\zero  ] [\zero.3]'  by [\zero.4] ;
+          sub [\zero  ] [\zero.4] [\zero.4]'  by [\zero.3] ;
+      } contextoftwo ;
+
+      feature calt {
+        script DFLT;
+           language dflt ;
+            lookup contextofone;
+            lookup contextoftwo;
+
+        script latn;
+           language dflt ;
+            lookup contextofone;
+            lookup contextoftwo;
+      } calt;
+      </pre><p>
+      In the font AlmostRandom.otf, the zeros are numbered from 1 to 5; the default zero contains a 1; without any substitution lookups you would see zeros numbered as follows:</p>
+      <pre>   111111111111111
+      </pre><p>
+      With the first lookup, that uses a single character as left context, you get</p>
+      <pre>   123451234512345
+      </pre><p>
+      With the second lookup, that uses two characters as left context, you replace the first occurrence of 451 by 452 and advance the cursor to get</p>
+      <pre>   1234522|34512345
+      </pre><p>
+      and then 522 becomes 524 and so on.</p>
+      <p>You end up with</p>
+      <pre>   123452415321435
+      </pre><p>
+      and that sequence is then repeated indefinitely.</p>
+      <p>For more details, cf <a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>The following code works in FontForge and gives the same behaviour as the lookups in AlmostRandom.otf.</p>
+      <pre>lookup contextofone {
+        lookupflag 0;
+          sub [\zero  ] [\zero]'  by [\zero.2] ;
+          sub [\zero.2] [\zero]'  by [\zero.3] ;
+          sub [\zero.3] [\zero]'  by [\zero.4] ;
+          sub [\zero.4] [\zero]'  by [\zero.5] ;
+      } contextofone ;
+
+      lookup contextoftwo {
+        lookupflag 0;
+          sub [\zero.4] [\zero.5] [\zero]'    by [\zero.2] ;
+          sub [\zero.5] [\zero.2] [\zero.2]'  by [\zero.4] ;
+          sub [\zero.2] [\zero.4] [\zero.3]'  by [\zero  ] ;
+          sub [\zero.4] [\zero  ] [\zero.4]'  by [\zero.5] ;
+          sub [\zero  ] [\zero.5] [\zero.5]'  by [\zero.3] ;
+          sub [\zero.5] [\zero.3] [\zero  ]'  by [\zero.2] ;
+          sub [\zero.3] [\zero.2] [\zero.2]'  by [\zero  ] ;
+          sub [\zero.2] [\zero  ] [\zero.3]'  by [\zero.4] ;
+          sub [\zero  ] [\zero.4] [\zero.4]'  by [\zero.3] ;
+      } contextoftwo ;
+
+      feature calt {
+        script DFLT;
+           language dflt ;
+            lookup contextofone;
+            lookup contextoftwo;
+
+        script latn;
+           language dflt ;
+            lookup contextofone;
+            lookup contextoftwo;
+      } calt;
+      </pre><p>
+      In the font AlmostRandom.otf, the zeros are numbered from 1 to 5; the default zero contains a 1; without any substitution lookups you would see zeros numbered as follows:</p>
+      <pre>   111111111111111
+      </pre><p>
+      With the first lookup, that uses a single character as left context, you get</p>
+      <pre>   123451234512345
+      </pre><p>
+      With the second lookup, that uses two characters as left context, you replace the first occurrence of 451 by 452 and advance the cursor to get</p>
+      <pre>   1234522|34512345
+      </pre><p>
+      and then 522 becomes 524 and so on.</p>
+      <p>You end up with</p>
+      <pre>   123452415321435
+      </pre><p>
+      and that sequence is then repeated indefinitely.</p>
+      <p>For more details, cf <a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>
+      <p>Michel</p>
+  - id: 572116
+    user: 217459
+    date: 2014-02-24T04:37:00
+    date_raw: 24 Feb 2014 — 4:37am
+    votes: null
+    html: |-
+      <p>Thanks, @MichelBoyer. I finally understand the concept. </p>
+      <p>I have one more problem. I managed to randomize the zero's with 10 alternates and it works, as long as I type the zeros in one line. When I start a new row, it starts the repetition from 1 again.</p>
+      <p>So in one row the pattern looks like this: 0,1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,8,3,6,4,7,5 - 9,6,0,2,5,7,10,4,1,8,3</p>
+      <p>But when I have a linebreak, it starts over again and makes this:<br>
+      1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,<br>
+      1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,</p>
+      <p>I would like it to be like this:<br>
+      0,1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,<br>
+      8,3,6,4,7,5 - 9,6,0,2,5,7,10,4,1,8,3 etc...</p>
+      <p>This is what my code looks like with 10 additional alternates:<br>
+      lookup calt_1 {<br>
+        lookupflag 0;<br>
+       sub zero.00 zero.00' by zero.01 ;<br>
+       sub zero.01 zero.00' by zero.02 ;<br>
+       sub zero.02 zero.00' by zero.03 ;<br>
+       sub zero.03 zero.00' by zero.04 ;<br>
+       sub zero.04 zero.00' by zero.05 ;<br>
+       sub zero.05 zero.00' by zero.06 ;<br>
+       sub zero.06 zero.00' by zero.07 ;<br>
+       sub zero.07 zero.00' by zero.08 ;<br>
+       sub zero.08 zero.00' by zero.09 ;<br>
+       sub zero.09 zero.00' by zero.10 ;<br>
+      } calt_1;</p>
+      <p>lookup calt_2 {<br>
+        lookupflag 0;<br>
+          sub zero.09 zero.10 zero.00'  by zero.01 ;<br>
+          sub zero.10 zero.01 zero.01'  by zero.10 ;<br>
+          sub zero.01 zero.10 zero.02'  by zero.00 ;<br>
+          sub zero.10 zero.00 zero.03'  by zero.09 ;<br>
+          sub zero.00 zero.09 zero.04'  by zero.02 ;<br>
+          sub zero.09 zero.02 zero.05'  by zero.08 ;<br>
+          sub zero.02 zero.08 zero.06'  by zero.03 ;<br>
+          sub zero.08 zero.03 zero.07'  by zero.06 ;<br>
+          sub zero.03 zero.06 zero.08'  by zero.04 ;<br>
+          sub zero.06 zero.04 zero.09'  by zero.07 ;<br>
+          sub zero.04 zero.07 zero.10'  by zero.05 ;</p>
+      <p>    sub zero.07 zero.05 zero.00'  by zero.09 ;<br>
+          sub zero.05 zero.09 zero.01'  by zero.06 ;<br>
+          sub zero.09 zero.06 zero.02'  by zero.00 ;<br>
+          sub zero.06 zero.00 zero.03'  by zero.02 ;<br>
+          sub zero.00 zero.02 zero.04'  by zero.05 ;<br>
+          sub zero.02 zero.05 zero.05'  by zero.07 ;<br>
+          sub zero.05 zero.07 zero.06'  by zero.10 ;<br>
+          sub zero.07 zero.10 zero.07'  by zero.04 ;<br>
+          sub zero.10 zero.04 zero.08'  by zero.01 ;<br>
+          sub zero.04 zero.01 zero.09'  by zero.08 ;<br>
+          sub zero.01 zero.03 zero.10'  by zero.03 ;</p>
+      <p>} calt_2;</p>
+      <p>any ideas?</p>
+    html_clean: |-
+      <p>Thanks, @MichelBoyer. I finally understand the concept. </p>
+      <p>I have one more problem. I managed to randomize the zero's with 10 alternates and it works, as long as I type the zeros in one line. When I start a new row, it starts the repetition from 1 again.</p>
+      <p>So in one row the pattern looks like this: 0,1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,8,3,6,4,7,5 - 9,6,0,2,5,7,10,4,1,8,3</p>
+      <p>But when I have a linebreak, it starts over again and makes this:<br>
+      1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,<br>
+      1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,</p>
+      <p>I would like it to be like this:<br>
+      0,1,2,3,4,5,6,7,8,9,10 - 1,10,00,9,2,<br>
+      8,3,6,4,7,5 - 9,6,0,2,5,7,10,4,1,8,3 etc...</p>
+      <p>This is what my code looks like with 10 additional alternates:<br>
+      lookup calt_1 {<br>
+        lookupflag 0;<br>
+       sub zero.00 zero.00' by zero.01 ;<br>
+       sub zero.01 zero.00' by zero.02 ;<br>
+       sub zero.02 zero.00' by zero.03 ;<br>
+       sub zero.03 zero.00' by zero.04 ;<br>
+       sub zero.04 zero.00' by zero.05 ;<br>
+       sub zero.05 zero.00' by zero.06 ;<br>
+       sub zero.06 zero.00' by zero.07 ;<br>
+       sub zero.07 zero.00' by zero.08 ;<br>
+       sub zero.08 zero.00' by zero.09 ;<br>
+       sub zero.09 zero.00' by zero.10 ;<br>
+      } calt_1;</p>
+      <p>lookup calt_2 {<br>
+        lookupflag 0;<br>
+          sub zero.09 zero.10 zero.00'  by zero.01 ;<br>
+          sub zero.10 zero.01 zero.01'  by zero.10 ;<br>
+          sub zero.01 zero.10 zero.02'  by zero.00 ;<br>
+          sub zero.10 zero.00 zero.03'  by zero.09 ;<br>
+          sub zero.00 zero.09 zero.04'  by zero.02 ;<br>
+          sub zero.09 zero.02 zero.05'  by zero.08 ;<br>
+          sub zero.02 zero.08 zero.06'  by zero.03 ;<br>
+          sub zero.08 zero.03 zero.07'  by zero.06 ;<br>
+          sub zero.03 zero.06 zero.08'  by zero.04 ;<br>
+          sub zero.06 zero.04 zero.09'  by zero.07 ;<br>
+          sub zero.04 zero.07 zero.10'  by zero.05 ;</p>
+      <p>    sub zero.07 zero.05 zero.00'  by zero.09 ;<br>
+          sub zero.05 zero.09 zero.01'  by zero.06 ;<br>
+          sub zero.09 zero.06 zero.02'  by zero.00 ;<br>
+          sub zero.06 zero.00 zero.03'  by zero.02 ;<br>
+          sub zero.00 zero.02 zero.04'  by zero.05 ;<br>
+          sub zero.02 zero.05 zero.05'  by zero.07 ;<br>
+          sub zero.05 zero.07 zero.06'  by zero.10 ;<br>
+          sub zero.07 zero.10 zero.07'  by zero.04 ;<br>
+          sub zero.10 zero.04 zero.08'  by zero.01 ;<br>
+          sub zero.04 zero.01 zero.09'  by zero.08 ;<br>
+          sub zero.01 zero.03 zero.10'  by zero.03 ;</p>
+      <p>} calt_2;</p>
+      <p>any ideas?</p>
+  - id: 572142
+    user: 18942
+    date: 2014-02-24T11:49:00
+    date_raw: 24 Feb 2014 — 11:49am
+    votes: null
+    html: |-
+      <p>If your aim is to fill a page with only variants of zero, I see no OTL solution because no contextuality is carried from one line to the next. When pseudo-randomness is used to mimic handwriting for instance, then it is possible to use some character further away in the current line as a "seed" for a "pseudo-random process" so as to avoid repetition. There is an example in Nick Shinn's thread <a href="http://typophile.com/node/46521" title="http://typophile.com/node/46521">http://typophile.com/node/46521</a>. </p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>If your aim is to fill a page with only variants of zero, I see no OTL solution because no contextuality is carried from one line to the next. When pseudo-randomness is used to mimic handwriting for instance, then it is possible to use some character further away in the current line as a "seed" for a "pseudo-random process" so as to avoid repetition. There is an example in Nick Shinn's thread <a href="/node/46521/" title="http://typophile.com/node/46521">http://typophile.com/node/46521</a>. </p>
+      <p>Michel</p>

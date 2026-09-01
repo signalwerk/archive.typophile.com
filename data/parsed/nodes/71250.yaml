@@ -1,0 +1,138 @@
+node: 71250
+title: Copying kerning classes in FontLab
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131026234443"
+  captured_at: 2013-10-26T23:44:43Z
+  url: http://typophile.com/node/71250
+  digest: GTXHCRCMX7PGHUHTEFOXQ2OP5NAADT5M
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/71250.html
+  fingerprint: 838a8a42abedf43e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131026234443"
+      digest: GTXHCRCMX7PGHUHTEFOXQ2OP5NAADT5M
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/71250.html
+post:
+  id: 71250
+  user: 7642
+  date: 2010-06-10T21:01:00
+  date_raw: 10 Jun 2010 — 9:01pm
+  votes: null
+  html: |-
+    <p>I'm having trouble figuring out a thing in FontLab. I'm trying to copy all the kerning data from one of my fonts to another one, but it's not working right. I go into the class kerning panel and click "Copy classes from a font", but it only copies the classes, not the actual kerning numbers. So when I test the kerning, none of the letters kern at all.</p>
+    <p>But with some of my fonts it does work. Particularly, it works with the ones where the letters are all in the right order in the font window, which is to say they're alphabetical. In the ones where it doesn't work, the letters are all jumbled around once you get out of Latin-1 (sample: ŔĂĹĆČĘĚĎĐŃŇŐŘŮŰŢ). Actually the weird part is that on one of the two fonts where it worked, the letters are jumbled, although in that font I remember they've been ordered before; I don't know when it changed.</p>
+    <p>How can I get the letters in the right order, and more importantly, how can I get the kerning to copy from one font to the other? Is it something to do with encoding? Because I really don't understand that well.</p>
+    <p>Thanks!</p>
+  html_clean: |-
+    <p>I'm having trouble figuring out a thing in FontLab. I'm trying to copy all the kerning data from one of my fonts to another one, but it's not working right. I go into the class kerning panel and click "Copy classes from a font", but it only copies the classes, not the actual kerning numbers. So when I test the kerning, none of the letters kern at all.</p>
+    <p>But with some of my fonts it does work. Particularly, it works with the ones where the letters are all in the right order in the font window, which is to say they're alphabetical. In the ones where it doesn't work, the letters are all jumbled around once you get out of Latin-1 (sample: ŔĂĹĆČĘĚĎĐŃŇŐŘŮŰŢ). Actually the weird part is that on one of the two fonts where it worked, the letters are jumbled, although in that font I remember they've been ordered before; I don't know when it changed.</p>
+    <p>How can I get the letters in the right order, and more importantly, how can I get the kerning to copy from one font to the other? Is it something to do with encoding? Because I really don't understand that well.</p>
+    <p>Thanks!</p>
+comments:
+  - id: 415411
+    user: 14722
+    date: 2010-06-10T21:47:00
+    date_raw: 10 Jun 2010 — 9:47pm
+    votes: null
+    html: |-
+      <p>Kerning Copy/Paste and import options are buggy; the more pairs you have the worse it gets. IIRC Karsten Lucke has written some scripts for doing this stuff correctly, it might be worthwhile to ask him about them.</p>
+      <p>But I highly recommend that you just license Metrics Machine and not kern in Fontlab at all.</p>
+    html_clean: |-
+      <p>Kerning Copy/Paste and import options are buggy; the more pairs you have the worse it gets. IIRC Karsten Lucke has written some scripts for doing this stuff correctly, it might be worthwhile to ask him about them.</p>
+      <p>But I highly recommend that you just license Metrics Machine and not kern in Fontlab at all.</p>
+  - id: 415467
+    user: 7642
+    date: 2010-06-11T08:26:00
+    date_raw: 11 Jun 2010 — 8:26am
+    votes: null
+    html: <p>MetricsMachine looks great, but I don't have that kind of money! I'll see if I can get a hold of Karsten, I suppose. But any other suggestions, I'd still love to hear them.</p>
+    html_clean: <p>MetricsMachine looks great, but I don't have that kind of money! I'll see if I can get a hold of Karsten, I suppose. But any other suggestions, I'd still love to hear them.</p>
+  - id: 415470
+    user: 17208
+    date: 2010-06-11T08:44:00
+    date_raw: 11 Jun 2010 — 8:44am
+    votes: null
+    html: |-
+      <p>How about saving the kerning classes to an flc file, saving the kerning pairs to an afm file and importing them in the other font again?</p>
+      <p>-Paul</p>
+    html_clean: |-
+      <p>How about saving the kerning classes to an flc file, saving the kerning pairs to an afm file and importing them in the other font again?</p>
+      <p>-Paul</p>
+  - id: 415489
+    user: 1043
+    date: 2010-06-11T09:50:00
+    date_raw: 11 Jun 2010 — 9:50am
+    votes: null
+    html: |-
+      <p>There's the <strong>kern table,</strong> which is what you're editing in the Metrics Window, and is for pre-OpenType fonts (mainly), and then there's the <strong>kern feature,</strong> which is a separate thing for OpenType fonts. You can generate the kern feature from the kern table using Kerning Assistance -&gt; Update [kern] Feature. You can go the other direction with the "Expand" button, but this is not the best way to do what you want to do.</p>
+      <p>Here's what to do: With the first font, open the Metrics Window, click the "Save Metrics" button (second from the left at the top). This will create an .afm file, which is a text file containing metrics and kerning info. Now switch to the other font, open the Metrics Window, and click on the "Open Metrics" button (top left) and choose the .afm file you just created. A warning message will appear, reminding you to make sure you know what you're doing. (It's a good idea to save the font before doing this.) If you click "Continue", it will ask you which data you want to import from the .afm file. Choose "Do nothing", "Completely replace kerning data in current font", and "Do nothing" from the three popups. The second font will now contain a kern table identical to the first font.</p>
+      <p>You will probably also want to import the kerning classes from the other font in the Classes panel.</p>
+    html_clean: |-
+      <p>There's the <strong>kern table,</strong> which is what you're editing in the Metrics Window, and is for pre-OpenType fonts (mainly), and then there's the <strong>kern feature,</strong> which is a separate thing for OpenType fonts. You can generate the kern feature from the kern table using Kerning Assistance -&gt; Update [kern] Feature. You can go the other direction with the "Expand" button, but this is not the best way to do what you want to do.</p>
+      <p>Here's what to do: With the first font, open the Metrics Window, click the "Save Metrics" button (second from the left at the top). This will create an .afm file, which is a text file containing metrics and kerning info. Now switch to the other font, open the Metrics Window, and click on the "Open Metrics" button (top left) and choose the .afm file you just created. A warning message will appear, reminding you to make sure you know what you're doing. (It's a good idea to save the font before doing this.) If you click "Continue", it will ask you which data you want to import from the .afm file. Choose "Do nothing", "Completely replace kerning data in current font", and "Do nothing" from the three popups. The second font will now contain a kern table identical to the first font.</p>
+      <p>You will probably also want to import the kerning classes from the other font in the Classes panel.</p>
+  - id: 415537
+    user: 7642
+    date: 2010-06-11T20:11:00
+    date_raw: 11 Jun 2010 — 8:11pm
+    votes: null
+    html: <p>Brilliant! Thanks so much, you just saved me five hundred bucks.</p>
+    html_clean: <p>Brilliant! Thanks so much, you just saved me five hundred bucks.</p>
+  - id: 415592
+    user: 1133
+    date: 2010-06-12T10:28:00
+    date_raw: 12 Jun 2010 — 10:28am
+    votes: null
+    html: |-
+      <p>Another method: </p>
+      <p>In the source font, save the OpenType Layout features into a .fea text file (using the OpenType panel popup menu). </p>
+      <p>In the target font:<br>
+      1. Open the OpenType Layout features from that .fea text file (using the OpenType panel popup menu).<br>
+      2. Compile the OpenType Layout features (using the Compile button on the OpenType panel).<br>
+      3. Open the Preview panel, OpenType Features tab, and click on the "Import kerning from [kern] feature" button. </p>
+      <p>Alternatively (if you have the same classes set up in both fonts), in the source font you can just generate a "kern" feature, then copy-paste the "kern" feature definition from the source font's OpenType panel into the target font's, then compile the features in the target font and use the "Import kerning from [kern] feature" button on the OpenType Features tab of the Preview panel. </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Another method: </p>
+      <p>In the source font, save the OpenType Layout features into a .fea text file (using the OpenType panel popup menu). </p>
+      <p>In the target font:<br>
+      1. Open the OpenType Layout features from that .fea text file (using the OpenType panel popup menu).<br>
+      2. Compile the OpenType Layout features (using the Compile button on the OpenType panel).<br>
+      3. Open the Preview panel, OpenType Features tab, and click on the "Import kerning from [kern] feature" button. </p>
+      <p>Alternatively (if you have the same classes set up in both fonts), in the source font you can just generate a "kern" feature, then copy-paste the "kern" feature definition from the source font's OpenType panel into the target font's, then compile the features in the target font and use the "Import kerning from [kern] feature" button on the OpenType Features tab of the Preview panel. </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 416142
+    user: 14133
+    date: 2010-06-16T06:08:00
+    date_raw: 16 Jun 2010 — 6:08am
+    votes: null
+    html: '<p>BTW: never "Copy classes from a font". If glyphs are missing in the target font, they get wiped from the class table with no warning. Always save classes and load them in the target font. That way you are given to option to ignore missing glyphs or generate them.</p>'
+    html_clean: '<p>BTW: never "Copy classes from a font". If glyphs are missing in the target font, they get wiped from the class table with no warning. Always save classes and load them in the target font. That way you are given to option to ignore missing glyphs or generate them.</p>'
+  - id: 416177
+    user: 7642
+    date: 2010-06-16T09:31:00
+    date_raw: 16 Jun 2010 — 9:31am
+    votes: null
+    html: <p>I'll definitely keep that in mind. Thanks for that.</p>
+    html_clean: <p>I'll definitely keep that in mind. Thanks for that.</p>

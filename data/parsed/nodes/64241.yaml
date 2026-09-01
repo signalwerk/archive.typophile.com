@@ -1,0 +1,218 @@
+node: 64241
+title: "Fontlab: generating TrueType Unique ID record"
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203142023"
+  captured_at: 2010-02-03T14:20:23Z
+  url: http://typophile.com/node/64241
+  digest: ODVCLLVNEP4P543TDTCNOZOWEMKGBKPC
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/64241.html
+  fingerprint: 15dacc27b175b010
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203142023"
+      digest: ODVCLLVNEP4P543TDTCNOZOWEMKGBKPC
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64241.html
+post:
+  id: 64241
+  user: 14133
+  date: 2009-11-13T20:19:00
+  date_raw: 13.Nov.2009 8.19pm
+  votes: null
+  html: |-
+    <p>Does anyone know of a script which automatically fills in the TrueType Unique ID record in FontLab Studio? Assume all the rest of the names are filled in the Twardoch way.</p>
+    <p>How about a script which automatically fills in the Additional Open Type names menu (equivalent of clicking the "FI" button)</p>
+  html_clean: |-
+    <p>Does anyone know of a script which automatically fills in the TrueType Unique ID record in FontLab Studio? Assume all the rest of the names are filled in the Twardoch way.</p>
+    <p>How about a script which automatically fills in the Additional Open Type names menu (equivalent of clicking the "FI" button)</p>
+comments:
+  - id: 378413
+    user: 16986
+    date: 2009-11-13T23:35:00
+    date_raw: 13.Nov.2009 11.35pm
+    votes: null
+    html: |-
+      <p>I wrote this to automate the naming and fill in the TrueType Unique ID - Saves me time when I'm naming families.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      from robofab.interface.all.dialogs import AskString<br>
+      f = CurrentFont()<br>
+      #<br>
+      fontName = AskString('Font Name')<br>
+      Weight = AskString('Weight')<br>
+      #<br>
+      def naming( short, weight, weight2 ):<br>
+      	f.info.familyName = fontName+" "+short<br>
+      	f.info.widthName = "Normal"<br>
+      	f.info.styleName = weight<br>
+      	f.info.fontName = fontName.replace(' ', '')+"-"+weight2.replace(' ', '')<br>
+      	f.info.fullName = fontName+" "+weight2<br>
+      	f.info.menuName = fontName+" "+short<br>
+      	f.info.fondName = fontName.replace(' ', '')+" "+weight2.replace(' ', '')<br>
+      	f.info.otFamilyName = fontName<br>
+      	f.info.otStyleName = weight2<br>
+      	f.info.trademark = fontName+" "+"is a trademark of RachelR"<br>
+      	f.info.ttUniqueID = "RachelR:"+" "+fontName+" "+Weight+":"+" "+"2009"<br>
+      #<br>
+      #<br>
+      if Weight == "Thin":<br>
+      	naming("Th", "Regular", "Thin")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light":<br>
+      	naming("Lt", "Regular", "Light")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Regular":<br>
+      	naming("Rg", "Regular", "Regular")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium":<br>
+      	naming("Lt", "Bold", "Medium")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold":<br>
+      	naming("Rg", "Bold" ,"Bold")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Thin Italic":<br>
+      	naming("Th", "Italic", "Thin Italic")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light Italic":<br>
+      	naming("Lt", "Italic", "Light Italic")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Italic":<br>
+      	naming("Rg", "Italic", "Italic")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium Italic":<br>
+      	naming("Lt", "Bold Italic", "Medium Italic")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold Italic":<br>
+      	naming("Rg", "Bold Italic", "Bold Italic")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      else:<br>
+      	print "Ooops that's not a weight"<br>
+      	print fontName+" "+"is not named"<br>
+      #<br>
+      f.update()<br>
+      </code></p>
+    html_clean: |-
+      <p>I wrote this to automate the naming and fill in the TrueType Unique ID - Saves me time when I'm naming families.</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      from robofab.interface.all.dialogs import AskString<br>
+      f = CurrentFont()<br>
+      #<br>
+      fontName = AskString('Font Name')<br>
+      Weight = AskString('Weight')<br>
+      #<br>
+      def naming( short, weight, weight2 ):<br>
+      	f.info.familyName = fontName+" "+short<br>
+      	f.info.widthName = "Normal"<br>
+      	f.info.styleName = weight<br>
+      	f.info.fontName = fontName.replace(' ', '')+"-"+weight2.replace(' ', '')<br>
+      	f.info.fullName = fontName+" "+weight2<br>
+      	f.info.menuName = fontName+" "+short<br>
+      	f.info.fondName = fontName.replace(' ', '')+" "+weight2.replace(' ', '')<br>
+      	f.info.otFamilyName = fontName<br>
+      	f.info.otStyleName = weight2<br>
+      	f.info.trademark = fontName+" "+"is a trademark of RachelR"<br>
+      	f.info.ttUniqueID = "RachelR:"+" "+fontName+" "+Weight+":"+" "+"2009"<br>
+      #<br>
+      #<br>
+      if Weight == "Thin":<br>
+      	naming("Th", "Regular", "Thin")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light":<br>
+      	naming("Lt", "Regular", "Light")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Regular":<br>
+      	naming("Rg", "Regular", "Regular")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium":<br>
+      	naming("Lt", "Bold", "Medium")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold":<br>
+      	naming("Rg", "Bold" ,"Bold")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Thin Italic":<br>
+      	naming("Th", "Italic", "Thin Italic")<br>
+      	f.info.weightName = "Thin"<br>
+      	f.info.weightValue = 250<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Light Italic":<br>
+      	naming("Lt", "Italic", "Light Italic")<br>
+      	f.info.weightName = "Light"<br>
+      	f.info.weightValue = 300<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Italic":<br>
+      	naming("Rg", "Italic", "Italic")<br>
+      	f.info.weightName = "Regular"<br>
+      	f.info.weightValue = 400<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Medium Italic":<br>
+      	naming("Lt", "Bold Italic", "Medium Italic")<br>
+      	f.info.weightName = "Medium"<br>
+      	f.info.weightValue = 500<br>
+      	print f.info.fullName+" "+"Named"<br>
+      elif Weight == "Bold Italic":<br>
+      	naming("Rg", "Bold Italic", "Bold Italic")<br>
+      	f.info.weightName = "Bold"<br>
+      	f.info.weightValue = 700<br>
+      	print f.info.fullName+" "+"Named"<br>
+      else:<br>
+      	print "Ooops that's not a weight"<br>
+      	print fontName+" "+"is not named"<br>
+      #<br>
+      f.update()<br>
+      </code></p>
+  - id: 378418
+    user: 14133
+    date: 2009-11-14T00:18:00
+    date_raw: 14.Nov.2009 12.18am
+    votes: null
+    html: <p>Rachel, you are the best. Cheers very much.</p>
+    html_clean: <p>Rachel, you are the best. Cheers very much.</p>

@@ -1,0 +1,200 @@
+node: 34360
+title: ccmp vs. mark
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203105431"
+  captured_at: 2010-02-03T10:54:31Z
+  url: http://typophile.com/node/34360
+  digest: S4XDHCLPRCTEEEAVIG5GIJHM5WCARLXL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/34360.html
+  fingerprint: dfb0fc3d78a53b43
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203105431"
+      digest: S4XDHCLPRCTEEEAVIG5GIJHM5WCARLXL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/34360.html
+post:
+  id: 34360
+  user: 7006
+  date: 2007-06-09T18:29:00
+  date_raw: 9.Jun.2007 6.29pm
+  votes: null
+  html: |-
+    <p>when should one use '<a href="/wiki/ccmp" class="freelinking">ccmp</a>' and when should one use '<a href="/wiki/mark" class="freelinking">mark</a>'?</p>
+    <p>i'm under the impression that 'ccmp' is better suited for precomposed glyphs that have their own Unicode slots and 'mark' better for things like composing things like accented IPA glyphs or other accented characters that do not have unique Unicode points. Is this a fair assumption, or is there more i need to take into consideration?</p>
+  html_clean: |-
+    <p>when should one use '<a href="/wiki/ccmp" class="freelinking">ccmp</a>' and when should one use '<a href="/wiki/mark" class="freelinking">mark</a>'?</p>
+    <p>i'm under the impression that 'ccmp' is better suited for precomposed glyphs that have their own Unicode slots and 'mark' better for things like composing things like accented IPA glyphs or other accented characters that do not have unique Unicode points. Is this a fair assumption, or is there more i need to take into consideration?</p>
+comments:
+  - id: 207956
+    user: 5094
+    date: 2007-06-10T05:38:00
+    date_raw: 10.Jun.2007 5.38am
+    votes: null
+    html: |-
+      <p>I have a feeling that the "right" answer is deep in the software issue.  From the OT features registry under ccmp:</p>
+      <p><cite>. . . The feature should be processed as the first feature processed . . . This allows the font vendor to do special handling of the mark combination when doing further processing without requiring larger contextual rules.</cite></p>
+      <p>Other issues might be what software supports `mark' vs `ccmp'. I have always used ccmp for glyphs that do not have a precomposed Unicode slot, primarily because Adam Twardoch used that when he wrote a bit on how to make us these characters &amp; the associated code for an old "Fontlab tips" article.</p>
+      <p><a href="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403&amp;LastModified=4675609910422321102" title="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403&amp;LastModified=4675609910422321102">http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mvie...</a></p>
+      <p>You might even consider audience. Putting on my asbestos suit, I'd say   there is a certain group who will enter any character other that a-z by using the glyph pallet. And another group who, if the character is in Latin Extended A or B, will just enter the Unicode string</p>
+    html_clean: |-
+      <p>I have a feeling that the "right" answer is deep in the software issue.  From the OT features registry under ccmp:</p>
+      <p><cite>. . . The feature should be processed as the first feature processed . . . This allows the font vendor to do special handling of the mark combination when doing further processing without requiring larger contextual rules.</cite></p>
+      <p>Other issues might be what software supports `mark' vs `ccmp'. I have always used ccmp for glyphs that do not have a precomposed Unicode slot, primarily because Adam Twardoch used that when he wrote a bit on how to make us these characters &amp; the associated code for an old "Fontlab tips" article.</p>
+      <p><a href="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403&amp;LastModified=4675609910422321102" title="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3403&amp;LastModified=4675609910422321102">http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mvie...</a></p>
+      <p>You might even consider audience. Putting on my asbestos suit, I'd say   there is a certain group who will enter any character other that a-z by using the glyph pallet. And another group who, if the character is in Latin Extended A or B, will just enter the Unicode string</p>
+  - id: 208757
+    user: 1262
+    date: 2007-06-13T20:23:00
+    date_raw: 13.Jun.2007 8.23pm
+    votes: null
+    html: |-
+      <p>There are pros and cons to both approaches.</p>
+      <p>If you use ccmp instead of mark positioning, then you need to include a precomposed glyph for every diacritic combination that you want to support. That may be a lot of glyphs, and you're left not supporting any combinations beyond that set. On the other hand, GSUB is faster to process than GPOS, so the font will be quicker, and although it is arduous to kern all those diacritic combinations -- especially exceptions to the class kerning -- it is relatively straightfoward to do so.</p>
+      <p>If you use the mark feature instead of the ccmp feature, you get the benefit of much greater flexibility, being able to support arbitrary diacritic combinations. You also don't have to create all those precomposed glyphs. The biggest downside to mark positioning, I think, is trying to integrate it with kerning. Imagine: you have an uppercase T followed by an i with a dynamically positioned combining mark above; you have to specify the kerning contextually, with the combining mark(s) as context. Or a more complicated situation: you have two narrow letters, both of which have dynamically positioned combining marks above and the marks are wide enough to clash; you have to contextually increase the spacing of one of the letters in context of the other letter + the marks. I've done this for Arabic and Thai, and am in the process of doing it for Biblical Hebrew, and it's not fun. [In fact, there's probably only one aspect of OTL development that is less fun. I'll see if you can guess what it is.]</p>
+      <p>Of course, you can employ a combination of ccmp and mark features. This gets you the pros and cons of both, but with some added work: you need to include mark positioning not only for the base glyphs but also for all the precomposed diacritics in the ccmp lookups, since the mark feature should support arbitrary sequences including those diacritics.</p>
+    html_clean: |-
+      <p>There are pros and cons to both approaches.</p>
+      <p>If you use ccmp instead of mark positioning, then you need to include a precomposed glyph for every diacritic combination that you want to support. That may be a lot of glyphs, and you're left not supporting any combinations beyond that set. On the other hand, GSUB is faster to process than GPOS, so the font will be quicker, and although it is arduous to kern all those diacritic combinations -- especially exceptions to the class kerning -- it is relatively straightfoward to do so.</p>
+      <p>If you use the mark feature instead of the ccmp feature, you get the benefit of much greater flexibility, being able to support arbitrary diacritic combinations. You also don't have to create all those precomposed glyphs. The biggest downside to mark positioning, I think, is trying to integrate it with kerning. Imagine: you have an uppercase T followed by an i with a dynamically positioned combining mark above; you have to specify the kerning contextually, with the combining mark(s) as context. Or a more complicated situation: you have two narrow letters, both of which have dynamically positioned combining marks above and the marks are wide enough to clash; you have to contextually increase the spacing of one of the letters in context of the other letter + the marks. I've done this for Arabic and Thai, and am in the process of doing it for Biblical Hebrew, and it's not fun. [In fact, there's probably only one aspect of OTL development that is less fun. I'll see if you can guess what it is.]</p>
+      <p>Of course, you can employ a combination of ccmp and mark features. This gets you the pros and cons of both, but with some added work: you need to include mark positioning not only for the base glyphs but also for all the precomposed diacritics in the ccmp lookups, since the mark feature should support arbitrary sequences including those diacritics.</p>
+  - id: 238171
+    user: 7006
+    date: 2007-11-08T05:45:00
+    date_raw: 8.Nov.2007 5.45am
+    votes: null
+    html: |-
+      <p><em>you have to specify the kerning contextually, with the combining mark(s) as context.</em></p>
+      <p>are there any applications that currently support this?</p>
+    html_clean: |-
+      <p><em>you have to specify the kerning contextually, with the combining mark(s) as context.</em></p>
+      <p>are there any applications that currently support this?</p>
+  - id: 238339
+    user: 1262
+    date: 2007-11-08T22:24:00
+    date_raw: 8.Nov.2007 10.24pm
+    votes: null
+    html: |-
+      <p>Do you mean applications for making fonts, or applications for setting text?</p>
+      <p>You can program contextual kerning in VOLT. I'm not sure whether you can do so in FL/FDK; I suspect the syntax supports it, but I don't know whether it will compile.</p>
+      <p>I have not tested contextual kerning for the Latin script in ID CS3, but that would be the most likely place it would work. I've use contextual kerning extensively in Arabic fonts, and this works in MS Office, OpenOffice, ID ME, etc.</p>
+    html_clean: |-
+      <p>Do you mean applications for making fonts, or applications for setting text?</p>
+      <p>You can program contextual kerning in VOLT. I'm not sure whether you can do so in FL/FDK; I suspect the syntax supports it, but I don't know whether it will compile.</p>
+      <p>I have not tested contextual kerning for the Latin script in ID CS3, but that would be the most likely place it would work. I've use contextual kerning extensively in Arabic fonts, and this works in MS Office, OpenOffice, ID ME, etc.</p>
+  - id: 238823
+    user: 909
+    date: 2007-11-11T22:04:00
+    date_raw: 11.Nov.2007 10.04pm
+    votes: null
+    html: |-
+      <p>My understanding is that the current FDK supports contextual kerning, although we haven't been using it in our own fonts, except for testing.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>My understanding is that the current FDK supports contextual kerning, although we haven't been using it in our own fonts, except for testing.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 238837
+    user: 8664
+    date: 2007-11-12T00:59:00
+    date_raw: 12.Nov.2007 12.59am
+    votes: null
+    html: <p>Contextual kerning works in FDK and InDesign CS2/CS3. I use it since some time now in Latin fonts.</p>
+    html_clean: <p>Contextual kerning works in FDK and InDesign CS2/CS3. I use it since some time now in Latin fonts.</p>
+  - id: 241137
+    user: 909
+    date: 2007-11-21T13:40:00
+    date_raw: 21.Nov.2007 1.40pm
+    votes: null
+    html: |-
+      <p>FYI, note also that mark attachment works in Windows Uniscribe applications, and in InDesign CS3. It does not work AFAIK in OS X, and does not work in most other Adobe creative apps up to CS3 versions.</p>
+      <p>'ccmp' is supported in Windows Uniscribe apps, and in InDesign CS3, but not in earlier versions of InDesign, nor by most Adobe creative apps. Not sure about Mac OS support of this feature.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>FYI, note also that mark attachment works in Windows Uniscribe applications, and in InDesign CS3. It does not work AFAIK in OS X, and does not work in most other Adobe creative apps up to CS3 versions.</p>
+      <p>'ccmp' is supported in Windows Uniscribe apps, and in InDesign CS3, but not in earlier versions of InDesign, nor by most Adobe creative apps. Not sure about Mac OS support of this feature.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 359325
+    user: 45948
+    date: 2009-08-01T07:27:00
+    date_raw: 1.Aug.2009 7.27am
+    votes: null
+    html: |-
+      <p>This thread is a couple of years old, so I imagine support for "mark" feature is more extensive now.  Anyone care to update this list of which software supports which features?  </p>
+      <p>I'm in the midst of creating a font to be used for IPA transcription by run-of-the-mill Linguistics students.  This means that all the diacritics need to be rendered correctly by such environments as MS Word 2003 running on Win XP.  Is "ccmp" with GSUB my only option here to align base glyphs of varying widths with diacrtics?  Descenders are also always an issue.</p>
+      <p>I heard that Open Office is supposed to be supporting more font features with its next release sometime Fall of 09.  Anyone know if it will support base to mark features?</p>
+    html_clean: |-
+      <p>This thread is a couple of years old, so I imagine support for "mark" feature is more extensive now.  Anyone care to update this list of which software supports which features?  </p>
+      <p>I'm in the midst of creating a font to be used for IPA transcription by run-of-the-mill Linguistics students.  This means that all the diacritics need to be rendered correctly by such environments as MS Word 2003 running on Win XP.  Is "ccmp" with GSUB my only option here to align base glyphs of varying widths with diacrtics?  Descenders are also always an issue.</p>
+      <p>I heard that Open Office is supposed to be supporting more font features with its next release sometime Fall of 09.  Anyone know if it will support base to mark features?</p>
+  - id: 360645
+    user: 31385
+    date: 2009-08-08T18:29:00
+    date_raw: 8.Aug.2009 6.29pm
+    votes: null
+    html: |-
+      <p>CCMP Vs MARK</p>
+      <p>CCMP = Compose DeCompose Feature. what ever is attached to CCMP will allways happen</p>
+      <p>MARK is controled in the Diacritic Positioning windows in indesign<br>
+      when changed from normal to Opentype MARK Feature is activated</p>
+      <p>in WORD MARK Feature is allways activated</p>
+    html_clean: |-
+      <p>CCMP Vs MARK</p>
+      <p>CCMP = Compose DeCompose Feature. what ever is attached to CCMP will allways happen</p>
+      <p>MARK is controled in the Diacritic Positioning windows in indesign<br>
+      when changed from normal to Opentype MARK Feature is activated</p>
+      <p>in WORD MARK Feature is allways activated</p>
+  - id: 360705
+    user: 5094
+    date: 2009-08-09T06:34:00
+    date_raw: 9.Aug.2009 6.34am
+    votes: null
+    html: <p>I believe "mark" and "mkmk" are not yet supported by FontLab. I can't compile a font with these features (in FontLab Studio 5). Perhaps my ignorance?</p>
+    html_clean: <p>I believe "mark" and "mkmk" are not yet supported by FontLab. I can't compile a font with these features (in FontLab Studio 5). Perhaps my ignorance?</p>
+  - id: 360770
+    user: 1262
+    date: 2009-08-09T19:48:00
+    date_raw: 9.Aug.2009 7.48pm
+    votes: null
+    html: <p>Charles, this is correct. You need to use either the newer standalone version of the Adobe FDK, or the MS VOLT tool. I use the latter for all my OTL work.</p>
+    html_clean: <p>Charles, this is correct. You need to use either the newer standalone version of the Adobe FDK, or the MS VOLT tool. I use the latter for all my OTL work.</p>
+  - id: 360949
+    user: 31385
+    date: 2009-08-10T14:01:00
+    date_raw: 10.Aug.2009 2.01pm
+    votes: null
+    html: |-
+      <p>Chares_e: I use MSVolt mainly<br>
+      in hebrew fonts that i develop i use masiv Mark2Mark<br>
+      attaching hebrew cantillation notes  to diacritics</p>
+      <p>they are all attached to the  event<br>
+      so ither there is no difference or volt automaticly somehow interpets this lookups to mkmk</p>
+      <p>however, i do not C any differnce/</p>
+    html_clean: |-
+      <p>Chares_e: I use MSVolt mainly<br>
+      in hebrew fonts that i develop i use masiv Mark2Mark<br>
+      attaching hebrew cantillation notes  to diacritics</p>
+      <p>they are all attached to the  event<br>
+      so ither there is no difference or volt automaticly somehow interpets this lookups to mkmk</p>
+      <p>however, i do not C any differnce/</p>

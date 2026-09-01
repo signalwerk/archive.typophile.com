@@ -1,0 +1,225 @@
+node: 17059
+title: OpenType and Word 2003
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131019231356"
+  captured_at: 2013-10-19T23:13:56Z
+  url: http://typophile.com/node/17059
+  digest: 267F55F2WVXJDAE2KRJYPFQUZH2HBSXY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/17059.html
+  fingerprint: 5b09e235707ad6e2
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131019231356"
+      digest: 267F55F2WVXJDAE2KRJYPFQUZH2HBSXY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/17059.html
+post:
+  id: 17059
+  user: 10195
+  date: 2006-01-03T09:59:00
+  date_raw: 3 Jan 2006 — 9:59am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>I created an OpenType font using FontLab Studio on MacOSX. I'm using the ccmp OT class to create composite characters such as "uni004B1D420313" composed of glyphs from U+004B, U+1D42 and U+0313. On OSX with TextEdit the characters compose properly and everything looks OK. When I install the font on WinXP, and use Word 2003, the characters don't appear to compose properly. I was using the 'insert symbol' dialog in Word to enter the glyphs. Some characters, such as a Ccaron, will compose...but I don't believe it's based upon the ccmp code and rather something related to UniScribe. Do I need to install another bit of software on Windows?</p>
+    <p>Again, I'm pretty new to this and still reading the big book on Unicode.</p>
+    <p>Thanks for any insight...</p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I created an OpenType font using FontLab Studio on MacOSX. I'm using the ccmp OT class to create composite characters such as "uni004B1D420313" composed of glyphs from U+004B, U+1D42 and U+0313. On OSX with TextEdit the characters compose properly and everything looks OK. When I install the font on WinXP, and use Word 2003, the characters don't appear to compose properly. I was using the 'insert symbol' dialog in Word to enter the glyphs. Some characters, such as a Ccaron, will compose...but I don't believe it's based upon the ccmp code and rather something related to UniScribe. Do I need to install another bit of software on Windows?</p>
+    <p>Again, I'm pretty new to this and still reading the big book on Unicode.</p>
+    <p>Thanks for any insight...</p>
+comments:
+  - id: 102331
+    user: 1049
+    date: 2006-01-03T10:13:00
+    date_raw: 3 Jan 2006 — 10:13am
+    votes: null
+    html: |-
+      <p>You might need to confirm that you have the latest Service packs installed for both Office and Windows.</p>
+      <p>Cheers, Si</p>
+    html_clean: |-
+      <p>You might need to confirm that you have the latest Service packs installed for both Office and Windows.</p>
+      <p>Cheers, Si</p>
+  - id: 102362
+    user: 10195
+    date: 2006-01-03T12:43:00
+    date_raw: 3 Jan 2006 — 12:43pm
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      I have all the latest SPs for both.</p>
+      <p>I found one more possible bit of information. When I try to build a keyboard layout using the MS Keyboard Creator it squaks and says that the characters assigned to keys are not in the 1252 code page and may create problems with non-Unicode programs. When I enable the keyboard and type the diacriticals or modifiers some characters combine and some don't. For instance a U+0063 and U+0313 work fine but a U+0043 and U+0313 doesn't (the latter seems to override the ccmp and place the caroncomb over the C without the placement set up via ccmp...I'm assuming that some lower level Word/Windows action is doing this).</p>
+      <p>Ideas?</p>
+    html_clean: |-
+      <p>Hi,<br>
+      I have all the latest SPs for both.</p>
+      <p>I found one more possible bit of information. When I try to build a keyboard layout using the MS Keyboard Creator it squaks and says that the characters assigned to keys are not in the 1252 code page and may create problems with non-Unicode programs. When I enable the keyboard and type the diacriticals or modifiers some characters combine and some don't. For instance a U+0063 and U+0313 work fine but a U+0043 and U+0313 doesn't (the latter seems to override the ccmp and place the caroncomb over the C without the placement set up via ccmp...I'm assuming that some lower level Word/Windows action is doing this).</p>
+      <p>Ideas?</p>
+  - id: 102371
+    user: 1262
+    date: 2006-01-03T13:05:00
+    date_raw: 3 Jan 2006 — 1:05pm
+    votes: null
+    html: |-
+      <p>[I'm a bit confused by your example, because U+0313 is a combining comma above, not a caroncomb]</p>
+      <p>Test your keyboard in NotePad. Word has some key combinations hard coded as hotkeys, so will not accept character input from them. You may also find that RichEdit apps gets confused if you enter characters that are part of an 8-bit codepage but your font does not support that codepage: the app may switch fonts on your during inputting, which is extremely annoying. NotePad will give you a better indication of whether your keyboard layout is working.</p>
+      <p>NotePad will also indicate what Uniscribe is doing, without the layers of application API decision making that Word imposes.</p>
+      <p>If your font contains an encoded precomposed diacritic character such as U+010C, Uniscribe will make a character level substitution for U+0043 + U+030C, because this is the canonical decomposition for the former. It is faster for Uniscribe to do this at the character level than to process glyph processing lookups in the font. If, for some reason, you didn't want U+0043 + U+030C to result in the glyph encoded at U+010C, e.g. because you wanted to always use GPOS mark positioning, you would actually need to decompose U+010C -&gt; U+0043 + U+030C in the ccmp feature.</p>
+    html_clean: |-
+      <p>[I'm a bit confused by your example, because U+0313 is a combining comma above, not a caroncomb]</p>
+      <p>Test your keyboard in NotePad. Word has some key combinations hard coded as hotkeys, so will not accept character input from them. You may also find that RichEdit apps gets confused if you enter characters that are part of an 8-bit codepage but your font does not support that codepage: the app may switch fonts on your during inputting, which is extremely annoying. NotePad will give you a better indication of whether your keyboard layout is working.</p>
+      <p>NotePad will also indicate what Uniscribe is doing, without the layers of application API decision making that Word imposes.</p>
+      <p>If your font contains an encoded precomposed diacritic character such as U+010C, Uniscribe will make a character level substitution for U+0043 + U+030C, because this is the canonical decomposition for the former. It is faster for Uniscribe to do this at the character level than to process glyph processing lookups in the font. If, for some reason, you didn't want U+0043 + U+030C to result in the glyph encoded at U+010C, e.g. because you wanted to always use GPOS mark positioning, you would actually need to decompose U+010C -&gt; U+0043 + U+030C in the ccmp feature.</p>
+  - id: 102403
+    user: 10821
+    date: 2006-01-03T16:43:00
+    date_raw: 3 Jan 2006 — 4:43pm
+    votes: null
+    html: |-
+      <p>Slightly off-subject but on-topic:</p>
+      <p>In Word 2003, there is an option to "Embed TrueType fonts".</p>
+      <p>Are OT/Type1 fonts also embedded when this box is checked?</p>
+      <p>I'm sure I could experiment, but I'm sure someone out there already knows the answer :)</p>
+    html_clean: |-
+      <p>Slightly off-subject but on-topic:</p>
+      <p>In Word 2003, there is an option to "Embed TrueType fonts".</p>
+      <p>Are OT/Type1 fonts also embedded when this box is checked?</p>
+      <p>I'm sure I could experiment, but I'm sure someone out there already knows the answer :)</p>
+  - id: 102420
+    user: 1049
+    date: 2006-01-03T20:34:00
+    date_raw: 3 Jan 2006 — 8:34pm
+    votes: null
+    html: |-
+      <p>No, sadly not. Regardless the font embedding feature in Word is a bit flaky, seems to work okay for one-off display fonts, but has problems with extended families. </p>
+      <p>Fred, if you have access to them try the Windows Vista versions of Tahoma or Microsoft Sans Serif to see if they exhibit the behavior you're expecting.</p>
+      <p>Cheers, Si</p>
+    html_clean: |-
+      <p>No, sadly not. Regardless the font embedding feature in Word is a bit flaky, seems to work okay for one-off display fonts, but has problems with extended families. </p>
+      <p>Fred, if you have access to them try the Windows Vista versions of Tahoma or Microsoft Sans Serif to see if they exhibit the behavior you're expecting.</p>
+      <p>Cheers, Si</p>
+  - id: 104337
+    user: 10195
+    date: 2006-01-16T08:44:00
+    date_raw: 16 Jan 2006 — 8:44am
+    votes: null
+    html: |-
+      <p>I solved my problem of odd behaviors with some diacriticals (for instance U+004D U+0323) by creating a composite with a codepoint of 1E42. However, have I made things worse by doing this? I'm trying to understand whether it is better to have all of the composite characters as non-codepoint composites...for instance uni004D0323...or have them point to a Unicode codepoint such as Mdotbelow. </p>
+      <p>The follow-on question is for subsequent characters, such as U+0043 U+030C U+0313, should I create an intermediate codepoint of 010C or use a composite of uni0043030C with no codepoint? What I've currently done is create a ccmp 'sub Ccaron commaabove by uni0043030C0313'. The alternative would be 'sub uni0043030C commaabove by uni0043030C0313'.</p>
+      <p>Hope I've phrased this right...I'm a novice and still trying to understand UniCode and OpenType. What I want to ensure is the best solution for spell-checking that is cross-platform. If I understand what you're explaining, then UniScribe will decompose a compsite and enter the codepoints for the separate glyphs. Does this happen in MacOSX? If not...it might seem better to not use codepoint composites as decompisition does not occur on the Mac and will support better cross-platform compatibility.</p>
+      <p>Thanks,</p>
+    html_clean: |-
+      <p>I solved my problem of odd behaviors with some diacriticals (for instance U+004D U+0323) by creating a composite with a codepoint of 1E42. However, have I made things worse by doing this? I'm trying to understand whether it is better to have all of the composite characters as non-codepoint composites...for instance uni004D0323...or have them point to a Unicode codepoint such as Mdotbelow. </p>
+      <p>The follow-on question is for subsequent characters, such as U+0043 U+030C U+0313, should I create an intermediate codepoint of 010C or use a composite of uni0043030C with no codepoint? What I've currently done is create a ccmp 'sub Ccaron commaabove by uni0043030C0313'. The alternative would be 'sub uni0043030C commaabove by uni0043030C0313'.</p>
+      <p>Hope I've phrased this right...I'm a novice and still trying to understand UniCode and OpenType. What I want to ensure is the best solution for spell-checking that is cross-platform. If I understand what you're explaining, then UniScribe will decompose a compsite and enter the codepoints for the separate glyphs. Does this happen in MacOSX? If not...it might seem better to not use codepoint composites as decompisition does not occur on the Mac and will support better cross-platform compatibility.</p>
+      <p>Thanks,</p>
+  - id: 250278
+    user: 25667
+    date: 2008-01-07T19:32:00
+    date_raw: 7 Jan 2008 — 7:32pm
+    votes: null
+    html: |-
+      <p>Hi,</p>
+      <p>Please help, I'm losing my sanity trying to create Word templates that will work on both a Mac and a PC. I thought i'd be clever and use OpenType fonts to avoid any font issues between the two platforms, but when i install the fonts on the PC, the bold and italic weights won't show up in the Word 2003 font menu (not to mention coming out in Courier and spoiling my beautifully created Word template!).</p>
+      <p>Please help, i don't want to have to resort to using different fonts for Mac and PC users and i'd love to learn how to solve this problem!</p>
+      <p>Cheers,</p>
+      <p>Jo</p>
+    html_clean: |-
+      <p>Hi,</p>
+      <p>Please help, I'm losing my sanity trying to create Word templates that will work on both a Mac and a PC. I thought i'd be clever and use OpenType fonts to avoid any font issues between the two platforms, but when i install the fonts on the PC, the bold and italic weights won't show up in the Word 2003 font menu (not to mention coming out in Courier and spoiling my beautifully created Word template!).</p>
+      <p>Please help, i don't want to have to resort to using different fonts for Mac and PC users and i'd love to learn how to solve this problem!</p>
+      <p>Cheers,</p>
+      <p>Jo</p>
+  - id: 250280
+    user: 108
+    date: 2008-01-07T20:02:00
+    date_raw: 7 Jan 2008 — 8:02pm
+    votes: null
+    html: <p>Jo, you should start a new thread with this problem. Make sure you title it in an exemplary way.</p>
+    html_clean: <p>Jo, you should start a new thread with this problem. Make sure you title it in an exemplary way.</p>
+  - id: 250859
+    user: 8664
+    date: 2008-01-10T06:15:00
+    date_raw: 10 Jan 2008 — 6:15am
+    votes: null
+    html: |-
+      <p>This is a known issue which is <a href="http://www.adobe.com/type/browser/OTReadMe.html#Anchor-WindowsIssues" target="_blank" rel="nofollow">documented here</a>, scroll down to the section <em>Fonts do not map correctly in documents transferred from Mac OS to Windows</em>. (Thank you Miguel!)<br>
+      The problem is that Mac and Windows Word documents are not really cross-platform compatible when it comes to identifying fonts. The Mac version identifies fonts by name ID18/Mac if present, else by name ID4/Mac, while the Windows version identifies fonts by name ID1/Win.<br>
+      I would consider this as a bug in Word. At least, the developers didn't care for document exchange from Mac to Windows. Smart applications identify fonts by name ID6.</p>
+      <p>For font developers:</p>
+      <p>With larger font families, this can be (partially) worked around -- see Thomas Phinney's TypoTechnica <a href="http://blogs.adobe.com/typblography/typotechnica2007/Font%20names.pdf" rel="nofollow">presentation on font naming (PDF)</a>, page 15.*<br>
+      But <em>even then</em> a Word for Mac user needs to select only the base font of a style-linked sub-family from the font pulldown menu and then apply Bold/Italic buttons. With some luck, fonts are recognized when opening the document in Word for Windows. If, instead, a Word for Mac user selects italic etc styles from the font pulldown menu <em>directly</em>, most likely (s)he will get Courier when opening the document in Word for Windows ...</p>
+      <p>* Unfortunately, I was not aware of <em>how</em> important ID18/Mac is in style-linked families until yesterday when Bas Jacobs told me that something must be wrong with my Font Naming PDF. In a future update I will point out that<br>
+      [1] name ID18/Mac should be present in larger, style-linked families<br>
+      [2] name ID18/Mac should be identical with name ID1/Win in the base font ('Regular' style) of each sub-family (identified by a common name ID1/Win).<br>
+      (Thanks to Thomas for clarifying this in his above-mentioned presentation!)</p>
+      <p>Translating name IDs to FLS5 FontInfo tags:<br>
+      <em>name ID1/Win</em> -- 'Family Name'<br>
+      <em>name ID4/Mac</em> -- 'Full Name'<br>
+      <em>name ID6</em> -- 'PS Font Name'<br>
+      <em>name ID18/Mac</em> -- 'Mac Name' in 'OpenType-specific names' page, below of 'OT Family Name' and 'OT Style Name'</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>This is a known issue which is <a href="http://www.adobe.com/type/browser/OTReadMe.html#Anchor-WindowsIssues" target="_blank" rel="nofollow">documented here</a>, scroll down to the section <em>Fonts do not map correctly in documents transferred from Mac OS to Windows</em>. (Thank you Miguel!)<br>
+      The problem is that Mac and Windows Word documents are not really cross-platform compatible when it comes to identifying fonts. The Mac version identifies fonts by name ID18/Mac if present, else by name ID4/Mac, while the Windows version identifies fonts by name ID1/Win.<br>
+      I would consider this as a bug in Word. At least, the developers didn't care for document exchange from Mac to Windows. Smart applications identify fonts by name ID6.</p>
+      <p>For font developers:</p>
+      <p>With larger font families, this can be (partially) worked around -- see Thomas Phinney's TypoTechnica <a href="http://blogs.adobe.com/typblography/typotechnica2007/Font%20names.pdf" rel="nofollow">presentation on font naming (PDF)</a>, page 15.*<br>
+      But <em>even then</em> a Word for Mac user needs to select only the base font of a style-linked sub-family from the font pulldown menu and then apply Bold/Italic buttons. With some luck, fonts are recognized when opening the document in Word for Windows. If, instead, a Word for Mac user selects italic etc styles from the font pulldown menu <em>directly</em>, most likely (s)he will get Courier when opening the document in Word for Windows ...</p>
+      <p>* Unfortunately, I was not aware of <em>how</em> important ID18/Mac is in style-linked families until yesterday when Bas Jacobs told me that something must be wrong with my Font Naming PDF. In a future update I will point out that<br>
+      [1] name ID18/Mac should be present in larger, style-linked families<br>
+      [2] name ID18/Mac should be identical with name ID1/Win in the base font ('Regular' style) of each sub-family (identified by a common name ID1/Win).<br>
+      (Thanks to Thomas for clarifying this in his above-mentioned presentation!)</p>
+      <p>Translating name IDs to FLS5 FontInfo tags:<br>
+      <em>name ID1/Win</em> -- 'Family Name'<br>
+      <em>name ID4/Mac</em> -- 'Full Name'<br>
+      <em>name ID6</em> -- 'PS Font Name'<br>
+      <em>name ID18/Mac</em> -- 'Mac Name' in 'OpenType-specific names' page, below of 'OT Family Name' and 'OT Style Name'</p>
+      <p>Karsten</p>
+  - id: 251049
+    user: 909
+    date: 2008-01-10T23:56:00
+    date_raw: 10 Jan 2008 — 11:56pm
+    votes: null
+    html: |-
+      <p>It may actually be even worse than this - name ID 18 was used prior to OS X, but I gather OS X apps are largely no longer using it and instead use name ID 4 Mac, meaning that there's no reasonable way to get consistent cross-platform menu name mapping AFAICT.  :(  At least, if my understanding is correct this is so.</p>
+      <p>If Windows were to move to using name IDs 16 and 17 then we could manage it, but I wouldn't hold my breath for that.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>It may actually be even worse than this - name ID 18 was used prior to OS X, but I gather OS X apps are largely no longer using it and instead use name ID 4 Mac, meaning that there's no reasonable way to get consistent cross-platform menu name mapping AFAICT.  :(  At least, if my understanding is correct this is so.</p>
+      <p>If Windows were to move to using name IDs 16 and 17 then we could manage it, but I wouldn't hold my breath for that.</p>
+      <p>T</p>
+  - id: 251081
+    user: 8664
+    date: 2008-01-11T04:47:00
+    date_raw: 11 Jan 2008 — 4:47am
+    votes: null
+    html: |-
+      <p>Hello Thomas, I tested in OSX 10.3 and 10.4:<br>
+      Identification is still by name ID18 if present, else by name ID4/Mac.<br>
+      10.5 not tested.</p>
+      <p>[DISCLAIMER: JUST MUSING!] Couldn't we just forget about name ID18 and, by default, create name ID4/Mac by the rules that apply to name ID18, i.e. abbreviate this name if required? This because <em>if</em> name ID18 is present, then ID4/Mac is ignored by applications anyway. Such an abbreviated name ID4/Mac may even go into the CFF table's FullName since this too seems to be ignored. But this also means that then name ID4/Mac rather than name ID18 must meet the condition that it be identical with name ID1/Win in each base font.</p>
+    html_clean: |-
+      <p>Hello Thomas, I tested in OSX 10.3 and 10.4:<br>
+      Identification is still by name ID18 if present, else by name ID4/Mac.<br>
+      10.5 not tested.</p>
+      <p>[DISCLAIMER: JUST MUSING!] Couldn't we just forget about name ID18 and, by default, create name ID4/Mac by the rules that apply to name ID18, i.e. abbreviate this name if required? This because <em>if</em> name ID18 is present, then ID4/Mac is ignored by applications anyway. Such an abbreviated name ID4/Mac may even go into the CFF table's FullName since this too seems to be ignored. But this also means that then name ID4/Mac rather than name ID18 must meet the condition that it be identical with name ID1/Win in each base font.</p>

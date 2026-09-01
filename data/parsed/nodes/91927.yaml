@@ -1,0 +1,87 @@
+node: 91927
+title: single glyph positioning help
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20120720103022"
+  captured_at: 2012-07-20T10:30:22Z
+  url: http://typophile.com/node/91927
+  digest: L4SDUJW7THKPNFYZENN2YFE6S7UGQ2PY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/91927.html
+  fingerprint: edecdecddb394beb
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20120720103022"
+      digest: L4SDUJW7THKPNFYZENN2YFE6S7UGQ2PY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/91927.html
+post:
+  id: 91927
+  user: 189032
+  date: 2012-04-09T07:27:00
+  date_raw: 9 Apr 2012 — 7:27am
+  votes: null
+  html: |-
+    <p>hi<br>
+    im a newbie .  i hv  created a font n working on its opentype features .<br>
+    things is  i want to add kerning feature  for a single glyph with certain glyphs so it wont affect any next  glyph.<br>
+    so in fontlab it is not possible so i was  trying this in VOLT . in volt it works fine after compiling. but when i tried  to use in real world ( in IL, PS)  nothing has happened.  if missing something? i tried to export feature so i can edit them in FL but fontlab cnt read that lookups.<br>
+    or volt do positioning for Unicodes only?<br>
+    i dont kno really </p>
+    <p>any comments?<br>
+    i hv attached an image as well wut i want. </p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/krn_5008.jpg"></div><p></p>
+  html_clean: |-
+    <p>hi<br>
+    im a newbie .  i hv  created a font n working on its opentype features .<br>
+    things is  i want to add kerning feature  for a single glyph with certain glyphs so it wont affect any next  glyph.<br>
+    so in fontlab it is not possible so i was  trying this in VOLT . in volt it works fine after compiling. but when i tried  to use in real world ( in IL, PS)  nothing has happened.  if missing something? i tried to export feature so i can edit them in FL but fontlab cnt read that lookups.<br>
+    or volt do positioning for Unicodes only?<br>
+    i dont kno really </p>
+    <p>any comments?<br>
+    i hv attached an image as well wut i want. </p>
+    <p></p><div class="imageWrap"><img src="/files/krn_5008.jpg"></div><p></p>
+comments:
+  - id: 504513
+    user: 1262
+    date: 2012-04-09T09:38:00
+    date_raw: 9 Apr 2012 — 9:38am
+    votes: null
+    html: <p>Kerning adjustments add or remove cumulative width, which will affect subsequent glyphs in the line, as you have discovered. Mark positioning should be done using anchor attachment positioning, not kerning. The mark glyph itself should be zero-width, and needs to be classified as a mark in the VOLT glyph data (this gets written to the font GDEF table), then in the VOLT GPOS editing window you need to select 'Anchor attachment' from the lookup type list, enter the base glyph names in the first glyph column and the mark names in the second column.  Note that you should name the anchor e.g. 'AboveMark', replacing the 'DEFAULT' anchor name. For Indian scripts, the mark positioning lookups need to be associated with the appropriate positioning features, in this case Above Base Mark Positioning ('abvm').</p>
+    html_clean: <p>Kerning adjustments add or remove cumulative width, which will affect subsequent glyphs in the line, as you have discovered. Mark positioning should be done using anchor attachment positioning, not kerning. The mark glyph itself should be zero-width, and needs to be classified as a mark in the VOLT glyph data (this gets written to the font GDEF table), then in the VOLT GPOS editing window you need to select 'Anchor attachment' from the lookup type list, enter the base glyph names in the first glyph column and the mark names in the second column.  Note that you should name the anchor e.g. 'AboveMark', replacing the 'DEFAULT' anchor name. For Indian scripts, the mark positioning lookups need to be associated with the appropriate positioning features, in this case Above Base Mark Positioning ('abvm').</p>
+  - id: 504717
+    user: 189032
+    date: 2012-04-10T13:36:00
+    date_raw: 10 Apr 2012 — 1:36pm
+    votes: null
+    html: <p>thanx john for your reply. i tried using pair positioning n it worked  but i will try this as well. i guess ur view is much better.</p>
+    html_clean: <p>thanx john for your reply. i tried using pair positioning n it worked  but i will try this as well. i guess ur view is much better.</p>
+  - id: 504741
+    user: 1262
+    date: 2012-04-10T16:41:00
+    date_raw: 10 Apr 2012 — 4:41pm
+    votes: null
+    html: |-
+      <p>Think of it this way:</p>
+      <p>Pair positioning is expected to have an effect on the position of subsequent glyphs in a string. So, for example, if I use a pair positioning lookup to kern the 'o' to the 'T' in 'Tomato', I expect the 'mato' glyphs to move along with the 'o'.</p>
+      <p>Anchor attachment positioning is expected *not* to have an effect on the positiong of subsequent glyphs in a string. This is why all secon dglyphs positioned in this way need to be classed as Marks, and need to be zero-width. They are positioned independent of subsequent glyphs.</p>
+    html_clean: |-
+      <p>Think of it this way:</p>
+      <p>Pair positioning is expected to have an effect on the position of subsequent glyphs in a string. So, for example, if I use a pair positioning lookup to kern the 'o' to the 'T' in 'Tomato', I expect the 'mato' glyphs to move along with the 'o'.</p>
+      <p>Anchor attachment positioning is expected *not* to have an effect on the positiong of subsequent glyphs in a string. This is why all secon dglyphs positioned in this way need to be classed as Marks, and need to be zero-width. They are positioned independent of subsequent glyphs.</p>

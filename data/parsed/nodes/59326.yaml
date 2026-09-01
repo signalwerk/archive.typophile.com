@@ -1,0 +1,241 @@
+node: 59326
+title: Strange happenings in liga feature when opening generated OTF in FL5
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203094914"
+  captured_at: 2010-02-03T09:49:14Z
+  url: http://typophile.com/node/59326
+  digest: GPG6LY2DJNIZ35EX4SIBPLAXI77LGF5J
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/59326.html
+  fingerprint: 6a74eaa0cff1ebbe
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203094914"
+      digest: GPG6LY2DJNIZ35EX4SIBPLAXI77LGF5J
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/59326.html
+post:
+  id: 59326
+  user: 40601
+  date: 2009-06-23T18:59:00
+  date_raw: 23.Jun.2009 6.59pm
+  votes: null
+  html: |-
+    <p>Something weird's going on with my fonts: if I open a font that has been generated, and passed trough autohint, the contents of the liga feature changes, and FL5 refuses to compile (Fatal Error). This seems to be sticky, so fonts opened afterwards acquire the same problem (or I might just be going nuts). The only real change other than numberin simplified seems to be that "script dflt;" becomes "script ;"</p>
+    <p>Is it another of the FL5 little surprises or does autohint simplify/edit liga? Please see transcript below:</p>
+    <p>Before:</p>
+    <p>feature liga { # Standard Ligatures<br>
+     # Latin<br>
+    lookup liga16 {<br>
+        sub f f i by ffi;<br>
+        sub f i by fi;<br>
+    } liga16;<br>
+    lookup liga17 {<br>
+        sub f f j by f_f_j;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f j by f_j;<br>
+        sub f l by fl;<br>
+    } liga17;<br>
+     language AZE  exclude_dflt; # Azeri<br>
+    lookup liga17;<br>
+     language CRT  exclude_dflt; # Crimean Tatar<br>
+    lookup liga17;<br>
+     language MOL ; # Moldavian<br>
+     language ROM ; # Romanian<br>
+     language TRK  exclude_dflt; # Turkish<br>
+    lookup liga17;<br>
+     script dflt;<br>
+    lookup liga16;<br>
+    lookup liga17;<br>
+    } liga;</p>
+    <p>After generating OTF and passing through FDK autohint:</p>
+    <p>feature liga { # Standard Ligatures<br>
+     # Latin<br>
+    lookup liga1 {<br>
+        sub f f i by ffi;<br>
+        sub f i by fi;<br>
+    } liga1;<br>
+    lookup liga2 {<br>
+        sub f f j by f_f_j;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f j by f_j;<br>
+        sub f l by fl;<br>
+    } liga2;<br>
+     language AZE  exclude_dflt; # Azeri<br>
+    lookup liga2;<br>
+     language CRT  exclude_dflt; # Crimean Tatar<br>
+    lookup liga2;<br>
+     language MOL ; # Moldavian<br>
+     language ROM ; # Romanian<br>
+     language TRK  exclude_dflt; # Turkish<br>
+    lookup liga2;<br>
+     script     ;<br>
+    lookup liga1;<br>
+    lookup liga2;<br>
+    } liga;</p>
+  html_clean: |-
+    <p>Something weird's going on with my fonts: if I open a font that has been generated, and passed trough autohint, the contents of the liga feature changes, and FL5 refuses to compile (Fatal Error). This seems to be sticky, so fonts opened afterwards acquire the same problem (or I might just be going nuts). The only real change other than numberin simplified seems to be that "script dflt;" becomes "script ;"</p>
+    <p>Is it another of the FL5 little surprises or does autohint simplify/edit liga? Please see transcript below:</p>
+    <p>Before:</p>
+    <p>feature liga { # Standard Ligatures<br>
+     # Latin<br>
+    lookup liga16 {<br>
+        sub f f i by ffi;<br>
+        sub f i by fi;<br>
+    } liga16;<br>
+    lookup liga17 {<br>
+        sub f f j by f_f_j;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f j by f_j;<br>
+        sub f l by fl;<br>
+    } liga17;<br>
+     language AZE  exclude_dflt; # Azeri<br>
+    lookup liga17;<br>
+     language CRT  exclude_dflt; # Crimean Tatar<br>
+    lookup liga17;<br>
+     language MOL ; # Moldavian<br>
+     language ROM ; # Romanian<br>
+     language TRK  exclude_dflt; # Turkish<br>
+    lookup liga17;<br>
+     script dflt;<br>
+    lookup liga16;<br>
+    lookup liga17;<br>
+    } liga;</p>
+    <p>After generating OTF and passing through FDK autohint:</p>
+    <p>feature liga { # Standard Ligatures<br>
+     # Latin<br>
+    lookup liga1 {<br>
+        sub f f i by ffi;<br>
+        sub f i by fi;<br>
+    } liga1;<br>
+    lookup liga2 {<br>
+        sub f f j by f_f_j;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f j by f_j;<br>
+        sub f l by fl;<br>
+    } liga2;<br>
+     language AZE  exclude_dflt; # Azeri<br>
+    lookup liga2;<br>
+     language CRT  exclude_dflt; # Crimean Tatar<br>
+    lookup liga2;<br>
+     language MOL ; # Moldavian<br>
+     language ROM ; # Romanian<br>
+     language TRK  exclude_dflt; # Turkish<br>
+    lookup liga2;<br>
+     script     ;<br>
+    lookup liga1;<br>
+    lookup liga2;<br>
+    } liga;</p>
+comments:
+  - id: 353433
+    user: 8664
+    date: 2009-06-24T01:18:00
+    date_raw: 24.Jun.2009 1.18am
+    votes: null
+    html: |-
+      <p>Mind that the AFDKO feature file syntax as used in FLS5 and FM is a higher level language and does not match binary layout tables one-to-one. There is some "translation" involved which shows when you re-import layout tables. With some lookup types, differences are more drastic than in your example.</p>
+      <p>The "dflt" (lowercase) keyword is only used in combination with "language". The default "script" is designated by "DFLT" (uppercase).<br>
+      If you want to address "script DFLT", you need to run FLS5-generated .otfs or .ttfs through Adam Twardoch's script <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">Fix DFLT Script Tag</a>. (He also made helpful remarks about script DFLT in a more recent Typophile discussion, you need to google for it.)</p>
+    html_clean: |-
+      <p>Mind that the AFDKO feature file syntax as used in FLS5 and FM is a higher level language and does not match binary layout tables one-to-one. There is some "translation" involved which shows when you re-import layout tables. With some lookup types, differences are more drastic than in your example.</p>
+      <p>The "dflt" (lowercase) keyword is only used in combination with "language". The default "script" is designated by "DFLT" (uppercase).<br>
+      If you want to address "script DFLT", you need to run FLS5-generated .otfs or .ttfs through Adam Twardoch's script <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">Fix DFLT Script Tag</a>. (He also made helpful remarks about script DFLT in a more recent Typophile discussion, you need to google for it.)</p>
+  - id: 353438
+    user: 40601
+    date: 2009-06-24T02:45:00
+    date_raw: 24.Jun.2009 2.45am
+    votes: null
+    html: <p>Thanks, Karsten. I'll thank you properly when I shall have understood this and had fixed it. Strewth, I'm out of me depth!</p>
+    html_clean: <p>Thanks, Karsten. I'll thank you properly when I shall have understood this and had fixed it. Strewth, I'm out of me depth!</p>
+  - id: 353750
+    user: 40601
+    date: 2009-06-25T18:52:00
+    date_raw: 25.Jun.2009 6.52pm
+    votes: null
+    html: |-
+      <p>I still have some mischief in there somewhere. I tried to install the Fix DFLT ... script but no luck so far:</p>
+      <p>Locating OpenType fonts in /Users/Jan/process...<br>
+      Traceback (most recent call last):<br>
+        File "", line 108, in ?<br>
+        File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/codecs.py", line 205, in __getattr__<br>
+      AttributeError: stdout_hook instance has no attribute 'flush'</p>
+      <p>I installed Python 2.6.2 as well. What is NumPy, btw?</p>
+    html_clean: |-
+      <p>I still have some mischief in there somewhere. I tried to install the Fix DFLT ... script but no luck so far:</p>
+      <p>Locating OpenType fonts in /Users/Jan/process...<br>
+      Traceback (most recent call last):<br>
+        File "", line 108, in ?<br>
+        File "/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/codecs.py", line 205, in __getattr__<br>
+      AttributeError: stdout_hook instance has no attribute 'flush'</p>
+      <p>I installed Python 2.6.2 as well. What is NumPy, btw?</p>
+  - id: 353758
+    user: 14722
+    date: 2009-06-25T19:54:00
+    date_raw: 25.Jun.2009 7.54pm
+    votes: null
+    html: <p>Numpy is a set of Python libraries. If you install the big Robofab package it includes Numpy.</p>
+    html_clean: <p>Numpy is a set of Python libraries. If you install the big Robofab package it includes Numpy.</p>
+  - id: 353773
+    user: 40601
+    date: 2009-06-25T23:44:00
+    date_raw: 25.Jun.2009 11.44pm
+    votes: null
+    html: <p>Oh bugger. Now my Python is too new for Robofab. It says I need 2.3. My brand new Numpy is the wrong version too (MAC OS 1.5, I am still running Leopard (10.4) on iMac 1.8 PowerPC G5). Help, squeek?</p>
+    html_clean: <p>Oh bugger. Now my Python is too new for Robofab. It says I need 2.3. My brand new Numpy is the wrong version too (MAC OS 1.5, I am still running Leopard (10.4) on iMac 1.8 PowerPC G5). Help, squeek?</p>
+  - id: 353785
+    user: 40601
+    date: 2009-06-26T01:14:00
+    date_raw: 26.Jun.2009 1.14am
+    votes: null
+    html: "<p>Sorry about this mess: now I have installed Python 2.5.4, installed numpy 1.3.0, all's well, the script still does not run.</p>"
+    html_clean: "<p>Sorry about this mess: now I have installed Python 2.5.4, installed numpy 1.3.0, all's well, the script still does not run.</p>"
+  - id: 353981
+    user: 40601
+    date: 2009-06-26T23:46:00
+    date_raw: 26.Jun.2009 11.46pm
+    votes: null
+    html: |-
+      <p>Thanks to Karsten, the script now works. The best way to install the Python and NumPy to make this work:<br>
+      <a href="http://www.robofab.org/install.html" title="http://www.robofab.org/install.html">http://www.robofab.org/install.html</a></p>
+    html_clean: |-
+      <p>Thanks to Karsten, the script now works. The best way to install the Python and NumPy to make this work:<br>
+      <a href="http://www.robofab.org/install.html" title="http://www.robofab.org/install.html">http://www.robofab.org/install.html</a></p>
+  - id: 354626
+    user: 45774
+    date: 2009-07-01T12:37:00
+    date_raw: 1.Jul.2009 12.37pm
+    votes: null
+    html: |-
+      <p>paragraph</p>
+      <p>You can decompile the GSUB-table of your Font, generated with FontLab. Autohint the font with the AFDKO and then merge the decompiled GSUB-table back into the autohinted font. But somehow I doubt, that the autohint program messes up the GSUB-table. However, it is worth to try. I often correct fonts in this way, when I want to keep changes at the minimum.</p>
+    html_clean: |-
+      <p>paragraph</p>
+      <p>You can decompile the GSUB-table of your Font, generated with FontLab. Autohint the font with the AFDKO and then merge the decompiled GSUB-table back into the autohinted font. But somehow I doubt, that the autohint program messes up the GSUB-table. However, it is worth to try. I often correct fonts in this way, when I want to keep changes at the minimum.</p>
+  - id: 354685
+    user: 40601
+    date: 2009-07-01T18:17:00
+    date_raw: 1.Jul.2009 6.17pm
+    votes: null
+    html: <p>Thanks, Arno. It is clearly a FLS5 bug, nothing to do with ADFKO.</p>
+    html_clean: <p>Thanks, Arno. It is clearly a FLS5 bug, nothing to do with ADFKO.</p>

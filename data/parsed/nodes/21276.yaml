@@ -1,0 +1,186 @@
+node: 21276
+title: OpenType superscript & ligature problems
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130716031232"
+  captured_at: 2013-07-16T03:12:32Z
+  url: http://typophile.com:80/node/21276
+  digest: HP63MTUS7XQ446X2M5X2CMQKM3IPBWVY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/21276.html
+  fingerprint: f08a37230691e15a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130716031232"
+      digest: HP63MTUS7XQ446X2M5X2CMQKM3IPBWVY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/21276.html
+post:
+  id: 21276
+  user: 13839
+  date: 2006-07-13T19:21:00
+  date_raw: 13 Jul 2006 — 7:21pm
+  votes: null
+  html: |-
+    <p>Hello,</p>
+    <p>I'm new to font-making, and I've been pulling my hair out trying to get some OpenType features working for a Cyrillic font I'm putting together. Superscript variants and ligatures *are* supposed to work in Word 2003, right? (I did try InDesign too, also with no luck.)</p>
+    <p>My font needs superscript glyphs that look somewhat different than just a raised standard glyph. If it makes a difference, the superscript glyphs have dimensions such that they should show up above the previous character.</p>
+    <p>In addition, the superscript glyphs take on a different appearance if combined with Uni0483 (combining titlo); they should still appear above the previous character.</p>
+    <p>I've read everything I can on OpenType superscripts and looked at all the fonts I have for clues, but I wasn't able to find much in terms of examples. All I know is that typing any of the relevant characters in superscript doesn't yield the superscript variants, and none of the ligatures appear when the correct combinations are typed.</p>
+    <p>Here's what I did for the OpenType code:</p>
+    <p>feature sups { # Superscript<br>
+     script cyri;<br>
+        sub [uni0434 uni043C uni0440 uni0441] by [uni0434.sups uni043C.sups uni0440.sups uni0441.sups];<br>
+    } sups;</p>
+    <p>and also</p>
+    <p>feature liga { # Standard Ligatures<br>
+     script cyri;<br>
+        sub uni0434 uni0483 by uni0434_uni0483.sups;<br>
+        sub uni043C uni0483 by uni043c_uni0483.sups;<br>
+        sub uni0440 uni0483 by uni0440_uni0483.sups;<br>
+        sub uni0441 uni0483 by uni0441_uni0483.sups;<br>
+    } liga;</p>
+    <p>Any help at all would be wonderful.</p>
+    <p>Thanks a lot!</p>
+    <p>~Quinn</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I'm new to font-making, and I've been pulling my hair out trying to get some OpenType features working for a Cyrillic font I'm putting together. Superscript variants and ligatures *are* supposed to work in Word 2003, right? (I did try InDesign too, also with no luck.)</p>
+    <p>My font needs superscript glyphs that look somewhat different than just a raised standard glyph. If it makes a difference, the superscript glyphs have dimensions such that they should show up above the previous character.</p>
+    <p>In addition, the superscript glyphs take on a different appearance if combined with Uni0483 (combining titlo); they should still appear above the previous character.</p>
+    <p>I've read everything I can on OpenType superscripts and looked at all the fonts I have for clues, but I wasn't able to find much in terms of examples. All I know is that typing any of the relevant characters in superscript doesn't yield the superscript variants, and none of the ligatures appear when the correct combinations are typed.</p>
+    <p>Here's what I did for the OpenType code:</p>
+    <p>feature sups { # Superscript<br>
+     script cyri;<br>
+        sub [uni0434 uni043C uni0440 uni0441] by [uni0434.sups uni043C.sups uni0440.sups uni0441.sups];<br>
+    } sups;</p>
+    <p>and also</p>
+    <p>feature liga { # Standard Ligatures<br>
+     script cyri;<br>
+        sub uni0434 uni0483 by uni0434_uni0483.sups;<br>
+        sub uni043C uni0483 by uni043c_uni0483.sups;<br>
+        sub uni0440 uni0483 by uni0440_uni0483.sups;<br>
+        sub uni0441 uni0483 by uni0441_uni0483.sups;<br>
+    } liga;</p>
+    <p>Any help at all would be wonderful.</p>
+    <p>Thanks a lot!</p>
+    <p>~Quinn</p>
+comments:
+  - id: 134147
+    user: 7006
+    date: 2006-07-13T20:16:00
+    date_raw: 13 Jul 2006 — 8:16pm
+    votes: null
+    html: |-
+      <p>first of all the Cyrillic script tag should be cyrl, secondly you should copy your lookups to to the default script so for your superscript feature it should look something like:</p>
+      <p>feature sups { # Superscript<br>
+      lookup sups1 {<br>
+      sub [uni0434 uni043C uni0440 uni0441] by [uni0434.sups uni043C.sups uni0440.sups uni0441.sups];<br>
+      } sups1;<br>
+      script cyrl;<br>
+      lookup sups1;<br>
+      } sups;</p>
+      <p>if i've gotten anything wrong, Adam should show up shortly to straighten you out. &gt;^p</p>
+      <p><em>Superscript variants and ligatures *are* supposed to work in Word 2003, right? </em><br>
+      I don't believe so. Office apps still give only <a href="/wiki/faux%20formatting" class="freelinking" rel="nofollow">faux formatting</a> for thinks like super/subscripts and smallcaps.</p>
+    html_clean: |-
+      <p>first of all the Cyrillic script tag should be cyrl, secondly you should copy your lookups to to the default script so for your superscript feature it should look something like:</p>
+      <p>feature sups { # Superscript<br>
+      lookup sups1 {<br>
+      sub [uni0434 uni043C uni0440 uni0441] by [uni0434.sups uni043C.sups uni0440.sups uni0441.sups];<br>
+      } sups1;<br>
+      script cyrl;<br>
+      lookup sups1;<br>
+      } sups;</p>
+      <p>if i've gotten anything wrong, Adam should show up shortly to straighten you out. &gt;^p</p>
+      <p><em>Superscript variants and ligatures *are* supposed to work in Word 2003, right? </em><br>
+      I don't believe so. Office apps still give only <a href="/wiki/faux%20formatting" class="freelinking" rel="nofollow">faux formatting</a> for thinks like super/subscripts and smallcaps.</p>
+  - id: 134174
+    user: 13839
+    date: 2006-07-14T05:49:00
+    date_raw: 14 Jul 2006 — 5:49am
+    votes: null
+    html: |-
+      <p>Thanks for fixing that-- I really appreciate it. Disappointing news about Word, though. Do you know where I could find a list of programs that do support OpenType features? (And whether Word for Vista will?) I'm assuming browsers don't display it. I'd ideally like to use them in xml-based e-books, but it would be up to the e-book reader software to support it, right?</p>
+      <p>Also, if someone writes something with the correct combinations for the superscript or ligature in Word, then copies and pastes it into a program that does support OpenType, will the variant glyphs show up?</p>
+      <p>Thanks,<br>
+      Quinn</p>
+    html_clean: |-
+      <p>Thanks for fixing that-- I really appreciate it. Disappointing news about Word, though. Do you know where I could find a list of programs that do support OpenType features? (And whether Word for Vista will?) I'm assuming browsers don't display it. I'd ideally like to use them in xml-based e-books, but it would be up to the e-book reader software to support it, right?</p>
+      <p>Also, if someone writes something with the correct combinations for the superscript or ligature in Word, then copies and pastes it into a program that does support OpenType, will the variant glyphs show up?</p>
+      <p>Thanks,<br>
+      Quinn</p>
+  - id: 134179
+    user: 8664
+    date: 2006-07-14T06:31:00
+    date_raw: 14 Jul 2006 — 6:31am
+    votes: null
+    html: |-
+      <p>Typotheque has a list of applications that support OpenType features:<br>
+      <a href="http://www.typotheque.com/fonts/opentype_feature_support/" title="http://www.typotheque.com/fonts/opentype_feature_support/">http://www.typotheque.com/fonts/opentype_feature_support/</a><br>
+      But read with caution:<br>
+      For some features in XPress7, the mark only means that the according glyphs can be accessed by way the glyph palette (this is: 'ornaments', 'historical forms', 'slashed zero', 'stylistic alternates').<br>
+      And that almost all features are marked in the Microsoft Avalon column does NOT mean that any application actually support them. As it seems, Word for Vista does not (there was a thread on this topic).</p>
+    html_clean: |-
+      <p>Typotheque has a list of applications that support OpenType features:<br>
+      <a href="http://www.typotheque.com/fonts/opentype_feature_support/" title="http://www.typotheque.com/fonts/opentype_feature_support/">http://www.typotheque.com/fonts/opentype_feature_support/</a><br>
+      But read with caution:<br>
+      For some features in XPress7, the mark only means that the according glyphs can be accessed by way the glyph palette (this is: 'ornaments', 'historical forms', 'slashed zero', 'stylistic alternates').<br>
+      And that almost all features are marked in the Microsoft Avalon column does NOT mean that any application actually support them. As it seems, Word for Vista does not (there was a thread on this topic).</p>
+  - id: 134191
+    user: 1049
+    date: 2006-07-14T07:22:00
+    date_raw: 14 Jul 2006 — 7:22am
+    votes: null
+    html: <p>Re. Avalon aka WPF. It's is a development platform that is still in beta. Almost all the registered OT features are supported via a simple mark-up language XAML - however as the platform is new there are no notable apps using it yet.</p>
+    html_clean: <p>Re. Avalon aka WPF. It's is a development platform that is still in beta. Almost all the registered OT features are supported via a simple mark-up language XAML - however as the platform is new there are no notable apps using it yet.</p>
+  - id: 134205
+    user: 13839
+    date: 2006-07-14T08:22:00
+    date_raw: 14 Jul 2006 — 8:22am
+    votes: null
+    html: <p>Do you know of a guide for XAML on how to access the OT features?</p>
+    html_clean: <p>Do you know of a guide for XAML on how to access the OT features?</p>
+  - id: 134238
+    user: 3085
+    date: 2006-07-14T09:57:00
+    date_raw: 14 Jul 2006 — 9:57am
+    votes: null
+    html: |-
+      <p>Hi,</p>
+      <p>Here are couple of links you may want to look at:</p>
+      <p>Main page, maybe too much information on it, but at least you can download and install WPF from there:<br>
+      <a> http://msdn.microsoft.com/winfx/reference/presentation/default.aspx</a></p>
+      <p>WPF Text team has a blog with useful information about text formatting:<br>
+      <a>http://blogs.msdn.com/text/default.aspx</a></p>
+      <p>Filipe Fortes is another guy working in WPF text layout team and has a nice blog with examples: <a>http://fortes.com/</a></p>
+      <p>This should be enough to start.</p>
+      <p>Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>Hi,</p>
+      <p>Here are couple of links you may want to look at:</p>
+      <p>Main page, maybe too much information on it, but at least you can download and install WPF from there:<br>
+      <a> http://msdn.microsoft.com/winfx/reference/presentation/default.aspx</a></p>
+      <p>WPF Text team has a blog with useful information about text formatting:<br>
+      <a>http://blogs.msdn.com/text/default.aspx</a></p>
+      <p>Filipe Fortes is another guy working in WPF text layout team and has a nice blog with examples: <a>http://fortes.com/</a></p>
+      <p>This should be enough to start.</p>
+      <p>Thanks,<br>
+      Sergey</p>

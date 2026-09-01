@@ -1,0 +1,120 @@
+node: 79324
+title: Automatically updating the font directory with revised OTFs (OS X)
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150227021948"
+  captured_at: 2015-02-27T02:19:48Z
+  url: http://www.typophile.com:80/node/79324
+  digest: ADMOVUHVEKLL6WZBE7YUS62NLARQUH6J
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/79324.html
+  fingerprint: 57f559a720116b85
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150227021948"
+      digest: ADMOVUHVEKLL6WZBE7YUS62NLARQUH6J
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/79324.html
+post:
+  id: 79324
+  user: 46471
+  date: 2011-02-21T18:27:00
+  date_raw: 21 Feb 2011 — 6:27pm
+  votes: null
+  html: |-
+    <p>When working on a font, I like to increment my source files with a two-digit version number (foobar 02.vfb, foobar 03.vfb) so I can generate test OTFs with a version number.</p>
+    <p>The annoyance is that after I generate, I always have to drag the new version into Font Book and delete the old versions manually (because Font Book resolves duplicates erratically, usually preferring older files).</p>
+    <p>In the past, I've tried to set up a Folder Action to process new fonts, but it takes too long for Folder Action to notice that I made a new file.</p>
+    <p>No more. Now I've discovered Hazel, which is a little $20 program (preference pane) that's basically a much more attentive version of Folder Actions. Which makes it actually useful.</p>
+    <p>I generate my test OTF to the desktop. (Because it's the easiest destination to navigate to from the FL generate-font dialog.) My Hazel script watches for OTF files to drop onto the desktop. If it sees one that was created in the last minute (and it will grab them within a few seconds of their appearance), it deletes the older versions of that font from my ~/Library/Fonts, and moves the newest version there. If Font Book is running, it will automatically notice the change.</p>
+    <p>What's cool about Hazel is that you can embed shell scripts in your sequence of folder actions. So in this case, to do the "delete older versions" magic, I made a little perl script that looks at my new font &amp; deletes anything in my font folder with the same filename prefix.</p>
+    <p>You would want to adjust this for your naming scheme. (And as usual, be careful of any script with an rm in it.)</p>
+    <p><code><br>
+    #!/usr/bin/perl</code></p>
+    <p>use warnings;<br>
+    use strict;<br>
+    use File::Basename;</p>
+    <p># extract the filename from the pathname Hazel passes in<br>
+    my $filename = basename($ARGV[0]);</p>
+    <p># this matches a filename of the form:<br>
+    # prefix version number (optional version suffix).otf<br>
+    # like foobar 02a.otf<br>
+    ($filename =~ m/(.+?)(\d{2,3})(.*?)\.otf/);</p>
+    <p># get the family name if it matched<br>
+    my $familyname = $1;</p>
+    <p># if there's no $familyname, abort<br>
+    exit(0) unless $familyname;</p>
+    <p># remove the fonts that have the same family name prefix<br>
+    my $output = `rm ~/Library/Fonts/'$familyname'*`;</p>
+    <p># Hazel continues after this, moving the new font into the directory</p>
+    <p>exit(0);<br>
+    </p>
+  html_clean: |-
+    <p>When working on a font, I like to increment my source files with a two-digit version number (foobar 02.vfb, foobar 03.vfb) so I can generate test OTFs with a version number.</p>
+    <p>The annoyance is that after I generate, I always have to drag the new version into Font Book and delete the old versions manually (because Font Book resolves duplicates erratically, usually preferring older files).</p>
+    <p>In the past, I've tried to set up a Folder Action to process new fonts, but it takes too long for Folder Action to notice that I made a new file.</p>
+    <p>No more. Now I've discovered Hazel, which is a little $20 program (preference pane) that's basically a much more attentive version of Folder Actions. Which makes it actually useful.</p>
+    <p>I generate my test OTF to the desktop. (Because it's the easiest destination to navigate to from the FL generate-font dialog.) My Hazel script watches for OTF files to drop onto the desktop. If it sees one that was created in the last minute (and it will grab them within a few seconds of their appearance), it deletes the older versions of that font from my ~/Library/Fonts, and moves the newest version there. If Font Book is running, it will automatically notice the change.</p>
+    <p>What's cool about Hazel is that you can embed shell scripts in your sequence of folder actions. So in this case, to do the "delete older versions" magic, I made a little perl script that looks at my new font &amp; deletes anything in my font folder with the same filename prefix.</p>
+    <p>You would want to adjust this for your naming scheme. (And as usual, be careful of any script with an rm in it.)</p>
+    <p><code><br>
+    #!/usr/bin/perl</code></p>
+    <p>use warnings;<br>
+    use strict;<br>
+    use File::Basename;</p>
+    <p># extract the filename from the pathname Hazel passes in<br>
+    my $filename = basename($ARGV[0]);</p>
+    <p># this matches a filename of the form:<br>
+    # prefix version number (optional version suffix).otf<br>
+    # like foobar 02a.otf<br>
+    ($filename =~ m/(.+?)(\d{2,3})(.*?)\.otf/);</p>
+    <p># get the family name if it matched<br>
+    my $familyname = $1;</p>
+    <p># if there's no $familyname, abort<br>
+    exit(0) unless $familyname;</p>
+    <p># remove the fonts that have the same family name prefix<br>
+    my $output = `rm ~/Library/Fonts/'$familyname'*`;</p>
+    <p># Hazel continues after this, moving the new font into the directory</p>
+    <p>exit(0);<br>
+    </p>
+comments:
+  - id: 452979
+    user: 14722
+    date: 2011-02-21T19:37:00
+    date_raw: 21 Feb 2011 — 7:37pm
+    votes: null
+    html: |-
+      <p>Don’t install your test fonts at all. Just do all your proofing in Indesign and generate test fonts directly into /Library/Application Support/Adobe/Fonts directory using Ben Kiel’s font generator script, overwriting the old font. Indesign automatically detects new or changed fonts and loads them on the fly. This will you save many hours of time that would otherwise be wasted incrementing font versions, restarting applications, clearing font caches, rebooting, dealing with Fontbook, etc.</p>
+      <p>And increment your entire working directory instead of individual files. It’s faster and this way you also end up archiving the related files you create for Superpolator, UFO Stretch, notes you take, etc. If multiple users are working on a design they should increment each round of changes with a date/version number and their initials.</p>
+    html_clean: |-
+      <p>Don’t install your test fonts at all. Just do all your proofing in Indesign and generate test fonts directly into /Library/Application Support/Adobe/Fonts directory using Ben Kiel’s font generator script, overwriting the old font. Indesign automatically detects new or changed fonts and loads them on the fly. This will you save many hours of time that would otherwise be wasted incrementing font versions, restarting applications, clearing font caches, rebooting, dealing with Fontbook, etc.</p>
+      <p>And increment your entire working directory instead of individual files. It’s faster and this way you also end up archiving the related files you create for Superpolator, UFO Stretch, notes you take, etc. If multiple users are working on a design they should increment each round of changes with a date/version number and their initials.</p>
+  - id: 452990
+    user: 46471
+    date: 2011-02-21T20:57:00
+    date_raw: 21 Feb 2011 — 8:57pm
+    votes: null
+    html: |-
+      <p>To each his own.</p>
+      <p>If you do things my way, you may like this trick.</p>
+      <p>If you don't, you won't.</p>
+    html_clean: |-
+      <p>To each his own.</p>
+      <p>If you do things my way, you may like this trick.</p>
+      <p>If you don't, you won't.</p>

@@ -1,0 +1,255 @@
+node: 19839
+title: Contextual swashes for beginnings.
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150223073526"
+  captured_at: 2015-02-23T07:35:26Z
+  url: http://typophile.com:80/node/19839
+  digest: JO6O7DVRC3SPT5OC5NL6VVK3MZPT4BQ6
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/19839.html
+  fingerprint: 6dafa3073a22b16c
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150223073526"
+      digest: JO6O7DVRC3SPT5OC5NL6VVK3MZPT4BQ6
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/19839.html
+post:
+  id: 19839
+  user: 2951
+  date: 2006-05-09T14:34:00
+  date_raw: 9 May 2006 — 2:34pm
+  votes: null
+  html: |-
+    <p>I'm programming <a href="/wiki/swsh" class="freelinking" rel="nofollow">contextual swashes</a> for the beginning and endings of my script face I'm working on and I'm using the info in the fontlab manual. I tried the ending swashes script and it worked fine. The beginning script that I copied directly from the manual doesn't work. Is there a way to make this happen? As you can see from the screen capture the beginnings are being replaced for every letter even though I have an ignore substitute scripted in.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/cswh.jpg">cswh.jpg</a></td><td>167.4 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>I'm programming <a href="/wiki/swsh" class="freelinking" rel="nofollow">contextual swashes</a> for the beginning and endings of my script face I'm working on and I'm using the info in the fontlab manual. I tried the ending swashes script and it worked fine. The beginning script that I copied directly from the manual doesn't work. Is there a way to make this happen? As you can see from the screen capture the beginnings are being replaced for every letter even though I have an ignore substitute scripted in.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="/files/cswh.jpg">cswh.jpg</a></td><td>167.4 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 122846
+    user: 3290
+    date: 2006-05-11T08:37:00
+    date_raw: 11 May 2006 — 8:37am
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      I think you should include the swash glyphs in your ignore string:</p>
+      <p>ignore sub [@letter @start_swash] @start';</p>
+      <p>to make it work.</p>
+    html_clean: |-
+      <p>Hi,<br>
+      I think you should include the swash glyphs in your ignore string:</p>
+      <p>ignore sub [@letter @start_swash] @start';</p>
+      <p>to make it work.</p>
+  - id: 122851
+    user: 3290
+    date: 2006-05-11T09:04:00
+    date_raw: 11 May 2006 — 9:04am
+    votes: null
+    html: |-
+      <p>Ah, most important, you have to define the context! It's not enough to put the apostroph ;)</p>
+      <p>ignore [@letter @start_swash] @letter';<br>
+      sub @letter' @letter by @start_swash;</p>
+      <p>for example...</p>
+    html_clean: |-
+      <p>Ah, most important, you have to define the context! It's not enough to put the apostroph ;)</p>
+      <p>ignore [@letter @start_swash] @letter';<br>
+      sub @letter' @letter by @start_swash;</p>
+      <p>for example...</p>
+  - id: 122853
+    user: 2951
+    date: 2006-05-11T09:18:00
+    date_raw: 11 May 2006 — 9:18am
+    votes: null
+    html: "<p>That didn't work, it gave me error messages, but thanks for trying! : ) Waaaaa.</p>"
+    html_clean: "<p>That didn't work, it gave me error messages, but thanks for trying! : ) Waaaaa.</p>"
+  - id: 122857
+    user: 7006
+    date: 2006-05-11T09:41:00
+    date_raw: 11 May 2006 — 9:41am
+    votes: null
+    html: |-
+      <p>try this</p>
+      <p>swsh {<br>
+      ignore sub @ALL @swsh1';<br>
+      sub @swsh1' by @swsh2;<br>
+      } swsh;</p>
+      <p>where</p>
+      <p>@ALL = All letters and punctuation<br>
+      @swsh1 = The letters you want to be replaced by swashes<br>
+      @swsh2 = swash variants</p>
+    html_clean: |-
+      <p>try this</p>
+      <p>swsh {<br>
+      ignore sub @ALL @swsh1';<br>
+      sub @swsh1' by @swsh2;<br>
+      } swsh;</p>
+      <p>where</p>
+      <p>@ALL = All letters and punctuation<br>
+      @swsh1 = The letters you want to be replaced by swashes<br>
+      @swsh2 = swash variants</p>
+  - id: 122886
+    user: 2951
+    date: 2006-05-11T11:31:00
+    date_raw: 11 May 2006 — 11:31am
+    votes: null
+    html: |-
+      <p>I just got a reply from fontlab and this is what they said:</p>
+      <p>"I'm puzzled. It should work but doesn't. I'll do some more tests."<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+      <p>So I guess the code isn't the problem.</p>
+    html_clean: |-
+      <p>I just got a reply from fontlab and this is what they said:</p>
+      <p>"I'm puzzled. It should work but doesn't. I'll do some more tests."<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+      <p>So I guess the code isn't the problem.</p>
+  - id: 122971
+    user: 1844
+    date: 2006-05-11T16:52:00
+    date_raw: 11 May 2006 — 4:52pm
+    votes: null
+    html: |-
+      <p>Have you tried renaming your classes?<br>
+      I know this suggestion might sound silly, but you never know...</p>
+      <p>One other thing, have you tried generating a font and test it in InDesign, for example? Does it work?</p>
+    html_clean: |-
+      <p>Have you tried renaming your classes?<br>
+      I know this suggestion might sound silly, but you never know...</p>
+      <p>One other thing, have you tried generating a font and test it in InDesign, for example? Does it work?</p>
+  - id: 122997
+    user: 2951
+    date: 2006-05-11T19:27:00
+    date_raw: 11 May 2006 — 7:27pm
+    votes: null
+    html: <p>I tried renaming the classes and that didn't do anything. I also tested the font in Illustrator CS2 and it did exactly what it does in the fontlab ot preview panel.</p>
+    html_clean: <p>I tried renaming the classes and that didn't do anything. I also tested the font in Illustrator CS2 and it did exactly what it does in the fontlab ot preview panel.</p>
+  - id: 123356
+    user: 7006
+    date: 2006-05-15T22:19:00
+    date_raw: 15 May 2006 — 10:19pm
+    votes: null
+    html: <p>as you have things set up now, you need to include all your x.start letters in your @letter class. sorry i didn't make this note earlier (i missed the jpg image somehow)</p>
+    html_clean: <p>as you have things set up now, you need to include all your x.start letters in your @letter class. sorry i didn't make this note earlier (i missed the jpg image somehow)</p>
+  - id: 123544
+    user: 2951
+    date: 2006-05-16T20:37:00
+    date_raw: 16 May 2006 — 8:37pm
+    votes: null
+    html: "<p>Thanks Paul! The beggining are working. The only problem is that now the endings aren't working. It's like if one works it cancels out the other one or maybe I should change the code. Here's a capture of what's happening now: <a href=\"http://www.bvfonts.com/livejournal/begins.gif\" title=\"http://www.bvfonts.com/livejournal/begins.gif\">http://www.bvfonts.com/livejournal/begins.gif</a></p>"
+    html_clean: "<p>Thanks Paul! The beggining are working. The only problem is that now the endings aren't working. It's like if one works it cancels out the other one or maybe I should change the code. Here's a capture of what's happening now: <a href=\"http://www.bvfonts.com/livejournal/begins.gif\" title=\"http://www.bvfonts.com/livejournal/begins.gif\">http://www.bvfonts.com/livejournal/begins.gif</a></p>"
+  - id: 123576
+    user: 8664
+    date: 2006-05-17T03:46:00
+    date_raw: 17 May 2006 — 3:46am
+    votes: null
+    html: |-
+      <p>Maybe the first ignore also prevents the end-swash substitution. By defining separate lookups, you also define the boundaries for each "ignore" (only valid within the lookup in which it was defined).</p>
+      <p>feature calt (</p>
+      <p>lookup caltstart (<br>
+      &nbsp;&nbsp;&nbsp;ignore sub @letter_start @start';<br>
+      &nbsp;&nbsp;&nbsp;sub @start' by @start_swash;<br>
+      ) caltstart;</p>
+      <p>lookup caltend (<br>
+      &nbsp;&nbsp;&nbsp;ignore sub @end' @letter_end;<br>
+      &nbsp;&nbsp;&nbsp;sub @end' by @end_swash;<br>
+      ) caltend;</p>
+      <p>) calt;</p>
+      <p>Mr Hunt's suggestion to include X.start glyphs in the @letter class may also applies for X.end glyph substitution.<br>
+      Either you include X.end glyphs in @letter too. Or you create separate context-classes for caltstart lookup (including a-z and a.start-z.start) and for caltend lookup (including a-z and a.end-z.end); I indicated this by adding "_start" and "_end" to "@letter" in the sample above. Both may result different substitution behavior with one/two-letter-words, so you should try both ways and see which looks better.</p>
+    html_clean: |-
+      <p>Maybe the first ignore also prevents the end-swash substitution. By defining separate lookups, you also define the boundaries for each "ignore" (only valid within the lookup in which it was defined).</p>
+      <p>feature calt (</p>
+      <p>lookup caltstart (<br>
+      &nbsp;&nbsp;&nbsp;ignore sub @letter_start @start';<br>
+      &nbsp;&nbsp;&nbsp;sub @start' by @start_swash;<br>
+      ) caltstart;</p>
+      <p>lookup caltend (<br>
+      &nbsp;&nbsp;&nbsp;ignore sub @end' @letter_end;<br>
+      &nbsp;&nbsp;&nbsp;sub @end' by @end_swash;<br>
+      ) caltend;</p>
+      <p>) calt;</p>
+      <p>Mr Hunt's suggestion to include X.start glyphs in the @letter class may also applies for X.end glyph substitution.<br>
+      Either you include X.end glyphs in @letter too. Or you create separate context-classes for caltstart lookup (including a-z and a.start-z.start) and for caltend lookup (including a-z and a.end-z.end); I indicated this by adding "_start" and "_end" to "@letter" in the sample above. Both may result different substitution behavior with one/two-letter-words, so you should try both ways and see which looks better.</p>
+  - id: 123613
+    user: 7006
+    date: 2006-05-17T07:53:00
+    date_raw: 17 May 2006 — 7:53am
+    votes: null
+    html: <p>i believe karsten is correct. you need a separate lookup for your starts and for your finishes.</p>
+    html_clean: <p>i believe karsten is correct. you need a separate lookup for your starts and for your finishes.</p>
+  - id: 123650
+    user: 2951
+    date: 2006-05-17T10:54:00
+    date_raw: 17 May 2006 — 10:54am
+    votes: null
+    html: <p>That was it! Thanks Paul and Karsten! There was one small thing that needed changing. Instead of ( ) it needed to be changed to { } on your code.</p>
+    html_clean: <p>That was it! Thanks Paul and Karsten! There was one small thing that needed changing. Instead of ( ) it needed to be changed to { } on your code.</p>
+  - id: 129110
+    user: 7006
+    date: 2006-06-14T16:46:00
+    date_raw: 14 Jun 2006 — 4:46pm
+    votes: null
+    html: <p>it seems you got everything figured out. Congratulations on <a href="http://www.myfonts.com/fonts/bluevinyl/eye-catching/" rel="nofollow">Eye Catching</a>, it looks great!</p>
+    html_clean: <p>it seems you got everything figured out. Congratulations on <a href="http://www.myfonts.com/fonts/bluevinyl/eye-catching/" rel="nofollow">Eye Catching</a>, it looks great!</p>
+  - id: 189281
+    user: 11526
+    date: 2007-03-05T13:42:00
+    date_raw: 5 Mar 2007 — 1:42pm
+    votes: null
+    html: <p>/track/</p>
+    html_clean: <p>/track/</p>
+  - id: 436967
+    user: 52282
+    date: 2010-10-30T18:20:00
+    date_raw: 30 Oct 2010 — 6:20pm
+    votes: null
+    html: |-
+      <p>Hello everyone! I need some help with this too. I think I'm on the right track but something's missing in my beginnings &amp; endings. I have the exact feature set up that Karsten posted above, so the problem must be in how I have my classes set up, as shown below:</p>
+      <p>@letter_start: t t.start<br>
+      @start: t<br>
+      @start_swash: t.start<br>
+      @letter_end: t t.end<br>
+      @end: t<br>
+      @end_swash: t.end</p>
+      <p>Thanks! :)</p>
+      <p>~ Laura</p>
+    html_clean: |-
+      <p>Hello everyone! I need some help with this too. I think I'm on the right track but something's missing in my beginnings &amp; endings. I have the exact feature set up that Karsten posted above, so the problem must be in how I have my classes set up, as shown below:</p>
+      <p>@letter_start: t t.start<br>
+      @start: t<br>
+      @start_swash: t.start<br>
+      @letter_end: t t.end<br>
+      @end: t<br>
+      @end_swash: t.end</p>
+      <p>Thanks! :)</p>
+      <p>~ Laura</p>

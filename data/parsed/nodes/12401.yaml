@@ -1,0 +1,275 @@
+node: 12401
+title: null
+forum:
+  id: null
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20051110154513"
+  captured_at: 2005-11-10T15:45:13Z
+  url: http://typophile.com:80/node/12401
+  digest: QTNQ5U6HVYN5D3C66H4IYZ7SJESBZM52
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/12401.html
+  fingerprint: f3a21df26baa31c4
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20051110154513"
+      digest: QTNQ5U6HVYN5D3C66H4IYZ7SJESBZM52
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/12401.html
+post:
+  id: 12401
+  user: null
+  date: null
+  date_raw: 13 May, 2005 - 10:12am
+  votes: null
+  html: |-
+    <p>ok. so since with OT you’re not ordering features, but lookups, how do i:<br>
+    make a lookup in the clig feature followd by a lookup in the calt feature followed by another lookup in the clig feature? any why can’t you put all this in just one feature? any help is appreciated, thnx!</p>
+  html_clean: |-
+    <p>ok. so since with OT you’re not ordering features, but lookups, how do i:<br>
+    make a lookup in the clig feature followd by a lookup in the calt feature followed by another lookup in the clig feature? any why can’t you put all this in just one feature? any help is appreciated, thnx!</p>
+comments:
+  - id: 71904
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Could you be more specific on what kind of effect you are trying to achieve with this?</p>
+    html_clean: <p>Could you be more specific on what kind of effect you are trying to achieve with this?</p>
+  - id: 71909
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>i just have some contextual ligatures that need to come after the contextual substitutions, whereas most of my contextual ligatures should be replaced before other contextual lookups. i’m working with a script and trying to make it flow smoothly and it’s getting very complicated. maybe i’m just making it harder than it needs to be though… but i doubt it.</p>
+      <p>hmmmm… maybe i just need to put some “ignore sub”s in the clig feature…</p>
+    html_clean: |-
+      <p>i just have some contextual ligatures that need to come after the contextual substitutions, whereas most of my contextual ligatures should be replaced before other contextual lookups. i’m working with a script and trying to make it flow smoothly and it’s getting very complicated. maybe i’m just making it harder than it needs to be though… but i doubt it.</p>
+      <p>hmmmm… maybe i just need to put some “ignore sub”s in the clig feature…</p>
+  - id: 71922
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Paul, </p>
+      <p>That’s a very good question indeed! :) </p>
+      <p>What you’re trying to achieve is legitimate. Unfortunately, this is where the Adobe FEA syntax shows its weakness. In the OpenType binary tables, lookups are completely separated from features and are only mapped to features. Therefore, in the binary tables, you can easily intersperse lookups that map to different features. </p>
+      <p>The Adobe FEA syntax attempts to make things simpler for the user, so in this syntax the lookups are defined inside of the feature definitions. But this actually makes interspersing of lookups very difficult to achieve. </p>
+      <p>One possible, although not very elegant solution is to define all your named lookups in a separate, “fake” feature (called “xx01” for example) that would be placed at the beginning of the feature definitions. The order of the lookups in this lookup definition should reflect your desired order of the lookups in the final font. Then, in the clig and calt features, simply refer to the features by calling their names — in the correct order. </p>
+      <p>Alternatively, use VOLT to build your lookups and features, or build your font and do some post-processing of the binary tables in TTX. </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Paul, </p>
+      <p>That’s a very good question indeed! :) </p>
+      <p>What you’re trying to achieve is legitimate. Unfortunately, this is where the Adobe FEA syntax shows its weakness. In the OpenType binary tables, lookups are completely separated from features and are only mapped to features. Therefore, in the binary tables, you can easily intersperse lookups that map to different features. </p>
+      <p>The Adobe FEA syntax attempts to make things simpler for the user, so in this syntax the lookups are defined inside of the feature definitions. But this actually makes interspersing of lookups very difficult to achieve. </p>
+      <p>One possible, although not very elegant solution is to define all your named lookups in a separate, “fake” feature (called “xx01” for example) that would be placed at the beginning of the feature definitions. The order of the lookups in this lookup definition should reflect your desired order of the lookups in the final font. Then, in the clig and calt features, simply refer to the features by calling their names — in the correct order. </p>
+      <p>Alternatively, use VOLT to build your lookups and features, or build your font and do some post-processing of the binary tables in TTX. </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 71972
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>This is one of the reasons why I favour VOLT over Adobe FDK-based tools for OpenType Layout development. VOLT is much more powerful and much more flexible.</p>
+    html_clean: <p>This is one of the reasons why I favour VOLT over Adobe FDK-based tools for OpenType Layout development. VOLT is much more powerful and much more flexible.</p>
+  - id: 72010
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>John,</p>
+      <p>I don’t see it that way. The Adobe FDK syntax is wonderful for automated, repeatitive, or systematic feature definitions. Combined with Python scripting, it’s possible to achieve a high degree of automation *and* complexity. For example, many parts of my Zapfino code was half-generated using dictionary-driven Python scripts. In VOLT, I would have drowned in the amount of point-and-clicks. VOLT, on the other hand, is much more suitable for individualized, highly custom projects with little repetition. </p>
+      <p>Ideally, it would be nice to have a tool that can both :) </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>John,</p>
+      <p>I don’t see it that way. The Adobe FDK syntax is wonderful for automated, repeatitive, or systematic feature definitions. Combined with Python scripting, it’s possible to achieve a high degree of automation *and* complexity. For example, many parts of my Zapfino code was half-generated using dictionary-driven Python scripts. In VOLT, I would have drowned in the amount of point-and-clicks. VOLT, on the other hand, is much more suitable for individualized, highly custom projects with little repetition. </p>
+      <p>Ideally, it would be nice to have a tool that can both :) </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 72190
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>can i do the majority of my feature programming in FontLab and then tweak it using VOLT? Or would I have to do it all in VOLT???</p>
+      <p>also, let me try to restate what you said about the “fake” feature to see if i’m understanding correctly: make a “fake” feature (ie xx01) to house all my contextual lookups in the order that i want them to be called. Make sure this is the first feature called. Then create a “clig” and a “calt” feature which are basically empty, listing them (in my case) with the clig first, since the first set of lookups in xx01 would be clig features, thus making calt follow the clig feature in the lookups.</p>
+      <p>Anyway, that’s what i got out of what you had written, Adam. I hope I’m understanding you correctly. Please clarify if i am not. </p>
+      <p>but regarding one of my earlier questions… why is there a separate clig feature instead of just one calt feature??? that would make all of this easier to do to begin with.</p>
+    html_clean: |-
+      <p>can i do the majority of my feature programming in FontLab and then tweak it using VOLT? Or would I have to do it all in VOLT???</p>
+      <p>also, let me try to restate what you said about the “fake” feature to see if i’m understanding correctly: make a “fake” feature (ie xx01) to house all my contextual lookups in the order that i want them to be called. Make sure this is the first feature called. Then create a “clig” and a “calt” feature which are basically empty, listing them (in my case) with the clig first, since the first set of lookups in xx01 would be clig features, thus making calt follow the clig feature in the lookups.</p>
+      <p>Anyway, that’s what i got out of what you had written, Adam. I hope I’m understanding you correctly. Please clarify if i am not. </p>
+      <p>but regarding one of my earlier questions… why is there a separate clig feature instead of just one calt feature??? that would make all of this easier to do to begin with.</p>
+  - id: 72194
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>I use VOLT simply because the Adobe FDK can’t do two things that I seem to need to do in almost every project: one-to-many substitutions and GPOS anchor positioning. That said, I tend to do a lot of my OTL work outside of VOLT in spreadsheets and VOLT source text files. The latter are certainly more complicated that the FDK syntax, but I’ve got used to editing them, and can work pretty quickly in this way.</p>
+      <p>Paul, FontLab has a function that allows you to export OTL features as a VOLT project, but I have not tried this since any early version that didn’t work. It shouldn’t be too difficult to get right, though, and perhaps it has improved. I’ll be meeting Adam in a couple of weeks, and I suspect FL-&gt;VOLT workflows is one of the things we’ll discuss.</p>
+    html_clean: |-
+      <p>I use VOLT simply because the Adobe FDK can’t do two things that I seem to need to do in almost every project: one-to-many substitutions and GPOS anchor positioning. That said, I tend to do a lot of my OTL work outside of VOLT in spreadsheets and VOLT source text files. The latter are certainly more complicated that the FDK syntax, but I’ve got used to editing them, and can work pretty quickly in this way.</p>
+      <p>Paul, FontLab has a function that allows you to export OTL features as a VOLT project, but I have not tried this since any early version that didn’t work. It shouldn’t be too difficult to get right, though, and perhaps it has improved. I’ll be meeting Adam in a couple of weeks, and I suspect FL-&gt;VOLT workflows is one of the things we’ll discuss.</p>
+  - id: 72195
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p><em>why is there a separate clig feature instead of just one calt feature?</em></p>
+      <p>You don’t have to use the clig feature. I tend to agree that it is unnecessary, and that the same thing can be achieved by applying the calt feature to the result of a ligature feature.</p>
+    html_clean: |-
+      <p><em>why is there a separate clig feature instead of just one calt feature?</em></p>
+      <p>You don’t have to use the clig feature. I tend to agree that it is unnecessary, and that the same thing can be achieved by applying the calt feature to the result of a ligature feature.</p>
+  - id: 72200
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>so then is it “kosher” to just put all my lookups in the calt feature and avoid all the mess above?</p>
+    html_clean: <p>so then is it “kosher” to just put all my lookups in the calt feature and avoid all the mess above?</p>
+  - id: 72557
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>no comments? anyone?</p>
+    html_clean: <p>no comments? anyone?</p>
+  - id: 72594
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>The calt feature expects one-to-one glyph mapping, so while you could probably get away with putting ligature (many-to-one) lookups in the calt feature it wouldn’t be 100% kosher — not as bad as cooking meat and dairy together, but not as careful as keeping separate sets of pots :)</p>
+      <p>Can you perform liga substitutions for the ligatures and then apply calt substitutions to the results?</p>
+    html_clean: |-
+      <p>The calt feature expects one-to-one glyph mapping, so while you could probably get away with putting ligature (many-to-one) lookups in the calt feature it wouldn’t be 100% kosher — not as bad as cooking meat and dairy together, but not as careful as keeping separate sets of pots :)</p>
+      <p>Can you perform liga substitutions for the ligatures and then apply calt substitutions to the results?</p>
+  - id: 72627
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>well here’s the situation:<br>
+      i have a “t” with a really long cross bar, which often crosses over several letters in either direction, so i have a non-crossing t that is substituted so many slots before and after the t. once these substitutions are made, i want leftover tt’s, tl’s, th’s, &amp;c. to be replaced by ligatures. i’m also trying to “randomize” the appearance of the font so i have stuff like “sub @class1 @class1’ by @class2; sub @class2 @class2’ by @class1;” but before it switches into that, i have double letter ligatures that i want to be applied. so the calt and clig lookups are intermixed to give the effect i want. right now i have all my subs in one feature (calt) but i realize this may be risky, depending on how different apps apply different features. i’d do the “fake” xx01 feature if i thought i knew how to set it up correctly. i’m not opposed to trying to use VOLT, but i’ve done all of my work in FLab and don’t want to start all over again from scratch.</p>
+    html_clean: |-
+      <p>well here’s the situation:<br>
+      i have a “t” with a really long cross bar, which often crosses over several letters in either direction, so i have a non-crossing t that is substituted so many slots before and after the t. once these substitutions are made, i want leftover tt’s, tl’s, th’s, &amp;c. to be replaced by ligatures. i’m also trying to “randomize” the appearance of the font so i have stuff like “sub @class1 @class1’ by @class2; sub @class2 @class2’ by @class1;” but before it switches into that, i have double letter ligatures that i want to be applied. so the calt and clig lookups are intermixed to give the effect i want. right now i have all my subs in one feature (calt) but i realize this may be risky, depending on how different apps apply different features. i’d do the “fake” xx01 feature if i thought i knew how to set it up correctly. i’m not opposed to trying to use VOLT, but i’ve done all of my work in FLab and don’t want to start all over again from scratch.</p>
+  - id: 72628
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>hmmmm… i tried setting up the xx01 feature the way i understood it, like this:<br>
+      <code>feature xx01 {<br>
+      lookup clig1{<br>
+        sub t t l by t_t_l;<br>
+        sub t a t by t_a_t;<br>
+        sub t e t by t_e_t;<br>
+        sub t i t by t_i_t;<br>
+        sub t o t by t_o_t;<br>
+        sub t u t by t_u_t;<br>
+      }clig1;<br>
+      lookup calt1 {<br>
+        sub t @ALL t' by t.nobar;<br>
+        sub t @ALL t' by t.nobar;<br>
+      } calt1;<br>
+      lookup clig2 {<br>
+        sub t l by t_l;<br>
+        sub t t by t_t;<br>
+        sub t b by t_b;<br>
+        sub t d by t_d;<br>
+        sub t h by t_h;<br>
+      } clig2;<br>
+      } xx01;</code></p>
+      <p>and then i set up clig and calt so they looked like this:<br>
+      <code>feature clig{<br>
+      }clig;</code></p>
+      <p>and then i put the features in this order: xx01, clig, calt and tried compiling the OT features, but i got this error:<br>
+      <code>[FATAL]  Lookup type different from previous rules in this lookup block</code></p>
+      <p>so i’m guessing that that’s not the way adam meant for this to be set up. can you clarify, Adam?</p>
+    html_clean: |-
+      <p>hmmmm… i tried setting up the xx01 feature the way i understood it, like this:<br>
+      <code>feature xx01 {<br>
+      lookup clig1{<br>
+        sub t t l by t_t_l;<br>
+        sub t a t by t_a_t;<br>
+        sub t e t by t_e_t;<br>
+        sub t i t by t_i_t;<br>
+        sub t o t by t_o_t;<br>
+        sub t u t by t_u_t;<br>
+      }clig1;<br>
+      lookup calt1 {<br>
+        sub t @ALL t' by t.nobar;<br>
+        sub t @ALL t' by t.nobar;<br>
+      } calt1;<br>
+      lookup clig2 {<br>
+        sub t l by t_l;<br>
+        sub t t by t_t;<br>
+        sub t b by t_b;<br>
+        sub t d by t_d;<br>
+        sub t h by t_h;<br>
+      } clig2;<br>
+      } xx01;</code></p>
+      <p>and then i set up clig and calt so they looked like this:<br>
+      <code>feature clig{<br>
+      }clig;</code></p>
+      <p>and then i put the features in this order: xx01, clig, calt and tried compiling the OT features, but i got this error:<br>
+      <code>[FATAL]  Lookup type different from previous rules in this lookup block</code></p>
+      <p>so i’m guessing that that’s not the way adam meant for this to be set up. can you clarify, Adam?</p>
+  - id: 72630
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>wait… i think i got it… lemme check…</p>
+    html_clean: <p>wait… i think i got it… lemme check…</p>
+  - id: 72633
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>nope didn’t get it, i tried setting up the xx01 feature with all my lookups in the correct order and then divying up the lookups in the subsequent clig and calt features. all it did was look up the clig and calt features in order. i don’t understand how apps would reference a xx01 feature anyway. so i’m down to just leaving it all in “calt” or figuring out VOLT or TXX.</p>
+    html_clean: <p>nope didn’t get it, i tried setting up the xx01 feature with all my lookups in the correct order and then divying up the lookups in the subsequent clig and calt features. all it did was look up the clig and calt features in order. i don’t understand how apps would reference a xx01 feature anyway. so i’m down to just leaving it all in “calt” or figuring out VOLT or TXX.</p>
+  - id: 72656
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Can you put all your calt lookups before your liga lookups? That way, you do all your contextual substitutions to single letters, and then apply ligatures to results.</p>
+    html_clean: <p>Can you put all your calt lookups before your liga lookups? That way, you do all your contextual substitutions to single letters, and then apply ligatures to results.</p>
+  - id: 72661
+    user: null
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>hmmmm…. i probably could…. but that would give a different effect and i kinda like how it’s working now… i’ll hafta take a good look at it all again…</p>
+    html_clean: <p>hmmmm…. i probably could…. but that would give a different effect and i kinda like how it’s working now… i’ll hafta take a good look at it all again…</p>

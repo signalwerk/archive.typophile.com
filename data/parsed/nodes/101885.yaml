@@ -1,0 +1,315 @@
+node: 101885
+title: Unicode console font
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20140702064638"
+  captured_at: 2014-07-02T06:46:38Z
+  url: http://typophile.com/node/101885
+  digest: SVUAB2SC6O43FAGJD3DPPTACM3LWDPXR
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/101885.html
+  fingerprint: 18efbb978d6caa9f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140702064638"
+      digest: SVUAB2SC6O43FAGJD3DPPTACM3LWDPXR
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/101885.html
+post:
+  id: 101885
+  user: 210314
+  date: 2013-03-31T11:39:00
+  date_raw: 31 Mar 2013 — 11:39am
+  votes: null
+  html: |-
+    <p>I put the pre-alpha (but very usable for low enough resolutions) version of monospaced scalable variant of Unifont font to <a class="freelinking external" href="http://ilyaz.org/software/fonts" rel="nofollow">http://ilyaz.org/software/fonts</a>.</p>
+    <p>It is constructed by a scanner/stroke-designer backend running over the 16×8, 16×16 bitmaps of Unifont.  The scanner/designer are written in Perl; the scanner is ready, the designer 70% ready.   (Of course, it turned out to be a much more complicated task than I expected at the start — 6 months ago!)<br>
+    The frontend converting strokes to a font is EXTREMELY primitive (cooked in a day, and hitting new and new bugs in FontForge — sigh…).  So I'm afraid any critique at this moment would be very premature…<br>
+    I'm hitting my head again and again with <code>.notdef</code>; it does not work in Windows console if I include U+0000 and U+0001 glyphs.  So currently I just omit these glyphs — is there any alternative?  The recommendations in <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">http://www.microsoft.com/typography/otspec/recom.htm</a> are not very helpful: how can one include <code>.null</code> into a monospaced font?<br>
+    Any help with this would be greatly appreciated.</p>
+  html_clean: |-
+    <p>I put the pre-alpha (but very usable for low enough resolutions) version of monospaced scalable variant of Unifont font to <a class="freelinking external" href="http://ilyaz.org/software/fonts" rel="nofollow">http://ilyaz.org/software/fonts</a>.</p>
+    <p>It is constructed by a scanner/stroke-designer backend running over the 16×8, 16×16 bitmaps of Unifont.  The scanner/designer are written in Perl; the scanner is ready, the designer 70% ready.   (Of course, it turned out to be a much more complicated task than I expected at the start — 6 months ago!)<br>
+    The frontend converting strokes to a font is EXTREMELY primitive (cooked in a day, and hitting new and new bugs in FontForge — sigh…).  So I'm afraid any critique at this moment would be very premature…<br>
+    I'm hitting my head again and again with <code>.notdef</code>; it does not work in Windows console if I include U+0000 and U+0001 glyphs.  So currently I just omit these glyphs — is there any alternative?  The recommendations in <a class="freelinking external" href="http://www.microsoft.com/typography/otspec/recom.htm" rel="nofollow">http://www.microsoft.com/typography/otspec/recom.htm</a> are not very helpful: how can one include <code>.null</code> into a monospaced font?<br>
+    Any help with this would be greatly appreciated.</p>
+comments:
+  - id: 549154
+    user: 64594
+    date: 2013-03-31T17:28:00
+    date_raw: 31 Mar 2013 — 5:28pm
+    votes: null
+    html: <p>I think .null and .notdef are perfectly valid in a monospaced font. Apparently Consolas includes them...</p>
+    html_clean: <p>I think .null and .notdef are perfectly valid in a monospaced font. Apparently Consolas includes them...</p>
+  - id: 549157
+    user: 210314
+    date: 2013-03-31T18:08:00
+    date_raw: 31 Mar 2013 — 6:08pm
+    votes: null
+    html: |-
+      <p>Maybe I just cannot find the magic incantation in FontForge.  If I use the sequence <code>.notdef/0002/0003/0004/0005/</code>etc, everything works OK.  Inserting glyphs named <code>0000/0001</code> after .notdef makes the glyph <code>0000</code> used instead of <code>.notdef</code>.</p>
+      <p>Consolas has</p>
+      <blockquote><p>
+      StartChar: .notdef<br>
+      Encoding: 65536 -1 0<br>
+      Width: 1126</p>
+      <p>StartChar: glyph1<br>
+      Encoding: 0 -1 1<br>
+      AltUni2: 000000.ffffffff.0<br>
+      Width: 1126</p>
+      <p>StartChar: uni000D<br>
+      Encoding: 13 13 2<br>
+      Width: 0</p>
+      <p>StartChar: space<br>
+      Encoding: 32 32 3<br>
+      AltUni2: 0000a0.ffffffff.0<br>
+      Width: 1126
+      </p></blockquote>
+      <p>which, on the surface, is contrary to M$ recommendations: CR should have non-0 width, second glyph should be named .null and it should have 0-width.  Moreover, M$ says that a console font should be monospaced — but above CR has width 0….</p>
+    html_clean: |-
+      <p>Maybe I just cannot find the magic incantation in FontForge.  If I use the sequence <code>.notdef/0002/0003/0004/0005/</code>etc, everything works OK.  Inserting glyphs named <code>0000/0001</code> after .notdef makes the glyph <code>0000</code> used instead of <code>.notdef</code>.</p>
+      <p>Consolas has</p>
+      <blockquote><p>
+      StartChar: .notdef<br>
+      Encoding: 65536 -1 0<br>
+      Width: 1126</p>
+      <p>StartChar: glyph1<br>
+      Encoding: 0 -1 1<br>
+      AltUni2: 000000.ffffffff.0<br>
+      Width: 1126</p>
+      <p>StartChar: uni000D<br>
+      Encoding: 13 13 2<br>
+      Width: 0</p>
+      <p>StartChar: space<br>
+      Encoding: 32 32 3<br>
+      AltUni2: 0000a0.ffffffff.0<br>
+      Width: 1126
+      </p></blockquote>
+      <p>which, on the surface, is contrary to M$ recommendations: CR should have non-0 width, second glyph should be named .null and it should have 0-width.  Moreover, M$ says that a console font should be monospaced — but above CR has width 0….</p>
+  - id: 549214
+    user: 1262
+    date: 2013-04-01T10:38:00
+    date_raw: 1 Apr 2013 — 10:38am
+    votes: null
+    html: |-
+      <p>In a monospaced font, *all* glyphs should have the same advance width, and this overrides other recommendations such as that which says NULL should be zero-width. If a monospaced font contains glyphs that do not share the common width, it can cause major problems, because software tends to cache the width value for monospaced fonts.</p>
+      <p>Note also that the proper name of this glyph is NULL, not .null. The only glyph in a font whose name begins with something other than A-z is .notdef.</p>
+    html_clean: |-
+      <p>In a monospaced font, *all* glyphs should have the same advance width, and this overrides other recommendations such as that which says NULL should be zero-width. If a monospaced font contains glyphs that do not share the common width, it can cause major problems, because software tends to cache the width value for monospaced fonts.</p>
+      <p>Note also that the proper name of this glyph is NULL, not .null. The only glyph in a font whose name begins with something other than A-z is .notdef.</p>
+  - id: 549229
+    user: 210314
+    date: 2013-04-01T13:13:00
+    date_raw: 1 Apr 2013 — 1:13pm
+    votes: null
+    html: |-
+      <p>Thanks, John! The question remaining is: what you say, is it just “common knowledge”,  or is it documented somewhere? What I was quoting was the cited MS's document; one does not expect it to be even close to being perfect, but it would be nice if one knew something more authoritative, and still kind of comprehensive.</p>
+      <p>I do not say that your word is less authoritative than the MS's document; it it just that what you say is one (or two) tidbits at a time ;-).</p>
+      <p>Please bear with me, this is my first foray into non-bitmap world….  Of course, in what I released every char is of the same width — I just was not sure which card bits which when different recommendations are concerned.  ― And note that in Consola 000D has width 0, contrary to “consoleness” — which for me implies being monospaced; and the recommendation above says that 000D should be non-0 width….</p>
+    html_clean: |-
+      <p>Thanks, John! The question remaining is: what you say, is it just “common knowledge”,  or is it documented somewhere? What I was quoting was the cited MS's document; one does not expect it to be even close to being perfect, but it would be nice if one knew something more authoritative, and still kind of comprehensive.</p>
+      <p>I do not say that your word is less authoritative than the MS's document; it it just that what you say is one (or two) tidbits at a time ;-).</p>
+      <p>Please bear with me, this is my first foray into non-bitmap world….  Of course, in what I released every char is of the same width — I just was not sure which card bits which when different recommendations are concerned.  ― And note that in Consola 000D has width 0, contrary to “consoleness” — which for me implies being monospaced; and the recommendation above says that 000D should be non-0 width….</p>
+  - id: 549236
+    user: 18942
+    date: 2013-04-01T16:15:00
+    date_raw: 1 Apr 2013 — 4:15pm
+    votes: null
+    html: |-
+      <p>On my mac (Office 2011, Consolas version 5.22), all glyphs in Consolas have width 1126 except the following (obtained from a ttx output with <code>grep '&lt;mtx' Consolas.ttx | grep -v 1126</code> and then some clean up):</p>
+      <pre>    "afii299" width="0" lsb="-36"
+          "afii300" width="0" lsb="-431"
+          "afii301" width="0" lsb="-219"
+          "afii61664" width="0" lsb="-36"
+          "glyph00002" width="0" lsb="0"
+          "uniFEFF" width="0" lsb="0"
+      </pre><p>
+      As for NULL, it is called <code>uni0000</code> according to ttx but Fontforge and DTL OT Master give me some different information... Hmm.</p>
+      <p>And as for proper documentation, if you find any, please tell us.</p>
+      <p>PS. <a href="http://levien.com" rel="nofollow">Raph Levien</a>'s font <a href="http://www.levien.com/type/myfonts/inconsolata.html" rel="nofollow">Inconsolata</a> defines no NULL character.</p>
+    html_clean: |-
+      <p>On my mac (Office 2011, Consolas version 5.22), all glyphs in Consolas have width 1126 except the following (obtained from a ttx output with <code>grep '&lt;mtx' Consolas.ttx | grep -v 1126</code> and then some clean up):</p>
+      <pre>    "afii299" width="0" lsb="-36"
+          "afii300" width="0" lsb="-431"
+          "afii301" width="0" lsb="-219"
+          "afii61664" width="0" lsb="-36"
+          "glyph00002" width="0" lsb="0"
+          "uniFEFF" width="0" lsb="0"
+      </pre><p>
+      As for NULL, it is called <code>uni0000</code> according to ttx but Fontforge and DTL OT Master give me some different information... Hmm.</p>
+      <p>And as for proper documentation, if you find any, please tell us.</p>
+      <p>PS. <a href="http://levien.com" rel="nofollow">Raph Levien</a>'s font <a href="http://www.levien.com/type/myfonts/inconsolata.html" rel="nofollow">Inconsolata</a> defines no NULL character.</p>
+  - id: 549255
+    user: 1262
+    date: 2013-04-01T17:15:00
+    date_raw: 1 Apr 2013 — 5:15pm
+    votes: null
+    html: <p>With regard to glyph names, Consolas, like the other CT fonts, has a format 3 post table, so does not contain any glyph names. The names you see in TTX or other tools are being generated by that software.</p>
+    html_clean: <p>With regard to glyph names, Consolas, like the other CT fonts, has a format 3 post table, so does not contain any glyph names. The names you see in TTX or other tools are being generated by that software.</p>
+  - id: 549261
+    user: 210314
+    date: 2013-04-02T01:18:00
+    date_raw: 2 Apr 2013 — 1:18am
+    votes: null
+    html: |-
+      <p><code></code></p>
+      <pre>    "afii299" width="0" lsb="-36"
+          "afii300" width="0" lsb="-431"
+          "afii301" width="0" lsb="-219"
+          "afii61664" width="0" lsb="-36"
+          "glyph00002" width="0" lsb="0"
+          "uniFEFF" width="0" lsb="0"
+      </pre><p><br>
+      Just to have reference nearby (from <a class="freelinking external" href="http://partners.adobe.com/public/developer/en/opentype/aglfn.txt" rel="nofollow">http://partners.adobe.com/public/developer/en/opentype/aglfn.txt</a>):<br>
+      <code></code></p>
+      <pre>200E;afii299;LEFT-TO-RIGHT MARK
+      200F;afii300;RIGHT-TO-LEFT MARK
+      200D;afii301;ZERO WIDTH JOINER
+      200C;afii61664;ZERO WIDTH NON-JOINER
+
+      FEFF	ZERO WIDTH NO-BREAK SPACE                                    ; from NamesList.txt
+      </pre><p><br>
+      Do not know what glyph00002 is used for….</p>
+      <p><strong>Update:</strong> doing <code>grep -B 5 -A 5 "Width: 0" Consolas.sfd </code>, I see<br>
+      <code></code></p>
+      <pre>StartChar: uni000D
+      Encoding: 13 13 2
+      Width: 0
+      GlyphClass: 2
+      Flags: W
+      LayerCount: 2
+      EndChar
+      </pre><p><br>
+      which, by exclusion, must be what you see as glyph00002….</p>
+    html_clean: |-
+      <p><code></code></p>
+      <pre>    "afii299" width="0" lsb="-36"
+          "afii300" width="0" lsb="-431"
+          "afii301" width="0" lsb="-219"
+          "afii61664" width="0" lsb="-36"
+          "glyph00002" width="0" lsb="0"
+          "uniFEFF" width="0" lsb="0"
+      </pre><p><br>
+      Just to have reference nearby (from <a class="freelinking external" href="http://partners.adobe.com/public/developer/en/opentype/aglfn.txt" rel="nofollow">http://partners.adobe.com/public/developer/en/opentype/aglfn.txt</a>):<br>
+      <code></code></p>
+      <pre>200E;afii299;LEFT-TO-RIGHT MARK
+      200F;afii300;RIGHT-TO-LEFT MARK
+      200D;afii301;ZERO WIDTH JOINER
+      200C;afii61664;ZERO WIDTH NON-JOINER
+
+      FEFF	ZERO WIDTH NO-BREAK SPACE                                    ; from NamesList.txt
+      </pre><p><br>
+      Do not know what glyph00002 is used for….</p>
+      <p><strong>Update:</strong> doing <code>grep -B 5 -A 5 "Width: 0" Consolas.sfd </code>, I see<br>
+      <code></code></p>
+      <pre>StartChar: uni000D
+      Encoding: 13 13 2
+      Width: 0
+      GlyphClass: 2
+      Flags: W
+      LayerCount: 2
+      EndChar
+      </pre><p><br>
+      which, by exclusion, must be what you see as glyph00002….</p>
+  - id: 549296
+    user: 18942
+    date: 2013-04-02T04:23:00
+    date_raw: 2 Apr 2013 — 4:23am
+    votes: null
+    html: |-
+      <p>Concerning <code>glyph00002</code>, the sfd file produced from Consolas on my mac gives this:</p>
+      <blockquote><p>StartChar: glyph1<br>
+      Encoding: 1 -1 1<br>
+      AltUni2: 000000.ffffffff.0<br>
+      Width: 1126<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar</p>
+      <p>StartChar: glyph2<br>
+      Encoding: 2 -1 2<br>
+      Width: 0<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar</p>
+      <p>StartChar: uni0009<br>
+      Encoding: 3 9 3<br>
+      AltUni2: 0000a0.ffffffff.0 000020.ffffffff.0 00000d.ffffffff.0<br>
+      Width: 1126<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar
+      </p></blockquote>
+      <p>and <code>glyph00002</code> is simply <code>glyph2</code>.</p>
+      <p>The <code>uni0000</code> produced by ttx must come from <code>AltUni2: 000000.ffffffff.0</code></p>
+      <p>And concerning <code>uniFEFF  ZERO WIDTH NO-BREAK SPACE</code> it has width 1233 in DejaVuSansMono.ttf version 2.33.</p>
+    html_clean: |-
+      <p>Concerning <code>glyph00002</code>, the sfd file produced from Consolas on my mac gives this:</p>
+      <blockquote><p>StartChar: glyph1<br>
+      Encoding: 1 -1 1<br>
+      AltUni2: 000000.ffffffff.0<br>
+      Width: 1126<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar</p>
+      <p>StartChar: glyph2<br>
+      Encoding: 2 -1 2<br>
+      Width: 0<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar</p>
+      <p>StartChar: uni0009<br>
+      Encoding: 3 9 3<br>
+      AltUni2: 0000a0.ffffffff.0 000020.ffffffff.0 00000d.ffffffff.0<br>
+      Width: 1126<br>
+      GlyphClass: 2<br>
+      Flags: W<br>
+      LayerCount: 2<br>
+      EndChar
+      </p></blockquote>
+      <p>and <code>glyph00002</code> is simply <code>glyph2</code>.</p>
+      <p>The <code>uni0000</code> produced by ttx must come from <code>AltUni2: 000000.ffffffff.0</code></p>
+      <p>And concerning <code>uniFEFF  ZERO WIDTH NO-BREAK SPACE</code> it has width 1233 in DejaVuSansMono.ttf version 2.33.</p>
+  - id: 580570
+    user: 210314
+    date: 2014-06-12T21:35:00
+    date_raw: 12 Jun 2014 — 9:35pm
+    votes: null
+    html: |-
+      <p>Update to my initial post:  <a class="freelinking external" href="http://ilyaz.org/fonts" rel="nofollow">http://ilyaz.org/fonts</a> — now it contains the <strong>really</strong> working versions of the fonts (it was not so a year ago!).<br>
+        •  3 flavors of the de-rasterized Unifont (latest, so it contains the full BMP of Unicode 6.3); including:<br>
+        •  DejaVu with missing glyphs overlaid from Unifont (glyphs massaged to match DejaVu better);<br>
+        •  Versions which work in Windows’ console, and versions for more flexible environments;<br>
+        •  Now useful at, I would say, pixel sizes 8–40.</p>
+      <p>Additionally, I put there a fixed version of George Douros’ Symbola v7.12.  A PREP table is added, so that it shows now nicely even in GDI applications on Windows.</p>
+      <p>Enjoy,<br>
+      Ilya</p>
+    html_clean: |-
+      <p>Update to my initial post:  <a class="freelinking external" href="http://ilyaz.org/fonts" rel="nofollow">http://ilyaz.org/fonts</a> — now it contains the <strong>really</strong> working versions of the fonts (it was not so a year ago!).<br>
+        •  3 flavors of the de-rasterized Unifont (latest, so it contains the full BMP of Unicode 6.3); including:<br>
+        •  DejaVu with missing glyphs overlaid from Unifont (glyphs massaged to match DejaVu better);<br>
+        •  Versions which work in Windows’ console, and versions for more flexible environments;<br>
+        •  Now useful at, I would say, pixel sizes 8–40.</p>
+      <p>Additionally, I put there a fixed version of George Douros’ Symbola v7.12.  A PREP table is added, so that it shows now nicely even in GDI applications on Windows.</p>
+      <p>Enjoy,<br>
+      Ilya</p>

@@ -1,0 +1,753 @@
+node: 120706
+title: How to add Dummy DSIG to OpenType TT font?
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20141027051131"
+  captured_at: 2014-10-27T05:11:31Z
+  url: http://typophile.com:80/node/120706
+  digest: R3CNY4QHSVYBYWNRGE3N6BGHDPWJ5ESP
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/120706.html
+  fingerprint: e83404e68ccb4c44
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141027051131"
+      digest: R3CNY4QHSVYBYWNRGE3N6BGHDPWJ5ESP
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/120706.html
+post:
+  id: 120706
+  user: 52756
+  date: 2014-10-21T06:51:00
+  date_raw: 21 Oct 2014 — 6:51am
+  votes: null
+  html: |-
+    <p>I need to add a Digital Signature to OpenType-TT fonts. I found some instructions but need to know how it gets into the font which I am making with FontLab on Mac (font is intended Windows)...<br>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+    Create a ttx file with a dummy DSIG table, like so: </p>
+    <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+    <p>     00000001 00000000  </p>
+    <p>Then you can merge this into your OT/TTF like this:</p>
+    <p>ttx -m font.ttf dsig.ttx</p>
+    <p>This will decompile the ttf, add the DSIG table, and recompile in one step. Then the font will work as intended in MS Office (or so I have found in my testing thus far.) This is also easy to incorporate into other scripts.</p>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~<br>
+    As a newbie to Python, XML and all that, can someone please just explain the process - without the coding. A step-by-step list of what happens, when. For example, do this, copy that, paste it there. Run this, build that. Otherwise all this coding talk is useless to me until I understand how the code gets into the font.</p>
+    <p>I'm using a Mac and FontLab and I'm guessing FontLab has to run this ttx script in order to get the dummy DSIG into the TT font? So it should mean I can do that on the Mac and the resulting TTF will work on Windows? </p>
+    <p>Thanks,<br>
+    Adrian</p>
+  html_clean: |-
+    <p>I need to add a Digital Signature to OpenType-TT fonts. I found some instructions but need to know how it gets into the font which I am making with FontLab on Mac (font is intended Windows)...<br>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+    Create a ttx file with a dummy DSIG table, like so: </p>
+    <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+    <p>     00000001 00000000  </p>
+    <p>Then you can merge this into your OT/TTF like this:</p>
+    <p>ttx -m font.ttf dsig.ttx</p>
+    <p>This will decompile the ttf, add the DSIG table, and recompile in one step. Then the font will work as intended in MS Office (or so I have found in my testing thus far.) This is also easy to incorporate into other scripts.</p>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~<br>
+    As a newbie to Python, XML and all that, can someone please just explain the process - without the coding. A step-by-step list of what happens, when. For example, do this, copy that, paste it there. Run this, build that. Otherwise all this coding talk is useless to me until I understand how the code gets into the font.</p>
+    <p>I'm using a Mac and FontLab and I'm guessing FontLab has to run this ttx script in order to get the dummy DSIG into the TT font? So it should mean I can do that on the Mac and the resulting TTF will work on Windows? </p>
+    <p>Thanks,<br>
+    Adrian</p>
+comments:
+  - id: 591118
+    user: 83217
+    date: 2014-10-21T13:16:00
+    date_raw: 21 Oct 2014 — 1:16pm
+    votes: null
+    html: |-
+      <p>Or, if you are willing to venture into the scary-scary place known by names like "Command Prompt" and "Terminal", you could do the typing yourself with the same result.</p>
+      <p>Trying to condense the 'magic' into a simple incantation:</p>
+      <p>1. Type that bit of XML you got into a text editor and save it as ASCII text to "dsig.ttx". You can use a word processor if it can save ASCII files, but it's too much like making a fifty-metre trip in a sport-ute.</p>
+      <p>2. Open the Terminal or Command Prompt window and type in "ttx -m ". Drag and drop the font file onto the terminal. Make sure there is a space after the just-appeared filename. Drag and drop dsig.ttx onto the terminal. Now Press Return.</p>
+      <p>3. Now the computer will either tell you ttx doesn't exist (meaning it just can't find it) or it'll go on to do the typotechnical jiggery-pokery needed to add the dummy DSIG to the font. If you know ttx exists, make it the first file to drag and drop onto the terminal.</p>
+      <p>4. If no text appears when you drag and drop stuff onto the terminal, you are in for a whole lot more typing. Ouch.</p>
+    html_clean: |-
+      <p>Or, if you are willing to venture into the scary-scary place known by names like "Command Prompt" and "Terminal", you could do the typing yourself with the same result.</p>
+      <p>Trying to condense the 'magic' into a simple incantation:</p>
+      <p>1. Type that bit of XML you got into a text editor and save it as ASCII text to "dsig.ttx". You can use a word processor if it can save ASCII files, but it's too much like making a fifty-metre trip in a sport-ute.</p>
+      <p>2. Open the Terminal or Command Prompt window and type in "ttx -m ". Drag and drop the font file onto the terminal. Make sure there is a space after the just-appeared filename. Drag and drop dsig.ttx onto the terminal. Now Press Return.</p>
+      <p>3. Now the computer will either tell you ttx doesn't exist (meaning it just can't find it) or it'll go on to do the typotechnical jiggery-pokery needed to add the dummy DSIG to the font. If you know ttx exists, make it the first file to drag and drop onto the terminal.</p>
+      <p>4. If no text appears when you drag and drop stuff onto the terminal, you are in for a whole lot more typing. Ouch.</p>
+  - id: 591122
+    user: 18942
+    date: 2014-10-21T17:51:00
+    date_raw: 21 Oct 2014 — 5:51pm
+    votes: null
+    html: |-
+      <p>The very first thing to do is to get a terminal window. Click on the Launchpad icon and then type term; you should see this appear. Then you click on terminal<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/term_5850.png"></div><br>
+      In the terminal window, after the "prompt" (probably %)  you type "which ttx" as follows<p></p>
+      <pre>% which ttx
+      /Users/boyer/bin/FDK/Tools/osx/ttx
+      % 
+      </pre><p>Here I got that ttx is installed in my FDK tools folder. If you get no answer, ttx is not installed and the first thing to do is to install ttx. You should have it if you properly installed <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a>.</p>
+      <p>You can then copy the lines between the cut lines and paste them in the terminal window</p>
+      <pre>------------- cut line
+      FLDR="${HOME}/Desktop/Dsig fldr"
+      mkdir -p "$FLDR"
+      cd "$FLDR"
+      cat &gt; dsig.ttx&lt;&lt;EOF
+      &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.3"&gt;
+
+        &lt;DSIG&gt;
+          &lt;hexdata&gt;
+            00000001 00000000  
+          &lt;/hexdata&gt;
+        &lt;/DSIG&gt;
+
+      &lt;/ttFont&gt;
+      EOF
+
+      open .
+      ------------- cut line
+      </pre><p>After the paste, you may need to type a carriage return. That will create a folder on your desktop containing the file dsig.ttx and open the folder so that you can select and drop the file dsig.ttx as described above. </p>
+      <p>Note: I had to use &amp;lt; and &amp;gt; for &lt; and &gt; lines to show above else the corresponding lines were blank; now the <code>dsig.ttx</code> file produced by the copy paste works fine, I tested.</p>
+      <p>You can then do as explained by Té Rowan.</p>
+      <p>You can also do as follows. </p>
+      <p>First you copy the file <code>dsig.ttx</code> in the font folder containing the fonts you want to process.</p>
+      <p>After that, in the terminal window,  you type "<code>cd </code>" (with a space after cd but no carriage return) and then do as if you wanted to drag into that terminal window the folder containing the ttf files to process and then type carriage return.</p>
+      <p>Now if you type "<code>ls</code>" (with a carriage return) in the terminal window, you should get a listing of your font files.</p>
+      <p>To add DSIG to all of the ttf files you can now paste in the terminal window the following lines (between the cut lines)</p>
+      <pre>------------- cut line
+      for i in *.ttf
+      do 
+        newname="${i%.ttf}win"
+        cp dsig.ttx "${newname}".ttx
+        ttx -m "$i" "${newname}".ttx
+        rm -f "${newname}".ttx
+      done 
+      ------------- cut line
+      </pre><p>That will create a ...win.ttf file for each ttf font you have there. The win.ttf file contains the DSIG stub.</p>
+    html_clean: |-
+      <p>The very first thing to do is to get a terminal window. Click on the Launchpad icon and then type term; you should see this appear. Then you click on terminal<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/term_5850.png"></div><br>
+      In the terminal window, after the "prompt" (probably %)  you type "which ttx" as follows<p></p>
+      <pre>% which ttx
+      /Users/boyer/bin/FDK/Tools/osx/ttx
+      % 
+      </pre><p>Here I got that ttx is installed in my FDK tools folder. If you get no answer, ttx is not installed and the first thing to do is to install ttx. You should have it if you properly installed <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a>.</p>
+      <p>You can then copy the lines between the cut lines and paste them in the terminal window</p>
+      <pre>------------- cut line
+      FLDR="${HOME}/Desktop/Dsig fldr"
+      mkdir -p "$FLDR"
+      cd "$FLDR"
+      cat &gt; dsig.ttx&lt;&lt;EOF
+      &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.3"&gt;
+
+        &lt;DSIG&gt;
+          &lt;hexdata&gt;
+            00000001 00000000  
+          &lt;/hexdata&gt;
+        &lt;/DSIG&gt;
+
+      &lt;/ttFont&gt;
+      EOF
+
+      open .
+      ------------- cut line
+      </pre><p>After the paste, you may need to type a carriage return. That will create a folder on your desktop containing the file dsig.ttx and open the folder so that you can select and drop the file dsig.ttx as described above. </p>
+      <p>Note: I had to use &amp;lt; and &amp;gt; for &lt; and &gt; lines to show above else the corresponding lines were blank; now the <code>dsig.ttx</code> file produced by the copy paste works fine, I tested.</p>
+      <p>You can then do as explained by Té Rowan.</p>
+      <p>You can also do as follows. </p>
+      <p>First you copy the file <code>dsig.ttx</code> in the font folder containing the fonts you want to process.</p>
+      <p>After that, in the terminal window,  you type "<code>cd </code>" (with a space after cd but no carriage return) and then do as if you wanted to drag into that terminal window the folder containing the ttf files to process and then type carriage return.</p>
+      <p>Now if you type "<code>ls</code>" (with a carriage return) in the terminal window, you should get a listing of your font files.</p>
+      <p>To add DSIG to all of the ttf files you can now paste in the terminal window the following lines (between the cut lines)</p>
+      <pre>------------- cut line
+      for i in *.ttf
+      do 
+        newname="${i%.ttf}win"
+        cp dsig.ttx "${newname}".ttx
+        ttx -m "$i" "${newname}".ttx
+        rm -f "${newname}".ttx
+      done 
+      ------------- cut line
+      </pre><p>That will create a ...win.ttf file for each ttf font you have there. The win.ttf file contains the DSIG stub.</p>
+  - id: 591207
+    user: 52756
+    date: 2014-10-22T06:58:00
+    date_raw: 22 Oct 2014 — 6:58am
+    votes: null
+    html: |-
+      <p>Thanks Michel for the comprehensive instructions - but I fall at the very first hurdle. I downloaded AFDK which landed in the Downloads Folder, so I moved the whole FDK Folder to an Applications Folder I have in my home Folder (~home/Applications). I launched Terminal and typed "which ttx" Return, but got this</p>
+      <p>Last login: Wed Oct 22 14:42:40 on ttys000<br>
+      adrians-imac:~ adrianshome$ which ttx<br>
+      /usr/local/bin/ttx</p>
+      <p>It only shows the home Folder and no path to... Tools/osx/ttx</p>
+      <p>What now?</p>
+    html_clean: |-
+      <p>Thanks Michel for the comprehensive instructions - but I fall at the very first hurdle. I downloaded AFDK which landed in the Downloads Folder, so I moved the whole FDK Folder to an Applications Folder I have in my home Folder (~home/Applications). I launched Terminal and typed "which ttx" Return, but got this</p>
+      <p>Last login: Wed Oct 22 14:42:40 on ttys000<br>
+      adrians-imac:~ adrianshome$ which ttx<br>
+      /usr/local/bin/ttx</p>
+      <p>It only shows the home Folder and no path to... Tools/osx/ttx</p>
+      <p>What now?</p>
+  - id: 591210
+    user: 52756
+    date: 2014-10-22T07:21:00
+    date_raw: 22 Oct 2014 — 7:21am
+    votes: null
+    html: |-
+      <p>Thanks Té, I understand this process. Tried it but knowing nothing of how xml coding works, I don't think I pasted the correct code. Here's what I get:</p>
+      <p>- - - - - - -<br>
+      Last login: Wed Oct 22 15:04:16 on ttys000<br>
+      adrians-imac:~ adrianshome$ ttx-m/Users/adrianshome/Documents/\ SASSOON/Sassoon\ Fonts\ DEV/Current\ Versions/font+installer\ builds/Sassoon\ TTX\ scripts/SassoFelReg.ttf &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$      00000001 00000000<br>
+      -bash: 00000001: command not found<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      - - - - - - - </p>
+      <p>I pasted this...</p>
+      <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+      <p>     00000001 00000000  </p>
+      <p>BUT WHERE DOES THIS BELONG..?<br>
+      ttx -m font.ttf dsig.ttx<br>
+      AND, does "font.ttf" have to be the actual name of the font file?</p>
+      <p>Cheers,<br>
+      Adrian</p>
+    html_clean: |-
+      <p>Thanks Té, I understand this process. Tried it but knowing nothing of how xml coding works, I don't think I pasted the correct code. Here's what I get:</p>
+      <p>- - - - - - -<br>
+      Last login: Wed Oct 22 15:04:16 on ttys000<br>
+      adrians-imac:~ adrianshome$ ttx-m/Users/adrianshome/Documents/\ SASSOON/Sassoon\ Fonts\ DEV/Current\ Versions/font+installer\ builds/Sassoon\ TTX\ scripts/SassoFelReg.ttf &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$      00000001 00000000<br>
+      -bash: 00000001: command not found<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      -bash: syntax error near unexpected token `newline'<br>
+      adrians-imac:~ adrianshome$<br>
+      - - - - - - - </p>
+      <p>I pasted this...</p>
+      <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+      <p>     00000001 00000000  </p>
+      <p>BUT WHERE DOES THIS BELONG..?<br>
+      ttx -m font.ttf dsig.ttx<br>
+      AND, does "font.ttf" have to be the actual name of the font file?</p>
+      <p>Cheers,<br>
+      Adrian</p>
+  - id: 591223
+    user: 18942
+    date: 2014-10-22T09:36:00
+    date_raw: 22 Oct 2014 — 9:36am
+    votes: null
+    html: |-
+      <p>The code </p>
+      <pre>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+
+      00000001 00000000
+      </pre><p>does not work. You need the DSIG tag, and the hexdata else ttx does not know what to do with your stub.</p>
+      <p>font.ttf  is the actual name of the font file.</p>
+      <p>I also see that my stub which worked at home does not work on my machine in the office.</p>
+    html_clean: |-
+      <p>The code </p>
+      <pre>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+
+      00000001 00000000
+      </pre><p>does not work. You need the DSIG tag, and the hexdata else ttx does not know what to do with your stub.</p>
+      <p>font.ttf  is the actual name of the font file.</p>
+      <p>I also see that my stub which worked at home does not work on my machine in the office.</p>
+  - id: 591243
+    user: 52756
+    date: 2014-10-22T10:16:00
+    date_raw: 22 Oct 2014 — 10:16am
+    votes: null
+    html: |-
+      <p>Here is what I pasted in Terminal , but when I post on this forum the whole code does not appear for some reason? Do I always need to bracket it like so "<code> blah, blah</code>"</p>
+      <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+      <p>     00000001 00000000  </p>
+      <p>and still the question:<br>
+      BUT WHERE DOES THIS BELONG..?<br>
+      ttx -m font.ttf dsig.ttx</p>
+    html_clean: |-
+      <p>Here is what I pasted in Terminal , but when I post on this forum the whole code does not appear for some reason? Do I always need to bracket it like so "<code> blah, blah</code>"</p>
+      <p>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</p>
+      <p>     00000001 00000000  </p>
+      <p>and still the question:<br>
+      BUT WHERE DOES THIS BELONG..?<br>
+      ttx -m font.ttf dsig.ttx</p>
+  - id: 591247
+    user: 52756
+    date: 2014-10-22T11:12:00
+    date_raw: 22 Oct 2014 — 11:12am
+    votes: null
+    html: |-
+      <p>Here's what my code snippet looks like, but I've had to replace &lt; and &gt; with "-" in order to display it in these posts! How on earth does everyone display code snippets. Mine keep getting chopped off? I've tried bracketing code with 'pre' and 'code' but no joy.</p>
+      <p>-?xml version="1.0" encoding="ISO-8859-1"?-<br>
+      -ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.2"-<br>
+      -DSIG-<br>
+         -hexdata-<br>
+           00000001 00000000<br>
+         -/hexdata-<br>
+      -/DSIG-<br>
+      -/ttFont-</p>
+      <p>Still have no idea how/when to use this:<br>
+      ttx -m font.ttf dsig.ttx</p>
+    html_clean: |-
+      <p>Here's what my code snippet looks like, but I've had to replace &lt; and &gt; with "-" in order to display it in these posts! How on earth does everyone display code snippets. Mine keep getting chopped off? I've tried bracketing code with 'pre' and 'code' but no joy.</p>
+      <p>-?xml version="1.0" encoding="ISO-8859-1"?-<br>
+      -ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.2"-<br>
+      -DSIG-<br>
+         -hexdata-<br>
+           00000001 00000000<br>
+         -/hexdata-<br>
+      -/DSIG-<br>
+      -/ttFont-</p>
+      <p>Still have no idea how/when to use this:<br>
+      ttx -m font.ttf dsig.ttx</p>
+  - id: 591304
+    user: 18942
+    date: 2014-10-22T17:07:00
+    date_raw: 22 Oct 2014 — 5:07pm
+    votes: null
+    html: |-
+      <p>I just reinstalled AFDKO at home and the current version of ttx is no longer 2.3 but 2.4. Here is a trace of execution that shows the version:</p>
+      <pre>M-660 % ttx | head -3
+      usage: ttx [options] inputfile1 [... inputfileN]
+
+          TTX 2.4 -- From OpenType To XML And Back
+      M-661 % 
+      </pre><p>The snippet for 2.3 no longer works with ttx 2.4.  Here  is a snippet that works with TTX 2.4</p>
+      <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.4"&gt;
+        &lt;DSIG&gt;
+          &lt;tableHeader flag="0x0" numSigs="0" version="1"/&gt;
+        &lt;/DSIG&gt;
+      &lt;/ttFont&gt;
+      </pre><p>For whatever version of ttx you are using, the corresponding snippet needs to be put in a text file. It was assumed above that the file name is <code>dsig.ttx</code>.</p>
+    html_clean: |-
+      <p>I just reinstalled AFDKO at home and the current version of ttx is no longer 2.3 but 2.4. Here is a trace of execution that shows the version:</p>
+      <pre>M-660 % ttx | head -3
+      usage: ttx [options] inputfile1 [... inputfileN]
+
+          TTX 2.4 -- From OpenType To XML And Back
+      M-661 % 
+      </pre><p>The snippet for 2.3 no longer works with ttx 2.4.  Here  is a snippet that works with TTX 2.4</p>
+      <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.4"&gt;
+        &lt;DSIG&gt;
+          &lt;tableHeader flag="0x0" numSigs="0" version="1"/&gt;
+        &lt;/DSIG&gt;
+      &lt;/ttFont&gt;
+      </pre><p>For whatever version of ttx you are using, the corresponding snippet needs to be put in a text file. It was assumed above that the file name is <code>dsig.ttx</code>.</p>
+  - id: 591329
+    user: 52756
+    date: 2014-10-23T01:48:00
+    date_raw: 23 Oct 2014 — 1:48am
+    votes: null
+    html: |-
+      <p>OK, I have version 2.4 of Fonttools. Something is happening but I don't know exactly how I arrived there. I get a new file entitled 'dsig#1.ttf', 'dsig#2.ttf' etc, in Dsig fldr but only 36k file size.  So now I guess I just need to know exactly which steps to take.<br>
+      - - - - - - - -<br>
+      <code>Last login: Thu Oct 23 07:00:26 on console<br>
+      adrians-imac:Dsig fldr adrianshome$ which ttx<br>
+      /usr/local/bin/ttx<br>
+      adrians-imac:Dsig fldr adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx /Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttx /Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttf<br>
+      Compiling "/Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttx" to "/Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      Dumping "/Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttf" to "/Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttx"...<br>
+      Dumping 'GlyphOrder' table...<br>
+      Dumping 'head' table...<br>
+      Dumping 'hhea' table...<br>
+      Dumping 'maxp' table...<br>
+      Dumping 'OS/2' table...<br>
+      Dumping 'hmtx' table...<br>
+      Dumping 'LTSH' table...<br>
+      Dumping 'VDMX' table...<br>
+      Dumping 'hdmx' table...<br>
+      Dumping 'cmap' table...<br>
+      Dumping 'fpgm' table...<br>
+      Dumping 'prep' table...<br>
+      Dumping 'cvt ' table...<br>
+      Dumping 'loca' table...<br>
+      Dumping 'glyf' table...<br>
+      wDumping 'kern' table...<br>
+      Dumping 'name' table...<br>
+      Dumping 'post' table...<br>
+      Dumping 'gasp' table...<br>
+      Dumping 'GPOS' table...<br>
+      Dumping 'GSUB' table...<br>
+      </code><br>
+      - - - - - - - - -<br>
+      Can you please explain the steps something like this so that I understand the process. This is what I did in Terminal:</p>
+      <p>Enter which ttx, Return.<br>
+      Drag ttx app to Terminal (displays the path to the app).<br>
+      Drag dsig.ttx to Terminal  (displays the path to the text file).<br>
+      Drag SassoBoo.ttx file to Terminal (displays actual TrueType font file path).<br>
+      Return.<br>
+      Compiling begins... (result is a dsig.ttf file).</p>
+    html_clean: |-
+      <p>OK, I have version 2.4 of Fonttools. Something is happening but I don't know exactly how I arrived there. I get a new file entitled 'dsig#1.ttf', 'dsig#2.ttf' etc, in Dsig fldr but only 36k file size.  So now I guess I just need to know exactly which steps to take.<br>
+      - - - - - - - -<br>
+      <code>Last login: Thu Oct 23 07:00:26 on console<br>
+      adrians-imac:Dsig fldr adrianshome$ which ttx<br>
+      /usr/local/bin/ttx<br>
+      adrians-imac:Dsig fldr adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx /Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttx /Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttf<br>
+      Compiling "/Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttx" to "/Users/adrianshome/Downloads/fonttools-2.4/Tools/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      Dumping "/Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttf" to "/Users/adrianshome/Downloads/fonttools-2.4/Tools/SassoBoo.ttx"...<br>
+      Dumping 'GlyphOrder' table...<br>
+      Dumping 'head' table...<br>
+      Dumping 'hhea' table...<br>
+      Dumping 'maxp' table...<br>
+      Dumping 'OS/2' table...<br>
+      Dumping 'hmtx' table...<br>
+      Dumping 'LTSH' table...<br>
+      Dumping 'VDMX' table...<br>
+      Dumping 'hdmx' table...<br>
+      Dumping 'cmap' table...<br>
+      Dumping 'fpgm' table...<br>
+      Dumping 'prep' table...<br>
+      Dumping 'cvt ' table...<br>
+      Dumping 'loca' table...<br>
+      Dumping 'glyf' table...<br>
+      wDumping 'kern' table...<br>
+      Dumping 'name' table...<br>
+      Dumping 'post' table...<br>
+      Dumping 'gasp' table...<br>
+      Dumping 'GPOS' table...<br>
+      Dumping 'GSUB' table...<br>
+      </code><br>
+      - - - - - - - - -<br>
+      Can you please explain the steps something like this so that I understand the process. This is what I did in Terminal:</p>
+      <p>Enter which ttx, Return.<br>
+      Drag ttx app to Terminal (displays the path to the app).<br>
+      Drag dsig.ttx to Terminal  (displays the path to the text file).<br>
+      Drag SassoBoo.ttx file to Terminal (displays actual TrueType font file path).<br>
+      Return.<br>
+      Compiling begins... (result is a dsig.ttf file).</p>
+  - id: 591353
+    user: 18942
+    date: 2014-10-23T06:04:00
+    date_raw: 23 Oct 2014 — 6:04am
+    votes: null
+    html: |-
+      <p>The ttx you dragged is not the ttx returned by which ttx so I don't know if your /usr/local/bin/ttx is 2.3 or 2.4. Anyway here are the steps to get "ttx -m font.ttf dsig.ttx" with that kind of recipe. First remove all of the dsig.ttf files you got. Then for each font file</p>
+      <p>1. drag ttx app to terminal (since it appears to have accepted your snippet)<br>
+      2. type -m<br>
+      3. drag the ttf font file to terminal (say SassoBoo.ttf)<br>
+      4. drag dsig.ttx to terminal<br>
+      5. return</p>
+      <p>That will compile only dsig.ttx, merge the DSIG into SassoBoo.ttf  and produce a file named dsig.ttf; so here is point 6</p>
+      <p>6. rename dsig.ttf as SassoBoo something.ttf </p>
+      <p>There are much better ways to proceed using scripts.</p>
+      <p>PS Don't switch steps 3 and 4. You need to put the .ttf file before the .ttx file.</p>
+    html_clean: |-
+      <p>The ttx you dragged is not the ttx returned by which ttx so I don't know if your /usr/local/bin/ttx is 2.3 or 2.4. Anyway here are the steps to get "ttx -m font.ttf dsig.ttx" with that kind of recipe. First remove all of the dsig.ttf files you got. Then for each font file</p>
+      <p>1. drag ttx app to terminal (since it appears to have accepted your snippet)<br>
+      2. type -m<br>
+      3. drag the ttf font file to terminal (say SassoBoo.ttf)<br>
+      4. drag dsig.ttx to terminal<br>
+      5. return</p>
+      <p>That will compile only dsig.ttx, merge the DSIG into SassoBoo.ttf  and produce a file named dsig.ttf; so here is point 6</p>
+      <p>6. rename dsig.ttf as SassoBoo something.ttf </p>
+      <p>There are much better ways to proceed using scripts.</p>
+      <p>PS Don't switch steps 3 and 4. You need to put the .ttf file before the .ttx file.</p>
+  - id: 591381
+    user: 52756
+    date: 2014-10-23T08:10:00
+    date_raw: 23 Oct 2014 — 8:10am
+    votes: null
+    html: |-
+      <p>Well, it worked. I install the resulting TrueType font in Windows and have access to its features - hooray!</p>
+      <p>But I then instead of deleting just dsig.ttf files, I deleted the 'Dsig fldr' from the Desktop and tried again but no joy. Now I cannot get the Dsig fldr back again. Reinstating it does not work either. How do I create the Dsig fldr again? I'm guessing that's why the same routine won't work again?</p>
+      <p>Scratch that - have created it again and am trying to duplicate the first result...  No joy "Permission denied". </p>
+      <p>Pasted the snippet again and got the Dsig fldr back. But the routine won't work now. Aaarrrggghhh!!!</p>
+      <p>Think it works now. I did not have a space after "-m" and a trigger-happy Return key messed things up.</p>
+      <p><code><br>
+      adrians-imac:Dsig fldr adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx -m /Users/adrianshome/Desktop/Dsig\ fldr/SassoBooIta.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx<br>
+      Compiling "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttx" to "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      adrians-imac:Dsig fldr adrianshome$<br>
+      </code></p>
+      <p>After this, renaming the dsig.ttf file makes the font work in Windows. Thank you so much. Just to be able to get 'features' working in TT fonts , no-matter how its done is a great relief. There may be more elegant ways to do this, like a batch process as I have 70 fonts to do, but I'm a happy. So here's my final routine:</p>
+      <p>1. Launch Terminal.</p>
+      <p>2. Type ‘which ttx’, Return:<br>
+      <code>/usr/local/bin/ttx<br>
+      adrians-imac:Dsig fldr adrianshome$</code></p>
+      <p>3. Drag TTX app to Terminal  (since it accepted your Dsig fldr snippet):<br>
+      <code>/Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx</code></p>
+      <p>4. Type: -m (not forgetting a space after the m).<br>
+      <code>/Users/adrianshome/Desktop/Dsig\ fldr/SassoBooIta.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx</code></p>
+      <p>First remove all of the dsig#.ttf files in the Dsig fldr if there are any.<br>
+      Then for each font file:<br>
+       5. Drag the ttf font file to Terminal (say SassoBoo.ttf)<br>
+       6. Drag dsig.ttx to terminal<br>
+       7. Return</p>
+      <p>That will compile only dsig.ttx, merge the DSIG into SassoBoo.ttf and produce a file named dsig.ttf in the Dsig fldr, so now…</p>
+      <p>8. Rename dsig.ttf as SassoBoo something.ttf (original TrueType filename something)</p>
+      <p>Don't switch steps 3 and 4. You need to put the .ttf file before the .ttx file.</p>
+    html_clean: |-
+      <p>Well, it worked. I install the resulting TrueType font in Windows and have access to its features - hooray!</p>
+      <p>But I then instead of deleting just dsig.ttf files, I deleted the 'Dsig fldr' from the Desktop and tried again but no joy. Now I cannot get the Dsig fldr back again. Reinstating it does not work either. How do I create the Dsig fldr again? I'm guessing that's why the same routine won't work again?</p>
+      <p>Scratch that - have created it again and am trying to duplicate the first result...  No joy "Permission denied". </p>
+      <p>Pasted the snippet again and got the Dsig fldr back. But the routine won't work now. Aaarrrggghhh!!!</p>
+      <p>Think it works now. I did not have a space after "-m" and a trigger-happy Return key messed things up.</p>
+      <p><code><br>
+      adrians-imac:Dsig fldr adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx -m /Users/adrianshome/Desktop/Dsig\ fldr/SassoBooIta.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx<br>
+      Compiling "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttx" to "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      adrians-imac:Dsig fldr adrianshome$<br>
+      </code></p>
+      <p>After this, renaming the dsig.ttf file makes the font work in Windows. Thank you so much. Just to be able to get 'features' working in TT fonts , no-matter how its done is a great relief. There may be more elegant ways to do this, like a batch process as I have 70 fonts to do, but I'm a happy. So here's my final routine:</p>
+      <p>1. Launch Terminal.</p>
+      <p>2. Type ‘which ttx’, Return:<br>
+      <code>/usr/local/bin/ttx<br>
+      adrians-imac:Dsig fldr adrianshome$</code></p>
+      <p>3. Drag TTX app to Terminal  (since it accepted your Dsig fldr snippet):<br>
+      <code>/Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx</code></p>
+      <p>4. Type: -m (not forgetting a space after the m).<br>
+      <code>/Users/adrianshome/Desktop/Dsig\ fldr/SassoBooIta.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx</code></p>
+      <p>First remove all of the dsig#.ttf files in the Dsig fldr if there are any.<br>
+      Then for each font file:<br>
+       5. Drag the ttf font file to Terminal (say SassoBoo.ttf)<br>
+       6. Drag dsig.ttx to terminal<br>
+       7. Return</p>
+      <p>That will compile only dsig.ttx, merge the DSIG into SassoBoo.ttf and produce a file named dsig.ttf in the Dsig fldr, so now…</p>
+      <p>8. Rename dsig.ttf as SassoBoo something.ttf (original TrueType filename something)</p>
+      <p>Don't switch steps 3 and 4. You need to put the .ttf file before the .ttx file.</p>
+  - id: 591404
+    user: 1043
+    date: 2014-10-23T08:33:00
+    date_raw: 23 Oct 2014 — 8:33am
+    votes: null
+    html: |-
+      <p>You shouldn't need to type "which ttx" and drag ttx onto the terminal every time you use ttx. If ttx is installed properly, you should be able to just type "ttx" at the prompt, followed by whatever stuff you want to do with it.</p>
+      <p>You can test whether you have it installed properly by typing "ttx -h" at the command prompt. If you get "command not found", then it's not installed properly. If you get the ttx help text, then it should work to just type "ttx" at the prompt, etc.</p>
+    html_clean: |-
+      <p>You shouldn't need to type "which ttx" and drag ttx onto the terminal every time you use ttx. If ttx is installed properly, you should be able to just type "ttx" at the prompt, followed by whatever stuff you want to do with it.</p>
+      <p>You can test whether you have it installed properly by typing "ttx -h" at the command prompt. If you get "command not found", then it's not installed properly. If you get the ttx help text, then it should work to just type "ttx" at the prompt, etc.</p>
+  - id: 591409
+    user: 18942
+    date: 2014-10-23T08:56:00
+    date_raw: 23 Oct 2014 — 8:56am
+    votes: null
+    html: |-
+      <p>Mark, there is a ttx that is installed but there are at least two versions of ttx on his system. There is ttx 2.4 in ~/Downloads/fonttools-2.4/Tools and there is some other ttx in /usr/local/bin. If ttx is typed directly in the terminal window it is /usr/local/bin/ttx that will be executed and if that ttx is not ttx 2.4  then the dsig.ttx file will be incompatible. Executing </p>
+      <p>ttx -h | head -4</p>
+      <p>should however give the version.</p>
+      <p>To be sure that the ttx 2.4 in Downloads is executed when ttx is called from a terminal window, ${HOME}/Downloads/fonttools-2.4/Tools need to be put before /usr/local/bin in his PATH and such things are tricky for newbies.</p>
+    html_clean: |-
+      <p>Mark, there is a ttx that is installed but there are at least two versions of ttx on his system. There is ttx 2.4 in ~/Downloads/fonttools-2.4/Tools and there is some other ttx in /usr/local/bin. If ttx is typed directly in the terminal window it is /usr/local/bin/ttx that will be executed and if that ttx is not ttx 2.4  then the dsig.ttx file will be incompatible. Executing </p>
+      <p>ttx -h | head -4</p>
+      <p>should however give the version.</p>
+      <p>To be sure that the ttx 2.4 in Downloads is executed when ttx is called from a terminal window, ${HOME}/Downloads/fonttools-2.4/Tools need to be put before /usr/local/bin in his PATH and such things are tricky for newbies.</p>
+  - id: 591412
+    user: 1043
+    date: 2014-10-23T09:26:00
+    date_raw: 23 Oct 2014 — 9:26am
+    votes: null
+    html: |-
+      <p>Ah, right. Ugh.</p>
+      <p>It is possible to do it with the more recent version of ttx, as Ben Kiel's comment at TypeDrawers shows:</p>
+      <p><a href="http://typedrawers.com/discussion/comment/9651/#Comment_9651" title="http://typedrawers.com/discussion/comment/9651/#Comment_9651">http://typedrawers.com/discussion/comment/9651/#Comment_9651</a></p>
+      <p>He made me a script that incorporates this, so I know it works, but it's a bit above my head (which is why I hired him to do it for me).</p>
+    html_clean: |-
+      <p>Ah, right. Ugh.</p>
+      <p>It is possible to do it with the more recent version of ttx, as Ben Kiel's comment at TypeDrawers shows:</p>
+      <p><a href="http://typedrawers.com/discussion/comment/9651/#Comment_9651" title="http://typedrawers.com/discussion/comment/9651/#Comment_9651">http://typedrawers.com/discussion/comment/9651/#Comment_9651</a></p>
+      <p>He made me a script that incorporates this, so I know it works, but it's a bit above my head (which is why I hired him to do it for me).</p>
+  - id: 591413
+    user: 18942
+    date: 2014-10-24T13:12:00
+    date_raw: 24 Oct 2014 — 1:12pm
+    votes: null
+    html: |-
+      <p>Another way is to define a variable TTX that contains the full path of the application. For instance, to handle 70 fonts in some folder with Adrian's current configuration, what can be done is this (make sure there is no dsig.ttf font in those 70 fonts).</p>
+      <p>1. type cd with a space in the terminal window<br>
+      2. drag the folder (not the fonts) containing the ttf fonts in the terminal window<br>
+      3. return</p>
+      <p>4. paste the following lines in the terminal window</p>
+      <pre>FLDR="$HOME/Desktop/Dsig fldr"
+      TTX=$HOME/Downloads/fonttools-2.4/Tools/ttx 
+      for i in *.ttf 
+      do 
+        DSIG="$FLDR/${i%.ttf}.ttx"
+        cp "$FLDR"/dsig.ttx "$DSIG"
+        $TTX -m $i "$DSIG"
+        rm -f "$DSIG"
+      done
+      </pre><p>5. return</p>
+      <p>The 70 font files should now be in Dsig fldr with the name they previously had but with a DSIG thing. </p>
+      <p>The dsig.ttx snippet you have on typedrawers is however different from the one I got after decompiling the dummy DSIG produced by (an old version of) fontforge  using ttx 2.4. I have no clue what the "right" snippet should be but what I got seems to be working for Adrian.*</p>
+      <p>To be complete, I should add that it is assumed that the Dsig folder already exists on the desktop and contains dsig.ttx for ttx 2.4. Such a folder had previously been created by pasting in a terminal window the following lines</p>
+      <pre>FLDR="${HOME}/Desktop/Dsig fldr"
+      mkdir -p "$FLDR"
+      cd "$FLDR"
+      cat &gt; dsig.ttx&lt;&lt;EOF
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.4"&gt;
+        &lt;DSIG&gt;
+          &lt;tableHeader flag="0x0" numSigs="0" version="1"/&gt;
+        &lt;/DSIG&gt;
+      &lt;/ttFont&gt;
+      EOF
+      </pre><p>
+      *That is also the ttx file I get when I decompile with ttx 2.4 the dummy signature generated by ttx 2.3 using the previous dsig.ttx file.</p>
+    html_clean: |-
+      <p>Another way is to define a variable TTX that contains the full path of the application. For instance, to handle 70 fonts in some folder with Adrian's current configuration, what can be done is this (make sure there is no dsig.ttf font in those 70 fonts).</p>
+      <p>1. type cd with a space in the terminal window<br>
+      2. drag the folder (not the fonts) containing the ttf fonts in the terminal window<br>
+      3. return</p>
+      <p>4. paste the following lines in the terminal window</p>
+      <pre>FLDR="$HOME/Desktop/Dsig fldr"
+      TTX=$HOME/Downloads/fonttools-2.4/Tools/ttx 
+      for i in *.ttf 
+      do 
+        DSIG="$FLDR/${i%.ttf}.ttx"
+        cp "$FLDR"/dsig.ttx "$DSIG"
+        $TTX -m $i "$DSIG"
+        rm -f "$DSIG"
+      done
+      </pre><p>5. return</p>
+      <p>The 70 font files should now be in Dsig fldr with the name they previously had but with a DSIG thing. </p>
+      <p>The dsig.ttx snippet you have on typedrawers is however different from the one I got after decompiling the dummy DSIG produced by (an old version of) fontforge  using ttx 2.4. I have no clue what the "right" snippet should be but what I got seems to be working for Adrian.*</p>
+      <p>To be complete, I should add that it is assumed that the Dsig folder already exists on the desktop and contains dsig.ttx for ttx 2.4. Such a folder had previously been created by pasting in a terminal window the following lines</p>
+      <pre>FLDR="${HOME}/Desktop/Dsig fldr"
+      mkdir -p "$FLDR"
+      cd "$FLDR"
+      cat &gt; dsig.ttx&lt;&lt;EOF
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="2.4"&gt;
+        &lt;DSIG&gt;
+          &lt;tableHeader flag="0x0" numSigs="0" version="1"/&gt;
+        &lt;/DSIG&gt;
+      &lt;/ttFont&gt;
+      EOF
+      </pre><p>
+      *That is also the ttx file I get when I decompile with ttx 2.4 the dummy signature generated by ttx 2.3 using the previous dsig.ttx file.</p>
+  - id: 591436
+    user: 83217
+    date: 2014-10-26T03:31:00
+    date_raw: 26 Oct 2014 — 3:31am
+    votes: null
+    html: |-
+      <p>And at this moment I feel tempted to suggest a reference and tutorial on shell scripts...</p>
+      <p><a class="freelinking external" href="http://www.vectorsite.net/tsshell.html" rel="nofollow">http://www.vectorsite.net/tsshell.html</a> and <a class="freelinking external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html" rel="nofollow">http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html</a> are the beginners’ guides I currently have on file.</p>
+      <p><a class="freelinking external" href="http://tldp.org/LDP/abs/html/index.html" rel="nofollow">http://tldp.org/LDP/abs/html/index.html</a> is an intermediate/advanced guide.</p>
+      <p>Some of this (<a class="freelinking external" href="http://rute.2038bug.com/" rel="nofollow">http://rute.2038bug.com/</a>) may be applicable on BSD-type systems as well.</p>
+    html_clean: |-
+      <p>And at this moment I feel tempted to suggest a reference and tutorial on shell scripts...</p>
+      <p><a class="freelinking external" href="http://www.vectorsite.net/tsshell.html" rel="nofollow">http://www.vectorsite.net/tsshell.html</a> and <a class="freelinking external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html" rel="nofollow">http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html</a> are the beginners’ guides I currently have on file.</p>
+      <p><a class="freelinking external" href="http://tldp.org/LDP/abs/html/index.html" rel="nofollow">http://tldp.org/LDP/abs/html/index.html</a> is an intermediate/advanced guide.</p>
+      <p>Some of this (<a class="freelinking external" href="http://rute.2038bug.com/" rel="nofollow">http://rute.2038bug.com/</a>) may be applicable on BSD-type systems as well.</p>
+  - id: 591514
+    user: 52756
+    date: 2014-10-24T02:38:00
+    date_raw: 24 Oct 2014 — 2:38am
+    votes: null
+    html: |-
+      <p>I have  another 100 or so to do also, so will get into your batch processing method later Té - thanks. But right now - Having complied about a dozen fonts using Michel's method a couple of fonts complied into two files: font.ttf  (of 36k) and font.ttx (of 1.2 Mb). Instead of compiling and parsing it's now 'Dumping'. Any ideas why are these compiling differently?</p>
+      <p><code>adrians-imac:~ adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx /Users/adrianshome/Desktop/Dsig\ fldr/SassoMonMed.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx<br>
+      Dumping "/Users/adrianshome/Desktop/Dsig fldr/SassoMonMed.ttf" to "/Users/adrianshome/Desktop/Dsig fldr/SassoMonMed.ttx"...<br>
+      Dumping 'GlyphOrder' table...<br>
+      Dumping 'head' table...<br>
+      Dumping 'hhea' table...<br>
+      Dumping 'maxp' table...<br>
+      Dumping 'OS/2' table...<br>
+      Dumping 'hmtx' table...<br>
+      Dumping 'LTSH' table...<br>
+      Dumping 'VDMX' table...<br>
+      Dumping 'hdmx' table...<br>
+      Dumping 'cmap' table...<br>
+      Dumping 'fpgm' table...<br>
+      Dumping 'prep' table...<br>
+      Dumping 'cvt ' table...<br>
+      Dumping 'loca' table...<br>
+      Dumping 'glyf' table...<br>
+      Dumping 'kern' table...<br>
+      Dumping 'name' table...<br>
+      Dumping 'post' table...<br>
+      Dumping 'gasp' table...<br>
+      Dumping 'GPOS' table...<br>
+      Dumping 'GSUB' table...<br>
+      Compiling "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttx" to "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      adrians-imac:~ adrianshome$<br>
+      </code></p>
+    html_clean: |-
+      <p>I have  another 100 or so to do also, so will get into your batch processing method later Té - thanks. But right now - Having complied about a dozen fonts using Michel's method a couple of fonts complied into two files: font.ttf  (of 36k) and font.ttx (of 1.2 Mb). Instead of compiling and parsing it's now 'Dumping'. Any ideas why are these compiling differently?</p>
+      <p><code>adrians-imac:~ adrianshome$ /Users/adrianshome/Downloads/fonttools-2.4/Tools/ttx /Users/adrianshome/Desktop/Dsig\ fldr/SassoMonMed.ttf /Users/adrianshome/Desktop/Dsig\ fldr/dsig.ttx<br>
+      Dumping "/Users/adrianshome/Desktop/Dsig fldr/SassoMonMed.ttf" to "/Users/adrianshome/Desktop/Dsig fldr/SassoMonMed.ttx"...<br>
+      Dumping 'GlyphOrder' table...<br>
+      Dumping 'head' table...<br>
+      Dumping 'hhea' table...<br>
+      Dumping 'maxp' table...<br>
+      Dumping 'OS/2' table...<br>
+      Dumping 'hmtx' table...<br>
+      Dumping 'LTSH' table...<br>
+      Dumping 'VDMX' table...<br>
+      Dumping 'hdmx' table...<br>
+      Dumping 'cmap' table...<br>
+      Dumping 'fpgm' table...<br>
+      Dumping 'prep' table...<br>
+      Dumping 'cvt ' table...<br>
+      Dumping 'loca' table...<br>
+      Dumping 'glyf' table...<br>
+      Dumping 'kern' table...<br>
+      Dumping 'name' table...<br>
+      Dumping 'post' table...<br>
+      Dumping 'gasp' table...<br>
+      Dumping 'GPOS' table...<br>
+      Dumping 'GSUB' table...<br>
+      Compiling "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttx" to "/Users/adrianshome/Desktop/Dsig fldr/dsig.ttf"...<br>
+      Parsing 'DSIG' table...<br>
+      adrians-imac:~ adrianshome$<br>
+      </code></p>
+  - id: 591526
+    user: 18942
+    date: 2014-10-24T03:41:00
+    date_raw: 24 Oct 2014 — 3:41am
+    votes: null
+    html: |-
+      <p>you forgot to type <code>-m</code>.</p>
+      <p>That is another reason batch commands are better; they are less prone to "typos".</p>
+    html_clean: |-
+      <p>you forgot to type <code>-m</code>.</p>
+      <p>That is another reason batch commands are better; they are less prone to "typos".</p>
+  - id: 591538
+    user: 52756
+    date: 2014-10-24T05:35:00
+    date_raw: 24 Oct 2014 — 5:35am
+    votes: null
+    html: <p>Ooops! Back on track now. Thanks for pointing that out. When I've finished this clutch of fonts I'll investigate batch commands.</p>
+    html_clean: <p>Ooops! Back on track now. Thanks for pointing that out. When I've finished this clutch of fonts I'll investigate batch commands.</p>

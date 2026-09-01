@@ -1,0 +1,360 @@
+node: 105410
+title: OT language specific ligatures
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140809183027"
+  captured_at: 2014-08-09T18:30:27Z
+  url: http://typophile.com/node/105410
+  digest: STYDR2AOOEQN7WWU4XKIU4LKL36EP3CY
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/105410.html
+  fingerprint: 3c8208073e54b405
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140809183027"
+      digest: STYDR2AOOEQN7WWU4XKIU4LKL36EP3CY
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/105410.html
+post:
+  id: 105410
+  user: 213635
+  date: 2013-08-11T21:12:00
+  date_raw: 11 Aug 2013 — 9:12pm
+  votes: null
+  html: |-
+    <p>I’m hoping someone can point me in the direction of some syntax examples for implementing language-specific ligatures.  I’m not completely clueless, but I’ve yet to find anything that’s entirely clear to me either.</p>
+    <p><strong>The reason:</strong> I’ve been looking at some <a class="freelinking external" href="http://arkandis.tuxfamily.org/adffonts.html" rel="nofollow">free fonts</a> which look promising, but they implement some ligatures that are only appropriate in French (ae -&gt; æ, oe -&gt; œ).  Seeing words like <em>dœs</em> and <em>shœs</em> (or <em>Gæilge</em>) is a little disconcerting.  I’d like to corral these, though I suppose I could also just delete them.</p>
+    <p>The problem table seems to be this...</p>
+    <pre>feature rlig { # Required Ligatures
+     # Latin
+        sub A E by AE;
+        sub A e by AE;
+        sub O E by OE;
+        sub O e by OE;
+        sub a e by ae;
+        sub o e by oe;
+     script DFLT;
+        sub A E by AE;
+        sub A e by AE;
+        sub O E by OE;
+        sub O e by OE;
+        sub a e by ae;
+        sub o e by oe;
+    } rlig;
+    </pre><p>
+    By looking at other fonts it seems that I would need to define languages somewhere by script, but it’s not clear where you would do that (<em>ccmp</em> table?).</p>
+  html_clean: |-
+    <p>I’m hoping someone can point me in the direction of some syntax examples for implementing language-specific ligatures.  I’m not completely clueless, but I’ve yet to find anything that’s entirely clear to me either.</p>
+    <p><strong>The reason:</strong> I’ve been looking at some <a class="freelinking external" href="http://arkandis.tuxfamily.org/adffonts.html" rel="nofollow">free fonts</a> which look promising, but they implement some ligatures that are only appropriate in French (ae -&gt; æ, oe -&gt; œ).  Seeing words like <em>dœs</em> and <em>shœs</em> (or <em>Gæilge</em>) is a little disconcerting.  I’d like to corral these, though I suppose I could also just delete them.</p>
+    <p>The problem table seems to be this...</p>
+    <pre>feature rlig { # Required Ligatures
+     # Latin
+        sub A E by AE;
+        sub A e by AE;
+        sub O E by OE;
+        sub O e by OE;
+        sub a e by ae;
+        sub o e by oe;
+     script DFLT;
+        sub A E by AE;
+        sub A e by AE;
+        sub O E by OE;
+        sub O e by OE;
+        sub a e by ae;
+        sub o e by oe;
+    } rlig;
+    </pre><p>
+    By looking at other fonts it seems that I would need to define languages somewhere by script, but it’s not clear where you would do that (<em>ccmp</em> table?).</p>
+comments:
+  - id: 562477
+    user: 2021
+    date: 2013-08-12T11:05:00
+    date_raw: 12 Aug 2013 — 11:05am
+    votes: null
+    html: |-
+      <p>Use the "locl" feature.<br>
+      There have been a number of threads at Typophile about the “ﬁ” ligature in Turkish, which might help you understand the issue and method.</p>
+    html_clean: |-
+      <p>Use the "locl" feature.<br>
+      There have been a number of threads at Typophile about the “ﬁ” ligature in Turkish, which might help you understand the issue and method.</p>
+  - id: 562482
+    user: 18942
+    date: 2013-08-12T12:33:00
+    date_raw: 12 Aug 2013 — 12:33pm
+    votes: null
+    html: <p>o_e should not be treated as a ligature in French. The French words "coefficient", "moelle" and generally words for which the o and e are pronounced separately do not give rise to œ. It is the spell checker that replaces oe by œ in œil, œuf, bœuf, etc. If you implement the ligature oe in the font, you will get "cœfficient", "mœlle" etc. which are plainly wrong.</p>
+    html_clean: <p>o_e should not be treated as a ligature in French. The French words "coefficient", "moelle" and generally words for which the o and e are pronounced separately do not give rise to œ. It is the spell checker that replaces oe by œ in œil, œuf, bœuf, etc. If you implement the ligature oe in the font, you will get "cœfficient", "mœlle" etc. which are plainly wrong.</p>
+  - id: 562486
+    user: 1688
+    date: 2013-08-12T13:07:00
+    date_raw: 12 Aug 2013 — 1:07pm
+    votes: null
+    html: |-
+      <p>When a-e, o-e, i-j combinations are not diphthongs, they should not be treated as such. I reckon that this was the reason that the ‘dpng’ tag was deprecated from the 1.25 version of the OT speciﬁcation.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>When a-e, o-e, i-j combinations are not diphthongs, they should not be treated as such. I reckon that this was the reason that the ‘dpng’ tag was deprecated from the 1.25 version of the OT speciﬁcation.</p>
+      <p>FEB</p>
+  - id: 562491
+    user: 1688
+    date: 2013-08-12T13:23:00
+    date_raw: 12 Aug 2013 — 1:23pm
+    votes: null
+    html: |-
+      <p>I’m far from an expert, but the choice of the ‘rlig’ feature tag surprises me a bit in this case.</p>
+      <p>Tag: ‘rlig’<br>
+      Friendly name: Required Ligatures<br>
+      Registered by: Microsoft<br>
+      […]<br>
+      <em>Script/language sensitivity: Applies to Arabic and Syriac. May apply to some other scripts.</em><br>
+      […]</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>I’m far from an expert, but the choice of the ‘rlig’ feature tag surprises me a bit in this case.</p>
+      <p>Tag: ‘rlig’<br>
+      Friendly name: Required Ligatures<br>
+      Registered by: Microsoft<br>
+      […]<br>
+      <em>Script/language sensitivity: Applies to Arabic and Syriac. May apply to some other scripts.</em><br>
+      […]</p>
+      <p>FEB</p>
+  - id: 562493
+    user: 83217
+    date: 2013-08-12T13:31:00
+    date_raw: 12 Aug 2013 — 1:31pm
+    votes: null
+    html: <p>Hoo-boy! All I did to work around this particular problem was to make that 'rlig' apply only to 'latn'/'FRA ', which, IIRC, is the setting for French.</p>
+    html_clean: <p>Hoo-boy! All I did to work around this particular problem was to make that 'rlig' apply only to 'latn'/'FRA ', which, IIRC, is the setting for French.</p>
+  - id: 562495
+    user: 1688
+    date: 2013-08-12T13:39:00
+    date_raw: 12 Aug 2013 — 1:39pm
+    votes: null
+    html: |-
+      <p>Reynir: ‘<em>All I did to work around this particular problem […]</em>’</p>
+      <p>Ah, circumventing problems to create new ones. Nice ;-)</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Reynir: ‘<em>All I did to work around this particular problem […]</em>’</p>
+      <p>Ah, circumventing problems to create new ones. Nice ;-)</p>
+      <p>FEB</p>
+  - id: 562507
+    user: 83217
+    date: 2013-08-12T14:43:00
+    date_raw: 12 Aug 2013 — 2:43pm
+    votes: null
+    html: <p>Since I make these changes for personal use only, these are problems that will not appear to me.</p>
+    html_clean: <p>Since I make these changes for personal use only, these are problems that will not appear to me.</p>
+  - id: 562512
+    user: 1262
+    date: 2013-08-12T15:34:00
+    date_raw: 12 Aug 2013 — 3:34pm
+    votes: null
+    html: |-
+      <p><em> All I did to work around this particular problem was to make that 'rlig' apply only to 'latn'/'FRA</em></p>
+      <p>But as Michel points out, not every occurrence of ae and oe in French is equivalent to æ and œ. These are not glyph display distinctions, they are spelling distinctions, and hence properly made at the character encoding level, not the GSUB level.</p>
+    html_clean: |-
+      <p><em> All I did to work around this particular problem was to make that 'rlig' apply only to 'latn'/'FRA</em></p>
+      <p>But as Michel points out, not every occurrence of ae and oe in French is equivalent to æ and œ. These are not glyph display distinctions, they are spelling distinctions, and hence properly made at the character encoding level, not the GSUB level.</p>
+  - id: 562527
+    user: 213635
+    date: 2013-08-12T22:41:00
+    date_raw: 12 Aug 2013 — 10:41pm
+    votes: null
+    html: |-
+      <p>Ah, the joy of opposing timezones.</p>
+      <p>I did find what I was looking for late yesterday (<a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">Adobe: OpenType Feature File Specification</a>).</p>
+      <p>My quick solution was to move this stuff to the end of <em>liga</em> in their own block...</p>
+      <pre> language FRA; # French
+      lookup liga10 {
+          sub A E by AE;
+          sub A e by AE;
+          sub O E by OE;
+          sub O e by OE;
+          sub a e by ae;
+          sub o e by oe;
+      } liga10;
+      </pre><p>
+      ...but it did seem unlikely to me that this was the usual thing to do for French, so removing it altogether is probably the best solution.</p>
+      <blockquote><p>May apply to some other scripts.</p></blockquote>
+      <p>Well it certainly seems to apply to text marked up as English and Irish in Webkit and on my Nook!</p>
+      <blockquote><p>Use the "locl" feature.<br>
+      There have been a number of threads at Typophile about the “ﬁ” ligature in Turkish, which might help you understand the issue and method.</p></blockquote>
+      <p>I don’t think <em>locl</em> is appropriate here, but it would certainly be easy to allow for Turkish while I’m editing the <em>liga</em> feature.  These fonts already have fi &amp; ffi in a separate block to fl, ffl &amp; ff so it should be simply a matter of putting in something like...</p>
+      <pre> language TRK  exclude_dflt; # Turkish
+      lookup liga1; # fl ffl ff
+      </pre><p>...before...</p>
+      <pre> script dflt;
+      lookup liga0; # fi ffi
+      lookup liga1; # fl ffl ff
+      </pre><p>
+      Another useful reference: <a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/index_tag5.html" rel="nofollow">Adobe: OT Feature Tags</a></p>
+    html_clean: |-
+      <p>Ah, the joy of opposing timezones.</p>
+      <p>I did find what I was looking for late yesterday (<a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" rel="nofollow">Adobe: OpenType Feature File Specification</a>).</p>
+      <p>My quick solution was to move this stuff to the end of <em>liga</em> in their own block...</p>
+      <pre> language FRA; # French
+      lookup liga10 {
+          sub A E by AE;
+          sub A e by AE;
+          sub O E by OE;
+          sub O e by OE;
+          sub a e by ae;
+          sub o e by oe;
+      } liga10;
+      </pre><p>
+      ...but it did seem unlikely to me that this was the usual thing to do for French, so removing it altogether is probably the best solution.</p>
+      <blockquote><p>May apply to some other scripts.</p></blockquote>
+      <p>Well it certainly seems to apply to text marked up as English and Irish in Webkit and on my Nook!</p>
+      <blockquote><p>Use the "locl" feature.<br>
+      There have been a number of threads at Typophile about the “ﬁ” ligature in Turkish, which might help you understand the issue and method.</p></blockquote>
+      <p>I don’t think <em>locl</em> is appropriate here, but it would certainly be easy to allow for Turkish while I’m editing the <em>liga</em> feature.  These fonts already have fi &amp; ffi in a separate block to fl, ffl &amp; ff so it should be simply a matter of putting in something like...</p>
+      <pre> language TRK  exclude_dflt; # Turkish
+      lookup liga1; # fl ffl ff
+      </pre><p>...before...</p>
+      <pre> script dflt;
+      lookup liga0; # fi ffi
+      lookup liga1; # fl ffl ff
+      </pre><p>
+      Another useful reference: <a class="freelinking external" href="http://partners.adobe.com/public/developer/opentype/index_tag5.html" rel="nofollow">Adobe: OT Feature Tags</a></p>
+  - id: 562531
+    user: 5094
+    date: 2013-08-13T00:37:00
+    date_raw: 13 Aug 2013 — 12:37am
+    votes: null
+    html: <p>Just a note -- unless your font has all the characters needed for Turkish, it seems silly to exclude the f_i ligatures with a language tag. There were literally hundreds of fonts with that exclusion in {liga} that also lacked the dotted capital I. How would you set Turkish with such a font?</p>
+    html_clean: <p>Just a note -- unless your font has all the characters needed for Turkish, it seems silly to exclude the f_i ligatures with a language tag. There were literally hundreds of fonts with that exclusion in {liga} that also lacked the dotted capital I. How would you set Turkish with such a font?</p>
+  - id: 562550
+    user: 83217
+    date: 2013-08-13T06:13:00
+    date_raw: 13 Aug 2013 — 6:13am
+    votes: null
+    html: <p>Incidentally, my simplistic solution works for me, if only because I'm not a Francophone and never set text in French and very rarely read any – and then only on newspaper sites.</p>
+    html_clean: <p>Incidentally, my simplistic solution works for me, if only because I'm not a Francophone and never set text in French and very rarely read any – and then only on newspaper sites.</p>
+  - id: 562644
+    user: 213635
+    date: 2013-08-14T20:41:00
+    date_raw: 14 Aug 2013 — 8:41pm
+    votes: null
+    html: |-
+      <blockquote><p>unless your font has all the characters needed for Turkish, it seems silly to exclude the f_i ligatures with a language tag....How would you set Turkish with such a font?</p></blockquote>
+      <p>That is a good point...you wouldn’t use them for Turkish of course.  On the other hand, since these are fonts that can be freely modified I don’t see how it causes any <em>problems</em> to nudge them in the general direction of Turkish compatibility.  In fact, if some other font was providing the missing fallback characters it could still make things a <em>little</em> less confusing.</p>
+      <p>Whatever the practical implications, it has resulting in my learning a little syntax, so it was worthwhile for me!</p>
+    html_clean: |-
+      <blockquote><p>unless your font has all the characters needed for Turkish, it seems silly to exclude the f_i ligatures with a language tag....How would you set Turkish with such a font?</p></blockquote>
+      <p>That is a good point...you wouldn’t use them for Turkish of course.  On the other hand, since these are fonts that can be freely modified I don’t see how it causes any <em>problems</em> to nudge them in the general direction of Turkish compatibility.  In fact, if some other font was providing the missing fallback characters it could still make things a <em>little</em> less confusing.</p>
+      <p>Whatever the practical implications, it has resulting in my learning a little syntax, so it was worthwhile for me!</p>
+  - id: 562732
+    user: 5094
+    date: 2013-08-15T13:44:00
+    date_raw: 15 Aug 2013 — 1:44pm
+    votes: null
+    html: <p>Sure, you could set a regular capital I with the combining diacritic, U+0307 -- oh, wait, Baskervald, like so many other fonts, <strong>doesn't include any</strong> combining diacriticals...</p>
+    html_clean: <p>Sure, you could set a regular capital I with the combining diacritic, U+0307 -- oh, wait, Baskervald, like so many other fonts, <strong>doesn't include any</strong> combining diacriticals...</p>
+  - id: 562764
+    user: 1688
+    date: 2013-08-16T00:24:00
+    date_raw: 16 Aug 2013 — 12:24am
+    votes: null
+    html: |-
+      <p>… and in the <strong>free</strong> book <em>The Hound of the Baskervalds</em> the dog is missing.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>… and in the <strong>free</strong> book <em>The Hound of the Baskervalds</em> the dog is missing.</p>
+      <p>FEB</p>
+  - id: 562773
+    user: 5094
+    date: 2013-08-16T04:49:00
+    date_raw: 16 Aug 2013 — 4:49am
+    votes: null
+    html: |-
+      <p><cite>… and in the <strong>free</strong> book The Hound of the Baskervalds the dog is missing.</cite></p>
+      <p>What a silly thing to say. </p>
+      <p>Changing the topic from <cite>books</cite> to <cite>type,</cite> in the <strong>for money</strong> fonts, say, oh, from Adobe, there aren't any combining diacriticals there, either. Show me an Adobe font that has all -- or even some -- of the characters from 0300 to 036F. Less sure about the fonts from the Monotype conglomeration, but I'd bet it is similar. And include FontFont.</p>
+      <p>I don't know about DTL. Wonderfully drawn fonts. I wish my customers (the 100 or so publishers in the Association of American University Presses) could afford them. I'm not being snide, I really would like to work with these fonts, as I think they would print (ink on paper) so much better than most of what is used. But I argue in vain, the annual font budget for most presses isn't large enough to buy even one DTL family. And designers have their quirks too, many would rather save up &amp; buy the new display font of the year...</p>
+      <p>Try offering an educational discount to, say, the University of Chicago Press. I'll broker the deal for free just to have the privilege of working with DTL fonts.</p>
+      <p>Given my customers can't afford DTL fonts my question is moot, but just out of curiosity, how many of them have populated the combining diacritics? How many languages can you cover? Romanized Arabic? Romanized Indic Scripts? The major (non-European) languages used in Africa? Native American languages, where "American" covers North, Central and South America?</p>
+      <p>It isn't just the little, unimportant people of those countries involved. Western Europe is full of ex-colonial powers, and as they run out of topics such as how many petticoats George Sand might have worn, had she worn petticoats, they turn to the history of those colonial days...</p>
+      <p>Actually, it is in the OpenSource fonts where attention is paid to combining diacriticals and support is given to the languages that require them.</p>
+      <p>Remember, the Unicode Consortium said <cite>Gosh darn it golly gee whiz</cite> (or words to that effect), <cite>we're not going to keep assigning codepoints for accented Latin glyphs. The proper way to render such glyphs is to use a base character and a (or series of) combining diacritical(s).</cite> Which makes perfect sense. If you go read the section on combining diacritics in the Unicode Standard, everything is provided for. Now if only the font publishers would comply...</p>
+    html_clean: |-
+      <p><cite>… and in the <strong>free</strong> book The Hound of the Baskervalds the dog is missing.</cite></p>
+      <p>What a silly thing to say. </p>
+      <p>Changing the topic from <cite>books</cite> to <cite>type,</cite> in the <strong>for money</strong> fonts, say, oh, from Adobe, there aren't any combining diacriticals there, either. Show me an Adobe font that has all -- or even some -- of the characters from 0300 to 036F. Less sure about the fonts from the Monotype conglomeration, but I'd bet it is similar. And include FontFont.</p>
+      <p>I don't know about DTL. Wonderfully drawn fonts. I wish my customers (the 100 or so publishers in the Association of American University Presses) could afford them. I'm not being snide, I really would like to work with these fonts, as I think they would print (ink on paper) so much better than most of what is used. But I argue in vain, the annual font budget for most presses isn't large enough to buy even one DTL family. And designers have their quirks too, many would rather save up &amp; buy the new display font of the year...</p>
+      <p>Try offering an educational discount to, say, the University of Chicago Press. I'll broker the deal for free just to have the privilege of working with DTL fonts.</p>
+      <p>Given my customers can't afford DTL fonts my question is moot, but just out of curiosity, how many of them have populated the combining diacritics? How many languages can you cover? Romanized Arabic? Romanized Indic Scripts? The major (non-European) languages used in Africa? Native American languages, where "American" covers North, Central and South America?</p>
+      <p>It isn't just the little, unimportant people of those countries involved. Western Europe is full of ex-colonial powers, and as they run out of topics such as how many petticoats George Sand might have worn, had she worn petticoats, they turn to the history of those colonial days...</p>
+      <p>Actually, it is in the OpenSource fonts where attention is paid to combining diacriticals and support is given to the languages that require them.</p>
+      <p>Remember, the Unicode Consortium said <cite>Gosh darn it golly gee whiz</cite> (or words to that effect), <cite>we're not going to keep assigning codepoints for accented Latin glyphs. The proper way to render such glyphs is to use a base character and a (or series of) combining diacritical(s).</cite> Which makes perfect sense. If you go read the section on combining diacritics in the Unicode Standard, everything is provided for. Now if only the font publishers would comply...</p>
+  - id: 562779
+    user: 1688
+    date: 2013-08-16T05:36:00
+    date_raw: 16 Aug 2013 — 5:36am
+    votes: null
+    html: |-
+      <p>Charles: ‘<em>What a silly thing to say.</em>’</p>
+      <p>You mean that the dog isn’t missing?</p>
+      <p>Thank you for the compliment regarding DTL fonts and your offer to recommend them at the American University Presses. Actually we feel perfectly happy with our niche market and the subsequent exclusivity of our fonts (or vice versa).</p>
+      <p>Concerning script coverage and combining diacritics, or whatever, we are capable of delivering <em>anything</em> in case of requests.</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Charles: ‘<em>What a silly thing to say.</em>’</p>
+      <p>You mean that the dog isn’t missing?</p>
+      <p>Thank you for the compliment regarding DTL fonts and your offer to recommend them at the American University Presses. Actually we feel perfectly happy with our niche market and the subsequent exclusivity of our fonts (or vice versa).</p>
+      <p>Concerning script coverage and combining diacritics, or whatever, we are capable of delivering <em>anything</em> in case of requests.</p>
+      <p>FEB</p>
+  - id: 562820
+    user: 5094
+    date: 2013-08-16T15:30:00
+    date_raw: 16 Aug 2013 — 3:30pm
+    votes: null
+    html: |-
+      <blockquote><p>we are capable of delivering <cite>anything</cite> in case of requests.</p></blockquote>
+      <p>Ah, yes, I believe I've head about such places... "What ever the gentleman desires and can afford can be provided." I hope in these days of gender equality the same is offered to women?</p>
+      <p>As with all too may things, it's all academic to me, but I understand that establishments of the highest caliber within this niche do not make snide remarks about members of another niche, where such things are provided without monetary compensation...</p>
+    html_clean: |-
+      <blockquote><p>we are capable of delivering <cite>anything</cite> in case of requests.</p></blockquote>
+      <p>Ah, yes, I believe I've head about such places... "What ever the gentleman desires and can afford can be provided." I hope in these days of gender equality the same is offered to women?</p>
+      <p>As with all too may things, it's all academic to me, but I understand that establishments of the highest caliber within this niche do not make snide remarks about members of another niche, where such things are provided without monetary compensation...</p>
+  - id: 562931
+    user: 1688
+    date: 2013-08-19T03:08:00
+    date_raw: 19 Aug 2013 — 3:08am
+    votes: null
+    html: |-
+      <p>Charles: ‘<em>Ah, yes, I believe I've head about such places... "What ever the gentleman desires and can afford can be provided."</em>’</p>
+      <p>What a rude thing to say. </p>
+      <p>Sadly, this can only lead to one conclusion, I reckon (quoting <em>Gabrielle</em>):</p>
+      <p>[…]<br>
+      <em>Time to turn the pages time to start anew<br>
+      I know that I can do it, I can do it without you<br>
+      Our love is over, our love is over</em><br>
+      […]</p>
+      <p>FEB</p>
+    html_clean: |-
+      <p>Charles: ‘<em>Ah, yes, I believe I've head about such places... "What ever the gentleman desires and can afford can be provided."</em>’</p>
+      <p>What a rude thing to say. </p>
+      <p>Sadly, this can only lead to one conclusion, I reckon (quoting <em>Gabrielle</em>):</p>
+      <p>[…]<br>
+      <em>Time to turn the pages time to start anew<br>
+      I know that I can do it, I can do it without you<br>
+      Our love is over, our love is over</em><br>
+      […]</p>
+      <p>FEB</p>

@@ -1,0 +1,80 @@
+node: 90462
+title: OS X doesn't like my font
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150416040727"
+  captured_at: 2015-04-16T04:07:27Z
+  url: http://typophile.com/node/90462
+  digest: N6LDGW275FONTK2MFFU74TE6YYHLVW7K
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/90462.html
+  fingerprint: 56075cb03d7ecd60
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416040727"
+      digest: N6LDGW275FONTK2MFFU74TE6YYHLVW7K
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/90462.html
+post:
+  id: 90462
+  user: 29994
+  date: 2012-02-26T09:46:00
+  date_raw: 26 Feb 2012 — 9:46am
+  votes: null
+  html: |-
+    <p>I created a CFF flavored OTF font with TTX, and it works <em>perfectly</em> in InDesign CS4 -- when placed into ID's own private Fonts folder, that is.</p>
+    <p>But although OS X (Lion) gives me the option to "Open in FontBook" on the file, it just won't appear in there ... Manually copied it into ~/Library/Fonts and it still doesn't appear in the active font list.</p>
+    <p>Could it be some arcane bits settings in the various tables that makes FontBook distrust it <em>so</em> much it doesn't even pop up the helpful "errors in font" dialog? Or is it perhaps as simple as the fact that this font only contains 9 lowercase characters ...? I.e., would adding 'A-Z' and 'a-z' but setting all references to them to <code>.notdef</code> solve it? (If so, what else characters are "required" cuz that won't make it an ANSI compatible font either.)</p>
+  html_clean: |-
+    <p>I created a CFF flavored OTF font with TTX, and it works <em>perfectly</em> in InDesign CS4 -- when placed into ID's own private Fonts folder, that is.</p>
+    <p>But although OS X (Lion) gives me the option to "Open in FontBook" on the file, it just won't appear in there ... Manually copied it into ~/Library/Fonts and it still doesn't appear in the active font list.</p>
+    <p>Could it be some arcane bits settings in the various tables that makes FontBook distrust it <em>so</em> much it doesn't even pop up the helpful "errors in font" dialog? Or is it perhaps as simple as the fact that this font only contains 9 lowercase characters ...? I.e., would adding 'A-Z' and 'a-z' but setting all references to them to <code>.notdef</code> solve it? (If so, what else characters are "required" cuz that won't make it an ANSI compatible font either.)</p>
+comments:
+  - id: 496601
+    user: 29994
+    date: 2012-02-26T14:11:00
+    date_raw: 26 Feb 2012 — 2:11pm
+    votes: null
+    html: |-
+      <p>Adobe's checkOutlines found some problems in my glyphs. After fixing these, I tried force-feeding this fontlet into FontBook's throat and <em>finally</em> got <em>a</em> result -- even though it's not really explaining the problem ...</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontbook_3879.png"></div><p></p>
+      <p>At least those cumbersome little tables seem to have "correct" values, now on to find what's wrong with the ones unmentioned: GSUB, and the CFF itself. I'm going to try to ditch the GSUB and see if that helps.</p>
+      <p>(Hey, I <em>can</em> upload an image using FireFox!)</p>
+    html_clean: |-
+      <p>Adobe's checkOutlines found some problems in my glyphs. After fixing these, I tried force-feeding this fontlet into FontBook's throat and <em>finally</em> got <em>a</em> result -- even though it's not really explaining the problem ...</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/fontbook_3879.png"></div><p></p>
+      <p>At least those cumbersome little tables seem to have "correct" values, now on to find what's wrong with the ones unmentioned: GSUB, and the CFF itself. I'm going to try to ditch the GSUB and see if that helps.</p>
+      <p>(Hey, I <em>can</em> upload an image using FireFox!)</p>
+  - id: 496769
+    user: 29994
+    date: 2012-02-27T15:21:00
+    date_raw: 27 Feb 2012 — 3:21pm
+    votes: null
+    html: |-
+      <p>Okay, that was <em>no</em> fun at all :-)</p>
+      <p>After checking virtually <em>every</em> single bit in my source TTX and going over every line of <code>ftxvalidator</code> output I finally nailed the problem. FYI, this was PICNIC ("Problem In Chair, Not In Computer").</p>
+      <p>It didn't help that <code>ftxvalidator</code> kept on telling me that a font with my Postscript name "is already installed". Running <code>atsutil databases -removeUser</code> a few times finally cleared that 'error', and only then something made me check the Postscript name in the 'name' table ... against the Postscript name in my CFF.</p>
+      <p>Duh. None of the tools I tried (Adobe's own AFDKO suite, Apple's Font SDK, Font Book, Linotype Font Explorer, and TTX itself) thought it worth mentioning. InDesign probably ditches the 'name' table as soon as it can and uses only the CFF data; or possibly it's smarter than your average bear (hold on, I'm gonna check what it says as "Postscript name" ... the one in the 'name' table! A small surprise here, it actually ignores the one in the CFF part.) </p>
+      <p>(Good news is I learned about twenty other <em>possible</em> issues with my home grown font creator. And of course I learned how to use the above-mentioned dozen or so tools.)</p>
+    html_clean: |-
+      <p>Okay, that was <em>no</em> fun at all :-)</p>
+      <p>After checking virtually <em>every</em> single bit in my source TTX and going over every line of <code>ftxvalidator</code> output I finally nailed the problem. FYI, this was PICNIC ("Problem In Chair, Not In Computer").</p>
+      <p>It didn't help that <code>ftxvalidator</code> kept on telling me that a font with my Postscript name "is already installed". Running <code>atsutil databases -removeUser</code> a few times finally cleared that 'error', and only then something made me check the Postscript name in the 'name' table ... against the Postscript name in my CFF.</p>
+      <p>Duh. None of the tools I tried (Adobe's own AFDKO suite, Apple's Font SDK, Font Book, Linotype Font Explorer, and TTX itself) thought it worth mentioning. InDesign probably ditches the 'name' table as soon as it can and uses only the CFF data; or possibly it's smarter than your average bear (hold on, I'm gonna check what it says as "Postscript name" ... the one in the 'name' table! A small surprise here, it actually ignores the one in the CFF part.) </p>
+      <p>(Good news is I learned about twenty other <em>possible</em> issues with my home grown font creator. And of course I learned how to use the above-mentioned dozen or so tools.)</p>

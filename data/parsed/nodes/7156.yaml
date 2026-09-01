@@ -1,0 +1,305 @@
+node: 7156
+title: Kern feature
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20141115074006"
+  captured_at: 2014-11-15T07:40:06Z
+  url: http://typophile.com:80/node/7156
+  digest: QLYOMOEM43N7ULYMXDDGTCB444W5SASZ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/7156.html
+  fingerprint: 5cedb98ba91620f8
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20141115074006"
+      digest: QLYOMOEM43N7ULYMXDDGTCB444W5SASZ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/7156.html
+post:
+  id: 7156
+  user: 4937
+  date: 2004-10-15T05:23:00
+  date_raw: 15 Oct 2004 — 5:23am
+  votes: null
+  html: "<p>Hello, <br>I'm using fontlab 4.6 on winXP. <br>I would like to make a font that support latin script, CE, greek and cyrillic, with some Ot features. <br>I have a lot of kernings pairs and the \"kern\" feature has several problems, that sometimes allow me to generate the font, but finally my font have no kernings at all... <br>I have kern classes, but I have also tried to expand them. Actually I cannot generate the font because of this : <br> [FATAL] &lt;thesans-light300wtwt&gt; GPOS feature 'kern' causes overflow of offset to a subtable <br> <br>I guess this feature is too big, and I have read something about subtables, but I still don't know how to use them. <br> <br>Did someone has already generated an OT font that support three scripts with all the kernings (correctly <img src=\"http://www.typophile.com/forums/clipart/happy.gif\" alt=\":-)\" border=\"0\"> )? <br> <br>Maybe I have to change the tool? <br> <br>Thank you for your suggestions, <br> <br>Lucia</p>"
+  html_clean: "<p>Hello, <br>I'm using fontlab 4.6 on winXP. <br>I would like to make a font that support latin script, CE, greek and cyrillic, with some Ot features. <br>I have a lot of kernings pairs and the \"kern\" feature has several problems, that sometimes allow me to generate the font, but finally my font have no kernings at all... <br>I have kern classes, but I have also tried to expand them. Actually I cannot generate the font because of this : <br> [FATAL] &lt;thesans-light300wtwt&gt; GPOS feature 'kern' causes overflow of offset to a subtable <br> <br>I guess this feature is too big, and I have read something about subtables, but I still don't know how to use them. <br> <br>Did someone has already generated an OT font that support three scripts with all the kernings (correctly <img src=\"http://www.typophile.com/forums/clipart/happy.gif\" alt=\":-)\" border=\"0\"> )? <br> <br>Maybe I have to change the tool? <br> <br>Thank you for your suggestions, <br> <br>Lucia</p>"
+comments:
+  - id: 49194
+    user: 1133
+    date: 2004-10-15T16:13:00
+    date_raw: 15 Oct 2004 — 4:13pm
+    votes: null
+    html: <p>Lucia,  <br> <br>I agree -- this is simply a horrible and stupid limitation of OpenType. I really would like to know the person's name who developed the part of the OpenType specification that limited the size of a GPOS subtable to 64KB. <img src="http://www.typophile.com/forums/clipart/happy.gif" alt=":-)" border="0">  <br> <br>I believe Thomas Phinney should have a solution on that problem. I hope he sees that and replies.  <br> <br>Regards,  <br>Adam</p>
+    html_clean: <p>Lucia,  <br> <br>I agree -- this is simply a horrible and stupid limitation of OpenType. I really would like to know the person's name who developed the part of the OpenType specification that limited the size of a GPOS subtable to 64KB. <img src="http://www.typophile.com/forums/clipart/happy.gif" alt=":-)" border="0">  <br> <br>I believe Thomas Phinney should have a solution on that problem. I hope he sees that and replies.  <br> <br>Regards,  <br>Adam</p>
+  - id: 49195
+    user: 909
+    date: 2004-10-15T17:13:00
+    date_raw: 15 Oct 2004 — 5:13pm
+    votes: null
+    html: <p>I think that yes, you need one or more subtable breaks. I know how to do them in the FDK, but I'm not sure how to do them in FontLab. Unfortunately, for the next week or more, I'm going to be busy finishing up some presentations and then travelling, so I don't have time to dig into this properly. <br> <br>T</p>
+    html_clean: <p>I think that yes, you need one or more subtable breaks. I know how to do them in the FDK, but I'm not sure how to do them in FontLab. Unfortunately, for the next week or more, I'm going to be busy finishing up some presentations and then travelling, so I don't have time to dig into this properly. <br> <br>T</p>
+  - id: 49196
+    user: 749
+    date: 2004-10-16T09:43:00
+    date_raw: 16 Oct 2004 — 9:43am
+    votes: null
+    html: "<p>As far as I know, all you need to do is insert \"subtable;\" every once in a while. One of these every 100 lines or so should do it. This just helps break up the kern feature. I agree with Adam, this is a pretty pointless limitation, but fortunately there is an easy workaround. <br> <br>So your kern feature might look like this: <br> <br>pos T a -50; <br>pos T c -55; <br>subtable; <br>pos T e -55; <br> <br>... etc. Don't forget that semicolon at the end of each line. <br> <br>Alan</p>"
+    html_clean: "<p>As far as I know, all you need to do is insert \"subtable;\" every once in a while. One of these every 100 lines or so should do it. This just helps break up the kern feature. I agree with Adam, this is a pretty pointless limitation, but fortunately there is an easy workaround. <br> <br>So your kern feature might look like this: <br> <br>pos T a -50; <br>pos T c -55; <br>subtable; <br>pos T e -55; <br> <br>... etc. Don't forget that semicolon at the end of each line. <br> <br>Alan</p>"
+  - id: 49197
+    user: 1087
+    date: 2004-10-17T07:30:00
+    date_raw: 17 Oct 2004 — 7:30am
+    votes: null
+    html: <p>Aha! <br>I've wondered about this myself. Very helpful. <br> <br>On a related note, has anyone ever noticed that while previewing <br>class based kerning in the OT preview window, FontLab will <br>apply a small amount of kerning to a glyph within a class even <br>if kerning has not been defined for the glyph? For instance, <br>the "ta" pair within the OT preview window will appear to have <br>kerning even though I haven't applied kerning to "ta". I have <br>however defined a kerning class for "a" and related accents. <br>If i generate the font and check it in InDesign the kerning <br>for the phantom pair of "ta" doesn't appear. This appears <br>to happen with any of my kerning classes within the OT <br>preview window. Hope this makes sense.</p>
+    html_clean: <p>Aha! <br>I've wondered about this myself. Very helpful. <br> <br>On a related note, has anyone ever noticed that while previewing <br>class based kerning in the OT preview window, FontLab will <br>apply a small amount of kerning to a glyph within a class even <br>if kerning has not been defined for the glyph? For instance, <br>the "ta" pair within the OT preview window will appear to have <br>kerning even though I haven't applied kerning to "ta". I have <br>however defined a kerning class for "a" and related accents. <br>If i generate the font and check it in InDesign the kerning <br>for the phantom pair of "ta" doesn't appear. This appears <br>to happen with any of my kerning classes within the OT <br>preview window. Hope this makes sense.</p>
+  - id: 49198
+    user: 1290
+    date: 2004-10-17T23:52:00
+    date_raw: 17 Oct 2004 — 11:52pm
+    votes: null
+    html: <p>I've noticed other mistakes in the FontLab opentype kern feature preview. It comes up when I'm using opentype classes. If this is my 'kern' feature... <br> <br>feature kern { <br>  pos [B] @_kernO2 16; <br>  pos [A] @_kernO2 -12; <br>  pos @_kernO1 @_kernI2 -12; <br>} kern; <br> <br>and this are my classes... <br> <br>@_kernI2 = [B D E F H I K L P R]; <br>@_kernO1 = [D O Q]; <br>@_kernO2 = [C G O Q]; <br> <br>I'd expect the space between A and C to get smaller but instead it gets larger when I activate the 'kern' feature in the opentype preview. The kern occurs correctly in illustrator though, which is terribly frustrating because taking a round-trip to illustrator to check my class based kerning is not acceptable, but this seems to be the only way to check if I've coded my kern feature correctly.</p>
+    html_clean: <p>I've noticed other mistakes in the FontLab opentype kern feature preview. It comes up when I'm using opentype classes. If this is my 'kern' feature... <br> <br>feature kern { <br>  pos [B] @_kernO2 16; <br>  pos [A] @_kernO2 -12; <br>  pos @_kernO1 @_kernI2 -12; <br>} kern; <br> <br>and this are my classes... <br> <br>@_kernI2 = [B D E F H I K L P R]; <br>@_kernO1 = [D O Q]; <br>@_kernO2 = [C G O Q]; <br> <br>I'd expect the space between A and C to get smaller but instead it gets larger when I activate the 'kern' feature in the opentype preview. The kern occurs correctly in illustrator though, which is terribly frustrating because taking a round-trip to illustrator to check my class based kerning is not acceptable, but this seems to be the only way to check if I've coded my kern feature correctly.</p>
+  - id: 49199
+    user: 4937
+    date: 2004-10-18T02:39:00
+    date_raw: 18 Oct 2004 — 2:39am
+    votes: null
+    html: <p>Thanks a lot to everyone. (to spent yours weekends giving us interesting answers...) <br>I thought this was a silly question, but now I have the confirmation that it is a real problem! <br> <br>Alan, I have done exactly this way, trying also to separate data with a certain "logic"... But it doesn't work. <br>And I have noticed the same problems with classes... <br> <br>Thomas, when you will be back again, I would be gratefull if you could explain more. How Adobe fonts manage to have this feature? By the way I have opened the Minion Pro (with both greek and cyrillic) and if I compile the OT features I get the same error message. Does this font behave correctly with the apllications? <br> <br>Best regards, <br>Lucia</p>
+    html_clean: <p>Thanks a lot to everyone. (to spent yours weekends giving us interesting answers...) <br>I thought this was a silly question, but now I have the confirmation that it is a real problem! <br> <br>Alan, I have done exactly this way, trying also to separate data with a certain "logic"... But it doesn't work. <br>And I have noticed the same problems with classes... <br> <br>Thomas, when you will be back again, I would be gratefull if you could explain more. How Adobe fonts manage to have this feature? By the way I have opened the Minion Pro (with both greek and cyrillic) and if I compile the OT features I get the same error message. Does this font behave correctly with the apllications? <br> <br>Best regards, <br>Lucia</p>
+  - id: 49200
+    user: 1087
+    date: 2004-10-25T09:25:00
+    date_raw: 25 Oct 2004 — 9:25am
+    votes: null
+    html: <p>Say for instance I don't recieve the error message Lucia describes. <br>Will the font still work if don't insert "subtable;"? <br> <br>I have a full featured OT font with 2200 standard kerning <br>pairs and several kerning classes for use under the "kern" feature. <br> <br>The font seems to be working fine in InDesign. <br>Is there a risk here? <br> <br>Thanks</p>
+    html_clean: <p>Say for instance I don't recieve the error message Lucia describes. <br>Will the font still work if don't insert "subtable;"? <br> <br>I have a full featured OT font with 2200 standard kerning <br>pairs and several kerning classes for use under the "kern" feature. <br> <br>The font seems to be working fine in InDesign. <br>Is there a risk here? <br> <br>Thanks</p>
+  - id: 133727
+    user: 7006
+    date: 2006-07-11T11:10:00
+    date_raw: 11 Jul 2006 — 11:10am
+    votes: null
+    html: <p>are there any ill effects of adding subtables to the kern feature? I was trying to follow along with the discussion on the OpenType mailing list a couple weeks back and got lost. can anyone explain this concisely?</p>
+    html_clean: <p>are there any ill effects of adding subtables to the kern feature? I was trying to follow along with the discussion on the OpenType mailing list a couple weeks back and got lost. can anyone explain this concisely?</p>
+  - id: 133741
+    user: 8664
+    date: 2006-07-11T12:08:00
+    date_raw: 11 Jul 2006 — 12:08pm
+    votes: null
+    html: |-
+      <p>Very short: (a) If some of your kern classes have overlapping content, FLS5 automatically inserts subtable breaks but will warn you that some pairs may never be accessed. (b) If you insert "subtable" manually to cope with too many kerning pairs and if the order of kerning pairs isn't right, then some kerning pairs may not make it into the font -- and you don't even get a warning.<br>
+      The most complete description is in Adobe's <a href="http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html#6.b.iii" rel="nofollow">Feature File Syntax</a> document.</p>
+    html_clean: |-
+      <p>Very short: (a) If some of your kern classes have overlapping content, FLS5 automatically inserts subtable breaks but will warn you that some pairs may never be accessed. (b) If you insert "subtable" manually to cope with too many kerning pairs and if the order of kerning pairs isn't right, then some kerning pairs may not make it into the font -- and you don't even get a warning.<br>
+      The most complete description is in Adobe's <a href="http://partners.adobe.com/public/developer/opentype/afdko/topic_feature_file_syntax.html#6.b.iii" rel="nofollow">Feature File Syntax</a> document.</p>
+  - id: 133759
+    user: 7006
+    date: 2006-07-11T12:53:00
+    date_raw: 11 Jul 2006 — 12:53pm
+    votes: null
+    html: <p>thanks for the explanation and the link, karsten. so my next question is what is the best workaround to avoid this problem? is it to not have overlapping content in kerning classes?</p>
+    html_clean: <p>thanks for the explanation and the link, karsten. so my next question is what is the best workaround to avoid this problem? is it to not have overlapping content in kerning classes?</p>
+  - id: 133786
+    user: 8664
+    date: 2006-07-11T15:04:00
+    date_raw: 11 Jul 2006 — 3:04pm
+    votes: null
+    html: |-
+      <p>Yes, at best you create separate classes for first-glyphs-of-a-pair and for second-glyphs-of-a-pair -- even if they would contain the same glyphs:<br>
+      _z.1: z' zdotaccent<br>
+      _z.2: z' zdotaccent<br>
+      Whatever suffices you actually choose to indicate that a class is intended to be first or second of a kerning pair, I'd precede it by underscore or better by period. This makes it easier to spot suffices and maybe to search/replace them. Just in case.<br>
+      _z.1 then will be marked as leftside pair, _z.2 as rightside pair either in FLS5's Classes panel or Kerning Assistance panel.</p>
+      <p>This however addresses only overlapping of kerning classes' content (a), but not excessive kerning (b) ...</p>
+    html_clean: |-
+      <p>Yes, at best you create separate classes for first-glyphs-of-a-pair and for second-glyphs-of-a-pair -- even if they would contain the same glyphs:<br>
+      _z.1: z' zdotaccent<br>
+      _z.2: z' zdotaccent<br>
+      Whatever suffices you actually choose to indicate that a class is intended to be first or second of a kerning pair, I'd precede it by underscore or better by period. This makes it easier to spot suffices and maybe to search/replace them. Just in case.<br>
+      _z.1 then will be marked as leftside pair, _z.2 as rightside pair either in FLS5's Classes panel or Kerning Assistance panel.</p>
+      <p>This however addresses only overlapping of kerning classes' content (a), but not excessive kerning (b) ...</p>
+  - id: 133823
+    user: 1844
+    date: 2006-07-11T17:03:00
+    date_raw: 11 Jul 2006 — 5:03pm
+    votes: null
+    html: |-
+      <p>I plan to talk about this at length during ATypI's TypeTech forum.<br>
+      Here's what I plan to cover:<br>
+      — How to optimize the kern feature<br>
+      — How to solve 'overflow' errors<br>
+      — Making correct use of the 'subtable' command<br>
+      — Kerning fonts with large_glyphsets/multiple_scripts</p>
+      <p>If you can hold until then, I believe it's going to be worth it.</p>
+      <p>I would give some hints now, but this issue can't really be handled in a couple of posts. Sorry :(</p>
+    html_clean: |-
+      <p>I plan to talk about this at length during ATypI's TypeTech forum.<br>
+      Here's what I plan to cover:<br>
+      — How to optimize the kern feature<br>
+      — How to solve 'overflow' errors<br>
+      — Making correct use of the 'subtable' command<br>
+      — Kerning fonts with large_glyphsets/multiple_scripts</p>
+      <p>If you can hold until then, I believe it's going to be worth it.</p>
+      <p>I would give some hints now, but this issue can't really be handled in a couple of posts. Sorry :(</p>
+  - id: 133826
+    user: 1844
+    date: 2006-07-11T17:17:00
+    date_raw: 11 Jul 2006 — 5:17pm
+    votes: null
+    html: |-
+      <p>Looking at <a href="http://typophile.com/node/7156#comment-49196" rel="nofollow">Alan's post above</a>, I just noticed that his example will generate a 'bug'. A font with his code will compile, but the last pair (<code>pos T e -55;</code>) won't be accessible (and FontLab or the FDK won't warn you about this).</p>
+      <p>The thing is, all pairs that start with the same LEFT class, must be all contained within the same subtable.</p>
+    html_clean: |-
+      <p>Looking at <a href="/node/7156/#comment-49196" rel="nofollow">Alan's post above</a>, I just noticed that his example will generate a 'bug'. A font with his code will compile, but the last pair (<code>pos T e -55;</code>) won't be accessible (and FontLab or the FDK won't warn you about this).</p>
+      <p>The thing is, all pairs that start with the same LEFT class, must be all contained within the same subtable.</p>
+  - id: 133874
+    user: 8664
+    date: 2006-07-12T01:26:00
+    date_raw: 12 Jul 2006 — 1:26am
+    votes: null
+    html: |-
+      <p><cite>I plan to talk about this at length during ATypI’s TypeTech forum.</cite></p>
+      <p>This is good news!</p>
+    html_clean: |-
+      <p><cite>I plan to talk about this at length during ATypI’s TypeTech forum.</cite></p>
+      <p>This is good news!</p>
+  - id: 291670
+    user: 31866
+    date: 2008-07-25T21:03:00
+    date_raw: 25 Jul 2008 — 9:03pm
+    votes: null
+    html: |-
+      <p>This kern feature is driving me nuts. Beta ware man.. Isn't computers suppose to help REDUCE the workload and not make more ?</p>
+      <p>Ok my problem, I made a huge font and it's not even close to done. I compiles no errors. I added class Kerning. If I save it as a font I get a billion kerning gpos errors.  Well actually only one cause one is all you need to break the font.</p>
+      <p>I'm not even finished the kerning. I have about 67 kerning classes. I searched the kern feature and these subtable; are there. I still get the error.</p>
+      <p>I saved it flat just out of curiosity. It's about 60,000 kern pairs stored that way. It takes ten minuets to load the font. Not the way to make it work.. I need the class kerning to work.. </p>
+      <p>How do I get rid of the gpos error ? This would be FL.. The new one.</p>
+    html_clean: |-
+      <p>This kern feature is driving me nuts. Beta ware man.. Isn't computers suppose to help REDUCE the workload and not make more ?</p>
+      <p>Ok my problem, I made a huge font and it's not even close to done. I compiles no errors. I added class Kerning. If I save it as a font I get a billion kerning gpos errors.  Well actually only one cause one is all you need to break the font.</p>
+      <p>I'm not even finished the kerning. I have about 67 kerning classes. I searched the kern feature and these subtable; are there. I still get the error.</p>
+      <p>I saved it flat just out of curiosity. It's about 60,000 kern pairs stored that way. It takes ten minuets to load the font. Not the way to make it work.. I need the class kerning to work.. </p>
+      <p>How do I get rid of the gpos error ? This would be FL.. The new one.</p>
+  - id: 291758
+    user: 31866
+    date: 2008-07-26T15:02:00
+    date_raw: 26 Jul 2008 — 3:02pm
+    votes: null
+    html: |-
+      <p>I answered my own question. I'll be nice and put the solution here for anyone that is looking for it.. I wish it would have just explained in the book but it does not..</p>
+      <p>How did I get there? I added unusual pairs in the Greek and the Russian language probably and kerned them. Big mistake probably cause later I accidentally added several of those to kerning classes. There is no tools to find the errors so it's welcome to hell..</p>
+      <p>Ok I exported the kerning data and deleted everything that looked odd. Single pair kerns keeping the classed based intact. Next I imported it and flattened the table then re-compressed it. Eureka ! I managed to save 576,536 pairs. Not bad, I lost about 20,000 or so. Better than losing it all by far.. I managed to save 4280 classed based pairs.</p>
+      <p>I tried a million different ideas and this was the only thing that worked..  The idea to avoid this kind of thing is color all the glyphs in a class and don't drag and drop those if there colored. </p>
+      <p>Live a learn.</p>
+    html_clean: |-
+      <p>I answered my own question. I'll be nice and put the solution here for anyone that is looking for it.. I wish it would have just explained in the book but it does not..</p>
+      <p>How did I get there? I added unusual pairs in the Greek and the Russian language probably and kerned them. Big mistake probably cause later I accidentally added several of those to kerning classes. There is no tools to find the errors so it's welcome to hell..</p>
+      <p>Ok I exported the kerning data and deleted everything that looked odd. Single pair kerns keeping the classed based intact. Next I imported it and flattened the table then re-compressed it. Eureka ! I managed to save 576,536 pairs. Not bad, I lost about 20,000 or so. Better than losing it all by far.. I managed to save 4280 classed based pairs.</p>
+      <p>I tried a million different ideas and this was the only thing that worked..  The idea to avoid this kind of thing is color all the glyphs in a class and don't drag and drop those if there colored. </p>
+      <p>Live a learn.</p>
+  - id: 291767
+    user: 8664
+    date: 2008-07-26T16:41:00
+    date_raw: 26 Jul 2008 — 4:41pm
+    votes: null
+    html: |-
+      <p>Very extensive discussion: <a href="http://typophile.com/node/16413" title="http://typophile.com/node/16413">http://typophile.com/node/16413</a><br>
+      Other discussion in random order, some more, some less useful ...<br>
+      1 <a href="http://www.typophile.com/node/37959" title="http://www.typophile.com/node/37959">http://www.typophile.com/node/37959</a><br>
+      2 <a href="http://www.typophile.com/node/37295" title="http://www.typophile.com/node/37295">http://www.typophile.com/node/37295</a><br>
+      3 <a href="http://www.typophile.com/node/39456" title="http://www.typophile.com/node/39456">http://www.typophile.com/node/39456</a><br>
+      4 <a href="http://www.typophile.com/node/20550" title="http://www.typophile.com/node/20550">http://www.typophile.com/node/20550</a><br>
+      5 <a href="http://www.typophile.com/node/34558" title="http://www.typophile.com/node/34558">http://www.typophile.com/node/34558</a><br>
+      6 <a href="http://www.typophile.com/node/29125" title="http://www.typophile.com/node/29125">http://www.typophile.com/node/29125</a> (added a remark)</p>
+    html_clean: |-
+      <p>Very extensive discussion: <a href="/node/16413/" title="http://typophile.com/node/16413">http://typophile.com/node/16413</a><br>
+      Other discussion in random order, some more, some less useful ...<br>
+      1 <a href="/node/37959/" title="http://www.typophile.com/node/37959">http://www.typophile.com/node/37959</a><br>
+      2 <a href="/node/37295/" title="http://www.typophile.com/node/37295">http://www.typophile.com/node/37295</a><br>
+      3 <a href="/node/39456/" title="http://www.typophile.com/node/39456">http://www.typophile.com/node/39456</a><br>
+      4 <a href="/node/20550/" title="http://www.typophile.com/node/20550">http://www.typophile.com/node/20550</a><br>
+      5 <a href="/node/34558/" title="http://www.typophile.com/node/34558">http://www.typophile.com/node/34558</a><br>
+      6 <a href="/node/29125/" title="http://www.typophile.com/node/29125">http://www.typophile.com/node/29125</a> (added a remark)</p>
+  - id: 291777
+    user: 3135
+    date: 2008-07-26T19:00:00
+    date_raw: 26 Jul 2008 — 7:00pm
+    votes: null
+    html: |-
+      <p>tracking</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>tracking</p>
+      <p>ChrisL</p>
+  - id: 291824
+    user: 31866
+    date: 2008-07-27T10:39:00
+    date_raw: 27 Jul 2008 — 10:39am
+    votes: null
+    html: |-
+      <p>I'm not getting some of those errors. I sub kerned some classes and I'm not getting some glyph pairs may never be accessed errors. Good thing too cause there is lots of them.</p>
+      <p>How I got into this boat without a paddle was Since I don't speak or write Russian or Greek I found books and kerned it that way.. Later I accidentally added some of those glyphs to classes. Don't do that cause that is a miserable error to recover from.</p>
+      <p>My entire font is now class based only. It's working perfectly so far. It's up to 646,782 stored flat pairs but amazingly there is only a little over 2000 (2335) tables so far.</p>
+    html_clean: |-
+      <p>I'm not getting some of those errors. I sub kerned some classes and I'm not getting some glyph pairs may never be accessed errors. Good thing too cause there is lots of them.</p>
+      <p>How I got into this boat without a paddle was Since I don't speak or write Russian or Greek I found books and kerned it that way.. Later I accidentally added some of those glyphs to classes. Don't do that cause that is a miserable error to recover from.</p>
+      <p>My entire font is now class based only. It's working perfectly so far. It's up to 646,782 stored flat pairs but amazingly there is only a little over 2000 (2335) tables so far.</p>
+  - id: 292108
+    user: 31866
+    date: 2008-07-29T02:10:00
+    date_raw: 29 Jul 2008 — 2:10am
+    votes: null
+    html: |-
+      <p>Actually that is not the solution. Somehow FontLab 5.0.4 is generating that error all by itself.. I fixed it, now I'm right back in the same boat. I'm only kerning class based stuff now. I just tried it and I got that stupid error again. There is absolutely no pairs that are not defined in a class now.I never added glyphs to classes. I haven't kerned anything that is not in a class.</p>
+      <p>Like what the hell does this mean ? 0x19022</p>
+      <p>Think they could be a little more specific ? Like highlight where the error is or the pair it's located in. </p>
+      <p>I never added any subtables. If there is a error now the program all by itself, generated it.</p>
+      <p>I don't know what is causing the error to avoid it. What am I suppose to do try to compile it after every kern?</p>
+    html_clean: |-
+      <p>Actually that is not the solution. Somehow FontLab 5.0.4 is generating that error all by itself.. I fixed it, now I'm right back in the same boat. I'm only kerning class based stuff now. I just tried it and I got that stupid error again. There is absolutely no pairs that are not defined in a class now.I never added glyphs to classes. I haven't kerned anything that is not in a class.</p>
+      <p>Like what the hell does this mean ? 0x19022</p>
+      <p>Think they could be a little more specific ? Like highlight where the error is or the pair it's located in. </p>
+      <p>I never added any subtables. If there is a error now the program all by itself, generated it.</p>
+      <p>I don't know what is causing the error to avoid it. What am I suppose to do try to compile it after every kern?</p>
+  - id: 304785
+    user: 31866
+    date: 2008-10-04T18:01:00
+    date_raw: 4 Oct 2008 — 6:01pm
+    votes: null
+    html: |-
+      <p>Ok figured it out eventually. I'll put the solution here.</p>
+      <p>The deal and how I got there. Too many sub tables cause I did the kerning not in the correct order. Do the classes then the sub classes then the singles. Don't mix and match. </p>
+      <p>That was problem Number 2. Reading Adobe's site it alludes to the fact that more than 6 subtables is a point of diminished returns. It does not say it will not compile. More than 6 you will get GPOS errors. Doing things not in the correct order maybe needlessly be generating subtables when they may in fact not be necessary. Why I got there was when I was using the font and noticed a kerning error I just fixed it so it would not go unrepaired. I thought I may never find it again or forget it ever existed. Avoid that habit at all costs.  Write it down and just kern the classes. Check later and see if it is still there and fix it then only.</p>
+      <p>Problem Number 1.. Too many class kerns. I experimented to find out what is the max possible and still get it to compile. 15,000 is the magic number. Could be slightly higher but it will not compile 16,000. I had over 32,000..</p>
+      <p>What to do, what to do.... Gave up, started again. I readjusted the matrics to eliminate as many pairs as possible then re-kerned the font. I ended up with many more kern classes but fewer overall kerned pairs when I was done, less than 15,000 now.  It compiles, not a single error. This is a hand kerned font. There is no auto kern with this one. That was a lot of work to toss away.</p>
+      <p>It's actually not a Fontlab problem, but there is a lack of understanding of it  so there is a lack of documentation on it. Fontlab uses Adobe's system to compile the font. The error is being generated by the Adobe part. </p>
+      <p>I asked Fontlab and there answer was we don't also get why that error comes up.</p>
+      <p>There is one more thing I didn't get. I figure who cares so you got more than 32,000 class kerns just set it to only export so many pairs.. Nope, if you have that many pairs in the source it will not compile don't matter if you set it to export only two single pairs. You have to have 15,000 or less before that other part of the program even kicks in.</p>
+      <p>I'm pretty sure if you kern the font in the correct order you will only have two subtables. Single pair kerning then a subtable for sub class kerning then a subtable for class kerning in that order.   </p>
+      <p>And now you know.</p>
+    html_clean: |-
+      <p>Ok figured it out eventually. I'll put the solution here.</p>
+      <p>The deal and how I got there. Too many sub tables cause I did the kerning not in the correct order. Do the classes then the sub classes then the singles. Don't mix and match. </p>
+      <p>That was problem Number 2. Reading Adobe's site it alludes to the fact that more than 6 subtables is a point of diminished returns. It does not say it will not compile. More than 6 you will get GPOS errors. Doing things not in the correct order maybe needlessly be generating subtables when they may in fact not be necessary. Why I got there was when I was using the font and noticed a kerning error I just fixed it so it would not go unrepaired. I thought I may never find it again or forget it ever existed. Avoid that habit at all costs.  Write it down and just kern the classes. Check later and see if it is still there and fix it then only.</p>
+      <p>Problem Number 1.. Too many class kerns. I experimented to find out what is the max possible and still get it to compile. 15,000 is the magic number. Could be slightly higher but it will not compile 16,000. I had over 32,000..</p>
+      <p>What to do, what to do.... Gave up, started again. I readjusted the matrics to eliminate as many pairs as possible then re-kerned the font. I ended up with many more kern classes but fewer overall kerned pairs when I was done, less than 15,000 now.  It compiles, not a single error. This is a hand kerned font. There is no auto kern with this one. That was a lot of work to toss away.</p>
+      <p>It's actually not a Fontlab problem, but there is a lack of understanding of it  so there is a lack of documentation on it. Fontlab uses Adobe's system to compile the font. The error is being generated by the Adobe part. </p>
+      <p>I asked Fontlab and there answer was we don't also get why that error comes up.</p>
+      <p>There is one more thing I didn't get. I figure who cares so you got more than 32,000 class kerns just set it to only export so many pairs.. Nope, if you have that many pairs in the source it will not compile don't matter if you set it to export only two single pairs. You have to have 15,000 or less before that other part of the program even kicks in.</p>
+      <p>I'm pretty sure if you kern the font in the correct order you will only have two subtables. Single pair kerning then a subtable for sub class kerning then a subtable for class kerning in that order.   </p>
+      <p>And now you know.</p>

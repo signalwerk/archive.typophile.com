@@ -1,0 +1,239 @@
+node: 50213
+title: TrueType hinting for the space glyph?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140724002720"
+  captured_at: 2014-07-24T00:27:20Z
+  url: http://typophile.com/node/50213
+  digest: R5L6QVCRPX4EVCVJQVNEWQG6AP6UWNS4
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/50213.html
+  fingerprint: 302798b0cd1e7d00
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140724002720"
+      digest: R5L6QVCRPX4EVCVJQVNEWQG6AP6UWNS4
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/50213.html
+post:
+  id: 50213
+  user: 21687
+  date: 2008-10-06T07:10:00
+  date_raw: 6 Oct 2008 — 7:10am
+  votes: null
+  html: |-
+    <p>Hi,</p>
+    <p>I'm trying to hint the space glyph in a TrueType font and I'm not sure if the result I get is a bug in FontLab, or if there's some other reason for this ...</p>
+    <p>I'd like to round up the width to the full pixel. This works using the same instruction on all glyphs which contain outlines, but in the space character the width always rounds to the closest pixel edge, as indicated by the light blue line in the image - and not the right edge as I would expect it to.</p>
+    <p>Any ideas?</p>
+    <p>Thanks,<br>
+    Jens</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/tthinting-space.png">tthinting-space.png</a></td><td>15.35 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>Hi,</p>
+    <p>I'm trying to hint the space glyph in a TrueType font and I'm not sure if the result I get is a bug in FontLab, or if there's some other reason for this ...</p>
+    <p>I'd like to round up the width to the full pixel. This works using the same instruction on all glyphs which contain outlines, but in the space character the width always rounds to the closest pixel edge, as indicated by the light blue line in the image - and not the right edge as I would expect it to.</p>
+    <p>Any ideas?</p>
+    <p>Thanks,<br>
+    Jens</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/tthinting-space.png">tthinting-space.png</a></td><td>15.35 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 305026
+    user: 19560
+    date: 2008-10-06T11:26:00
+    date_raw: 6 Oct 2008 — 11:26am
+    votes: null
+    html: |-
+      <p>I don't think the TrueType format supports hints on glyphs that have no contours (re-reading the OpenType spec for the 'glyf' table, I think it might be possible, but I don't know of any tools that support it).</p>
+      <p>Try adding a single point to the glyph, if FontLab will allow it. This may produce some errors or warnings, but is legal per the OpenType specification and should allow hints to be stored for the glyph. That is assuming this operation is really necessary, which I'm a bit skeptical about, but you probably have a better sense of that than I do.</p>
+    html_clean: |-
+      <p>I don't think the TrueType format supports hints on glyphs that have no contours (re-reading the OpenType spec for the 'glyf' table, I think it might be possible, but I don't know of any tools that support it).</p>
+      <p>Try adding a single point to the glyph, if FontLab will allow it. This may produce some errors or warnings, but is legal per the OpenType specification and should allow hints to be stored for the glyph. That is assuming this operation is really necessary, which I'm a bit skeptical about, but you probably have a better sense of that than I do.</p>
+  - id: 305632
+    user: 2969
+    date: 2008-10-09T12:19:00
+    date_raw: 9 Oct 2008 — 12:19pm
+    votes: null
+    html: |-
+      <p>I know the pure TT hinting tools generally available do not allow hinting from origin to set width and I cannot tell you why.<br>
+      I don't know what the hints from FL will look like. If you can write the hints by hand, they'd say:<br>
+      SRP0[], (Place number of origin point here)<br>
+      RUTG[flags], (Don't forget to set flag to round)<br>
+      MDRP[], (Place number of set width point here)</p>
+      <p>You might also look into editing the horizontal device metrics table (hdmx), if you are targeting an application that uses it. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>I know the pure TT hinting tools generally available do not allow hinting from origin to set width and I cannot tell you why.<br>
+      I don't know what the hints from FL will look like. If you can write the hints by hand, they'd say:<br>
+      SRP0[], (Place number of origin point here)<br>
+      RUTG[flags], (Don't forget to set flag to round)<br>
+      MDRP[], (Place number of set width point here)</p>
+      <p>You might also look into editing the horizontal device metrics table (hdmx), if you are targeting an application that uses it. </p>
+      <p>Cheers!</p>
+  - id: 305736
+    user: 21687
+    date: 2008-10-10T07:58:00
+    date_raw: 10 Oct 2008 — 7:58am
+    votes: null
+    html: |-
+      <p>Thanks ...</p>
+      <p>it seems the instructions on an empty glyph as shown in the FL screenshot don't end up in the generated font at all.</p>
+      <p>Does ClearType use the hdmx table? I don't think so, because the C-fonts don't have it. I tried editing it anyway.</p>
+      <p>The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application.</p>
+      <p>Jens</p>
+    html_clean: |-
+      <p>Thanks ...</p>
+      <p>it seems the instructions on an empty glyph as shown in the FL screenshot don't end up in the generated font at all.</p>
+      <p>Does ClearType use the hdmx table? I don't think so, because the C-fonts don't have it. I tried editing it anyway.</p>
+      <p>The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application.</p>
+      <p>Jens</p>
+  - id: 305764
+    user: 19560
+    date: 2008-10-10T09:48:00
+    date_raw: 10 Oct 2008 — 9:48am
+    votes: null
+    html: |-
+      <p>I don't think CT makes use of the 'hdmx' table as it is contrary to the mechanism of ClearType. Even if you were able to apply hints to such a glyph, I think you might run into some problems under ClearType.</p>
+      <p>As I mentioned, I think it is technically *possible* to have hints on a glyph with zero contours; the 'glyf' table definition would appear to allow it:<br>
+      <code><br>
+      Type	Name	Description<br>
+      SHORT	numberOfContours	If the number of contours is greater than or equal to zero, this is a single glyph; if negative, this is a composite glyph.<br>
+      SHORT	xMin	Minimum x for coordinate data.<br>
+      SHORT	yMin	Minimum y for coordinate data.<br>
+      SHORT	xMax	Maximum x for coordinate data.<br>
+      SHORT	yMax	Maximum y for coordinate data.</code></p>
+      <p>USHORT	endPtsOfContours[n]	Array of last points of each contour; n is the number of contours.<br>
+      USHORT	instructionLength	Total number of bytes for instructions.<br>
+      BYTE	instructions[n]	Array of instructions for each glyph; n is the number of instructions.<br>
+      BYTE	flags[n]	Array of flags for each coordinate in outline; n is the number of flags.<br>
+      BYTE or SHORT	xCoordinates[ ]	First coordinates relative to (0,0); others are relative to previous point.<br>
+      BYTE or SHORT	yCoordinates[ ]	First coordinates relative to (0,0); others are relative to previous point.</p>
+      <p>Such a glyph would/should look something like this:<br>
+      <code><br>
+      0000 - numberOfContours, 0<br>
+      0000 - xMin<br>
+      0000 - yMin<br>
+      0000 - xMax<br>
+      0000 - yMax<br>
+      ---- - no entry for endPtsOfContours since 'numberOfContours' = 0<br>
+      0004 - instructionLength, 4 bytes<br>
+      ii - instruction byte 0<br>
+      ii - instruction byte 1<br>
+      ii - instruction byte 2<br>
+      ii - instruction byte 3<br>
+      ---- - no flag or x/yCoordinates since there are no contours, no points</code></p>
+      <p>I think the trouble begins further upstream than this, though, because it seems most font tools implement a rule that when there are no contours, a blank 'loca' table entry will be made; thus no space is allocated in the 'glyf' table for any instructions.</p>
+      <p>I have been meaning to experiment and try editing a 'loca' and 'glyf' table to insert instructions on a zero-contour glyph, to see if it would be interpreted correctly.</p>
+      <p>Did you try adding a single point to the glyph, then adding hints? Not sure whether FontLab allows this and haven't had time to play with that yet...</p>
+    html_clean: |-
+      <p>I don't think CT makes use of the 'hdmx' table as it is contrary to the mechanism of ClearType. Even if you were able to apply hints to such a glyph, I think you might run into some problems under ClearType.</p>
+      <p>As I mentioned, I think it is technically *possible* to have hints on a glyph with zero contours; the 'glyf' table definition would appear to allow it:<br>
+      <code><br>
+      Type	Name	Description<br>
+      SHORT	numberOfContours	If the number of contours is greater than or equal to zero, this is a single glyph; if negative, this is a composite glyph.<br>
+      SHORT	xMin	Minimum x for coordinate data.<br>
+      SHORT	yMin	Minimum y for coordinate data.<br>
+      SHORT	xMax	Maximum x for coordinate data.<br>
+      SHORT	yMax	Maximum y for coordinate data.</code></p>
+      <p>USHORT	endPtsOfContours[n]	Array of last points of each contour; n is the number of contours.<br>
+      USHORT	instructionLength	Total number of bytes for instructions.<br>
+      BYTE	instructions[n]	Array of instructions for each glyph; n is the number of instructions.<br>
+      BYTE	flags[n]	Array of flags for each coordinate in outline; n is the number of flags.<br>
+      BYTE or SHORT	xCoordinates[ ]	First coordinates relative to (0,0); others are relative to previous point.<br>
+      BYTE or SHORT	yCoordinates[ ]	First coordinates relative to (0,0); others are relative to previous point.</p>
+      <p>Such a glyph would/should look something like this:<br>
+      <code><br>
+      0000 - numberOfContours, 0<br>
+      0000 - xMin<br>
+      0000 - yMin<br>
+      0000 - xMax<br>
+      0000 - yMax<br>
+      ---- - no entry for endPtsOfContours since 'numberOfContours' = 0<br>
+      0004 - instructionLength, 4 bytes<br>
+      ii - instruction byte 0<br>
+      ii - instruction byte 1<br>
+      ii - instruction byte 2<br>
+      ii - instruction byte 3<br>
+      ---- - no flag or x/yCoordinates since there are no contours, no points</code></p>
+      <p>I think the trouble begins further upstream than this, though, because it seems most font tools implement a rule that when there are no contours, a blank 'loca' table entry will be made; thus no space is allocated in the 'glyf' table for any instructions.</p>
+      <p>I have been meaning to experiment and try editing a 'loca' and 'glyf' table to insert instructions on a zero-contour glyph, to see if it would be interpreted correctly.</p>
+      <p>Did you try adding a single point to the glyph, then adding hints? Not sure whether FontLab allows this and haven't had time to play with that yet...</p>
+  - id: 306121
+    user: 2969
+    date: 2008-10-13T06:31:00
+    date_raw: 13 Oct 2008 — 6:31am
+    votes: null
+    html: |-
+      <p>"The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application."<br>
+      If the application is using fractional metrics to approximate the appearance of print, this should not be a problem, should it?</p>
+      <p>"Even if you were able to apply hints to such a glyph, I think you might run into some problems under ClearType."<br>
+      I'm not sure what you mean, unless it is that CT will ignore x hints that modify character widths, which is only a problem if you don't want it to, i.e. you are interested in the quality only on the screen. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application."<br>
+      If the application is using fractional metrics to approximate the appearance of print, this should not be a problem, should it?</p>
+      <p>"Even if you were able to apply hints to such a glyph, I think you might run into some problems under ClearType."<br>
+      I'm not sure what you mean, unless it is that CT will ignore x hints that modify character widths, which is only a problem if you don't want it to, i.e. you are interested in the quality only on the screen. </p>
+      <p>Cheers!</p>
+  - id: 306166
+    user: 21687
+    date: 2008-10-13T11:39:00
+    date_raw: 13 Oct 2008 — 11:39am
+    votes: null
+    html: |-
+      <p><em>“The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application.”<br>
+      If the application is using fractional metrics to approximate the appearance of print, this should not be a problem, should it?</em></p>
+      <p>Sorry, I got confused ... I meant "to make sure the text is never <strong>wider in print</strong> than on screen".</p>
+      <p>It looks like this application is using the system renderer on Windows, but the width of text on screen changes even with different zoom levels. So, fractional metrics in theory when ClearType is turned on, but the application seems to do some strange things.</p>
+      <p><em>Did you try adding a single point to the glyph, then adding hints? Not sure whether FontLab allows this and haven’t had time to play with that yet...</em></p>
+      <p>FontLab seems to leave out open contours when generating the font, even though it asks whether it should export them. So the space glyph with one point and some instructions has neither a point nor any instructions in the generated font ... just an empty glyph.</p>
+      <p>Jens</p>
+    html_clean: |-
+      <p><em>“The idea in hinting the space glyph was to make sure the text is never wider on screen than in print with a certain application.”<br>
+      If the application is using fractional metrics to approximate the appearance of print, this should not be a problem, should it?</em></p>
+      <p>Sorry, I got confused ... I meant "to make sure the text is never <strong>wider in print</strong> than on screen".</p>
+      <p>It looks like this application is using the system renderer on Windows, but the width of text on screen changes even with different zoom levels. So, fractional metrics in theory when ClearType is turned on, but the application seems to do some strange things.</p>
+      <p><em>Did you try adding a single point to the glyph, then adding hints? Not sure whether FontLab allows this and haven’t had time to play with that yet...</em></p>
+      <p>FontLab seems to leave out open contours when generating the font, even though it asks whether it should export them. So the space glyph with one point and some instructions has neither a point nor any instructions in the generated font ... just an empty glyph.</p>
+      <p>Jens</p>
+  - id: 306605
+    user: 4019
+    date: 2008-10-15T17:24:00
+    date_raw: 15 Oct 2008 — 5:24pm
+    votes: null
+    html: |-
+      <p>&gt;FontLab seems to leave out open contours when generating the font, even though it asks whether it should export them. So the space glyph with one point and some instructions has neither a point nor any instructions in the generated font ... just an empty glyph.</p>
+      <p>That is so irritating given the huge number of fonts that have been made with, duh, a single point in the space glyph which is obviously useful. It is interesting to note that the space glyph in Calibri is so tight that you can never be sure, on screen, if you have typed one space or two spaces. Whether that's a function of inept metrics or hinting, I don't know and haven't bothered to find out. </p>
+      <p>This is so typical of the trend today: build fonts with x thousand characters and xx thousand kern pairs, when you haven't yet mastered your problems below ASCII 128. </p>
+      <p>What do the DTL/URW IK-based tools do in this respect? And what do they do, for that matter, with the fractional handles that Fontlab can't deal with either?</p>
+    html_clean: |-
+      <p>&gt;FontLab seems to leave out open contours when generating the font, even though it asks whether it should export them. So the space glyph with one point and some instructions has neither a point nor any instructions in the generated font ... just an empty glyph.</p>
+      <p>That is so irritating given the huge number of fonts that have been made with, duh, a single point in the space glyph which is obviously useful. It is interesting to note that the space glyph in Calibri is so tight that you can never be sure, on screen, if you have typed one space or two spaces. Whether that's a function of inept metrics or hinting, I don't know and haven't bothered to find out. </p>
+      <p>This is so typical of the trend today: build fonts with x thousand characters and xx thousand kern pairs, when you haven't yet mastered your problems below ASCII 128. </p>
+      <p>What do the DTL/URW IK-based tools do in this respect? And what do they do, for that matter, with the fractional handles that Fontlab can't deal with either?</p>

@@ -1,0 +1,394 @@
+node: 84538
+title: Question regarding .vfb and .otf files
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140723153533"
+  captured_at: 2014-07-23T15:35:33Z
+  url: http://typophile.com/node/84538
+  digest: IVJNYYIGRVG46HO6OJJR7IHS4QGHNHZP
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/84538.html
+  fingerprint: 94413ff50f266429
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140723153533"
+      digest: IVJNYYIGRVG46HO6OJJR7IHS4QGHNHZP
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/84538.html
+post:
+  id: 84538
+  user: 174791
+  date: 2011-08-13T02:39:00
+  date_raw: 13 Aug 2011 — 2:39am
+  votes: null
+  html: |-
+    <p>I'm pretty new to all this and am working on my first typeface. I've been adding new weights and now have a family of 4 weights.</p>
+    <p>I noticed something odd the other day: a lot of the OpenType scripts &amp; features seem to have changed a bit (im not even sure how i am supposed to call these, i mean the classes, salt, calt, dlig features, and so on).</p>
+    <p>For example, there is suddenly an aalt feature:<br>
+    feature aalt{<br>
+      feature salt;<br>
+    } aalt; </p>
+    <p>In the liga feature there are suddenly comments such as<br>
+    # Standard Ligatures<br>
+     # Latin</p>
+    <p>calt suddenly has 'lookup' in it:<br>
+    lookup calt2 { </p>
+    <p>and so on a number of other changes.</p>
+    <p>I'm really not sure what happened. It seems a number of kerning details I did have been lost as well. </p>
+    <p>On top of this (maybe this is the problem?) when I generate the font I get a pop-up window that says:</p>
+    <p>"Current font contains both OpenType features definition and imported binary OpenType tables"</p>
+    <p>Could it be that I have unknowingly opened the .otf files I generated and continued working on those, saving them again as .vfb files? Is that possible at all? I noticed that it is possible to open up .otf files and those do have that aalt feature that I didn't put in there myself.</p>
+    <p>Suggestions more than welcome!</p>
+    <p>PS: any tips on how to save older versions of your typeface in progress? Because if this went haywire I'll probably have to start over again since I continuously over-saved the files... ;(</p>
+  html_clean: |-
+    <p>I'm pretty new to all this and am working on my first typeface. I've been adding new weights and now have a family of 4 weights.</p>
+    <p>I noticed something odd the other day: a lot of the OpenType scripts &amp; features seem to have changed a bit (im not even sure how i am supposed to call these, i mean the classes, salt, calt, dlig features, and so on).</p>
+    <p>For example, there is suddenly an aalt feature:<br>
+    feature aalt{<br>
+      feature salt;<br>
+    } aalt; </p>
+    <p>In the liga feature there are suddenly comments such as<br>
+    # Standard Ligatures<br>
+     # Latin</p>
+    <p>calt suddenly has 'lookup' in it:<br>
+    lookup calt2 { </p>
+    <p>and so on a number of other changes.</p>
+    <p>I'm really not sure what happened. It seems a number of kerning details I did have been lost as well. </p>
+    <p>On top of this (maybe this is the problem?) when I generate the font I get a pop-up window that says:</p>
+    <p>"Current font contains both OpenType features definition and imported binary OpenType tables"</p>
+    <p>Could it be that I have unknowingly opened the .otf files I generated and continued working on those, saving them again as .vfb files? Is that possible at all? I noticed that it is possible to open up .otf files and those do have that aalt feature that I didn't put in there myself.</p>
+    <p>Suggestions more than welcome!</p>
+    <p>PS: any tips on how to save older versions of your typeface in progress? Because if this went haywire I'll probably have to start over again since I continuously over-saved the files... ;(</p>
+comments:
+  - id: 473892
+    user: 6470
+    date: 2011-08-13T07:38:00
+    date_raw: 13 Aug 2011 — 7:38am
+    votes: null
+    html: <p>Once more, I cannot claim any special expertise in the matter, but I have noticed that FontLab has its own ideas about what constitutes proper syntax, and will apply those ideas when it generates a font. Unless the syntax you use is spectacularly wrong, the process is transparent.</p>
+    html_clean: <p>Once more, I cannot claim any special expertise in the matter, but I have noticed that FontLab has its own ideas about what constitutes proper syntax, and will apply those ideas when it generates a font. Unless the syntax you use is spectacularly wrong, the process is transparent.</p>
+  - id: 473911
+    user: 31798
+    date: 2011-08-13T09:07:00
+    date_raw: 13 Aug 2011 — 9:07am
+    votes: null
+    html: |-
+      <p>Actually, I think it's better to characterize the process in reverse. What you're seeing has more to do with how FontLab <em>de</em>compiles fonts than how it compiles them. When FL compiles a font, you should end up with something which contains the features and lookups which you described in your .vfb file, but there is no way to recover the actual code which your .vfb file contained simply by looking at the resultant .otf file. FontLab can't reconstruct things like class or lookup names from compiled fonts so it makes these up, and it also explicitly includes a lot of stuff which is often left implicit when writing code (such as lookup declarations).</p>
+      <p>If you really want to know exactly what FontLab is generating, you're better off using a tool like DTL OTMaster (Lite) rather than reopening your fonts in FontLab.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>Actually, I think it's better to characterize the process in reverse. What you're seeing has more to do with how FontLab <em>de</em>compiles fonts than how it compiles them. When FL compiles a font, you should end up with something which contains the features and lookups which you described in your .vfb file, but there is no way to recover the actual code which your .vfb file contained simply by looking at the resultant .otf file. FontLab can't reconstruct things like class or lookup names from compiled fonts so it makes these up, and it also explicitly includes a lot of stuff which is often left implicit when writing code (such as lookup declarations).</p>
+      <p>If you really want to know exactly what FontLab is generating, you're better off using a tool like DTL OTMaster (Lite) rather than reopening your fonts in FontLab.</p>
+      <p>André</p>
+  - id: 473965
+    user: 174791
+    date: 2011-08-14T01:59:00
+    date_raw: 14 Aug 2011 — 1:59am
+    votes: null
+    html: |-
+      <p>Thanks for your replies guys. This already helps me a lot to understand what's going on.</p>
+      <p>Am I correct in assuming that I did in fact open up the wrong files then? That is, that I accidentally opened up the .oft files instead of the build files? (while i had those .vfb files right there in the same directory). And that FontLab then reverse engeneered / recompiled the fonts from my .otf files into new .vfb files that I - stupidly - saved again over my original .vfb files - hence loosing the original files?</p>
+      <p>This probably means that I can't get my old files back with the original code. Not that it really matters that the code is different - but there seem to be a few oddities now. And on top of that there is this "Current font contains both OpenType features definition and imported binary OpenType tables" message...'</p>
+      <p>Any suggestions?</p>
+    html_clean: |-
+      <p>Thanks for your replies guys. This already helps me a lot to understand what's going on.</p>
+      <p>Am I correct in assuming that I did in fact open up the wrong files then? That is, that I accidentally opened up the .oft files instead of the build files? (while i had those .vfb files right there in the same directory). And that FontLab then reverse engeneered / recompiled the fonts from my .otf files into new .vfb files that I - stupidly - saved again over my original .vfb files - hence loosing the original files?</p>
+      <p>This probably means that I can't get my old files back with the original code. Not that it really matters that the code is different - but there seem to be a few oddities now. And on top of that there is this "Current font contains both OpenType features definition and imported binary OpenType tables" message...'</p>
+      <p>Any suggestions?</p>
+  - id: 473982
+    user: 31798
+    date: 2011-08-14T07:23:00
+    date_raw: 14 Aug 2011 — 7:23am
+    votes: null
+    html: |-
+      <p>I can't be sure, but yes, it sounds like that's what you did.</p>
+      <p>The message is asking you whether you want to preserve the original (imported binary) opentype feature definitions (the ones which were created by FontLab when you originally exported the font) or if you want to recompile the features using the source code created by FontLab's decompiler.</p>
+      <p>While OpenType source code refers to glyphs by name, in the actual OpenType tables glyphs are referred to by glyph index. Therefore, you should only use the imported binary features if you haven't done anything which might have reordered the glyphs within the font.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>I can't be sure, but yes, it sounds like that's what you did.</p>
+      <p>The message is asking you whether you want to preserve the original (imported binary) opentype feature definitions (the ones which were created by FontLab when you originally exported the font) or if you want to recompile the features using the source code created by FontLab's decompiler.</p>
+      <p>While OpenType source code refers to glyphs by name, in the actual OpenType tables glyphs are referred to by glyph index. Therefore, you should only use the imported binary features if you haven't done anything which might have reordered the glyphs within the font.</p>
+      <p>André</p>
+  - id: 474075
+    user: 174791
+    date: 2011-08-15T01:35:00
+    date_raw: 15 Aug 2011 — 1:35am
+    votes: null
+    html: |-
+      <p>André, thanks for your reply and the explanation. Sounds like it's my bad but good to know this is something tricky (for me). I had already seen some messages elsewhere to prefer the binary over the other option, but it is very good to know that I shouldn't mess around with the glyph order anymore. Thanks!</p>
+      <p>By the way: is it possible to copy/paste the complete kerning code from one font to another? Say from my regular version to my bold version? The index is the same so I'm guessing that should work just fine?</p>
+    html_clean: |-
+      <p>André, thanks for your reply and the explanation. Sounds like it's my bad but good to know this is something tricky (for me). I had already seen some messages elsewhere to prefer the binary over the other option, but it is very good to know that I shouldn't mess around with the glyph order anymore. Thanks!</p>
+      <p>By the way: is it possible to copy/paste the complete kerning code from one font to another? Say from my regular version to my bold version? The index is the same so I'm guessing that should work just fine?</p>
+  - id: 474077
+    user: 9633
+    date: 2011-08-15T02:36:00
+    date_raw: 15 Aug 2011 — 2:36am
+    votes: null
+    html: |-
+      <p>Sure, open a new Metrics window in your donor font =&gt; Save your metrics =&gt; open up a metrics window in the bold weight =&gt; Open your previously saved afm file =&gt; Choose to only import the kerning and nothing else.</p>
+      <p>And if you're missing some classes, you can do the same there as well. Just copy it all from your donor font.</p>
+    html_clean: |-
+      <p>Sure, open a new Metrics window in your donor font =&gt; Save your metrics =&gt; open up a metrics window in the bold weight =&gt; Open your previously saved afm file =&gt; Choose to only import the kerning and nothing else.</p>
+      <p>And if you're missing some classes, you can do the same there as well. Just copy it all from your donor font.</p>
+  - id: 474090
+    user: 174791
+    date: 2011-08-15T05:55:00
+    date_raw: 15 Aug 2011 — 5:55am
+    votes: null
+    html: <p>Thanks wiewouters, that's very handy to know! I am assuming that (in this case with my typeface) I could probably do all the kerning in the 'regular' variant and then import all the values to the other weights?</p>
+    html_clean: <p>Thanks wiewouters, that's very handy to know! I am assuming that (in this case with my typeface) I could probably do all the kerning in the 'regular' variant and then import all the values to the other weights?</p>
+  - id: 474098
+    user: 9633
+    date: 2011-08-15T07:22:00
+    date_raw: 15 Aug 2011 — 7:22am
+    votes: null
+    html: |-
+      <p>Yes you could.</p>
+      <p>If you'd wanna do that, an even quicker way would be to:<br>
+      — Resave / rename your regular VFB (This_regular_02.vfb) as a duplicate  (This_bold_02.vfb).<br>
+      — Open up your new bold VFB, delete all the characters<br>
+      — Open up your old bold VFB, copy all the glyphs<br>
+      — Open up your new bold VFB, rightclick (append all glyphs).<br>
+      — Go to font info and change the name, …<br>
+      — Export your font for proofing.</p>
+      <p>Hope that makes sense.</p>
+      <p>Oh and for the record, it’s WiewAuters, but don't worry about it, that's a common typo.</p>
+    html_clean: |-
+      <p>Yes you could.</p>
+      <p>If you'd wanna do that, an even quicker way would be to:<br>
+      — Resave / rename your regular VFB (This_regular_02.vfb) as a duplicate  (This_bold_02.vfb).<br>
+      — Open up your new bold VFB, delete all the characters<br>
+      — Open up your old bold VFB, copy all the glyphs<br>
+      — Open up your new bold VFB, rightclick (append all glyphs).<br>
+      — Go to font info and change the name, …<br>
+      — Export your font for proofing.</p>
+      <p>Hope that makes sense.</p>
+      <p>Oh and for the record, it’s WiewAuters, but don't worry about it, that's a common typo.</p>
+  - id: 474198
+    user: 174791
+    date: 2011-08-16T06:15:00
+    date_raw: 16 Aug 2011 — 6:15am
+    votes: null
+    html: |-
+      <p>hey wiewauters, sorry for the typo :)<br>
+      Thanks for the info, that helps, good stuff man! Will try this soon. Do these things work for all aspects (dlig, calt, kern, etc?). I'm guessing this is the case, that would make the most sense.</p>
+    html_clean: |-
+      <p>hey wiewauters, sorry for the typo :)<br>
+      Thanks for the info, that helps, good stuff man! Will try this soon. Do these things work for all aspects (dlig, calt, kern, etc?). I'm guessing this is the case, that would make the most sense.</p>
+  - id: 474199
+    user: 174791
+    date: 2011-08-16T06:17:00
+    date_raw: 16 Aug 2011 — 6:17am
+    votes: null
+    html: |-
+      <p>Another question:</p>
+      <p>I've got the following code right now for salt:</p>
+      <p><em>feature salt { # Stylistic Alternates<br>
+       # Latin<br>
+          @STARTSWASH = [K R V W Q A];<br>
+          ignore sub @calt1 @STARTSWASH';<br>
+          sub K' by K.alt;<br>
+          sub R' by R.alt;<br>
+          sub V' by V.alt;<br>
+          sub W' by W.alt;<br>
+          sub Q' by Q.alt;<br>
+          sub A' by A.alt;<br>
+      } salt; </em></p>
+      <p>Even though this is the code, the font itself shows these swash characters in every context (as long as stylistic alternates is turned on). How is that possible? These swash characters should only show themselves if there isn't another glyph in place before the character (@calt1 = basically all glyphs).</p>
+    html_clean: |-
+      <p>Another question:</p>
+      <p>I've got the following code right now for salt:</p>
+      <p><em>feature salt { # Stylistic Alternates<br>
+       # Latin<br>
+          @STARTSWASH = [K R V W Q A];<br>
+          ignore sub @calt1 @STARTSWASH';<br>
+          sub K' by K.alt;<br>
+          sub R' by R.alt;<br>
+          sub V' by V.alt;<br>
+          sub W' by W.alt;<br>
+          sub Q' by Q.alt;<br>
+          sub A' by A.alt;<br>
+      } salt; </em></p>
+      <p>Even though this is the code, the font itself shows these swash characters in every context (as long as stylistic alternates is turned on). How is that possible? These swash characters should only show themselves if there isn't another glyph in place before the character (@calt1 = basically all glyphs).</p>
+  - id: 474207
+    user: 1043
+    date: 2011-08-16T06:45:00
+    date_raw: 16 Aug 2011 — 6:45am
+    votes: null
+    html: "<p>You can't use contextual substitutions in salt. Use calt instead. (Hint: the \"c\" in \"calt\" stands for \"contextual\".)</p>"
+    html_clean: "<p>You can't use contextual substitutions in salt. Use calt instead. (Hint: the \"c\" in \"calt\" stands for \"contextual\".)</p>"
+  - id: 474215
+    user: 174791
+    date: 2011-08-16T07:44:00
+    date_raw: 16 Aug 2011 — 7:44am
+    votes: null
+    html: |-
+      <p>Hey Mark, thanks!! Ha, that explains a lot! </p>
+      <p>This means that with these alternates it's just a case of turning them on or off, and that's it? If I keep them as stylistic alternates that is? I've already got a heap of alternates in the contextual alternates list, which is why I put them in the stylistic feature... </p>
+      <p>I take it that swashes are supposed to be in a different feature then?</p>
+    html_clean: |-
+      <p>Hey Mark, thanks!! Ha, that explains a lot! </p>
+      <p>This means that with these alternates it's just a case of turning them on or off, and that's it? If I keep them as stylistic alternates that is? I've already got a heap of alternates in the contextual alternates list, which is why I put them in the stylistic feature... </p>
+      <p>I take it that swashes are supposed to be in a different feature then?</p>
+  - id: 474217
+    user: 3254
+    date: 2011-08-16T08:08:00
+    date_raw: 16 Aug 2011 — 8:08am
+    votes: null
+    html: |-
+      <blockquote><p>You can't use contextual substitutions in salt.</p></blockquote>
+      <p>You can't? I put my contextual swash code into salt (in addition to swsh) and it seemed to work.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture_3788.png"></div><p></p>
+      <p>@Stinger in what software are you viewing the font?</p>
+    html_clean: |-
+      <blockquote><p>You can't use contextual substitutions in salt.</p></blockquote>
+      <p>You can't? I put my contextual swash code into salt (in addition to swsh) and it seemed to work.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Picture_3788.png"></div><p></p>
+      <p>@Stinger in what software are you viewing the font?</p>
+  - id: 474218
+    user: 174791
+    date: 2011-08-16T08:23:00
+    date_raw: 16 Aug 2011 — 8:23am
+    votes: null
+    html: |-
+      <p>Hey eliason, thanks for this. Odd, now I'm a little confused. If you got it to work then it should be possible (that's a great typeface by the way, just checked your post about it, nice!).</p>
+      <p>I'm using Adobe Illustrator and Photoshop to check out the features. Illustrator seems to have a lot of problems updating its cache though, so I need to restart my system frequently (time consuming!). All those tricks should work in Illustrator just fine I think?</p>
+      <p>From your screendump I am assuming that it's possible to include more than one stylistic alternate?</p>
+    html_clean: |-
+      <p>Hey eliason, thanks for this. Odd, now I'm a little confused. If you got it to work then it should be possible (that's a great typeface by the way, just checked your post about it, nice!).</p>
+      <p>I'm using Adobe Illustrator and Photoshop to check out the features. Illustrator seems to have a lot of problems updating its cache though, so I need to restart my system frequently (time consuming!). All those tricks should work in Illustrator just fine I think?</p>
+      <p>From your screendump I am assuming that it's possible to include more than one stylistic alternate?</p>
+  - id: 474225
+    user: 3254
+    date: 2011-08-16T08:40:00
+    date_raw: 16 Aug 2011 — 8:40am
+    votes: null
+    html: |-
+      <blockquote><p>From your screendump I am assuming that it's possible to include more than one stylistic alternate?</p></blockquote>
+      <p>Yes, instead of using "salt" you can use "ss01," "ss02," etc. That way the user isn't faced with an "all or nothing" setting.</p>
+    html_clean: |-
+      <blockquote><p>From your screendump I am assuming that it's possible to include more than one stylistic alternate?</p></blockquote>
+      <p>Yes, instead of using "salt" you can use "ss01," "ss02," etc. That way the user isn't faced with an "all or nothing" setting.</p>
+  - id: 474226
+    user: 174791
+    date: 2011-08-16T08:43:00
+    date_raw: 16 Aug 2011 — 8:43am
+    votes: null
+    html: |-
+      <p>Sweet! That's good to know, thanks!</p>
+      <p>Is your code basically the same? Am I missing something - as you said it seems to be possible to use contextual substitutions here but they don't seem to be taking off properly.</p>
+    html_clean: |-
+      <p>Sweet! That's good to know, thanks!</p>
+      <p>Is your code basically the same? Am I missing something - as you said it seems to be possible to use contextual substitutions here but they don't seem to be taking off properly.</p>
+  - id: 474227
+    user: 3254
+    date: 2011-08-16T08:50:00
+    date_raw: 16 Aug 2011 — 8:50am
+    votes: null
+    html: |-
+      <p>Yes, that looks more or less like my code. I actually have the code under the swsh feature as a named lookup, and then under ss02 I just recall that lookup. And I defined my classes in the FontLab classes panel rather than right there in the code. I don't know if these differences might cause the trouble you're seeing.<br>
+      Does it work in the FontLab Preview panel (OpenType Features)?</p>
+    html_clean: |-
+      <p>Yes, that looks more or less like my code. I actually have the code under the swsh feature as a named lookup, and then under ss02 I just recall that lookup. And I defined my classes in the FontLab classes panel rather than right there in the code. I don't know if these differences might cause the trouble you're seeing.<br>
+      Does it work in the FontLab Preview panel (OpenType Features)?</p>
+  - id: 474238
+    user: 1043
+    date: 2011-08-16T09:50:00
+    date_raw: 16 Aug 2011 — 9:50am
+    votes: null
+    html: <p>Oops, guess I was wrong. It should work in salt (something I didn't know). Not sure why it's not working. What exactly is in @calt1? The problem may be there.</p>
+    html_clean: <p>Oops, guess I was wrong. It should work in salt (something I didn't know). Not sure why it's not working. What exactly is in @calt1? The problem may be there.</p>
+  - id: 474244
+    user: 9633
+    date: 2011-08-16T10:14:00
+    date_raw: 16 Aug 2011 — 10:14am
+    votes: null
+    html: |-
+      <p><cite>hey wiewauters, sorry for the typo :)<br>
+      Thanks for the info, that helps, good stuff man! Will try this soon. Do these things work for all aspects (dlig, calt, kern, etc?). I'm guessing this is the case, that would make the most sense.</cite></p>
+      <p>No problem, and yes, you are only copying the glyphs all the other data should stay there. If you'd wanna be 100% save, don't delete and append the glyphs, but just copy the old over the new ones.</p>
+      <p>Good luck</p>
+    html_clean: |-
+      <p><cite>hey wiewauters, sorry for the typo :)<br>
+      Thanks for the info, that helps, good stuff man! Will try this soon. Do these things work for all aspects (dlig, calt, kern, etc?). I'm guessing this is the case, that would make the most sense.</cite></p>
+      <p>No problem, and yes, you are only copying the glyphs all the other data should stay there. If you'd wanna be 100% save, don't delete and append the glyphs, but just copy the old over the new ones.</p>
+      <p>Good luck</p>
+  - id: 474336
+    user: 174791
+    date: 2011-08-17T02:02:00
+    date_raw: 17 Aug 2011 — 2:02am
+    votes: null
+    html: |-
+      <p>Guess what, it had something to do with illustrator or my font cache, as today (after a night's rest) my machine decided that it actually works just fine:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/swash_4775.jpg"></div> <p></p>
+      <p>Apart for my kerning that is :)</p>
+      <p>As eliason suggested, it did work in the Fontlab Preview panel so I was really astonished I didn't work in Illustrator.</p>
+      <p>Thanks for the response as well Wiewauters!</p>
+    html_clean: |-
+      <p>Guess what, it had something to do with illustrator or my font cache, as today (after a night's rest) my machine decided that it actually works just fine:</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/swash_4775.jpg"></div> <p></p>
+      <p>Apart for my kerning that is :)</p>
+      <p>As eliason suggested, it did work in the Fontlab Preview panel so I was really astonished I didn't work in Illustrator.</p>
+      <p>Thanks for the response as well Wiewauters!</p>
+  - id: 474388
+    user: 1043
+    date: 2011-08-17T08:59:00
+    date_raw: 17 Aug 2011 — 8:59am
+    votes: null
+    html: |-
+      <p>Oh, good.</p>
+      <p>Two suggestions:</p>
+      <p>1. You can save yourself a lot of trouble with regard to font caches if you give your fonts provisional names while under development, changing them each time you generate a new version. For example, if your font is called "My Font", you might have development versions called "My Font A", "My Font B", "My Font C" and so on. This also has the advantage that you can compare different versions side by side in applications. But the best thing is that it completely avoids the font cache issues. (Note: I'm talking about the name you give the font in the Font Info dialogs, not the file name of the font file, which has no effect on the font name in the operating system or applications.)</p>
+      <p>2. Your code could be a bit simpler. Since you already have a class called "@STARTSWASH", you could save yourself some typing by doing this:</p>
+      <pre>feature salt { # Stylistic Alternates
+      # Latin
+      @STARTSWASH = [K R V W Q A];
+      @STARTSWASH_ALT = [K.alt R.alt V.alt W.alt Q.alt A.alt];
+      ignore sub @calt1 @STARTSWASH';
+      sub @STARTSWASH' by @STARTSWASH_ALT;
+      } salt;</pre><p>
+      It's shorter and a bit clearer what's going on.</p>
+    html_clean: |-
+      <p>Oh, good.</p>
+      <p>Two suggestions:</p>
+      <p>1. You can save yourself a lot of trouble with regard to font caches if you give your fonts provisional names while under development, changing them each time you generate a new version. For example, if your font is called "My Font", you might have development versions called "My Font A", "My Font B", "My Font C" and so on. This also has the advantage that you can compare different versions side by side in applications. But the best thing is that it completely avoids the font cache issues. (Note: I'm talking about the name you give the font in the Font Info dialogs, not the file name of the font file, which has no effect on the font name in the operating system or applications.)</p>
+      <p>2. Your code could be a bit simpler. Since you already have a class called "@STARTSWASH", you could save yourself some typing by doing this:</p>
+      <pre>feature salt { # Stylistic Alternates
+      # Latin
+      @STARTSWASH = [K R V W Q A];
+      @STARTSWASH_ALT = [K.alt R.alt V.alt W.alt Q.alt A.alt];
+      ignore sub @calt1 @STARTSWASH';
+      sub @STARTSWASH' by @STARTSWASH_ALT;
+      } salt;</pre><p>
+      It's shorter and a bit clearer what's going on.</p>
+  - id: 475143
+    user: 174791
+    date: 2011-08-24T02:52:00
+    date_raw: 24 Aug 2011 — 2:52am
+    votes: null
+    html: |-
+      <p>Mark,</p>
+      <p>somehow I missed your comment here even though you posted it a while back. These are two very good and handy points, thanks! Code simplification makes a lot of sense, that'll work well I think. Altering the font's name in the Font Info dialog will also be a good trick to use for my next typeface, that'll save me loads of time restarting both the machine and Illustrator/Photoshop.</p>
+      <p>Thanks!</p>
+    html_clean: |-
+      <p>Mark,</p>
+      <p>somehow I missed your comment here even though you posted it a while back. These are two very good and handy points, thanks! Code simplification makes a lot of sense, that'll work well I think. Altering the font's name in the Font Info dialog will also be a good trick to use for my next typeface, that'll save me loads of time restarting both the machine and Illustrator/Photoshop.</p>
+      <p>Thanks!</p>

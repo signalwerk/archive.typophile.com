@@ -1,0 +1,88 @@
+node: 64161
+title: superscript in Word
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20100203134112"
+  captured_at: 2010-02-03T13:41:12Z
+  url: http://typophile.com/node/64161
+  digest: Z455QHZ4H6TPOSGMLSC7JFS3PR6URQKN
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/64161.html
+  fingerprint: a81221a4ef86d54e
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20100203134112"
+      digest: Z455QHZ4H6TPOSGMLSC7JFS3PR6URQKN
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/64161.html
+post:
+  id: 64161
+  user: 50116
+  date: 2009-11-12T02:57:00
+  date_raw: 12.Nov.2009 2.57am
+  votes: null
+  html: |-
+    <p>We have purchased a font to use in InDesign CS4 and Word 2003 and 2007.<br>
+    The font is Truetype and doesn't include specially made superscript-characters. </p>
+    <p>Word has has the option to set font manually to a different styles like Italic, Bold, Smallcaps and Superscript. The problem is that Superscript doesn't work in fontsizes 7 / 7,5 / 9 / 9,5.</p>
+    <p>Any suggestions how to solve it or what could be the problem? The font itself is okay, and Word works okay in rendering every other font that I use.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Word.png">Word.png</a></td><td>271.8 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/InDesign.png">InDesign.png</a></td><td>270.13 KB</td> </tr>
+    </tbody>
+    </table>
+  html_clean: |-
+    <p>We have purchased a font to use in InDesign CS4 and Word 2003 and 2007.<br>
+    The font is Truetype and doesn't include specially made superscript-characters. </p>
+    <p>Word has has the option to set font manually to a different styles like Italic, Bold, Smallcaps and Superscript. The problem is that Superscript doesn't work in fontsizes 7 / 7,5 / 9 / 9,5.</p>
+    <p>Any suggestions how to solve it or what could be the problem? The font itself is okay, and Word works okay in rendering every other font that I use.</p>
+    <table id="attachments" class="sticky-enabled">
+     <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
+    <tbody>
+     <tr class="odd"><td><a href="http://typophile.com/files/Word.png">Word.png</a></td><td>271.8 KB</td> </tr>
+     <tr class="even"><td><a href="http://typophile.com/files/InDesign.png">InDesign.png</a></td><td>270.13 KB</td> </tr>
+    </tbody>
+    </table>
+comments:
+  - id: 378166
+    user: 46051
+    date: 2009-11-12T08:23:00
+    date_raw: 12.Nov.2009 8.23am
+    votes: null
+    html: <p>I could just reproduce that bug with Word 2003 for Windows at exactly the font sizes you named (7 / 7,5 / 9 / 9,5), with a font I compiled in Fontographer. I'll do some checks on the font and come back to this later.</p>
+    html_clean: <p>I could just reproduce that bug with Word 2003 for Windows at exactly the font sizes you named (7 / 7,5 / 9 / 9,5), with a font I compiled in Fontographer. I'll do some checks on the font and come back to this later.</p>
+  - id: 378172
+    user: 46051
+    date: 2009-11-12T09:08:00
+    date_raw: 12.Nov.2009 9.08am
+    votes: null
+    html: |-
+      <p>Ok, I could mend it by changing the values of ySuperscript XSize and YSize in the OS/2 Positions table, which were very low (at ca. 20% of the Em Square).<br>
+      It seems that Word (at certain font sizes?) looks at these values and uses them when they are lower than its own built-in reduction ratios for extrapolated superscripts.</p>
+      <p>It seems that hardly any fontmaker cares about these values since they seem to be ignored by modern software - but apparently not by all and under all circumstances.</p>
+      <p>Please contact your font vendor if you cannot - or aren't allowed to - fix that yourself. </p>
+      <p>Andreas</p>
+    html_clean: |-
+      <p>Ok, I could mend it by changing the values of ySuperscript XSize and YSize in the OS/2 Positions table, which were very low (at ca. 20% of the Em Square).<br>
+      It seems that Word (at certain font sizes?) looks at these values and uses them when they are lower than its own built-in reduction ratios for extrapolated superscripts.</p>
+      <p>It seems that hardly any fontmaker cares about these values since they seem to be ignored by modern software - but apparently not by all and under all circumstances.</p>
+      <p>Please contact your font vendor if you cannot - or aren't allowed to - fix that yourself. </p>
+      <p>Andreas</p>

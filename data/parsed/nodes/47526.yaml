@@ -1,0 +1,214 @@
+node: 47526
+title: the never ending subtable overflow story
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131108130945"
+  captured_at: 2013-11-08T13:09:45Z
+  url: http://typophile.com/node/47526
+  digest: 7OY6ENLPGZITAYUFXWGSUBONI76N3O2Z
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/47526.html
+  fingerprint: 661a7a92c5e4145b
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131108130945"
+      digest: 7OY6ENLPGZITAYUFXWGSUBONI76N3O2Z
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/47526.html
+post:
+  id: 47526
+  user: 34013
+  date: 2008-07-18T03:40:00
+  date_raw: 18 Jul 2008 — 3:40am
+  votes: null
+  html: |-
+    <p>Dear forum,</p>
+    <p>i'm working on a really large script font with 80 ligatures and a number of alternates, so there are currently about 28.000 kerning pairs. I made a similar font before and everything worked well. Now i do not find a way to avoid the [FATAL] warning as a result of compiling the OpenType features: GPOS feature 'kern' causes overflow of offset to a subtable (0x1ce1e).</p>
+    <p>Here is what i tried again and again during the last days before generating and compiling the kern feature:<br>
+    - expand class kerning and reset kerning classes<br>
+    - let FL automatically generate new classes with different options selected, then compressed kerning<br>
+    - defined my own kerning classes<br>
+    - looked up the typophile forum for similar problems</p>
+    <p>I'm using FontLab Studio 5.04 for Mac.</p>
+    <p>Maybe there is help out there...</p>
+    <p>Hopefully,</p>
+    <p>Ingo</p>
+  html_clean: |-
+    <p>Dear forum,</p>
+    <p>i'm working on a really large script font with 80 ligatures and a number of alternates, so there are currently about 28.000 kerning pairs. I made a similar font before and everything worked well. Now i do not find a way to avoid the [FATAL] warning as a result of compiling the OpenType features: GPOS feature 'kern' causes overflow of offset to a subtable (0x1ce1e).</p>
+    <p>Here is what i tried again and again during the last days before generating and compiling the kern feature:<br>
+    - expand class kerning and reset kerning classes<br>
+    - let FL automatically generate new classes with different options selected, then compressed kerning<br>
+    - defined my own kerning classes<br>
+    - looked up the typophile forum for similar problems</p>
+    <p>I'm using FontLab Studio 5.04 for Mac.</p>
+    <p>Maybe there is help out there...</p>
+    <p>Hopefully,</p>
+    <p>Ingo</p>
+comments:
+  - id: 290277
+    user: 19831
+    date: 2008-07-18T06:26:00
+    date_raw: 18 Jul 2008 — 6:26am
+    votes: null
+    html: |-
+      <p>You should try to generate the kern feature via AFDKO, this might solve the problem!</p>
+      <p><a href="http://typophile.com/node/37295" title="http://typophile.com/node/37295">http://typophile.com/node/37295</a><br>
+      <a href="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf" title="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf">http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_...</a></p>
+    html_clean: |-
+      <p>You should try to generate the kern feature via AFDKO, this might solve the problem!</p>
+      <p><a href="/node/37295/" title="http://typophile.com/node/37295">http://typophile.com/node/37295</a><br>
+      <a href="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf" title="http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_kerning.pdf">http://blogs.adobe.com/typblography/atypi2006/atypi_Adventures_in_class_...</a></p>
+  - id: 290281
+    user: 1947
+    date: 2008-07-18T06:40:00
+    date_raw: 18 Jul 2008 — 6:40am
+    votes: null
+    html: |-
+      <p>Most likely, the problem resides in your own defined kerning classes. The likely culprit is a duplicate glyph in two or more of your classes. </p>
+      <p>We ran into this problem recently and found that the ae glyph was present in its own class (left and right position), and also present in a class e1 (e as the first or left glyph). Removing one of the instances solved the problem.</p>
+    html_clean: |-
+      <p>Most likely, the problem resides in your own defined kerning classes. The likely culprit is a duplicate glyph in two or more of your classes. </p>
+      <p>We ran into this problem recently and found that the ae glyph was present in its own class (left and right position), and also present in a class e1 (e as the first or left glyph). Removing one of the instances solved the problem.</p>
+  - id: 290298
+    user: 19831
+    date: 2008-07-18T07:55:00
+    date_raw: 18 Jul 2008 — 7:55am
+    votes: null
+    html: |-
+      <p><cite>a duplicate glyph in two or more of your classes</cite><br>
+      Which should be quite easy to find via kerning assistance.</p>
+    html_clean: |-
+      <p><cite>a duplicate glyph in two or more of your classes</cite><br>
+      Which should be quite easy to find via kerning assistance.</p>
+  - id: 290310
+    user: 34013
+    date: 2008-07-18T08:45:00
+    date_raw: 18 Jul 2008 — 8:45am
+    votes: null
+    html: |-
+      <p>Thanks, for the answers.<br>
+      But the classes are not the problem. FL itself doesn't find a problem within the classes, i also checked all classes myself.<br>
+      In case of this script font i would omit classes, because there are only very few glyphs looking similar on one or both sides. But even if i expand class kerning to plain pair kerning and delete all classes, the problem remains. This raises the question "are there any subtables in flat kerning?"<br>
+      Does anyone know what FL's output codes e.g. "subtable (0x1ce1e)" are meaning? Then it would be easy to find where the problem is, i think.</p>
+      <p>Hmmmm...</p>
+    html_clean: |-
+      <p>Thanks, for the answers.<br>
+      But the classes are not the problem. FL itself doesn't find a problem within the classes, i also checked all classes myself.<br>
+      In case of this script font i would omit classes, because there are only very few glyphs looking similar on one or both sides. But even if i expand class kerning to plain pair kerning and delete all classes, the problem remains. This raises the question "are there any subtables in flat kerning?"<br>
+      Does anyone know what FL's output codes e.g. "subtable (0x1ce1e)" are meaning? Then it would be easy to find where the problem is, i think.</p>
+      <p>Hmmmm...</p>
+  - id: 290544
+    user: 19560
+    date: 2008-07-20T10:33:00
+    date_raw: 20 Jul 2008 — 10:33am
+    votes: null
+    html: <p>Are we certain that this error pertains to GPOS, and not to the 'kern' table (and I do mean kern *table*, not subtable of GPOS)? This situation would make some sense if that is the case. There is a fundamental problem with the specification of the 'kern' table, in that the length descriptor is a 16-bit unsigned integer (USHORT) with maximum capacity of 65536. But the number of pairs is also given as a USHORT, while the length of each entry is 6 bytes. So the length field will overflow whenever there are more than 10922 flat pairs (actually I think it is less than that because of some header info). Some tools, including FontLab, choke on this situation. But again, it is specifically with the 'kern' table, not GPOS kerning. I think it is possible to toggle the use of a 'kern' table when generating in FL, perhaps try playing with that and see if it makes any difference?</p>
+    html_clean: <p>Are we certain that this error pertains to GPOS, and not to the 'kern' table (and I do mean kern *table*, not subtable of GPOS)? This situation would make some sense if that is the case. There is a fundamental problem with the specification of the 'kern' table, in that the length descriptor is a 16-bit unsigned integer (USHORT) with maximum capacity of 65536. But the number of pairs is also given as a USHORT, while the length of each entry is 6 bytes. So the length field will overflow whenever there are more than 10922 flat pairs (actually I think it is less than that because of some header info). Some tools, including FontLab, choke on this situation. But again, it is specifically with the 'kern' table, not GPOS kerning. I think it is possible to toggle the use of a 'kern' table when generating in FL, perhaps try playing with that and see if it makes any difference?</p>
+  - id: 290586
+    user: 909
+    date: 2008-07-20T21:11:00
+    date_raw: 20 Jul 2008 — 9:11pm
+    votes: null
+    html: |-
+      <p>This is a pretty well-understood issue, and as Christoph pointed you towards in the first reply, you have too many classes within a single subtable, so you're breaking the 64K limit on the size of a subtable.</p>
+      <p>I *think* FontLab supports the subtable break code from the AFDKO, in which case that's what you need to do (with switching over to AFDKO being more of a last resort). Christopher Slye or Miguel Sousa from my team could advise more on the detailed tactics of how to do this, if one of them stops by soon. They're both at TypeCon right now, but I expect they'll be back online in a day or two.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>This is a pretty well-understood issue, and as Christoph pointed you towards in the first reply, you have too many classes within a single subtable, so you're breaking the 64K limit on the size of a subtable.</p>
+      <p>I *think* FontLab supports the subtable break code from the AFDKO, in which case that's what you need to do (with switching over to AFDKO being more of a last resort). Christopher Slye or Miguel Sousa from my team could advise more on the detailed tactics of how to do this, if one of them stops by soon. They're both at TypeCon right now, but I expect they'll be back online in a day or two.</p>
+      <p>T</p>
+  - id: 290596
+    user: 34013
+    date: 2008-07-21T02:04:00
+    date_raw: 21 Jul 2008 — 2:04am
+    votes: null
+    html: |-
+      <p>Thanks a lot again for your answers.</p>
+      <p>My largest subtable at the moment contains the incredible number of over 8.000 lines. And i'm not yet finished with creating additional glyphs...<br>
+      As i mentioned above, in this special font the number of classes is rather limited. And in most classes only two glyphs are contained, thus the number of subtables is very limited, too.</p>
+      <p>Thomas, i will try to get the newer AFDKO running... it seems to be the only promising way.</p>
+    html_clean: |-
+      <p>Thanks a lot again for your answers.</p>
+      <p>My largest subtable at the moment contains the incredible number of over 8.000 lines. And i'm not yet finished with creating additional glyphs...<br>
+      As i mentioned above, in this special font the number of classes is rather limited. And in most classes only two glyphs are contained, thus the number of subtables is very limited, too.</p>
+      <p>Thomas, i will try to get the newer AFDKO running... it seems to be the only promising way.</p>
+  - id: 291221
+    user: 34013
+    date: 2008-07-24T01:50:00
+    date_raw: 24 Jul 2008 — 1:50am
+    votes: null
+    html: |-
+      <p>The newer AFDKO didn't solve it.<br>
+      Now i created new classes with  as many glyps in each class as possibe, even with glyphs whose forms that doesn't look similar at first sight. In this way i could reduce the number of kerning pairs down to 3.100 !!! Compressed to Class Kerning its only 1127 entries in the kern feature definition!!! Maybe i exaggerated it somewhat... but now there's no subtable overflow any more :-)</p>
+      <p>But FL S' output after compiling the OpenType features now shows the following:<br>
+      [WARNING] Start of new pair positioning subtable; some pairs may never be accessed: [... ...] [... ...]</p>
+      <p>I think i can ignore that.</p>
+    html_clean: |-
+      <p>The newer AFDKO didn't solve it.<br>
+      Now i created new classes with  as many glyps in each class as possibe, even with glyphs whose forms that doesn't look similar at first sight. In this way i could reduce the number of kerning pairs down to 3.100 !!! Compressed to Class Kerning its only 1127 entries in the kern feature definition!!! Maybe i exaggerated it somewhat... but now there's no subtable overflow any more :-)</p>
+      <p>But FL S' output after compiling the OpenType features now shows the following:<br>
+      [WARNING] Start of new pair positioning subtable; some pairs may never be accessed: [... ...] [... ...]</p>
+      <p>I think i can ignore that.</p>
+  - id: 291223
+    user: 5585
+    date: 2008-07-24T01:58:00
+    date_raw: 24 Jul 2008 — 1:58am
+    votes: null
+    html: |-
+      <p>You can ignore that, but it means that there are classes which contain the same glyphs. It’s easy for you to check that.<br>
+      Pieter</p>
+    html_clean: |-
+      <p>You can ignore that, but it means that there are classes which contain the same glyphs. It’s easy for you to check that.<br>
+      Pieter</p>
+  - id: 291226
+    user: 34013
+    date: 2008-07-24T02:07:00
+    date_raw: 24 Jul 2008 — 2:07am
+    votes: null
+    html: <p>You're right, i'm sorry. I just forgot to check the classes at least before compiling... ;-}</p>
+    html_clean: <p>You're right, i'm sorry. I just forgot to check the classes at least before compiling... ;-}</p>
+  - id: 291237
+    user: 8664
+    date: 2008-07-24T03:43:00
+    date_raw: 24 Jul 2008 — 3:43am
+    votes: null
+    html: |-
+      <p>PvR -- <cite>You can ignore that, but it means that there are classes which contain the same glyphs.</cite></p>
+      <p>Sure about the "can ignore that" part? The warning says <cite>Start of new pair positioning subtable; some pairs may never be accessed</cite>, so you better <em>not</em> ignore it unless you don't care if all your kerning pairs show up when using the font.&nbsp;&nbsp;:D</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>PvR -- <cite>You can ignore that, but it means that there are classes which contain the same glyphs.</cite></p>
+      <p>Sure about the "can ignore that" part? The warning says <cite>Start of new pair positioning subtable; some pairs may never be accessed</cite>, so you better <em>not</em> ignore it unless you don't care if all your kerning pairs show up when using the font.&nbsp;&nbsp;:D</p>
+      <p>Karsten</p>
+  - id: 291245
+    user: 5585
+    date: 2008-07-24T04:57:00
+    date_raw: 24 Jul 2008 — 4:57am
+    votes: null
+    html: |-
+      <p>Hello Karsten,</p>
+      <p>Yes, you are right. I mean that the font will be generated and will work but some kerning pairs will not be there.<br>
+      Thanks.</p>
+      <p>Pieter</p>
+    html_clean: |-
+      <p>Hello Karsten,</p>
+      <p>Yes, you are right. I mean that the font will be generated and will work but some kerning pairs will not be there.<br>
+      Thanks.</p>
+      <p>Pieter</p>

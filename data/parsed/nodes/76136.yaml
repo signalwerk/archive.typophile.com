@@ -1,0 +1,99 @@
+node: 76136
+title: Fontlab Problem with Typeface Background
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20101227130931"
+  captured_at: 2010-12-27T13:09:31Z
+  url: http://typophile.com/node/76136
+  digest: WJLJHV4U4M2DUS5KLIL4DCEF6GPM5ZDX
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/76136.html
+  fingerprint: f6fe2403eb6025e3
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20101227130931"
+      digest: WJLJHV4U4M2DUS5KLIL4DCEF6GPM5ZDX
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/76136.html
+post:
+  id: 76136
+  user: 44252
+  date: 2010-11-09T06:23:00
+  date_raw: 9.Nov.2010 6.23am
+  votes: null
+  html: |-
+    <p>Hey Everybody,<br>
+    I am trying to have something like a black block underneath every Letter of the typeface . So basically an inverted version of the typeface on a black Background. Is it possible to automtically generate an effect like that in fontlab or give the typeface a feature to do so? The propblem is that the Typeface is not a monospacetypeface so if i would set up the letters  on a black background in the glyphsheet , once two letter would overlap like AV something would be cut away from the A or V.  It also needs to work witout doing anything manually afterwards ( like changing underline options in indesing for example)! Would be great if anybody could help me!<br>
+    All the best<br>
+    Timm</p>
+  html_clean: |-
+    <p>Hey Everybody,<br>
+    I am trying to have something like a black block underneath every Letter of the typeface . So basically an inverted version of the typeface on a black Background. Is it possible to automtically generate an effect like that in fontlab or give the typeface a feature to do so? The propblem is that the Typeface is not a monospacetypeface so if i would set up the letters  on a black background in the glyphsheet , once two letter would overlap like AV something would be cut away from the A or V.  It also needs to work witout doing anything manually afterwards ( like changing underline options in indesing for example)! Would be great if anybody could help me!<br>
+    All the best<br>
+    Timm</p>
+comments:
+  - id: 438849
+    user: 16321
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>As long as you strip all kerning from the font the procedure of drawing a black background on each glyph will work. But why not do it in whatever application you use the font in?</p>
+    html_clean: <p>As long as you strip all kerning from the font the procedure of drawing a black background on each glyph will work. But why not do it in whatever application you use the font in?</p>
+  - id: 438862
+    user: 44252
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Mh, it has to work regardless of the kerning values, the problem is that its supposed to be used in some strange programm for videomaking that does not have mny options for fonts so it has to work without to depend on that.</p>
+    html_clean: <p>Mh, it has to work regardless of the kerning values, the problem is that its supposed to be used in some strange programm for videomaking that does not have mny options for fonts so it has to work without to depend on that.</p>
+  - id: 438863
+    user: 6470
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>An offhand suggestion:</p>
+      <p>1. Draw the black box to size vertically in a not-often-used slot, like "bar," and set the path to PS direction.</p>
+      <p>2. Select all the other glyphs and set paths to TT direction.</p>
+      <p>3. Character by character, use the Get Component command to insert the block.</p>
+      <p>4. Decompose the block and correct the width; use Tools &gt; Metrics to set sidebearings to zero; Cut block; use Tools &gt; Metrics to Center Glyph; Paste block, then decompose all.</p>
+      <p>5. Create "ligatures" or Contextual Alternates for letter combinations like AV.</p>
+      <p>6. Create the OpenType features to support these swaps.</p>
+    html_clean: |-
+      <p>An offhand suggestion:</p>
+      <p>1. Draw the black box to size vertically in a not-often-used slot, like "bar," and set the path to PS direction.</p>
+      <p>2. Select all the other glyphs and set paths to TT direction.</p>
+      <p>3. Character by character, use the Get Component command to insert the block.</p>
+      <p>4. Decompose the block and correct the width; use Tools &gt; Metrics to set sidebearings to zero; Cut block; use Tools &gt; Metrics to Center Glyph; Paste block, then decompose all.</p>
+      <p>5. Create "ligatures" or Contextual Alternates for letter combinations like AV.</p>
+      <p>6. Create the OpenType features to support these swaps.</p>
+  - id: 438963
+    user: 16321
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>If the application in question does not support kerning I very much doubt it will support OpenType. Hello!</p>
+    html_clean: <p>If the application in question does not support kerning I very much doubt it will support OpenType. Hello!</p>
+  - id: 439460
+    user: 44252
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>thanks guys, i think i have to do it the hard way then oldnick suggested :)</p>
+    html_clean: <p>thanks guys, i think i have to do it the hard way then oldnick suggested :)</p>

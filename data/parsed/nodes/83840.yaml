@@ -1,0 +1,87 @@
+node: 83840
+title: feature definitions not working together
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131108074353"
+  captured_at: 2013-11-08T07:43:53Z
+  url: http://typophile.com/node/83840
+  digest: YTLSTQXTXDVZGU5NU6Z527TRMEDPP2LB
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/83840.html
+  fingerprint: 41d9f03ecf339a5d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131108074353"
+      digest: YTLSTQXTXDVZGU5NU6Z527TRMEDPP2LB
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/83840.html
+post:
+  id: 83840
+  user: 44740
+  date: 2011-07-16T19:07:00
+  date_raw: 16 Jul 2011 — 7:07pm
+  votes: null
+  html: |-
+    <p>In the calt feature of my font, I am trying to get |t i| to substitute for |t dotlessi| so that the crossbar of the t acts as the tittle of the i.<br>
+    This is easy enough and works fine:</p>
+    <p>   sub @tbeforei i' by dotlessi;<br>
+    (it is a class because it contains ligatures ending in t and alternate forms of t)</p>
+    <p>My problem arises with the next lookup in calt, which is supposed to substitute glyphs at the ends of words with their ending alternates:</p>
+    <p>  ignore sub @tobeendform' @letter;<br>
+      sub @tobeendform' by @endform;</p>
+    <p>so it should change the glyph in the tobeendform class to its corresponding glyph in the endform class.  This works on all letters except i when following t.  I have both i and dotlessi in the tobeendform class and i.end and dotlessi.end in the endform class.</p>
+    <p>I know it's unlikely that words ending in ti will crop up that often, but I'm asking because this problem has wider implications.  I've tried swapping the two lookups round and even duplicating the lookups so that if one happens first, the other will happen after nomatter what, but that doesn't work.  I don't understand why the first lookup has changed the i to dotlessi, but then the second lookup can't change this dotlessi to dotlessi.end</p>
+    <p>If anyone can shed any light on this I'd be very grateful!</p>
+  html_clean: |-
+    <p>In the calt feature of my font, I am trying to get |t i| to substitute for |t dotlessi| so that the crossbar of the t acts as the tittle of the i.<br>
+    This is easy enough and works fine:</p>
+    <p>   sub @tbeforei i' by dotlessi;<br>
+    (it is a class because it contains ligatures ending in t and alternate forms of t)</p>
+    <p>My problem arises with the next lookup in calt, which is supposed to substitute glyphs at the ends of words with their ending alternates:</p>
+    <p>  ignore sub @tobeendform' @letter;<br>
+      sub @tobeendform' by @endform;</p>
+    <p>so it should change the glyph in the tobeendform class to its corresponding glyph in the endform class.  This works on all letters except i when following t.  I have both i and dotlessi in the tobeendform class and i.end and dotlessi.end in the endform class.</p>
+    <p>I know it's unlikely that words ending in ti will crop up that often, but I'm asking because this problem has wider implications.  I've tried swapping the two lookups round and even duplicating the lookups so that if one happens first, the other will happen after nomatter what, but that doesn't work.  I don't understand why the first lookup has changed the i to dotlessi, but then the second lookup can't change this dotlessi to dotlessi.end</p>
+    <p>If anyone can shed any light on this I'd be very grateful!</p>
+comments:
+  - id: 471257
+    user: 44740
+    date: 2011-07-16T20:11:00
+    date_raw: 16 Jul 2011 — 8:11pm
+    votes: null
+    html: |-
+      <p>I've found the problem - I hadn't separated the lookups properly like this:<br>
+      <cite><br>
+        lookup endforms {<br>
+        ignore sub @tobeendform' @letter;<br>
+        sub @tobeendform' by @endform;<br>
+        }endforms;<br>
+      </cite><br>
+      so the ignore sub parts were covering everything in the calt feature, not just the following lines of code.</p>
+      <p>Duh!</p>
+    html_clean: |-
+      <p>I've found the problem - I hadn't separated the lookups properly like this:<br>
+      <cite><br>
+        lookup endforms {<br>
+        ignore sub @tobeendform' @letter;<br>
+        sub @tobeendform' by @endform;<br>
+        }endforms;<br>
+      </cite><br>
+      so the ignore sub parts were covering everything in the calt feature, not just the following lines of code.</p>
+      <p>Duh!</p>

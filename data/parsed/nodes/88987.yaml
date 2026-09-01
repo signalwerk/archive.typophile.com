@@ -1,0 +1,90 @@
+node: 88987
+title: Script to handle anchors in FLS
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20130820063327"
+  captured_at: 2013-08-20T06:33:27Z
+  url: http://typophile.com/node/88987
+  digest: XUCQDHPNSW4ZZ7ECP7ORTAF4FOPNMKXQ
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/88987.html
+  fingerprint: 1604344ec24c71ec
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20130820063327"
+      digest: XUCQDHPNSW4ZZ7ECP7ORTAF4FOPNMKXQ
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/88987.html
+post:
+  id: 88987
+  user: 32723
+  date: 2012-01-11T03:58:00
+  date_raw: 11 Jan 2012 — 3:58am
+  votes: null
+  html: |-
+    <p>[Using Windows Vista 64-bit, FontLab Studio 5.0.4]</p>
+    <p>FLS runs very slowly when I try to edit diacritics with <em>_top</em> and <em>_bottom</em> anchors. This seems to be caused by the huge number of base glyphs included in my font project. These glyphs have the pairing <em>top</em> and <em>bottom</em> anchors and FLS seems to calculate something related to these pairings (but it runs normally when editing other glyphs).</p>
+    <p>I believe there is a simple way to get around this: a Python script to change anchor names for selected glyphs. Something to, for example, turn <em>_top</em> into <em>_t</em> and later restore it back.</p>
+    <p>The problem is I do not know to write a single line in Python. Anyone could show how to do this? It also may be a good starting point to learn how to write codes.</p>
+  html_clean: |-
+    <p>[Using Windows Vista 64-bit, FontLab Studio 5.0.4]</p>
+    <p>FLS runs very slowly when I try to edit diacritics with <em>_top</em> and <em>_bottom</em> anchors. This seems to be caused by the huge number of base glyphs included in my font project. These glyphs have the pairing <em>top</em> and <em>bottom</em> anchors and FLS seems to calculate something related to these pairings (but it runs normally when editing other glyphs).</p>
+    <p>I believe there is a simple way to get around this: a Python script to change anchor names for selected glyphs. Something to, for example, turn <em>_top</em> into <em>_t</em> and later restore it back.</p>
+    <p>The problem is I do not know to write a single line in Python. Anyone could show how to do this? It also may be a good starting point to learn how to write codes.</p>
+comments:
+  - id: 490994
+    user: 14455
+    date: 2012-01-11T09:25:00
+    date_raw: 11 Jan 2012 — 9:25am
+    votes: null
+    html: |-
+      <p>something like this:</p>
+      <p><code></code></p>
+      <pre>for glyph in fl.font.glyphs:
+        for anchor in glyph.anchors:
+          if anchor.name == '_top':
+            anchor.name = '_t'
+          elif anchor.name == '_bottom':
+            anchor.name = '_b'
+      fl.UpdateFont(fl.ifont)
+      </pre><p><br>
+      Eigi</p>
+    html_clean: |-
+      <p>something like this:</p>
+      <p><code></code></p>
+      <pre>for glyph in fl.font.glyphs:
+        for anchor in glyph.anchors:
+          if anchor.name == '_top':
+            anchor.name = '_t'
+          elif anchor.name == '_bottom':
+            anchor.name = '_b'
+      fl.UpdateFont(fl.ifont)
+      </pre><p><br>
+      Eigi</p>
+  - id: 491045
+    user: 32723
+    date: 2012-01-11T20:51:00
+    date_raw: 11 Jan 2012 — 8:51pm
+    votes: null
+    html: |-
+      <p>Andreas, THANK YOU very much. It works perfectly.<br>
+      You saved me many hours of work.</p>
+    html_clean: |-
+      <p>Andreas, THANK YOU very much. It works perfectly.<br>
+      You saved me many hours of work.</p>

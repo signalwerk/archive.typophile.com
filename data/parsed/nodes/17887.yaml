@@ -1,0 +1,285 @@
+node: 17887
+title: how is it possible to set multiple charactes per glyph for an OpenType-font within FonLab?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150220004629"
+  captured_at: 2015-02-20T00:46:29Z
+  url: http://www.typophile.com:80/node/17887
+  digest: R2I5KIBJSODF6BRKVTLLPCHFNERPR3OL
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/17887.html
+  fingerprint: 290b6095724d4042
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150220004629"
+      digest: R2I5KIBJSODF6BRKVTLLPCHFNERPR3OL
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/17887.html
+post:
+  id: 17887
+  user: 11471
+  date: 2006-02-13T06:27:00
+  date_raw: 13 Feb 2006 — 6:27am
+  votes: null
+  html: |-
+    <p>Hi there!</p>
+    <p>Just a basic question:</p>
+    <p>1. I build a 5 weight/sans and sans-serif/regular and oblique typeface within Adobe Illustrator which I am quiete familiar with.</p>
+    <p>2. I downloaded a Demo-Version of FontLab5 to get myself familiar with the next level, go from designing the letterforms to actually "making" a font out of them. </p>
+    <p>3. My question is: how is it possible to set multiple charactes per glyph for an OpenType-font within FonLab?</p>
+    <p>For example if I have two or maybe three different forms for an "N" character I want to have those accessible from within a sophisticated glyph table menu as it can be found in Adobe-applications like Illustrator or InDesign.</p>
+    <p>I think i read that it is very possible to set up six characters per glyph. I just can not figure out how to do so within Fontlab.</p>
+    <p>Some hint or short advise from anyone would be greatly appreciated :)</p>
+    <p>Very best,</p>
+    <p>Steffen!</p>
+  html_clean: |-
+    <p>Hi there!</p>
+    <p>Just a basic question:</p>
+    <p>1. I build a 5 weight/sans and sans-serif/regular and oblique typeface within Adobe Illustrator which I am quiete familiar with.</p>
+    <p>2. I downloaded a Demo-Version of FontLab5 to get myself familiar with the next level, go from designing the letterforms to actually "making" a font out of them. </p>
+    <p>3. My question is: how is it possible to set multiple charactes per glyph for an OpenType-font within FonLab?</p>
+    <p>For example if I have two or maybe three different forms for an "N" character I want to have those accessible from within a sophisticated glyph table menu as it can be found in Adobe-applications like Illustrator or InDesign.</p>
+    <p>I think i read that it is very possible to set up six characters per glyph. I just can not figure out how to do so within Fontlab.</p>
+    <p>Some hint or short advise from anyone would be greatly appreciated :)</p>
+    <p>Very best,</p>
+    <p>Steffen!</p>
+comments:
+  - id: 108349
+    user: 7006
+    date: 2006-02-13T06:50:00
+    date_raw: 13 Feb 2006 — 6:50am
+    votes: null
+    html: |-
+      <p>first of all, i'm going to assume that you have some OpenType programmign experience already, and so i'll jump right in:</p>
+      <p><em>My question is: how is it possible to set multiple charactes per glyph for an OpenType-font within FonLab?</em></p>
+      <p>This depends. you can put all six glyphs in different features. If it's a smallcap version of the glyph, put it in the smcp feature. If it's a swash variant, put it in the swsh or cswh features. If it's a titling alternate, put it in the titl feature. &amp;c...<br>
+      Or, if you just want to put all six in say the stylistic alternates feature to be accessed by the glyph pallette, you can use this structure:</p>
+      <p>sub n from [n.salt n.slt2 n.slt3 n.slt4 n.slt5 n.slt6];</p>
+      <p>This works best in the stylistic alternates (salt) feature, however none but the first alternate will be automatically substituted and only in some programs if you use the salt feature.</p>
+      <p><em>I think i read that it is very possible to set up six characters per glyph. I just can not figure out how to do so within Fontlab.</em></p>
+      <p>I didn't realise there was a limit. Can anyone confirm or disprove this statement?</p>
+    html_clean: |-
+      <p>first of all, i'm going to assume that you have some OpenType programmign experience already, and so i'll jump right in:</p>
+      <p><em>My question is: how is it possible to set multiple charactes per glyph for an OpenType-font within FonLab?</em></p>
+      <p>This depends. you can put all six glyphs in different features. If it's a smallcap version of the glyph, put it in the smcp feature. If it's a swash variant, put it in the swsh or cswh features. If it's a titling alternate, put it in the titl feature. &amp;c...<br>
+      Or, if you just want to put all six in say the stylistic alternates feature to be accessed by the glyph pallette, you can use this structure:</p>
+      <p>sub n from [n.salt n.slt2 n.slt3 n.slt4 n.slt5 n.slt6];</p>
+      <p>This works best in the stylistic alternates (salt) feature, however none but the first alternate will be automatically substituted and only in some programs if you use the salt feature.</p>
+      <p><em>I think i read that it is very possible to set up six characters per glyph. I just can not figure out how to do so within Fontlab.</em></p>
+      <p>I didn't realise there was a limit. Can anyone confirm or disprove this statement?</p>
+  - id: 108351
+    user: 1133
+    date: 2006-02-13T07:40:00
+    date_raw: 13 Feb 2006 — 7:40am
+    votes: null
+    html: |-
+      <p>I recommend using both the "salt" and the "ss01-ssXX" features, as described here:<br>
+      <a href="http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID_Message=5109" title="http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID_Message=5109">http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID...</a><br>
+      (the article talks about Arabic but the same principle applies to Latin).</p>
+      <p>A.</p>
+    html_clean: |-
+      <p>I recommend using both the "salt" and the "ss01-ssXX" features, as described here:<br>
+      <a href="http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID_Message=5109" title="http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID_Message=5109">http://groups.msn.com/FontLab/general.msnw?action=get_message&amp;mview=0&amp;ID...</a><br>
+      (the article talks about Arabic but the same principle applies to Latin).</p>
+      <p>A.</p>
+  - id: 108360
+    user: 11471
+    date: 2006-02-13T08:42:00
+    date_raw: 13 Feb 2006 — 8:42am
+    votes: null
+    html: |-
+      <p>Unfortunatly I do not have any "real" experience in programming an OpenType-font. I never did it before, this is my very first attempt.</p>
+      <p>I rather have an ok understanding of the environment I´m putting myself into and a good ability to adept quickly to new situations..</p>
+      <p>I "use" FontLab for some days and so far I´m doing quiete well, I think. I´m able to get my characters from Illustrator to FontLab easily, I understand how to set the size and the nullpoint correct within one easy step using an "action" I set up in Illustrator. I also use the "edit kerning" feauture for extra kerning aspects and needs.</p>
+      <p>The current beast for me is to set up alternates.</p>
+      <p>"sub n from [n.salt n.slt2 n.slt3 n.slt4 n.slt5 n.slt6];" and<br>
+      "I recommend using both the “salt” and the “ss01-ssXX” features"</p>
+      <p>is quiete new to me. Give me a day or two! In the attachement you can see my current workspace..</p>
+      <p>A lot of thanks to both of you so far! For hopefully pointing me in the right direction!</p>
+      <p>Steffen</p>
+    html_clean: |-
+      <p>Unfortunatly I do not have any "real" experience in programming an OpenType-font. I never did it before, this is my very first attempt.</p>
+      <p>I rather have an ok understanding of the environment I´m putting myself into and a good ability to adept quickly to new situations..</p>
+      <p>I "use" FontLab for some days and so far I´m doing quiete well, I think. I´m able to get my characters from Illustrator to FontLab easily, I understand how to set the size and the nullpoint correct within one easy step using an "action" I set up in Illustrator. I also use the "edit kerning" feauture for extra kerning aspects and needs.</p>
+      <p>The current beast for me is to set up alternates.</p>
+      <p>"sub n from [n.salt n.slt2 n.slt3 n.slt4 n.slt5 n.slt6];" and<br>
+      "I recommend using both the “salt” and the “ss01-ssXX” features"</p>
+      <p>is quiete new to me. Give me a day or two! In the attachement you can see my current workspace..</p>
+      <p>A lot of thanks to both of you so far! For hopefully pointing me in the right direction!</p>
+      <p>Steffen</p>
+  - id: 108425
+    user: 909
+    date: 2006-02-13T18:04:00
+    date_raw: 13 Feb 2006 — 6:04pm
+    votes: null
+    html: |-
+      <p>Just by way of clarification, despite the title of the thread, everyone is talking about multiple <strong>glyphs per character</strong>, not the other way around.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Just by way of clarification, despite the title of the thread, everyone is talking about multiple <strong>glyphs per character</strong>, not the other way around.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 108794
+    user: 11471
+    date: 2006-02-16T04:29:00
+    date_raw: 16 Feb 2006 — 4:29am
+    votes: null
+    html: |-
+      <p>Dear Adam,</p>
+      <p>I just wanted to say thanks again for the link! Almost everything works fine now, though I do not yet understand how to use the "ss01-ssXX”" features; the "salt" substitution work fine, but how to use multiple glyphs (meaning more than one)per character I do not yet understand.</p>
+      <p>Anyway, thanks a lot,</p>
+      <p>I am looking forward to take part more often in this very great community!</p>
+      <p>Steffen</p>
+    html_clean: |-
+      <p>Dear Adam,</p>
+      <p>I just wanted to say thanks again for the link! Almost everything works fine now, though I do not yet understand how to use the "ss01-ssXX”" features; the "salt" substitution work fine, but how to use multiple glyphs (meaning more than one)per character I do not yet understand.</p>
+      <p>Anyway, thanks a lot,</p>
+      <p>I am looking forward to take part more often in this very great community!</p>
+      <p>Steffen</p>
+  - id: 108798
+    user: 1043
+    date: 2006-02-16T06:26:00
+    date_raw: 16 Feb 2006 — 6:26am
+    votes: null
+    html: |-
+      <p>I'm not sure if this part has been answered for you yet--how and/or where to put the extra glyphs in the font.</p>
+      <p>Here are two methods.</p>
+      <p>Method 1. Let's say you want to make an alternate N. Select the N in the Font window. Choose Copy from the Edit menu. Right click (or control click) on the Font window to get the contextual pop-up menu. Select Append from the pop-up menu. A copy of the N, called N.001, will appear at the end of the font. You can keep this name or rename it something like N.alt1. </p>
+      <p>Method 2. Again, let's say you want to make an alternate N. Choose "Generate Glyphs..." from the Glyph menu. Type the name you want to use, e.g. N.alt1, and click OK. A copy of the N glyph (with the name you gave it) will appear at the end of the font. </p>
+      <p>In both of these cases, the name you give it (e.g., N.alt1) is the name you use when writing your salt or ss01, ss02, etc. features when referring to the alternate N. </p>
+      <p>Now you can modify the artwork in the copy for your alternate glyph, paste your Illustrator art for the alternate N here, or delete the art and draw a new N from scratch.</p>
+    html_clean: |-
+      <p>I'm not sure if this part has been answered for you yet--how and/or where to put the extra glyphs in the font.</p>
+      <p>Here are two methods.</p>
+      <p>Method 1. Let's say you want to make an alternate N. Select the N in the Font window. Choose Copy from the Edit menu. Right click (or control click) on the Font window to get the contextual pop-up menu. Select Append from the pop-up menu. A copy of the N, called N.001, will appear at the end of the font. You can keep this name or rename it something like N.alt1. </p>
+      <p>Method 2. Again, let's say you want to make an alternate N. Choose "Generate Glyphs..." from the Glyph menu. Type the name you want to use, e.g. N.alt1, and click OK. A copy of the N glyph (with the name you gave it) will appear at the end of the font. </p>
+      <p>In both of these cases, the name you give it (e.g., N.alt1) is the name you use when writing your salt or ss01, ss02, etc. features when referring to the alternate N. </p>
+      <p>Now you can modify the artwork in the copy for your alternate glyph, paste your Illustrator art for the alternate N here, or delete the art and draw a new N from scratch.</p>
+  - id: 109421
+    user: 1133
+    date: 2006-02-21T15:56:00
+    date_raw: 21 Feb 2006 — 3:56pm
+    votes: null
+    html: |-
+      <p>Assume you have 3 a's, 4 b's and 2 c's. You'd have the glyphs: </p>
+      <p>a a.1 a.2 b b.1 b.2 b.3 c c.1</p>
+      <p>The features would be: </p>
+      <p>feature salt {<br>
+        sub a from [a.1 a.2];<br>
+        sub b from [b.1 b.2 b.3];<br>
+        sub c from [c.1];<br>
+      } salt; </p>
+      <p>feature ss01 {<br>
+        sub a by a.1;<br>
+        sub b by b.1;<br>
+        sub c by c.1;<br>
+      } ss01; </p>
+      <p>feature ss02 {<br>
+        sub a by a.2;<br>
+        sub b by b.2;<br>
+      } ss02; </p>
+      <p>feature ss03 {<br>
+        sub b by b.3;<br>
+      } ss03; </p>
+      <p>If your glyphs are a bit swashy, I'd also add: </p>
+      <p>feature swsh {<br>
+        sub a from [a.2];<br>
+        sub b from [b.2 b.3];<br>
+      } swsh; </p>
+      <p>In Illustrator, there are separate toggles for salt and swsh, so you could get to the 1st alternate by salt and to the 2nd alternate by swsh. In InDesign CS2, there is access to the ssXX features so you could access to all the glyphs that way. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Assume you have 3 a's, 4 b's and 2 c's. You'd have the glyphs: </p>
+      <p>a a.1 a.2 b b.1 b.2 b.3 c c.1</p>
+      <p>The features would be: </p>
+      <p>feature salt {<br>
+        sub a from [a.1 a.2];<br>
+        sub b from [b.1 b.2 b.3];<br>
+        sub c from [c.1];<br>
+      } salt; </p>
+      <p>feature ss01 {<br>
+        sub a by a.1;<br>
+        sub b by b.1;<br>
+        sub c by c.1;<br>
+      } ss01; </p>
+      <p>feature ss02 {<br>
+        sub a by a.2;<br>
+        sub b by b.2;<br>
+      } ss02; </p>
+      <p>feature ss03 {<br>
+        sub b by b.3;<br>
+      } ss03; </p>
+      <p>If your glyphs are a bit swashy, I'd also add: </p>
+      <p>feature swsh {<br>
+        sub a from [a.2];<br>
+        sub b from [b.2 b.3];<br>
+      } swsh; </p>
+      <p>In Illustrator, there are separate toggles for salt and swsh, so you could get to the 1st alternate by salt and to the 2nd alternate by swsh. In InDesign CS2, there is access to the ssXX features so you could access to all the glyphs that way. </p>
+      <p>A.</p>
+  - id: 511377
+    user: 96745
+    date: 2012-05-29T14:11:00
+    date_raw: 29 May 2012 — 2:11pm
+    votes: null
+    html: |-
+      <p>I followed all the steps suggested by twardoch and I think is all right, but I got this message after compiling in my OpenType window:</p>
+      <p>[WARNING]  [internal] Feature block seen before any language system statement.  You should place languagesystem statements before any feature definition [/Users/Arturete/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 6]</p>
+      <p>How can I fix this? Any suggestions?<br>
+      Thanks in advance</p>
+      <p>Mario Arturo</p>
+    html_clean: |-
+      <p>I followed all the steps suggested by twardoch and I think is all right, but I got this message after compiling in my OpenType window:</p>
+      <p>[WARNING]  [internal] Feature block seen before any language system statement.  You should place languagesystem statements before any feature definition [/Users/Arturete/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 6]</p>
+      <p>How can I fix this? Any suggestions?<br>
+      Thanks in advance</p>
+      <p>Mario Arturo</p>
+  - id: 511381
+    user: 17101
+    date: 2012-05-29T14:48:00
+    date_raw: 29 May 2012 — 2:48pm
+    votes: null
+    html: |-
+      <p><em>Feature block seen before any language system statement. </em></p>
+      <p><a href="http://forum.fontlab.com/opentype-layout-feature-development-faq-and-technotes/fea-25-vs-16-languagesystem-and-script-dflt-issues-t8278.0.html" title="http://forum.fontlab.com/opentype-layout-feature-development-faq-and-technotes/fea-25-vs-16-languagesystem-and-script-dflt-issues-t8278.0.html">http://forum.fontlab.com/opentype-layout-feature-development-faq-and-tec...</a></p>
+    html_clean: |-
+      <p><em>Feature block seen before any language system statement. </em></p>
+      <p><a href="http://forum.fontlab.com/opentype-layout-feature-development-faq-and-technotes/fea-25-vs-16-languagesystem-and-script-dflt-issues-t8278.0.html" title="http://forum.fontlab.com/opentype-layout-feature-development-faq-and-technotes/fea-25-vs-16-languagesystem-and-script-dflt-issues-t8278.0.html">http://forum.fontlab.com/opentype-layout-feature-development-faq-and-tec...</a></p>
+  - id: 511455
+    user: 96745
+    date: 2012-05-30T10:01:00
+    date_raw: 30 May 2012 — 10:01am
+    votes: null
+    html: |-
+      <p>Thanks Frode Frank. Very helpfull. SOLVED, BUT...</p>
+      <p>As I mentioned before, I followed all the steps suggested by twardoch and it seems all right, meaning I got no more errors. I generated the font but it does not do what I intended. That is: everytime you type a particular letter for the second or third time I want them different. I made 3 versions of every small cap letter and 2 versions of the capital letters.<br>
+      Ex: in the word "tomorrow", I would like the three "o"s and the two "r"s to be diferent in the same word. </p>
+      <p>Please help!</p>
+    html_clean: |-
+      <p>Thanks Frode Frank. Very helpfull. SOLVED, BUT...</p>
+      <p>As I mentioned before, I followed all the steps suggested by twardoch and it seems all right, meaning I got no more errors. I generated the font but it does not do what I intended. That is: everytime you type a particular letter for the second or third time I want them different. I made 3 versions of every small cap letter and 2 versions of the capital letters.<br>
+      Ex: in the word "tomorrow", I would like the three "o"s and the two "r"s to be diferent in the same word. </p>
+      <p>Please help!</p>
+  - id: 511566
+    user: 17101
+    date: 2012-05-31T06:38:00
+    date_raw: 31 May 2012 — 6:38am
+    votes: null
+    html: '<p>As I wrote in the other thread, take a look at this: <a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>'
+    html_clean: '<p>As I wrote in the other thread, take a look at this: <a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>'

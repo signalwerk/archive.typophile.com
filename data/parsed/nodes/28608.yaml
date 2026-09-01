@@ -1,0 +1,481 @@
+node: 28608
+title: Fractions and nut fractions in the same opentype font?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150302160529"
+  captured_at: 2015-03-02T16:05:29Z
+  url: http://www.typophile.com:80/node/28608
+  digest: IJU3JNBGHBIVKP5QLY7S3JNNTDGM2DXW
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/28608.html
+  fingerprint: c113022549cdbf7d
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150302160529"
+      digest: IJU3JNBGHBIVKP5QLY7S3JNNTDGM2DXW
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/28608.html
+post:
+  id: 28608
+  user: 5444
+  date: 2006-10-05T10:38:00
+  date_raw: 5 Oct 2006 — 10:38am
+  votes: null
+  html: |-
+    <p>Dear Typophiles,</p>
+    <p>is it possible to have two types of fraction (slashed and nuts) in the same font? I have the slashed ones implented via frac-feature in opentype, so I can have fractions like 2323423/34575685 or 15/4. This works fine in Indesign CS2 already.</p>
+    <p>How do I implement additional nut fractions? Is it possible via Opentype, and if yes, what is best practice? </p>
+    <p>Thanks for your help<br>
+    Sebastian</p>
+    <p>Here is the code I used for slashed fractions (I think I got it from here, because I can't imagine that I invented this on my own...)</p>
+    <p>feature frac {</p>
+    <p>lookup FRAC {<br>
+          sub [zero zero.onum zero.superior zero.subscript zero.denominator] by zero.numerator;<br>
+          sub [one one.onum onesuperior one.subscript one.denominator] by one.numerator;<br>
+          sub [two two.onum twosuperior two.subscript two.denominator] by two.numerator;<br>
+          sub [three three.onum threesuperior three.subscript three.denominator] by three.numerator;<br>
+          sub [four four.onum four.superior four.subscript four.denominator] by four.numerator;<br>
+          sub [five five.onum five.superior five.subscript five.denominator] by five.numerator;<br>
+          sub [six six.onum six.superior six.subscript six.denominator] by six.numerator;<br>
+          sub [seven seven.onum seven.superior seven.subscript seven.denominator] by seven.numerator;<br>
+          sub [eight eight.onum eight.superior eight.subscript eight.denominator] by eight.numerator;<br>
+          sub [nine nine.onum nine.superior nine.subscript nine.denominator] by nine.numerator;<br>
+       } FRAC;</p>
+    <p>   sub zero.numerator' slash' zero.numerator' zero.numerator' by perthousand;<br>
+       sub zero.numerator' slash' zero.numerator' by percent;<br>
+       sub one.numerator' slash' two.numerator' by onehalf;<br>
+       sub one.numerator' slash' three.numerator' by onethird;<br>
+       sub two.numerator' slash' three.numerator' by twothirds;<br>
+       sub one.numerator' slash' four.numerator' by onequarter;<br>
+       sub three.numerator' slash' four.numerator' by threequarters;<br>
+       sub one.numerator' slash' five.numerator' by onefifth;<br>
+       sub two.numerator' slash' five.numerator' by twofifths;<br>
+       sub three.numerator' slash' five.numerator' by threefifths;<br>
+       sub four.numerator' slash' five.numerator' by fourfifths;<br>
+       sub one.numerator' slash' six.numerator' by onesixth;<br>
+       sub five.numerator' slash' six.numerator' by fivesixths;<br>
+       sub one.numerator' slash' eight.numerator' by oneeighth;<br>
+       sub three.numerator' slash' eight.numerator' by threeeighths;<br>
+       sub five.numerator' slash' eight.numerator' by fiveeighths;<br>
+       sub seven.numerator' slash' eight.numerator' by seveneighths;</p>
+    <p>   sub [slash @FIG_DNOM @FIG_FRAC] @FIG_NUM' by @FIG_DNOM;<br>
+       sub [slash] by fraction;</p>
+    <p>} frac;</p>
+  html_clean: |-
+    <p>Dear Typophiles,</p>
+    <p>is it possible to have two types of fraction (slashed and nuts) in the same font? I have the slashed ones implented via frac-feature in opentype, so I can have fractions like 2323423/34575685 or 15/4. This works fine in Indesign CS2 already.</p>
+    <p>How do I implement additional nut fractions? Is it possible via Opentype, and if yes, what is best practice? </p>
+    <p>Thanks for your help<br>
+    Sebastian</p>
+    <p>Here is the code I used for slashed fractions (I think I got it from here, because I can't imagine that I invented this on my own...)</p>
+    <p>feature frac {</p>
+    <p>lookup FRAC {<br>
+          sub [zero zero.onum zero.superior zero.subscript zero.denominator] by zero.numerator;<br>
+          sub [one one.onum onesuperior one.subscript one.denominator] by one.numerator;<br>
+          sub [two two.onum twosuperior two.subscript two.denominator] by two.numerator;<br>
+          sub [three three.onum threesuperior three.subscript three.denominator] by three.numerator;<br>
+          sub [four four.onum four.superior four.subscript four.denominator] by four.numerator;<br>
+          sub [five five.onum five.superior five.subscript five.denominator] by five.numerator;<br>
+          sub [six six.onum six.superior six.subscript six.denominator] by six.numerator;<br>
+          sub [seven seven.onum seven.superior seven.subscript seven.denominator] by seven.numerator;<br>
+          sub [eight eight.onum eight.superior eight.subscript eight.denominator] by eight.numerator;<br>
+          sub [nine nine.onum nine.superior nine.subscript nine.denominator] by nine.numerator;<br>
+       } FRAC;</p>
+    <p>   sub zero.numerator' slash' zero.numerator' zero.numerator' by perthousand;<br>
+       sub zero.numerator' slash' zero.numerator' by percent;<br>
+       sub one.numerator' slash' two.numerator' by onehalf;<br>
+       sub one.numerator' slash' three.numerator' by onethird;<br>
+       sub two.numerator' slash' three.numerator' by twothirds;<br>
+       sub one.numerator' slash' four.numerator' by onequarter;<br>
+       sub three.numerator' slash' four.numerator' by threequarters;<br>
+       sub one.numerator' slash' five.numerator' by onefifth;<br>
+       sub two.numerator' slash' five.numerator' by twofifths;<br>
+       sub three.numerator' slash' five.numerator' by threefifths;<br>
+       sub four.numerator' slash' five.numerator' by fourfifths;<br>
+       sub one.numerator' slash' six.numerator' by onesixth;<br>
+       sub five.numerator' slash' six.numerator' by fivesixths;<br>
+       sub one.numerator' slash' eight.numerator' by oneeighth;<br>
+       sub three.numerator' slash' eight.numerator' by threeeighths;<br>
+       sub five.numerator' slash' eight.numerator' by fiveeighths;<br>
+       sub seven.numerator' slash' eight.numerator' by seveneighths;</p>
+    <p>   sub [slash @FIG_DNOM @FIG_FRAC] @FIG_NUM' by @FIG_DNOM;<br>
+       sub [slash] by fraction;</p>
+    <p>} frac;</p>
+comments:
+  - id: 160924
+    user: 711
+    date: 2006-10-05T10:49:00
+    date_raw: 5 Oct 2006 — 10:49am
+    votes: null
+    html: |-
+      <p>Check out the alternative fractions feature definition at:<br>
+      <a href="http://www.microsoft.com/typography/otspec/features_ae.htm" title="http://www.microsoft.com/typography/otspec/features_ae.htm">http://www.microsoft.com/typography/otspec/features_ae.htm</a></p>
+      <p>but since I don't think there's much support for that feature, I'd also include the nut fractions in a style set and in stylistic alternates.</p>
+    html_clean: |-
+      <p>Check out the alternative fractions feature definition at:<br>
+      <a href="http://www.microsoft.com/typography/otspec/features_ae.htm" title="http://www.microsoft.com/typography/otspec/features_ae.htm">http://www.microsoft.com/typography/otspec/features_ae.htm</a></p>
+      <p>but since I don't think there's much support for that feature, I'd also include the nut fractions in a style set and in stylistic alternates.</p>
+  - id: 160936
+    user: 14800
+    date: 2006-10-05T11:39:00
+    date_raw: 5 Oct 2006 — 11:39am
+    votes: null
+    html: <p>Hmmm can you tell me what a nut fraction is?</p>
+    html_clean: <p>Hmmm can you tell me what a nut fraction is?</p>
+  - id: 160964
+    user: 5444
+    date: 2006-10-05T12:32:00
+    date_raw: 5 Oct 2006 — 12:32pm
+    votes: null
+    html: |-
+      <p>Thank you John.<br>
+      Stylistic Sets was my thought too, but I wanted to hear it from somebody else...</p>
+      <p>Datura513: you can see them in this thread:<br>
+      <a href="http://typophile.com/node/2897" title="http://typophile.com/node/2897">http://typophile.com/node/2897</a><br>
+      fifth posting<br>
+      left: slashed fractions<br>
+      right: nut fractions</p>
+      <p>"nut" because it's as wide as an en-space, which was called "nut" in lead-times.</p>
+    html_clean: |-
+      <p>Thank you John.<br>
+      Stylistic Sets was my thought too, but I wanted to hear it from somebody else...</p>
+      <p>Datura513: you can see them in this thread:<br>
+      <a href="/node/2897/" title="http://typophile.com/node/2897">http://typophile.com/node/2897</a><br>
+      fifth posting<br>
+      left: slashed fractions<br>
+      right: nut fractions</p>
+      <p>"nut" because it's as wide as an en-space, which was called "nut" in lead-times.</p>
+  - id: 160965
+    user: 14800
+    date: 2006-10-05T12:37:00
+    date_raw: 5 Oct 2006 — 12:37pm
+    votes: null
+    html: <p>Oh, that's what I thought you were talking about. I've been using MathMagic Personal to insert nut fractions into Indesign.</p>
+    html_clean: <p>Oh, that's what I thought you were talking about. I've been using MathMagic Personal to insert nut fractions into Indesign.</p>
+  - id: 160984
+    user: 2021
+    date: 2006-10-05T13:56:00
+    date_raw: 5 Oct 2006 — 1:56pm
+    votes: null
+    html: |-
+      <p>I have nut fractions as the default fraction feature in Austin, which I am publishing next year.</p>
+      <p><a href="http://typophile.com/node/28517" title="http://typophile.com/node/28517">http://typophile.com/node/28517</a></p>
+      <p>Here's the code:</p>
+      <p>sub @FIGURES' slash by @numr2;<br>
+      sub slash' @FIGURES @FIGURES by nut2;<br>
+      sub @FIGURES @numr2' nut2 by @sups;<br>
+      sub slash by nut;<br>
+      sub [nut2 nut] @FIGURES' by @sinf;<br>
+      sub @numr2' nut by @sups;<br>
+      sub @FIGURES' @numr2 by @sups;<br>
+      sub @sinf @FIGURES' by @sinf;<br>
+      sub @sups @numr2' by @sups;</p>
+      <p>There are two "negatively-sidebearinged" nut bars, one for single-digit denominators, and one for two-digit denominators. There is a class of numerator characters with extra sidebearing width, to centre over double-digit denominators. This system works perfectly for everything from 0/0 to 99/99, but only in InDesign!</p>
+      <p>In the same font, users can build slash fractions by selecting numerator and denominator features. (This is possible, because the nut fractions use the smaller superior and inferior figures). I have also included the basic fractions in the font, as composite characters, in the nut configuration.</p>
+      <p>The reason I put the nut fractions first is because they are appropriate to the style of the typeface (a scotch modern revival).</p>
+    html_clean: |-
+      <p>I have nut fractions as the default fraction feature in Austin, which I am publishing next year.</p>
+      <p><a href="/node/28517/" title="http://typophile.com/node/28517">http://typophile.com/node/28517</a></p>
+      <p>Here's the code:</p>
+      <p>sub @FIGURES' slash by @numr2;<br>
+      sub slash' @FIGURES @FIGURES by nut2;<br>
+      sub @FIGURES @numr2' nut2 by @sups;<br>
+      sub slash by nut;<br>
+      sub [nut2 nut] @FIGURES' by @sinf;<br>
+      sub @numr2' nut by @sups;<br>
+      sub @FIGURES' @numr2 by @sups;<br>
+      sub @sinf @FIGURES' by @sinf;<br>
+      sub @sups @numr2' by @sups;</p>
+      <p>There are two "negatively-sidebearinged" nut bars, one for single-digit denominators, and one for two-digit denominators. There is a class of numerator characters with extra sidebearing width, to centre over double-digit denominators. This system works perfectly for everything from 0/0 to 99/99, but only in InDesign!</p>
+      <p>In the same font, users can build slash fractions by selecting numerator and denominator features. (This is possible, because the nut fractions use the smaller superior and inferior figures). I have also included the basic fractions in the font, as composite characters, in the nut configuration.</p>
+      <p>The reason I put the nut fractions first is because they are appropriate to the style of the typeface (a scotch modern revival).</p>
+  - id: 161390
+    user: 1844
+    date: 2006-10-08T03:50:00
+    date_raw: 8 Oct 2006 — 3:50am
+    votes: null
+    html: |-
+      <p>For all those interested, the current best practice at Adobe regarding the 'frac' feature, is to NOT access pre-composed fractions (onehalf, onethird, etc.) via OpenType layout substitutions. The glyphs are included in the fonts (where applicable) and assigned Unicode values accordingly, but there is not reference to them in the features.</p>
+      <p>Our goal for taking this approach is to preserve the character stream as it was input by the user, i.e. <strong>U+0031 U+002F U+0032</strong> (1/2) won't be replaced by <strong>U+00BD</strong> (½). This means that all fractions are by default arbitrary, and therefore the elements that compose them need to kerned as needed.</p>
+    html_clean: |-
+      <p>For all those interested, the current best practice at Adobe regarding the 'frac' feature, is to NOT access pre-composed fractions (onehalf, onethird, etc.) via OpenType layout substitutions. The glyphs are included in the fonts (where applicable) and assigned Unicode values accordingly, but there is not reference to them in the features.</p>
+      <p>Our goal for taking this approach is to preserve the character stream as it was input by the user, i.e. <strong>U+0031 U+002F U+0032</strong> (1/2) won't be replaced by <strong>U+00BD</strong> (½). This means that all fractions are by default arbitrary, and therefore the elements that compose them need to kerned as needed.</p>
+  - id: 161394
+    user: 5444
+    date: 2006-10-08T06:23:00
+    date_raw: 8 Oct 2006 — 6:23am
+    votes: null
+    html: <p>Thanks Nick and Miguel for your input.</p>
+    html_clean: <p>Thanks Nick and Miguel for your input.</p>
+  - id: 163373
+    user: 1133
+    date: 2006-10-19T00:05:00
+    date_raw: 19 Oct 2006 — 12:05am
+    votes: null
+    html: <p>I'd include the diagonal (slashed) fractions in the "frac" feature, and the vertical ("nut") fractions in the "afrc" feature and in the "salt" and "ss01" features for the glyphs that are produced in "frac". The code may be a bit tricky if you want to support vertical fractions with more than one digit in the numerator or in the denominator.</p>
+    html_clean: <p>I'd include the diagonal (slashed) fractions in the "frac" feature, and the vertical ("nut") fractions in the "afrc" feature and in the "salt" and "ss01" features for the glyphs that are produced in "frac". The code may be a bit tricky if you want to support vertical fractions with more than one digit in the numerator or in the denominator.</p>
+  - id: 163490
+    user: 2021
+    date: 2006-10-19T13:54:00
+    date_raw: 19 Oct 2006 — 1:54pm
+    votes: null
+    html: |-
+      <p><em>the vertical (“nut”) fractions in the “afrc” feature and in the “salt” and “ss01” features for the glyphs that are produced in “frac” </em></p>
+      <p>Is there any point in making an "afrc" feature, if it is not supported by layout applications?<br>
+      It's like the "hist" feature in that sense.<br>
+      ***</p>
+      <p>It would be good if font developers could name their "salt" features, and have those names appear in the OpenType menu.</p>
+    html_clean: |-
+      <p><em>the vertical (“nut”) fractions in the “afrc” feature and in the “salt” and “ss01” features for the glyphs that are produced in “frac” </em></p>
+      <p>Is there any point in making an "afrc" feature, if it is not supported by layout applications?<br>
+      It's like the "hist" feature in that sense.<br>
+      ***</p>
+      <p>It would be good if font developers could name their "salt" features, and have those names appear in the OpenType menu.</p>
+  - id: 163494
+    user: 7006
+    date: 2006-10-19T14:06:00
+    date_raw: 19 Oct 2006 — 2:06pm
+    votes: null
+    html: |-
+      <p><em>It would be good if font developers could name their “salt” features, and have those names appear in the OpenType menu.</em></p>
+      <p>you mean your ss01-ss20 features?</p>
+    html_clean: |-
+      <p><em>It would be good if font developers could name their “salt” features, and have those names appear in the OpenType menu.</em></p>
+      <p>you mean your ss01-ss20 features?</p>
+  - id: 163660
+    user: 2021
+    date: 2006-10-20T10:32:00
+    date_raw: 20 Oct 2006 — 10:32am
+    votes: null
+    html: <p>Yes.</p>
+    html_clean: <p>Yes.</p>
+  - id: 164502
+    user: 1133
+    date: 2006-10-25T08:10:00
+    date_raw: 25 Oct 2006 — 8:10am
+    votes: null
+    html: |-
+      <p>"It would be good if font developers could name their “salt” features, and have those names appear in the OpenType menu."</p>
+      <p>Nick, </p>
+      <p>are you prepared to ship names for your stylistic sets in 30-40 or so different languages into which applications are localized these days? Or would you expect that users for some reason accept that portions of their user interfaces use a foreign language?  </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>"It would be good if font developers could name their “salt” features, and have those names appear in the OpenType menu."</p>
+      <p>Nick, </p>
+      <p>are you prepared to ship names for your stylistic sets in 30-40 or so different languages into which applications are localized these days? Or would you expect that users for some reason accept that portions of their user interfaces use a foreign language?  </p>
+      <p>A.</p>
+  - id: 164913
+    user: 2021
+    date: 2006-10-26T14:20:00
+    date_raw: 26 Oct 2006 — 2:20pm
+    votes: null
+    html: |-
+      <p>Good point, Adam.</p>
+      <p>Yes, I would get the translation made.</p>
+      <p>Alternatively, icons would be useful. Certainly to distinguish between nut and slash fractions would be easy.<br>
+      After all, if Adobe thinks it's OK to clutter up my OS X desktop with their dysfunctional CS icon candy, I wouldn't mind cluttering up their InDesign interface with a few icons of my own :-). Actually, if that is the issue, perhaps Adobe/MS could commission someone to design a set of icons for OpenType features.</p>
+      <p>Thanks for getting me thinking on this -- looks like I will have to provide multi-lingual PDF manuals for my OpenType fonts.</p>
+    html_clean: |-
+      <p>Good point, Adam.</p>
+      <p>Yes, I would get the translation made.</p>
+      <p>Alternatively, icons would be useful. Certainly to distinguish between nut and slash fractions would be easy.<br>
+      After all, if Adobe thinks it's OK to clutter up my OS X desktop with their dysfunctional CS icon candy, I wouldn't mind cluttering up their InDesign interface with a few icons of my own :-). Actually, if that is the issue, perhaps Adobe/MS could commission someone to design a set of icons for OpenType features.</p>
+      <p>Thanks for getting me thinking on this -- looks like I will have to provide multi-lingual PDF manuals for my OpenType fonts.</p>
+  - id: 165376
+    user: 909
+    date: 2006-10-28T17:45:00
+    date_raw: 28 Oct 2006 — 5:45pm
+    votes: null
+    html: |-
+      <p>Adam's recommendation is mine as well, for most fonts.</p>
+      <p>As for why include features that aren't supported by current applications, we've talked about this before. Many applications are revised every 1.5 to 2 years. The lifespan of a font is five or ten times that, so it's shortsighted to only deal with what's supported by the apps that are shipping this month.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Adam's recommendation is mine as well, for most fonts.</p>
+      <p>As for why include features that aren't supported by current applications, we've talked about this before. Many applications are revised every 1.5 to 2 years. The lifespan of a font is five or ten times that, so it's shortsighted to only deal with what's supported by the apps that are shipping this month.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 165395
+    user: 1133
+    date: 2006-10-28T23:25:00
+    date_raw: 28 Oct 2006 — 11:25pm
+    votes: null
+    html: |-
+      <p>Nick, </p>
+      <p>the problem is that *you* would commission translations for maybe 25 languages, somebody else would do so for just 7 languages, and yet someone else would only provide English names. In the end, there would be always the danger that the user in a non-English locale would get a random mix of translated and untranslated names depending on the selected font. This is not the kind of user experience that is desirable in today's world. These days, the user expectancy is "translate well or not at all". A localized application with one of the menus appearing untranslated looks unprofessional. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Nick, </p>
+      <p>the problem is that *you* would commission translations for maybe 25 languages, somebody else would do so for just 7 languages, and yet someone else would only provide English names. In the end, there would be always the danger that the user in a non-English locale would get a random mix of translated and untranslated names depending on the selected font. This is not the kind of user experience that is desirable in today's world. These days, the user expectancy is "translate well or not at all". A localized application with one of the menus appearing untranslated looks unprofessional. </p>
+      <p>A.</p>
+  - id: 165459
+    user: 2021
+    date: 2006-10-29T09:37:00
+    date_raw: 29 Oct 2006 — 9:37am
+    votes: null
+    html: |-
+      <p>Your logic is impeccable as ever Adam, but given the scenario you describe, I think that the tendency would be towards word-free icons, as in the Illustrator OT menu. And I really do prefer words -- as I mentioned, I have never warmed to the OS X interface, and still rely on the pop-up words to distinguish InDesign from Photoshop in the "Dock". I am still confused between "paragraph leading" and "paragraph indent" in the InDesign menu, despite many years of almost daily use. </p>
+      <p>What I would really like to see:</p>
+      <p>* First, the Fraction features should be properly conceived, named as "sfrc" and "nfrc", not "frac" and "afrc". In other words, they should be Slash and Nut, not with a designation that assumes the Nut is the alternate. </p>
+      <p>*Secondly, I'd like to see two options in the OT menu, Slash and Nut, with icons and pop-up names, as in Illustrator. </p>
+      <p>*Thirdly, where a feature is absent from a font, no greyed-out or unchecked menu item, just nothing.</p>
+      <p>Even if fonts don't have an arbitrary nut fraction feature, which is problematic to implement, it would still be feasible for foundries to include the basic fractions (halfs, quarters, eights and thirds) as composite glyphs, programmed to the "nfrc" feature.</p>
+      <p>While I appreciate the logic of standardization, I also find that typographically it makes too many assumptions about what the default feature should be. Why does every typeface have to have tabular lining figures as the default? Why does every typeface have to have slash fractions as the default? Why not two figure styles instead of one or four?</p>
+    html_clean: |-
+      <p>Your logic is impeccable as ever Adam, but given the scenario you describe, I think that the tendency would be towards word-free icons, as in the Illustrator OT menu. And I really do prefer words -- as I mentioned, I have never warmed to the OS X interface, and still rely on the pop-up words to distinguish InDesign from Photoshop in the "Dock". I am still confused between "paragraph leading" and "paragraph indent" in the InDesign menu, despite many years of almost daily use. </p>
+      <p>What I would really like to see:</p>
+      <p>* First, the Fraction features should be properly conceived, named as "sfrc" and "nfrc", not "frac" and "afrc". In other words, they should be Slash and Nut, not with a designation that assumes the Nut is the alternate. </p>
+      <p>*Secondly, I'd like to see two options in the OT menu, Slash and Nut, with icons and pop-up names, as in Illustrator. </p>
+      <p>*Thirdly, where a feature is absent from a font, no greyed-out or unchecked menu item, just nothing.</p>
+      <p>Even if fonts don't have an arbitrary nut fraction feature, which is problematic to implement, it would still be feasible for foundries to include the basic fractions (halfs, quarters, eights and thirds) as composite glyphs, programmed to the "nfrc" feature.</p>
+      <p>While I appreciate the logic of standardization, I also find that typographically it makes too many assumptions about what the default feature should be. Why does every typeface have to have tabular lining figures as the default? Why does every typeface have to have slash fractions as the default? Why not two figure styles instead of one or four?</p>
+  - id: 358134
+    user: 9418
+    date: 2009-07-26T09:28:00
+    date_raw: 26 Jul 2009 — 9:28am
+    votes: null
+    html: <p>/track that</p>
+    html_clean: <p>/track that</p>
+  - id: 358140
+    user: 3135
+    date: 2009-07-26T10:06:00
+    date_raw: 26 Jul 2009 — 10:06am
+    votes: null
+    html: |-
+      <p>"“translate well or not at all”. "</p>
+      <p>As far as Stylistic Sets go, I would rather see a poorly translated descriptive name than a meaningless number. Showing nothing, tells me nothing.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>"“translate well or not at all”. "</p>
+      <p>As far as Stylistic Sets go, I would rather see a poorly translated descriptive name than a meaningless number. Showing nothing, tells me nothing.</p>
+      <p>ChrisL</p>
+  - id: 358201
+    user: 9418
+    date: 2009-07-26T16:23:00
+    date_raw: 26 Jul 2009 — 4:23pm
+    votes: null
+    html: |-
+      <p>I read this in tandem to another thread (Dan Reynolds') on a superior alignment in which Thomas Phinney asks of other fonts with nut fractions.<br>
+      <a href="http://typophile.com/node/16879" title="http://typophile.com/node/16879">http://typophile.com/node/16879</a><br>
+      For your interest, here is their provisional placement in Pseudo Text.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Pseudo-nut-fraction_5178.png"></div><p></p>
+      <p>_________________________________<br>
+      Michael Hernan</p>
+    html_clean: |-
+      <p>I read this in tandem to another thread (Dan Reynolds') on a superior alignment in which Thomas Phinney asks of other fonts with nut fractions.<br>
+      <a href="/node/16879/" title="http://typophile.com/node/16879">http://typophile.com/node/16879</a><br>
+      For your interest, here is their provisional placement in Pseudo Text.</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Pseudo-nut-fraction_5178.png"></div><p></p>
+      <p>_________________________________<br>
+      Michael Hernan</p>
+  - id: 358374
+    user: 7006
+    date: 2009-07-27T18:23:00
+    date_raw: 27 Jul 2009 — 6:23pm
+    votes: null
+    html: "<p>I really like the solution found in Underware's new Liza Pro fonts: so that nut fractions are applied when the fractions feature + tabular figures feature are applied together.</p>"
+    html_clean: "<p>I really like the solution found in Underware's new Liza Pro fonts: so that nut fractions are applied when the fractions feature + tabular figures feature are applied together.</p>"
+  - id: 358406
+    user: 2021
+    date: 2009-07-27T21:10:00
+    date_raw: 27 Jul 2009 — 9:10pm
+    votes: null
+    html: <p>What if someone wanted nut fractions with proportional figures?</p>
+    html_clean: <p>What if someone wanted nut fractions with proportional figures?</p>
+  - id: 358499
+    user: 9418
+    date: 2009-07-28T12:39:00
+    date_raw: 28 Jul 2009 — 12:39pm
+    votes: null
+    html: |-
+      <p>Here is the info on Underware (Cheers Paul)</p>
+      <p><a href="http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features" title="http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features">http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features</a></p>
+      <p>[Show all opentype features and expand more info]</p>
+      <p>I like this, as it makes absolute sense to have have nut fractions for tables... BUT...</p>
+      <p>@Nick - I don't quite understand your question.<br>
+      From my perspective which currently is: use inline in a set text- I am working on fractions themselves that will consist of numbers approximate in design to (scaled down) lining Figures. These wouldn't naturally line up with Text Lining figures as shown above. If they were to do so, would make the nut fraction too small (surely [untested]). I know it would be difficult to beef up the small numbers to match the density of Lining Figures. [I would hope there is no need for nut fractions in Bold surly]<br>
+      There lies the challenge. </p>
+      <p>However this is exactly how the Liza Pro has them for table use... which I like the idea of.<br>
+      I have just seen in the User Guide PDF that the nut fractions extend both up (above the Cap height) and down (below the base line) by quite a bit, making them not so good for annual reports but great for 50s style advertising vernacular ephemera.</p>
+      <p>I was thinking this is also the way (Nut-style) to have fractions for a titling alternative style.</p>
+    html_clean: |-
+      <p>Here is the info on Underware (Cheers Paul)</p>
+      <p><a href="http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features" title="http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features">http://www.underware.nl/site2/index.php?id1=liza&amp;id2=features</a></p>
+      <p>[Show all opentype features and expand more info]</p>
+      <p>I like this, as it makes absolute sense to have have nut fractions for tables... BUT...</p>
+      <p>@Nick - I don't quite understand your question.<br>
+      From my perspective which currently is: use inline in a set text- I am working on fractions themselves that will consist of numbers approximate in design to (scaled down) lining Figures. These wouldn't naturally line up with Text Lining figures as shown above. If they were to do so, would make the nut fraction too small (surely [untested]). I know it would be difficult to beef up the small numbers to match the density of Lining Figures. [I would hope there is no need for nut fractions in Bold surly]<br>
+      There lies the challenge. </p>
+      <p>However this is exactly how the Liza Pro has them for table use... which I like the idea of.<br>
+      I have just seen in the User Guide PDF that the nut fractions extend both up (above the Cap height) and down (below the base line) by quite a bit, making them not so good for annual reports but great for 50s style advertising vernacular ephemera.</p>
+      <p>I was thinking this is also the way (Nut-style) to have fractions for a titling alternative style.</p>
+  - id: 358555
+    user: 7006
+    date: 2009-07-28T16:48:00
+    date_raw: 28 Jul 2009 — 4:48pm
+    votes: null
+    html: <p>@ nick, then don't apply the tabular figures feature to your figures, just the fractions.</p>
+    html_clean: <p>@ nick, then don't apply the tabular figures feature to your figures, just the fractions.</p>
+  - id: 358799
+    user: 2021
+    date: 2009-07-29T21:04:00
+    date_raw: 29 Jul 2009 — 9:04pm
+    votes: null
+    html: |-
+      <p>@paul, that would be a lot of work. Shouldn't figure and fraction features be global?</p>
+      <p>IMO, the alternative fraction style, whether slash or nut fractions, should be independently applicable to figure styles.<br>
+      As "afrc" is not yet supported by layout apps, that means the alternate fraction style should be put in a stylistic set or the titling feature.</p>
+      <p>@michael, I've made nut fractions the default for the Modern Suite fonts--all weights and styles--extending below the baseline. I don't see why this depth would be a problem anywhere that fractions are used; in fact, it means that mathematical operators are vertically centred on the nut fractions. The alternative fractions (arbitrary slash) are available in the titling feature.</p>
+    html_clean: |-
+      <p>@paul, that would be a lot of work. Shouldn't figure and fraction features be global?</p>
+      <p>IMO, the alternative fraction style, whether slash or nut fractions, should be independently applicable to figure styles.<br>
+      As "afrc" is not yet supported by layout apps, that means the alternate fraction style should be put in a stylistic set or the titling feature.</p>
+      <p>@michael, I've made nut fractions the default for the Modern Suite fonts--all weights and styles--extending below the baseline. I don't see why this depth would be a problem anywhere that fractions are used; in fact, it means that mathematical operators are vertically centred on the nut fractions. The alternative fractions (arbitrary slash) are available in the titling feature.</p>
+  - id: 358931
+    user: 7006
+    date: 2009-07-30T10:26:00
+    date_raw: 30 Jul 2009 — 10:26am
+    votes: null
+    html: <p>some features probably shouldn't be applied globally. IMO fractions is one of these cases.</p>
+    html_clean: <p>some features probably shouldn't be applied globally. IMO fractions is one of these cases.</p>
+  - id: 359449
+    user: 2021
+    date: 2009-08-02T11:14:00
+    date_raw: 2 Aug 2009 — 11:14am
+    votes: null
+    html: <p>IMO fractions is a perfect example of a feature that should be global, so that it can be put in a style sheet for, say, recipe ingredients in a cook book, or the size captions in a catalog. Somewhat North American, of course, as metric not favored for such things here.</p>
+    html_clean: <p>IMO fractions is a perfect example of a feature that should be global, so that it can be put in a style sheet for, say, recipe ingredients in a cook book, or the size captions in a catalog. Somewhat North American, of course, as metric not favored for such things here.</p>
+  - id: 359462
+    user: 909
+    date: 2009-08-02T13:18:00
+    date_raw: 2 Aug 2009 — 1:18pm
+    votes: null
+    html: |-
+      <p>Even if the code is very clever, it can't distinguish between a real fraction and a date using a slash separator (that doesn't include the year). 9/11 anyone? Is 2/3 = Feb 3rd, 2nd Mar, or two thirds?</p>
+      <p>Ergo, being in the habit of using fractions globally would be dangerous, even if the fractions were coded as well as possible for that purpose.</p>
+      <p>Of course, one could do fraction code in a manner more forgiving to users than Adobe's approach, but it would get pretty complex.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Even if the code is very clever, it can't distinguish between a real fraction and a date using a slash separator (that doesn't include the year). 9/11 anyone? Is 2/3 = Feb 3rd, 2nd Mar, or two thirds?</p>
+      <p>Ergo, being in the habit of using fractions globally would be dangerous, even if the fractions were coded as well as possible for that purpose.</p>
+      <p>Of course, one could do fraction code in a manner more forgiving to users than Adobe's approach, but it would get pretty complex.</p>
+      <p>Cheers,</p>
+      <p>T</p>

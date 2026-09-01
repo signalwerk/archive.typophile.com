@@ -1,0 +1,158 @@
+node: 80163
+title: improving connected script efficiency
+forum:
+  id: 4
+  title: General Discussions
+source:
+  archive: web.archive.org
+  timestamp: "20150416195940"
+  captured_at: 2015-04-16T19:59:40Z
+  url: http://typophile.com/node/80163
+  digest: O56POHEQC6TSMXSTT2ZYTGXKYY3E37XH
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/80163.html
+  fingerprint: 8386d2348ff688f4
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150416195940"
+      digest: O56POHEQC6TSMXSTT2ZYTGXKYY3E37XH
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/80163.html
+post:
+  id: 80163
+  user: 95628
+  date: 2011-03-18T08:04:00
+  date_raw: 18 Mar 2011 — 8:04am
+  votes: null
+  html: |-
+    <p>In connected script fonts, the transition between characters is often an issue:<br>
+    <img src="http://updo.nl/file/ee197a29.png"><br>
+    I got the idea to solve this by slicing every character in half, vertically, and connecting the second part of every character with the first part of every character, thus forming pairs for every transition:<br>
+    <img src="http://updo.nl/file/212529b2.png"><br>
+    This example now consists out of the pairs /_h/, /ha/, /al/, /lf/ and /f_/<br>
+    This way, any two characters can be used subsequently without interrupting the flow.</p>
+    <p>Using this method, a font would consist out of roughly 26*26=676 "characters" or pairs. This may seem a lot, but if we assume that every transition between any 2 letters is unique, fixing the issue on character-level would take way more different characters<br>
+    (every letter has 26 (or 27 including blank space) possible predecessors and 26 possible successors, resulting in roughly 26^3=17576 characters).</p>
+    <p>Of course, not every transition is unique in a connected script font and splitting a font up in pairs of characters instead of the actual characters may seem a bit superfluous in most cases, but it would also make for some interesting design possibilities.</p>
+    <p>I would very much like to hear your opinion on this.</p>
+    <p>(Also, first post. Hi!)</p>
+  html_clean: |-
+    <p>In connected script fonts, the transition between characters is often an issue:<br>
+    <img src="http://updo.nl/file/ee197a29.png"><br>
+    I got the idea to solve this by slicing every character in half, vertically, and connecting the second part of every character with the first part of every character, thus forming pairs for every transition:<br>
+    <img src="http://updo.nl/file/212529b2.png"><br>
+    This example now consists out of the pairs /_h/, /ha/, /al/, /lf/ and /f_/<br>
+    This way, any two characters can be used subsequently without interrupting the flow.</p>
+    <p>Using this method, a font would consist out of roughly 26*26=676 "characters" or pairs. This may seem a lot, but if we assume that every transition between any 2 letters is unique, fixing the issue on character-level would take way more different characters<br>
+    (every letter has 26 (or 27 including blank space) possible predecessors and 26 possible successors, resulting in roughly 26^3=17576 characters).</p>
+    <p>Of course, not every transition is unique in a connected script font and splitting a font up in pairs of characters instead of the actual characters may seem a bit superfluous in most cases, but it would also make for some interesting design possibilities.</p>
+    <p>I would very much like to hear your opinion on this.</p>
+    <p>(Also, first post. Hi!)</p>
+comments:
+  - id: 456244
+    user: 2021
+    date: 2011-03-18T09:15:00
+    date_raw: 18 Mar 2011 — 9:15am
+    votes: null
+    html: |-
+      <p>Edmund Fry tried that a couple hundred years ago, but it didn't catch on.<br>
+      Not surprisingly, as it must have been almost impossible to compose with accurately or with any speed.</p>
+      <p>It's redundant now, with the ability of the contextual features in OpenType to mimic the joining rules of traditional cursive calligraphy.</p>
+      <p>In fact , that was the origin of the Contextual Alternates feature, in Robert Slimbach's Sanvito, in which Adobe automated the alternates which previously existed (but had to be annually applied), in conjunction with the development of OpenType support in InDesign.</p>
+    html_clean: |-
+      <p>Edmund Fry tried that a couple hundred years ago, but it didn't catch on.<br>
+      Not surprisingly, as it must have been almost impossible to compose with accurately or with any speed.</p>
+      <p>It's redundant now, with the ability of the contextual features in OpenType to mimic the joining rules of traditional cursive calligraphy.</p>
+      <p>In fact , that was the origin of the Contextual Alternates feature, in Robert Slimbach's Sanvito, in which Adobe automated the alternates which previously existed (but had to be annually applied), in conjunction with the development of OpenType support in InDesign.</p>
+  - id: 456257
+    user: 1262
+    date: 2011-03-18T10:49:00
+    date_raw: 18 Mar 2011 — 10:49am
+    votes: null
+    html: |-
+      <p>I experimented with a similar idea some years ago, except with the variation that each glyph was a half letter, not a connection between two letters, based on the reasoning that the form of letters varied less than the connections between them. Hence it would be possible to minimise the size of the glyph set because rather than needing an individual contextual glyph for each letter with each class of join on the left and each class of join on the right, you would only need half letters for each join class. So, for instance, lets say for a given letter there were 3 ways in which it could join on the left to a preceding letter and 4 ways it could join on the right to a following letter, plus one non-joining shape left and right, that would require 20 variant glyphs for a full letter approach, but only 9 for a half letter approach.</p>
+      <p>Tom Milo goes one step further with this Arabic fonts, decomposing each letter into strokes and re-using stroke glyphs in a modular way to create multiple letters.</p>
+    html_clean: |-
+      <p>I experimented with a similar idea some years ago, except with the variation that each glyph was a half letter, not a connection between two letters, based on the reasoning that the form of letters varied less than the connections between them. Hence it would be possible to minimise the size of the glyph set because rather than needing an individual contextual glyph for each letter with each class of join on the left and each class of join on the right, you would only need half letters for each join class. So, for instance, lets say for a given letter there were 3 ways in which it could join on the left to a preceding letter and 4 ways it could join on the right to a following letter, plus one non-joining shape left and right, that would require 20 variant glyphs for a full letter approach, but only 9 for a half letter approach.</p>
+      <p>Tom Milo goes one step further with this Arabic fonts, decomposing each letter into strokes and re-using stroke glyphs in a modular way to create multiple letters.</p>
+  - id: 456269
+    user: 46071
+    date: 2011-03-18T13:29:00
+    date_raw: 18 Mar 2011 — 1:29pm
+    votes: null
+    html: |-
+      <p>Related experiments:<br>
+      <a href="http://www.identifont.com/find?font=blue+island" title="http://www.identifont.com/find?font=blue+island">http://www.identifont.com/find?font=blue+island</a><br>
+      <a href="http://www.molotro.com/ccunami.html" title="http://www.molotro.com/ccunami.html">http://www.molotro.com/ccunami.html</a></p>
+    html_clean: |-
+      <p>Related experiments:<br>
+      <a href="http://www.identifont.com/find?font=blue+island" title="http://www.identifont.com/find?font=blue+island">http://www.identifont.com/find?font=blue+island</a><br>
+      <a href="http://www.molotro.com/ccunami.html" title="http://www.molotro.com/ccunami.html">http://www.molotro.com/ccunami.html</a></p>
+  - id: 456290
+    user: 1262
+    date: 2011-03-18T16:55:00
+    date_raw: 18 Mar 2011 — 4:55pm
+    votes: null
+    html: "<p>Blue Island create the visual impression of individual letters being made up of strokes connected from other letters, but it is made in a conventional way, with each letter being represented by an individual if eccentric glyph. It is a very clever piece of design work, but technically it isn't any different from a typical font. It is really the opposite of the idea expressed in this thread: precomposed glyphs that look decomposed in use, not decomposed glyphs that look precomposed in use.</p>"
+    html_clean: "<p>Blue Island create the visual impression of individual letters being made up of strokes connected from other letters, but it is made in a conventional way, with each letter being represented by an individual if eccentric glyph. It is a very clever piece of design work, but technically it isn't any different from a typical font. It is really the opposite of the idea expressed in this thread: precomposed glyphs that look decomposed in use, not decomposed glyphs that look precomposed in use.</p>"
+  - id: 456294
+    user: 46071
+    date: 2011-03-18T17:28:00
+    date_raw: 18 Mar 2011 — 5:28pm
+    votes: null
+    html: <p>So we can say it’s related by opposition ;-)</p>
+    html_clean: <p>So we can say it’s related by opposition ;-)</p>
+  - id: 457009
+    user: 95628
+    date: 2011-03-24T09:06:00
+    date_raw: 24 Mar 2011 — 9:06am
+    votes: null
+    html: |-
+      <p>Nick, thanks for your comment, I will look into the contextual opentype features. I wonder if something like this is even possible with opentype?</p>
+      <p>John, is there anything left from the experiment? Very interesting, I would love to see it.</p>
+      <p>Ccunami is funny by the way.</p>
+    html_clean: |-
+      <p>Nick, thanks for your comment, I will look into the contextual opentype features. I wonder if something like this is even possible with opentype?</p>
+      <p>John, is there anything left from the experiment? Very interesting, I would love to see it.</p>
+      <p>Ccunami is funny by the way.</p>
+  - id: 457029
+    user: 2021
+    date: 2011-03-24T12:12:00
+    date_raw: 24 Mar 2011 — 12:12pm
+    votes: null
+    html: |-
+      <p><em> I wonder if something like this is even possible with opentype? </em></p>
+      <p>Yes, it is quite possible.<br>
+      It might be quite tricky to twist your head around.</p>
+      <p>I think it might have some merit for conceptualizing extremely "organic" handrwiting, but not for traditional calligraphic styles which are already formalized in joining rules that translate well into the Contextual Alternates feature — after all, that is what the feature was invented for.</p>
+      <p>I think you should give it a try, starting with a formalized chancery script, to get the gist of the process.</p>
+    html_clean: |-
+      <p><em> I wonder if something like this is even possible with opentype? </em></p>
+      <p>Yes, it is quite possible.<br>
+      It might be quite tricky to twist your head around.</p>
+      <p>I think it might have some merit for conceptualizing extremely "organic" handrwiting, but not for traditional calligraphic styles which are already formalized in joining rules that translate well into the Contextual Alternates feature — after all, that is what the feature was invented for.</p>
+      <p>I think you should give it a try, starting with a formalized chancery script, to get the gist of the process.</p>
+  - id: 457030
+    user: 2021
+    date: 2011-03-24T12:15:00
+    date_raw: 24 Mar 2011 — 12:15pm
+    votes: null
+    html: |-
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Frys_6192_6259.jpg"></div><br>
+      This is from <em>Specimen of Modern Printing Types</em>, by Edmund Fry. Letter Founder to The King, Type Street, London, 1828<p></p>
+    html_clean: |-
+      <p></p><div class="imageWrap"><img src="/files/frys_6192_6259.jpg"></div><br>
+      This is from <em>Specimen of Modern Printing Types</em>, by Edmund Fry. Letter Founder to The King, Type Street, London, 1828<p></p>

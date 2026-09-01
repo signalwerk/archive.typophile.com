@@ -1,0 +1,167 @@
+node: 89092
+title: Reverse-engineering anchors
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20140723212934"
+  captured_at: 2014-07-23T21:29:34Z
+  url: http://typophile.com/node/89092
+  digest: WR4ZPYARH3QZLF3OII5SFLSIMBARV3FG
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/89092.html
+  fingerprint: 71b7d2623466dec9
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20140723212934"
+      digest: WR4ZPYARH3QZLF3OII5SFLSIMBARV3FG
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/89092.html
+post:
+  id: 89092
+  user: 19493
+  date: 2012-01-14T13:45:00
+  date_raw: 14 Jan 2012 — 1:45pm
+  votes: null
+  html: <p>I have a font with all the diacritical Latin flattened, that is, precomposed and decomposed with no trace of anchors whatsoever. I would want to reverse-engineer placement of anchors if there indeed were any or other effectively same preplanning. Now, doing this somewhat intuitively and matching it all by trial and error is obviously insane. Do you guys know any step-by-step algorithm that would make such a task a finite one or at least determine there was no approximate anchoring in the first place?</p>
+  html_clean: <p>I have a font with all the diacritical Latin flattened, that is, precomposed and decomposed with no trace of anchors whatsoever. I would want to reverse-engineer placement of anchors if there indeed were any or other effectively same preplanning. Now, doing this somewhat intuitively and matching it all by trial and error is obviously insane. Do you guys know any step-by-step algorithm that would make such a task a finite one or at least determine there was no approximate anchoring in the first place?</p>
+comments:
+  - id: 491306
+    user: 1250
+    date: 2012-01-14T17:41:00
+    date_raw: 14 Jan 2012 — 5:41pm
+    votes: null
+    html: |-
+      <p>I imagine the best way would be to write a Python script that<br>
+      would take measurements and figure out the original numbers.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I imagine the best way would be to write a Python script that<br>
+      would take measurements and figure out the original numbers.</p>
+      <p>hhp</p>
+  - id: 491328
+    user: 20652
+    date: 2012-01-15T02:45:00
+    date_raw: 15 Jan 2012 — 2:45am
+    votes: null
+    html: |-
+      <p>I don't think there'd be a way to figure out where the original anchors were, because anchors positions are arbitrary in relation to the glyphs as long as they match up between the base glyph and the mark.</p>
+      <p>If you're planning to create more composite glyphs you wouldn't necessarily need to have details of the original anchors though. I'm not sure what your aim is.</p>
+    html_clean: |-
+      <p>I don't think there'd be a way to figure out where the original anchors were, because anchors positions are arbitrary in relation to the glyphs as long as they match up between the base glyph and the mark.</p>
+      <p>If you're planning to create more composite glyphs you wouldn't necessarily need to have details of the original anchors though. I'm not sure what your aim is.</p>
+  - id: 491355
+    user: 19493
+    date: 2012-01-15T09:49:00
+    date_raw: 15 Jan 2012 — 9:49am
+    votes: null
+    html: <p>Well, I just want to play with it as a font of only Unicode-based diacritical combining. It’s not for any historical record, so it doesn’t matter if my anchors would reflect the original ones as long as diacritics placement would be the same. Ironically, this arbitrariness in character to diacritic anchor matching is exactly what I was afraid of and what is the trickiest part of the task. Anyway, some utility that would somehow heuristically figure out such anchoring or even its approximation would be quite useful, I think, at least for modernizing old fonts. I’ll give it some more thought.</p>
+    html_clean: <p>Well, I just want to play with it as a font of only Unicode-based diacritical combining. It’s not for any historical record, so it doesn’t matter if my anchors would reflect the original ones as long as diacritics placement would be the same. Ironically, this arbitrariness in character to diacritic anchor matching is exactly what I was afraid of and what is the trickiest part of the task. Anyway, some utility that would somehow heuristically figure out such anchoring or even its approximation would be quite useful, I think, at least for modernizing old fonts. I’ll give it some more thought.</p>
+  - id: 491357
+    user: 1250
+    date: 2012-01-15T10:08:00
+    date_raw: 15 Jan 2012 — 10:08am
+    votes: null
+    html: |-
+      <p>Ben, I guess I didn't mean "original" (which does indeed seem<br>
+      impossible) I meant an "extraction" that would reproduce the<br>
+      same results (which is entirely possible, although it requires<br>
+      programming). Speaking of which: no heuristics necessary,<br>
+      it would "just" be an algorithm.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Ben, I guess I didn't mean "original" (which does indeed seem<br>
+      impossible) I meant an "extraction" that would reproduce the<br>
+      same results (which is entirely possible, although it requires<br>
+      programming). Speaking of which: no heuristics necessary,<br>
+      it would "just" be an algorithm.</p>
+      <p>hhp</p>
+  - id: 491391
+    user: 18942
+    date: 2012-01-15T16:02:00
+    date_raw: 15 Jan 2012 — 4:02pm
+    votes: null
+    html: |-
+      <p>Let us assume that like in the Adobe example <code>@TOP_MARKS</code>  of <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.d" rel="nofollow">Mark-to-Base attachment positioning</a>, we have the base letters <code>a, e, o, u</code> and the diacritics <code>acute, grave, dieresis, umlaut</code>. Then it is true that to get the glyph for <code>aacute</code> all you need to do is to match the basis anchor for the <code>a</code> and the anchor for the <code>acute</code>, and you can decide arbitrarily to put either anchor wherever you want. For instance you can put the base anchor for  <code>a</code> at <code>(0,0)</code>. However, when you have done that arbitrary choice, all the other anchor positions are fixed; indeed,  there is then only one position for the anchors of <code>acute, grave, dieresis, umlaut</code> that will give the right looking glyph for <code>aacute, agrave, adieresis, aumlaut</code> when matching with the anchor for the <code>a</code> at <code>(0,0)</code>, and then there is also only one possible position for the base anchor on <code>e, o</code> and <code>u</code> that will match any of the anchors on the diacritics. The choice is thus unique up to a translation of all anchor pairs (you can add the same number to all x values, and the same other number to all y values of the anchor positions).</p>
+      <p>In terms of programming, you can initialize one of the anchors to whatever pair  you want, and then run some algorithm. Now, I don't know what tools are available, I will just try to illustrate with one tool I use, namely FontForge. Here is a small script that takes as input a fontfile and a list of glyphnames and outputs their foreground; I called it <code>dmpfrgrnd</code>.</p>
+      <pre>#!/usr/bin/env python
+
+      import sys, fontforge
+      fnt=fontforge.open(sys.argv[1],1)
+      for gl in sys.argv[2:]:
+        print gl, fnt[gl].foreground
+      </pre><p>If I call<br>
+      <code>dmpfrgrnd MyriadPro-Regular.otf dotlessi iacute acute</code><br>
+      I get the following output (with one point per line however)<br>
+      <code><br>
+      dotlessi&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(161,0)&nbsp;on&nbsp;(73,0)&nbsp;on&nbsp;(73,484)&nbsp;on&nbsp;(161,484)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      iacute&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(155,693)&nbsp;on&nbsp;(252,693)&nbsp;on&nbsp;(130,550)&nbsp;on&nbsp;(67,550)&nbsp;on&nbsp;&gt;<br>
+      &nbsp;&lt;Contour&nbsp;(161,0)&nbsp;on&nbsp;(73,0)&nbsp;on&nbsp;(73,484)&nbsp;on&nbsp;(161,484)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      acute&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(189,693)&nbsp;on&nbsp;(286,693)&nbsp;on&nbsp;(164,550)&nbsp;on&nbsp;(101,550)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      </code><br>
+      Here it is easy to see that the <code>iacute</code> is obtained by "pasting" the <code>acute</code> on top of the <code>dotlessi</code> and moving it <code>(-34,0)</code>. As a consequence if the anchor for the <code>dotelessi</code> is at say <code>(10,0)</code> then the anchor for the <code>acute</code> needs to be at <code>(44,0)</code>. The problem in this particular example is matching the countours. For some fonts, the contours for the diacritics are listed first, some other fonts last. Once you have matched the contours, it is easy to get the displacement.</p>
+      <p>I don't know how far one can go with that. During my vacations, I generated an AAT font using anchors. Once I was done, I happily moved some diacritics to where they seemed to look better. I don't see why professionals (I am not one) would not do the same.</p>
+    html_clean: |-
+      <p>Let us assume that like in the Adobe example <code>@TOP_MARKS</code>  of <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#6.d" rel="nofollow">Mark-to-Base attachment positioning</a>, we have the base letters <code>a, e, o, u</code> and the diacritics <code>acute, grave, dieresis, umlaut</code>. Then it is true that to get the glyph for <code>aacute</code> all you need to do is to match the basis anchor for the <code>a</code> and the anchor for the <code>acute</code>, and you can decide arbitrarily to put either anchor wherever you want. For instance you can put the base anchor for  <code>a</code> at <code>(0,0)</code>. However, when you have done that arbitrary choice, all the other anchor positions are fixed; indeed,  there is then only one position for the anchors of <code>acute, grave, dieresis, umlaut</code> that will give the right looking glyph for <code>aacute, agrave, adieresis, aumlaut</code> when matching with the anchor for the <code>a</code> at <code>(0,0)</code>, and then there is also only one possible position for the base anchor on <code>e, o</code> and <code>u</code> that will match any of the anchors on the diacritics. The choice is thus unique up to a translation of all anchor pairs (you can add the same number to all x values, and the same other number to all y values of the anchor positions).</p>
+      <p>In terms of programming, you can initialize one of the anchors to whatever pair  you want, and then run some algorithm. Now, I don't know what tools are available, I will just try to illustrate with one tool I use, namely FontForge. Here is a small script that takes as input a fontfile and a list of glyphnames and outputs their foreground; I called it <code>dmpfrgrnd</code>.</p>
+      <pre>#!/usr/bin/env python
+
+      import sys, fontforge
+      fnt=fontforge.open(sys.argv[1],1)
+      for gl in sys.argv[2:]:
+        print gl, fnt[gl].foreground
+      </pre><p>If I call<br>
+      <code>dmpfrgrnd MyriadPro-Regular.otf dotlessi iacute acute</code><br>
+      I get the following output (with one point per line however)<br>
+      <code><br>
+      dotlessi&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(161,0)&nbsp;on&nbsp;(73,0)&nbsp;on&nbsp;(73,484)&nbsp;on&nbsp;(161,484)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      iacute&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(155,693)&nbsp;on&nbsp;(252,693)&nbsp;on&nbsp;(130,550)&nbsp;on&nbsp;(67,550)&nbsp;on&nbsp;&gt;<br>
+      &nbsp;&lt;Contour&nbsp;(161,0)&nbsp;on&nbsp;(73,0)&nbsp;on&nbsp;(73,484)&nbsp;on&nbsp;(161,484)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      acute&nbsp;&lt;Layer(cubic)<br>
+      &nbsp;&lt;Contour&nbsp;(189,693)&nbsp;on&nbsp;(286,693)&nbsp;on&nbsp;(164,550)&nbsp;on&nbsp;(101,550)&nbsp;on&nbsp;&gt;<br>
+      &gt;<br>
+      </code><br>
+      Here it is easy to see that the <code>iacute</code> is obtained by "pasting" the <code>acute</code> on top of the <code>dotlessi</code> and moving it <code>(-34,0)</code>. As a consequence if the anchor for the <code>dotelessi</code> is at say <code>(10,0)</code> then the anchor for the <code>acute</code> needs to be at <code>(44,0)</code>. The problem in this particular example is matching the countours. For some fonts, the contours for the diacritics are listed first, some other fonts last. Once you have matched the contours, it is easy to get the displacement.</p>
+      <p>I don't know how far one can go with that. During my vacations, I generated an AAT font using anchors. Once I was done, I happily moved some diacritics to where they seemed to look better. I don't see why professionals (I am not one) would not do the same.</p>
+  - id: 491399
+    user: 18942
+    date: 2012-01-15T17:33:00
+    date_raw: 15 Jan 2012 — 5:33pm
+    votes: null
+    html: |-
+      <p><cite>Once you have matched the contours, it is easy to get the displacement.</cite></p>
+      <p>I should have said "Once you have matched the contours, you have the displacement". Indeed, matching the contours means finding <code>(dx,dy)</code> such that the contours corresponding to the diacritic in the precomposed glyph are obtained by adding <code>(dx,dy)</code> to all pairs in the contours of the glyph for the diacritic: <code>(dx,dy)</code> is the displacement.</p>
+    html_clean: |-
+      <p><cite>Once you have matched the contours, it is easy to get the displacement.</cite></p>
+      <p>I should have said "Once you have matched the contours, you have the displacement". Indeed, matching the contours means finding <code>(dx,dy)</code> such that the contours corresponding to the diacritic in the precomposed glyph are obtained by adding <code>(dx,dy)</code> to all pairs in the contours of the glyph for the diacritic: <code>(dx,dy)</code> is the displacement.</p>
+  - id: 491575
+    user: 19493
+    date: 2012-01-17T02:06:00
+    date_raw: 17 Jan 2012 — 2:06am
+    votes: null
+    html: <p>Everything you’ve said is of course right, Michel. Thanks for making it so explicit, this indeed clarified my thoughts a bit. I even ran quickly all those calculations by hand sketching out the deltas in a matrix for both vowels and diacritics and… well, there was no consistency for any given anchor pair I tried. Must have been no anchors and no luck for me.</p>
+    html_clean: <p>Everything you’ve said is of course right, Michel. Thanks for making it so explicit, this indeed clarified my thoughts a bit. I even ran quickly all those calculations by hand sketching out the deltas in a matrix for both vowels and diacritics and… well, there was no consistency for any given anchor pair I tried. Must have been no anchors and no luck for me.</p>

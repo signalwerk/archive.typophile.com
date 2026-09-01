@@ -1,0 +1,909 @@
+node: 18896
+title: Dominant Opentype ligatures?
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20131020160718"
+  captured_at: 2013-10-20T16:07:18Z
+  url: http://typophile.com/node/18896
+  digest: ZXOGNBVLKBTJWBF5UNJVRBR5ME7332N3
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/18896.html
+  fingerprint: dfbc24b471373f5f
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20131020160718"
+      digest: ZXOGNBVLKBTJWBF5UNJVRBR5ME7332N3
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/18896.html
+post:
+  id: 18896
+  user: 11945
+  date: 2006-03-29T06:41:00
+  date_raw: 29 Mar 2006 — 6:41am
+  votes: null
+  html: |-
+    <p>I'm working on a typeface at the moment that uses plenty of ligatures (in the style of <a href="http://www.houseind.com/index.php?page=showfont&amp;id=150&amp;subpage=viewfontsinuse" rel="nofollow">Ed Interlock</a>) and I'm wondering if there's any way to make certain ligatures be dominant over others? For example, for SHI I have an SH ligature and a HI ligature, and because SH comes first as you're typing, it turns into the ligature and the I is left alone. Without having to make an SHI ligature, can I make the HI ligature dominant over SH in the case of SHI?</p>
+    <p>And pardon me if that makes no sense at all. I'm just curious if I can make certain ligatures bow down to more dominant ones.. If there's any code or such.</p>
+    <p>Also, while I'm here and asking, can you include spacebar in ligature replacements? Say, for example, you have an S and when it's at the end of a word (marked by a spacebar following the S) you want it to do a swashy thing, is that possibe? like a "sub S [SPACE] by SSpace.li" thing..?</p>
+    <p>Thanks!</p>
+  html_clean: |-
+    <p>I'm working on a typeface at the moment that uses plenty of ligatures (in the style of <a href="http://www.houseind.com/index.php?page=showfont&amp;id=150&amp;subpage=viewfontsinuse" rel="nofollow">Ed Interlock</a>) and I'm wondering if there's any way to make certain ligatures be dominant over others? For example, for SHI I have an SH ligature and a HI ligature, and because SH comes first as you're typing, it turns into the ligature and the I is left alone. Without having to make an SHI ligature, can I make the HI ligature dominant over SH in the case of SHI?</p>
+    <p>And pardon me if that makes no sense at all. I'm just curious if I can make certain ligatures bow down to more dominant ones.. If there's any code or such.</p>
+    <p>Also, while I'm here and asking, can you include spacebar in ligature replacements? Say, for example, you have an S and when it's at the end of a word (marked by a spacebar following the S) you want it to do a swashy thing, is that possibe? like a "sub S [SPACE] by SSpace.li" thing..?</p>
+    <p>Thanks!</p>
+comments:
+  - id: 115111
+    user: 7345
+    date: 2006-03-29T07:25:00
+    date_raw: 29 Mar 2006 — 7:25am
+    votes: null
+    html: |-
+      <p>im sure zapfino OT has it, if you type the name all the glyphs change constantly, and there's even a full glyph just to write "zapfino" in a beautiful way :)</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/zapfino.png"></div><p></p>
+      <p>i remember a gif showing it, but cant find it anymore. this image is a bit of a preview, as you see the glyphs change.</p>
+      <p>i cant tell you how to do it, but its possible for sure.</p>
+    html_clean: |-
+      <p>im sure zapfino OT has it, if you type the name all the glyphs change constantly, and there's even a full glyph just to write "zapfino" in a beautiful way :)</p>
+      <p></p><div class="imageWrap"><img src="http://typophile.com/files/zapfino.png"></div><p></p>
+      <p>i remember a gif showing it, but cant find it anymore. this image is a bit of a preview, as you see the glyphs change.</p>
+      <p>i cant tell you how to do it, but its possible for sure.</p>
+  - id: 115116
+    user: 108
+    date: 2006-03-29T08:02:00
+    date_raw: 29 Mar 2006 — 8:02am
+    votes: null
+    html: |-
+      <p>I think you can find some information on the personal site of <a href="http://www.talleming.com/" rel="nofollow">Tal Leming</a>.</p>
+      <p>A few threads:<br>
+      <a href="http://www.typophile.com/node/17177" title="http://www.typophile.com/node/17177">http://www.typophile.com/node/17177</a> -- <a href="http://www.typophile.com/node/6638" title="http://www.typophile.com/node/6638">http://www.typophile.com/node/6638</a></p>
+    html_clean: |-
+      <p>I think you can find some information on the personal site of <a href="http://www.talleming.com/" rel="nofollow">Tal Leming</a>.</p>
+      <p>A few threads:<br>
+      <a href="/node/17177/" title="http://www.typophile.com/node/17177">http://www.typophile.com/node/17177</a> -- <a href="/node/6638/" title="http://www.typophile.com/node/6638">http://www.typophile.com/node/6638</a></p>
+  - id: 115134
+    user: 7006
+    date: 2006-03-29T08:58:00
+    date_raw: 29 Mar 2006 — 8:58am
+    votes: null
+    html: |-
+      <p>whichever ligature you list first is dominat. so if you want HI to trump SH, in your liga feature put:</p>
+      <p><code><br>
+      liga {<br>
+      sub H I by H_I;<br>
+      sub S H by S_H;<br>
+      } liga;</code></p>
+    html_clean: |-
+      <p>whichever ligature you list first is dominat. so if you want HI to trump SH, in your liga feature put:</p>
+      <p><code><br>
+      liga {<br>
+      sub H I by H_I;<br>
+      sub S H by S_H;<br>
+      } liga;</code></p>
+  - id: 115146
+    user: 11945
+    date: 2006-03-29T09:31:00
+    date_raw: 29 Mar 2006 — 9:31am
+    votes: null
+    html: |-
+      <p>are you sure about that Paul?</p>
+      <p>i have the HI ligature earlier in the list than the SH ligature.. they aren't adjacent to each other in the list, so it seems (like i wrote above) that the ligature that's activated first (SH in this case) overrides any such list order.</p>
+      <p>anyway, i'll check out those links.</p>
+    html_clean: |-
+      <p>are you sure about that Paul?</p>
+      <p>i have the HI ligature earlier in the list than the SH ligature.. they aren't adjacent to each other in the list, so it seems (like i wrote above) that the ligature that's activated first (SH in this case) overrides any such list order.</p>
+      <p>anyway, i'll check out those links.</p>
+  - id: 115154
+    user: 3135
+    date: 2006-03-29T09:58:00
+    date_raw: 29 Mar 2006 — 9:58am
+    votes: null
+    html: |-
+      <p>What if you make 2 groups of liga features? would the first group trump the second?</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>What if you make 2 groups of liga features? would the first group trump the second?</p>
+      <p>ChrisL</p>
+  - id: 115156
+    user: 7006
+    date: 2006-03-29T10:01:00
+    date_raw: 29 Mar 2006 — 10:01am
+    votes: null
+    html: |-
+      <p><em>so it seems (like i wrote above) that the ligature that’s activated first (SH in this case) overrides any such list order.</em></p>
+      <p>the rule is what is first trumps what comes after. this is true of single lookups or of features. do you have the SH ligature lookup in any other feature lookups before you get to the HI ligature lookup?</p>
+    html_clean: |-
+      <p><em>so it seems (like i wrote above) that the ligature that’s activated first (SH in this case) overrides any such list order.</em></p>
+      <p>the rule is what is first trumps what comes after. this is true of single lookups or of features. do you have the SH ligature lookup in any other feature lookups before you get to the HI ligature lookup?</p>
+  - id: 115158
+    user: 3135
+    date: 2006-03-29T10:04:00
+    date_raw: 29 Mar 2006 — 10:04am
+    votes: null
+    html: |-
+      <p>What about:<br>
+      sub SHI by S H_I;</p>
+      <p>?</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>What about:<br>
+      sub SHI by S H_I;</p>
+      <p>?</p>
+      <p>ChrisL</p>
+  - id: 115166
+    user: 11945
+    date: 2006-03-29T10:35:00
+    date_raw: 29 Mar 2006 — 10:35am
+    votes: null
+    html: |-
+      <p>what are lookups? *embarrassed*</p>
+      <p>all i've got so far is:</p>
+      <p>feature liga {<br>
+      sub X Y by XY.li;<br>
+      sub ...<br>
+      sub ...<br>
+      } liga</p>
+      <p>with all the ligature replacements all under there.</p>
+      <p>should i STFU and RTFM? (;</p>
+      <p>i only got FontLab yesterday, literally, so i am a complete newbie.</p>
+      <p>oh, by the way the "sub SHI by S HI.li;" didn't work. it gave me an error message when i compiled.</p>
+    html_clean: |-
+      <p>what are lookups? *embarrassed*</p>
+      <p>all i've got so far is:</p>
+      <p>feature liga {<br>
+      sub X Y by XY.li;<br>
+      sub ...<br>
+      sub ...<br>
+      } liga</p>
+      <p>with all the ligature replacements all under there.</p>
+      <p>should i STFU and RTFM? (;</p>
+      <p>i only got FontLab yesterday, literally, so i am a complete newbie.</p>
+      <p>oh, by the way the "sub SHI by S HI.li;" didn't work. it gave me an error message when i compiled.</p>
+  - id: 115170
+    user: 7006
+    date: 2006-03-29T10:41:00
+    date_raw: 29 Mar 2006 — 10:41am
+    votes: null
+    html: <p>can you post your ligature featue exactly as you have it now? it'll be easier to spot problems that way.</p>
+    html_clean: <p>can you post your ligature featue exactly as you have it now? it'll be easier to spot problems that way.</p>
+  - id: 115173
+    user: 11945
+    date: 2006-03-29T10:51:00
+    date_raw: 29 Mar 2006 — 10:51am
+    votes: null
+    html: |-
+      <p>oh it's a complete disarray (i've basically added them on on top of another as i've made the ligatures.. no order at all). everything works though, i can compile and the ligatures work.. i'm just wondering if there are any other tricks to use which might put certain ligatures in a higher level of sorts and override other combinations.</p>
+      <p>anyway.. here it is.</p>
+      <p>feature liga {<br>
+      	sub R O by RO.li;<br>
+      	sub E R T by ERT.li;<br>
+      	sub H I by HI.li;<br>
+      	sub L E Y by LEY.li;<br>
+      	sub I T C by ITC.li;<br>
+      	sub H U M by HUM.li;<br>
+      	sub M A C by MAC.li;<br>
+      	sub L A by LA.li;<br>
+      	sub I N by IN.li;<br>
+      	sub T W O by TWO.li;<br>
+      	sub F O by FO.li;<br>
+      	sub T H by TH.li;<br>
+      	sub E E S by EES.li;<br>
+      	sub A W by AW.li;<br>
+      	sub E R by ER.li;<br>
+      	sub L L by LL.li;<br>
+      	sub H E by HE.li;<br>
+      	sub R A by RA.li;<br>
+      	sub K I by KI.li;<br>
+      	sub W A by WA.li;<br>
+      	sub E E by EE.li;<br>
+      	sub H T by HT.li;<br>
+      	sub L E by LE.li;<br>
+      	sub E A by EA.li;<br>
+      	sub O H by OH.li;<br>
+      	sub H A by HA.li;<br>
+      	sub T T by TT.li;<br>
+      	sub M O by MO.li;<br>
+      	sub O N by ON.li;<br>
+      	sub N O by NO.li;<br>
+      	sub H A M by HAM.li;<br>
+      	sub L M by LM.li;<br>
+      	sub L N by LN.li;<br>
+      	sub U N by UN.li;<br>
+      	sub W U by WU.li;<br>
+      	sub R T by RT.li;<br>
+      	sub W R by WR.li;<br>
+      	sub E L by EL.li;<br>
+      	sub F A by FA.li;<br>
+      	sub I T by IT.li;<br>
+      	sub I T I by ITI.li;<br>
+      	sub T T A by TTA.li;<br>
+      	sub A T T A by ATTA.li;<br>
+      	sub R Y by RY.li;<br>
+      	sub L O by LO.li;<br>
+      	sub E H by EH.li;<br>
+      	sub T S by TS.li;<br>
+      	sub I T S by ITS.li;<br>
+      	sub A T S by ATS.li;<br>
+      	sub K A by KA.li;<br>
+      	sub T W by TW.li;<br>
+      	sub F F by FF.li;<br>
+      	sub M O N by MON.li;<br>
+      	sub N I by NI.li;<br>
+      	sub O T T by OTT.li;<br>
+      	sub S T by ST.li;<br>
+      	sub S P by SP.li;<br>
+      	sub E D by ED.li;<br>
+      	sub U T by UT.li;<br>
+      	sub D R by DR.li;<br>
+      	sub L D by LD.li;<br>
+      	sub F I by FI.li;<br>
+      	sub B Y by BY.li;<br>
+      	sub W I by WI.li;<br>
+      	sub T O by TO.li;<br>
+      	sub S H by SH.li;<br>
+      	sub W R Y by WRY.li;<br>
+      	sub E Y by EY.li;<br>
+      	sub M A by MA.li;<br>
+      	sub A N by AN.li;<br>
+      	sub M A N by MAN.li;<br>
+      	sub O W by OW.li;<br>
+      	sub W S by WS.li;<br>
+      	sub I P by IP.li;<br>
+      	sub R U by RU.li;<br>
+      	sub P R by PR.li;<br>
+      	sub P R O by PRO.li;<br>
+      	sub P R A by PRA.li;<br>
+      	sub W N by WN.li;<br>
+      	sub F R by FR.li;<br>
+      	sub F R E by FRE.li;<br>
+      	sub R E by RE.li;<br>
+      	sub D U by DU.li;<br>
+      	sub U C by UC.li;<br>
+      	sub C K by CK.li;<br>
+      	sub O Y by OY.li;<br>
+      	sub O Y S by OYS.li;<br>
+      	sub A Y by AY.li;<br>
+      	sub A Y S by AYS.li;<br>
+      	sub O F by OF.li;<br>
+      	sub A T T by ATT.li;<br>
+      	sub A V by AV.li;<br>
+      	sub A V A by AVA.li;<br>
+      	sub V A V by VAV.li;<br>
+      	sub B E by BE.li;<br>
+      	sub E S by ES.li;<br>
+      	sub S N by SN.li;<br>
+      	sub S N T by SNT.li;<br>
+      	sub N T by NT.li;<br>
+      	sub E N T by ENT.li;<br>
+      	sub A P by AP.li;<br>
+      	sub V O by VO.li;<br>
+      	sub A T by AT.li;<br>
+      	sub I V by IV.li;<br>
+      	sub I V E by IVE.li;<br>
+      	sub S U by SU.li;<br>
+      	sub U B by UB.li;<br>
+      	sub S U B by SUB.li;<br>
+      	sub J E by JE.li;<br>
+      	sub I E by IE.li;<br>
+      	sub I E S by IES.li;<br>
+      	sub I D by ID.li;<br>
+      	sub U P by UP.li;<br>
+      	sub I F by IF.li;<br>
+      	sub T I by TI.li;<br>
+      	sub T Y by TY.li;<br>
+      	sub N T Y by NTY.li;<br>
+      	sub Y T by YT.li;<br>
+      	sub Y T H by YTH.li;<br>
+      	sub F L by FL.li;<br>
+      	sub F L A by FLA.li;<br>
+      	sub F L O by FLO.li;<br>
+      	sub F L E by FLE.li;<br>
+      	sub N G by NG.li;<br>
+      	sub I R by IR.li;<br>
+      	sub U S by US.li;<br>
+      	sub W A Y by WAY.li;<br>
+      	sub T A by TA.li;<br>
+      	sub A G by AG.li;<br>
+      	sub E V by EV.li;<br>
+      	sub E V E by EVE.li;<br>
+      	sub V E by VE.li;<br>
+      	sub E N by EN.li;<br>
+      	sub V E N by VEN.li;<br>
+      	sub V E R by VER.li;<br>
+      	sub E E N by EEN.li;<br>
+      	sub R M by RM.li;<br>
+      	sub O U by OU.li;<br>
+      	sub M E by ME.li;<br>
+      	sub E M by EM.li;<br>
+      	sub S T U by STU.li;<br>
+      	sub U M by UM.li;<br>
+      	sub U M P by UMP.li;<br>
+      	sub M P by MP.li;<br>
+      	sub A S by AS.li;<br>
+      	sub Y P by YP.li;<br>
+      	sub I T T by ITT.li;<br>
+      	sub O R by OR.li;<br>
+      	sub T R by TR.li;<br>
+      	sub T O R by TOR.li;<br>
+      	sub A D by AD.li;<br>
+      	sub O T by OT.li;<br>
+      	sub L O T by LOT.li;<br>
+      	sub M B by MB.li;<br>
+      	sub R N by RN.li;<br>
+      	sub N A by NA.li;<br>
+      	sub A N T by ANT.li;<br>
+      	sub E T by ET.li;<br>
+      	sub V A by VA.li;<br>
+      	sub T E by TE.li;<br>
+      	sub Y M by YM.li;<br>
+      } liga; </p>
+      <p>should the triple/quad ligatures be in their own section, or ordered above the doubles..? alphabetized perhaps?</p>
+    html_clean: |-
+      <p>oh it's a complete disarray (i've basically added them on on top of another as i've made the ligatures.. no order at all). everything works though, i can compile and the ligatures work.. i'm just wondering if there are any other tricks to use which might put certain ligatures in a higher level of sorts and override other combinations.</p>
+      <p>anyway.. here it is.</p>
+      <p>feature liga {<br>
+      	sub R O by RO.li;<br>
+      	sub E R T by ERT.li;<br>
+      	sub H I by HI.li;<br>
+      	sub L E Y by LEY.li;<br>
+      	sub I T C by ITC.li;<br>
+      	sub H U M by HUM.li;<br>
+      	sub M A C by MAC.li;<br>
+      	sub L A by LA.li;<br>
+      	sub I N by IN.li;<br>
+      	sub T W O by TWO.li;<br>
+      	sub F O by FO.li;<br>
+      	sub T H by TH.li;<br>
+      	sub E E S by EES.li;<br>
+      	sub A W by AW.li;<br>
+      	sub E R by ER.li;<br>
+      	sub L L by LL.li;<br>
+      	sub H E by HE.li;<br>
+      	sub R A by RA.li;<br>
+      	sub K I by KI.li;<br>
+      	sub W A by WA.li;<br>
+      	sub E E by EE.li;<br>
+      	sub H T by HT.li;<br>
+      	sub L E by LE.li;<br>
+      	sub E A by EA.li;<br>
+      	sub O H by OH.li;<br>
+      	sub H A by HA.li;<br>
+      	sub T T by TT.li;<br>
+      	sub M O by MO.li;<br>
+      	sub O N by ON.li;<br>
+      	sub N O by NO.li;<br>
+      	sub H A M by HAM.li;<br>
+      	sub L M by LM.li;<br>
+      	sub L N by LN.li;<br>
+      	sub U N by UN.li;<br>
+      	sub W U by WU.li;<br>
+      	sub R T by RT.li;<br>
+      	sub W R by WR.li;<br>
+      	sub E L by EL.li;<br>
+      	sub F A by FA.li;<br>
+      	sub I T by IT.li;<br>
+      	sub I T I by ITI.li;<br>
+      	sub T T A by TTA.li;<br>
+      	sub A T T A by ATTA.li;<br>
+      	sub R Y by RY.li;<br>
+      	sub L O by LO.li;<br>
+      	sub E H by EH.li;<br>
+      	sub T S by TS.li;<br>
+      	sub I T S by ITS.li;<br>
+      	sub A T S by ATS.li;<br>
+      	sub K A by KA.li;<br>
+      	sub T W by TW.li;<br>
+      	sub F F by FF.li;<br>
+      	sub M O N by MON.li;<br>
+      	sub N I by NI.li;<br>
+      	sub O T T by OTT.li;<br>
+      	sub S T by ST.li;<br>
+      	sub S P by SP.li;<br>
+      	sub E D by ED.li;<br>
+      	sub U T by UT.li;<br>
+      	sub D R by DR.li;<br>
+      	sub L D by LD.li;<br>
+      	sub F I by FI.li;<br>
+      	sub B Y by BY.li;<br>
+      	sub W I by WI.li;<br>
+      	sub T O by TO.li;<br>
+      	sub S H by SH.li;<br>
+      	sub W R Y by WRY.li;<br>
+      	sub E Y by EY.li;<br>
+      	sub M A by MA.li;<br>
+      	sub A N by AN.li;<br>
+      	sub M A N by MAN.li;<br>
+      	sub O W by OW.li;<br>
+      	sub W S by WS.li;<br>
+      	sub I P by IP.li;<br>
+      	sub R U by RU.li;<br>
+      	sub P R by PR.li;<br>
+      	sub P R O by PRO.li;<br>
+      	sub P R A by PRA.li;<br>
+      	sub W N by WN.li;<br>
+      	sub F R by FR.li;<br>
+      	sub F R E by FRE.li;<br>
+      	sub R E by RE.li;<br>
+      	sub D U by DU.li;<br>
+      	sub U C by UC.li;<br>
+      	sub C K by CK.li;<br>
+      	sub O Y by OY.li;<br>
+      	sub O Y S by OYS.li;<br>
+      	sub A Y by AY.li;<br>
+      	sub A Y S by AYS.li;<br>
+      	sub O F by OF.li;<br>
+      	sub A T T by ATT.li;<br>
+      	sub A V by AV.li;<br>
+      	sub A V A by AVA.li;<br>
+      	sub V A V by VAV.li;<br>
+      	sub B E by BE.li;<br>
+      	sub E S by ES.li;<br>
+      	sub S N by SN.li;<br>
+      	sub S N T by SNT.li;<br>
+      	sub N T by NT.li;<br>
+      	sub E N T by ENT.li;<br>
+      	sub A P by AP.li;<br>
+      	sub V O by VO.li;<br>
+      	sub A T by AT.li;<br>
+      	sub I V by IV.li;<br>
+      	sub I V E by IVE.li;<br>
+      	sub S U by SU.li;<br>
+      	sub U B by UB.li;<br>
+      	sub S U B by SUB.li;<br>
+      	sub J E by JE.li;<br>
+      	sub I E by IE.li;<br>
+      	sub I E S by IES.li;<br>
+      	sub I D by ID.li;<br>
+      	sub U P by UP.li;<br>
+      	sub I F by IF.li;<br>
+      	sub T I by TI.li;<br>
+      	sub T Y by TY.li;<br>
+      	sub N T Y by NTY.li;<br>
+      	sub Y T by YT.li;<br>
+      	sub Y T H by YTH.li;<br>
+      	sub F L by FL.li;<br>
+      	sub F L A by FLA.li;<br>
+      	sub F L O by FLO.li;<br>
+      	sub F L E by FLE.li;<br>
+      	sub N G by NG.li;<br>
+      	sub I R by IR.li;<br>
+      	sub U S by US.li;<br>
+      	sub W A Y by WAY.li;<br>
+      	sub T A by TA.li;<br>
+      	sub A G by AG.li;<br>
+      	sub E V by EV.li;<br>
+      	sub E V E by EVE.li;<br>
+      	sub V E by VE.li;<br>
+      	sub E N by EN.li;<br>
+      	sub V E N by VEN.li;<br>
+      	sub V E R by VER.li;<br>
+      	sub E E N by EEN.li;<br>
+      	sub R M by RM.li;<br>
+      	sub O U by OU.li;<br>
+      	sub M E by ME.li;<br>
+      	sub E M by EM.li;<br>
+      	sub S T U by STU.li;<br>
+      	sub U M by UM.li;<br>
+      	sub U M P by UMP.li;<br>
+      	sub M P by MP.li;<br>
+      	sub A S by AS.li;<br>
+      	sub Y P by YP.li;<br>
+      	sub I T T by ITT.li;<br>
+      	sub O R by OR.li;<br>
+      	sub T R by TR.li;<br>
+      	sub T O R by TOR.li;<br>
+      	sub A D by AD.li;<br>
+      	sub O T by OT.li;<br>
+      	sub L O T by LOT.li;<br>
+      	sub M B by MB.li;<br>
+      	sub R N by RN.li;<br>
+      	sub N A by NA.li;<br>
+      	sub A N T by ANT.li;<br>
+      	sub E T by ET.li;<br>
+      	sub V A by VA.li;<br>
+      	sub T E by TE.li;<br>
+      	sub Y M by YM.li;<br>
+      } liga; </p>
+      <p>should the triple/quad ligatures be in their own section, or ordered above the doubles..? alphabetized perhaps?</p>
+  - id: 115179
+    user: 7006
+    date: 2006-03-29T11:04:00
+    date_raw: 29 Mar 2006 — 11:04am
+    votes: null
+    html: |-
+      <p>a few suggestions:</p>
+      <p>naming: name a ligature of X &amp; Y X_Y;<br>
+      put longer ligatures first so quads, triples and then doubles.<br>
+      if you have no preference of order, alphabetise ligatures just for easy (human) referencing</p>
+      <p>do you recompile your OT features after adding new lookups to test how they're working? you need to do this each time you change your code before you preview.</p>
+    html_clean: |-
+      <p>a few suggestions:</p>
+      <p>naming: name a ligature of X &amp; Y X_Y;<br>
+      put longer ligatures first so quads, triples and then doubles.<br>
+      if you have no preference of order, alphabetise ligatures just for easy (human) referencing</p>
+      <p>do you recompile your OT features after adding new lookups to test how they're working? you need to do this each time you change your code before you preview.</p>
+  - id: 115191
+    user: 11945
+    date: 2006-03-29T11:51:00
+    date_raw: 29 Mar 2006 — 11:51am
+    votes: null
+    html: |-
+      <p>so it's better to use "A_B" instead of "AB.li" for the A B ligature? or it doesn't really matter?</p>
+      <p>and yes, i promise to alphabetise in due time. right now i'm just adding them as a go along/come up with new ones and that means they're added in random chunks so i can see what i've go so far.. and yeah, i recompile after each (chunk) addition.</p>
+    html_clean: |-
+      <p>so it's better to use "A_B" instead of "AB.li" for the A B ligature? or it doesn't really matter?</p>
+      <p>and yes, i promise to alphabetise in due time. right now i'm just adding them as a go along/come up with new ones and that means they're added in random chunks so i can see what i've go so far.. and yeah, i recompile after each (chunk) addition.</p>
+  - id: 115199
+    user: 3085
+    date: 2006-03-29T12:21:00
+    date_raw: 29 Mar 2006 — 12:21pm
+    votes: null
+    html: |-
+      <p>Alphabetic ordering is for your own convenience. Ordering ligatures by length in descending order, however, is a generic rule. If f_f ligature would be in the list before f_f_i, latter one would never be substituted.</p>
+      <p>But ordering does not solve your problem of prioritization. If your lookup contains ligatures A_B and B_C, whatever goes first in the list -- "A B C" will be substituted to "A_B C". To allow B_C to work over A_B two separate lookups are required (or contextual substitutions, which seem to be overkill here). </p>
+      <p>In VOLT you create two lookups and put ligatures into them according to their priority. FDK also allows to specify separate lookup for the feauture, but I am not sure if it won't compile them into subtables of a single lookup. Syntax would look like this:</p>
+      <p><code></code></p>
+      <dl>feature liga {
+      <dt>lookup liga.Pri1 {</dt>
+      <dd>sub B C by B_C</dd>
+      <dt>} liga.Pri1;</dt>
+      <dt>lookup liga.Pri2 {</dt>
+      <dd>sub A B by A_B</dd>
+      <dt>} liga.Pri2;</dt>
+      </dl>
+      <p>} liga;<br>
+      </p>
+      <p>Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>Alphabetic ordering is for your own convenience. Ordering ligatures by length in descending order, however, is a generic rule. If f_f ligature would be in the list before f_f_i, latter one would never be substituted.</p>
+      <p>But ordering does not solve your problem of prioritization. If your lookup contains ligatures A_B and B_C, whatever goes first in the list -- "A B C" will be substituted to "A_B C". To allow B_C to work over A_B two separate lookups are required (or contextual substitutions, which seem to be overkill here). </p>
+      <p>In VOLT you create two lookups and put ligatures into them according to their priority. FDK also allows to specify separate lookup for the feauture, but I am not sure if it won't compile them into subtables of a single lookup. Syntax would look like this:</p>
+      <p><code></code></p>
+      <dl>feature liga {
+      <dt>lookup liga.Pri1 {</dt>
+      <dd>sub B C by B_C</dd>
+      <dt>} liga.Pri1;</dt>
+      <dt>lookup liga.Pri2 {</dt>
+      <dd>sub A B by A_B</dd>
+      <dt>} liga.Pri2;</dt>
+      </dl>
+      <p>} liga;<br>
+      </p>
+      <p>Thanks,<br>
+      Sergey</p>
+  - id: 115202
+    user: 11945
+    date: 2006-03-29T12:45:00
+    date_raw: 29 Mar 2006 — 12:45pm
+    votes: null
+    html: |-
+      <p>yep. i just reorganized the whole list, which should definitely make it much easier to overview and figure out which ligatures i should do next.. speaking of that, does anyone know of any free web tool that can sort lines alphabetically? (o: kind of a hassle to sort out all those lines alphabetically.</p>
+      <p>but anyway, Sergey, i will look into making priority lists. thanks for the tip!</p>
+    html_clean: |-
+      <p>yep. i just reorganized the whole list, which should definitely make it much easier to overview and figure out which ligatures i should do next.. speaking of that, does anyone know of any free web tool that can sort lines alphabetically? (o: kind of a hassle to sort out all those lines alphabetically.</p>
+      <p>but anyway, Sergey, i will look into making priority lists. thanks for the tip!</p>
+  - id: 115208
+    user: 3135
+    date: 2006-03-29T13:25:00
+    date_raw: 29 Mar 2006 — 1:25pm
+    votes: null
+    html: |-
+      <p>TexEdit Plus</p>
+      <p><a href="http://www.tex-edit.com/" title="http://www.tex-edit.com/">http://www.tex-edit.com/</a></p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>TexEdit Plus</p>
+      <p><a href="http://www.tex-edit.com/" title="http://www.tex-edit.com/">http://www.tex-edit.com/</a></p>
+      <p>ChrisL</p>
+  - id: 115210
+    user: 11945
+    date: 2006-03-29T13:38:00
+    date_raw: 29 Mar 2006 — 1:38pm
+    votes: null
+    html: |-
+      <p>thanks, i'll look that up.</p>
+      <p>by the way, i've put up a sample of the font i'm working on (that this thread is in regards to). <a href="http://typophile.com/node/18903" rel="nofollow">here's the thread</a>.</p>
+    html_clean: |-
+      <p>thanks, i'll look that up.</p>
+      <p>by the way, i've put up a sample of the font i'm working on (that this thread is in regards to). <a href="/node/18903/" rel="nofollow">here's the thread</a>.</p>
+  - id: 115223
+    user: 4883
+    date: 2006-03-29T14:45:00
+    date_raw: 29 Mar 2006 — 2:45pm
+    votes: null
+    html: |-
+      <p><em>oh, by the way the “sub SHI by S HI.li;” didn’t work. it gave me an error message when i compiled.</em></p>
+      <p>sub S H' I' by S H_I.li;</p>
+      <p>Chris is right, but you have to tell it what is getting substituted in the string by adding ' after. Get an OpenType font and open it in FontLab and look at the code. That's the easiest way to figure it out.</p>
+      <p>George</p>
+      <p>I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+    html_clean: |-
+      <p><em>oh, by the way the “sub SHI by S HI.li;” didn’t work. it gave me an error message when i compiled.</em></p>
+      <p>sub S H' I' by S H_I.li;</p>
+      <p>Chris is right, but you have to tell it what is getting substituted in the string by adding ' after. Get an OpenType font and open it in FontLab and look at the code. That's the easiest way to figure it out.</p>
+      <p>George</p>
+      <p>I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+  - id: 115225
+    user: 11945
+    date: 2006-03-29T14:54:00
+    date_raw: 29 Mar 2006 — 2:54pm
+    votes: null
+    html: <p>aha! okay. i'll try that out as well. thanks for the help.</p>
+    html_clean: <p>aha! okay. i'll try that out as well. thanks for the help.</p>
+  - id: 115239
+    user: 7006
+    date: 2006-03-29T16:06:00
+    date_raw: 29 Mar 2006 — 4:06pm
+    votes: null
+    html: |-
+      <p><em>But ordering does not solve your problem of prioritization. If your lookup contains ligatures A_B and B_C, whatever goes first in the list — “A B C” will be substituted to “A_B C”. To allow B_C to work over A_B two separate lookups are required (or contextual substitutions, which seem to be overkill here).</em></p>
+      <p>duh. i wasn't thinking. i shouldn't reply when i'm preoccupied.</p>
+    html_clean: |-
+      <p><em>But ordering does not solve your problem of prioritization. If your lookup contains ligatures A_B and B_C, whatever goes first in the list — “A B C” will be substituted to “A_B C”. To allow B_C to work over A_B two separate lookups are required (or contextual substitutions, which seem to be overkill here).</em></p>
+      <p>duh. i wasn't thinking. i shouldn't reply when i'm preoccupied.</p>
+  - id: 115266
+    user: 4883
+    date: 2006-03-29T18:20:00
+    date_raw: 29 Mar 2006 — 6:20pm
+    votes: null
+    html: |-
+      <p><em>feature liga {<br>
+      lookup liga.Pri1 {<br>
+      sub B C by B_C<br>
+      } liga.Pri1;<br>
+      lookup liga.Pri2 {<br>
+      sub A B by A_B<br>
+      } liga.Pri2;<br>
+      } liga;</em></p>
+      <p>If you Type A B first I doubt the B C sub will work. The lookup for A B will kick in before you get to B C and if you don't have a sub for A B C you don't change anything. You should start with the sub of the long (complete) string first.  I think it should be:</p>
+      <p>feature liga {<br>
+      lookup liga.Pri1 {<br>
+      sub A B' C' by A B_C<br>
+      sub A B by A_B<br>
+      } liga.Pri1;<br>
+      } liga;</p>
+      <p>Once the B C sub is done the following A B sub won't change it since it's now A B_C, not A B C. It's the same as the f ligatures, f_f_i comes first, then f_i and f_f.</p>
+      <p>At least this is my understanding of how the GSUB works.</p>
+      <p>George<br>
+      I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+    html_clean: |-
+      <p><em>feature liga {<br>
+      lookup liga.Pri1 {<br>
+      sub B C by B_C<br>
+      } liga.Pri1;<br>
+      lookup liga.Pri2 {<br>
+      sub A B by A_B<br>
+      } liga.Pri2;<br>
+      } liga;</em></p>
+      <p>If you Type A B first I doubt the B C sub will work. The lookup for A B will kick in before you get to B C and if you don't have a sub for A B C you don't change anything. You should start with the sub of the long (complete) string first.  I think it should be:</p>
+      <p>feature liga {<br>
+      lookup liga.Pri1 {<br>
+      sub A B' C' by A B_C<br>
+      sub A B by A_B<br>
+      } liga.Pri1;<br>
+      } liga;</p>
+      <p>Once the B C sub is done the following A B sub won't change it since it's now A B_C, not A B C. It's the same as the f ligatures, f_f_i comes first, then f_i and f_f.</p>
+      <p>At least this is my understanding of how the GSUB works.</p>
+      <p>George<br>
+      I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+  - id: 115273
+    user: 1262
+    date: 2006-03-29T18:58:00
+    date_raw: 29 Mar 2006 — 6:58pm
+    votes: null
+    html: |-
+      <p><em>oh, by the way the “sub SHI by S HI.li;” didn’t work. it gave me an error message when i compiled.</em></p>
+      <p>You can't do many-to-many substitutions in OpenType. So if your input is multiple glyphs, then the output has to be a single glyph (i.e. a ligature lookup).</p>
+      <p>Regarding ligature names, you should definitely use the underscore notation, so H_I, not HI.li</p>
+      <p>A period . indicates that the glyph is a variant of a glyph, e.g. a.alt is an alternate form of a. But there is not HI glyph for HI.li to be a variant of.</p>
+      <p>The underscore _ notation is parseable by an application that implements the Adobe glyph naming rules.</p>
+    html_clean: |-
+      <p><em>oh, by the way the “sub SHI by S HI.li;” didn’t work. it gave me an error message when i compiled.</em></p>
+      <p>You can't do many-to-many substitutions in OpenType. So if your input is multiple glyphs, then the output has to be a single glyph (i.e. a ligature lookup).</p>
+      <p>Regarding ligature names, you should definitely use the underscore notation, so H_I, not HI.li</p>
+      <p>A period . indicates that the glyph is a variant of a glyph, e.g. a.alt is an alternate form of a. But there is not HI glyph for HI.li to be a variant of.</p>
+      <p>The underscore _ notation is parseable by an application that implements the Adobe glyph naming rules.</p>
+  - id: 115282
+    user: 3085
+    date: 2006-03-29T19:32:00
+    date_raw: 29 Mar 2006 — 7:32pm
+    votes: null
+    html: |-
+      <p>No. Processing is going like this:<br>
+      <code><br>
+      For each lookup<br>
+      For each position where lookup is applied,<br>
+      For each 'rule' in the lookup.<br>
+      If rule matches the context do what it says, move to the next position<br>
+      If rule does not match the context, try next rule.<br>
+      </code></p>
+      <p>So lookup order has higher priority than position. </p>
+      <p>About your approach, it won't work because 'position' in your contextual substitution starts from B' (A is just backtrack context). So A_B will work first according to the algorithm above.</p>
+      <p>It also misses another entry for B_C ligature, without context. And this example contains only two ligatures, in the real font more contexts may be needed for ligatures conflicting with B_C -- looks like supportability case for me. Adding one ligature may cause changing everything around.</p>
+      <p>Thanks,<br>
+      Sergey</p>
+    html_clean: |-
+      <p>No. Processing is going like this:<br>
+      <code><br>
+      For each lookup<br>
+      For each position where lookup is applied,<br>
+      For each 'rule' in the lookup.<br>
+      If rule matches the context do what it says, move to the next position<br>
+      If rule does not match the context, try next rule.<br>
+      </code></p>
+      <p>So lookup order has higher priority than position. </p>
+      <p>About your approach, it won't work because 'position' in your contextual substitution starts from B' (A is just backtrack context). So A_B will work first according to the algorithm above.</p>
+      <p>It also misses another entry for B_C ligature, without context. And this example contains only two ligatures, in the real font more contexts may be needed for ligatures conflicting with B_C -- looks like supportability case for me. Adding one ligature may cause changing everything around.</p>
+      <p>Thanks,<br>
+      Sergey</p>
+  - id: 115344
+    user: 11945
+    date: 2006-03-30T06:01:00
+    date_raw: 30 Mar 2006 — 6:01am
+    votes: null
+    html: |-
+      <p>i just tried out the</p>
+      <p>"sub S H' I' by HI.li;"</p>
+      <p>command and it works like a charm. very nice that it can do that without having to create a SHI ligature. it sure opens up a whole new can of worms (or possibilities) though, but at least now i know how to pull off that trick.</p>
+      <p>thanks everyone for the help!</p>
+    html_clean: |-
+      <p>i just tried out the</p>
+      <p>"sub S H' I' by HI.li;"</p>
+      <p>command and it works like a charm. very nice that it can do that without having to create a SHI ligature. it sure opens up a whole new can of worms (or possibilities) though, but at least now i know how to pull off that trick.</p>
+      <p>thanks everyone for the help!</p>
+  - id: 115749
+    user: 1133
+    date: 2006-03-31T17:10:00
+    date_raw: 31 Mar 2006 — 5:10pm
+    votes: null
+    html: |-
+      <p>Claes, </p>
+      <p>still, you should name your ligature H_I or H_I.li or H_I.liga, but *not* HI.li. It does matter. Please read the FontLab Studio 5 manual for extensive glyph naming suggestions. </p>
+      <p>Regards,<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+    html_clean: |-
+      <p>Claes, </p>
+      <p>still, you should name your ligature H_I or H_I.li or H_I.liga, but *not* HI.li. It does matter. Please read the FontLab Studio 5 manual for extensive glyph naming suggestions. </p>
+      <p>Regards,<br>
+      Adam Twardoch<br>
+      Fontlab Ltd.</p>
+  - id: 115756
+    user: 11945
+    date: 2006-03-31T17:50:00
+    date_raw: 31 Mar 2006 — 5:50pm
+    votes: null
+    html: <p>i already did. (o:</p>
+    html_clean: <p>i already did. (o:</p>
+  - id: 115985
+    user: 11945
+    date: 2006-04-02T19:00:00
+    date_raw: 2 Apr 2006 — 7:00pm
+    votes: null
+    html: |-
+      <p>i just thought i'd let you all know that i tested the use of seperate lookup groups, and it gives me just the effect i was looking for. if i place the H_I ligature in the top group and have the S_H ligature in the one below it'll override the S_H ligature and go to the H_I ligature even when writing SHI.</p>
+      <p>so thanks again everyone who helped out! it's much appreciated.</p>
+      <p>by the way, why isn't there some resource with examples of various effects one can achieve with Opentype? i had an idea about having the upper and lowercase alternate (LiKe So AnD sO oN, though i'd use it as a sort of randomizer), and i actually figured out how to achieve it eventually.. but it's stuff like that you'd wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there it seems, or everyone's sitting on their own coding and not wanting to share.. maybe? or wanting money for it, perhaps..</p>
+      <p>uh.. anyway.</p>
+    html_clean: |-
+      <p>i just thought i'd let you all know that i tested the use of seperate lookup groups, and it gives me just the effect i was looking for. if i place the H_I ligature in the top group and have the S_H ligature in the one below it'll override the S_H ligature and go to the H_I ligature even when writing SHI.</p>
+      <p>so thanks again everyone who helped out! it's much appreciated.</p>
+      <p>by the way, why isn't there some resource with examples of various effects one can achieve with Opentype? i had an idea about having the upper and lowercase alternate (LiKe So AnD sO oN, though i'd use it as a sort of randomizer), and i actually figured out how to achieve it eventually.. but it's stuff like that you'd wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there it seems, or everyone's sitting on their own coding and not wanting to share.. maybe? or wanting money for it, perhaps..</p>
+      <p>uh.. anyway.</p>
+  - id: 116569
+    user: 8393
+    date: 2006-04-05T08:11:00
+    date_raw: 5 Apr 2006 — 8:11am
+    votes: null
+    html: |-
+      <p>Hi kesh!</p>
+      <p>I found the image you were talking about: (its from Linotype.com)<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/zapfino_teaser_d16957i97.gif"></div><p></p>
+      <p>Bye: Steven</p>
+    html_clean: |-
+      <p>Hi kesh!</p>
+      <p>I found the image you were talking about: (its from Linotype.com)<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/zapfino_teaser_d16957i97.gif"></div><p></p>
+      <p>Bye: Steven</p>
+  - id: 118499
+    user: 4883
+    date: 2006-04-16T19:13:00
+    date_raw: 16 Apr 2006 — 7:13pm
+    votes: null
+    html: |-
+      <p><em>by the way, why isn’t there some resource with examples of various effects one can achieve with Opentype? i had an idea about having the upper and lowercase alternate (LiKe So AnD sO oN, though i’d use it as a sort of randomizer), and i actually figured out how to achieve it eventually.. but it’s stuff like that you’d wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there it seems, or everyone’s sitting on their own coding and not wanting to share.. maybe? or wanting money for it, perhaps..</em></p>
+      <p>Your best source is workshops at the conferences like SOTA and ATypI. People are happy to show you how to do stuff. Nick Shinn did one on stylistic alternates in a script font and Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</p>
+      <p>George<br>
+      I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+    html_clean: |-
+      <p><em>by the way, why isn’t there some resource with examples of various effects one can achieve with Opentype? i had an idea about having the upper and lowercase alternate (LiKe So AnD sO oN, though i’d use it as a sort of randomizer), and i actually figured out how to achieve it eventually.. but it’s stuff like that you’d wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there it seems, or everyone’s sitting on their own coding and not wanting to share.. maybe? or wanting money for it, perhaps..</em></p>
+      <p>Your best source is workshops at the conferences like SOTA and ATypI. People are happy to show you how to do stuff. Nick Shinn did one on stylistic alternates in a script font and Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</p>
+      <p>George<br>
+      I felt bad because I had no shoes, until I met a man who had no Bodoni</p>
+  - id: 118500
+    user: 1947
+    date: 2006-04-16T19:22:00
+    date_raw: 16 Apr 2006 — 7:22pm
+    votes: null
+    html: <p>If your interested in learning more on this subject, there is still time, and there is still room at the <a href="http://tdc.org/events/2006events/2006stdcfonttech.html" rel="nofollow">TDC Font Tech Weekend</a> starting this Friday evening.</p>
+    html_clean: <p>If your interested in learning more on this subject, there is still time, and there is still room at the <a href="http://tdc.org/events/2006events/2006stdcfonttech.html" rel="nofollow">TDC Font Tech Weekend</a> starting this Friday evening.</p>
+  - id: 118529
+    user: 1844
+    date: 2006-04-17T04:35:00
+    date_raw: 17 Apr 2006 — 4:35am
+    votes: null
+    html: |-
+      <p>&gt; <em>Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</em></p>
+      <p>Are you talking about Amy Papaelias' <a href="http://www.typetalkfonts.com/" rel="nofollow">TypeTalk Fonts</a>?</p>
+    html_clean: |-
+      <p>&gt; <em>Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</em></p>
+      <p>Are you talking about Amy Papaelias' <a href="http://www.typetalkfonts.com/" rel="nofollow">TypeTalk Fonts</a>?</p>
+  - id: 118532
+    user: 3135
+    date: 2006-04-17T04:55:00
+    date_raw: 17 Apr 2006 — 4:55am
+    votes: null
+    html: |-
+      <p>Amy showed her work at TypeCon NY last summer. She has a thread here somehere where she discusses it. Interesting stuff and she was an entertaining speaker as well as informative.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Amy showed her work at TypeCon NY last summer. She has a thread here somehere where she discusses it. Interesting stuff and she was an entertaining speaker as well as informative.</p>
+      <p>ChrisL</p>
+  - id: 120099
+    user: 5664
+    date: 2006-04-24T19:24:00
+    date_raw: 24 Apr 2006 — 7:24pm
+    votes: null
+    html: |-
+      <p><em>you’d wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there</em></p>
+      <p>true...and typophile's the best place for that on the web...</p>
+      <p><a href="http://www.piclig.net/" rel="nofollow">PicLig</a> by Christina Schultz is a great project too.</p>
+      <p><em>Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</em></p>
+      <p>Tom used the TypeTalk project as inspiration to build his example using some very excellent contextual alternates...and to think i wasted away hours upon hours of grad school making ligatures! :)</p>
+      <p><em>she was an entertaining speaker as well as informative.</em></p>
+      <p>thanks chris! it was a great experience, although i don't remember any of it (i was too busy being paralyzed with fear!)...BTW, we met briefly, i believe, when you and gerry leonidas were shaming me for my abysmal knowledge of Greek...</p>
+      <p>i'll be making a short presentation next week at SUNY New Paltz (where I developed the typetalk project) on 5/5. see the promo poster...<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/amy_intro_small.jpg"></div><p></p>
+    html_clean: |-
+      <p><em>you’d wish there was some website resource for where people could send in their tricks and tips. too bad, really. very little about Opentype out there</em></p>
+      <p>true...and typophile's the best place for that on the web...</p>
+      <p><a href="http://www.piclig.net/" rel="nofollow">PicLig</a> by Christina Schultz is a great project too.</p>
+      <p><em>Thomas Phinney has demoed some amazing stuff with relatively easy code including random things. He also has an OT font that replaces profanity in text.</em></p>
+      <p>Tom used the TypeTalk project as inspiration to build his example using some very excellent contextual alternates...and to think i wasted away hours upon hours of grad school making ligatures! :)</p>
+      <p><em>she was an entertaining speaker as well as informative.</em></p>
+      <p>thanks chris! it was a great experience, although i don't remember any of it (i was too busy being paralyzed with fear!)...BTW, we met briefly, i believe, when you and gerry leonidas were shaming me for my abysmal knowledge of Greek...</p>
+      <p>i'll be making a short presentation next week at SUNY New Paltz (where I developed the typetalk project) on 5/5. see the promo poster...<br>
+      </p><div class="imageWrap"><img src="http://typophile.com/files/amy_intro_small.jpg"></div><p></p>
+  - id: 120170
+    user: 3135
+    date: 2006-04-25T08:29:00
+    date_raw: 25 Apr 2006 — 8:29am
+    votes: null
+    html: |-
+      <p>"...BTW, we met briefly, i believe, when you and gerry leonidas were shaming me for my abysmal knowledge of Greek…"</p>
+      <p>I remember it well. I was surely joking (which is most of the time in my case). My Greek vocabulary is very limited and I would be the last person to point shame at anyone else. I really did enjoy your presentation and your "paralized with fear" part did not show.</p>
+      <p>BTW, I just attended a Fontech session in NYC at TDC where Thomas Phinney was one of the presenters.  He was bragging on you and showing your work to some of the attendees who had not seen it. Your many hours in graduate school did not go in vein!</p>
+      <p>Hope you will be able to come to TypeCon Boston and join us all.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>"...BTW, we met briefly, i believe, when you and gerry leonidas were shaming me for my abysmal knowledge of Greek…"</p>
+      <p>I remember it well. I was surely joking (which is most of the time in my case). My Greek vocabulary is very limited and I would be the last person to point shame at anyone else. I really did enjoy your presentation and your "paralized with fear" part did not show.</p>
+      <p>BTW, I just attended a Fontech session in NYC at TDC where Thomas Phinney was one of the presenters.  He was bragging on you and showing your work to some of the attendees who had not seen it. Your many hours in graduate school did not go in vein!</p>
+      <p>Hope you will be able to come to TypeCon Boston and join us all.</p>
+      <p>ChrisL</p>

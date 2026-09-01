@@ -1,0 +1,171 @@
+node: 47235
+title: The turkish i story
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20110617170403"
+  captured_at: 2011-06-17T17:04:03Z
+  url: http://typophile.com:80/node/47235
+  digest: DCPDH7JRYFKWMFJNFYOUYRFR5ULEK3RS
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/47235.html
+  fingerprint: 2b240681e8a3719a
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20110617170403"
+      digest: DCPDH7JRYFKWMFJNFYOUYRFR5ULEK3RS
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/47235.html
+post:
+  id: 47235
+  user: 11526
+  date: 2008-07-09T10:21:00
+  date_raw: 9.Jul.2008 10.21am
+  votes: null
+  html: |-
+    <p>Could anyone tell me if this is a correct way to handle the turkish i problem.</p>
+    <p>I put the locl feature on top so it overrides everything.</p>
+    <p>I font know the language really, but tried to make some sense out of it.</p>
+    <p>The glyph "i.dot" is a copy of i.</p>
+    <p>Thanks in advance!</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/turskishi_5110.png"></div><p></p>
+  html_clean: |-
+    <p>Could anyone tell me if this is a correct way to handle the turkish i problem.</p>
+    <p>I put the locl feature on top so it overrides everything.</p>
+    <p>I font know the language really, but tried to make some sense out of it.</p>
+    <p>The glyph "i.dot" is a copy of i.</p>
+    <p>Thanks in advance!</p>
+    <p></p><div class="imageWrap"><img src="http://typophile.com/files/turskishi_5110.png"></div><p></p>
+comments:
+  - id: 288811
+    user: 29994
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>The underlying reasoning is that 'i' "ee" and 'ı' "ih" are two different characters. Capitalizing and small-capitalizing in a Western locale loses the dot, which makes it a different character in Turkish.</p>
+      <p>You don't really need an "i.dot" glyph (as dotted equivalent of "dotlessi"), you can use the regular latin 'i' for that. So the translation you specify is not necessary.</p>
+      <p>The only caveat is, for Turkish you should translate "i" to "idotaccent.sc" for small caps, and "i" to "Idotaccent" for capitals. The dotless 'i' can be converted to a 'regular' small cap I and capital I, for any locale, so it doesn't need a localized handling.</p>
+      <p>You <em>will</em> get bonus points if you weed out the ligatures containing an "i" for Turkish, such as "fi" and "ffi" :-) (As a side note, your translation of 'i' to 'i.dot' may rule out that lookup; but I still think it makes life more complicated, instead of less.)</p>
+    html_clean: |-
+      <p>The underlying reasoning is that 'i' "ee" and 'ı' "ih" are two different characters. Capitalizing and small-capitalizing in a Western locale loses the dot, which makes it a different character in Turkish.</p>
+      <p>You don't really need an "i.dot" glyph (as dotted equivalent of "dotlessi"), you can use the regular latin 'i' for that. So the translation you specify is not necessary.</p>
+      <p>The only caveat is, for Turkish you should translate "i" to "idotaccent.sc" for small caps, and "i" to "Idotaccent" for capitals. The dotless 'i' can be converted to a 'regular' small cap I and capital I, for any locale, so it doesn't need a localized handling.</p>
+      <p>You <em>will</em> get bonus points if you weed out the ligatures containing an "i" for Turkish, such as "fi" and "ffi" :-) (As a side note, your translation of 'i' to 'i.dot' may rule out that lookup; but I still think it makes life more complicated, instead of less.)</p>
+  - id: 288824
+    user: 1844
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>&gt; <em>You will get bonus points if you weed out the ligatures containing an “i” for Turkish, such as “fi” and “ffi”</em></p>
+      <p>That's exactly what will happen.</p>
+      <p>&gt; <em>(As a side note, your translation of ’i’ to ’i.dot’ may rule out that lookup; but I still think it makes life more complicated, instead of less.)</em></p>
+      <p>I disagree. Taking care of the Turkish i upstream, in 'locl', makes the code for other features (e.g. 'liga', 'smcp') much much simpler.</p>
+    html_clean: |-
+      <p>&gt; <em>You will get bonus points if you weed out the ligatures containing an “i” for Turkish, such as “fi” and “ffi”</em></p>
+      <p>That's exactly what will happen.</p>
+      <p>&gt; <em>(As a side note, your translation of ’i’ to ’i.dot’ may rule out that lookup; but I still think it makes life more complicated, instead of less.)</em></p>
+      <p>I disagree. Taking care of the Turkish i upstream, in 'locl', makes the code for other features (e.g. 'liga', 'smcp') much much simpler.</p>
+  - id: 288837
+    user: 1844
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Goran, your approach is good, but there are some issues,</p>
+      <p>1. <code>languagesystem dflt dflt;</code> is incorrect.<br>
+      It should be <code>languagesystem&nbsp;DFLT&nbsp;dflt;</code></p>
+      <p>2. If you want to be thorough, you can include other languages that need the same treatment such as Azeri (AZE) and Crimean Tatar (CRT).</p>
+      <p>3. You can actually remove the substitution<br>
+      <code>sub&nbsp;i.small&nbsp;by&nbsp;idotaccent.small;</code><br>
+      from the 'locl' feature. The reasoning for this is, the glyph 'i.small' won't be in the glyph stream until 'smcp' is applied. Since 'locl' comes before 'smcp' (and assuming that the text engine will do the right thing which is apply the lookups in the order they appear in the font), at the time 'locl' is applied the glyph 'i.small' won't be available as input.<br>
+      In any case, don't forget to include the following substitution in 'smcp',<br>
+      <code>sub i.dot by idotaccent.small;</code></p>
+      <p>4. <code>idotaccent.small</code> is not a good name because 'idotaccent' is not a standard name. ('Idotaccent' is, but that's different). You need to call it something like 'i.dotsmall'.</p>
+    html_clean: |-
+      <p>Goran, your approach is good, but there are some issues,</p>
+      <p>1. <code>languagesystem dflt dflt;</code> is incorrect.<br>
+      It should be <code>languagesystem&nbsp;DFLT&nbsp;dflt;</code></p>
+      <p>2. If you want to be thorough, you can include other languages that need the same treatment such as Azeri (AZE) and Crimean Tatar (CRT).</p>
+      <p>3. You can actually remove the substitution<br>
+      <code>sub&nbsp;i.small&nbsp;by&nbsp;idotaccent.small;</code><br>
+      from the 'locl' feature. The reasoning for this is, the glyph 'i.small' won't be in the glyph stream until 'smcp' is applied. Since 'locl' comes before 'smcp' (and assuming that the text engine will do the right thing which is apply the lookups in the order they appear in the font), at the time 'locl' is applied the glyph 'i.small' won't be available as input.<br>
+      In any case, don't forget to include the following substitution in 'smcp',<br>
+      <code>sub i.dot by idotaccent.small;</code></p>
+      <p>4. <code>idotaccent.small</code> is not a good name because 'idotaccent' is not a standard name. ('Idotaccent' is, but that's different). You need to call it something like 'i.dotsmall'.</p>
+  - id: 288908
+    user: 11526
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>Thanks for helping out Miguel and Theunis! :)</p>
+    html_clean: <p>Thanks for helping out Miguel and Theunis! :)</p>
+  - id: 289035
+    user: 11526
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>When I write DFLT capitalized I get this warning, are you sure on the capitalization, Miguel?</p>
+      <p>[WARNING] Use of DFLT tag has been deprecated. It will work, but please use 'dflt' instead. [/Users/goran/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 57]</p>
+    html_clean: |-
+      <p>When I write DFLT capitalized I get this warning, are you sure on the capitalization, Miguel?</p>
+      <p>[WARNING] Use of DFLT tag has been deprecated. It will work, but please use 'dflt' instead. [/Users/goran/Library/Application Support/FontLab/Studio 5/Features/fontlab.fea 57]</p>
+  - id: 289041
+    user: 8867
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>Goran,</p>
+      <p>See that thread — Script Tag + i dot:</p>
+      <p><a href="http://typophile.com/node/29469" title="http://typophile.com/node/29469">http://typophile.com/node/29469</a></p>
+    html_clean: |-
+      <p>Goran,</p>
+      <p>See that thread — Script Tag + i dot:</p>
+      <p><a href="/node/29469/" title="http://typophile.com/node/29469">http://typophile.com/node/29469</a></p>
+  - id: 289060
+    user: 11526
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>There's always a "but" with FontLab...</p>
+    html_clean: <p>There's always a "but" with FontLab...</p>
+  - id: 289133
+    user: 11526
+    date: null
+    date_raw: null
+    votes: null
+    html: |-
+      <p>And, what will exactly happen if I take away the DFLT tag and only put this in:</p>
+      <p>languagesystem latn dflt;<br>
+      languagesystem latn TRK;<br>
+      Will this produce a completely useless font regarding language support?</p>
+    html_clean: |-
+      <p>And, what will exactly happen if I take away the DFLT tag and only put this in:</p>
+      <p>languagesystem latn dflt;<br>
+      languagesystem latn TRK;<br>
+      Will this produce a completely useless font regarding language support?</p>
+  - id: 289183
+    user: 1844
+    date: null
+    date_raw: null
+    votes: null
+    html: <p>No, it won't be useless.</p>
+    html_clean: <p>No, it won't be useless.</p>

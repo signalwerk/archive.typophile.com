@@ -1,0 +1,191 @@
+node: 86551
+title: classes for glyph lists for OT functions (a programming question)
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20150417064625"
+  captured_at: 2015-04-17T06:46:25Z
+  url: http://typophile.com/node/86551
+  digest: USK6G3NO2D7KUOO5FNHOVOSDBQQPND2C
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: sidebars
+  file: data/archives/web.archive.org/files/typophile.com/node/86551.html
+  fingerprint: 8316222096022f13
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20150417064625"
+      digest: USK6G3NO2D7KUOO5FNHOVOSDBQQPND2C
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/86551.html
+post:
+  id: 86551
+  user: 76756
+  date: 2011-10-19T05:28:00
+  date_raw: 19 Oct 2011 — 5:28am
+  votes: null
+  html: |-
+    <p>Hello, </p>
+    <p>I use the "calt" function for character substitution, and I have a lot of similar glyph lists which are sometimes hard do maintain.</p>
+    <p>For example, I have:<br>
+    sub m' [s a c e o] by m.alt;<br>
+    sub n' [s a c e o] by n.alt;<br>
+    sub x' [s a c e o] by x.alt;<br>
+    etc.</p>
+    <p>My question is can I define a glyph list that I can use for every instance?</p>
+    <p>Can I say:</p>
+    <p>my list_s = [s a c e o];<br>
+    sub m' [list_s] by m.alt;<br>
+    sub n' [list_s] by m.alt;<br>
+    sub x' [list_s] by m.alt;</p>
+    <p>So I if I want to add a character to that list I have to do it in one place, instead of, say 10</p>
+  html_clean: |-
+    <p>Hello, </p>
+    <p>I use the "calt" function for character substitution, and I have a lot of similar glyph lists which are sometimes hard do maintain.</p>
+    <p>For example, I have:<br>
+    sub m' [s a c e o] by m.alt;<br>
+    sub n' [s a c e o] by n.alt;<br>
+    sub x' [s a c e o] by x.alt;<br>
+    etc.</p>
+    <p>My question is can I define a glyph list that I can use for every instance?</p>
+    <p>Can I say:</p>
+    <p>my list_s = [s a c e o];<br>
+    sub m' [list_s] by m.alt;<br>
+    sub n' [list_s] by m.alt;<br>
+    sub x' [list_s] by m.alt;</p>
+    <p>So I if I want to add a character to that list I have to do it in one place, instead of, say 10</p>
+comments:
+  - id: 481306
+    user: 2438
+    date: 2011-10-19T07:05:00
+    date_raw: 19 Oct 2011 — 7:05am
+    votes: null
+    html: |-
+      <p>It sounds like you want to replace inline classes (glyph lists) with predefined classes. Your pseudo-code is already close, just ditch the 'my' and use the prefix '@'...</p>
+      <pre>@list_s = [s a c e o];
+      sub m' @s by m.alt;
+      # etc.
+      </pre><p>
+      In order for the class to work across features (not just for <code>calt</code>), the definition should be made globally, i.e. in the lower section of FontLab's OpenType panel, or in the Classes panel, or somewhere near the top of an external features file.</p>
+      <p>It's also possible to nest classes, so if you needed to add an additional glyph to the predefined class for a particular rule, you could do something like...</p>
+      <pre>sub m' [@s u] by m.alt;
+      </pre><p>
+      ...which would include 'u' in the class for just that rule.</p>
+    html_clean: |-
+      <p>It sounds like you want to replace inline classes (glyph lists) with predefined classes. Your pseudo-code is already close, just ditch the 'my' and use the prefix '@'...</p>
+      <pre>@list_s = [s a c e o];
+      sub m' @s by m.alt;
+      # etc.
+      </pre><p>
+      In order for the class to work across features (not just for <code>calt</code>), the definition should be made globally, i.e. in the lower section of FontLab's OpenType panel, or in the Classes panel, or somewhere near the top of an external features file.</p>
+      <p>It's also possible to nest classes, so if you needed to add an additional glyph to the predefined class for a particular rule, you could do something like...</p>
+      <pre>sub m' [@s u] by m.alt;
+      </pre><p>
+      ...which would include 'u' in the class for just that rule.</p>
+  - id: 481322
+    user: 14455
+    date: 2011-10-19T08:11:00
+    date_raw: 19 Oct 2011 — 8:11am
+    votes: null
+    html: |-
+      <p>You can simplify the feature code more by intesive use of classes:</p>
+      <p><code></code></p>
+      <pre>feature xxxx {
+        @source  = [m n x];
+        @target  = [m.alt m.alt m.alt];
+        @context = [s a c e o];
+
+        sub @source' @context by @target;
+      } xxxx;
+      </pre><p></p>
+    html_clean: |-
+      <p>You can simplify the feature code more by intesive use of classes:</p>
+      <p><code></code></p>
+      <pre>feature xxxx {
+        @source  = [m n x];
+        @target  = [m.alt m.alt m.alt];
+        @context = [s a c e o];
+
+        sub @source' @context by @target;
+      } xxxx;
+      </pre><p></p>
+  - id: 481485
+    user: 76756
+    date: 2011-10-20T03:40:00
+    date_raw: 20 Oct 2011 — 3:40am
+    votes: null
+    html: |-
+      <p>Thanks both of you.</p>
+      <p>And what programming language is this using? Is there a comprehensive manual?</p>
+    html_clean: |-
+      <p>Thanks both of you.</p>
+      <p>And what programming language is this using? Is there a comprehensive manual?</p>
+  - id: 481494
+    user: 31798
+    date: 2011-10-20T05:10:00
+    date_raw: 20 Oct 2011 — 5:10am
+    votes: null
+    html: |-
+      <p>AFDKO syntax is described at</p>
+      <p><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
+      <p>I'd actually recommend you *not* think of this as a programming language, per se, but rather simply as the syntax for specifying the structure of OpenType tables. When I first started coding OpenType features I ran into a bunch of problems which were caused by viewing it as a programming language and assuming that lookups behave similar to functions, which is in various respects a poor analogy.</p>
+      <p>For example, consider the following hypothetical piece of code:</p>
+      <p>lookup A {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;DoSomeStuff;<br>
+      } A;</p>
+      <p>lookup B {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;DoSomeOtherStuff;<br>
+      } B;</p>
+      <p>feature xxxx {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup A;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup B;<br>
+      } xxxx;</p>
+      <p>feature yyyy {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup B;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup A;<br>
+      } yyyy;</p>
+      <p>In this example, feature xxxx and yyyy *must* behave identically because lookups, unlike functions, are not called. Rather, they exist within the GSUB table in a particular order and will either be processed by the application or not. This order is determined by the order in which lookups are declared rather than the order which they are referred to in the features. Thus, B will operate on the output of A even in feature yyyy where they are mentioned in reverse order.</p>
+      <p>Programs operate over data. OpenType tables, on the other hand, are static data which is processed by a text engine.</p>
+      <p>André</p>
+    html_clean: |-
+      <p>AFDKO syntax is described at</p>
+      <p><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
+      <p>I'd actually recommend you *not* think of this as a programming language, per se, but rather simply as the syntax for specifying the structure of OpenType tables. When I first started coding OpenType features I ran into a bunch of problems which were caused by viewing it as a programming language and assuming that lookups behave similar to functions, which is in various respects a poor analogy.</p>
+      <p>For example, consider the following hypothetical piece of code:</p>
+      <p>lookup A {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;DoSomeStuff;<br>
+      } A;</p>
+      <p>lookup B {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;DoSomeOtherStuff;<br>
+      } B;</p>
+      <p>feature xxxx {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup A;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup B;<br>
+      } xxxx;</p>
+      <p>feature yyyy {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup B;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;lookup A;<br>
+      } yyyy;</p>
+      <p>In this example, feature xxxx and yyyy *must* behave identically because lookups, unlike functions, are not called. Rather, they exist within the GSUB table in a particular order and will either be processed by the application or not. This order is determined by the order in which lookups are declared rather than the order which they are referred to in the features. Thus, B will operate on the output of A even in feature yyyy where they are mentioned in reverse order.</p>
+      <p>Programs operate over data. OpenType tables, on the other hand, are static data which is processed by a text engine.</p>
+      <p>André</p>
+  - id: 481548
+    user: 83217
+    date: 2011-10-20T11:02:00
+    date_raw: 20 Oct 2011 — 11:02am
+    votes: null
+    html: <p>@AlexanderKatt - Think <code>yacc</code> and you're close.</p>
+    html_clean: <p>@AlexanderKatt - Think <code>yacc</code> and you're close.</p>

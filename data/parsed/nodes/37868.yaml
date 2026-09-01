@@ -1,0 +1,107 @@
+node: 37868
+title: Overlapping components in fontlab
+forum:
+  id: 6
+  title: Build
+source:
+  archive: web.archive.org
+  timestamp: "20071016080312"
+  captured_at: 2007-10-16T08:03:12Z
+  url: http://typophile.com:80/node/37868
+  digest: INLWBCTD6JS6JJ5XRUGJSQNCINYZ65UF
+  verified: true
+  truncated: false
+  sound: true
+  content: original
+  generation: classic
+  file: data/archives/web.archive.org/files/typophile.com/node/37868.html
+  fingerprint: a5d01056063969aa
+  parser: 94e5e8fd0094d753
+pages:
+  total: 1
+  recovered: 1
+  complete: true
+  have:
+    - 0
+  parts:
+    - page: 0
+      archive: web.archive.org
+      timestamp: "20071016080312"
+      digest: INLWBCTD6JS6JJ5XRUGJSQNCINYZ65UF
+      verified: true
+      truncated: false
+      file: data/archives/web.archive.org/files/typophile.com/node/37868.html
+post:
+  id: 37868
+  user: 12425
+  date: 2007-10-07T15:06:00
+  date_raw: 7.Oct.2007 3.06pm
+  votes: null
+  html: |-
+    <p>Hi folks, </p>
+    <p>I’m doing this typeface in fonlab build from components. I’m having 2 components which are overlapping eachother. I have a question cause when I do the fill out (presing “&lt;” button)  I can se som lines which looks “smoothered” - Tjek out img’s - marked with a red circle.</p>
+    <p>My q’tion goes like this: Is the smootheredness a problem when I generate the typeface?</p><div class="imageWrap"><img src="/files/fontlab01_4665.gif"></div><div class="imageWrap"><img src="/files/fontlab02_5812.gif"></div><p></p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/37969" class="topic-previous" title="Go to previous forum topic">‹ OpenType features/lookups</a> <a href="/node/36529" class="topic-next" title="Go to next forum topic">CS2 font substitution ›</a></div>
+  html_clean: |-
+    <p>Hi folks, </p>
+    <p>I’m doing this typeface in fonlab build from components. I’m having 2 components which are overlapping eachother. I have a question cause when I do the fill out (presing “&lt;” button)  I can se som lines which looks “smoothered” - Tjek out img’s - marked with a red circle.</p>
+    <p>My q’tion goes like this: Is the smootheredness a problem when I generate the typeface?</p><div class="imageWrap"><img src="/files/fontlab01_4665.gif"></div><div class="imageWrap"><img src="/files/fontlab02_5812.gif"></div><p></p>
+    <div class="forum-topic-navigation clear-block"><a href="/node/37969/" class="topic-previous" title="Go to previous forum topic">‹ OpenType features/lookups</a> <a href="/node/36529/" class="topic-next" title="Go to next forum topic">CS2 font substitution ›</a></div>
+comments:
+  - id: 232207
+    user: 22536
+    date: 2007-10-07T16:06:00
+    date_raw: 7.Oct.2007 4.06pm
+    votes: null
+    html: |-
+      <p>From my experience, you need to decompose any overlapping components before generating. You’ll also need to ’Merge Contours’ (ctrl + F10 on PC)</p>
+      <p>Good luck!</p>
+      <p>- David</p>
+    html_clean: |-
+      <p>From my experience, you need to decompose any overlapping components before generating. You’ll also need to ’Merge Contours’ (ctrl + F10 on PC)</p>
+      <p>Good luck!</p>
+      <p>- David</p>
+  - id: 232279
+    user: 14604
+    date: 2007-10-08T07:57:00
+    date_raw: 8.Oct.2007 7.57am
+    votes: null
+    html: <p>I also always merge contours. You can then remove any points that might have been left by such inaccuracies as in your images.</p>
+    html_clean: <p>I also always merge contours. You can then remove any points that might have been left by such inaccuracies as in your images.</p>
+  - id: 232297
+    user: 1043
+    date: 2007-10-08T09:24:00
+    date_raw: 8.Oct.2007 9.24am
+    votes: null
+    html: |-
+      <p>The little bumps you are seeing are the result of the way FontLab previews outlines when paths overlap. </p>
+      <p>You <em>can</em> generate a font like that, and it will work with some programs (InDesign, for one), but other programs (Illustrator, for example) will refuse to print a document containing such fonts. Even when they work, they sometimes look weird on screen (InDesign makes holes appear at the overlaps at some zoom levels). In any case, overlapping paths are not allowed in the PostScript Type 1 spec, so you don’t want them in your finished fonts.</p>
+      <p>However, it’s okay to have overlaps while you’re working on a font. It’s hard to make some kinds of letter shapes to look right (scripts, for instance) without overlapping paths. And if the design is still in flux, it makes it easier to play with the design.</p>
+      <p>In the end, before you generate a font, you will need to remove the overlaps. Be sure to check the results when removing the overlaps. Because the resolution of the em square is limited, you may get a little distortion due to the fact that the new control points that are created where lines intersect have to fall on a whole-unit coordinates.</p>
+    html_clean: |-
+      <p>The little bumps you are seeing are the result of the way FontLab previews outlines when paths overlap. </p>
+      <p>You <em>can</em> generate a font like that, and it will work with some programs (InDesign, for one), but other programs (Illustrator, for example) will refuse to print a document containing such fonts. Even when they work, they sometimes look weird on screen (InDesign makes holes appear at the overlaps at some zoom levels). In any case, overlapping paths are not allowed in the PostScript Type 1 spec, so you don’t want them in your finished fonts.</p>
+      <p>However, it’s okay to have overlaps while you’re working on a font. It’s hard to make some kinds of letter shapes to look right (scripts, for instance) without overlapping paths. And if the design is still in flux, it makes it easier to play with the design.</p>
+      <p>In the end, before you generate a font, you will need to remove the overlaps. Be sure to check the results when removing the overlaps. Because the resolution of the em square is limited, you may get a little distortion due to the fact that the new control points that are created where lines intersect have to fall on a whole-unit coordinates.</p>
+  - id: 232648
+    user: 1133
+    date: 2007-10-10T06:04:00
+    date_raw: 10.Oct.2007 6.04am
+    votes: null
+    html: |-
+      <p>Even in InDesign, on some non-PostScript printers such fonts will print reversed on the overlaps. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Even in InDesign, on some non-PostScript printers such fonts will print reversed on the overlaps. </p>
+      <p>A.</p>
+  - id: 232741
+    user: 2969
+    date: 2007-10-10T12:10:00
+    date_raw: 10.Oct.2007 12.10pm
+    votes: null
+    html: |-
+      <p>Overlapping contours are clearly a problem for the buggy end of PostScript, but overlapping composites should always work (i.e. fill as you expect), because of another “bug”. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>Overlapping contours are clearly a problem for the buggy end of PostScript, but overlapping composites should always work (i.e. fill as you expect), because of another “bug”. </p>
+      <p>Cheers!</p>
