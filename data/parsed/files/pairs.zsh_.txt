@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+# pairs.sh LENGTH FILE
+# count glyph pair occurance in a document
+
+# version	date		author
+# 0		22 Apr 2012	Brian M Zick [21326.info]
+
+length="$1"		# length of pair group
+input="$2"		# input file
+
+# Rundown of script:
+# 1. Groups pairs without whitespace
+# 2. Counts pairs
+# 3. Calculates percentages
+
+
+group() {
+	 grep -Po '[^\s\b]'"{$length}" 
+}
+
+count() {
+	sort | uniq -c | sort -rn
+}
+
+percent() {
+	file=`mktemp`
+	tee $file | while read num pair; do (( sum += num )); done
+	cat "$file" | while read num pair; do
+		(( percent = ($num.0 / $sum.0) * 100 ))
+		print -- "$pair\t$num\t$percent"
+	done
+}
+
+
+cat $input | group | count | percent

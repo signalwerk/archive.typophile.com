@@ -52,12 +52,12 @@ post:
   html_clean: |-
     <p>I need to automate the creation of a 16-bit font file. Each glyph is available as a PNG or SVG file.  I can reconvert to PS if needed.</p>
     <p>We have released the 16-bit file based font under the Open Font License: ISWA 2010.  I have 37,811 glyphs with codepoints from 1 to 62,504.<br>
-    <a href="http://www.signbank.org/iswa" title="http://www.signbank.org/iswa">http://www.signbank.org/iswa</a><br>
-    <a href="http://www.signbank.org/iswa.zip" title="http://www.signbank.org/iswa.zip">http://www.signbank.org/iswa.zip</a></p>
+    <a href="http://www.signbank.org/iswa" title="http://www.signbank.org/iswa" class="link-external">http://www.signbank.org/iswa</a><br>
+    <a href="http://www.signbank.org/iswa.zip" title="http://www.signbank.org/iswa.zip" class="link-external">http://www.signbank.org/iswa.zip</a></p>
     <p>Each glyph is available as an individual PNG or SVG file.  Each glyph has a unique codepoint.  Not all codepoints are assigned.  The glyphs do not share a common height or width.  The glyphs should always be displayed left then top.  The glyphs do not rotate or morph.</p>
     <p>The character map should be automated from a few simple rules.  There is one formula for a sequence of 3 characters and an algorithm for individual characters.  The characters are proposed for plane 1 of the UCS.<br>
-    <a href="http://www.signpuddle.net/plaintext" title="http://www.signpuddle.net/plaintext">http://www.signpuddle.net/plaintext</a><br>
-    <a href="http://www.signpuddle.net/plaintext.zip" title="http://www.signpuddle.net/plaintext.zip">http://www.signpuddle.net/plaintext.zip</a></p>
+    <a href="http://www.signpuddle.net/plaintext" title="http://www.signpuddle.net/plaintext" class="link-external">http://www.signpuddle.net/plaintext</a><br>
+    <a href="http://www.signpuddle.net/plaintext.zip" title="http://www.signpuddle.net/plaintext.zip" class="link-external">http://www.signpuddle.net/plaintext.zip</a></p>
     <p>Is this possible to automate?  Anyone have a suggested process flow with command line tools or custom programs? </p>
     <p>I'd appreciate any advice on an individual, company, or software package that could help me get this done quick.</p>
     <p>I need a version that will work with the proposed Unicode characters and display the correct glyph rather than the empty block characters.</p>
@@ -79,8 +79,8 @@ comments:
       (Besides, this also seem to cater for non-manual signs: nose wiggles, eye blinks, smileys. Everything to make a story lively, I guess.)</p>
       <p>It seems you have a set of <em>glyphs</em> and associated <em>Unicode codepoints</em> to store them in. Is your target a Unicode compliant font, where entering the Unicode, through software that supports this, yields the correct character?<br>
       In that case, all that's needed is a (relatively) easy font creating software, where you can import your images into, assign arbitrary codepoints, and save as an OTF or TTF. I <em>do</em> know that you should stick to vector files -- no PNGs. I'm not sure about SVGs -- perhaps these can be imported or copied into the regular software, perhaps not. (With FontLab, I've read here, you can copy/paste from Illustrator.)</p>
-      <p>Since it looks like you're not after heavy-duty Opentype features, you could try FontForge (which is free, so it's easily tried; but it has a steep learning curve), or FontLab's beginner's package <a href="http://www.fontlab.com/font-editor/typetool/" rel="nofollow">TypeTool</a>.</p>
-      <p>If there is any way of converting your outline data to another format, you could look into <a href="http://sourceforge.net/projects/fonttools/" rel="nofollow">TTF</a> -- this is based around a human-readable XML format, but (downside) it needs the actual outlines to conform to standard font outline formats -- Type 1 or Truetype.</p>
+      <p>Since it looks like you're not after heavy-duty Opentype features, you could try FontForge (which is free, so it's easily tried; but it has a steep learning curve), or FontLab's beginner's package <a href="http://www.fontlab.com/font-editor/typetool/" rel="nofollow" class="link-external">TypeTool</a>.</p>
+      <p>If there is any way of converting your outline data to another format, you could look into <a href="http://sourceforge.net/projects/fonttools/" rel="nofollow" class="link-external">TTF</a> -- this is based around a human-readable XML format, but (downside) it needs the actual outlines to conform to standard font outline formats -- Type 1 or Truetype.</p>
   - id: 449755
     user: 1133
     date: 2011-01-30T16:37:00
@@ -103,11 +103,11 @@ comments:
       * Adobe FDK for OpenType (AFDKO) [2] combined with ufo2fdk [3] and the UFO format [4]</p>
       <p>The easiest path would probably be to construct an SVG Font [5] and then convert it into OpenType (OTF or TTF) using FontForge. Another approach would be to convert the SVG drawings into the UFO format (which is a simple, high-level XML-based format for font data representation), and then use ufo2fdk and AFDKO to build an OpenType (OTF) font. FontForge can also be used to convert UFO into OpenType (OTF or TTF). </p>
       <p>FontForge can be run on Linux, Mac OS X and Windows. AFDKO can be run natively on Mac OS X and Windows, it can also be run on Linux using WINE. </p>
-      <p>[1] <a href="http://fontforge.sourceforge.net/" title="http://fontforge.sourceforge.net/">http://fontforge.sourceforge.net/</a><br>
-      [2] <a href="http://www.adobe.com/devnet/opentype/afdko.html" title="http://www.adobe.com/devnet/opentype/afdko.html">http://www.adobe.com/devnet/opentype/afdko.html</a><br>
-      [3] <a href="http://code.typesupply.com/wiki/ufo2fdk" title="http://code.typesupply.com/wiki/ufo2fdk">http://code.typesupply.com/wiki/ufo2fdk</a><br>
-      [4] <a href="http://unifiedfontobject.org/" title="http://unifiedfontobject.org/">http://unifiedfontobject.org/</a><br>
-      [5] <a href="http://www.w3.org/TR/SVG11/fonts.html" title="http://www.w3.org/TR/SVG11/fonts.html">http://www.w3.org/TR/SVG11/fonts.html</a></p>
+      <p>[1] <a href="http://fontforge.sourceforge.net/" title="http://fontforge.sourceforge.net/" class="link-external">http://fontforge.sourceforge.net/</a><br>
+      [2] <a href="http://www.adobe.com/devnet/opentype/afdko.html" title="http://www.adobe.com/devnet/opentype/afdko.html" class="link-external">http://www.adobe.com/devnet/opentype/afdko.html</a><br>
+      [3] <a href="http://code.typesupply.com/wiki/ufo2fdk" title="http://code.typesupply.com/wiki/ufo2fdk" class="link-external">http://code.typesupply.com/wiki/ufo2fdk</a><br>
+      [4] <a href="http://unifiedfontobject.org/" title="http://unifiedfontobject.org/" class="link-external">http://unifiedfontobject.org/</a><br>
+      [5] <a href="http://www.w3.org/TR/SVG11/fonts.html" title="http://www.w3.org/TR/SVG11/fonts.html" class="link-external">http://www.w3.org/TR/SVG11/fonts.html</a></p>
   - id: 449756
     user: 1133
     date: 2011-01-30T16:33:00
@@ -136,13 +136,13 @@ comments:
     html_clean: |-
       <p>I have 2 SVG fonts to create.  Each font has 37,811 glyphs as individual SVG files.  I named the files after the combined character sequences of 3 Unicode characters.</p>
       <p>Here's an example:<br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg" title="http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg">http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg</a><br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg" title="http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg">http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg</a></p>
+      <a href="http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg" title="http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg" class="link-external">http://www.signpuddle.net/iswa/uni/svg1/u1D8A0_u1DA8C_u1DA9A.svg</a><br>
+      <a href="http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg" title="http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg" class="link-external">http://www.signpuddle.net/iswa/uni/svg2/u1D8A0_u1DA8C_u1DA9A.svg</a></p>
       <p>You can see all of the files online:<br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg1" title="http://www.signpuddle.net/iswa/uni/svg1">http://www.signpuddle.net/iswa/uni/svg1</a><br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg2" title="http://www.signpuddle.net/iswa/uni/svg2">http://www.signpuddle.net/iswa/uni/svg2</a></p>
+      <a href="http://www.signpuddle.net/iswa/uni/svg1" title="http://www.signpuddle.net/iswa/uni/svg1" class="link-external">http://www.signpuddle.net/iswa/uni/svg1</a><br>
+      <a href="http://www.signpuddle.net/iswa/uni/svg2" title="http://www.signpuddle.net/iswa/uni/svg2" class="link-external">http://www.signpuddle.net/iswa/uni/svg2</a></p>
       <p>Each is available for download:<br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg1.zip" title="http://www.signpuddle.net/iswa/uni/svg1.zip">http://www.signpuddle.net/iswa/uni/svg1.zip</a><br>
-      <a href="http://www.signpuddle.net/iswa/uni/svg2.zip" title="http://www.signpuddle.net/iswa/uni/svg2.zip">http://www.signpuddle.net/iswa/uni/svg2.zip</a></p>
+      <a href="http://www.signpuddle.net/iswa/uni/svg1.zip" title="http://www.signpuddle.net/iswa/uni/svg1.zip" class="link-external">http://www.signpuddle.net/iswa/uni/svg1.zip</a><br>
+      <a href="http://www.signpuddle.net/iswa/uni/svg2.zip" title="http://www.signpuddle.net/iswa/uni/svg2.zip" class="link-external">http://www.signpuddle.net/iswa/uni/svg2.zip</a></p>
       <p>I failed at my first attempt to import into FontForge.  I tried File &gt;&gt; Import, "SVG" and "SVG Template".  Nothing loaded.</p>
       <p>I'm still looking for a tutorial.  Any ideas?  I'm not sure what search terms to use.</p>

@@ -247,7 +247,7 @@ comments:
       <p>Ok, try this (Warning: no guarantee of success!):</p>
       <p>1. Add "1253 Greek" to the supported Codepages. (I don't think the Greek codepage has anything to do with this issue, but just in case it happens to have...)</p>
       <p>The point above is likely to do nothing, so try this instead:</p>
-      <p>2. Take one of your .otf fonts, and using <a href="/wiki/TTX" class="freelinking" rel="nofollow">TTX</a> run the following command:<br>
+      <p>2. Take one of your .otf fonts, and using <a href="/wiki/TTX" class="freelinking link-lost" rel="nofollow">TTX</a> run the following command:<br>
       <code>ttx -t 'CFF ' MyFont.otf</code><br>
       A file named MyFont.ttx will be created in the same folder as the .otf file. Open the .ttx file in a text editor, and search for <strong>Encoding</strong>. What does it say in front of <strong>name=</strong> in that same line? If it does NOT say <em>"StandardEncoding"</em>, then you'll need to change the way you're generating the font out of FontLab.</p>
       <p>My 2 cents.</p>
@@ -288,7 +288,7 @@ comments:
       In the FLS5 Preferences, set 'Use the following codepage to build cmap(1,0) table' to "MacOS Roman". (NOT "[MacOS Roman]" which is in brackets!) See this <a href="http://www.kltf.de/stuff/cmap10.jpg" target="_blank" rel="nofollow">screenshot</a>.</p>
     html_clean: |-
       <p>Another attempt, though I am not sure if XPress6.5 uses this table:<br>
-      In the FLS5 Preferences, set 'Use the following codepage to build cmap(1,0) table' to "MacOS Roman". (NOT "[MacOS Roman]" which is in brackets!) See this <a href="http://www.kltf.de/stuff/cmap10.jpg" target="_blank" rel="nofollow">screenshot</a>.</p>
+      In the FLS5 Preferences, set 'Use the following codepage to build cmap(1,0) table' to "MacOS Roman". (NOT "[MacOS Roman]" which is in brackets!) See this <a href="http://www.kltf.de/stuff/cmap10.jpg" target="_blank" rel="nofollow" class="link-external">screenshot</a>.</p>
   - id: 203143
     user: 11526
     date: 2007-05-17T07:43:00
@@ -336,7 +336,7 @@ comments:
     html_clean: |-
       <p>Great, I'm glad it worked out! I know how these things can be frustrating, and I'm happy that you achieved success at last.</p>
       <p>This is actually a semi-documented bug. Read here:<br>
-      <a href="http://typophile.com/node/18044#comment-120965" title="http://typophile.com/node/18044#comment-120965">http://typophile.com/node/18044#comment-120965</a></p>
+      <a href="/node/18044/#comment-120965" title="http://typophile.com/node/18044#comment-120965" class="link-kept">http://typophile.com/node/18044#comment-120965</a></p>
   - id: 203203
     user: 11526
     date: 2007-05-17T11:57:00
@@ -366,7 +366,7 @@ comments:
       <p>&gt; <em>Does is in anyway has some negative effect in other situations to have an OTF-font with this 1253 Greek support checked?</em></p>
       <p>I haven't heard of any... yet ;^)</p>
       <p>Keep in mind that, AFAIK, Quark 6.x only supports one codepage at a time. So, in a 'Pro' OpenType CFF (.otf) font with a large character set, only a subset of that will work correctly. This means you won't be able to get Western and CE characters working correctly at the same time; you can only have one or the other.</p>
-      <p>Have you ever wondered why some foundries make different versions of the same font? (e.g. <a href="/wiki/FontFont" class="freelinking" rel="nofollow">FontFont</a>'s Maiola Pro, Maiola OT, Maiola CE, Maiola Cyrillic) One of the reasons is to circumvent the problem that some applications treat OpenType CFF fonts as if they were basic Type 1 fonts (where you can only encode 256 glyphs).</p>
+      <p>Have you ever wondered why some foundries make different versions of the same font? (e.g. <a href="/wiki/FontFont" class="freelinking link-lost" rel="nofollow">FontFont</a>'s Maiola Pro, Maiola OT, Maiola CE, Maiola Cyrillic) One of the reasons is to circumvent the problem that some applications treat OpenType CFF fonts as if they were basic Type 1 fonts (where you can only encode 256 glyphs).</p>
   - id: 203326
     user: 11526
     date: 2007-05-18T03:28:00
@@ -396,7 +396,7 @@ comments:
     html_clean: |-
       <p>&gt; <em>So in other words there is really no point in doing this at all for a Pro font except if you only want to do one font-file and then tell people it wont work in Quark 6.5.</em></p>
       <p>Not necessarily. The "hack" you did ensures that the Western subset of your Pro font will work in Quark 6.x (on a Mac; AFAIK the PC version will not trigger the OS/ATM bug). The same font will also work on Quark 7.x, Adobe apps, etc. My point is, just because Quark 6.x only "sees" a subset of your fonts, it doesn't mean that you need to trim-down all your fonts to that subset; there are more software applications on the planet ;^)</p>
-      <p>What you should do is to advise your clients that when using your Pro fonts with Quark 6.x, only the Western set of characters will be handled properly, because Quark 6.x is not <a href="/wiki/Unicode" class="freelinking" rel="nofollow">Unicode</a> savvy. If they require CE (for example) characters in the same job, then they should upgrade to Quark 7.x. Alternatively, you could (in the same way as FontFont does) provide fonts that are effectively subsets of the Pro font, to your clients still on Quark 6.x.</p>
+      <p>What you should do is to advise your clients that when using your Pro fonts with Quark 6.x, only the Western set of characters will be handled properly, because Quark 6.x is not <a href="/wiki/Unicode" class="freelinking link-lost" rel="nofollow">Unicode</a> savvy. If they require CE (for example) characters in the same job, then they should upgrade to Quark 7.x. Alternatively, you could (in the same way as FontFont does) provide fonts that are effectively subsets of the Pro font, to your clients still on Quark 6.x.</p>
       <p>However, I do not recommend the second option. Why? Because, let's imagine you make a font that contains only the CE glyphs. When using such font in Quark 6.x, although you  get the intended glyphs (i.e. you get the correct ink on the page), in Unicode-speaking the underlying character is incorrect, because the codepoint inserted (when you type a key on the keyboard) does not correspond to the glyph you're seeing. This has the side effect that the text will not be correctly encoded, so if you try to use a Unicode-savvy font with it, you'll get gibberish glyphs in place of CE characters.</p>
       <p>Put in a simplistic way: Think of codepages as if the two first Unicode blocks (Basic Latin and Latin-1 Supplement, the first 256 codepoints) were repurposed over and over to display different glyphs.</p>
   - id: 203443

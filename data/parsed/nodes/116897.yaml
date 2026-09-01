@@ -77,9 +77,9 @@ comments:
     html_clean: |-
       <p>Lithuanian uses AE, but not OE according to the several references I have.</p>
       <p>This PDF from Michael Everson might be of help:<br>
-      <a href="http://www.evertype.com/alphabets/lithuanian.pdf" title="http://www.evertype.com/alphabets/lithuanian.pdf">http://www.evertype.com/alphabets/lithuanian.pdf</a></p>
+      <a href="http://www.evertype.com/alphabets/lithuanian.pdf" title="http://www.evertype.com/alphabets/lithuanian.pdf" class="link-external">http://www.evertype.com/alphabets/lithuanian.pdf</a></p>
       <p>For even more information, visit:<br>
-      <a href="http://en.wikipedia.org/wiki/Lithuanian_alphabet" title="http://en.wikipedia.org/wiki/Lithuanian_alphabet">http://en.wikipedia.org/wiki/Lithuanian_alphabet</a></p>
+      <a href="http://en.wikipedia.org/wiki/Lithuanian_alphabet" title="http://en.wikipedia.org/wiki/Lithuanian_alphabet" class="link-external">http://en.wikipedia.org/wiki/Lithuanian_alphabet</a></p>
   - id: 579414
     user: 5094
     date: 2014-05-29T15:17:00
@@ -110,7 +110,7 @@ comments:
       <p>Hope this helps...</p>
     html_clean: |-
       <p>Probably, since Lituanian uses free accents, if one were starting with a fresh sheet, the best way to handle the accents would be to use the <strong>mark</strong> and <strong>mkmk</strong> features of OpenType. You can read the OpenType spec or do a Google search for the specifics of the technique. This strategy implements a feature of OpenType, the only aspect affected by Unicode is that the accents need to be in the font, properly encoded as combining diacritics (most of which are found in the 0300 to 036F range).</p>
-      <p>see <a href="http://www.unicode.org/charts/PDF/U0300.pdf" title="http://www.unicode.org/charts/PDF/U0300.pdf">http://www.unicode.org/charts/PDF/U0300.pdf</a></p>
+      <p>see <a href="http://www.unicode.org/charts/PDF/U0300.pdf" title="http://www.unicode.org/charts/PDF/U0300.pdf" class="link-external">http://www.unicode.org/charts/PDF/U0300.pdf</a></p>
       <p>The positioning of the accents is left to mark and mkmk.</p>
       <p>But mark and mkmk do not take advantage of precomposed characters, that is, a glyph that already exists in a font. What you're describing in the old font seems to be exactly that, one where the accented characters are already "built." With this approach, you use the ccmp feature of OpenType. Once again, the accents need to exist in the font as proper combining diacritics, but they are "positioned," if you want, by having a character already composed. This character will have a *name*, but no Unicode number. However, it's *name* will specify the Unicode-character components.</p>
       <p>For example: an m with a tilde will have, as its name,<br>
@@ -164,8 +164,8 @@ comments:
       <img src="/files/lithuanian_4582.png" width="100%"></p>
     html_clean: |-
       <p>Here are the required code points for Lithuanian as listed in </p>
-      <p><a href="http://github.com/Extensis/lang/blob/master/languages.xml" title="http://github.com/Extensis/lang/blob/master/languages.xml">http://github.com/Extensis/lang/blob/master/languages.xml</a></p>
-      <p>from Thomas Phinney's link <a href="http://blog.webink.com/custom-font-subsetting-for-faster-websites/" title="http://blog.webink.com/custom-font-subsetting-for-faster-websites/">http://blog.webink.com/custom-font-subsetting-for-faster-websites/</a> </p>
+      <p><a href="http://github.com/Extensis/lang/blob/master/languages.xml" title="http://github.com/Extensis/lang/blob/master/languages.xml" class="link-external">http://github.com/Extensis/lang/blob/master/languages.xml</a></p>
+      <p>from Thomas Phinney's link <a href="http://blog.webink.com/custom-font-subsetting-for-faster-websites/" title="http://blog.webink.com/custom-font-subsetting-for-faster-websites/" class="link-external">http://blog.webink.com/custom-font-subsetting-for-faster-websites/</a> </p>
       <pre>U+0104  Ą   latin capital letter a with ogonek
       U+0105  ą   latin small letter a with ogonek
       U+010C  Č   latin capital letter c with caron
@@ -199,7 +199,7 @@ comments:
       <p>That file suggests a decomposition. For instance the latin capital letter u with macron and tilde would have decomposition U+016A, U+0303. I guess you can rely on that for your choices and you do as Charles suggested.</p>
       <p>If you already have text files, you then recode them using those decompositions.</p>
     html_clean: |-
-      <p>According to this proposal to the Unicode consortium: <a href="http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf" title="http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf">http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf</a><br>
+      <p>According to this proposal to the Unicode consortium: <a href="http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf" title="http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf" class="link-external">http://std.dkuug.dk/JTC1/SC2/WG2/docs/n4191.pdf</a><br>
       there are still 35 accented Lithuanian characters that are waiting to be added to the charts.</p>
       <p>That file suggests a decomposition. For instance the latin capital letter u with macron and tilde would have decomposition U+016A, U+0303. I guess you can rely on that for your choices and you do as Charles suggested.</p>
       <p>If you already have text files, you then recode them using those decompositions.</p>
@@ -217,7 +217,7 @@ comments:
     html_clean: |-
       <p>Wow. There's so much junk in Unicode – how come a real language is poorly supported? Are those characters extremely rare? Or is it that they're composable hence low-priority?</p>
       <p>Also, how could foundries, like here<br>
-      <a href="http://www.underware.nl/support/language_support/Which_languages_do_your_fonts_support" title="http://www.underware.nl/support/language_support/Which_languages_do_your_fonts_support">http://www.underware.nl/support/language_support/Which_languages_do_your...</a><br>
+      <a href="http://www.underware.nl/support/language_support/Which_languages_do_your_fonts_support" title="http://www.underware.nl/support/language_support/Which_languages_do_your_fonts_support" class="link-external">http://www.underware.nl/support/language_support/Which_languages_do_your...</a><br>
       claim to support it?</p>
       <p>hhp</p>
   - id: 579426
@@ -247,7 +247,7 @@ comments:
       <p> If you think on it, fully half of Latin Extended Additional isn't needed. Pretty much all of Latin Extended A, except for "legacy" reasons.</p>
     html_clean: |-
       <p>Michel, the real question would be the need to encode for the diphthongs. Unless every occurrence of a letterpair is the diphthong in a language -- as far as I can tell, OpenType doesn't provide for a way to substitute "just some."</p>
-      <p><a href="http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs" title="http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs">http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs</a></p>
+      <p><a href="http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs" title="http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs" class="link-external">http://en.wikipedia.org/wiki/Lithuanian_language#Diphthongs</a></p>
       <p>As for new accents over Latin letters goes, I believe Unicode is on record as saying "no more." That the font publishers do not populate the combining diacritics is not Unicode's fault; they have provided a mechanism within the Standard where syntactic meaning can be easily and always be preserved. The "accenting" mechanism itself can be done in several ways -- in the font, or à la TeX, etc. Not Unicode's responsibility.</p>
       <p>In fact, I now think Unicode has gone too far. People have come to expect new codepoints just to provide for accented Latin letters. I use to be one of them until I began working with Native American languages. One begins to realize just how many new characters would have to be added, if each accented or multiple accented vowel was given it's own codepoint.</p>
       <p>For example, I've been working on Kiowa lately. There would need to be over 100 new codepoints if all the accented vowels for just Kiowa (McKenzie orthography) were added as single characters...</p>
@@ -479,7 +479,7 @@ comments:
     date_raw: 30 May 2014 — 1:54pm
     votes: null
     html: <p><a href="http://fontforge.github.io/en-US/downloads/" title="http://fontforge.github.io/en-US/downloads/">http://fontforge.github.io/en-US/downloads/</a></p>
-    html_clean: <p><a href="http://fontforge.github.io/en-US/downloads/" title="http://fontforge.github.io/en-US/downloads/">http://fontforge.github.io/en-US/downloads/</a></p>
+    html_clean: <p><a href="http://fontforge.github.io/en-US/downloads/" title="http://fontforge.github.io/en-US/downloads/" class="link-external">http://fontforge.github.io/en-US/downloads/</a></p>
   - id: 579529
     user: 5094
     date: 2014-05-30T17:47:00
@@ -493,7 +493,7 @@ comments:
     date_raw: 31 May 2014 — 5:44am
     votes: null
     html: <p>Charles, the site containing what seems to be the most up to date sources gives <a href="http://fontforge.github.io/en-US/" title="http://fontforge.github.io/en-US/">http://fontforge.github.io/en-US/</a> as the "new site" and if you then click on "Download" you get the page above. That is all I know.</p>
-    html_clean: <p>Charles, the site containing what seems to be the most up to date sources gives <a href="http://fontforge.github.io/en-US/" title="http://fontforge.github.io/en-US/">http://fontforge.github.io/en-US/</a> as the "new site" and if you then click on "Download" you get the page above. That is all I know.</p>
+    html_clean: <p>Charles, the site containing what seems to be the most up to date sources gives <a href="http://fontforge.github.io/en-US/" title="http://fontforge.github.io/en-US/" class="link-external">http://fontforge.github.io/en-US/</a> as the "new site" and if you then click on "Download" you get the page above. That is all I know.</p>
   - id: 579613
     user: 18942
     date: 2014-06-02T04:25:00
@@ -532,7 +532,7 @@ comments:
       0328    combining ogonek
       </pre><p>The other decompositions (for idotacute, idotgrave, idottilde) still work fine.</p>
       <p>I also checked that those are NFD and NFKD decompositions. That implies, I think, that they should pose no problem when transmitted on the internet. If I copy the "composite characters" above from the typophile page and paste them in MorxTester, I get back the string of characters. Making a keyboard for the Macintosh that outputs those strings of characters when you hit a key can easily be done with Ukelele. </p>
-      <p>I am far from being convinced (that is a euphemism)  that giving "0069 0301" i.e. "i acutecomb" as decomposition for iacute (etc) in <a href="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt" rel="nofollow">UnicodeData.txt</a> was a good idea; in terms of components (and that is what is relevant with decompositions), iacute  should have been  given the decomposition "0131 0301" i.e. dotless i acutecomb" etc.</p>
+      <p>I am far from being convinced (that is a euphemism)  that giving "0069 0301" i.e. "i acutecomb" as decomposition for iacute (etc) in <a href="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt" rel="nofollow" class="link-external">UnicodeData.txt</a> was a good idea; in terms of components (and that is what is relevant with decompositions), iacute  should have been  given the decomposition "0131 0301" i.e. dotless i acutecomb" etc.</p>
   - id: 579624
     user: 88704
     date: 2014-06-01T22:30:00
@@ -573,7 +573,7 @@ comments:
     html_clean: |-
       <p>&gt; (Michel, it wasn't until FontLab 5.2 that mark &amp; mkmk were supported. And 5.2 has other bugs, it is still officially in beta, I believe.</p>
       <p>No, the shipping and supported version of FontLab Studio for Windows is 5.2.1. So if you are still using 5.2.0 you should upgrade (it’s free).</p>
-      <p>We are planning for one more dot release of the Mac and possibly the Windows version of FontLab Studio 5.x before the next full versions come out. If you know of bugs in 5.2.1, please report them if you have not already done so: <a href="http://www.fontlab.com/contact-and-support/product-support/problem-report/" title="http://www.fontlab.com/contact-and-support/product-support/problem-report/">http://www.fontlab.com/contact-and-support/product-support/problem-report/</a></p>
+      <p>We are planning for one more dot release of the Mac and possibly the Windows version of FontLab Studio 5.x before the next full versions come out. If you know of bugs in 5.2.1, please report them if you have not already done so: <a href="http://www.fontlab.com/contact-and-support/product-support/problem-report/" title="http://www.fontlab.com/contact-and-support/product-support/problem-report/" class="link-external">http://www.fontlab.com/contact-and-support/product-support/problem-report/</a></p>
   - id: 579755
     user: 5094
     date: 2014-06-03T04:20:00
@@ -647,7 +647,7 @@ comments:
       <p>Michael Boyer wondered:</p>
       <blockquote><p>Is there anyone on this planet of ours that types an i followed by an acutecomb to get the character iacute?</p></blockquote>
       <p>Yes.</p>
-      <p><a class="freelinking external" href="http://www.sunnlenska.is/menning/14779.html" rel="nofollow">http://www.sunnlenska.is/menning/14779.html</a></p>
+      <p><a class="freelinking external link-external" href="http://www.sunnlenska.is/menning/14779.html" rel="nofollow">http://www.sunnlenska.is/menning/14779.html</a></p>
   - id: 580176
     user: 18942
     date: 2014-06-07T19:31:00
@@ -737,7 +737,7 @@ comments:
       Anyway, should it not be the case that a rendering that erases the intersection of two different characters is faulty?<p></p>
     html_clean: |-
       <blockquote><p>on some rasterizers overlapping paths in PostScript outlines will cause reversed color.  [Thomas]</p></blockquote>
-      <p>After the post <a href="/node/115342/" title="http://www.typophile.com/node/115342">http://www.typophile.com/node/115342</a>  I had indeed  realized that with Inkscape (on a Mac, but that probably makes no difference) non merged overlapping contours in .otf characters were not rendered correctly. After your comment, I thought that Inkscape might indeed erase the dots; I just modified Heuristica .otf to check and with different glyphs, there appears to be no problem. What follows is a grab from Inkscape 0.48.2  (on OS X 10.9.3)<br>
+      <p>After the post <a href="/node/115342/" title="http://www.typophile.com/node/115342" class="link-kept">http://www.typophile.com/node/115342</a>  I had indeed  realized that with Inkscape (on a Mac, but that probably makes no difference) non merged overlapping contours in .otf characters were not rendered correctly. After your comment, I thought that Inkscape might indeed erase the dots; I just modified Heuristica .otf to check and with different glyphs, there appears to be no problem. What follows is a grab from Inkscape 0.48.2  (on OS X 10.9.3)<br>
       </p><div class="imageWrap"><img src="/files/overlappingdots_3734.png"></div><br>
       Anyway, should it not be the case that a rendering that erases the intersection of two different characters is faulty?<p></p>
   - id: 580794
@@ -757,7 +757,7 @@ comments:
        </p><div class="imageWrap"><img src="http://typophile.com/files/balticdot_4507.png"></div><br>
       I personally find all that a bit crazy; I think TeX had it the right way.  But you said that we are stuck with the decisions of the Unicode Wise Men...<p></p>
     html_clean: |-
-      <p>Keeping the dot is the whole point... Here is a grab from page 206 of <a href="http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf" title="http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf">http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf</a><br>
+      <p>Keeping the dot is the whole point... Here is a grab from page 206 of <a href="http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf" title="http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf" class="link-external">http://www.unicode.org/versions/Unicode6.0.0/ch07.pdf</a><br>
        </p><div class="imageWrap"><img src="/files/balticdot_4507.png"></div><br>
       I personally find all that a bit crazy; I think TeX had it the right way.  But you said that we are stuck with the decisions of the Unicode Wise Men...<p></p>
   - id: 580882
@@ -773,7 +773,7 @@ comments:
     date_raw: 17 Jun 2014 — 4:16pm
     votes: null
     html: <p>The j with an arrow is used as the unit vector in the y direction, which means it is a mathematical symbol and there is a <code>dtls</code> Math feature to handle mathematical dotless forms; Cf <a href="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/" title="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/">http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-featur...</a>. I wonder why it was given as an example and why a dotlessj with an arrow would not be good enough for text.</p>
-    html_clean: <p>The j with an arrow is used as the unit vector in the y direction, which means it is a mathematical symbol and there is a <code>dtls</code> Math feature to handle mathematical dotless forms; Cf <a href="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/" title="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/">http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-featur...</a>. I wonder why it was given as an example and why a dotlessj with an arrow would not be good enough for text.</p>
+    html_clean: <p>The j with an arrow is used as the unit vector in the y direction, which means it is a mathematical symbol and there is a <code>dtls</code> Math feature to handle mathematical dotless forms; Cf <a href="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/" title="http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-feature-classification/" class="link-external">http://blog.fontlab.com/font-tech/opentype-layout/opentype-layout-featur...</a>. I wonder why it was given as an example and why a dotlessj with an arrow would not be good enough for text.</p>
   - id: 581012
     user: 18942
     date: 2014-06-19T06:36:00
@@ -786,7 +786,7 @@ comments:
       I see no property in the unicode data that distinguishes them from the others.<p></p>
     html_clean: |-
       <blockquote><p>these sorts of things keep us font folks in business</p></blockquote>
-      <p>I guess you can save yourself lots of work with a contextual substitution that puts in the context all characters in your font that have <a href="http://www.unicode.org/reports/tr44/tr44-4.html#Property_Values" rel="nofollow">combining canonical class 230</a> (distinct marks directly above); if you have ffPython installed (the python that comes with the latest mac binaries for fontforge), you can find them   and output the class in the format needed for Fontlab with just a few lines of Python. With that solution, you however remove the dot of these four for which Gentium Plus does not:<br>
+      <p>I guess you can save yourself lots of work with a contextual substitution that puts in the context all characters in your font that have <a href="http://www.unicode.org/reports/tr44/tr44-4.html#Property_Values" rel="nofollow" class="link-external">combining canonical class 230</a> (distinct marks directly above); if you have ffPython installed (the python that comes with the latest mac binaries for fontforge), you can find them   and output the class in the format needed for Fontlab with just a few lines of Python. With that solution, you however remove the dot of these four for which Gentium Plus does not:<br>
       </p><div class="imageWrap"><img src="/files/combiningdouble_6017.png"></div><br>
       I see no property in the unicode data that distinguishes them from the others.<p></p>
   - id: 581523

@@ -54,8 +54,8 @@ post:
     } frac;</p>
   html_clean: |-
     <p>Greetings. I can't seem to get the typophile search function to work, or I probably would have already found the answer to my question. It also doesn't appear to be in the Fontlab 4.6 manual.</p>
-    <p>Can anyone show me an example of proper implementation of the <a href="/wiki/numr" class="freelinking" rel="nofollow">numr</a> and <a href="/wiki/dnom" class="freelinking" rel="nofollow">dnom</a> OpenType features? I can get the frac feature to do basic substitutions for the standard set of fractions, but it seems that the frac feature can call the numr and dnom features, but I haven't seen anywhere a specific example of how to make that work. I'd be most grateful for some insight into that mysterious process.</p>
-    <p>Below is the code I'm currently using to get the <a href="/wiki/frac" class="freelinking" rel="nofollow">frac</a> feature to work, in case it gives you some idea where I'm at.</p>
+    <p>Can anyone show me an example of proper implementation of the <a href="/wiki/numr" class="freelinking link-lost" rel="nofollow">numr</a> and <a href="/wiki/dnom" class="freelinking link-lost" rel="nofollow">dnom</a> OpenType features? I can get the frac feature to do basic substitutions for the standard set of fractions, but it seems that the frac feature can call the numr and dnom features, but I haven't seen anywhere a specific example of how to make that work. I'd be most grateful for some insight into that mysterious process.</p>
+    <p>Below is the code I'm currently using to get the <a href="/wiki/frac" class="freelinking link-lost" rel="nofollow">frac</a> feature to work, in case it gives you some idea where I'm at.</p>
     <p>feature frac {<br>
       sub [one one.lnum] [slash fraction] [two two.lnum] by onehalf;<br>
       sub [one one.lnum] [slash fraction] [four four.lnum] by onequarter;<br>
@@ -233,7 +233,7 @@ comments:
       </p>
       <p>If I recall, this was based somewhat on the code Adobe uses. I can't remember for sure.</p>
       <p>Tal Lemming has a detailed discussion about frac feature strategy here:</p>
-      <p><a href="http://talleming.com/2008/04/16/fraction-fever/" title="http://talleming.com/2008/04/16/fraction-fever/">http://talleming.com/2008/04/16/fraction-fever/</a></p>
+      <p><a href="http://talleming.com/2008/04/16/fraction-fever/" title="http://talleming.com/2008/04/16/fraction-fever/" class="link-external">http://talleming.com/2008/04/16/fraction-fever/</a></p>
   - id: 370399
     user: 20652
     date: 2009-09-30T07:20:00
@@ -423,9 +423,9 @@ comments:
       <p>Trick is to catch cases with multiple slashes via <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f.ii" target="_blank" rel="nofollow">ignore</a> (to make sure these cases are not turned into fractions), then substitute slash by fraction-slash, then substitute numerals by numerators and denominators if in context of fraction-slash.<br>
       <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.h" target="_blank" rel="nofollow">reversesub</a> would indeed save some lines of code, but better test this lookup type in a couple of applications first, including in XPress ...</p>
     html_clean: |-
-      <p>Tal has just posted an update to the Fractions Fever article which explains the addition: <a href="http://talleming.com/2009/10/01/fraction-fever-2/" title="http://talleming.com/2009/10/01/fraction-fever-2/">http://talleming.com/2009/10/01/fraction-fever-2/</a></p>
-      <p>Trick is to catch cases with multiple slashes via <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f.ii" target="_blank" rel="nofollow">ignore</a> (to make sure these cases are not turned into fractions), then substitute slash by fraction-slash, then substitute numerals by numerators and denominators if in context of fraction-slash.<br>
-      <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.h" target="_blank" rel="nofollow">reversesub</a> would indeed save some lines of code, but better test this lookup type in a couple of applications first, including in XPress ...</p>
+      <p>Tal has just posted an update to the Fractions Fever article which explains the addition: <a href="http://talleming.com/2009/10/01/fraction-fever-2/" title="http://talleming.com/2009/10/01/fraction-fever-2/" class="link-external">http://talleming.com/2009/10/01/fraction-fever-2/</a></p>
+      <p>Trick is to catch cases with multiple slashes via <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.f.ii" target="_blank" rel="nofollow" class="link-external">ignore</a> (to make sure these cases are not turned into fractions), then substitute slash by fraction-slash, then substitute numerals by numerators and denominators if in context of fraction-slash.<br>
+      <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.h" target="_blank" rel="nofollow" class="link-external">reversesub</a> would indeed save some lines of code, but better test this lookup type in a couple of applications first, including in XPress ...</p>
   - id: 370666
     user: 1043
     date: 2009-10-01T11:06:00

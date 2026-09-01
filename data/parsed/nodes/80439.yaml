@@ -46,7 +46,7 @@ comments:
     date_raw: 24 Mar 2011 — 12:37pm
     votes: null
     html: <p><a href="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html" title="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html">http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html</a></p>
-    html_clean: <p><a href="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html" title="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html">http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html</a></p>
+    html_clean: <p><a href="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html" title="http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html" class="link-external">http://lists.freedesktop.org/archives/harfbuzz/2011-January/001076.html</a></p>
   - id: 457086
     user: 65510
     date: 2011-03-25T00:22:00
@@ -89,7 +89,7 @@ comments:
       <p>The only workable and simple enough solution I've found so far, which enables typesetting with OpenType fonts using OpenType Layout features is to employ XeTeX+XeLaTeX. The simplest way is to install the TeXLive distribution on the server, have PHP generate a .tex file, call xetex or xelatex, grab the output PDF and feed it into ImageMagick, GhostScript or other PDF-to-bitmap conversion utility. </p>
       <p>XeTeX/XeLaTeX include an integrated version of the OpenType Layout library ICU Layout, which does all the processing of the GSUB/GPOS tables behind the scenes. The workflow is not superfast, but quite easy to implement. </p>
       <p>I've put up some quickstart TeX samples here:<br>
-      <a href="http://www.twardoch.com/tmp/xetex-typesetting-samples.zip" title="http://www.twardoch.com/tmp/xetex-typesetting-samples.zip">http://www.twardoch.com/tmp/xetex-typesetting-samples.zip</a><br>
+      <a href="http://www.twardoch.com/tmp/xetex-typesetting-samples.zip" title="http://www.twardoch.com/tmp/xetex-typesetting-samples.zip" class="link-external">http://www.twardoch.com/tmp/xetex-typesetting-samples.zip</a><br>
       I hope they're clear enough to follow and modify. </p>
       <p>Best,<br>
       Adam</p>
@@ -153,7 +153,7 @@ comments:
       <p>A.</p>
     html_clean: |-
       <p>BKKMLL, </p>
-      <p>one more option could be to use Prince XML: <a href="http://www.princexml.com/" title="http://www.princexml.com/">http://www.princexml.com/</a></p>
+      <p>one more option could be to use Prince XML: <a href="http://www.princexml.com/" title="http://www.princexml.com/" class="link-external">http://www.princexml.com/</a></p>
       <p>It also supports Unicode and OpenType, and renders PDFs (which you can convert into PNGs). It works on a server and it takes HTML &amp; CSS as input, rather than the specialized TeX syntax. </p>
       <p>This means that you could make HTML+CSS page layouts that use OpenType fonts with features, run them through Prince XML on your server, get a PDF and convert it into PNG. Prince XML is a commercial application, though. </p>
       <p>A.</p>
@@ -215,9 +215,9 @@ comments:
     html_clean: |-
       <p>Tom, </p>
       <p>I have very good news for you. My laments have worked and Behdad Esfabod has written a small tool "hb-view" as part of the HarfBuzz project:<br>
-      <a href="http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc" title="http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc">http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc</a></p>
+      <a href="http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc" title="http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc" class="link-external">http://cgit.freedesktop.org/harfbuzz/tree/src/hb-view.cc</a></p>
       <p>You need to install or compile the following packages on your server: glib, cairo, freetype and the Git version of HarfBuzz from:<br>
-      <a href="http://cgit.freedesktop.org/harfbuzz/" title="http://cgit.freedesktop.org/harfbuzz/">http://cgit.freedesktop.org/harfbuzz/</a></p>
+      <a href="http://cgit.freedesktop.org/harfbuzz/" title="http://cgit.freedesktop.org/harfbuzz/" class="link-external">http://cgit.freedesktop.org/harfbuzz/</a></p>
       <p>The usage is very simple:<br>
       <code>hb-view --background=00000000 --features=onum=1,calt=1,dlig=1 --font-size=72 --foreground=FFFFFFFF --line-space=30 --margin=10 --output=test.png fontfile.otf "Text to display as UTF-8"</code></p>
       <p>So you specify the font file (.otf or .ttf), the list of OpenType Layout features, the text and a few other parameters (--background and --foreground are RGBA where A is alpha transparency), and of course a PNG file (if you omit it, the tool will feed the PNG stream into stdout, which you can of course capture from PHP). There are a few more options (for script, language and direction if you deal with non-Latin), which you can look at in the source code of the tool. </p>

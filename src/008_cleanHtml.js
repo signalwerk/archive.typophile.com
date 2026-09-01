@@ -1,8 +1,8 @@
 // Step 8 -- clean up the stored HTML.
 //
-// Removes anything that would execute or fetch from elsewhere, and points
-// links at our own copies where we hold the target. Both are done on a real
-// parse of the document; see lib/cleanHtml.js.
+// Removes anything that would execute or fetch from elsewhere, points links at
+// our own copies where we hold the target, and classes every link by where it
+// leads. All of it on a real parse of the document; see lib/cleanHtml.js.
 //
 // The result goes in a new `html_clean` field. The captured `html` is never
 // modified, so this pass can be re-run or extended without losing the
@@ -77,6 +77,7 @@ function main() {
   const counts = {
     threads: 0, cleaned: 0, unchanged: 0, entries: 0,
     links: 0, internal: 0, rewritten: 0, missing: 0,
+    external: 0, kept: 0, lost: 0,
     dropped: 0, handlers: 0, jsUrls: 0, assets: 0, assetsRewritten: 0,
   };
   const missingCounts = new Map();
@@ -102,6 +103,9 @@ function main() {
       counts.links += known.links ?? 0;
       counts.internal += known.internal ?? 0;
       counts.rewritten += known.rewritten ?? 0;
+      counts.external += known.external ?? 0;
+      counts.kept += known.kept ?? 0;
+      counts.lost += known.lost ?? 0;
       counts.entries += known.entries ?? 0;
       counts.dropped += known.dropped ?? 0;
       counts.handlers += known.handlers ?? 0;
@@ -118,7 +122,7 @@ function main() {
     try { doc = YAML.parse(fs.readFileSync(file, "utf8")); } catch { continue; }
     if (!doc) continue;
 
-    const totals = { links: 0, internal: 0, rewritten: 0, entries: 0, dropped: 0, handlers: 0, jsUrls: 0, assets: 0, assetsRewritten: 0 };
+    const totals = { links: 0, internal: 0, rewritten: 0, external: 0, kept: 0, lost: 0, entries: 0, dropped: 0, handlers: 0, jsUrls: 0, assets: 0, assetsRewritten: 0 };
     const missedHere = [];
 
     const clean = (entry) => {
@@ -128,6 +132,9 @@ function main() {
       totals.links += stats.links;
       totals.internal += stats.internal;
       totals.rewritten += stats.rewritten;
+      totals.external += stats.external;
+      totals.kept += stats.kept;
+      totals.lost += stats.lost;
       totals.dropped += stats.dropped;
       totals.handlers += stats.handlers;
       totals.jsUrls += stats.jsUrls;
@@ -165,6 +172,9 @@ function main() {
     counts.links += totals.links;
     counts.internal += totals.internal;
     counts.rewritten += totals.rewritten;
+    counts.external += totals.external;
+    counts.kept += totals.kept;
+    counts.lost += totals.lost;
     counts.entries += totals.entries;
     counts.dropped += totals.dropped;
     counts.handlers += totals.handlers;
@@ -199,6 +209,7 @@ function main() {
   console.log(`  point at us ....... ${formatCount(counts.internal)}`);
   console.log(`  repointed ......... ${formatCount(counts.rewritten)}`);
   console.log(`  target not held ... ${formatCount(counts.missing)} (${formatCount(missing.length)} distinct)`);
+  console.log(`marked .............. ${formatCount(counts.external)} off site, ${formatCount(counts.kept)} we hold, ${formatCount(counts.lost)} gone`);
   console.log(`removed ............. ${formatCount(counts.dropped)} element(s), ${formatCount(counts.handlers)} inline handler(s), ${formatCount(counts.jsUrls)} javascript: address(es)`);
   console.log(`files referenced .... ${formatCount(counts.assets)}`);
   console.log(`  pointed at ours ... ${formatCount(counts.assetsRewritten)}`);

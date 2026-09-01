@@ -46,9 +46,9 @@ post:
     <p>This really important for Romanian, because the U+016[23] are mapped to /[Tt]cedilla in the 1st list, but to /[Ttcommaaccent] in the other two. All TeX fonts pretty much use the first, while the Adobe fonts use and apps use the 2nd or 3rd. I'm inclined to email a bug report to the GUST foundry, which made most of the updated TeX fonts. But I need some authoritative source to back up my complaint.</p>
   html_clean: |-
     <p>There are a bunch of AGLs on Adobe's web site:</p>
-    <p><a href="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" title="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt">http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt</a><br>
-    <a href="http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt" title="http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt">http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt</a><br>
-    <a href="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" title="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt">http://www.adobe.com/devnet/opentype/archives/glyphlist.txt</a></p>
+    <p><a href="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" title="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" class="link-external">http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt</a><br>
+    <a href="http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt" title="http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt" class="link-external">http://partners.adobe.com/public/developer/en/opentype/aglfn13.txt</a><br>
+    <a href="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" title="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" class="link-external">http://www.adobe.com/devnet/opentype/archives/glyphlist.txt</a></p>
     <p>Which one is the right one to use? Google returns the 1st one when searching for "adobe glyph list", but that seems the oldest! The last one, which confusingly is in the "archives", has a 2007 copyright but has the same version number as the fist, but the contents differs! Could Adobe remove the obsolete ones to prevent further confusion? </p>
     <p>This really important for Romanian, because the U+016[23] are mapped to /[Tt]cedilla in the 1st list, but to /[Ttcommaaccent] in the other two. All TeX fonts pretty much use the first, while the Adobe fonts use and apps use the 2nd or 3rd. I'm inclined to email a bug report to the GUST foundry, which made most of the updated TeX fonts. But I need some authoritative source to back up my complaint.</p>
 comments:
@@ -68,12 +68,12 @@ comments:
       <p>Cheers,</p>
       <p>T</p>
     html_clean: |-
-      <p>If you're *making fonts* you want the "Unicode and Glyph Names" document (<a href="http://www.adobe.com/devnet/opentype/archives/glyph.html" title="http://www.adobe.com/devnet/opentype/archives/glyph.html">http://www.adobe.com/devnet/opentype/archives/glyph.html</a>) plus the AGLFN.</p>
+      <p>If you're *making fonts* you want the "Unicode and Glyph Names" document (<a href="http://www.adobe.com/devnet/opentype/archives/glyph.html" title="http://www.adobe.com/devnet/opentype/archives/glyph.html" class="link-external">http://www.adobe.com/devnet/opentype/archives/glyph.html</a>) plus the AGLFN.</p>
       <p>If you're a *consumer* of fonts (an application), you want to use the AGL.</p>
       <p>Either way, these docs are primarily about glyph names and Unicodes, rather than shapes.</p>
       <p>The question of what to name the glyphs at U+016[23] and what shapes to use is particularly tricky, because of the history there; essentially, there was a mistake in Unicode in describing the characters as having cedillas. Because of stability guarantees in Unicode, the solution was to add new characters that are described as having comma accents (U+021[AB]).</p>
       <p>The usage of these new codepoints by Windows and Mac OS has been pretty standardized for quite a few years now, so on those platforms the question of what to do with the old codepoints is of decreasing importance, mainly relating to old texts being imported or revised. I have no idea what the situation is with TeX and the various flavors of Unix, however.</p>
-      <p>John Hudson, whose opinion most of us respect a great deal on font encoding and internationalization issues, has recently reverted to using the cedilla accent with U+016[23]: <a href="/node/36473/#comment-223302" title="http://typophile.com/node/36473#comment-223302">http://typophile.com/node/36473#comment-223302</a></p>
+      <p>John Hudson, whose opinion most of us respect a great deal on font encoding and internationalization issues, has recently reverted to using the cedilla accent with U+016[23]: <a href="/node/36473/#comment-223302" title="http://typophile.com/node/36473#comment-223302" class="link-kept">http://typophile.com/node/36473#comment-223302</a></p>
       <p>At Adobe, we're not likely to change existing fonts, but we recently discussed what to do with new fonts moving forwards. One option is to put in default glyphs for U+016[23] which have the cedilla shape, but use the locale ('locl') feature to change them to comma shapes. Or we could follow John and Microsoft's argument and not bother with 'locl' and just leave the glyphs as cedillas. All TBD at this time.</p>
       <p>Cheers,</p>
       <p>T</p>
@@ -220,8 +220,8 @@ comments:
       <p>Thank you both for the detailed replies. A couple more points will put this matter to rest:</p>
       <ol>
       <li>The following two (AGL 2.0) files are thankfully identical except for the copyright notice:<br>
-      <a href="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" title="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt">http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt</a><br>
-      <a href="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" title="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt">http://www.adobe.com/devnet/opentype/archives/glyphlist.txt</a>
+      <a href="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" title="http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt" class="link-external">http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt</a><br>
+      <a href="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" title="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt" class="link-external">http://www.adobe.com/devnet/opentype/archives/glyphlist.txt</a>
       </li>
       <li>The AGL 2.0 is a many-one mapping from names to code points, meaning that the same code point (sequence) can show up under multiple PostScript names. For instance U+0163 is mapped to both 'tcedilla' and 'tcommaaccent'. On the other hand, AGLFN 1.3 is a one-one mapping, but it's not exactly a subset of AGL 2.0 -- it differs in the mapping of three glyphs 'Omega', 'mu', and 'Delta'. There's a comment in AGLFN 1.3 that documents this change. I grokked this stuff with a little script I wrote. Here's some output:
       <p><code><br>

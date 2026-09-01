@@ -47,10 +47,10 @@ post:
   html_clean: |-
     <p>Hello experts on the field</p>
     <p>I created a font that has 2 variations of the capital letters and 3 variations of the lower cases. It is a serif font traced from a popular children's book from the end of the 19th century so it was done by hand. I consulted the 2006 post by steff_en and got some answers. </p>
-    <p><a href="http://typophile.com/node/17887#comment-511377" title="http://typophile.com/node/17887#comment-511377">http://typophile.com/node/17887#comment-511377</a></p>
+    <p><a href="/node/17887/#comment-511377" title="http://typophile.com/node/17887#comment-511377" class="link-kept">http://typophile.com/node/17887#comment-511377</a></p>
     <p>I set my classes and followed twardoch instructions and I got no errors, I generated the font but it does not do what I intended. That is: everytime I type a particular letter for the second or third time I want them different. As I mentioned, I made 3 versions of every small cap letters and 2 versions of the capital letters. Ex: in the word "tomorrow", I would like the three "o"s and the two "r"s to be diferent in the same word.</p>
     <p>Please help!<br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/screenshot_4059.jpg"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/screenshot_4059.jpg"></div><p></p>
 comments:
   - id: 511556
     user: 96745
@@ -65,7 +65,7 @@ comments:
     date_raw: 31 May 2012 — 6:37am
     votes: null
     html: '<p>See here: <a href="http://typophile.com/node/19625" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>'
-    html_clean: '<p>See here: <a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a></p>'
+    html_clean: '<p>See here: <a href="/node/19625/" title="http://typophile.com/node/19625" class="link-kept">http://typophile.com/node/19625</a></p>'
   - id: 511570
     user: 96745
     date: 2012-05-31T07:39:00
@@ -185,7 +185,7 @@ comments:
       <p>(Edit: this was also <a class="freelinking external" href="http://typophile.com/node/19625#comment-278274" rel="nofollow">discussed in the older thread</a>.)</p>
     html_clean: |-
       <p>It shouldn't affect the compilation, but wouldn't the rotation code be better placed in the <code>calt</code> feature? Your original <code>salt</code> code looked appropriate for defining alternate glyphs, which is really what that feature is for.</p>
-      <p>(Edit: this was also <a class="freelinking external" href="/node/19625/#comment-278274" rel="nofollow">discussed in the older thread</a>.)</p>
+      <p>(Edit: this was also <a class="freelinking external link-kept" href="/node/19625/#comment-278274" rel="nofollow">discussed in the older thread</a>.)</p>
   - id: 511769
     user: 96745
     date: 2012-06-01T23:36:00
@@ -238,7 +238,7 @@ comments:
       <p>The bottom of the Classes panel shows the total number of glyphs in the selected class (110 in your screenshot). In order to substitute a class by another class, each class must contain the same number of glyphs, sorted in the same order relative to the other. If <code>@class1</code> contains 110 glyphs <code>[A B C ...]</code>, then <code>@alt1</code> must contain 110 alternates <code>[A.alt1 B.alt1 C.alt1 ...]</code>, and <code>@alt2</code> as well <code>[A.alt2 B.alt2 C.alt2 ...]</code>.</p>
       <blockquote><p>I created a font that has 2 variations of the capital letters and 3 variations of the lower cases.</p></blockquote>
       <p>This could be the source of the problem. If <code>@alt2</code> contains only lowercase alternates, it can't be substituted for a class that also contains capitals. A solution would be to separate up the upper- and lowercase glyphs into different sets of classes (with related classes containing the same number of glyphs), and "rotate" each set independently.</p>
-      <p>Also, see <a class="freelinking external" href="/node/19625/#comment-269297" rel="nofollow">Miguel Sousa's explanation</a> of the code, including why certain parts may be unnecessary. Even after separating by case, the whole thing should work with only one rule for the uppercase and two for the lowercase.</p>
+      <p>Also, see <a class="freelinking external link-kept" href="/node/19625/#comment-269297" rel="nofollow">Miguel Sousa's explanation</a> of the code, including why certain parts may be unnecessary. Even after separating by case, the whole thing should work with only one rule for the uppercase and two for the lowercase.</p>
       <pre>sub @uppercase @uppercase' by @uppercase_alt1;
       sub @lowercase @lowercase' by @lowercase_alt1;
       sub @lowercase_alt1 @lowercase' by @lowercase_alt2;

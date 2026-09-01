@@ -12,6 +12,10 @@ const REPLAY_PREFIXES = [
 
 const TYPOPHILE_HOST = /^https?:\/\/(?:www\.)?typophile\.com(?::\d+)?(\/.*)?$/i;
 
+// Addresses that name no page at all, and schemes that name one elsewhere.
+const NO_PAGE = /^(mailto|javascript|data|tel|sms):/i;
+const OTHER_SCHEME = /^[a-z][a-z0-9+.-]*:/i;
+
 function decodeEntities(value) {
   return value
     .replace(/&amp;/gi, "&")
@@ -20,25 +24,47 @@ function decodeEntities(value) {
     .replace(/&gt;/gi, ">");
 }
 
-// Reduce an address to the path it names on the old site, unwrapping any
-// replay wrapper on the way. Returns null for anything that points elsewhere.
-export function sitePath(rawHref) {
+// Unwind any replay wrapper and give back the plain address the page meant.
+function unwrap(rawHref) {
   if (!rawHref) return null;
   let href = decodeEntities(String(rawHref).trim());
-  if (!href || href.startsWith("#") || /^(mailto|javascript|data):/i.test(href)) return null;
+  if (!href) return null;
 
-  // Unwrap a replay URL, possibly nested.
+  // Possibly nested, if a rewritten page was itself captured.
   for (let i = 0; i < 3; i++) {
     const hit = REPLAY_PREFIXES.map((re) => re.exec(href)).find(Boolean);
     if (!hit) break;
     href = hit[1];
   }
+  return href;
+}
+
+// Where an address leads, before we know whether we hold the thing it names:
+//
+//   "site"  the old typophile.com -- named outright, or by a path, which in an
+//           archived page could only ever have meant the old site
+//   "away"  somewhere else on the web
+//   null    nowhere to lead: a place on the same page, an address to write to,
+//           a scheme with no page behind it
+export function linkScope(rawHref) {
+  const href = unwrap(rawHref);
+  if (!href || href.startsWith("#") || NO_PAGE.test(href)) return null;
+  if (TYPOPHILE_HOST.test(href)) return "site";
+  if (OTHER_SCHEME.test(href) || href.startsWith("//")) return "away";
+  return "site";
+}
+
+// Reduce an address to the path it names on the old site, unwrapping any
+// replay wrapper on the way. Returns null for anything that points elsewhere.
+export function sitePath(rawHref) {
+  if (linkScope(rawHref) !== "site") return null;
+  const href = unwrap(rawHref);
 
   let rest;
   const absolute = TYPOPHILE_HOST.exec(href);
   if (absolute) rest = absolute[1] || "/";
   else if (href.startsWith("/")) rest = href;
-  else return null; // another host, or a bare relative path we cannot trust
+  else return null; // a bare relative path we cannot trust
 
   const hashAt = rest.indexOf("#");
   const hash = hashAt === -1 ? "" : rest.slice(hashAt);

@@ -72,7 +72,7 @@ comments:
       <p>If that's right, aside form finessing the glyphs the way you want, all you need do is write some features. For small caps, just look at how Adobe does it.</p>
       <p>Best I can tell, Adobe doesn't usually provide (foot)note calls (I'd guess what you are terming "superiors"). These should be made up just like the small caps, i.e., named something like "zero.super" with no Unicode index, then use a feature -- you can use the InDesign "superscript" feature -- to set them. If you have the numbers as superscripts in your file (i.e., U+2070-U+2079 plus 00B9, 00B2, and 00B3), then using any other font that lacks these characters means they drop out. Not what you want. Use  regular 0-9 in the file &amp; write a feature to get the "superscript" glyphs in your typescript.</p>
       <p>Also see the thread</p>
-      <p><a href="http://typophile.com/node/16879" title="http://typophile.com/node/16879">http://typophile.com/node/16879</a></p>
+      <p><a href="/node/16879/" title="http://typophile.com/node/16879" class="link-kept">http://typophile.com/node/16879</a></p>
       <p>For kerning, there are many posts on this forum on writing class-based kerning. There are -- or at least were --pretty good threads on small caps &amp; other number forms too, but most of these were back before the server was changed, &amp; I don't have a reference.</p>
       <p>Hope this helps. If you are trying to turn Charis into a font that can be used for general bookwork, I'd be interested -- even to the point of helping -- but my time is pretty much committed. We would also have to take a good look at the license &amp; make sure we are adhering to it. And I have to say, I'm only a typesetter, there are a lot better code-writers &amp; glyph designers out there.</p>
       <p>FWIW</p>
@@ -90,11 +90,11 @@ comments:
       <p>For kerning you click on <code><strong>Windows &gt; New Metrics Window</strong></code> and do as told <a href="http://fontforge.sourceforge.net/metricsview.html" rel="nofollow"><strong>here</strong></a>. </p>
       <p>Michel</p>
     html_clean: |-
-      <p>About English smallcaps, all of them but four are defined in Unicode, and also in Charis. You find their unicode position by searching for the string 'LATIN SMALL CAPITAL LETTER' in the file <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" title="http://www.unicode.org/Public/UNIDATA/NamesList.txt">http://www.unicode.org/Public/UNIDATA/NamesList.txt</a>. You can design those that are missing ("F", "Q", "S" and "X") in some corporate position, say uniF7xx.</p>
-      <p>To make them "functional" i.e. get them to work with <code>\textsc{}</code> in xeLaTeX, you need to fill the GSUB 'smcp' subtable that already figures in CharisSIL but was left empty.  With  FontForge, you click on <a href="http://fontforge.sourceforge.net/fontinfo.html#Lookups" rel="nofollow"><code><strong>Element &gt; Font info &gt; Lookups</strong></code></a>, then <code><strong>GSUB</strong></code>, open the tab <code>'smcp' Lowecase to Small Capitals lookup 28</code> and double click on <code>'smcp' Lowercase to Small Capitals lookup 28 subtable</code> and fill the subtable by repeatedly clicking on <code>&lt;New&gt;</code>, putting the lowercase on the left and the name of the corresponding smallcap on the right. Here is what it looks like after filling the smallcaps from 'a' to 'c'.  </p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/smcp_gsub_4139.jpg"></div><p></p>
+      <p>About English smallcaps, all of them but four are defined in Unicode, and also in Charis. You find their unicode position by searching for the string 'LATIN SMALL CAPITAL LETTER' in the file <a href="http://www.unicode.org/Public/UNIDATA/NamesList.txt" title="http://www.unicode.org/Public/UNIDATA/NamesList.txt" class="link-external">http://www.unicode.org/Public/UNIDATA/NamesList.txt</a>. You can design those that are missing ("F", "Q", "S" and "X") in some corporate position, say uniF7xx.</p>
+      <p>To make them "functional" i.e. get them to work with <code>\textsc{}</code> in xeLaTeX, you need to fill the GSUB 'smcp' subtable that already figures in CharisSIL but was left empty.  With  FontForge, you click on <a href="http://fontforge.sourceforge.net/fontinfo.html#Lookups" rel="nofollow" class="link-external"><code><strong>Element &gt; Font info &gt; Lookups</strong></code></a>, then <code><strong>GSUB</strong></code>, open the tab <code>'smcp' Lowecase to Small Capitals lookup 28</code> and double click on <code>'smcp' Lowercase to Small Capitals lookup 28 subtable</code> and fill the subtable by repeatedly clicking on <code>&lt;New&gt;</code>, putting the lowercase on the left and the name of the corresponding smallcap on the right. Here is what it looks like after filling the smallcaps from 'a' to 'c'.  </p>
+      <p></p><div class="imageWrap"><img src="/files/smcp_gsub_4139.jpg"></div><p></p>
       <p>When you are finished, you click OK for the subtable, OK for the lookups.</p>
-      <p>For kerning you click on <code><strong>Windows &gt; New Metrics Window</strong></code> and do as told <a href="http://fontforge.sourceforge.net/metricsview.html" rel="nofollow"><strong>here</strong></a>. </p>
+      <p>For kerning you click on <code><strong>Windows &gt; New Metrics Window</strong></code> and do as told <a href="http://fontforge.sourceforge.net/metricsview.html" rel="nofollow" class="link-external"><strong>here</strong></a>. </p>
       <p>Michel</p>
   - id: 249773
     user: 5094
@@ -120,7 +120,7 @@ comments:
     html_clean: |-
       <p>&gt; <cite>For a document that will have further uses, I still think small caps should be presented in a particular instance (i.e., the book) via a feature.</cite></p>
       <p>This is exactly why the feature 'smcp' needs to be well defined, so as to be able to get this in TextEdit for instance when typing "Charis"</p>
-      <p> </p><div class="imageWrap"><img src="http://typophile.com/files/charis_6385.jpg"></div><p></p>
+      <p> </p><div class="imageWrap"><img src="/files/charis_6385.jpg"></div><p></p>
       <p>There is a cheat here beause the "s" is not smallcap, it is just the small "s", the smallcap "s" not being defined and not being in the 'smcp' table.</p>
   - id: 249831
     user: 18942
@@ -128,7 +128,7 @@ comments:
     date_raw: 4 Jan 2008 — 7:20pm
     votes: null
     html: <p>I realize that FontForge is having  troubles with Charis' features. On the other hand, from <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=DoulosSILfontFAQ#a4076803" rel="nofollow">this link</a> at SIL, I understand  there is a bug in Charis causing trouble with Small cap substitution; unfortunately I could not make their fix work on OS X 10.4 with XeLaTeX.</p>
-    html_clean: <p>I realize that FontForge is having  troubles with Charis' features. On the other hand, from <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=DoulosSILfontFAQ#a4076803" rel="nofollow">this link</a> at SIL, I understand  there is a bug in Charis causing trouble with Small cap substitution; unfortunately I could not make their fix work on OS X 10.4 with XeLaTeX.</p>
+    html_clean: <p>I realize that FontForge is having  troubles with Charis' features. On the other hand, from <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=DoulosSILfontFAQ#a4076803" rel="nofollow" class="link-external">this link</a> at SIL, I understand  there is a bug in Charis causing trouble with Small cap substitution; unfortunately I could not make their fix work on OS X 10.4 with XeLaTeX.</p>
   - id: 249846
     user: 1262
     date: 2008-01-04T22:17:00
@@ -161,10 +161,10 @@ comments:
     html_clean: |-
       <p>Jcrippen, </p>
       <p>you may not be aware that Charis is in fact an extended version of Charter, a typeface designed by Matthew Carter for Bitstream and later licensed to ITC. There are OpenType versions of Charter that include typographic small caps, olstyle numerals and other characters that may be of your interest. </p>
-      <p>There is the an excellent <strong><a class="freelinking external" href="http://www.font.org/ptCharter" rel="nofollow">ParaType "multilingual"</a></strong> version of Charter in OpenType PS format with 866 glyphs per font, including Latin Extended, Cyrillic Extended (very well designed, much better than the one in Charis), Latin smallcaps, Cyrillic smallcaps and oldstyle numerals, but not superscripts. </p>
-      <p>Then, there is the <strong><a class="freelinking external" href="http://www.font.org/mf/fonts/bitstream/charter-bt-pro/" rel="nofollow">Bitstream "Pro"</a></strong> version of Charter in OpenType PS format with 603 glyphs per font, including Latin Extended, Latin smallcaps, oldstyle numerals, superscripts but no Cyrillic. </p>
-      <p>There is also the <strong><a class="freelinking external" href="http://www.font.org/fc/FindFonts/RecentReleases/2007/CharterPro.htm" rel="nofollow">Monotype ITC  "Pro"</a></strong> version of Charter in OpenType PS format that includes Latin Extended, Latin smallcaps, subscripts and superscripts, but no Cyrillic. </p>
-      <p>Finally, there is the <strong><a class="freelinking external" href="http://www.font.org/mf/fonts/linotype/itc-charter/" rel="nofollow">Linotype ITC  "Com"</a></strong> version of Charter in OpenType TT format with 383 glyphs per font, including Latin Extended. </p>
+      <p>There is the an excellent <strong><a class="freelinking external link-external" href="http://www.font.org/ptCharter" rel="nofollow">ParaType "multilingual"</a></strong> version of Charter in OpenType PS format with 866 glyphs per font, including Latin Extended, Cyrillic Extended (very well designed, much better than the one in Charis), Latin smallcaps, Cyrillic smallcaps and oldstyle numerals, but not superscripts. </p>
+      <p>Then, there is the <strong><a class="freelinking external link-external" href="http://www.font.org/mf/fonts/bitstream/charter-bt-pro/" rel="nofollow">Bitstream "Pro"</a></strong> version of Charter in OpenType PS format with 603 glyphs per font, including Latin Extended, Latin smallcaps, oldstyle numerals, superscripts but no Cyrillic. </p>
+      <p>There is also the <strong><a class="freelinking external link-external" href="http://www.font.org/fc/FindFonts/RecentReleases/2007/CharterPro.htm" rel="nofollow">Monotype ITC  "Pro"</a></strong> version of Charter in OpenType PS format that includes Latin Extended, Latin smallcaps, subscripts and superscripts, but no Cyrillic. </p>
+      <p>Finally, there is the <strong><a class="freelinking external link-external" href="http://www.font.org/mf/fonts/linotype/itc-charter/" rel="nofollow">Linotype ITC  "Com"</a></strong> version of Charter in OpenType TT format with 383 glyphs per font, including Latin Extended. </p>
       <p>You may consider using one of those versions (e.g. the ParaType version) in conjunction with Charis, rather than trying to expand Charis yourself. </p>
       <p>Regards,<br>
       Adam</p>
@@ -238,7 +238,7 @@ comments:
       <p>Charis contains both AAT and OpenType tables, with some that are shared and, thanks to George Williams, the <a href="http://sourceforge.net/project/showfiles.php?group_id=103338" rel="nofollow">last version of FontForge</a> can now tackle that cross bred beast. What I described above gives a font that seems to work well with TextEdit provided the font is saved with both "Apple" and "OpenType" tables (I tried with charis-4.012).</p>
     html_clean: |-
       <p>&gt; <cite>I realize that FontForge is having troubles with Charis' features.</cite></p>
-      <p>Charis contains both AAT and OpenType tables, with some that are shared and, thanks to George Williams, the <a href="http://sourceforge.net/project/showfiles.php?group_id=103338" rel="nofollow">last version of FontForge</a> can now tackle that cross bred beast. What I described above gives a font that seems to work well with TextEdit provided the font is saved with both "Apple" and "OpenType" tables (I tried with charis-4.012).</p>
+      <p>Charis contains both AAT and OpenType tables, with some that are shared and, thanks to George Williams, the <a href="http://sourceforge.net/project/showfiles.php?group_id=103338" rel="nofollow" class="link-external">last version of FontForge</a> can now tackle that cross bred beast. What I described above gives a font that seems to work well with TextEdit provided the font is saved with both "Apple" and "OpenType" tables (I tried with charis-4.012).</p>
   - id: 251185
     user: 21991
     date: 2008-01-11T11:43:00
@@ -286,5 +286,5 @@ comments:
     html_clean: |-
       <p>&gt; Aldus metal was wonderful, Aldus PostScript Type 1 was pretty<br>
       &gt; bad. I don’t know if any foundry has reworked it since then.</p>
-      <p>Well, there is <a href="http://www.font.org/lt/109957/aldusnova-family.html" rel="nofollow">Aldus Nova</a>. </p>
+      <p>Well, there is <a href="http://www.font.org/lt/109957/aldusnova-family.html" rel="nofollow" class="link-external">Aldus Nova</a>. </p>
       <p>A.</p>

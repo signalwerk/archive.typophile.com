@@ -55,7 +55,7 @@ post:
     <a href="http://www.microsoft.com/typography/otspec/languagetags.htm" title="http://www.microsoft.com/typography/otspec/languagetags.htm">http://www.microsoft.com/typography/otspec/languagetags.htm</a></p>
     <p>So, please check your fonts, and let me know if you have questions.</p>
   html_clean: |-
-    <p>[Cross-posted with the <a href="http://groups.google.com/group/uafdkoml/" rel="nofollow">UAFDKOML group</a>]</p>
+    <p>[Cross-posted with the <a href="http://groups.google.com/group/uafdkoml/" rel="nofollow" class="link-external">UAFDKOML group</a>]</p>
     <p>I'm starting to receive some questions about features not working in InDesign CS5 when a non-Latin language or "No Language" is selected. And this is happening with fonts that worked fine in CS3 and CS4.</p>
     <p>From the cases I've seen, the bugs were in the fonts. More specifically, the feature file code lacked languagesystem declarations. Regarding InDesign CS5, what I can tell you is that this version is more strict than CS3 and CS4 were in terms of dealing with language and script tags. So if the fonts don't have lookups for all the necessary languagesystems, ID CS5 will just stick to what's in the font rather than creating them on-the-fly, like CS3 and CS4 used to do.</p>
     <p>What does this mean? It means that you should check that, at a minimum(!), your feature code starts with these two lines:</p>
@@ -68,8 +68,8 @@ post:
     	languagesystem grek dflt;</p>
     <p>For example, the features will not work when the user selects Russian as the language, if the font does not have the lookups registered under the languagesystem cyrl/dflt. (And I believe that applies to the 'kern' feature as well as the other.)</p>
     <p>To get a complete list of script tags and language tags, please consult these pages,<br>
-    <a href="http://www.microsoft.com/typography/otspec/scripttags.htm" title="http://www.microsoft.com/typography/otspec/scripttags.htm">http://www.microsoft.com/typography/otspec/scripttags.htm</a><br>
-    <a href="http://www.microsoft.com/typography/otspec/languagetags.htm" title="http://www.microsoft.com/typography/otspec/languagetags.htm">http://www.microsoft.com/typography/otspec/languagetags.htm</a></p>
+    <a href="http://www.microsoft.com/typography/otspec/scripttags.htm" title="http://www.microsoft.com/typography/otspec/scripttags.htm" class="link-external">http://www.microsoft.com/typography/otspec/scripttags.htm</a><br>
+    <a href="http://www.microsoft.com/typography/otspec/languagetags.htm" title="http://www.microsoft.com/typography/otspec/languagetags.htm" class="link-external">http://www.microsoft.com/typography/otspec/languagetags.htm</a></p>
     <p>So, please check your fonts, and let me know if you have questions.</p>
 comments:
   - id: 437727
@@ -216,7 +216,7 @@ comments:
       <p>Also, for those of you who don't know, FontLab 5 doesn't write the DFLT language system correctly into the OTFs it generates. It incorrectly reports that DFLT is depreciated, and the resulting font has four spaces "    " instead of "DFLT" in the font. Using TTX, you can do a find/replace for "    " to "DFLT" to fix this. Also, Adam Twardoch had a script to do this if you have FontTools installed. Script is here: <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" title="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a>, info about it is here: <a href="http://typophile.com/node/29469" title="http://typophile.com/node/29469">http://typophile.com/node/29469</a>. There isn't a problem if one is using the FDK to generate your fonts.</p>
     html_clean: |-
       <p>The following is Ben Kiel’s explanation of the FontLab issue:</p>
-      <p>Also, for those of you who don't know, FontLab 5 doesn't write the DFLT language system correctly into the OTFs it generates. It incorrectly reports that DFLT is depreciated, and the resulting font has four spaces "    " instead of "DFLT" in the font. Using TTX, you can do a find/replace for "    " to "DFLT" to fix this. Also, Adam Twardoch had a script to do this if you have FontTools installed. Script is here: <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" title="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a>, info about it is here: <a href="/node/29469/" title="http://typophile.com/node/29469">http://typophile.com/node/29469</a>. There isn't a problem if one is using the FDK to generate your fonts.</p>
+      <p>Also, for those of you who don't know, FontLab 5 doesn't write the DFLT language system correctly into the OTFs it generates. It incorrectly reports that DFLT is depreciated, and the resulting font has four spaces "    " instead of "DFLT" in the font. Using TTX, you can do a find/replace for "    " to "DFLT" to fix this. Also, Adam Twardoch had a script to do this if you have FontTools installed. Script is here: <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" title="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" class="link-external">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a>, info about it is here: <a href="/node/29469/" title="http://typophile.com/node/29469" class="link-kept">http://typophile.com/node/29469</a>. There isn't a problem if one is using the FDK to generate your fonts.</p>
   - id: 437893
     user: 31385
     date: 2010-11-04T12:27:00
@@ -290,10 +290,10 @@ comments:
     html_clean: |-
       <p>Charles,</p>
       <p>No one is forcing you to do anything. If you don't even know where the "No Language" language option is, then you probably don't even need to care about this issue. (However, I must say that considering the many comments you've posted over the years, I was under the impression that the work you do involved dealing with different languages, some of which not so common. Which brings me back to the subject.)</p>
-      <p>When a user selects a language in InDesign the application uses that to decide which hyphenation and spelling rules it needs apply. Since the list of languages supported by InDesign does not cover all the ones that exist in the planet, sometimes it's better to set the language to "No Language". This way the program doesn't try to hyphenate or spellcheck the text in funny ways. I think there must be other things that are tied with the language setting. One that I can think of right now is the quotation styles that can differ from language to language (<a href="http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark" title="http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark">http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark</a>).</p>
+      <p>When a user selects a language in InDesign the application uses that to decide which hyphenation and spelling rules it needs apply. Since the list of languages supported by InDesign does not cover all the ones that exist in the planet, sometimes it's better to set the language to "No Language". This way the program doesn't try to hyphenate or spellcheck the text in funny ways. I think there must be other things that are tied with the language setting. One that I can think of right now is the quotation styles that can differ from language to language (<a href="http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark" title="http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark" class="link-external">http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_mark</a>).</p>
       <p>Anyway, if you think you don't need to change your fonts, then don't do it.</p>
       <p>Below is the Character panel of InDesign CS5 showing the language options.<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/InDesignCS5_languages_3550.png"></div><p></p>
+      </p><div class="imageWrap"><img src="/files/indesigncs5_languages_3550.png"></div><p></p>
   - id: 437950
     user: 5094
     date: 2010-11-05T07:31:00

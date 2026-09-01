@@ -51,6 +51,35 @@
 .body p:last-child {
   margin-bottom: 0;
 }
+/* Where a link in an archived post leads. Step 8 works this out once, while
+   cleaning, and sets the class; here it becomes a small mark after the words:
+   an arrow for the open web, a green dot for a page or file of the old site we
+   hold, a red dot for one we never recovered and could not repoint. */
+.link-external::after {
+  content: "\2197"; /* north-east arrow */
+  margin-left: 0.1em;
+  font-size: 0.85em;
+  line-height: 0;
+  color: var(--faint);
+}
+.link-kept::after,
+.link-lost::after {
+  content: "";
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-left: 0.25em;
+  border-radius: 50%;
+  /* Above the baseline, clear of the underline and of any descender. */
+  vertical-align: 0.28em;
+}
+.link-kept::after {
+  background: var(--kept);
+}
+.link-lost::after {
+  background: var(--lost);
+}
+
 .entry {
   display: flex;
   gap: 0.9rem;

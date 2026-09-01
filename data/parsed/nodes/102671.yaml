@@ -130,7 +130,7 @@ comments:
     html_clean: |-
       <p>On the mac, to change to 0x0008 the value of fsType of all otf and ttf files in the current directory and subdirectories, all you need to do is to type in the terminal window </p>
       <pre>find . -iname "*.[to]tf" -exec chngfs {} 0x0008 \;
-      </pre><p>provided the call <code>chngfs fontfile 0x0008</code> changes the fsType of fontfile to 0x0008. The following code for <code>chngfs</code> does it if <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO 2.5</a> for Mac is installed:</p>
+      </pre><p>provided the call <code>chngfs fontfile 0x0008</code> changes the fsType of fontfile to 0x0008. The following code for <code>chngfs</code> does it if <a href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow" class="link-external">AFDKO 2.5</a> for Mac is installed:</p>
       <pre>#!/usr/bin/env AFDKOPython
 
       import sys, os
@@ -147,7 +147,7 @@ comments:
       <p>As for Windows, the Python 2.7  documentation says  it is not possible to rename with os.rename a file to a file name that is already in use. That is why <code>chngfs</code> above was written to take an additional, optional, argument. If AFDKOPython is made available at the command line on Windows then the command</p>
       <pre>AFDKOPython chngfs fontname.ttf 0x0008 newname.ttf
       </pre><p>produces a new font with the chosen fsType (works the same on the mac).</p>
-      <p>You can also call <code>chngfs</code> with 0x0002 and 0x0004, 0x0008 as well as 0x0000 and variations 0x01?? and 0x02??; cf <a href="http://www.microsoft.com/typography/otspec/os2.htm#fst" title="http://www.microsoft.com/typography/otspec/os2.htm#fst">http://www.microsoft.com/typography/otspec/os2.htm#fst</a>.</p>
+      <p>You can also call <code>chngfs</code> with 0x0002 and 0x0004, 0x0008 as well as 0x0000 and variations 0x01?? and 0x02??; cf <a href="http://www.microsoft.com/typography/otspec/os2.htm#fst" title="http://www.microsoft.com/typography/otspec/os2.htm#fst" class="link-external">http://www.microsoft.com/typography/otspec/os2.htm#fst</a>.</p>
       <p>Michel</p>
   - id: 552976
     user: 11578

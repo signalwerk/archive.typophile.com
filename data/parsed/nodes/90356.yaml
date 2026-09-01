@@ -50,11 +50,11 @@ post:
   html_clean: |-
     <p>Hello everyone,</p>
     <p>I have been trying to create a PHP script to extract the information included in a font file. So far I have managed to get the information from the "name" table with success. </p>
-    <p>The next step would be to list the glyphs of the font. But as for now, I feel a little confused about where this information is located in the font file. If I consider this thread : <a href="/node/16695/#comment-99516" title="http://typophile.com/node/16695#comment-99516">http://typophile.com/node/16695#comment-99516</a></p>
+    <p>The next step would be to list the glyphs of the font. But as for now, I feel a little confused about where this information is located in the font file. If I consider this thread : <a href="/node/16695/#comment-99516" title="http://typophile.com/node/16695#comment-99516" class="link-kept">http://typophile.com/node/16695#comment-99516</a></p>
     <p>I quote : "the glyph names are stored in the "post" table"</p>
     <p>This is the first question in my mind, to make sure where this information is.</p>
-    <p>But to be completely honest, I don't get the structure of the "post" table, as seen <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6post.html" rel="nofollow">here</a>. </p>
-    <p>What I don't really understand right now is the type of data (Fixed, and FWord) even though it's explained <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6.html#Types" rel="nofollow">here</a>. As I use the unpack() function to get this information, I should specify a format, and this is where I'm confused.</p>
+    <p>But to be completely honest, I don't get the structure of the "post" table, as seen <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6post.html" rel="nofollow" class="link-external">here</a>. </p>
+    <p>What I don't really understand right now is the type of data (Fixed, and FWord) even though it's explained <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6.html#Types" rel="nofollow" class="link-external">here</a>. As I use the unpack() function to get this information, I should specify a format, and this is where I'm confused.</p>
     <p>If anyone has any information about my questions, I would be really grateful :)</p>
     <p>Frederic</p>
 comments:
@@ -79,9 +79,9 @@ comments:
       <p><cite>.. the information included in a font file ..</cite></p>
       <p>There is No Such Thing as "a" font file. What sort of files are you referring to? DFONT? Type 1? Truetype? Opentype? Your mentioning a "name" table suggests the latter.</p>
       <p>Let's get the most important bits right first. I'm surprised you refer to that old page, because it's last updated around 2003 (and frankly even that late date surprises me). The reason for that is because that particular sub-site of Apple's deals with (their version of) Truetype, and Truetype fonts have long been abandoned by everyone in favour of the Opentype format. True, it's more or less the same, but you should be reading stuff like</p>
-      <p><a href="http://www.microsoft.com/typography/otspec/" title="http://www.microsoft.com/typography/otspec/">http://www.microsoft.com/typography/otspec/</a></p>
+      <p><a href="http://www.microsoft.com/typography/otspec/" title="http://www.microsoft.com/typography/otspec/" class="link-external">http://www.microsoft.com/typography/otspec/</a></p>
       <p>or</p>
-      <p><a href="http://www.adobe.com/devnet/opentype.html" title="http://www.adobe.com/devnet/opentype.html">http://www.adobe.com/devnet/opentype.html</a></p>
+      <p><a href="http://www.adobe.com/devnet/opentype.html" title="http://www.adobe.com/devnet/opentype.html" class="link-external">http://www.adobe.com/devnet/opentype.html</a></p>
       <p>(the latter refers back to the Microsoft site for the main documents but still contains lots of useful additional info).</p>
       <p>Regarding the format of the 'post' table: this is, actually, still relevant for Opentype fonts. There are different <em>formats</em> in which the data can be stored; you should read the format first and then decide what else you need to know. <em>But</em> before I get your hopes up: one of the formats that is used frequently is type 3: 'explicit no-name table', which means there are <em>no</em> glyph names stored in the file (they might be stored as part of the CFF data in a Type 1 style OTF, which is yet something else).</p>
       <p>But yet again, this might be not what you were after. The 'post' table allows access to <em>unique glyph names</em> in a font, for example, a regular 'A' that is called 'A' and an alternate A called "A.alt". Perhaps what you describe would best be achieved by examining the <em>character map</em> instead -- <code>'cmap'</code>. (Read the documentation I referred to why I believe this.)</p>
@@ -162,7 +162,7 @@ comments:
       <p>More info here: <a href="http://www.letterror.com/code/ttx/" title="http://www.letterror.com/code/ttx/">http://www.letterror.com/code/ttx/</a></p>
     html_clean: |-
       <p>You might also find TTX useful. It's a command line tool that takes an .otf or .ttf font as input and outputs a XML text file representation of the font (i.e., a .ttx file). It also works in reverse.</p>
-      <p>More info here: <a href="http://www.letterror.com/code/ttx/" title="http://www.letterror.com/code/ttx/">http://www.letterror.com/code/ttx/</a></p>
+      <p>More info here: <a href="http://www.letterror.com/code/ttx/" title="http://www.letterror.com/code/ttx/" class="link-external">http://www.letterror.com/code/ttx/</a></p>
   - id: 496207
     user: 29994
     date: 2012-02-23T10:57:00
@@ -191,7 +191,7 @@ comments:
       <p>Since you're a programmer, I'd recommend you look into the table decompiling code in the <a href="http://sourceforge.net/projects/fonttools/files/2.3/" rel="nofollow">FontTools</a> distribution. If you know PHP, Python shouldn't be too difficult ;)</p>
     html_clean: |-
       <p><em>Does anyone have any advice concerning the segments or the "unpacking" of the 'cmap' subtables ?</em></p>
-      <p>Since you're a programmer, I'd recommend you look into the table decompiling code in the <a href="http://sourceforge.net/projects/fonttools/files/2.3/" rel="nofollow">FontTools</a> distribution. If you know PHP, Python shouldn't be too difficult ;)</p>
+      <p>Since you're a programmer, I'd recommend you look into the table decompiling code in the <a href="http://sourceforge.net/projects/fonttools/files/2.3/" rel="nofollow" class="link-external">FontTools</a> distribution. If you know PHP, Python shouldn't be too difficult ;)</p>
   - id: 496247
     user: 18942
     date: 2012-02-23T14:50:00
@@ -223,7 +223,7 @@ comments:
       <p>It's JavaScript but it might give you some inspiration.</p>
     html_clean: |-
       <p>Maybe this could help you?<br>
-      <a href="http://pomax.nihongoresources.com/pages/Font.js/" title="http://pomax.nihongoresources.com/pages/Font.js/">http://pomax.nihongoresources.com/pages/Font.js/</a></p>
+      <a href="http://pomax.nihongoresources.com/pages/Font.js/" title="http://pomax.nihongoresources.com/pages/Font.js/" class="link-external">http://pomax.nihongoresources.com/pages/Font.js/</a></p>
       <p>It's JavaScript but it might give you some inspiration.</p>
   - id: 496829
     user: 184594
@@ -252,7 +252,7 @@ comments:
       <p>So, if I sum up this, the only "required" subtables would be a format 4, and eventually format 12. Since the format 4 'cmap' subtable is compulsory, all the information I need should be there, shouldn't it ? Or there are possibilities I might actually miss letters in my letters-listing process ?</p>
     html_clean: |-
       <p>Well, I allow myself to bounce back on my last answer.</p>
-      <p>I have successfully extracted the data inside a format 6 subtable, that was also in the 'cmap' table of the font I am testing. Now I'm asking myself, is it relevant to do so ? Since the <a href="http://www.microsoft.com/typography/otspec/cmap.htm" rel="nofollow">documentation</a> says :</p>
+      <p>I have successfully extracted the data inside a format 6 subtable, that was also in the 'cmap' table of the font I am testing. Now I'm asking myself, is it relevant to do so ? Since the <a href="http://www.microsoft.com/typography/otspec/cmap.htm" rel="nofollow" class="link-external">documentation</a> says :</p>
       <p><em>"All Microsoft Unicode BMP encodings (Platform ID = 3, Encoding ID = 1) must provide at least a Format 4 'cmap' subtable".</em></p>
       <p>And</p>
       <p><em>"If the font is meant to support supplementary Unicode characters, it will additionally need a Format 12 subtable with a platform encoding ID 10."</em></p>
@@ -286,7 +286,7 @@ comments:
       <p>华文细黑.ttf  ("STHeiti") -&gt; 37256 glyphs, 3:0 is format 12, Unicodes up to U+2A6C7<br>
       儷宋 Pro.ttf ("LiSong Pro") -&gt; 22581 glyphs, also format 12, UC up to U+2F9D4<br>
       ヒラギノ丸ゴ Pro W4.otf ("Hiragino Maru Gothic Pro") -&gt; 20317 glyphs, 3:10 is format 12, UC up to U+2F9F4<br>
-      Ken Lund's "Unicode All" Stress Test font (see <a href="/node/89519/" rel="nofollow">An "Extreme" OpenType font for stress-testing</a>) -&gt; 65,535 glyphs, platform 3, encoding 1, format 4; UC up to U+10FFFD (this is a 40 byte large table that spits out a massive 293,888 lines with 4 codes per line :D )</p>
+      Ken Lund's "Unicode All" Stress Test font (see <a href="/node/89519/" rel="nofollow" class="link-kept">An "Extreme" OpenType font for stress-testing</a>) -&gt; 65,535 glyphs, platform 3, encoding 1, format 4; UC up to U+10FFFD (this is a 40 byte large table that spits out a massive 293,888 lines with 4 codes per line :D )</p>
       <p>I am not aware of a Best Practice to find the table with the <em>largest</em> repertoire of characters in a given set -- if I would need this, I think I would simply test all of the available tables and count the number of entries in each. (I *think* you need to iterate over each full table's contents to find the number of supported Unicodes because you cannot simply tell from the table header.) And to do so, you need to be able to parse every possible table format you can lay your hands on.</p>
   - id: 496969
     user: 184594
@@ -522,7 +522,7 @@ comments:
       <p>Morale of this tale: Give up quickly and first look for an easier solution :-)</p>
     html_clean: |-
       <p>Fredrich: here is an interesting tale. I went your route the other way around; given a range of Unicodes, how to build a Format 4 subtable.</p>
-      <p>I tried the numbers given in the example on Microsoft's OpenType page for 'cmap' -- the hypothetical font with glyphs starting at 1 and UC ranges 10-20, 30-90, 153-480 ... and failed to reproduce their table <em>again and again</em>! Exasperated (which is a programmer's euphemism for "utterly disgusted and frustrated beyond reason") I turned back to the almighty Web, fully expecting to have to quick-read thousands of lines of FreeType code. Until I happened to come across that same example again, but this time by Apple: <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6cmap.html" rel="nofollow">TrueType Reference Manual</a>. Yup, the very same one I laughed at as being, well, a decade old! However, <em>Apple's</em> example differs in one tiny detail. It is correct.</p>
+      <p>I tried the numbers given in the example on Microsoft's OpenType page for 'cmap' -- the hypothetical font with glyphs starting at 1 and UC ranges 10-20, 30-90, 153-480 ... and failed to reproduce their table <em>again and again</em>! Exasperated (which is a programmer's euphemism for "utterly disgusted and frustrated beyond reason") I turned back to the almighty Web, fully expecting to have to quick-read thousands of lines of FreeType code. Until I happened to come across that same example again, but this time by Apple: <a href="https://developer.apple.com/fonts/ttrefman/rm06/Chap6cmap.html" rel="nofollow" class="link-external">TrueType Reference Manual</a>. Yup, the very same one I laughed at as being, well, a decade old! However, <em>Apple's</em> example differs in one tiny detail. It is correct.</p>
       <p>The problem lies in Microsoft's slightly different "sample range".  Character codes from 10 to 20 are translated into glyphs with a delta of -9; that uses glyphs 1 to 11. Codes 30 up to 90, using delta -18, translate to glyphs 22 to 72. Then they claim "153 to 480", using a delta of -27, translate into "and so on", meaning the rest of the glyphs. BUT 153 minus 27 is 126, <em>not</em> 73 -- the "next used glyph".</p>
       <p>Apple's third range is "100-153", also with delta -27 -- and indeed, 100 - 27 = 73, the number I was looking for in MS's example.</p>
       <p>Morale of this tale: Give up quickly and first look for an easier solution :-)</p>
@@ -627,8 +627,8 @@ comments:
       <p>AFAIK, variants selected by variation selectors serve a specific meaning that need to be encoded into the text, though I think they would have very well encoded them as different characters (like, say, the regular and final Greek sigma). Also, the variants are indeed hard coded, in the sense that conformant implementations should only support sequences registered by Unicode. See <a href="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html" title="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html">http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html</a>.</p>
       <p>BTW, if someone is the looking for a free font that implements the math variants, there is <a href="/wiki/https%3A/%252Fgithub.com/khaledhosny/xits-math" class="freelinking" rel="nofollow">XITS</a> (OK, that is blatant self promotion).</p>
     html_clean: |-
-      <p>AFAIK, variants selected by variation selectors serve a specific meaning that need to be encoded into the text, though I think they would have very well encoded them as different characters (like, say, the regular and final Greek sigma). Also, the variants are indeed hard coded, in the sense that conformant implementations should only support sequences registered by Unicode. See <a href="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html" title="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html">http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html</a>.</p>
-      <p>BTW, if someone is the looking for a free font that implements the math variants, there is <a href="/wiki/https%3A/%252Fgithub.com/khaledhosny/xits-math" class="freelinking" rel="nofollow">XITS</a> (OK, that is blatant self promotion).</p>
+      <p>AFAIK, variants selected by variation selectors serve a specific meaning that need to be encoded into the text, though I think they would have very well encoded them as different characters (like, say, the regular and final Greek sigma). Also, the variants are indeed hard coded, in the sense that conformant implementations should only support sequences registered by Unicode. See <a href="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html" title="http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html" class="link-external">http://www.unicode.org/Public/UNIDATA/StandardizedVariants.html</a>.</p>
+      <p>BTW, if someone is the looking for a free font that implements the math variants, there is <a href="/wiki/https%3A/%252Fgithub.com/khaledhosny/xits-math" class="freelinking link-lost" rel="nofollow">XITS</a> (OK, that is blatant self promotion).</p>
   - id: 498964
     user: 14653
     date: 2012-03-09T18:41:00
@@ -641,7 +641,7 @@ comments:
     html_clean: |-
       <p>Keep in mind that there is a difference between standardized and registered variants. The former are closely tied to the standard. The latter are part of a registry that is set up by the standard. The implementation is the same in fonts, meaning via the Format 14 'cmap' subtable.</p>
       <p>About Apple's Color Emoji font, keep in mind that the Standardized Variants for emoji were just accepted into the standard during last month's UTC and WG2 meetings. Apple obviously hasn't had time to revise their fonts accordingly. The proposal came from Apple.</p>
-      <p>BTW, I am the <a class="freelinking external" href="http://www.unicode.org/ivd/" rel="nofollow">IVD</a> Registrar.</p>
+      <p>BTW, I am the <a class="freelinking external link-external" href="http://www.unicode.org/ivd/" rel="nofollow">IVD</a> Registrar.</p>
   - id: 498988
     user: 83217
     date: 2012-03-10T05:35:00

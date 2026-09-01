@@ -54,7 +54,7 @@ post:
     <p>2. Does anyone know of any vector fonts that would render well on 2 color screens?</p>
     <p>Thanks in advance for any information.</p>
     <p>Lucie</p>
-    <div class="forum-topic-navigation clear-block"><a href="/node/34771/" class="topic-previous" title="Go to previous forum topic">‹ New Arabic ligatures from existing ones by adding diacritics</a> <a href="/node/34776/" class="topic-next" title="Go to next forum topic">Opentype scripts, swash ›</a></div>
+    <div class="forum-topic-navigation clear-block"><a href="/node/34771/" class="topic-previous link-kept" title="Go to previous forum topic">‹ New Arabic ligatures from existing ones by adding diacritics</a> <a href="/node/34776/" class="topic-next link-kept" title="Go to next forum topic">Opentype scripts, swash ›</a></div>
 comments:
   - id: 211324
     user: 1250
@@ -179,7 +179,7 @@ comments:
       the iPod (or something) to make it come out crisper.</p>
       <p>Coming around to b&amp;w rendering, the thing is that if the Freetype engine can’t handle superhinting, you can’t really take advantage of the MS Core Fonts. If so, how easy would it be for you to license an engine that can?</p>
       <p>But now I’m wondering: why did you give up on grayscaling? Only because the results you’ve been getting are poor? Because it doesn’t have to be so:<br>
-      <a href="http://www.themicrofoundry.com/manademo/" title="http://www.themicrofoundry.com/manademo/">http://www.themicrofoundry.com/manademo/</a><br>
+      <a href="http://www.themicrofoundry.com/manademo/" title="http://www.themicrofoundry.com/manademo/" class="link-external">http://www.themicrofoundry.com/manademo/</a><br>
       And you don’t need any special TT engine.</p>
       <p>Now, if you’re totally set on b&amp;w, but your TT engine doesn’t handle superhinting (and you want to avoid changing engines*) then you could use what’s called a pixelfont: a blocky outline font specially designed to render out crisp bitmaps at a single point size. In fact Mana is a pixelfont, but grayscale.</p>
       <p>* Insert Formula-1 joke here.  :-)</p>
@@ -207,7 +207,7 @@ comments:
       <p>Right now I’m waiting for the developers to integrate the text into the actual screens to see what it really looks like and do some more tests.</p>
       <p>I really like the Mana pixel font, however I can’t use it because it’s grayscale.</p>
       <p>The reason we are doing strictly black and white is for technical reasons only. Apparently it takes much less power for the device to display a strictly black and white screen, and that’s why this limitation is there unfortunately.</p>
-      <p>I’m a bit confused about the file extensions of pixel fonts. They seem to be in .ttf or .fon format. For example, FFF Forward from <a href="http://www.fontsforflash.com/" title="http://www.fontsforflash.com/">http://www.fontsforflash.com/</a>, in the Freebies section) is a .ttf file, but at the dafont.com Web site, they have pixel fonts in .fon and .ttf formats. Pixel fonts can be .ttf or .fon files?</p>
+      <p>I’m a bit confused about the file extensions of pixel fonts. They seem to be in .ttf or .fon format. For example, FFF Forward from <a href="http://www.fontsforflash.com/" title="http://www.fontsforflash.com/" class="link-external">http://www.fontsforflash.com/</a>, in the Freebies section) is a .ttf file, but at the dafont.com Web site, they have pixel fonts in .fon and .ttf formats. Pixel fonts can be .ttf or .fon files?</p>
       <p>Also, when I install these fonts and use them in Illustrator, I can change the size even though they are said to be a certain pixel size. Is Illustrator just changing the size on the fly? If so, how can I determine what the actual size looks like?</p>
       <p>Thanks for your help,</p>
       <p>Lucie</p>
@@ -235,7 +235,7 @@ comments:
       <p>** Unless you scale them to even multiples, like x2, in which case you basically get bitmap fonts with multi-pixel blocks.</p>
       <p>Font formats/extensions: TTF fonts are outline fonts, which is what pixelfonts are; FON fonts are “traditional” bitmap fonts, where the pixel patterns are stored as data (as opposed to being rendered by -sort of in spite of- a TT rendering engine). FON seems more intuitive, but its not well-supported. Because TT engines are very uniform, portable and robust, pixelfonts end up being a much better vehicle for rendering bitmap fonts.</p>
       <p>There’s a twist though: TT fonts can actually house embedded true bitmaps. These are rendered instead of the outlines when the right size is chosen. This is what I did for Arasan some years ago*. The advantage is that you have the scalable outlines in there, but you get “perfect” rendering at a given size (in fact multiple sizes, which you can’t do with a single pixelfont) without the headache of superhinting. The disadvanatge is that some TT engines (like the one in OSX) will ignore the embedded bitmaps.</p>
-      <p>* <a href="http://www.themicrofoundry.com/f_arasan.html" title="http://www.themicrofoundry.com/f_arasan.html">http://www.themicrofoundry.com/f_arasan.html</a></p>
+      <p>* <a href="http://www.themicrofoundry.com/f_arasan.html" title="http://www.themicrofoundry.com/f_arasan.html" class="link-external">http://www.themicrofoundry.com/f_arasan.html</a></p>
       <p>So it seems to me that, if you’re not going to enable superhinting, you need to go with either a set of TT pixelfonts that cover the sizes you need, or go with a single TT font with embedded bitmaps. This latter you’d have to test to see if it works. I can send you Arasan to test if you like; even though you probably can’t read Armenian :-) you’ll see if the bitmaps are clean or not, or you could email me a screen grab and I’ll tell you.</p>
       <p>hhp</p>
   - id: 211587
@@ -283,8 +283,8 @@ comments:
       Microsoft</p>
     html_clean: |-
       <p>Hi Lucie,<br>
-      you can find out whether a TT font has embedded bitmaps by checking for existence of ’EBLC’ table. One can dump font tables using TtfDump from <a href="http://www.microsoft.com/typography/tools/tools.aspx" title="http://www.microsoft.com/typography/tools/tools.aspx">http://www.microsoft.com/typography/tools/tools.aspx</a></p>
-      <p>But I think a more interesting question is whether a font has embedded bitmaps for the particular glyph/size combinations you care about. To do that, you can inspect the ’EBLC’ table contents using the documentation from <a href="http://www.microsoft.com/typography/otspec/eblc.htm" title="http://www.microsoft.com/typography/otspec/eblc.htm">http://www.microsoft.com/typography/otspec/eblc.htm</a></p>
+      you can find out whether a TT font has embedded bitmaps by checking for existence of ’EBLC’ table. One can dump font tables using TtfDump from <a href="http://www.microsoft.com/typography/tools/tools.aspx" title="http://www.microsoft.com/typography/tools/tools.aspx" class="link-external">http://www.microsoft.com/typography/tools/tools.aspx</a></p>
+      <p>But I think a more interesting question is whether a font has embedded bitmaps for the particular glyph/size combinations you care about. To do that, you can inspect the ’EBLC’ table contents using the documentation from <a href="http://www.microsoft.com/typography/otspec/eblc.htm" title="http://www.microsoft.com/typography/otspec/eblc.htm" class="link-external">http://www.microsoft.com/typography/otspec/eblc.htm</a></p>
       <p>Hope this helps, and best regards,<br>
       Mikhail Leonov<br>
       Windows Text team<br>
@@ -300,10 +300,10 @@ comments:
       the iPod (or something) to make it come out crisper.</p>
       <p>That would be Podium Sans - <a href="http://en.wikipedia.org/wiki/Podium_Sans" title="http://en.wikipedia.org/wiki/Podium_Sans">http://en.wikipedia.org/wiki/Podium_Sans</a> - it’s not exactly sharper, and it’s not exactly Myriad either - don’t beleive everything you read on Apple.com, especially if they change it a few weeks later. ;-)</p>
     html_clean: |-
-      <p>Hrant is correct, you can’t just copy Windows fonts across to your device. Making derivative bitmap fonts without permission is also problematic. For this reason we licensed our fonts to Ascender (<a href="http://www.ascendercorp.com" title="www.ascendercorp.com">www.ascendercorp.com</a>) who can provide them to you, and make modifications as needed, under license.</p>
+      <p>Hrant is correct, you can’t just copy Windows fonts across to your device. Making derivative bitmap fonts without permission is also problematic. For this reason we licensed our fonts to Ascender (<a href="http://www.ascendercorp.com" title="www.ascendercorp.com" class="link-external">www.ascendercorp.com</a>) who can provide them to you, and make modifications as needed, under license.</p>
       <p>&gt;* Actually Apple had a special version of it made for<br>
       the iPod (or something) to make it come out crisper.</p>
-      <p>That would be Podium Sans - <a href="http://en.wikipedia.org/wiki/Podium_Sans" title="http://en.wikipedia.org/wiki/Podium_Sans">http://en.wikipedia.org/wiki/Podium_Sans</a> - it’s not exactly sharper, and it’s not exactly Myriad either - don’t beleive everything you read on Apple.com, especially if they change it a few weeks later. ;-)</p>
+      <p>That would be Podium Sans - <a href="http://en.wikipedia.org/wiki/Podium_Sans" title="http://en.wikipedia.org/wiki/Podium_Sans" class="link-external">http://en.wikipedia.org/wiki/Podium_Sans</a> - it’s not exactly sharper, and it’s not exactly Myriad either - don’t beleive everything you read on Apple.com, especially if they change it a few weeks later. ;-)</p>
   - id: 211922
     user: 7181
     date: 2007-07-06T06:49:00
@@ -396,7 +396,7 @@ comments:
       A.</p>
     html_clean: |-
       <p>Luciel, </p>
-      <p>Linotype XSF, Monotype ESQ, Adobe WebType and ParaType superhinted fonts are all optimized with the native TrueType hinting in mind. If you don’t use the native TrueType hinting but use the FreeType autohinter, you may get reasonable results when using a font that has been optimized for ClearType display, such as Calibri or Corbel from the Microsoft ClearType collection (<a href="http://www.ascendercorp.com/ctfonts.html" title="http://www.ascendercorp.com/ctfonts.html">http://www.ascendercorp.com/ctfonts.html</a> ) or Ascender Mayberry (<a href="http://www.myfonts.com/fonts/ascender/mayberry/" title="http://www.myfonts.com/fonts/ascender/mayberry/">http://www.myfonts.com/fonts/ascender/mayberry/</a> ). The Segoe UI font, which is the default UI font on Windows Vista, might also work well. </p>
+      <p>Linotype XSF, Monotype ESQ, Adobe WebType and ParaType superhinted fonts are all optimized with the native TrueType hinting in mind. If you don’t use the native TrueType hinting but use the FreeType autohinter, you may get reasonable results when using a font that has been optimized for ClearType display, such as Calibri or Corbel from the Microsoft ClearType collection (<a href="http://www.ascendercorp.com/ctfonts.html" title="http://www.ascendercorp.com/ctfonts.html" class="link-external">http://www.ascendercorp.com/ctfonts.html</a> ) or Ascender Mayberry (<a href="http://www.myfonts.com/fonts/ascender/mayberry/" title="http://www.myfonts.com/fonts/ascender/mayberry/" class="link-external">http://www.myfonts.com/fonts/ascender/mayberry/</a> ). The Segoe UI font, which is the default UI font on Windows Vista, might also work well. </p>
       <p>However, I very much doubt that you’ll be able to achieve really good results when using purely black-and-white display with the native TrueType hinting OFF. FreeType autohinting really works well only with antialiasing — for aliased type, you pretty much need native hinting. </p>
       <p>Well, actually, there is probably a way that would allow you to produce very good results under the circumstances you describe, but it would involve custom font development and some trickery. You may contact me offlist if you’re interested at adam at twardoch dot com. </p>
       <p>Best,<br>

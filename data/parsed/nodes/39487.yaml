@@ -93,13 +93,13 @@ comments:
       While InDesign CS2 and earlier ignored script and language tags, InDesign CS3 does read them. If a user applies the German dictionary, InDesign CS3 will look for features registered for German and only find the 'liga' feature: as an effect, 'Ligatures' will work, but 'Proportional Oldstyle' numerals won't have any effect, hence the (default) lining numerals.</p>
       <p>Solution:</p>
       <p>Adam Twardoch described what to do:<br>
-      <a href="/node/17787/" target="_blank" rel="nofollow">http://typophile.com/node/17787</a><br>
-      (See the three "discussion" links, especially the <a href="/node/28277/#comment-160533" target="_blank" rel="nofollow">AFDKO thread</a>!)</p>
+      <a href="/node/17787/" target="_blank" rel="nofollow" class="link-kept">http://typophile.com/node/17787</a><br>
+      (See the three "discussion" links, especially the <a href="/node/28277/#comment-160533" target="_blank" rel="nofollow" class="link-kept">AFDKO thread</a>!)</p>
       <p>A must-read is this:<br>
-      Christopher Slye's presentation for the ATypI Lisbon Conference. Download "OpenType feature files" from Thomas Phinney's <a href="http://blogs.adobe.com/typblography/2006/10/atypi_2006_pres.html" target="_blank" rel="nofollow">Typblography</a>. (Direct link to <a href="http://blogs.adobe.com/typblography/atypi2006/slye_lisbon-05.pdf" rel="nofollow">the PDF</a>.)</p>
+      Christopher Slye's presentation for the ATypI Lisbon Conference. Download "OpenType feature files" from Thomas Phinney's <a href="http://blogs.adobe.com/typblography/2006/10/atypi_2006_pres.html" target="_blank" rel="nofollow" class="link-external">Typblography</a>. (Direct link to <a href="http://blogs.adobe.com/typblography/atypi2006/slye_lisbon-05.pdf" rel="nofollow" class="link-external">the PDF</a>.)</p>
       <p>If fonts with the additional languagesystem statements in the feature code are generated with AFDKO2, all is fine.<br>
       If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch's Fix DFLT Script Tag script which can be downloaded here:<br>
-      <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" title="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a><br>
+      <a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" title="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" class="link-external">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a><br>
       (Requires TTX, see the README.TXT.)</p>
       <p>[My impression is that there are many fonts out there which share the defect described above.]</p>
       <p>Karsten</p>
@@ -117,7 +117,7 @@ comments:
     html_clean: |-
       <p>&gt; The (FLS) font’s feature definition lacks<br>
       &gt; (some of) the initial languagesystem statements. </p>
-      <p>I'd like to emphasize the importance of this -- whenever you are using ANY language-specific OpenType substitutions (e.g. in the "liga" or "locl" features) or whenever your font contains letters from more than just the Latin script (e.g. Cyrillic or alphabetic Greek), you need to enumerate all the languagesystems as I explained <a href="/node/17787/" rel="nofollow">here</a>. This is not any limitation of FontLab Studio, simply a prerequisite of the format. FontLab Studio does not do it magically for you, but it does not automatically generate any OpenType code either (except the example code for Type 1 Standard-encoded fonts, but that is Latin only, anyway). </p>
+      <p>I'd like to emphasize the importance of this -- whenever you are using ANY language-specific OpenType substitutions (e.g. in the "liga" or "locl" features) or whenever your font contains letters from more than just the Latin script (e.g. Cyrillic or alphabetic Greek), you need to enumerate all the languagesystems as I explained <a href="/node/17787/" rel="nofollow" class="link-kept">here</a>. This is not any limitation of FontLab Studio, simply a prerequisite of the format. FontLab Studio does not do it magically for you, but it does not automatically generate any OpenType code either (except the example code for Type 1 Standard-encoded fonts, but that is Latin only, anyway). </p>
       <p>Also, I'd like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to). </p>
       <p>Adam</p>
   - id: 242687
@@ -180,13 +180,13 @@ comments:
       <a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf" title="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_St...</a></p>
     html_clean: |-
       <p>&gt; <em>but I don’t use AFDKO (I can’t install it</em></p>
-      <p>I've just posted installation instructions on the wiki. Check them out: <a href="/wiki/AFDKO" class="freelinking" rel="nofollow">AFDKO</a></p>
+      <p>I've just posted installation instructions on the wiki. Check them out: <a href="/wiki/AFDKO" class="freelinking link-lost" rel="nofollow">AFDKO</a></p>
       <p>&gt; <em>Unless I can figure out how to use AFDKO</em></p>
       <p>Once you have the tools installed and running, try building a font using the files contained in the 'ExampleRomanFonts.zip' file, which you can grab from the FDK download page. If you can build this one, you're all set.</p>
       <p>I also suggest reading the documentation inside the FDK, particularly the 'MakeOTFUserGuide.pdf' and 'CommandLineHowTo.pdf' files.<br>
       And these two other PDFs should help you understand how to use the tools:<br>
-      <a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf" title="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_Fo...</a><br>
-      <a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf" title="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_St...</a></p>
+      <a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf" title="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf" class="link-external">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_Fo...</a><br>
+      <a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf" title="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf" class="link-external">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_St...</a></p>
   - id: 242967
     user: 2021
     date: 2007-11-29T01:09:00
@@ -376,7 +376,7 @@ comments:
       <p>Mr Davidson: In the AFDKO's installation readme file, it seems that for Windows, only the bulleted paragraph starting "Under Windows, move ..." is of interest. And for installing the FLS Macros, the one starting "To install the FontLab Macros ..."<br>
       I am an ignorant when it comes to Windows, but with this description even managed to set the environment variables.&nbsp;&nbsp;:)</p>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;* * *</p>
-      <p>I was reminded that the 'Generate Kern Feature' script requires RoboFab. Some updated links: <a href="/wiki/RoboFab" class="freelinking" rel="nofollow">RoboFab</a></p>
+      <p>I was reminded that the 'Generate Kern Feature' script requires RoboFab. Some updated links: <a href="/wiki/RoboFab" class="freelinking link-lost" rel="nofollow">RoboFab</a></p>
   - id: 243141
     user: 2021
     date: 2007-11-29T12:14:00
@@ -700,7 +700,7 @@ comments:
       <p>Rob, I've updated the <a href="/wiki/AFDKO" class="freelinking" rel="nofollow">AFDKO</a> wiki entry to include instructions for Windows XP.<br>
       As for the Kern Feature Generator script you'll need to have Robofab installed. I'm planning to remove that dependency in the next version (thanks Karsten!)</p>
     html_clean: |-
-      <p>Rob, I've updated the <a href="/wiki/AFDKO" class="freelinking" rel="nofollow">AFDKO</a> wiki entry to include instructions for Windows XP.<br>
+      <p>Rob, I've updated the <a href="/wiki/AFDKO" class="freelinking link-lost" rel="nofollow">AFDKO</a> wiki entry to include instructions for Windows XP.<br>
       As for the Kern Feature Generator script you'll need to have Robofab installed. I'm planning to remove that dependency in the next version (thanks Karsten!)</p>
   - id: 243489
     user: 5094
@@ -758,9 +758,9 @@ comments:
       <p>There are OpenType font technology consultants out there (wink wink ;) ) who are able to help you out in details, you know. </p>
       <p>Regards,<br>
       Adam</p>
-      <p>[1] <a href="http://www.microsoft.com/typography/DevArticles.mspx" title="http://www.microsoft.com/typography/DevArticles.mspx">http://www.microsoft.com/typography/DevArticles.mspx</a><br>
-      [2] <a href="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx" title="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx">http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx</a><br>
-      [3] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
+      <p>[1] <a href="http://www.microsoft.com/typography/DevArticles.mspx" title="http://www.microsoft.com/typography/DevArticles.mspx" class="link-external">http://www.microsoft.com/typography/DevArticles.mspx</a><br>
+      [2] <a href="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx" title="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx" class="link-external">http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx</a><br>
+      [3] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" title="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" class="link-external">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
   - id: 243551
     user: 2021
     date: 2007-11-30T23:40:00

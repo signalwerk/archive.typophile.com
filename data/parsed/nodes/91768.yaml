@@ -58,12 +58,12 @@ post:
     <p>I try to explain my answer with an example:<br>
     <strong>I like to use the existing OFL font family "PT Sans"</strong> with different styles/weights and also Condensed/Extended variants <strong>for charts and drawings in a project</strong>. But this font-family (like any other good text font) <strong>misses some Unicode symbol chars</strong> (from Unicode-Block Dingbats, Miscellaneous Symbols, etc.) that I need.<br>
     Windows seems to automatically use sometimes weird fallback chars, coming from the installed fonts with extended Unicode support (Segoe UI Symbol, Arial Unicode MS, DejaVu Sans, etc.). Office/Word (Uniscribe?), MS IE (first Uniscribe, now DirectWrite), Firefox (first Uniscribe, now DirectWrite), Chrome (Uniscribe) seem to have sometimes different implementations of this "<strong>font fallback mechanism</strong>". I was unable to find enough information to understand this OS and software behaviour. I'm especially interested if it is possible to edit this mechanism, for example to prescribe the usage of the preferred Unicode font. This would be generally interesting also by using fonts like Linux Liberation/Biolinum. Here some links:<br>
-    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Fallback_font" class="freelinking" rel="nofollow">Wikipedia: Fallback font</a><br>
-    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Uniscribe" class="freelinking" rel="nofollow">Wikipedia: Uniscribe</a><br>
-    <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374105%28v=vs.85%29.aspx" rel="nofollow">MS Win UI Dev: Using Font Fallback</a><br>
-    <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317788(v=vs.85).aspx" rel="nofollow">MS DirectWrite</a><br>
-    <a class="freelinking external" href="http://blog.mozilla.com/nattokirai/2009/10/05/making-font-initialization-lazier/" rel="nofollow">Mozilla: Making font initialization lazier</a><br>
-    <a class="freelinking external" href="http://maxradi.us/documents/uniscribe/" rel="nofollow">Brett Wilson (Google Chrome Dev) / Uniscribe: The Missing Documentation &amp; Examples</a></p>
+    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Fallback_font" class="freelinking link-lost" rel="nofollow">Wikipedia: Fallback font</a><br>
+    <a href="/wiki/https%3A/%252Fen.wikipedia.org/wiki/Uniscribe" class="freelinking link-lost" rel="nofollow">Wikipedia: Uniscribe</a><br>
+    <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374105%28v=vs.85%29.aspx" rel="nofollow">MS Win UI Dev: Using Font Fallback</a><br>
+    <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317788(v=vs.85).aspx" rel="nofollow">MS DirectWrite</a><br>
+    <a class="freelinking external link-external" href="http://blog.mozilla.com/nattokirai/2009/10/05/making-font-initialization-lazier/" rel="nofollow">Mozilla: Making font initialization lazier</a><br>
+    <a class="freelinking external link-external" href="http://maxradi.us/documents/uniscribe/" rel="nofollow">Brett Wilson (Google Chrome Dev) / Uniscribe: The Missing Documentation &amp; Examples</a></p>
     <p>I think I have two options:<br>
     A) use the PT Sans fonts and modify/extend them with the risk to have to integrate future releases and to make errors as a beginner<br>
     B) create a new font with the PT Sans metrics and only the desired Unicode symbols. But the technical background and the fluid usage in texting/graphical software is not clear to me (without the need to change font family for certain characters in the text). </p>
@@ -91,7 +91,7 @@ comments:
       <p><cite>No single font can be all things to all people.</cite><br>
       That is the reason why I try to add the characters I need to a free quality font. I'm asking how  (way A or B). </p>
       <p><cite>If the EULA for PT Sans allows you to make modifications for your own use, fine; if not, you'll just to have to live with the limitations and change fonts as needed.</cite><br>
-      <a class="freelinking external" href="http://en.wikipedia.org/wiki/PT_Sans" rel="nofollow">PT Sans</a> is licenced under the SIL Open Font License 1.1 (OFL) and modifications can be made and also distributed.</p>
+      <a class="freelinking external link-external" href="http://en.wikipedia.org/wiki/PT_Sans" rel="nofollow">PT Sans</a> is licenced under the SIL Open Font License 1.1 (OFL) and modifications can be made and also distributed.</p>
   - id: 503409
     user: 1250
     date: 2012-04-04T09:25:00
@@ -121,9 +121,9 @@ comments:
       <cite>Unicode features such as <strong>surrogates</strong>, BIDI, line breaking, and UVS are supported. </cite> In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd941771%28v=vs.85%29.aspx" rel="nofollow">this CCP-script</a> (to complex for me) there are some comments about surrogates. In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374069%28v=vs.85%29.aspx" rel="nofollow">MSDN Surrogates and Supplementary Characters</a> there is some interesting info: <cite>Applications automatically support supplementary characters if they support Unicode and use system controls and standard API functions, such as ExtTextOut and DrawText.</cite>  and there are some registry settings about surrogates. Still I don't understand enough. </p>
       <p>@oldnick: Option B is not a re-creation of the standard characters: only some of the desired characters mainly in Symbol Unicode blocks should be created and integrated. <strong>The core of my question is about the Windows Font fallback mechanism with Unicode characters. I have rewritten my question in the first post. </strong> If I don't get enough information about that, I don't feel to decide what to do. Maybe I have to ask in some programmers/Windows GUI Forum?</p>
     html_clean: |-
-      <p>I have found some more info about <a class="freelinking external" href="http://blog.mozilla.com/nattokirai/2011/08/11/directwrite-text-rendering-in-firefox-6/" rel="nofollow">DirectWrite Text Rendering in Firefox 6</a> (interesting, but no info on font fallback)<br>
-      Rereading <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd371554%28v=vs.85%29.aspx" rel="nofollow">MSDN &gt; Introducing DirectWrite &gt; Support for International Text</a> I found a maybe better describing of the crucial behaviours:<br>
-      <cite>Unicode features such as <strong>surrogates</strong>, BIDI, line breaking, and UVS are supported. </cite> In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd941771%28v=vs.85%29.aspx" rel="nofollow">this CCP-script</a> (to complex for me) there are some comments about surrogates. In <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374069%28v=vs.85%29.aspx" rel="nofollow">MSDN Surrogates and Supplementary Characters</a> there is some interesting info: <cite>Applications automatically support supplementary characters if they support Unicode and use system controls and standard API functions, such as ExtTextOut and DrawText.</cite>  and there are some registry settings about surrogates. Still I don't understand enough. </p>
+      <p>I have found some more info about <a class="freelinking external link-external" href="http://blog.mozilla.com/nattokirai/2011/08/11/directwrite-text-rendering-in-firefox-6/" rel="nofollow">DirectWrite Text Rendering in Firefox 6</a> (interesting, but no info on font fallback)<br>
+      Rereading <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd371554%28v=vs.85%29.aspx" rel="nofollow">MSDN &gt; Introducing DirectWrite &gt; Support for International Text</a> I found a maybe better describing of the crucial behaviours:<br>
+      <cite>Unicode features such as <strong>surrogates</strong>, BIDI, line breaking, and UVS are supported. </cite> In <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd941771%28v=vs.85%29.aspx" rel="nofollow">this CCP-script</a> (to complex for me) there are some comments about surrogates. In <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd374069%28v=vs.85%29.aspx" rel="nofollow">MSDN Surrogates and Supplementary Characters</a> there is some interesting info: <cite>Applications automatically support supplementary characters if they support Unicode and use system controls and standard API functions, such as ExtTextOut and DrawText.</cite>  and there are some registry settings about surrogates. Still I don't understand enough. </p>
       <p>@oldnick: Option B is not a re-creation of the standard characters: only some of the desired characters mainly in Symbol Unicode blocks should be created and integrated. <strong>The core of my question is about the Windows Font fallback mechanism with Unicode characters. I have rewritten my question in the first post. </strong> If I don't get enough information about that, I don't feel to decide what to do. Maybe I have to ask in some programmers/Windows GUI Forum?</p>
   - id: 503448
     user: 188741
@@ -145,11 +145,11 @@ comments:
       If this works well, probably I choose option B). Will report news about my experience here.</p>
     html_clean: |-
       <p>Some useful:<br>
-      <a class="freelinking external" href="http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm" rel="nofollow">The Surrogate Pair Calculator etc.</a></p>
+      <a class="freelinking external link-external" href="http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm" rel="nofollow">The Surrogate Pair Calculator etc.</a></p>
       <p>I think I have found the crucal infos:<br>
-      <a class="freelinking external" href="http://msdn.microsoft.com/en-us/library/dd374069" rel="nofollow">MSDN Surrogates and Supplementary Characters</a><br>
-      <a class="freelinking external" href="http://winvnkey.sourceforge.net/webhelp/winvnkey4.0-english-help.htm#surrogate_fonts.htm" rel="nofollow">WinVNKey: How To Set Up Surrogate fonts</a><br>
-      <a class="freelinking external" href="http://technet.microsoft.com/en-us/library/cc939627.aspx" rel="nofollow">TechNet FontSubstitutes</a></p>
+      <a class="freelinking external link-external" href="http://msdn.microsoft.com/en-us/library/dd374069" rel="nofollow">MSDN Surrogates and Supplementary Characters</a><br>
+      <a class="freelinking external link-external" href="http://winvnkey.sourceforge.net/webhelp/winvnkey4.0-english-help.htm#surrogate_fonts.htm" rel="nofollow">WinVNKey: How To Set Up Surrogate fonts</a><br>
+      <a class="freelinking external link-external" href="http://technet.microsoft.com/en-us/library/cc939627.aspx" rel="nofollow">TechNet FontSubstitutes</a></p>
       <p>I think I go to test editing the registry settings:<br>
       <code>     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\LanguagePack\SurrogateFallback]<br>
       Plane1=(Name for fallback font for characters in Plane 1)<br>

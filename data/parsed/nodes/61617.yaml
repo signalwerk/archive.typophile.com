@@ -112,11 +112,11 @@ comments:
       <p>André, </p>
       <p>the feature definition syntax used in the Adobe FDK for OpenType (AFDKO) library version 1.6, which is used by FontLab Studio 5, allows you to specify lookups inside of the feature definition clauses. Yet in the OpenType Layout tables, lookups are stored in a sequence, and then are mapped to the features, which are not ordered in any way. So by defining the lookups inside of feature descriptions, what you actually do is you define the order of lookups. </p>
       <p>But also note that when FontLab Studio opens an existing OpenType font, it decompiles the features code into the AFDKO syntax, and sometimes does not give you a perfect representation of what is inside of the font file. I recommend using a tool such as FontTools/TTX or -- especially -- DTL OTMaster to look at how the lookups are ordered inside of the final font file. This will give you a reliable insight into the actual font structure. </p>
-      <p>The case you're describing is strange. I suggest reporting a problem directly at <a href="http://www.fontlab.com/problem" title="http://www.fontlab.com/problem">http://www.fontlab.com/problem</a></p>
+      <p>The case you're describing is strange. I suggest reporting a problem directly at <a href="http://www.fontlab.com/problem" title="http://www.fontlab.com/problem" class="link-external">http://www.fontlab.com/problem</a></p>
       <p>The AFDKO version 2.x syntax allows to define lookups outside of feature definitions, so you have perfect control over the lookup order, and can even do things like interweaving lookups (so when two features are applied at the same time, the 1st lookup of the 1st feature can be applied, then the 1st lookup of the 2nd feature, then the 2nd lookup of the 1st feature, then the 2nd lookup of the 2nd feature). </p>
       <p>FontLab Studio does not yet use AFDKO 2.x. So if you need this functionality, you need to build your OpenType font using the makeotf tool that ships with AFDKO 2.5. </p>
       <p>Links to all mentioned software products are included on<br>
-      <a href="http://www.font.org/software/" title="http://www.font.org/software/">http://www.font.org/software/</a></p>
+      <a href="http://www.font.org/software/" title="http://www.font.org/software/" class="link-external">http://www.font.org/software/</a></p>
       <p>Cheers,<br>
       Adam</p>
   - id: 367664

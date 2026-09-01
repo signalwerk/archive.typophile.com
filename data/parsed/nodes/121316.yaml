@@ -59,7 +59,7 @@ post:
     <p>As most of contents are now written in unicode, there are some cases where two (or more) slightly different character from different language are emerged into one unicode codepoint, making them shared the same codepoint, but usually two (or more) different fonts would required to display them correctly because one glyph style are pointing to one codepoint only. So, what I'm thinking now is how can I merged them and include both glyph in one font because I am using both in same article, and there are some programs which can only load one font at one time despite have language tag support in it.</p>
     <p>In my website, currently I'm using a language tag so that it would appear correctly according to the user-installed font's language. Maybe if I can create a font which contains all the glyphs inside it, I can embed it inside my website and user can loads them properly even if they  didn't have the fonts (as it's embedded).</p>
     <p>Maybe, or maybe not??</p>
-    <p>How about point the glyph to codepoint in different systems while pointing to unicode at the same time? Example, Unicode U+76F4 "CJK Ideograph" which is appearing as 直 (Wiktionary <a class="freelinking external" href="http://en.wiktionary.org/wiki/%E7%9B%B4" rel="nofollow">here</a>) should render as the first image in simplified Chinese (China), Hong Kong Chinese, Singapore &amp; Malaysia's Chinese and render as second image in Taiwanese Chinese, Japanese and Korean.</p>
+    <p>How about point the glyph to codepoint in different systems while pointing to unicode at the same time? Example, Unicode U+76F4 "CJK Ideograph" which is appearing as 直 (Wiktionary <a class="freelinking external link-external" href="http://en.wiktionary.org/wiki/%E7%9B%B4" rel="nofollow">here</a>) should render as the first image in simplified Chinese (China), Hong Kong Chinese, Singapore &amp; Malaysia's Chinese and render as second image in Taiwanese Chinese, Japanese and Korean.</p>
     <p>First image: <img src="http://www.muhdnurhidayat.com/wp-content/uploads/2014/11/Ques-Chinese-1.png" height="100" width="100"> Second image: <img src="http://www.muhdnurhidayat.com/wp-content/uploads/2014/11/Ques-Japanese-1.png" height="100" width="100"></p>
     <p>Maybe it's impossible to make distinction between Taiwanese and Hong Kong either Unicode or their own codepoint because it's still the same codepoint, but it might be possible to differentiate between Simplified Chinese, Traditional Chinese and Japanese in general? For example U+76F4 (直) that I used above, maybe different glyph can be pointed to character 0xD6B1 in Code 134 (GB2312, simplified Chinese), character 0xAABD in Code 136 (BIG5, traditional Chinese), and character 0x92BC in Code 128 (Shift JIS, Japanese) respectively and one "general" glyph when no selection made OR fall back to some kind of language tags between font itself??</p>
     <p>I don't want to create three (or four) different font files just because it looks slightly different in a lot of characters in simplified Chinese, traditional Chinese, Japanese and Korean (Hanja) ... and that still not count to include the additional Vietnam's Chữ Nôm script which also came from Chinese and have same codepoints but displayed differently (I didn't include Chữ Nôm because I don't use it, but I do use Chinese and Japanese, in Malaysia both simplified and traditional are being used and we will write them differently in par with situations)</p>
@@ -87,8 +87,8 @@ comments:
     html_clean: |-
       <p>I hope someone more knowledgeable than me will chime in. In the meantime, my understanding is that you will need to set up a locl OpenType feature.<br>
       Two primers on the subject:<br>
-      <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a><br>
-      <a href="http://opentypecookbook.com" title="http://opentypecookbook.com">http://opentypecookbook.com</a></p>
+      <a href="http://ilovetypography.com/OpenType/opentype-features.html" title="http://ilovetypography.com/OpenType/opentype-features.html" class="link-external">http://ilovetypography.com/OpenType/opentype-features.html</a><br>
+      <a href="http://opentypecookbook.com" title="http://opentypecookbook.com" class="link-external">http://opentypecookbook.com</a></p>
   - id: 593429
     user: 224347
     date: 2014-11-14T08:12:00
@@ -115,7 +115,7 @@ comments:
       </p><div class="imageWrap"><img src="http://typophile.com/files/1_3462.jpg"></div><br>
       <div class="imageWrap"><img src="http://typophile.com/files/2_4241.jpg"></div><p></p>
     html_clean: |-
-      <p>You can choose languages from this list: <a href="https://www.microsoft.com/typography/otspec/languagetags.htm" title="https://www.microsoft.com/typography/otspec/languagetags.htm">https://www.microsoft.com/typography/otspec/languagetags.htm</a><br>
+      <p>You can choose languages from this list: <a href="https://www.microsoft.com/typography/otspec/languagetags.htm" title="https://www.microsoft.com/typography/otspec/languagetags.htm" class="link-external">https://www.microsoft.com/typography/otspec/languagetags.htm</a><br>
       so it is possible to show some alternative glyphs, when one of these languages is chosen:<br>
       chinese Hong Kong ZHH<br>
       chinese phonetic ZHP<br>

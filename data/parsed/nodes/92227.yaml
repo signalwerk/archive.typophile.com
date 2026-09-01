@@ -172,23 +172,23 @@ post:
   html_clean: |-
     <p>EDIT: because there is not a lot of information about how to create a flipper font, below is a step-to-step guide for FontLab. I hope people with no background knowledge, and with the same questions as me can find some answers. My original message and questions about a flipper font are shown below.</p>
     <p>A flipper font is a font that has multiple variations of every character. These variations are alternately called upon to bring more variations inside the font. Example:<br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/1-Same_glyph_4820.jpg"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/1-same_glyph_4820.jpg"></div><p></p>
     <p>this is the default behaviour, on the keyboard the ‘n’ is ticked, and the same 'n' is used again and again.<br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/2-Changing_glyphs_4607.jpg"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/2-changing_glyphs_4607.jpg"></div><p></p>
     <p>On a flipper font however, when the key ‘n’ is pressed, there are variations on every glyph used, in this case, there are 10 variations on each character. When the 10th variation is used, it starts again with variation 1 etc.</p>
     <p>———<br>
     How to create this in FontLab? The steps below are guidelines, as I find them the most easy way to do it. There are other possibilities and an other order is possible.</p>
     <p>First, in FontLab, design every character that is already there, and set its width etc.<br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/3-Default_Window_3677.png"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/3-default_window_3677.png"></div><p></p>
     <p>Next steps are creating the variations on every character. Do so by going to menu Glyph -&gt; Generate glyphs. Type there: ‘n.alt2 n.alt3 n.alt4 n.alt5 n.alt6 n.alt7 n.alt8 n.alt9 n.alt10’. This will create nine other versions of the character ‘n’. For creating variations for the other characters, replace the n with the other character name; example ‘A.alt2 A.alt3 A.alt4 A.alt5 A.alt6 A.alt7 A.alt8 A.alt9 A.alt10’ do so with every character.<br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/4-Generate_glyphs_5988.png"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/4-generate_glyphs_5988.png"></div><p></p>
     <p>Note that the already designed basic-character is copied. I myself find that easy to work further on. Design each glyph as preferred. Make enough differences between every version of a character, otherwise a flipper font has no meaning.</p>
     <p>For the coding part, open the panel in menu -&gt; panels -&gt; OpenType. There happens the OpenType code. The most basic code that can be used is:</p>
     <p>press the ‘+’ button left below, and replace the appearing code by<br>
     <code>feature aalt{<br>
     feature calt;<br>
     } aalt;</code></p>
-    <p>Aalt does mean ‘Access All Alternates’, and the list of features that follows are the special features that are used in this font. Here it is only calt (Contextual Alternates), which is used to get a flipper font working. A list of OpenType features can be found here: <a href="http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typographic_Features" title="http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typographic_Features">http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typograp...</a><br>
+    <p>Aalt does mean ‘Access All Alternates’, and the list of features that follows are the special features that are used in this font. Here it is only calt (Contextual Alternates), which is used to get a flipper font working. A list of OpenType features can be found here: <a href="http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typographic_Features" title="http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typographic_Features" class="link-external">http://en.wikipedia.org/wiki/OpenType_feature_tag_list#OpenType_Typograp...</a><br>
     Press the ‘+’ again, and replace the new code with:<br>
     <code>feature calt { # contextual Alternates<br>
     sub n n' by n.alt2;<br>
@@ -202,7 +202,7 @@ post:
     sub n.alt9 n' by n.alt10;<br>
     sub n.alt10 n' by n;<br>
     } calt;</code><br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/5-OpenType_code1_6001.png"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/5-opentype_code1_6001.png"></div><p></p>
     <p>With this code, the ‘n’ starts to vary according to its position. Never there will be two times the same ‘n’ after each other, as in image 2. Note: everything after a ‘#’ is a reminder; it does nothing with the code, but it makes it easier to ad a note, and to understand what the code is doing.<br>
     This is the start of a flipper font. But doing this code for every character again is a lot of work. For making that easier there are classes.</p>
     <p>The classes panel can be found at menu Window-&gt;Panels-&gt;Classes.<br>
@@ -220,7 +220,7 @@ post:
     Class_alt8    -all the glyphs with suffix .alt8<br>
     Class_alt9    -all the glyphs with suffix .alt9<br>
     Class_alt10  -all the glyphs with suffix .alt10</code><br>
-    </p><div class="imageWrap"><img src="http://typophile.com/files/6-Classes_5519.png"></div><p></p>
+    </p><div class="imageWrap"><img src="/files/6-classes_5519.png"></div><p></p>
     <p>Now this work is done, the code in the OpenType panel has to be changed.</p>
     <p>Replace our previous code:<br>
     <code>feature calt { # contextual Alternates<br>
@@ -253,10 +253,10 @@ post:
     Currently most professional programs are compatible with this sort of type.<br>
     Test it. It is easy to overlook a mistake.</p>
     <p>Sources:<br>
-    <a href="/node/19625/" title="http://typophile.com/node/19625">http://typophile.com/node/19625</a><br>
-    <a href="http://typophile.com/node/43634" title="http://typophile.com/node/43634">http://typophile.com/node/43634</a><br>
-    <a href="http://typophile.com/node/13315" title="http://typophile.com/node/13315">http://typophile.com/node/13315</a><br>
-    <a href="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab" title="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab">http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-openty...</a><br>
+    <a href="/node/19625/" title="http://typophile.com/node/19625" class="link-kept">http://typophile.com/node/19625</a><br>
+    <a href="/node/43634/" title="http://typophile.com/node/43634" class="link-kept">http://typophile.com/node/43634</a><br>
+    <a href="/node/13315/" title="http://typophile.com/node/13315" class="link-kept">http://typophile.com/node/13315</a><br>
+    <a href="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab" title="http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-opentype-alternates-in-fontlab" class="link-external">http://blog.theleagueofmoveabletype.com/post/238296379/how-to-add-openty...</a><br>
     Typophile<br>
     And with many thanks for others who provided information, or reviewed this text<br>
     Friendly regards,<br>
@@ -292,9 +292,9 @@ post:
     } salt;<br>
     </code></p>
     <p>I have done a search around, but couldn't find something easy;<br>
-    <a href="/node/19625/" title="http://www.typophile.com/node/19625">http://www.typophile.com/node/19625</a><br>
-    <a href="http://typophile.com/node/43634" title="http://typophile.com/node/43634">http://typophile.com/node/43634</a><br>
-    <a href="http://typophile.com/node/13315" title="http://typophile.com/node/13315">http://typophile.com/node/13315</a><br>
+    <a href="/node/19625/" title="http://www.typophile.com/node/19625" class="link-kept">http://www.typophile.com/node/19625</a><br>
+    <a href="/node/43634/" title="http://typophile.com/node/43634" class="link-kept">http://typophile.com/node/43634</a><br>
+    <a href="/node/13315/" title="http://typophile.com/node/13315" class="link-kept">http://typophile.com/node/13315</a><br>
     Even Google didn't give an easy answer.</p>
     <p>I'm sorry my first post has to be such an stupid easy thing, but so it be.<br>
     I think Typophile is the best place to ask this,<br>
@@ -355,11 +355,11 @@ comments:
       (and the closing would match, of course)</p>
       <p>James — The term “flipper font” was first coined by the Letterror boys (Erik van Blokland &amp; Just van Rossum) for their <a href="http://www.letterror.com/foundry/kosmik/index.html" rel="nofollow">Kosmik</a> font, which originally did this in Postscript format, with some <a href="http://www.letterror.com/foundry/kosmik/technote.html" rel="nofollow">clever programming</a>, before OpenType layout features.</p>
     html_clean: |-
-      <p>Maarten — Did you do what Oldnick suggested in your first post on this topic?: <a href="/node/92072/#comment-505839" title="http://typophile.com/node/92072#comment-505839">http://typophile.com/node/92072#comment-505839</a></p>
+      <p>Maarten — Did you do what Oldnick suggested in your first post on this topic?: <a href="/node/92072/#comment-505839" title="http://typophile.com/node/92072#comment-505839" class="link-kept">http://typophile.com/node/92072#comment-505839</a></p>
       <p>Also, you need to put this in {calt} not {salt}. So the first line of the code should be<br>
       <code>feature calt {</code><br>
       (and the closing would match, of course)</p>
-      <p>James — The term “flipper font” was first coined by the Letterror boys (Erik van Blokland &amp; Just van Rossum) for their <a href="http://www.letterror.com/foundry/kosmik/index.html" rel="nofollow">Kosmik</a> font, which originally did this in Postscript format, with some <a href="http://www.letterror.com/foundry/kosmik/technote.html" rel="nofollow">clever programming</a>, before OpenType layout features.</p>
+      <p>James — The term “flipper font” was first coined by the Letterror boys (Erik van Blokland &amp; Just van Rossum) for their <a href="http://www.letterror.com/foundry/kosmik/index.html" rel="nofollow" class="link-external">Kosmik</a> font, which originally did this in Postscript format, with some <a href="http://www.letterror.com/foundry/kosmik/technote.html" rel="nofollow" class="link-external">clever programming</a>, before OpenType layout features.</p>
   - id: 506173
     user: 189301
     date: 2012-04-18T10:34:00
@@ -399,7 +399,7 @@ comments:
       The server encountered an internal error or misconfiguration and was unable to complete your request.<br>
       Please contact the server administrator, <a href="mailto:itadmin@punchcut.com">itadmin@punchcut.com</a> and inform them of the time the error occurred, and anything you might have done that may have caused the error.<br>
       More information about this error may be available in the server error log.<br>
-      Apache Server at <a href="http://www.typophile.com" title="www.typophile.com">www.typophile.com</a> Port 80</code></p>
+      Apache Server at <a href="http://www.typophile.com" title="www.typophile.com" class="link-lost">www.typophile.com</a> Port 80</code></p>
       <p>And because I  tried posting 20+ times, the moderation queue shall have had a lot of spam from me… :)</p>
   - id: 506456
     user: 189301
@@ -425,7 +425,7 @@ comments:
       <p>The only question that remains is:<br>
       now glyphs only flip if they are next to each other.<br>
       It should also do so when they are not to each other; so that every alternate has passed before it takes the first again. Where should I search for that?</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/Flipper_Writing_Maarten_Renckens_6445.png"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/flipper_writing_maarten_renckens_6445.png"></div><p></p>
   - id: 506485
     user: 1215
     date: 2012-04-20T14:59:00
@@ -442,7 +442,7 @@ comments:
       <p>Yes, the system response is singularly unhelpful. I would be nice if Punchcut would fix this.</p>
       <blockquote><p>every alternate has passed before it takes the first again. Where should I search for that?</p></blockquote>
       <p>Look for information about Martin Wenzel’s work on his “letter carousel” code. You can start with this:</p>
-      <p><a href="http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-turns-larger-rounds/" title="http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-turns-larger-rounds/">http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-tur...</a></p>
+      <p><a href="http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-turns-larger-rounds/" title="http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-turns-larger-rounds/" class="link-external">http://fontfeed.com/archives/new-fontfonts-ff-dupers-letter-carousel-tur...</a></p>
   - id: 514423
     user: 189301
     date: 2012-07-02T06:01:00
@@ -469,14 +469,14 @@ comments:
       <p>For a ‘little’ exercise, it was a very good result, and it was quoted 36/40 :)<br>
       I have compared the results with my own handwriting, and might take it a lot further than this. That was the only remark.<br>
       Later I will create a new one based on the experience I have got with this experiment.<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/Results_5274.png"></div><p></p>
+      </p><div class="imageWrap"><img src="/files/results_5274.png"></div><p></p>
       <p>Many thanks to everyone who has helped, commented, or has given feedback in a way that makes the result better.</p>
       <p>--------------------------------------------------------------<br>
       The last questions:<br>
       --<br>
       I got this message when I export an OpenType Font.<br>
       Contextual alternates don't have a unicode name, so does it matter? Are there any programs or something like that can't work if I work with names?<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/Question_4951.png"></div><p></p>
+      </p><div class="imageWrap"><img src="/files/question_4951.png"></div><p></p>
       <p>--<br>
       I have created an explanation of how to do a flipper font (for dummies like me) above this topic.<br>
       I hope a lot of people find it useful, but if there is something that has to change, let me know please.</p>

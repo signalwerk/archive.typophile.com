@@ -59,14 +59,14 @@ post:
     na (ന) + virama ( ്) + ZWJ [Control+Shift+1]= ൻ. </p>
     <p>Within VOLT, I have included the relevant strings into a post-base substitution  lookup and feature. This lookup sits below Akhand  and Below-base form  lookups that I have created.</p>
     <p>2, Malayalam uses a rakar glyph that substitutes ra (ര) + virama ( ്). The substitution itself works but it doesn't repositioning to precede it's base consonant. I assume this is the job of the shaping engine and so I do not understand what action I'm either not doing or preventing from happening?</p>
-    <p>3, Finally, and more generally, I'm unsure which script I should be using; Malayalam  or Malayalam v.2 , or both? I need support for both Windows and Mac OSX systems. I often find problems that vary between them. I have been trying to follow closely the specifications laid out in Microsoft's Opentype Specification manual: <a href="http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm" title="http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm">http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm</a></p>
+    <p>3, Finally, and more generally, I'm unsure which script I should be using; Malayalam  or Malayalam v.2 , or both? I need support for both Windows and Mac OSX systems. I often find problems that vary between them. I have been trying to follow closely the specifications laid out in Microsoft's Opentype Specification manual: <a href="http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm" title="http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm" class="link-external">http://www.microsoft.com/typography/OpenTypeDev/malayalam/intro.htm</a></p>
     <p>Hopefully someone can point me in the right direction.</p>
     <p>Thanks in advance</p>
     <p>Jonny Pinhorn</p>
     <table id="attachments" class="sticky-enabled">
      <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
     <tbody>
-     <tr class="odd"><td><a href="/files/volt_errors.jpg">VOLT_errors.jpg</a></td><td>113.01 KB</td> </tr>
+     <tr class="odd"><td><a href="/files/volt_errors.jpg" class="link-kept">VOLT_errors.jpg</a></td><td>113.01 KB</td> </tr>
     </tbody>
     </table>
 comments:
@@ -112,7 +112,7 @@ comments:
       <p>2. For v.2 shaping, the input for the prescript rakar is<br>
       <code>mVirama mRa -&gt; mRakar</code><br>
       and this lookup must be associated with the {pref} feature. The layout engine knows to reorder the output of the {pref} feature to the beginning of the cluster.</p>
-      <p>3. You should only need to implement the Malayalam v.2 shaping and can ignore the older spec. The v.2 shaping is used in all versions of Windows from Vista on, and Malayalam is also one of the scripts for which Adobe's World Ready Composer implements the v.2 shaping, albeit with some bugs. [See <a href="/node/94543/" title="http://www.typophile.com/node/94543">http://www.typophile.com/node/94543</a> ]</p>
+      <p>3. You should only need to implement the Malayalam v.2 shaping and can ignore the older spec. The v.2 shaping is used in all versions of Windows from Vista on, and Malayalam is also one of the scripts for which Adobe's World Ready Composer implements the v.2 shaping, albeit with some bugs. [See <a href="/node/94543/" title="http://www.typophile.com/node/94543" class="link-kept">http://www.typophile.com/node/94543</a> ]</p>
       <p>Malayalam is the most difficult Indic script for which I've had to program in VOLT, not just because of the issues with the shaping engine and spec, but because the orthographic conventions of how Malayalam is written represent a subset of capabilities of the writing system. In modern Malayalam, conventional preference dictates that some conjuncts must be written with ligatures, some with subscripts, and some with explicit virama, while other are acceptable in more than one form. This means your VOLT programming needs to handle prioritisation of particular conjunct formation using contextual rules. So, for instance, when three letters occur in a conjunct, you need to know which two-letter portion of the conjunct takes preference as a ligature or subscript form and where an explicit virama should be.</p>
       <p>I'm afraid I don't have this information in a form that I can publicly share yet.</p>
   - id: 575874

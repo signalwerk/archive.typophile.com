@@ -50,7 +50,7 @@ post:
     <p>Below: A screen shot from Opera/OSX (Firefox/OSX is not working correctly yet).<br>
     </p><div class="imageWrap"><img src="http://typophile.com/files/ex_5129.png"></div><p></p>
   html_clean: |-
-    <p>I just came across <a class="freelinking external" href="http://www.bramstein.com/projects/typeset/" rel="nofollow">this</a>. It’s a really interesting idea. He use a javascript algorithm to manipulate the inter-word spacing.</p>
+    <p>I just came across <a class="freelinking external link-external" href="http://www.bramstein.com/projects/typeset/" rel="nofollow">this</a>. It’s a really interesting idea. He use a javascript algorithm to manipulate the inter-word spacing.</p>
     <p>Below: A screen shot from Opera/OSX (Firefox/OSX is not working correctly yet).<br>
     </p><div class="imageWrap"><img src="/files/ex_5129.png"></div><p></p>
 comments:
@@ -123,7 +123,7 @@ comments:
       <p>I ran into similar problems as those mentioned by Richard Fink. Wrapping each line in an element and setting the word spacing is fragile (at best) since there is no way to get reliable font metrics back from the browser. Print stylesheets would still need flexible widths as there are different paper sizes and orientations, all out of your control. That's the beauty of the web :)</p>
     html_clean: |-
       <p>Frode told me you were having an interesting discussion here about my line breaking implementation so I thought I would chime in. In my opinion justification should be done by the browser, preferably with some user defined properties. However, this won't be that much of an improvement until browsers also support hyphenation, which in turn requires them to know or detect the language of any given page. Even though those features won't be implemented any time soon, I believe that replacing the current text layout engines with a Knuth and Plass based algorithm would increase the quality of justification on the web. The Knuth and Plass line breaking algorithm guarantees results no worse than the naive implementation browsers currently use.</p>
-      <p>If I remember correctly, Internet Explorer exposes a <a href="http://msdn.microsoft.com/en-us/library/ms534671(VS.85).aspx" rel="nofollow">CSS property</a> that affects justification. There is also a proposal for a <a href="http://www.w3.org/TR/css3-text/#text-justify" rel="nofollow">CSS3 text-justify property</a>, but it seems they leave the actual justification algorithm up to the browser.</p>
+      <p>If I remember correctly, Internet Explorer exposes a <a href="http://msdn.microsoft.com/en-us/library/ms534671(VS.85).aspx" rel="nofollow" class="link-external">CSS property</a> that affects justification. There is also a proposal for a <a href="http://www.w3.org/TR/css3-text/#text-justify" rel="nofollow" class="link-external">CSS3 text-justify property</a>, but it seems they leave the actual justification algorithm up to the browser.</p>
       <p>I ran into similar problems as those mentioned by Richard Fink. Wrapping each line in an element and setting the word spacing is fragile (at best) since there is no way to get reliable font metrics back from the browser. Print stylesheets would still need flexible widths as there are different paper sizes and orientations, all out of your control. That's the beauty of the web :)</p>
   - id: 415590
     user: 21217
@@ -137,7 +137,7 @@ comments:
     html_clean: |-
       <p>@ Bram Stein</p>
       <p>Out of curiosity, how much overlap between your code and<br>
-      <a href="http://code.google.com/p/hyphenator/" title="http://code.google.com/p/hyphenator/">http://code.google.com/p/hyphenator/</a>, since hyphenation and justification are closely related, is it possible to combine both works?</p>
+      <a href="http://code.google.com/p/hyphenator/" title="http://code.google.com/p/hyphenator/" class="link-external">http://code.google.com/p/hyphenator/</a>, since hyphenation and justification are closely related, is it possible to combine both works?</p>
   - id: 415643
     user: 32120
     date: 2010-06-12T22:52:00
@@ -178,7 +178,7 @@ comments:
       rfink [..] readableweb.com or just post a comment to my blog, readableweb.com.</p>
       <p>It's going to be a long time until we see hyphenation dictionaries within browsers. Meanwhile, JavaScript engines have become very fast, and the performance hit is neglegible in comparison to network costs - the costs in time of gathering the resources. It takes far longer for the browser to layout the page and parse the CSS rules than interpret the JS.<br>
       Let me know. Thanks.</p>
-      <p><a href="http://readableweb.com" rel="nofollow">Rich</a></p>
+      <p><a href="http://readableweb.com" rel="nofollow" class="link-external">Rich</a></p>
   - id: 417455
     user: 66098
     date: 2010-06-25T05:45:00
@@ -199,15 +199,15 @@ comments:
     html_clean: |-
       <p>@Richard Fink</p>
       <p>Perhaps my statement about not releasing the code came out a bit weird. I'm not holding back any code for idealogical reasons. :) I merely made a proof-of-concept implementation but never actively promoted it because there are some limitations to it. I have now added the proof-of-concept to the Typeset page at:</p>
-      <p><a href="http://www.bramstein.com/projects/typeset/" title="http://www.bramstein.com/projects/typeset/">http://www.bramstein.com/projects/typeset/</a></p>
+      <p><a href="http://www.bramstein.com/projects/typeset/" title="http://www.bramstein.com/projects/typeset/" class="link-external">http://www.bramstein.com/projects/typeset/</a></p>
       <p>The code can be found on my Github page (browser-assist.js):</p>
-      <p><a href="http://github.com/bramstein/javascript/tree/master/src/typeset/" title="http://github.com/bramstein/javascript/tree/master/src/typeset/">http://github.com/bramstein/javascript/tree/master/src/typeset/</a></p>
+      <p><a href="http://github.com/bramstein/javascript/tree/master/src/typeset/" title="http://github.com/bramstein/javascript/tree/master/src/typeset/" class="link-external">http://github.com/bramstein/javascript/tree/master/src/typeset/</a></p>
       <p>What it does is split a paragraph into lines according to the line breaks found by the Knuth and Plass algorithm and then wraps each line in a span element with an individual CSS word-spacing attribute.</p>
       <p>The main problem with this approach---and the main reason I think this should be done in the browser---is floating elements (i.e. elements that affect the layout of the text.) A JavaScript implementation would need to measure the "shape" of the text before it can do line breaking. As far as I know there is no easy way to get this text "shape" back from a browser, you can only approximate it by trying to lay out text and see where line breaks happen.</p>
       <p>I'm still thinking about an efficient way of solving the above problem in JavaScript. If successful it would be possible to create a script that fixes both justification and hyphenation until browsers implement it natively.</p>
       <p>As an aside, someone (@lqd on Twitter) combined my Typeset code with hyphenator.js and sent me the following screenshots:<br>
-      * <a href="http://twitpic.com/1zdlh6" title="http://twitpic.com/1zdlh6">http://twitpic.com/1zdlh6</a><br>
-      * <a href="http://twitpic.com/1zdh4a" title="http://twitpic.com/1zdh4a">http://twitpic.com/1zdh4a</a></p>
+      * <a href="http://twitpic.com/1zdlh6" title="http://twitpic.com/1zdlh6" class="link-external">http://twitpic.com/1zdlh6</a><br>
+      * <a href="http://twitpic.com/1zdh4a" title="http://twitpic.com/1zdh4a" class="link-external">http://twitpic.com/1zdh4a</a></p>
   - id: 417504
     user: 44873
     date: 2010-06-25T11:19:00
@@ -260,7 +260,7 @@ comments:
       <p>See the "Assisted browser line breaks" section and below.</p>
       <p>@Richard Fink</p>
       <p>I had a go at a bit more serious implementation today:</p>
-      <p><a href="http://www.bramstein.com/projects/typeset/flatland/flatland.html" title="http://www.bramstein.com/projects/typeset/flatland/flatland.html">http://www.bramstein.com/projects/typeset/flatland/flatland.html</a></p>
+      <p><a href="http://www.bramstein.com/projects/typeset/flatland/flatland.html" title="http://www.bramstein.com/projects/typeset/flatland/flatland.html" class="link-external">http://www.bramstein.com/projects/typeset/flatland/flatland.html</a></p>
       <p>The page contains two texts: the one on the left is justified by your browser, the text on the right is justified by my implementation and hyphenated by Hyphenator.js. Canvas is not used. Both texts use fonts from Google's Font Directory. I have tested it in Firefox, Safari and Chrome, and all seem to work.</p>
       <p>There are some (small) problems but I think most of them can be worked out:<br>
       * Selection looks ugly (this is to workaround a bug in Webkit that ignores subpixel word-spacing)<br>
@@ -435,7 +435,7 @@ comments:
     html_clean: |-
       <p>@Theunis de Jong</p>
       <p>This presentation (given tomorrow) seems relevant:<br>
-      <a href="http://tug.org/tug2010/abstracts/rundell.txt" title="http://tug.org/tug2010/abstracts/rundell.txt">http://tug.org/tug2010/abstracts/rundell.txt</a></p>
+      <a href="http://tug.org/tug2010/abstracts/rundell.txt" title="http://tug.org/tug2010/abstracts/rundell.txt" class="link-external">http://tug.org/tug2010/abstracts/rundell.txt</a></p>
       <p>I'll keep an eye on it and see if I can get my hands on a copy.</p>
   - id: 418005
     user: 29994
@@ -535,7 +535,7 @@ comments:
       <p>I don't know if there are any implementations of this already (Prince? Antenna House?) but it would interesting to hear opinions as to whether these properties cover the desired functionality.  The hyphenation resource property is interesting, it avoids the problem of how to cover a wide set of languages.  Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
     html_clean: |-
       <p>One thing to note here, hyphenation controls are included in the Editor's Draft of the CSS3 Paged Media spec:</p>
-      <p>  <a href="http://dev.w3.org/csswg/css3-gcpm/#hyphenation" title="http://dev.w3.org/csswg/css3-gcpm/#hyphenation">http://dev.w3.org/csswg/css3-gcpm/#hyphenation</a></p>
+      <p>  <a href="http://dev.w3.org/csswg/css3-gcpm/#hyphenation" title="http://dev.w3.org/csswg/css3-gcpm/#hyphenation" class="link-external">http://dev.w3.org/csswg/css3-gcpm/#hyphenation</a></p>
       <p>I don't know if there are any implementations of this already (Prince? Antenna House?) but it would interesting to hear opinions as to whether these properties cover the desired functionality.  The hyphenation resource property is interesting, it avoids the problem of how to cover a wide set of languages.  Seems like it might be good to include 'auto' in there, to pick up system dictionary resources if available.</p>
   - id: 418671
     user: 44873
@@ -566,7 +566,7 @@ comments:
       I do think Prince supports H&amp;J but not sure how they're implementing it.<br>
       Must look.</p>
       <p>@bram stein, frode, theunis, et al:</p>
-      <p>Here's a crude and <a href="http://readableweb.com/justify/Conrad_Heart_chap1.htm" rel="nofollow">basic page</a>, but with pretty decent H&amp;J, I think.<br>
+      <p>Here's a crude and <a href="http://readableweb.com/justify/Conrad_Heart_chap1.htm" rel="nofollow" class="link-external">basic page</a>, but with pretty decent H&amp;J, I think.<br>
       Using a font stack of constantia, georgia, serif.<br>
       It's the first chapter of Joseph Conrad's Heart Of Darkness.<br>
       Looking good in Chrome, FF, IE, Opera, Safari.<br>
@@ -680,10 +680,10 @@ comments:
       <p>(a) When I started the hyphenator.js-project I wasn't sure if it is right to do such things in Javascript. In my opinion this definitely should be done by the browser. But the parts of the CSS3-Specification treating hyphenation haven't changed for a long time and there seems not to be much work on it currently. So I thought it would be nice to have this 'crutch'. And I hope that it is used and that the demand for a native solution grows with it. I think that Bram Steins excellent work tends to create the same demand.<br>
       And if there are some browsers supporting hyphenation and/or hq linebreaking it's great to have this 'crutches' for the others in the meantime.</p>
       <p>(b) As every JS-library guy, I'm struggling with browser flaws an inconsistencies. It's often hard to decide, if I should wait for the browser to fix it or if I should do a hack to work around it.<br>
-      The issue with copy and paste is just one example. BTW: it's fixed. Thanks to <a class="freelinking external" href="http://github.com/aristus/sweet-justice" rel="nofollow">sweet-justice</a><br>
+      The issue with copy and paste is just one example. BTW: it's fixed. Thanks to <a class="freelinking external link-external" href="http://github.com/aristus/sweet-justice" rel="nofollow">sweet-justice</a><br>
       @Richard Fink: it's the same approach you made. We did some double work here. Are there more such nice things to come?</p>
       <p>(c) Many people are asking for new features. Meanwhile I'm trying to hold the library as small as possible and for most requests there are two answers: 'it's already in there' or 'it shouldn't be in there'.<br>
-      Having a selector engine to select elements to be hyphenated is one of it. In hyphenator.js one can redefine the <a class="freelinking external" href="http://code.google.com/p/hyphenator/wiki/en_PublicAPI#property_selectorfunction" rel="nofollow">'selectorfunction'</a> so it's not necessary to include an engine that has to be loaded twice if there are other libs that use it.</p>
+      Having a selector engine to select elements to be hyphenated is one of it. In hyphenator.js one can redefine the <a class="freelinking external link-external" href="http://code.google.com/p/hyphenator/wiki/en_PublicAPI#property_selectorfunction" rel="nofollow">'selectorfunction'</a> so it's not necessary to include an engine that has to be loaded twice if there are other libs that use it.</p>
       <p>(d) I did a lot of investigation about how to avoid the 'shotgun method' (nice wording, though;-). The problem is that changing the DOM is very expensive and measuring lines and getting hints about where the line is broken means inserting a lot of spans (and re-doing the whole process upon resizings). So the actual method is ugly but turned out to be very effective.</p>
       <p>Greetings from Switzerland,<br>
       Mathias</p>
@@ -747,7 +747,7 @@ comments:
       <a href="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" title="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home">http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</a></p>
     html_clean: |-
       <p>&gt;Hyphenator.js as a jQuery plug-in perhaps?<br>
-      <a href="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" title="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home">http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</a></p>
+      <a href="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" title="http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home" class="link-external">http://bitbucket.org/webvariants/jquery-hyphenator/wiki/Home</a></p>
   - id: 419200
     user: 44873
     date: 2010-07-07T16:03:00
@@ -778,10 +778,10 @@ comments:
       (I don't know about anybody else, but I find it easier to read a scrolling document if I can push it up slowly with my mouse acting like a finger on a touchscreen. Like you can do in a PDF. Makes it easier to keep my place in the text.)</p>
       <p>I also found out just today that the epub format can be unpacked, the individual files posted on a web server, and read by a javascript library.</p>
       <p>This is all getting more and more interesting.<br>
-      Being done <a href="http://threepress.org/static/epubjs/" rel="nofollow">here</a> with <a href="http://blog.threepress.org/2009/02/09/introducing-epubjs/" rel="nofollow">epubjs</a>.</p>
+      Being done <a href="http://threepress.org/static/epubjs/" rel="nofollow" class="link-external">here</a> with <a href="http://blog.threepress.org/2009/02/09/introducing-epubjs/" rel="nofollow" class="link-external">epubjs</a>.</p>
       <p>Now, I don't think anybody's incorporated hyphenator.js into *that* yet.</p>
       <p>Here's more info, it seems there are some other ePub javascript readers, too:<br>
-      <a href="http://ajaxian.com/by/topic/ebooks" title="http://ajaxian.com/by/topic/ebooks">http://ajaxian.com/by/topic/ebooks</a></p>
+      <a href="http://ajaxian.com/by/topic/ebooks" title="http://ajaxian.com/by/topic/ebooks" class="link-external">http://ajaxian.com/by/topic/ebooks</a></p>
       <p>I'm going to start writing my article in earnest now, and shine a light on all this stuff.<br>
       I'll email you and come back here, too.</p>
       <p>@frode<br>
@@ -871,7 +871,7 @@ comments:
     html_clean: |-
       <p>Back already - just got twittered with a link to an interesting page.<br>
       Needs hyphenation, though!</p>
-      <p><a href="http://lamb.cc/typograph/" title="http://lamb.cc/typograph/">http://lamb.cc/typograph/</a></p>
+      <p><a href="http://lamb.cc/typograph/" title="http://lamb.cc/typograph/" class="link-external">http://lamb.cc/typograph/</a></p>
       <p>rich</p>
   - id: 419435
     user: 67893
@@ -883,7 +883,7 @@ comments:
       It merges core patterns and settings in one single file and packs it. It's really easy to handle but on most sites the source version is used. People don't read the how-to's:-)</p>
       <p>Those upcoming features (webstorage) are great. I'm planing to use webworkers, too. Already did some work, but it was too early. The time has come now…</p>
     html_clean: |-
-      <p>There's a tool called mergeAndPack in the bundle (<a href="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html" title="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html">http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html</a>)<br>
+      <p>There's a tool called mergeAndPack in the bundle (<a href="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html" title="http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html" class="link-external">http://hyphenator.googlecode.com/svn/trunk/mergeAndPack.html</a>)<br>
       It merges core patterns and settings in one single file and packs it. It's really easy to handle but on most sites the source version is used. People don't read the how-to's:-)</p>
       <p>Those upcoming features (webstorage) are great. I'm planing to use webworkers, too. Already did some work, but it was too early. The time has come now…</p>
   - id: 419521
@@ -944,7 +944,7 @@ comments:
       <p>For those interested, I've fixed some of the bugs that were mentioned here before and created a new example: <a href="http://www.bramstein.com/projects/typeset/flatland/" title="http://www.bramstein.com/projects/typeset/flatland/">http://www.bramstein.com/projects/typeset/flatland/</a></p>
       <p>It doesn't use external fonts so it is pretty fast (and in my measurements about twice as expensive as hyphenation.)</p>
     html_clean: |-
-      <p>For those interested, I've fixed some of the bugs that were mentioned here before and created a new example: <a href="http://www.bramstein.com/projects/typeset/flatland/" title="http://www.bramstein.com/projects/typeset/flatland/">http://www.bramstein.com/projects/typeset/flatland/</a></p>
+      <p>For those interested, I've fixed some of the bugs that were mentioned here before and created a new example: <a href="http://www.bramstein.com/projects/typeset/flatland/" title="http://www.bramstein.com/projects/typeset/flatland/" class="link-external">http://www.bramstein.com/projects/typeset/flatland/</a></p>
       <p>It doesn't use external fonts so it is pretty fast (and in my measurements about twice as expensive as hyphenation.)</p>
   - id: 422280
     user: 1262

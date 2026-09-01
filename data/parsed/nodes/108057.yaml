@@ -55,12 +55,12 @@ post:
     <p>Any ideas what else I could try?</p>
   html_clean: |-
     <p>This is my first post here and I'm still wet behind the ears when it comes much of the tech details of creating a font, so please excuse my noobness.</p>
-    <p>I've created <a class="freelinking external" href="http://pixelambacht.nl/2013/font-face-render-check/" rel="nofollow">a little check to see if <code>font-face</code> is supported</a> by a browser. For this I created a TTF file that contains one single glyph, which metrics I check with JavaScript to confirm it actually rendered. I created this font as follows:</p>
+    <p>I've created <a class="freelinking external link-external" href="http://pixelambacht.nl/2013/font-face-render-check/" rel="nofollow">a little check to see if <code>font-face</code> is supported</a> by a browser. For this I created a TTF file that contains one single glyph, which metrics I check with JavaScript to confirm it actually rendered. I created this font as follows:</p>
     <ol>
-    <li>I drew the glyp (a very wide rectangle) and created a one-glyph font with <a class="freelinking external" href="http://icomoon.io/" rel="nofollow">the Icomoon icon font application</a></li>
+    <li>I drew the glyp (a very wide rectangle) and created a one-glyph font with <a class="freelinking external link-external" href="http://icomoon.io/" rel="nofollow">the Icomoon icon font application</a></li>
     <li>I stripped all metadata (or reduced mandatory metadata to a single character) using a free tool called TTFEdit</li>
     </ol>
-    <p><a href="/wiki/https%3A/%252Fgithub.com/RoelN/font-face-render-check/tree/master/dev" class="freelinking" rel="nofollow">This results in a TTF file of just 836 bytes.</a> I was wondering if I could bring the file size down any further.</p>
+    <p><a href="/wiki/https%3A/%252Fgithub.com/RoelN/font-face-render-check/tree/master/dev" class="freelinking link-lost" rel="nofollow">This results in a TTF file of just 836 bytes.</a> I was wondering if I could bring the file size down any further.</p>
     <p>I tried the following:</p>
     <ol>
     <li>Set the glyph to the space character (as this is a mandatory "glyph" in the Icomoon tool, so it technically contains two glyps together with my custom one). But is seems Windows (or at least Chrome on Windows) doesn't allow for this and shows an empty space instead of the glyph you put in your font</li>
@@ -87,7 +87,7 @@ comments:
     date_raw: 7 Jan 2014 — 4:18am
     votes: null
     html: <p>You could look at Mike Kamermans' attempt to do something very similar. His attempt is documented on the page, <a class="freelinking external" href="http://processingjs.nihongoresources.com/the_smallest_font/" rel="nofollow">The Smallest Font</a>.</p>
-    html_clean: <p>You could look at Mike Kamermans' attempt to do something very similar. His attempt is documented on the page, <a class="freelinking external" href="http://processingjs.nihongoresources.com/the_smallest_font/" rel="nofollow">The Smallest Font</a>.</p>
+    html_clean: <p>You could look at Mike Kamermans' attempt to do something very similar. His attempt is documented on the page, <a class="freelinking external link-external" href="http://processingjs.nihongoresources.com/the_smallest_font/" rel="nofollow">The Smallest Font</a>.</p>
   - id: 568780
     user: 216292
     date: 2014-01-07T04:52:00
@@ -112,12 +112,12 @@ comments:
       <p>By changing all this I got the TTF size down to 572 bytes. I haven’t done any tests if this will break the font, but I think it shouldn’t.</p>
       <p>→ <a href="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb" title="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb">https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f...</a></p>
     html_clean: |-
-      <p>For editing fonts on a code level, I use the <a href="https://github.com/behdad/fonttools/" rel="nofollow">Python fontTools</a>.</p>
+      <p>For editing fonts on a code level, I use the <a href="https://github.com/behdad/fonttools/" rel="nofollow" class="link-external">Python fontTools</a>.</p>
       <p>By stripping out the TrueType instructions, empty name records and Mac cmap, and deleting the gasp table you can save some more size.</p>
-      <p>A few bytes can be shaved off by using an <a href="http://www.microsoft.com/typography/otspec/os2ver1.htm" rel="nofollow">OS/2 table version 1</a> instead of <a href="http://www.microsoft.com/typography/otspec/os2.htm" rel="nofollow">version 3</a>, which is a little bit shorter.</p>
+      <p>A few bytes can be shaved off by using an <a href="http://www.microsoft.com/typography/otspec/os2ver1.htm" rel="nofollow" class="link-external">OS/2 table version 1</a> instead of <a href="http://www.microsoft.com/typography/otspec/os2.htm" rel="nofollow" class="link-external">version 3</a>, which is a little bit shorter.</p>
       <p>The glyphs can be made smaller too, actually as they are now they are invalid. The space should contain no contour, and the last point in the hyphen glyph is a duplicate of the first one.</p>
       <p>By changing all this I got the TTF size down to 572 bytes. I haven’t done any tests if this will break the font, but I think it shouldn’t.</p>
-      <p>→ <a href="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb" title="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb">https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f...</a></p>
+      <p>→ <a href="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb" title="https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f2b4eb7b3fa692adf3061e80bdb" class="link-external">https://github.com/fsi-jens/font-face-render-check/commit/ac8b7dbd68813f...</a></p>
   - id: 568785
     user: 21687
     date: 2014-01-07T05:39:00
@@ -142,7 +142,7 @@ comments:
       <p><a href="https://github.com/fsi-jens/font-face-render-check/tree/master/dev" title="https://github.com/fsi-jens/font-face-render-check/tree/master/dev">https://github.com/fsi-jens/font-face-render-check/tree/master/dev</a></p>
     html_clean: |-
       <p>Oops, it looks like fontTools «optimize» away the glyf table when there are only glyphs without contours ... I committed a bugfix with a contour in the hyphen glyf, but a upm size of 16. → 568 bytes TTF, 528 bytes WOFF</p>
-      <p><a href="https://github.com/fsi-jens/font-face-render-check/tree/master/dev" title="https://github.com/fsi-jens/font-face-render-check/tree/master/dev">https://github.com/fsi-jens/font-face-render-check/tree/master/dev</a></p>
+      <p><a href="https://github.com/fsi-jens/font-face-render-check/tree/master/dev" title="https://github.com/fsi-jens/font-face-render-check/tree/master/dev" class="link-external">https://github.com/fsi-jens/font-face-render-check/tree/master/dev</a></p>
   - id: 568904
     user: 216292
     date: 2014-01-09T02:35:00
@@ -167,8 +167,8 @@ comments:
       <p>Mike Kamermans’ findings are enjoyable indeed. You can see his effort put into practice in the <a class="freelinking external" href="http://github.com/Pomax/Font.js" rel="nofollow">Font.js</a> library he wrote.</p>
       <p>I made a similar attempt but with TrueType on OS X. It’s called <a class="freelinking external" href="http://github.com/grzegorzrolek/null-ttf" rel="nofollow">Null.ttf</a>, weights 428 bytes, and still validates in Font Book.  It’s made with OS X Font Tools and the source files are commented word by word with all the hacks employed. It was meant as a base binary to build on with the Font Tools themselves, because they don’t create a font binary from scratch, only put into or take out stuff of an existing font file.</p>
     html_clean: |-
-      <p>Mike Kamermans’ findings are enjoyable indeed. You can see his effort put into practice in the <a class="freelinking external" href="http://github.com/Pomax/Font.js" rel="nofollow">Font.js</a> library he wrote.</p>
-      <p>I made a similar attempt but with TrueType on OS X. It’s called <a class="freelinking external" href="http://github.com/grzegorzrolek/null-ttf" rel="nofollow">Null.ttf</a>, weights 428 bytes, and still validates in Font Book.  It’s made with OS X Font Tools and the source files are commented word by word with all the hacks employed. It was meant as a base binary to build on with the Font Tools themselves, because they don’t create a font binary from scratch, only put into or take out stuff of an existing font file.</p>
+      <p>Mike Kamermans’ findings are enjoyable indeed. You can see his effort put into practice in the <a class="freelinking external link-external" href="http://github.com/Pomax/Font.js" rel="nofollow">Font.js</a> library he wrote.</p>
+      <p>I made a similar attempt but with TrueType on OS X. It’s called <a class="freelinking external link-external" href="http://github.com/grzegorzrolek/null-ttf" rel="nofollow">Null.ttf</a>, weights 428 bytes, and still validates in Font Book.  It’s made with OS X Font Tools and the source files are commented word by word with all the hacks employed. It was meant as a base binary to build on with the Font Tools themselves, because they don’t create a font binary from scratch, only put into or take out stuff of an existing font file.</p>
   - id: 569321
     user: 216292
     date: 2014-01-15T04:07:00
@@ -199,7 +199,7 @@ comments:
       <p>I applied a few ttx-breaking, but OTF-legal hacks, with the resultant font being 528 bytes</p>
       <p>edit: I did not see someone else already linked to it, sorry for the double post =P</p>
     html_clean: |-
-      <p>I did a similar experiment a while back for some embedded test-font work, with the write-up on it over at <a href="http://processingjs.nihongoresources.com/the_smallest_font" title="http://processingjs.nihongoresources.com/the_smallest_font">http://processingjs.nihongoresources.com/the_smallest_font</a></p>
+      <p>I did a similar experiment a while back for some embedded test-font work, with the write-up on it over at <a href="http://processingjs.nihongoresources.com/the_smallest_font" title="http://processingjs.nihongoresources.com/the_smallest_font" class="link-external">http://processingjs.nihongoresources.com/the_smallest_font</a></p>
       <p>I applied a few ttx-breaking, but OTF-legal hacks, with the resultant font being 528 bytes</p>
       <p>edit: I did not see someone else already linked to it, sorry for the double post =P</p>
   - id: 569574
@@ -229,7 +229,7 @@ comments:
       0x0000 0x0000 Rest of the subtable</code></pre><p>
       This produces no complains both from Font Book and the Font Tools on OS X. It’s also completely valid as far as the spec is concerned. I’m curious how such backward-pointing offsets behave on other platforms as well if anyone is willing to do some experiments. Hand crafting in hex will be necessary, I suppose, as higher-level font assemblers normally don’t do this.</p>
     html_clean: |-
-      <p>I’ve managed to cut 4 bytes from the cmap table down to a total of 16 with <a class="freelinking external" href="http://github.com/grzegorzrolek/null-ttf/commit/1067c65803cc55bc6a0fdd85935acf984f410676" rel="nofollow">this little dirty hack of overlaid entries</a>. Here’s how it goes.</p>
+      <p>I’ve managed to cut 4 bytes from the cmap table down to a total of 16 with <a class="freelinking external link-external" href="http://github.com/grzegorzrolek/null-ttf/commit/1067c65803cc55bc6a0fdd85935acf984f410676" rel="nofollow">this little dirty hack of overlaid entries</a>. Here’s how it goes.</p>
       <p>If the only subtable is a subtable format zero and it has a length of 8 bytes (that’s the minimum on OS X at least), you get the whole cmap table as follows:</p>
       <pre><code>0x0000 0x0001 Version, no. of subtables
       0x0000 0x0000 Platform, encoding
@@ -254,7 +254,7 @@ comments:
     html_clean: |-
       <p>The fonts made by Pomax and Jens Kutilek are both rejected by Windows.</p>
       <p>The smallest font I could make with FontCreator which is still accepted by Windows is 552 bytes. Excluding the OS/2 and post tables could further reduce the size to 442, and Windows would still be happy with it, but I wouldn't go that far.</p>
-      <p><a href="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795" title="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795">http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795</a></p>
+      <p><a href="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795" title="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795" class="link-external">http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795</a></p>
   - id: 571448
     user: 62738
     date: 2014-02-15T11:30:00
@@ -319,7 +319,7 @@ comments:
       <p>Based on feedback from this discussion I've now further reduced the <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795&amp;p=21025#p21025" rel="nofollow">font file size to 544 bytes</a>.</p>
     html_clean: |-
       <p>I suspect most validators assume you can't have a valid font if it contains overlapping font tables (or encapsulating tables), because with "normal usage" this is true, and it allows them to quickly filter bad/corrupt fonts before continuing with more advanced checks.</p>
-      <p>Based on feedback from this discussion I've now further reduced the <a class="freelinking external" href="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795&amp;p=21025#p21025" rel="nofollow">font file size to 544 bytes</a>.</p>
+      <p>Based on feedback from this discussion I've now further reduced the <a class="freelinking external link-external" href="http://forum.high-logic.com/viewtopic.php?f=16&amp;t=4795&amp;p=21025#p21025" rel="nofollow">font file size to 544 bytes</a>.</p>
   - id: 571576
     user: 21687
     date: 2014-02-17T06:59:00
@@ -330,14 +330,14 @@ comments:
       <p>Hm ... my latest file (<a href="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf" title="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf">https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixel...</a>) is installable at least in my Windows 7 machine.</p>
     html_clean: |-
       <blockquote><p>The fonts made by Pomax and Jens Kutilek are both rejected by Windows.</p></blockquote>
-      <p>Hm ... my latest file (<a href="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf" title="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf">https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixel...</a>) is installable at least in my Windows 7 machine.</p>
+      <p>Hm ... my latest file (<a href="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf" title="https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixelambacht-dash.ttf" class="link-external">https://github.com/fsi-jens/font-face-render-check/blob/master/dev/pixel...</a>) is installable at least in my Windows 7 machine.</p>
   - id: 571582
     user: 62738
     date: 2014-02-17T07:55:00
     date_raw: 17 Feb 2014 — 7:55am
     votes: null
     html: <p>Another interesting take on the minimal font is one by Behdad Esfahbod, where he took the tofu detector font and made it universal for all of unicode by using a format 13 cmap subtable, over at <a href="https://github.com/behdad/tofudetector" title="https://github.com/behdad/tofudetector">https://github.com/behdad/tofudetector</a> -- it's something I've been wanting to do since Adobe announced the "blank" font, but never got round to, and at 332 bytes, is impressively tiny for the power it has!</p>
-    html_clean: <p>Another interesting take on the minimal font is one by Behdad Esfahbod, where he took the tofu detector font and made it universal for all of unicode by using a format 13 cmap subtable, over at <a href="https://github.com/behdad/tofudetector" title="https://github.com/behdad/tofudetector">https://github.com/behdad/tofudetector</a> -- it's something I've been wanting to do since Adobe announced the "blank" font, but never got round to, and at 332 bytes, is impressively tiny for the power it has!</p>
+    html_clean: <p>Another interesting take on the minimal font is one by Behdad Esfahbod, where he took the tofu detector font and made it universal for all of unicode by using a format 13 cmap subtable, over at <a href="https://github.com/behdad/tofudetector" title="https://github.com/behdad/tofudetector" class="link-external">https://github.com/behdad/tofudetector</a> -- it's something I've been wanting to do since Adobe announced the "blank" font, but never got round to, and at 332 bytes, is impressively tiny for the power it has!</p>
   - id: 571636
     user: 21309
     date: 2014-02-18T02:33:00
@@ -386,4 +386,4 @@ comments:
     date_raw: 26 Feb 2014 — 4:49am
     votes: null
     html: '<p>Just in case this is useful for someone else: when I was testing for my article <a class="freelinking external" href="http://pixelambacht.nl/2014/multicolor-icons/" rel="nofollow">Super semantic multicolor font icons in pure CSS</a> I came across <a class="freelinking external" href="http://browsershots.org/" rel="nofollow">Browsershots</a>. If you create a simple HTML/CSS for your font, you can check all kinds of browsers (and OSes) to see if the font rendered.</p>'
-    html_clean: '<p>Just in case this is useful for someone else: when I was testing for my article <a class="freelinking external" href="http://pixelambacht.nl/2014/multicolor-icons/" rel="nofollow">Super semantic multicolor font icons in pure CSS</a> I came across <a class="freelinking external" href="http://browsershots.org/" rel="nofollow">Browsershots</a>. If you create a simple HTML/CSS for your font, you can check all kinds of browsers (and OSes) to see if the font rendered.</p>'
+    html_clean: '<p>Just in case this is useful for someone else: when I was testing for my article <a class="freelinking external link-external" href="http://pixelambacht.nl/2014/multicolor-icons/" rel="nofollow">Super semantic multicolor font icons in pure CSS</a> I came across <a class="freelinking external link-external" href="http://browsershots.org/" rel="nofollow">Browsershots</a>. If you create a simple HTML/CSS for your font, you can check all kinds of browsers (and OSes) to see if the font rendered.</p>'

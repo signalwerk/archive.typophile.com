@@ -54,8 +54,8 @@ post:
     <p>I had a closer technical look at AdobeDevanagari-Regular.otf, version 1.105 (2011), and here are my findings:</p>
     <p>1. The Latin diacritics required for transliterating Indic (Hindi, Sanskrit, etc.) texts is incomplete. The diacritic for "sh" (both lowercase and uppercase), very frequently used in Indic words, e.g. in Shiva etc., is missing.</p>
     <p>2. Many frequently used ligatures are missing, even ligatures which have a frequency of much more than 0.01 %, e.g. "ddhv" (frequency 0.215 %).</p>
-    <p>For details see <a href="http://www.sanskritweb.net/itrans/adobe-ligatures.pdf" title="http://www.sanskritweb.net/itrans/adobe-ligatures.pdf">http://www.sanskritweb.net/itrans/adobe-ligatures.pdf</a></p>
-    <p>For comparison see <a href="http://www.sanskritweb.net/itrans/itmanual2003.pdf" title="http://www.sanskritweb.net/itrans/itmanual2003.pdf">http://www.sanskritweb.net/itrans/itmanual2003.pdf</a> (page 29 seq.)</p>
+    <p>For details see <a href="http://www.sanskritweb.net/itrans/adobe-ligatures.pdf" title="http://www.sanskritweb.net/itrans/adobe-ligatures.pdf" class="link-external">http://www.sanskritweb.net/itrans/adobe-ligatures.pdf</a></p>
+    <p>For comparison see <a href="http://www.sanskritweb.net/itrans/itmanual2003.pdf" title="http://www.sanskritweb.net/itrans/itmanual2003.pdf" class="link-external">http://www.sanskritweb.net/itrans/itmanual2003.pdf</a> (page 29 seq.)</p>
     <p>3. The Adobe Devanagari font does not work with older Windows and older Word.</p>
     <p>For example, Adobe Devanagari does not work with old Microsoft Word, version 10, in conjunction with Windows XP.</p>
     <p>For comparison, Mangal and all the other Devanagari Unicode fonts known to me work with older Word and older Windows, provided the Uniscribe system library for foreign language support was installed with Windows.</p>
@@ -85,8 +85,8 @@ comments:
       Don't replace ङ् with an ं in the middle of word as in Hindi, use like this शङ्कर not शंकर
       </p></blockquote>
     html_clean: |-
-      <p><cite>Tremel's list makes more sense to me, based on his sources, although this too contains some loan words and, importantly in terms of glyph set design, includes large numbers of conjuncts that almost all Hindi writers would instead write with anusvara, e.g. संख्या instead of सङ्ख्या.</cite>&nbsp;&nbsp; [John Hudson][<a href="/node/95460/#comment-519363" rel="nofollow">comment</a>]</p>
-      <p>Here is a note concerning <a href="http://ne.wikipedia.org/wiki/वार्तालाप:मुख्य_पृष्ठ#Writing_Standard_for_Nepali_Wikipedia" rel="nofollow">writing standards for Nepali Wikipedia</a>:</p>
+      <p><cite>Tremel's list makes more sense to me, based on his sources, although this too contains some loan words and, importantly in terms of glyph set design, includes large numbers of conjuncts that almost all Hindi writers would instead write with anusvara, e.g. संख्या instead of सङ्ख्या.</cite>&nbsp;&nbsp; [John Hudson][<a href="/node/95460/#comment-519363" rel="nofollow" class="link-kept">comment</a>]</p>
+      <p>Here is a note concerning <a href="http://ne.wikipedia.org/wiki/वार्तालाप:मुख्य_पृष्ठ#Writing_Standard_for_Nepali_Wikipedia" rel="nofollow" class="link-external">writing standards for Nepali Wikipedia</a>:</p>
       <blockquote><p>
       Don't replace ङ् with an ं in the middle of word as in Hindi, use like this शङ्कर not शंकर
       </p></blockquote>
@@ -120,10 +120,10 @@ comments:
       <p></p><div class="imageWrap"><img src="http://typophile.com/files/devlig_6501.png"></div><br>
       Michel<p></p>
     html_clean: |-
-      <p>I had forgotten that the LaTeX Devanagari (<code>devnag</code> package) (<a href="http://mirror.ctan.org/language/devanagari/velthuis/doc/generic/velthuis/manual.pdf" rel="nofollow">pdf</a> manual) not only handles differently ligatures in Sanskrit and Hindi but provides three choices through the directives <code>@sanskrit</code>, <code>@hindi</code> and <code>@modernhindi</code>. Here is what the manual says about the directive <code>@hindi</code><br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/hindi-directive_3685.png"></div><br>
+      <p>I had forgotten that the LaTeX Devanagari (<code>devnag</code> package) (<a href="http://mirror.ctan.org/language/devanagari/velthuis/doc/generic/velthuis/manual.pdf" rel="nofollow" class="link-external">pdf</a> manual) not only handles differently ligatures in Sanskrit and Hindi but provides three choices through the directives <code>@sanskrit</code>, <code>@hindi</code> and <code>@modernhindi</code>. Here is what the manual says about the directive <code>@hindi</code><br>
+      </p><div class="imageWrap"><img src="/files/hindi-directive_3685.png"></div><br>
       With <code>@modernhindi</code> there are fewer Sanskrit-style ligatures. Here is a grab from a relevant table where figures the conjunct <code>.dg</code>.<p></p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/devlig_6501.png"></div><br>
+      <p></p><div class="imageWrap"><img src="/files/devlig_6501.png"></div><br>
       Michel<p></p>
   - id: 519719
     user: 1262
@@ -163,7 +163,7 @@ comments:
     html_clean: |-
       <p>Yes, some conjuncts can be created from sequences of so-called half forms, and the OpenType Layout model for Devanagari enables this. [Unicode also provides a control character mechanism to force half forms if supported by the font; this can be used to override vertical conjuncts with horizontal layout.] If the sequences of half form(s) and full form are carefully kerned in the font, the result can be really quite acceptable. Quite a lot of rare conjuncts are displayed in this way with the Adobe Devanagari fonts, and one can't easily tell from the resulting typeform that one is looking at a half form sequence instead of a ligature (until, that is, one enters an ikar after them, because the variant width ikar selection currently only works with ligatures).</p>
       <p>Now, all that said, in some conjuncts, especially wide ones, a subtle reduction in the width of the component letters is desirable, and then in some cases modification of stroke weights to maintain an even colour on the page. Or some form of optical  correction of overlapping segments might be desirable. So half form sequences are not always the way to go.</p>
-      <p>[As noted in this <a href="http://typophile.com/node/95785#comment-520041" rel="nofollow">other thread</a>, the Linotype hot metal composing method formed many individual letters from combinations of half form and long a vowel sign.]</p>
+      <p>[As noted in this <a href="http://typophile.com/node/95785#comment-520041" rel="nofollow" class="link-lost">other thread</a>, the Linotype hot metal composing method formed many individual letters from combinations of half form and long a vowel sign.]</p>
   - id: 521072
     user: 11274
     date: 2012-09-04T07:12:00
@@ -179,7 +179,7 @@ comments:
       <p>quadibloc:</p>
       <p><cite>"This suggests that the total number of glyphs required for supporting a large selection of ligatures could be significantly reduced by composing these types of ligatures from their component parts."</cite></p>
       <p>It is possible to make a highly professional Devanagari font consisting mainly of half-forms. The Rigveda edition by Prof. R. L. Kashyap and Prof. S. Sadagopan published in printed book form in 1998 and also downloadable at my website as PDF files was typeset using such a two-halves font. See here</p>
-      <p><a href="http://www.sanskritweb.net/rigveda" title="http://www.sanskritweb.net/rigveda">http://www.sanskritweb.net/rigveda</a></p>
+      <p><a href="http://www.sanskritweb.net/rigveda" title="http://www.sanskritweb.net/rigveda" class="link-external">http://www.sanskritweb.net/rigveda</a></p>
       <p>Such a two-halves font requires extremely meticulous planning, though.</p>
   - id: 521078
     user: 1262
@@ -386,21 +386,21 @@ comments:
       <p>In my comprehensive book <strong>"Conjuncts Consonants in Sanskrit"</strong>, which is an unpublished work according to German Copyright Law and according to the Revised Berne Convention and which I cannot yet make available to others prior to publication, I wrote this on the invented ligature "bn":</p>
       <p><cite>"Charles Wilkins (1808), Alix Desgranges (1845), M.R. Kale (1894), Richard Fick (1922), A.A. MacDonell (1926), H.M. Lambert (1953), Michael Coulson (1973) and Madhav M. Deshpande (1997) invented the conjunct consonant "bn". If "bn" were no invention, then a Sanskrit word would exist containing "bn". But there does not exist any such Sanskrit word. Therefore "bn" has been invented. Yet "bn" could occur in a foreign-language word, e.g. in "abnormal", inserted into Neo-Sanskrit texts. But serious scientific research on Sanskrit conjunct consonants must dismiss such "abnormalities"."</cite></p>
       <p>If you search for "bn" in the huge Sanskrit dictionary file</p>
-      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="http://www.sanskritweb.net/sansdocs/reverse1.pdf">http://www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="http://www.sanskritweb.net/sansdocs/reverse1.pdf" class="link-external">http://www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
       <p>you will not find any Sanskrit words containing "bn"</p>
       <p>Since Sanskrit words with "bn" are non-existant, it does not make much sense to design the ligature "bn" for a Sanskrit font, because this ligature will never be used on account of the fact that Sanskrit words with "bn" do not exist.</p>
       <p>More than 300 of the approx. 1000 conjunct consonants, i.e. roughly 30% of the collection by Agenbroad, are entirely fictitious, <strong>as far as Sanskrit is concerned</strong>. </p>
       <p>Some of these 300 ligatures compiled by Mr. Agenbroad may occur in foreign-language loan words in Hindi and Marathi texts, but they definitely do not occur in ancient Sanskrit texts. That is for sure.</p>
       <p>In the funny book "Spoken Sanskrit" edited by S. S. Janaki and published by the Kuppuswami Sastri Research Institute in 1990, you will find a fictitious Sanskrit report on a tennis match at Wimbledon between Björn Borg and John McEnroe.</p>
       <p>For typesetting the name "Wimbledon" in Devanagari, you could invent the ligature "mbl", and in fact, this invented ligature is contained in the Agenbroad collection and also contained in the book by Mariano Rampolla del Tindaro, Lingua Sanscrita, Romae 1936. But this does not mean that this entirely fictitious ligature "mbl" will ever be required for typesetting an ancient Sanskrit text, since there never existed a Sanskrit word containing "mbl". This is a fact which you can check yourself here:</p>
-      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="www.sanskritweb.net/sansdocs/reverse1.pdf">www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="www.sanskritweb.net/sansdocs/reverse1.pdf" class="link-external">www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
       <p>or here:</p>
-      <p><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html" title="www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html">www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html</a></p>
+      <p><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html" title="www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html" class="link-external">www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/tamil/index.html</a></p>
       <p>Do <strong>substring</strong> search for "bn" and "mbl" on Cologne Digital Sanskrit Lexicon (166,434 entries). You will get no hits at all for these entirely fictitious ligatures.</p>
       <p>So, why should you care to design fictitious ligatures for fictitious Sanskrit words?</p>
       <p><strong>Note:</strong></p>
       <p>The "Samyoga table" mentioned by Mr. Hudson is downloadable here</p>
-      <p><a href="http://www.ctan.org/tex-archive/language/sanskrit" title="http://www.ctan.org/tex-archive/language/sanskrit">http://www.ctan.org/tex-archive/language/sanskrit</a> as file sktdoc.ps</p>
+      <p><a href="http://www.ctan.org/tex-archive/language/sanskrit" title="http://www.ctan.org/tex-archive/language/sanskrit" class="link-external">http://www.ctan.org/tex-archive/language/sanskrit</a> as file sktdoc.ps</p>
       <p>If you convert this ps file to a pdf file, it will be searchable.</p>
   - id: 521244
     user: 18942
@@ -408,7 +408,7 @@ comments:
     date_raw: 5 Sep 2012 — 9:14am
     votes: null
     html: <p>For a pdf version of the Samyoga table, cf <a href="http://typophile.com/node/96109" title="http://typophile.com/node/96109">http://typophile.com/node/96109</a>.</p>
-    html_clean: <p>For a pdf version of the Samyoga table, cf <a href="http://typophile.com/node/96109" title="http://typophile.com/node/96109">http://typophile.com/node/96109</a>.</p>
+    html_clean: <p>For a pdf version of the Samyoga table, cf <a href="http://typophile.com/node/96109" title="http://typophile.com/node/96109" class="link-lost">http://typophile.com/node/96109</a>.</p>
   - id: 521296
     user: 1262
     date: 2012-09-05T18:59:00
@@ -464,11 +464,11 @@ comments:
     html_clean: |-
       <p>Mr. Hudson:</p>
       <p>My own PDF file</p>
-      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="http://www.sanskritweb.net/sansdocs/reverse1.pdf">http://www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/sansdocs/reverse1.pdf" title="http://www.sanskritweb.net/sansdocs/reverse1.pdf" class="link-external">http://www.sanskritweb.net/sansdocs/reverse1.pdf</a></p>
       <p>is case-sensitive, if you activate case-sensitivity in Adobe Acrobat.</p>
       <p>Furthermore the old program by Louis Bontes</p>
-      <p><a href="http://members.chello.nl/l.bontes/mwsdd.gif" title="http://members.chello.nl/l.bontes/mwsdd.gif">http://members.chello.nl/l.bontes/mwsdd.gif</a><br>
-      <a href="http://members.chello.nl/l.bontes/sans_n.htm" title="http://members.chello.nl/l.bontes/sans_n.htm">http://members.chello.nl/l.bontes/sans_n.htm</a></p>
+      <p><a href="http://members.chello.nl/l.bontes/mwsdd.gif" title="http://members.chello.nl/l.bontes/mwsdd.gif" class="link-external">http://members.chello.nl/l.bontes/mwsdd.gif</a><br>
+      <a href="http://members.chello.nl/l.bontes/sans_n.htm" title="http://members.chello.nl/l.bontes/sans_n.htm" class="link-external">http://members.chello.nl/l.bontes/sans_n.htm</a></p>
       <p>is also case-sensitive, as far as I remember.</p>
   - id: 522663
     user: 1262
@@ -489,7 +489,7 @@ comments:
       12 ष्ट्व STv as in हविष्ट्व haviSTva (n. the being an oblation Nya1yam. Sch.)<br>
       35 स्त्व stv as in अनागास्त्व anAgAstva (n. sinlessness RV.)</p>
     html_clean: |-
-      <p>Thanks, Uli. I did searches in the Cologne lexicon and visually reviewed the results, and also used the <a href="http://www.sanskrita.org/wiki/index.php/Converter" rel="nofollow">Sanskrita converter</a> to check results in Devangari.</p>
+      <p>Thanks, Uli. I did searches in the Cologne lexicon and visually reviewed the results, and also used the <a href="http://www.sanskrita.org/wiki/index.php/Converter" rel="nofollow" class="link-external">Sanskrita converter</a> to check results in Devangari.</p>
       <p>Specifically, I did substring searches for conjuncts that are in my current draft glyph set and also in the Samyoga list but <em>not</em> in your frequency list. Most of these, as you would predict, do not occur in the Cologne lexicon. A few do, though, although most are very rare:</p>
       <p>1 च्न cn in हस्तिकच्नि hastikacni (a kind of bulbous plant L.)<br>
       1 ज्द	jd in भुज्दृश् bhujdRz (or mfn. accompanied by distortion of the eyes (as a fever) Bhpr.)<br>
@@ -572,7 +572,7 @@ comments:
     html_clean: |-
       <p>quadibloc:</p>
       <p>OCR scanning started in 1994. See this lengthy report</p>
-      <p><a href="http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf" title="http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf">http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf</a></p>
+      <p><a href="http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf" title="http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf" class="link-external">http://www.sanskrit-lexicon.uni-koeln.de/CDSL.pdf</a></p>
   - id: 522853
     user: 50554
     date: 2012-09-20T03:35:00
@@ -595,7 +595,7 @@ comments:
       <p>which Fiona reports as given in Monier Williams's dictionary as : 'one whose navel is a Lotus,' N. of Vishnu.</p>
     html_clean: |-
       <p>Uli, your frequency list doesn't include the conjunct 'bn' ब्न, which occurs in Coulson's list but does not show up in substring search on the Cologne lexicon. However, the latter absence surprises me because the lexicon is based on the Monier-Williams dictionary, and Lambert (<em>Introduction to the Devanagari Script</em>, p.42) cites it in the context of this word:</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/14_4187.43.53.png"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/14_4187.43.53.png"></div><p></p>
       <p>which Fiona reports as given in Monier Williams's dictionary as : 'one whose navel is a Lotus,' N. of Vishnu.</p>
   - id: 523383
     user: 11274
@@ -637,7 +637,7 @@ comments:
       <p>I do not deny that it is theoretically possible to find the combination "bn" in any old Sanskrit text, but none was found so far.</p>
       <p>The statistics mathematician and font lover Luc  Devroye would say that from the probability point of view, the mathematical likelihood that a Sanskritist will ever need the ligature "bn" in a font for typesetting a real Sanskrit word is converging to "zero", "nil" or "nought".</p>
       <p>For example, by analyzing Panini's grammar, I found exactly 114 additional artificial ligatures pertaining to Panini's acronym-like grammatical elements. But I included none of these artificial acronym ligatures into my official ligature list here</p>
-      <p><a href="http://www.sanskritweb.net/itrans/itmanual2003.pdf" title="http://www.sanskritweb.net/itrans/itmanual2003.pdf">http://www.sanskritweb.net/itrans/itmanual2003.pdf</a> (page 29 seq.)</p>
+      <p><a href="http://www.sanskritweb.net/itrans/itmanual2003.pdf" title="http://www.sanskritweb.net/itrans/itmanual2003.pdf" class="link-external">http://www.sanskritweb.net/itrans/itmanual2003.pdf</a> (page 29 seq.)</p>
       <p>because none of these artificial acronym-like ligatures could be found in any ordinary Sanskrit text.</p>
       <p>Additional note for scholars: "abja-nābha" occurs in the Bhagavata-Purana repeatedly. Hence it is an attested compound word.</p>
   - id: 523386
@@ -829,13 +829,13 @@ comments:
       (6) As per "modern half forms are really ‘modern’ (in Hindi!), not just a compromise with dated technology" - that's an interesting and new insight.</p>
       <p>If one only could add screenshots and include attachments I could show the Ligature Concordance here.</p>
     html_clean: |-
-      <p>Since I've missed a lot of fun, here I <a class="freelinking external" href="http://is.gd/tPCybT" rel="nofollow">go</a>.</p>
+      <p>Since I've missed a lot of fun, here I <a class="freelinking external link-external" href="http://is.gd/tPCybT" rel="nofollow">go</a>.</p>
       <p>@Michel Boyer<br>
-      For a Hindi corpora <a href="http://dsal.uchicago.edu/dictionaries/platts/" title="http://dsal.uchicago.edu/dictionaries/platts/">http://dsal.uchicago.edu/dictionaries/platts/</a> might do, but that's not pure Hindi. But for a pre-modern font as per John Hudson it might do. Great you're "familiar" with the LaTeX font package, because nobody else seem to be in the discussion deep enough.<br>
+      For a Hindi corpora <a href="http://dsal.uchicago.edu/dictionaries/platts/" title="http://dsal.uchicago.edu/dictionaries/platts/" class="link-external">http://dsal.uchicago.edu/dictionaries/platts/</a> might do, but that's not pure Hindi. But for a pre-modern font as per John Hudson it might do. Great you're "familiar" with the LaTeX font package, because nobody else seem to be in the discussion deep enough.<br>
       I must say I'm impressed with your .pdfs.<br>
       A small specimen I put together:<br>
-      <a class="freelinking external" href="http://samskrtam.ru/adobe-devanagari-font/" rel="nofollow">Adobe Devanagari for a Sanskrit Dhatupatha</a>.<br>
-      I compiled a list of Sanskrit 1379 ligatures based on 15 Sanskrit grammars after reading <a href="/node/95460/" title="http://typophile.com/node/95460">http://typophile.com/node/95460</a>. Graphical variants which are introduced by the authors quoted are treated as separate ligatures, up to 79. As many as 991 are unique to only 1 source (a minimum). 8 are met in 14 out of 15 sources (a maximum). The list is even bigger than Mr. Boyer's Samyoga Table. But it's not about size. Because errors and ligatures go together a long way.<br>
+      <a class="freelinking external link-external" href="http://samskrtam.ru/adobe-devanagari-font/" rel="nofollow">Adobe Devanagari for a Sanskrit Dhatupatha</a>.<br>
+      I compiled a list of Sanskrit 1379 ligatures based on 15 Sanskrit grammars after reading <a href="/node/95460/" title="http://typophile.com/node/95460" class="link-kept">http://typophile.com/node/95460</a>. Graphical variants which are introduced by the authors quoted are treated as separate ligatures, up to 79. As many as 991 are unique to only 1 source (a minimum). 8 are met in 14 out of 15 sources (a maximum). The list is even bigger than Mr. Boyer's Samyoga Table. But it's not about size. Because errors and ligatures go together a long way.<br>
       1	991<br>
       2	92<br>
       3	41<br>
@@ -853,15 +853,15 @@ comments:
       <p>@Uli<br>
       We owe much to Ulrich. His work is known and used wider even than Ernst Tremel's. I would love to see a version of his "entirely fictitious ligature" list for Sanskrit. Nothing remained the same<br>
       <cite>Rigveda edition by Prof. R. L. Kashyap and Prof. S. Sadagopan published in printed book form in 1998</cite><br>
-      after he started his research on devanagari typography, of which a culmination was his replica of Bombay's Nirnayasagar's bold type called <a class="freelinking external" href="http://www.omniglot.com/blog/?p=621" rel="nofollow">Sanskrit 2003</a>. One would love to see a "Sanskrit 2013" (ten years after) with OpenType variants included for ligatures and vowels.</p>
-      <p>Even though I have personal reasons for not loving Ulrich Stiehl, I must admit that he knows more about the technical part of a Sanskrit font than any German knows. I could say that more than any European, but there is Mihas Bayaryn, so you can't be #1 until Mihas is alive. And seems he is here to stay. A pitty all <a href="http://www.sanskritweb.net/temporary/" title="http://www.sanskritweb.net/temporary/">http://www.sanskritweb.net/temporary/</a> URLs have died.</p>
+      after he started his research on devanagari typography, of which a culmination was his replica of Bombay's Nirnayasagar's bold type called <a class="freelinking external link-external" href="http://www.omniglot.com/blog/?p=621" rel="nofollow">Sanskrit 2003</a>. One would love to see a "Sanskrit 2013" (ten years after) with OpenType variants included for ligatures and vowels.</p>
+      <p>Even though I have personal reasons for not loving Ulrich Stiehl, I must admit that he knows more about the technical part of a Sanskrit font than any German knows. I could say that more than any European, but there is Mihas Bayaryn, so you can't be #1 until Mihas is alive. And seems he is here to stay. A pitty all <a href="http://www.sanskritweb.net/temporary/" title="http://www.sanskritweb.net/temporary/" class="link-external">http://www.sanskritweb.net/temporary/</a> URLs have died.</p>
       <p><cite>These rarest ligatures are only covered by our own highly specialized Itranslator fonts "Sanskrit2003.tt", "Chandas.ttf" and "Siddhanda.ttf" downloadable here<br>
       http://www.sanskritweb.net/itrans/</cite> </p>
       <p>Siddhanda.ttf is and I hope never will downloadable at Ulrich's website. Chandas.ttf indeed is,<br>
       but as per Mihas (author of the font), he treats Chandas as a draft for Siddhanta.</p>
       <p><cite>by analyzing Panini's grammar, I found exactly 114 additional artificial ligatures pertaining to Panini's acronym-like grammatical elements</cite><br>
       As said it would be interesting to see the context and the ligatures, so one could check how they where printed in the 1887 edition printed at Drugulin. I have a list of Drugulin's devanagari from an archive with 425 elements, including ligatures (one would have to add - only). Still no better Sanskrit typography was ever printed that the one of Drugulin.</p>
-      <p>Same as Ulrich I deal with Sanskrit on a daily basis. And as Indians do not make Sanskrit fonts, Germans and Russians have to do so. It might sound strange, but even the original Nirnaya is based on a Berlin-made font from Uengern brothers. Schlegel was a German if I'm not wrong. Frutiger was an Indian only a bit - so there is not much of Indian in the history of Indian fonts. <a href="/wiki/https%3A/%252Fgroups.google.com/forum/%2523%21topic/bvparishat/uyvF2nK92J0" class="freelinking" rel="nofollow">Indians are above fonts</a>. They care about the text, to preserve the manuscripts. Errors? Typoes? Who cares. Virama-ligatures in a Sanskrit conference thesis? So be it. "We" are above it. Oh, really?!</p>
+      <p>Same as Ulrich I deal with Sanskrit on a daily basis. And as Indians do not make Sanskrit fonts, Germans and Russians have to do so. It might sound strange, but even the original Nirnaya is based on a Berlin-made font from Uengern brothers. Schlegel was a German if I'm not wrong. Frutiger was an Indian only a bit - so there is not much of Indian in the history of Indian fonts. <a href="/wiki/https%3A/%252Fgroups.google.com/forum/%2523%21topic/bvparishat/uyvF2nK92J0" class="freelinking link-lost" rel="nofollow">Indians are above fonts</a>. They care about the text, to preserve the manuscripts. Errors? Typoes? Who cares. Virama-ligatures in a Sanskrit conference thesis? So be it. "We" are above it. Oh, really?!</p>
       <p>After we had years to fight with "Mangal", which was a makeshift font including only the "commonest conjuncts" (using Ulrich's expression), I understand why Ulrich does not feels comfortable with the Adobe Devanagari (John Hudson's) policy. I understand that Adobe's policy is above Mr. Hudson's. But not having Marathi or Nepali in the next edition would not have any excuses, I guess. Sanskrit is Huge. Marathi is just a feature compared to the complexity of Sanskrit ligatures.</p>
       <p>@John Hudson<br>
       Would it ever be possible to make at least a few screencasts of your work with VOLT showing the font process working with devanagari? There is next to nothing documented and a video would be something appreciated indeed.<br>
@@ -875,10 +875,10 @@ comments:
       Coulson's list a very small one. It has 1 variant for every ligature, which means it is a poorly made list. Why on earth one would want to take it in consideration at all? Monier-Williams has around 170 000 Sanskrit words (even if put together with other Sanskrit dictionaries it would be around 200 000 so a relatively small number). Vasu's Aṣṭādhyāyī is the most authoritative edition of Pāṇini. But are the anubandhas from Dhatupatha included? Never seen Agenbroad's list, so can't comment on it. Is there a scan of it available somewhere, gentlemen? Mr. Hudson, when you wrote "get a copy of the journal with his original collection" - did you have any luck with it?</p>
       <p>@quadibloc<br>
       It does not matter that "OCR software is oriented around the Latin alphabet". The Cologne project had Indians working (not Frenchmen) on the proofreading but there are thousands of errors left. I've been submitting my five cents every few months, but it would take around 50 years to fix all of them at such a rate. And there are several editions of the OCR texts from Cologne - not always newer is better, new errors arive as well (because of converting to the new markup as well). Anyway - nobody else has done even 1/10 of they've done so you can't say a single bad word about them. One heels only gratitude and can't say enough "thank you"<br>
-      After all those OCRs where done <a href="http://www.indsenz.com/int/index.php" title="http://www.indsenz.com/int/index.php">http://www.indsenz.com/int/index.php</a> was released. It was unreliable in the beginning. But as of 2013 it has a very small error rate and is the best OCR software for devanagari. ABBYY Fine Reader (a trained one) does not comes even close. No other (inlcuding Indian coders) comes close. I've explored the OCR market, I know what I speak about.</p>
+      After all those OCRs where done <a href="http://www.indsenz.com/int/index.php" title="http://www.indsenz.com/int/index.php" class="link-external">http://www.indsenz.com/int/index.php</a> was released. It was unreliable in the beginning. But as of 2013 it has a very small error rate and is the best OCR software for devanagari. ABBYY Fine Reader (a trained one) does not comes even close. No other (inlcuding Indian coders) comes close. I've explored the OCR market, I know what I speak about.</p>
       <p>@Rainer<br>
       (1) agreed.<br>
-      (2) Samavedic accents from Adobe - you made my day. They can't make a feature for a single text if they have no features for hundreds of other (more popular) texts. That would not make much logic. Rome wasn’t built in one day - but the building of a devanagari at Adobe is only in the plans, as regarding Sanskrit. I must say I'm impressed by the look and feel of the font except the details as screenshoted <a href="http://samskrtam.ru/adobe-devanagari-font/" title="http://samskrtam.ru/adobe-devanagari-font/">http://samskrtam.ru/adobe-devanagari-font/</a><br>
+      (2) Samavedic accents from Adobe - you made my day. They can't make a feature for a single text if they have no features for hundreds of other (more popular) texts. That would not make much logic. Rome wasn’t built in one day - but the building of a devanagari at Adobe is only in the plans, as regarding Sanskrit. I must say I'm impressed by the look and feel of the font except the details as screenshoted <a href="http://samskrtam.ru/adobe-devanagari-font/" title="http://samskrtam.ru/adobe-devanagari-font/" class="link-external">http://samskrtam.ru/adobe-devanagari-font/</a><br>
       (3)  "language tag for Hindi, but not for Sanskrit" - indeed.<br>
       (4) "font claims to be primarily made for modern Hindi, the ligatures you get by default (letter + halant + letter) are quite often the traditional rather than the modern forms" - so if it's Hindi, be it Hindi by default. Kill every Sanskritism and we'll accept that we should not even try to print a Sanskrit text. If it's in between - that's worse.<br>
       (5) As per short i-matra that "extends by default over the complete consonant combination it precedes" - I fully agree. There must be a way to turn it off. Sometimes it can become too long. Adobe's Devanagari is not the first one to have it, but when it's too long is looks ugly in every print, be it old or new.<br>

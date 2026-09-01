@@ -74,7 +74,7 @@ post:
     <a href="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4" title="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4">http://partners.adobe.com/public/developer/opentype/index_name.html#enc4</a></p>
     <p>Does anyone here know enough Bash scripting, in particularly with Fontforge, to see the problem?</p>
   html_clean: |-
-    <p>I'm trying to convert a collection of Windows Postscript files to OTF on OSX. For that, I decided to go with Fontforge because I can batch-process them with scripts in the terminal. I know little bash-scripting and no Python, but have been able to modify a script on the Fontforge site to do this: <a href="http://fontforge.sourceforge.net/scripting-tutorial.html" title="http://fontforge.sourceforge.net/scripting-tutorial.html">http://fontforge.sourceforge.net/scripting-tutorial.html</a><br>
+    <p>I'm trying to convert a collection of Windows Postscript files to OTF on OSX. For that, I decided to go with Fontforge because I can batch-process them with scripts in the terminal. I know little bash-scripting and no Python, but have been able to modify a script on the Fontforge site to do this: <a href="http://fontforge.sourceforge.net/scripting-tutorial.html" title="http://fontforge.sourceforge.net/scripting-tutorial.html" class="link-external">http://fontforge.sourceforge.net/scripting-tutorial.html</a><br>
     However, as it is, I need to modify a lot of the files by hand to get the Style to display as I like it, like "Bold Italic" instead of "BoldItalic" with no spaces. So, I've looked into the documentation and tried to use the GetTTFName() and SetTTFName() functions to do this. I can get it to set the Style (subfamily) just fine, but I get an empty string when trying to read the existing style. Opening the font in the GUI, it displays the Style under the TTF section, so it is there. What I am experimenting with:</p>
     <p>style = GetTTFName(0x409,2)<br>
         Fontfamily=GetTTFName(0x409,1)<br>
@@ -105,9 +105,9 @@ post:
         Generate($argv[i]:r + format)</p>
     <p>I'm aware there would be cleaner ways of doing it, like using Case, if Bash supports it, or converting it to Python, but for now I'm keeping it simple. Ideally, the script would look for a capital letter in the Style string and add a space before it where it isn't the first letter.<br>
     In any case, the above doesn't work, as GetTTFName() always returns an empty string. The parameters for the Set and GetTTFName() function is referring to is<br>
-    <a href="http://partners.adobe.com/public/developer/opentype/index_name.html#lang3" title="http://partners.adobe.com/public/developer/opentype/index_name.html#lang3">http://partners.adobe.com/public/developer/opentype/index_name.html#lang3</a><br>
+    <a href="http://partners.adobe.com/public/developer/opentype/index_name.html#lang3" title="http://partners.adobe.com/public/developer/opentype/index_name.html#lang3" class="link-external">http://partners.adobe.com/public/developer/opentype/index_name.html#lang3</a><br>
     and<br>
-    <a href="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4" title="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4">http://partners.adobe.com/public/developer/opentype/index_name.html#enc4</a></p>
+    <a href="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4" title="http://partners.adobe.com/public/developer/opentype/index_name.html#enc4" class="link-external">http://partners.adobe.com/public/developer/opentype/index_name.html#enc4</a></p>
     <p>Does anyone here know enough Bash scripting, in particularly with Fontforge, to see the problem?</p>
 comments:
   - id: 460891
@@ -120,7 +120,7 @@ comments:
       but that still doesn't explain why GetTTFName(0x409,2) returns an empty string, when it clearly has the TTF subfamily set when you open it up. Fontforge also does Python scripting. but I know virtually nothing of it, and it would be too difficult and timeconsuming to learn it just for this.<br>
       I guess there is nothing for it but to open up each newly-generated font and fixing it by hand.</p>
     html_clean: |-
-      <p>ok, I established that Fontforge uses its own form of scripting language, described here: <a href="http://fontforge.sourceforge.net/scripting.html" title="http://fontforge.sourceforge.net/scripting.html">http://fontforge.sourceforge.net/scripting.html</a><br>
+      <p>ok, I established that Fontforge uses its own form of scripting language, described here: <a href="http://fontforge.sourceforge.net/scripting.html" title="http://fontforge.sourceforge.net/scripting.html" class="link-external">http://fontforge.sourceforge.net/scripting.html</a><br>
       but that still doesn't explain why GetTTFName(0x409,2) returns an empty string, when it clearly has the TTF subfamily set when you open it up. Fontforge also does Python scripting. but I know virtually nothing of it, and it would be too difficult and timeconsuming to learn it just for this.<br>
       I guess there is nothing for it but to open up each newly-generated font and fixing it by hand.</p>
   - id: 460899

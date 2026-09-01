@@ -46,7 +46,7 @@ post:
     <p>Any ideas or solutions on this subject?</p>
     <p>Ralf</p>
   html_clean: |-
-    <p>All the <a href="/wiki/ClearType" class="wiki-create">ClearType</a> fonts are significantly smaller than the old <a href="/wiki/Windows%252BCore%252BFonts" class="wiki-create">Windows Core Fonts</a>. I guess there is a technical reason for that. Does anyone know why that is?</p>
+    <p>All the <a href="/wiki/ClearType" class="wiki-create link-lost">ClearType</a> fonts are significantly smaller than the old <a href="/wiki/Windows%252BCore%252BFonts" class="wiki-create link-lost">Windows Core Fonts</a>. I guess there is a technical reason for that. Does anyone know why that is?</p>
     <p>The problem is: this makes it almost impossible to use the CT fonts for body copy texts on websites. If you declare the fonts in a CSS like:<br>
     “calibri, Verdana, Arial, Helvetica, sans-serif”<br>
     you will have to choose the right type size for either the ones who have the CT fonts or the ones who doesn’t. If you focus on the old Core Fonts, the CT fonts will be rendered much too small and if you focus on the CT fonts, users without it will see much too large type. So as a web designer you are really in a pickle here …</p>
@@ -91,7 +91,7 @@ comments:
       * Pass the list to Javascript to check if the ClearType font is installed<br>
       * use DOM scripting to change the CSS class definition. (or better: store the result in a cookie to use the CT class defition for every following page)</p>
       <p>I made an example page:<br>
-      <a href="http://www.fonts.info/cleartype/" title="http://www.fonts.info/cleartype/">http://www.fonts.info/cleartype/</a><br>
+      <a href="http://www.fonts.info/cleartype/" title="http://www.fonts.info/cleartype/" class="link-external">http://www.fonts.info/cleartype/</a><br>
       It checks for Calibri and replaces the paragraph’s CSS class from “nocleartype” to “cleartype”.<br>
       (Doesn’t work in IE yet. The javascript call from Flash seems to be ignored. Don’t know why.)</p>
       <p>But all this trouble for one font replacement!? So I wonder if there was a good reason to make the Cleartype fonts so small.<br>
@@ -142,7 +142,7 @@ comments:
       <p>In the case of Constantia, the height of the capital “I” is exactly 1400 units, and this is perfectly correct. A deviation of +/- 50 units (i.e. the range below 1400 down to 1350 and above 1400 up to 1450) is tolerable for TrueType fonts, but if the caps height drops below 1350, the metrics must be regarded as incorrect, because such fonts can no longer be mixed with other fonts in the same line of text, since the letters begin to dance (see below).</p>
       <p>The metrically worst ClearType fonts are Calibri, Candara and Consolas, all three of them with a caps height of only 1300 units. Cambria is tolerable with a caps height is 1365 units.</p>
       <p>If we mix Constantia (which has correct metrics) with Calibri (with has faulty metrics) in the same line of text, the faulty metrical design becomes apparent by “dancing letters”, whose top capital heights do no longer align:</p>
-      <p>see <a href="http://www.sanskritweb.net/temporary/calibri.pdf" title="http://www.sanskritweb.net/temporary/calibri.pdf">http://www.sanskritweb.net/temporary/calibri.pdf</a></p>
+      <p>see <a href="http://www.sanskritweb.net/temporary/calibri.pdf" title="http://www.sanskritweb.net/temporary/calibri.pdf" class="link-external">http://www.sanskritweb.net/temporary/calibri.pdf</a></p>
       <p>It is hard to believe at first glance that all dancing letters in the file calibri.pdf are typeset in exactly the same point size (here 48p), but this is the case, as anyone can find out himself or herself by typesetting a line of sample text using and mixing Constantia and Calibri.</p>
       <p>Kudos to Mr. Hudson, who was able to design his Constantia font with correct metrics (and non-kudos to Mr. de Groot, who was not capable of designing Calibri with correct metrics).</p>
   - id: 217720
@@ -266,7 +266,7 @@ comments:
       <p>The question of Mr. Herrmann was whether you can substitute Arial etc. by Calibri etc. in as CSS, i.e. in a website cascading style sheet.</p>
       <p>The answer is NO, because the rendered point size of Calibri is much smaller than the rendered point size of Arial etc. due to the incorrect metrics of Calibri.</p>
       <p>I enlarged my initial calibri.pdf document by two additional examples:</p>
-      <p>see new file <a href="http://www.sanskritweb.net/temporary/calibri.pdf" title="http://www.sanskritweb.net/temporary/calibri.pdf">http://www.sanskritweb.net/temporary/calibri.pdf</a></p>
+      <p>see new file <a href="http://www.sanskritweb.net/temporary/calibri.pdf" title="http://www.sanskritweb.net/temporary/calibri.pdf" class="link-external">http://www.sanskritweb.net/temporary/calibri.pdf</a></p>
       <p>The first new example shows mixing of Constantia with an Indic font with 300 units caps height.</p>
       <p>The second new example shows mixing of Constantia with Calibri with 3oo units caps height.</p>
       <p>These examples make it clear that you cannot use two fonts in the same text, if the two fonts do not have the same metrics.</p>
@@ -289,7 +289,7 @@ comments:
       <p>The answer is NO, because CSS does not “scale the fonts according to the x-height” as Ralf Hermann wrote in his original post. That’s all.</p>
       <p><cite>... shows mixing of Constantia with Calibri ... These examples make it clear that you cannot use two fonts in the same text, if the two fonts do not have the same metrics.</cite></p>
       <p>Therefore it is still up to typographers to combine typefaces that match. Either one decides that matching x-height is more important (text), or matching H-height is more important (all caps setting).<br>
-      And if <cite>all</cite> metrics should match, type designers sometimes make the decision to design super-families with a serif and sanserif family, see Peter Bilak’s thread <a href="/node/35727/">over here</a>. But this involves more than just vertical metrics, of equal importance are the typefaces’ color (weight), style of curves, etc.</p>
+      And if <cite>all</cite> metrics should match, type designers sometimes make the decision to design super-families with a serif and sanserif family, see Peter Bilak’s thread <a href="/node/35727/" class="link-kept">over here</a>. But this involves more than just vertical metrics, of equal importance are the typefaces’ color (weight), style of curves, etc.</p>
       <p><cite>This is the typical “frog in the well” attitude shown by most Typophilers. Since most of them never learnt Indic scripts etc., they do not know that most non-Latin fonts do not have lowercase and uppercase letters.</cite></p>
       <p>My brother is into indoeuropean studies, so I am aware of this and other problems (non-standard encodings, use of strange tools to get at Indic scripts’ ligatures, etc) which make it a pain to typeset even a simple scholarly text.</p>
   - id: 217924
@@ -400,18 +400,18 @@ comments:
       <p>I will not discuss here whether caps heights are “pointless”, because the fact that for instance in German texts capital letters are used much more frequently than in English texts can be ignored here, since the CT fonts were designed for Americans and not for Germans etc.</p>
       <p>The problem with Calibri is not the coordination of caps heights, but that ALL glyphs of Calibri, i.e. both lowercase and uppercase glyphs, do not sufficiently fill the glyph grid with the consequence that the glyphs look too small. The grid is the same, but there is too much white space around the black glyphs (if printed in black color on white paper), and hence they look too small as compared with Arial, Helvetica and similar sanserif fonts.</p>
       <p>Let’s look at</p>
-      <p><a href="http://www.sanskritweb.net/temporary/calibri-arial.htm" title="http://www.sanskritweb.net/temporary/calibri-arial.htm">http://www.sanskritweb.net/temporary/calibri-arial.htm</a></p>
+      <p><a href="http://www.sanskritweb.net/temporary/calibri-arial.htm" title="http://www.sanskritweb.net/temporary/calibri-arial.htm" class="link-external">http://www.sanskritweb.net/temporary/calibri-arial.htm</a></p>
       <p>In case you don’t have Calibri and Arial installed on your computer, you can instead look at the PDF file</p>
-      <p><a href="http://www.sanskritweb.net/temporary/calibri-arial.pdf" title="http://www.sanskritweb.net/temporary/calibri-arial.pdf">http://www.sanskritweb.net/temporary/calibri-arial.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/temporary/calibri-arial.pdf" title="http://www.sanskritweb.net/temporary/calibri-arial.pdf" class="link-external">http://www.sanskritweb.net/temporary/calibri-arial.pdf</a></p>
       <p>It is obvious that Calibri in the left column looks much smaller than Arial in the right column, although the sample texts are typeset in the very same point sizes. How come that Calibri looks smaller than Arial? The answer is that the glyphs of Calibri do not sufficiently fill the 2048-grid of this TrueType font, as compared with Arial and Helvetica and similar fonts.</p>
       <p>Let’s look at</p>
-      <p><a href="http://www.sanskritweb.net/temporary/grid2048.gif" title="http://www.sanskritweb.net/temporary/grid2048.gif">http://www.sanskritweb.net/temporary/grid2048.gif</a></p>
+      <p><a href="http://www.sanskritweb.net/temporary/grid2048.gif" title="http://www.sanskritweb.net/temporary/grid2048.gif" class="link-external">http://www.sanskritweb.net/temporary/grid2048.gif</a></p>
       <p>To the left we see the uppercase “I” of the TrueType Helvetica (version 1.0), which has a caps height of 1470 units, followed by the uppercase “I” of Calibra, which has a caps height of 1300 units.</p>
       <p>To the right we see the lowercase “x” of the TrueType Helvetica, whose x-height is 1071 units, followed by the “x” of Calibra, whose x-height is 956 units.</p>
       <p>This means that the absolute values of BOTH caps height AND x-height of Calibra are too small, and hence there is too much white space around the glyphs in the 2048 units TrueType grid, and hence Calibra looks too small.</p>
       <p>Since the caps height occupies usually two thirds (2/3) of the grid, i.e. roughly 70% of 2048 units, it follows that the caps height measured in grid units or in percentage can be used to determine whether a font looks too small or not. This can be proved by the following test:</p>
       <p>Let’s look at</p>
-      <p><a href="http://www.sanskritweb.net/temporary/caps-height.pdf" title="http://www.sanskritweb.net/temporary/caps-height.pdf">http://www.sanskritweb.net/temporary/caps-height.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/temporary/caps-height.pdf" title="http://www.sanskritweb.net/temporary/caps-height.pdf" class="link-external">http://www.sanskritweb.net/temporary/caps-height.pdf</a></p>
       <p>In the first row (H1470-100%) we see the original TrueType Helvetica with a caps height of 1470 units. This original vertical size is regarded here as 100 per cent for comparison.</p>
       <p>In the second row (H1176-80%) we see the down-scaled Helvetica, where all glyphs (both uppercase and lowercase) have been reduced to 80% of the original size of all glyphs.</p>
       <p>In the third row (H882-60%) we see the down-scaled Helvetica, where all glyphs (both uppercase and lowercase) have been reduced to 60% of the original size of all glyphs.</p>
@@ -523,7 +523,7 @@ comments:
       <p>2)</p>
       <p>&gt; it will be clipped in all GDI applications</p>
       <p>For those who have not yet experienced this phenomenon, I have prepared an illustrative example.</p>
-      <p>see <a href="http://www.sanskritweb.net/temporary/l-candrabindu.pdf" title="http://www.sanskritweb.net/temporary/l-candrabindu.pdf">http://www.sanskritweb.net/temporary/l-candrabindu.pdf</a></p>
+      <p>see <a href="http://www.sanskritweb.net/temporary/l-candrabindu.pdf" title="http://www.sanskritweb.net/temporary/l-candrabindu.pdf" class="link-external">http://www.sanskritweb.net/temporary/l-candrabindu.pdf</a></p>
       <p>&gt; the most vertically challenging accent to squeeze in, at least in my experience as a type designer, is capital A ring.</p>
       <p>This is a challenging case indeed, but the worst case of all in my experience is not ordinary capital letters with ring etc. diacritic, but lowercase ascender letters such as “l” and “k”, which often extend the ordinary capital height, especially in almost all old-style typefaces, as shown by above ascender letter “l” with candrabindu on top of it.</p>
   - id: 218444
@@ -556,7 +556,7 @@ comments:
       <p><cite>The “body” is indeed a metal type term, otherwise known as the “shank”. In a piece of type, it’s the rectangular column of metal of which the letter shape forms the top part.<br>
       So “small on the body” means “small on the em square”, or, as you might say, “small on the grid”.</cite></p>
       <p>Thanks for the explanation. Now that I know how you define the term “body”, I made three experimental fonts. Here is the result of my tests.</p>
-      <p><a href="http://www.sanskritweb.net/temporary/em.pdf" title="http://www.sanskritweb.net/temporary/em.pdf">http://www.sanskritweb.net/temporary/em.pdf</a></p>
+      <p><a href="http://www.sanskritweb.net/temporary/em.pdf" title="http://www.sanskritweb.net/temporary/em.pdf" class="link-external">http://www.sanskritweb.net/temporary/em.pdf</a></p>
       <p>In case someone wants to experiment too, I can upload the three Em1.ttf, Em2.ttf, Em3.ttf experimental fonts too for download.</p>
   - id: 218520
     user: 2021

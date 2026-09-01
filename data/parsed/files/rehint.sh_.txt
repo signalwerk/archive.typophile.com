@@ -1,0 +1,26 @@
+#! /bin/ash
+
+unset prehint
+while getopts p i
+do
+  case $i in
+    p) prehint=--pre-hinting ;;
+  esac
+done
+shift `expr $OPTIND - 1`
+
+if [ -z "$1" ]
+then
+    echo "`basename $0`: Rehints TTFs using ttfautohint."
+    echo "Usage: `basename $0` file(s)"
+    echo "Options: -p -- Applies pre-hinting"
+    exit
+fi
+
+while [ -n "$1" ]
+do
+    /bin/echo -n "$1 ..."
+    ttfautohint $prehint --gasp-value 3 "$1" "$1.ttf"
+    /bin/echo " done."
+    shift
+done

@@ -50,15 +50,15 @@ post:
     <div class="forum-topic-navigation clear-block"><a href="/node/51126" class="topic-previous" title="Go to previous forum topic">‹ Need Help PLEASE! Understanding Opentype Fonts</a> <a href="/node/51179" class="topic-next" title="Go to next forum topic">FontLab exporting issues ›</a></div>
   html_clean: |-
     <p>i assume that freetype2 can do a decent job of rasterizing type. but using it through the GD extension in PHP i’m not satisfied. attached is an example with too much space around the numeral 1.</p>
-    <p>i’m guessing that ft2 could do better but the interface (i.e. <a class="freelinking-external" href="http://us2.php.net/manual/en/function.imagefttext.php">imagefttext()</a>) provides minimal control.</p>
+    <p>i’m guessing that ft2 could do better but the interface (i.e. <a class="freelinking-external link-external" href="http://us2.php.net/manual/en/function.imagefttext.php">imagefttext()</a>) provides minimal control.</p>
     <p>what other freetype front-ends should i consider? command-line tools, perl/ruby scripts, php extensions etc. are fine but i’m not going to program my own front-end in C.</p>
     <p>alternatively, are there other rasterizes i should consider?</p>
     <table id="attachments">
      <thead><tr><th>Attachment</th><th>Size</th> </tr></thead>
     <tbody>
-     <tr class="odd"><td><a href="http://typophile.com/files/example.gif">example.gif</a></td><td>4.18 KB</td> </tr>
+     <tr class="odd"><td><a href="http://typophile.com/files/example.gif" class="link-lost">example.gif</a></td><td>4.18 KB</td> </tr>
     </tbody></table>
-    <div class="forum-topic-navigation clear-block"><a href="/node/51126" class="topic-previous" title="Go to previous forum topic">‹ Need Help PLEASE! Understanding Opentype Fonts</a> <a href="/node/51179/" class="topic-next" title="Go to next forum topic">FontLab exporting issues ›</a></div>
+    <div class="forum-topic-navigation clear-block"><a href="/node/51126" class="topic-previous link-lost" title="Go to previous forum topic">‹ Need Help PLEASE! Understanding Opentype Fonts</a> <a href="/node/51179/" class="topic-next link-kept" title="Go to next forum topic">FontLab exporting issues ›</a></div>
 comments:
   - id: 309512
     user: 103
@@ -66,7 +66,7 @@ comments:
     date_raw: 1.Nov.2008 1.10pm
     votes: null
     html: <p>Are you sure that space around the numeral 1 isn’t due to the font metrics themselves? Fonts with <a href="/wiki/tabular%252Bfigures" class="wiki">tabular figures</a> always have more space around the 1 because the numerals are monospaced. To set text and headlines I would use a font with <a href="/wiki/proportional%252Bfigures" class="wiki">proportional figures</a>.</p>
-    html_clean: <p>Are you sure that space around the numeral 1 isn’t due to the font metrics themselves? Fonts with <a href="/wiki/tabular%252Bfigures" class="wiki">tabular figures</a> always have more space around the 1 because the numerals are monospaced. To set text and headlines I would use a font with <a href="/wiki/proportional%252Bfigures" class="wiki">proportional figures</a>.</p>
+    html_clean: <p>Are you sure that space around the numeral 1 isn’t due to the font metrics themselves? Fonts with <a href="/wiki/tabular%252Bfigures" class="wiki link-lost">tabular figures</a> always have more space around the 1 because the numerals are monospaced. To set text and headlines I would use a font with <a href="/wiki/proportional%252Bfigures" class="wiki link-lost">proportional figures</a>.</p>
   - id: 309547
     user: 35080
     date: 2008-11-01T18:01:00
@@ -98,8 +98,8 @@ comments:
     html_clean: |-
       <p>I think the vast space around the ’1’s indicates that Highlander’s figures are indeed tabular, as is the case with most fonts in the ITC range. Not sure what is happening in the ’2’ and ’5’ rows.</p>
       <p>Here are two alternatives to consider that have proportional figs:</p>
-      <p><a href="http://www.fontshop.com/fonts/singles/itc/itc_legacy_sans_bold_italic_osf/?sample_text=Legacy%201234567890&amp;sample_size=48">ITC Legacy Sans</a><br>
-      <a href="http://www.fontshop.com/fonts/singles/underware/sauna_bold_italic/?sample_text=Sauna%200123456789&amp;sample_size=48">Sauna</a></p>
+      <p><a href="http://www.fontshop.com/fonts/singles/itc/itc_legacy_sans_bold_italic_osf/?sample_text=Legacy%201234567890&amp;sample_size=48" class="link-external">ITC Legacy Sans</a><br>
+      <a href="http://www.fontshop.com/fonts/singles/underware/sauna_bold_italic/?sample_text=Sauna%200123456789&amp;sample_size=48" class="link-external">Sauna</a></p>
       <p>You’ll note that these are <em>oldstyle</em> or text figures, which means they descend and ascend like lowercase letters. Your options of fonts with proportional <em>lining</em> figures (numerals of the same height) will increase substantially if Freetype can take advantage of the figure options in OpenType fonts. Can it?</p>
   - id: 309611
     user: 35080
@@ -116,7 +116,7 @@ comments:
       <p>hi stephen,</p>
       <p>thanks. and again, i think you’re right. concerning the odd misalignments in the sample i posted above, i’d guess the linotype.com sample renderer left aligned bounding boxes rather than the glyph origins.</p>
       <p>one important application i have is radio station IDs as web page title in a banner box. surrounded by a 4-capital call sign and a 2-capital waveband, oldstyle figures for the frequency look rather odd — as though a beret or turtleneck-wearing designer might have been involved;-)</p>
-      <p>i read the freetype documentation now. it loads font files, handles their info and renders glyphs. laying out a string is done by the library’s client so my original question was confused. <a class="freelinking-external" href="http://www.libgd.org/Font#char_.2AgdImageStringFT.28gdImagePtr_im.2C_int_.2Abrect.2C_int_fg.2C_char_.2Afontname.2C_double_ptsize.2C_double_angle.2C_int_x.2C_int_y.2C_char_.2Astring.29_.28FUNCTION.29">GD’s string renderer</a> accepts utf8 and html entities so i could use osf if i really wanted to.</p>
+      <p>i read the freetype documentation now. it loads font files, handles their info and renders glyphs. laying out a string is done by the library’s client so my original question was confused. <a class="freelinking-external link-external" href="http://www.libgd.org/Font#char_.2AgdImageStringFT.28gdImagePtr_im.2C_int_.2Abrect.2C_int_fg.2C_char_.2Afontname.2C_double_ptsize.2C_double_angle.2C_int_x.2C_int_y.2C_char_.2Astring.29_.28FUNCTION.29">GD’s string renderer</a> accepts utf8 and html entities so i could use osf if i really wanted to.</p>
       <p>but i think basically GD/freetype are doing what they are supposed to do given the font’s design. my obvious choices seem to be: 1) choose another font; 2) find another text layout library that allows some kind of kern tagging of the string (i looked and didn’t find); or 3) keep the font, GD and freetype and use a hack in  my php script to effectively trim the bearing and advance of 1 numerals and perhaps decimal points.</p>
   - id: 309622
     user: 35080
@@ -152,6 +152,6 @@ comments:
     html_clean: |-
       <p>looks dated to me too. my upcoming logo looks even more dated. if i could afford to hire one of these artists to design my site, i would:
       </p><ul>
-      <li><a class="freelinking-external" href="http://www.shag.com/index.html">Shag</a>
-      </li><li><a class="freelinking-external" href="http://www.derekart.com/">Derek Art</a></li></ul>
+      <li><a class="freelinking-external link-external" href="http://www.shag.com/index.html">Shag</a>
+      </li><li><a class="freelinking-external link-external" href="http://www.derekart.com/">Derek Art</a></li></ul>
       <p>“There’s nothing so fashionable as nostalgia.”</p>

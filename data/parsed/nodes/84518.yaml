@@ -99,9 +99,9 @@ comments:
     html_clean: |-
       <p>In defence of the 'unenvisioners' of CSS handling of weight class, they were trying to deal with existing incompatibilities between various software and font makers and come up with something that would produce reliable results in browsers when authors specify relative rather than absolute weights in CSS. It was a messy problem. They could have envisioned and defined some totally new and extensible weight range mechanism  -- they still could -- , but that wouldn't remove the need for some standardised mechanism of handling existing fonts in a way the produces the fewest breakages, which is how I understand what they've done.</p>
       <p>cf. John Daggett's slides from his TypeCon 2010 briefing (slides 17-26):<br>
-      <a href="http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf" title="http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf">http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf</a></p>
+      <a href="http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf" title="http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf" class="link-external">http://people.mozilla.org/~jdaggett/css3fontstypecon2010.pdf</a></p>
       <p>and Dave Crossland's notes from that session:<br>
-      <a href="http://www.advogato.org/person/crossland/diary/1.html" title="http://www.advogato.org/person/crossland/diary/1.html">http://www.advogato.org/person/crossland/diary/1.html</a></p>
+      <a href="http://www.advogato.org/person/crossland/diary/1.html" title="http://www.advogato.org/person/crossland/diary/1.html" class="link-external">http://www.advogato.org/person/crossland/diary/1.html</a></p>
   - id: 473939
     user: 2969
     date: 2011-08-13T16:11:00
@@ -266,7 +266,7 @@ comments:
         750   Heavy 
         900   Black 
       </pre><p>
-      Note how the Thin and Ultra Light faces differ from each other and from what's described in the OpenType standard. Apple also uses a slightly different scale than the OpenType standard, UltraLight and Thin are in a <a class="freelinking external" href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSFontManager_Class/Reference/Reference.html#//apple_ref/occ/instm/NSFontManager/convertWeight:ofFont:" rel="nofollow">different order</a>.</p>
+      Note how the Thin and Ultra Light faces differ from each other and from what's described in the OpenType standard. Apple also uses a slightly different scale than the OpenType standard, UltraLight and Thin are in a <a class="freelinking external link-external" href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSFontManager_Class/Reference/Reference.html#//apple_ref/occ/instm/NSFontManager/convertWeight:ofFont:" rel="nofollow">different order</a>.</p>
       <p>This is important because the OSX font API's sniff the style name and will assign a weight if they recognize a weight name in the style name.  Only if they can't recognize a weight name will they use the usWeightValue. </p>
       <p>For the OpenType spec, the simplest solution I guess would be to add a flag to the fsSelection field similar to the USE_TYPO_METRICS flag, something like USE_OS2_WEIGHT_CLASS maybe, then evangelize folks at Apple, Microsoft, Adobe and at Google to use this in their platform font API's.  This flag would certify that the useWeightValues were in fact consistent with the relative scale defined by the OpenType spec and not skewed to hack around GDI-related problems on Windows.</p>
       <p>For fonts loaded via @font-face rules, authors define what weight/width values are assigned to individual faces, there's no reference to any weight/width data in the font itself, only what is defined in the @font-face rules.  So unless an author is using more than 9 weights simultaneously, that's not much of a limitation currently.</p>
@@ -365,7 +365,7 @@ comments:
       _____</p>
       <p>David: <em>My way has nothing to lose following the STD!</em></p>
       <p>Presuming STD=standard (rather than sexually transmitted disease), <em>what standard?</em> The OpenType/OFF spec explicitly limits the correct setting of usWeightClass to one of nine multiples of 100.</p>
-      <p><a href="http://www.microsoft.com/typography/otspec/os2.htm#wtc" title="http://www.microsoft.com/typography/otspec/os2.htm#wtc">http://www.microsoft.com/typography/otspec/os2.htm#wtc</a></p>
+      <p><a href="http://www.microsoft.com/typography/otspec/os2.htm#wtc" title="http://www.microsoft.com/typography/otspec/os2.htm#wtc" class="link-external">http://www.microsoft.com/typography/otspec/os2.htm#wtc</a></p>
       <p>So that standard clearly doesn't address your requirements for 'font families where the total number of weights exceeds 11'.</p>
       <p>And if, following that standard, you set the usWeightClass value of any of your fonts as 100 or 200, they may end up displaying as heavier than a font with a value of 300 in GDI.</p>
       <p>And if the range of weights in the family don't correspond exactly with the stated weights of the spec, Apple is going to select incorrect weights based on font name.</p>

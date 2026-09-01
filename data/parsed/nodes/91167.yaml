@@ -45,7 +45,7 @@ post:
     <p>Thanks!</p>
     <p>::Matt</p>
   html_clean: |-
-    <p>Thanks to TTX and this forum post: <a class="freelinking external" href="http://typophile.com/node/67406" rel="nofollow">http://typophile.com/node/67406</a> I've been playing around with / trying to learn PostScript.  Through some reverse-engineering I've been able to create TTF fonts (Quadratic Bezier Curves... blargh), and even OTF fonts with the Compact Font Format, by editing the CharString entries in the CFFFont table.  A little tedious to do by hand, but I like it.  All fine so far.</p>
+    <p>Thanks to TTX and this forum post: <a class="freelinking external link-kept" href="/node/67406/" rel="nofollow">http://typophile.com/node/67406</a> I've been playing around with / trying to learn PostScript.  Through some reverse-engineering I've been able to create TTF fonts (Quadratic Bezier Curves... blargh), and even OTF fonts with the Compact Font Format, by editing the CharString entries in the CFFFont table.  A little tedious to do by hand, but I like it.  All fine so far.</p>
     <p>What i'd really like to do is use full PostScript to define characters in the font... for example, using strokes and line widths, which isn't possible with CFF.  All the fonts I find seem to be PostScript Level 2 - which I believe means they use CFF.  </p>
     <p>Is there a font format that uses full PostScript, as opposed to CFF?  Can somebody point me to an example file?</p>
     <p>I'm learning as I go here, so there is the possibility that my question doesn't make sense.  But at any rate, commentary from more knowledgeable individuals would be greatly appreciated.</p>
@@ -80,7 +80,7 @@ comments:
       <p><code> % detype1 font.pfa font.txt</code></p>
     html_clean: |-
       <p>When people refer to PostScript fonts, they are almost always referring to Type 1 fonts.</p>
-      <p>If you really want to have fun, I suggest that you reference the <a class="freelinking external" href="http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF" rel="nofollow">Adobe Type 1 Font Format</a>, then use the <a class="freelinking external" href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a> <em>type1</em> and <em>detype1</em> tools to compile and decompile Type 1 fonts. You can start by using the AFDKO <em>tx</em> tool to convert one of your existing fonts ("font.cff" in the command line below) into a Type 1 font:</p>
+      <p>If you really want to have fun, I suggest that you reference the <a class="freelinking external link-external" href="http://partners.adobe.com/public/developer/en/font/T1_SPEC.PDF" rel="nofollow">Adobe Type 1 Font Format</a>, then use the <a class="freelinking external link-external" href="http://www.adobe.com/devnet/opentype/afdko.html" rel="nofollow">AFDKO</a> <em>type1</em> and <em>detype1</em> tools to compile and decompile Type 1 fonts. You can start by using the AFDKO <em>tx</em> tool to convert one of your existing fonts ("font.cff" in the command line below) into a Type 1 font:</p>
       <p><code>% tx -t1 font.cff font.pfa</code></p>
       <p>Then, use the <em>detype1</em> tool to decompile the Type 1 font into human-readable/editable form:</p>
       <p><code> % detype1 font.pfa font.txt</code></p>

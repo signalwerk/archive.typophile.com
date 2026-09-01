@@ -159,7 +159,7 @@ comments:
       and then go through the values and modify them accordingly.</p>
       <p>Again, handling MM kerning is not trivial. You might be better off saving AFM files, modifying them and reading back in. But that process is not 100% reliable sometimes, so proceed with care.</p>
     html_clean: |-
-      <p>I could be wrong, but AFAIK when you handle the kerning through Robofab you can only control the values of the first master. The kerning value amounts of the remaining masters will be the same as the first master. Therefore, you might have to use <a class="freelinking external" href="http://robofab.org/howto/lowlevel.html" rel="nofollow">Robofab's naked() method</a> and go from there, or use FontLab's API's all the way.</p>
+      <p>I could be wrong, but AFAIK when you handle the kerning through Robofab you can only control the values of the first master. The kerning value amounts of the remaining masters will be the same as the first master. Therefore, you might have to use <a class="freelinking external link-external" href="http://robofab.org/howto/lowlevel.html" rel="nofollow">Robofab's naked() method</a> and go from there, or use FontLab's API's all the way.</p>
       <p>I've wrote several scripts for FL that handle MM kerning, and I can tell you things can be complicated. The kerning values reside in something that looks like a list, and are associated with the left glyph of the pair.</p>
       <p>Imagine a 2-master font with only one kerning pair AV, with a kerning value of -50 for the first master, and -80 for the second. If you do,<br>
       <code>print fl.font['A'].kerning[0].values</code><br>

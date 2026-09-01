@@ -176,7 +176,7 @@ comments:
       	sub R macroncmb by uni00520304;<br>
       } ccmp;</code></p>
       <p><strong>This is how InDesign reenders it:</strong> (the first line is set in Times)<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/calouste_ccmp.png"></div><p></p>
+      </p><div class="imageWrap"><img src="/files/calouste_ccmp.png"></div><p></p>
       <p><strong>This is how the text stream looks like:</strong> (snippet of InDesign Tagged Text file)<br>
       <code>C&lt;0x010C&gt;&lt;0x010C&gt;&lt;0x0323&gt;RR&lt;0x0304&gt;R</code></p>
       <p>As you see, the text stream is correct.</p>
@@ -268,8 +268,8 @@ comments:
       <p>sub C commaabovecmb by uni00430313;<br>
       sub C commaabovecmb caroncmb by uni0043030C0313;</p>
     html_clean: |-
-      <p>Tom, thank you for shedding the light on this. I had looked into the <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf" rel="nofollow">OpenType Layout Feature Support by Application</a> chart but found no reference to the <strong>ccmp</strong> feature, so I was not sure if it was supported or not.</p>
-      <p>Chester, like Fred said, there are no <a href="/wiki/Unicode" class="freelinking" rel="nofollow">Unicode</a> code-points assigned to these characters. The composite characters do indeed exist within the font, but we have to rely on the Glyph Composition/Decomposition(ccmp) feature to access them.</p>
+      <p>Tom, thank you for shedding the light on this. I had looked into the <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf" rel="nofollow" class="link-external">OpenType Layout Feature Support by Application</a> chart but found no reference to the <strong>ccmp</strong> feature, so I was not sure if it was supported or not.</p>
+      <p>Chester, like Fred said, there are no <a href="/wiki/Unicode" class="freelinking link-lost" rel="nofollow">Unicode</a> code-points assigned to these characters. The composite characters do indeed exist within the font, but we have to rely on the Glyph Composition/Decomposition(ccmp) feature to access them.</p>
       <p>I came across this problem when I was developing a font that included several "unUnicoded" characters for Armenian transliteration. The best solution I could think of was to use the <strong>ccmp</strong> feature.</p>
       <p>Using something else (let's say <strong>liga</strong> for example) would simply be hacking. Personally I wouldn't do any workarounds on this. Just as an example, the <strong>locl</strong> feature is present in some Adobe fonts, nevertheless none of their applications support it yet.</p>
       <p>Fred, you could use VOLT to implement the feature, but that won't produce any difference on InDesign's behavior.</p>
@@ -297,14 +297,14 @@ comments:
       <p>I rearranged the order of the features and still no change with the InDesign behavior. I'm using TextEdit v1.4 and InDesign v4. I've replicated the same behavior on another Mac. In other words, direct typing doesn't work. A copy and paste only works if a composite character is entered via the glyph palette and the paste is done immediately after the composite character.</p>
       <p>I guess I may be up against a wall on this. In this case, since there may be no other option to still use Unicode and OpenType, can I try the liga feature until such a time that InDesign fully supports ccmp, then modify the OT features to ccmp, and redistribute the font? I'm assuming that the typed glyphs will be the same it's just the rendering mechanism that will be different. I assume the already typed documents will still be valid.</p>
       <p>At this site I learned that InDesign only support 7 OpenType features, and ccmp isn't one of them.</p>
-      <p><a href="http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx" title="http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx">http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx</a></p>
+      <p><a href="http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx" title="http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx" class="link-external">http://www.microsoft.com/typography/VOLT%20and%20InDesign/default.mspx</a></p>
   - id: 106298
     user: 8664
     date: 2006-01-27T03:24:00
     date_raw: 27 Jan 2006 — 3:24am
     votes: null
     html: '<p>For feature support in Adobe apps, the last page of this one may be more reliable: <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf" target="new" rel="nofollow">http://store.adobe.com/type/browser/pdfs/OTGuide.pdf</a> (PDF-document) ;-)</p>'
-    html_clean: '<p>For feature support in Adobe apps, the last page of this one may be more reliable: <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf" target="new" rel="nofollow">http://store.adobe.com/type/browser/pdfs/OTGuide.pdf</a> (PDF-document) ;-)</p>'
+    html_clean: '<p>For feature support in Adobe apps, the last page of this one may be more reliable: <a href="http://store.adobe.com/type/browser/pdfs/OTGuide.pdf" target="new" rel="nofollow" class="link-external">http://store.adobe.com/type/browser/pdfs/OTGuide.pdf</a> (PDF-document) ;-)</p>'
   - id: 106366
     user: 1844
     date: 2006-01-27T17:21:00
@@ -434,5 +434,5 @@ comments:
     html_clean: |-
       <p>Chester: <em>So, how does a ccmp table get into a font? Does FLS encode it into the OTF upon generation? Is there a preference setting which handles this? Is it something one would drop into a TTXed file and then recompile?</em></p>
       <p>ccmp is an OTL feature, not a table. The spec is here:<br>
-      <a href="http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp" title="http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp">http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp</a></p>
+      <a href="http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp" title="http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp" class="link-external">http://www.microsoft.com/typography/otspec/features_ae.htm#ccmp</a></p>
       <p>It seems to me that much of the content of a typical ccmp feature could be automated using Python. For instance, it should be easy to determine that a glyph called /Aringacute/ should be mapped from /A/ /ringcomb/ /acutecomb/.</p>

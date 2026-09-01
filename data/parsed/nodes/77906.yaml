@@ -44,7 +44,7 @@ post:
   html_clean: |-
     <p>Please help me to understand how UPM is related to ascenders and descenders. For example, look at Times New Roman (TTF) metrics, UPM = 2048 (see image below).</p>
     <p>I used to believe that UPM = Ascender - Descender, but now I find that I was wrong. But what metrics expression must be equal to UPM? What plus what (or minus what) must give exactly 2048 in this example? I don’t see appropriate values at all. Help me to clarify, please.</p>
-    <p></p><div class="imageWrap"><img src="http://typophile.com/files/font_metrics_4626.png"></div><p></p>
+    <p></p><div class="imageWrap"><img src="/files/font_metrics_4626.png"></div><p></p>
 comments:
   - id: 446943
     user: 14722
@@ -55,8 +55,8 @@ comments:
       <p>Read Karsten Lucke’s guide to vertical metrics: <a href="http://kltf.de/downloads/FontMetrics-kltf.pdf" title="http://kltf.de/downloads/FontMetrics-kltf.pdf">http://kltf.de/downloads/FontMetrics-kltf.pdf</a></p>
       <p>Also, Adam Twardoch posted a python script that does a good job calculating vetical metrics in the thread: <a href="http://www.typophile.com/node/71230" title="http://www.typophile.com/node/71230">http://www.typophile.com/node/71230</a></p>
     html_clean: |-
-      <p>Read Karsten Lucke’s guide to vertical metrics: <a href="http://kltf.de/downloads/FontMetrics-kltf.pdf" title="http://kltf.de/downloads/FontMetrics-kltf.pdf">http://kltf.de/downloads/FontMetrics-kltf.pdf</a></p>
-      <p>Also, Adam Twardoch posted a python script that does a good job calculating vetical metrics in the thread: <a href="http://www.typophile.com/node/71230" title="http://www.typophile.com/node/71230">http://www.typophile.com/node/71230</a></p>
+      <p>Read Karsten Lucke’s guide to vertical metrics: <a href="http://kltf.de/downloads/FontMetrics-kltf.pdf" title="http://kltf.de/downloads/FontMetrics-kltf.pdf" class="link-external">http://kltf.de/downloads/FontMetrics-kltf.pdf</a></p>
+      <p>Also, Adam Twardoch posted a python script that does a good job calculating vetical metrics in the thread: <a href="/node/71230/" title="http://www.typophile.com/node/71230" class="link-kept">http://www.typophile.com/node/71230</a></p>
   - id: 446980
     user: 87214
     date: 2011-01-11T01:50:00
@@ -92,13 +92,13 @@ comments:
       <p><em>Sidenote:</em> your name is not shown for me (and surely for others) because U+2606 is a glyph not present in many fonts.</p>
     html_clean: |-
       <p><strong>Ascender</strong> and <strong>Descender</strong> are values defined by the font designer. In principle, their sum must be equal to UPM. Anyway, this is not always true because the designer can let a gap between these limits and the UPM. So, the sum of asc/desc would be minor than UPM.</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01112011_114745_4190.gif"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/capture_01112011_114745_4190.gif"></div><p></p>
       <p><em>Sample: Arial's UPM is 2048, but asc/desc sum is 1922</em>.</p>
       <p>This gap is useful to avoid line conflicts when using stacked double diacritics (like these in Vietnamese or for Indic transliterations). Another possibility is to let room for increasing overshoots in bolder weights. As long as I did watch, this is common in TT fonts and rare in T1 ones.</p>
       <p>If you have diferences between asc/desc, actual glyph extremes and UPM, the font editor will find other values when it calculates <strong>TypoAscender</strong> and <strong>TypoDescender</strong> fields. Anyway, this will not cause problems and is valid only for TT fonts.</p>
       <p><strong>WinAscent</strong> and <strong>WinDescent</strong> are equal to Ascender and Descender values in this TT panel. These values are get by the program itself and results from the actual vertical extremes of the font.</p>
       <p>Although WinAsc/WinDesc would be the same defined by designer as ascender and descender, many glyphs demand higher extremes. See, for example, some ornaments, mathematical symbols or diacritical combinations – not to mention most of script fonts. If you make asc/desc limits match these taller glyphs, the remaining glyphs would become very small or cause excessive line gap. So, at least in almost all fonts I saw, the nominal limits are ignored when designing especial kinds of glyphs.</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01112011_113002_3468.gif"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/capture_01112011_113002_3468.gif"></div><p></p>
       <p><em>Sample: in Minion, stacked diacritics go far away from ascender</em>.</p>
       <p><em>Sidenote:</em> your name is not shown for me (and surely for others) because U+2606 is a glyph not present in many fonts.</p>
   - id: 447003
@@ -177,7 +177,7 @@ comments:
       <p>Good question. I don't know.</p>
       <p>Initially, I thought exactly what OldNick told. But some tests show me other results.</p>
       <p>I took DejaVu Serif and set its x-height to 0. No change. Caps height to 0. No change. Back to original values I changed ascender from 1556 to 556. And the result in FontLab preview was this:</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01112011_163734_3743.gif"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/capture_01112011_163734_3743.gif"></div><p></p>
       <p><em>DejaVu Serif with ascender decreased by 1000upm.</em></p>
       <p>So, when you reduce the ascender (and did no change other metric values), line height seems to be affected.</p>
       <p>Still with the ascender modified by –1000, I set the descender from the original –492 to –1492. And the preview in FontLab was back to normal, indicating the program consider the sum from ascender and descender to define the line height.</p>
@@ -185,7 +185,7 @@ comments:
       <p>So, the ascender value is <strong>not</strong> considered by these applications to define leading and baseline. Note in this case the sum asc+desc was 1000upm minor than the original one and the proportion asc/desc was completely broken. Anyway, the lines were still OK.</p>
       <p>It's also possible that FL someway fixed this value in export process, but I don't bet on this. Put simply, these tests did not found an answer. They just put aside my initial presumption.</p>
       <p>But I noticed that, even with metrics greatly modified, the glyphs did remain at the same place. This is a glyph window capture from FontLab after I decreased <em>all</em> values by 1000upm:</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/capture_01112011_170437_6086.gif"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/capture_01112011_170437_6086.gif"></div><p></p>
       <p><em>Even with all metrics greatly modified, the glyph outline keeps it place.</em></p>
       <p>As you can see, ascender, caps height, x-height and descender were severely modified towards bottom. But the baseline, the outline and the marks were not affected in any way.</p>
       <p>This <em>may</em> be the answer: what determine baseline position is simply the baseline (y=0 line) used during font creation. To change other values will not affect the baseline and the glyph position is defined considering its relationship with this reference.</p>
@@ -220,11 +220,11 @@ comments:
       <p>→ oldnick</p>
       <p>Seems that I failed again to properly explain my question.</p>
       <p>You speak about ­“the available vertical space”. Let’s assume here’s this space according to my example. Since the program allocates space equal to font size, its height is exactly 2048 units:</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/01_6439.png"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/01_6439.png"></div><p></p>
       <p>Now, there is a real letter from the font, having height 1862 units. The baseline is marked with dashed line:</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/02_6272.png"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/02_6272.png"></div><p></p>
       <p>And then, what exactly happens when a program (i.e. Notepad) displays this letter in that box? How are the letter and the box positioned relative to each other? Are they top-aligned (first figure below), bottom-aligned (second figure), or something else?</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/03_4800.png"></div><p></p>
+      <p></p><div class="imageWrap"><img src="/files/03_4800.png"></div><p></p>
       <p>I don’t understand this.</p>
   - id: 447079
     user: 909
@@ -348,7 +348,7 @@ comments:
       <p>Since OS/2.Win values don't have a "LineGap" parameter, and if you do follow the rule <code>UPM = OS/2.TypoAscender + OS/2.TypoDescender</code>, then it means that <code>OS/2.TypoLineGap</code> is the UPM percentage that you want the line gap to be. If your intention is for the default linespacing to be <strong>120%</strong> of the UPM, then <code>OS/2.TypoLineGap</code> should be 20% of the UPM. So if the UPM is 1000, 20% of the UPM, and logically, <code>OS/2.TypoLineGap</code> would be 200. If you want the default linespacing to be 125% of the UPM, then <code>OS/2.TypoLineGap</code> would be 250 for a 1000 UPM font. </p>
       <p>The <code>OS/2.TypoLineGap</code> value needs then to be split in two and those partial values need to be added to <code>OS/2.WinAscent</code> and <code>OS/2.WinDescent</code>. If the font tends to have more "ink" above the <code>OS/2.TypoAscender</code>, then a larger part of the line gap value should be added to <code>OS/2.WinAscent</code>. If the font tends to have more "ink" below the <code>OS/2.TypoDescender</code>, then a larger part of the line gap value should be added to <code>OS/2.WinDescent</code>. </p>
       <p><strong>Fontographer 5</strong> includes an algorithm that works just as described (and always assume that the default linespacing should be 120% of the UPM). I've written a Python script for FontLab Studio that makes the same calculation:<br>
-      <a href="http://www.fontlab.net/downloads/NewLinespacing.zip" rel="nofollow"><strong>http://www.fontlab.net/downloads/NewLinespacing.zip</strong></a></p>
+      <a href="http://www.fontlab.net/downloads/NewLinespacing.zip" rel="nofollow" class="link-external"><strong>http://www.fontlab.net/downloads/NewLinespacing.zip</strong></a></p>
       <p>I hope that in the next version of Fontographer, we'll add a customization field that will allow the user to choose the default percentage (for users who want it to be different than 120%). </p>
       <p>Best,<br>
       Adam</p>
@@ -511,7 +511,7 @@ comments:
       </div>
     html_clean: |-
       <div class="comment-spam-body"><p>Could someone help me out? I'm trying to define the metrics for this typeface I'm about to transport to FontLab and can't make sense of it. Here are my key values:<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/Metrics_4368.jpg"></div><p></p>
+      </p><div class="imageWrap"><img src="/files/metrics_4368.jpg"></div><p></p>
       <p>If it helps at all, my cap height is 690 and my x-height is 482. When I calculate the value for the LineGap, I get to 32 rather than the roughly 200 I'm supposed to get. Am I supposed to decrease the Typo-values for OS/2?</p>
       <p>By the way, in a different thread you guys were talking about the meaning of the word 'typo' and how you've never seen it being used for anything other than to mean a typographical error. I just realized the alternate meaning is used in FontLab! TypoAscender, TypoDescender and TypoLineGap.</p>
       </div>
