@@ -54,6 +54,16 @@ function textAfterFirstBr($, container) {
   return out || null;
 }
 
+// Drupal normally exposed a member's numeric id in `/user/<id>`, but it also
+// allowed a profile to have a vanity path. Most vanity-only observations can
+// only be kept under a stable string id. This one is different: the archived
+// `/readthetype` profile's login form points at `user/15065`, and both forms
+// use picture-15065.jpg, so the relation is explicit rather than inferred from
+// a display name.
+const KNOWN_VANITY_PROFILE_IDS = new Map([
+  ["/readthetype", 15065],
+]);
+
 export function normaliseProfileHref(href) {
   let value = String(href ?? "").trim();
   if (!value) return null;
@@ -84,12 +94,12 @@ function userFromLink($, link) {
   // Matches both "/user/1258" and "http://typophile.com/user/1258".
   // A short-lived deployment prefixed the same Drupal route with `/cms`.
   const m = /^\/(?:cms\/)?user\/(\d+)$/.exec(href ?? "");
+  const vanityId = KNOWN_VANITY_PROFILE_IDS.get(href?.toLowerCase()) ?? null;
   return {
-    id: m ? Number(m[1]) : null,
+    id: m ? Number(m[1]) : vanityId,
     name: (link.text() || "").trim().replace(/\s+/g, " ") || null,
-    // Some members had a vanity profile path (e.g. "/readthetype") instead of
-    // a numeric one. There is no id to recover, but the name and the path are
-    // still worth keeping.
+    // Preserve a vanity path even when its numeric id is known. It is part of
+    // the archived identity and can still be useful for old-link handling.
     path: m ? null : href,
   };
 }

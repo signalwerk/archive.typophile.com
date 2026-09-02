@@ -266,8 +266,9 @@ inventing one would be a lie. `date_raw` keeps the original string.
 `votes` is `null` throughout — neither surviving generation renders a score.
 The extraction hook is in place should a generation that does turn up.
 
-`user_path` appears when a member had a vanity profile URL (`/readthetype`)
-instead of a numeric one: there is no id to recover, but the name and path are.
+`user_path` preserves a vanity profile URL when one appeared in the byline.
+The verified `/readthetype` vanity profile resolves to numeric user 15065; a
+vanity path only becomes a stable string id when no numeric relation survives.
 
 ### Re-running after new material arrives
 
@@ -293,8 +294,10 @@ count as changed.
 version, and any findings. It is the authority for skipping — a node can only
 be skipped if its findings can be replayed, so **the log always describes the
 whole corpus rather than just the last increment**. Deleting the state file is
-safe; it just forces a full re-parse. Each YAML also carries its own
-`fingerprint:` and `parser:` in the `source:` block, for inspection.
+safe; it just forces a full re-parse. Fingerprints and parser versions stay in
+the state file rather than each node YAML: they are cache bookkeeping, and
+embedding them in every derived document made a parser-only change rewrite the
+entire corpus in Git even where the parsed content remained byte-identical.
 
 Editing the parsers invalidates the output automatically: step 6 hashes
 `generations.js` together with its own source, and re-parses anything built by

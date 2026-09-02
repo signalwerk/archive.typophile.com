@@ -414,8 +414,6 @@ function mergeThread(thread, captures, parser, resolver) {
         content: parsed.length > 1 ? "merged snapshots" : "original",
         generation: "discus",
         file: primary.relFile,
-        fingerprint: fp,
-        parser,
         snapshots: parsed.length,
       },
       pages: {

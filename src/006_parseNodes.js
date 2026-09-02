@@ -138,6 +138,12 @@ function main() {
           counts.skipped++;
           nextState[pick.node] = known;
           if (known.generation) byGeneration[known.generation] = (byGeneration[known.generation] || 0) + 1;
+          // These are corpus totals, not work-done counters. Reconstruct them
+          // for cached nodes just as emit() reconstructs warnings and errors.
+          if ((pick.pages?.length ?? 0) > 1) counts.multiPageThreads++;
+          if ((known.issues ?? []).some((issue) => issue.message.startsWith("thread has "))) {
+            counts.incompleteThreads++;
+          }
           emit(pick.node, known.issues ?? []);
           continue;
         }
@@ -277,8 +283,6 @@ function main() {
           content: primary.source,
           generation: generation.id,
           file: primary.file,
-          fingerprint: pick.fp,
-          parser,
         },
         // How much of a paginated thread we actually hold.
         pages: {

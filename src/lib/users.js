@@ -1,10 +1,10 @@
 // A post or comment references its author by one id and nothing else; the
 // name, avatar and history live in that member's own file.
 //
-// Almost everyone has a numeric id. A few members only ever appear with a
-// vanity profile path (/readthetype) and guests appear with a display name
-// alone -- those get a stable slug so they can still be referenced, and still
-// get a page, rather than being dropped.
+// Almost everyone has a numeric id. Where an observation has only an
+// unresolved vanity profile path or a guest display name, it gets a stable
+// slug so it can still be referenced rather than being dropped. Verified
+// vanity-to-numeric relations are resolved by the page parser before this.
 
 export function slugify(value) {
   return String(value)
