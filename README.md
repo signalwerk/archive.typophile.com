@@ -3,10 +3,10 @@
 Pull the last living version of every typophile.com URL out of every web
 archive we can reach, then parse it.
 
-Typophile went dark in **2015**. The archives still hold plenty of captures
-after that date, but they are all placeholder pages (a reboot notice, then
-"Site off-line", then a parked domain). So the job is not "download the newest
-capture" but "download the newest capture from *before* the site died".
+Typophile first went dark in **2015**, returned in late 2016, and finally went
+offline in **2019**. The job is not simply "download the newest capture": it
+keeps the newest valid capture before the final outage while rejecting the
+placeholder and server-error responses seen during earlier interruptions.
 
 ## Archives
 
@@ -37,7 +37,7 @@ Steps can also be run on their own. The archive collection steps (0–4) take
 | step | command | what it does |
 | --- | --- | --- |
 | 0 | `npm run index` | fetch each archive's capture index |
-| 1 | `npm run cutoff` | find the timestamp at which the site went offline |
+| 1 | `npm run cutoff` | find the beginning of the site's final outage |
 | 2 | `npm run latest` | keep the newest good capture of every URL, per archive |
 | 3 | `npm run list` | turn those into download jobs with local target paths |
 | 4 | `npm run download` | download whatever is missing or outdated |
@@ -48,6 +48,7 @@ Steps can also be run on their own. The archive collection steps (0–4) take
 | 9 | `npm run threads` | build the compact thread listing index |
 | 10 | `npm run old-urls` | match pre-Drupal discussion URLs to their node IDs |
 | 11 | `npm run old-messages` | parse unmatched old discussions into a separate corpus |
+| 12 | `npm run special-files` | copy recovered interface files needed by the site |
 
 ## What step 0 re-fetches
 
@@ -109,27 +110,36 @@ step will use to tell duplicates from genuinely different captures.
 --skip-failed     don't retry captures that failed before
 ```
 
-## The cutoff is global, on purpose
+## The final cutoff is global, on purpose
 
-Step 1 detects when the site died and writes one cutoff used by **every**
-archive. This matters: arquivo.pt's own captures of the placeholder pages only
-start in 2019, so a per-archive cutoff would happily keep all of its dead 2018
-captures. The evidence from archive.org protects the other archives.
+Typophile was not continuously available: a reboot notice replaced the forum
+in May 2015, the real Drupal site returned in December 2016, and it remained
+available until October 2019. Step 1 therefore records every known placeholder
+but sets the cutoff only from the marker for the **final** outage. Step 2
+rejects all known placeholder payloads by digest, including those from the
+earlier outage, while retaining valid pages and files before the final cutoff.
+
+The final cutoff is shared by every archive. This matters because an archive
+that missed the terminal maintenance page would otherwise keep later parked
+domain captures. Evidence from one archive protects all three.
 
 Step 1 prints what it used, so the date can be checked:
 
 ```
 === Internet Archive Wayback Machine ===
-       24x  2015-05-01 08:01 .. 2015-09-08 10:25  Typophile turned 15 years old ...
-       33x  2016-01-11 18:59 .. 2016-06-18 21:49  Site off-line
+    12157x  2015-04-29 03:56 .. 2015-09-08 20:42  Typophile turned 15 years old ...
+       51x  2015-09-22 22:09 .. 2016-06-18 21:49  Site off-line
+       35x  2019-10-23 23:13 .. 2020-10-19 15:26  Typophile is temporarily down ...
 
 === global cutoff ===
-   20150501080143 (2015-05-01 08:01)
+   20191023231329 (2019-10-23 23:13)
 ```
 
 The placeholder checksums live in `OFFLINE_HASHES` in
 [src/lib/config.js](src/lib/config.js). If a placeholder is missed, add its
-checksum there. To bypass detection entirely, set `CUTOFF_OVERRIDE`.
+checksum there; `TERMINAL_OFFLINE_HASHES` says which placeholder begins the
+final outage. Repeated 2xx error pages belong in `BAD_PAGE_HASHES`. To bypass
+detection entirely, set `CUTOFF_OVERRIDE`.
 
 ## Filtering what gets downloaded
 
@@ -145,7 +155,7 @@ node src/003_downloadList.js --archive=commoncrawl.org --limit=1000
 
 ```
 data/
-  cutoff.json                    global offline date + the evidence for it
+  cutoff.json                    final offline date + all placeholder evidence
   archives/
     web.archive.org/
       raw/                       the index exactly as the archive served it
@@ -184,7 +194,7 @@ which makes the archives directly comparable.
   from another archive when one exists.
 - **arquivo.pt** only verifies through `/wayback/<ts>id_/`. Its
   `/noFrame/replay/` and plain `/wayback/<ts>/` endpoints return rewritten
-  pages. Its useful coverage is small (~157 pre-cutoff URLs, mostly images).
+  pages. Its useful coverage is small (~403 usable URLs, mostly images).
 - **commoncrawl.org** has no replay service at all; content comes from a byte
   range inside the crawl's WARC file. The record block is exactly
   `Content-Length` bytes — the trailing `\r\n\r\n` separator must not be

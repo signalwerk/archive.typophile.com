@@ -16,6 +16,7 @@ const NODES_DIR = path.join(DATA_DIR, "nodes");
 const USERS_DIR = path.join(DATA_DIR, "users");
 export const PICTURES_DIR = path.join(USERS_DIR, "pictures");
 export const FILES_DIR = path.join(DATA_DIR, "files");
+export const MISC_DIR = path.join(DATA_DIR, "misc");
 const THREAD_INDEX = path.join(NODES_DIR, "_index.jsonl");
 const CACHE_FILE = path.resolve(here, "../.cache/index.json");
 

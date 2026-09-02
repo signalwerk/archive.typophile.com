@@ -18,7 +18,8 @@ should be something you have verified, not something you assume.
 
 ## What this is
 
-Typophile, a typography discussion board, went offline in 2015. This project
+Typophile, a typography discussion board, went offline temporarily in 2015,
+returned in late 2016, and entered its final outage in 2019. This project
 recovers it from three web archives (`web.archive.org`, `arquivo.pt`,
 `commoncrawl.org`), parses the recovered pages into YAML, and renders a static
 site from them.
@@ -37,7 +38,8 @@ Node v24. The only root dependencies are `cheerio` and `yaml`.
 | threads | 65,044 (`data/parsed/nodes/<id>.yaml`) |
 | comments | 407,700 |
 | members | 27,841 files, 27,840 with numeric ids |
-| embedded files | 25,754 (`data/parsed/files/`, 2.5 GB) |
+| embedded files | 25,755 (`data/parsed/files/`, 2.5 GB) |
+| interface files | 1 (`data/parsed/misc/`) |
 | legacy-only discussions | 993 (`data/parsed/messages/<forum-id>-<old-id>.yaml`), 6,236 posts |
 | `data/parsed` total | 3.5 GB |
 
@@ -62,6 +64,7 @@ Whole pipeline, in order, resumable and safe to re-run: `sh get.sh`
 | 9 | `npm run threads` | write `nodes/_index.jsonl` | ~60 s cold, ~1 s warm |
 | 10 | `npm run old-urls` | match Discus URLs to nodes; write `old_url` + `old-urls.log` | ~20 s |
 | 11 | `npm run old-messages` | parse unmatched Discus threads and map migrated authors | ~20 s |
+| 12 | `npm run special-files` | copy recovered interface files that no post pulls in | |
 
 Site, from `site/`: `npm run dev` (port 5173) and `npm run build`. The build
 renders all ~65k routes every time — there is no incremental build — and then
@@ -80,6 +83,7 @@ archives ──0-4──> data/archives/<archive>/files/…      raw captures, d
                      └──> site/  reads the two _index.jsonl files and one YAML per page
               10──> old_url added to matched thread YAML + data/parsed/old-urls.log
               11──> data/parsed/messages/<forum-id>-<old-id>.yaml   legacy-only corpus
+              12──> data/parsed/misc/id_generic.gif                shared avatar fallback
 ```
 
 ### Legacy thread URLs
@@ -241,6 +245,25 @@ in each YAML for provenance.
 
 Measured after the current design: index 125 ms cold / 0 ms warm, thread page
 ~40 ms.
+
+Members without a recovered picture use Typophile's original shared
+`/misc/id_generic.gif` placeholder. The parser deliberately treats that URL as
+no per-user avatar; step 12 copies the verified capture to
+`data/parsed/misc/id_generic.gif`, which retains its original
+`/misc/id_generic.gif` address. Avatar styling adds neither a background nor a
+border.
+
+The cutoff is the start of the **final** outage, not the first time the site was
+unavailable. Verified from captures: the reboot notice replaced the forum from
+May 2015, `Site off-line` responses continued through June 2016, the real
+Drupal site returned in December 2016 and was still live on 11 October 2019,
+then the terminal maintenance page appeared on 23 October 2019. Step 1 records
+all placeholder eras but derives the cutoff only from hashes listed in
+`TERMINAL_OFFLINE_HASHES`. Step 2 independently rejects every known placeholder
+digest before that date, plus known same-origin error payloads in
+`BAD_PAGE_HASHES`; this lets it select good captures on either side of a
+temporary outage. In particular, `/files/img-thing_5442.jpg` is an ordinary
+2016 asset, not a special case.
 
 ## Conventions
 

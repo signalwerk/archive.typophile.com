@@ -1,15 +1,19 @@
-// Step 1 -- find the moment typophile.com went offline.
+// Step 1 -- find the beginning of Typophile's final outage.
 //
-// The cutoff is deliberately GLOBAL rather than per-archive: the site died
-// once. Archives that never captured a placeholder page (arquivo.pt has
-// captures running into 2018) would otherwise keep post-mortem junk.
+// The site was unavailable more than once and returned after its 2015--2016
+// outage. Every known placeholder is recorded, but only a terminal placeholder
+// starts the cutoff. The cutoff remains global: an archive that missed that
+// page must not keep later parked-domain captures.
 //
 // Because every archive reports the same base32 SHA-1 payload digest, one
 // list of placeholder checksums identifies the same dead pages everywhere.
 //
 //   node src/001_cutoffDate.js
 
-import { archiveDirs, CUTOFF_FILE, OFFLINE_HASHES, CUTOFF_OVERRIDE, DATA } from "./lib/config.js";
+import {
+  archiveDirs, CUTOFF_FILE, OFFLINE_HASHES, TERMINAL_OFFLINE_HASHES,
+  CUTOFF_OVERRIDE, DATA,
+} from "./lib/config.js";
 import { ARCHIVES } from "./lib/archives/index.js";
 import { ensureDir, writeJson, formatCount } from "./lib/util.js";
 
@@ -52,7 +56,12 @@ async function main() {
 
     const found = [...seen.entries()]
       .filter(([, v]) => v.count > 0)
-      .map(([digest, v]) => ({ digest, label: OFFLINE_HASHES[digest], ...v }))
+      .map(([digest, v]) => ({
+        digest,
+        label: OFFLINE_HASHES[digest],
+        terminal: TERMINAL_OFFLINE_HASHES.has(digest),
+        ...v,
+      }))
       .sort((a, b) => a.first.localeCompare(b.first));
 
     perArchive.push({ archive: archive.id, captures, placeholders: found });
@@ -77,34 +86,42 @@ async function main() {
 
   const allFound = [...global.entries()]
     .filter(([, v]) => v.count > 0)
-    .map(([digest, v]) => ({ digest, label: OFFLINE_HASHES[digest], ...v }))
+    .map(([digest, v]) => ({
+      digest,
+      label: OFFLINE_HASHES[digest],
+      terminal: TERMINAL_OFFLINE_HASHES.has(digest),
+      ...v,
+    }))
     .sort((a, b) => a.first.localeCompare(b.first));
+
+  const terminalFound = allFound.filter((hit) => hit.terminal);
 
   let cutoff;
   if (CUTOFF_OVERRIDE) {
     cutoff = String(CUTOFF_OVERRIDE);
-  } else if (allFound.length === 0) {
+  } else if (terminalFound.length === 0) {
     cutoff = "99999999999999";
   } else {
-    cutoff = allFound[0].first;
+    cutoff = terminalFound[0].first;
   }
 
   console.log(`\n=== global cutoff ===`);
   console.log(`   ${cutoff} (${formatTimestamp(cutoff)})`);
   if (CUTOFF_OVERRIDE) {
     console.log(`   from CUTOFF_OVERRIDE in src/lib/config.js`);
-  } else if (allFound.length === 0) {
-    console.log(`   no placeholders anywhere -- keeping every capture`);
+  } else if (terminalFound.length === 0) {
+    console.log(`   no terminal placeholder found -- keeping every non-placeholder capture`);
   } else {
-    console.log(`   first seen on: ${allFound[0].firstUrl}`);
-    console.log(`   placeholder:   ${allFound[0].label}`);
+    console.log(`   first seen on: ${terminalFound[0].firstUrl}`);
+    console.log(`   placeholder:   ${terminalFound[0].label}`);
   }
-  console.log(`   captures at or after this are ignored in every archive`);
+  console.log(`   captures at or after this are ignored; earlier known placeholders are rejected too`);
 
   writeJson(CUTOFF_FILE, {
     cutoff,
     override: CUTOFF_OVERRIDE ?? null,
     placeholders: allFound,
+    terminalPlaceholders: terminalFound,
     perArchive,
     generatedAt: new Date().toISOString(),
   });

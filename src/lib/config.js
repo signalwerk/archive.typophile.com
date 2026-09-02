@@ -4,9 +4,9 @@ export const DOMAIN = "typophile.com";
 
 export const DATA = "data";
 
-// The cutoff is global, not per-archive: the site died once. Archives that
-// never captured a placeholder page (arquivo.pt has captures into 2018) would
-// otherwise happily keep post-mortem junk.
+// The final cutoff is global, not per-archive. Typophile had an earlier outage
+// and later returned, so step 1 distinguishes temporary placeholders from the
+// terminal maintenance period rather than treating the first outage as death.
 export const CUTOFF_FILE = "data/cutoff.json";
 
 // Every archive gets the same layout under its own folder.
@@ -36,6 +36,19 @@ export const OFFLINE_HASHES = {
   FOTMZZTR5CDCUTIR6IINFKBBM3KY7PDJ: "Site off-line",
   "6FSTKSIHOGPKWOUZ72R7WHAU4YTIGVKV": "Site off-line",
   JK6WPGOR6SZJFUVHUYQXIAEKJ4U7TKDJ: "Typophile is temporarily down for maintenance.",
+};
+
+// The first observation of one of these pages begins the final outage. Other
+// OFFLINE_HASHES are still rejected, but do not end the usable timeline.
+export const TERMINAL_OFFLINE_HASHES = new Set([
+  "JK6WPGOR6SZJFUVHUYQXIAEKJ4U7TKDJ",
+]);
+
+// Same-origin 2xx responses that are neither forum content nor useful files.
+// The 2019 PHP failure was served for more than a thousand distinct node URLs,
+// so rejecting its shared digest lets step 2 fall back to an earlier capture.
+export const BAD_PAGE_HASHES = {
+  NRHQDL7WLG76PDGM5DK2XIX5FL4RK2N4: "PHP fatal error: missing sites/default/files/a.jpg",
 };
 
 // Set to a 14-digit timestamp to override the detected cutoff entirely.

@@ -52,7 +52,7 @@ async function main() {
   const { buildIndex } = await import(path.join(root, "lib/data.mjs"));
   const { resolve } = await import(path.join(root, "lib/resolve.mjs"));
   const { routeToPath } = await import(path.join(root, "lib/routes.mjs"));
-  const { PER_PAGE, PICTURES_DIR, FILES_DIR, buildUserIndex } = await import(path.join(root, "lib/data.mjs"));
+  const { PER_PAGE, PICTURES_DIR, FILES_DIR, MISC_DIR, buildUserIndex } = await import(path.join(root, "lib/data.mjs"));
 
   console.log("reading parsed threads ...");
   const index = buildIndex();
@@ -103,20 +103,27 @@ async function main() {
     }
   }
 
+  const copyTree = (from, to) => {
+    let copied = 0;
+    fs.mkdirSync(to, { recursive: true });
+    for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+      const a = path.join(from, entry.name);
+      const b = path.join(to, entry.name);
+      if (entry.isDirectory()) copied += copyTree(a, b);
+      else { fs.copyFileSync(a, b); copied++; }
+    }
+    return copied;
+  };
+
   // Files that posts embed or link to, copied in by step 8.
-  let assets = 0;
-  if (fs.existsSync(FILES_DIR)) {
-    const copyTree = (from, to) => {
-      fs.mkdirSync(to, { recursive: true });
-      for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
-        const a = path.join(from, entry.name);
-        const b = path.join(to, entry.name);
-        if (entry.isDirectory()) copyTree(a, b);
-        else { fs.copyFileSync(a, b); assets++; }
-      }
-    };
-    copyTree(FILES_DIR, path.join(DIST, "files"));
-  }
+  const assets = fs.existsSync(FILES_DIR)
+    ? copyTree(FILES_DIR, path.join(DIST, "files"))
+    : 0;
+
+  // Interface files copied explicitly by step 12 retain their old paths.
+  const interfaceFiles = fs.existsSync(MISC_DIR)
+    ? copyTree(MISC_DIR, path.join(DIST, "misc"))
+    : 0;
 
   // GitHub Pages: custom domain, and no Jekyll processing of the output.
   fs.writeFileSync(path.join(DIST, "CNAME"), "typophile.signalwerk.ch\n");
@@ -126,7 +133,7 @@ async function main() {
 
   const secs = ((Date.now() - started) / 1000).toFixed(1);
   console.log(`wrote ${done.toLocaleString("en-US")} pages to dist/ in ${secs}s`);
-  console.log(`copied ${pictures.toLocaleString("en-US")} avatar(s) and ${assets.toLocaleString("en-US")} file(s)`);
+  console.log(`copied ${pictures.toLocaleString("en-US")} avatar(s), ${assets.toLocaleString("en-US")} embedded file(s), and ${interfaceFiles.toLocaleString("en-US")} interface file(s)`);
   if (skipped) console.log(`skipped ${skipped} route(s) with no data`);
 }
 

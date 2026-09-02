@@ -1,20 +1,27 @@
 // Step 2 -- pick the last good capture of every URL, per archive.
 //
 // Keeps, for each URL in each archive, the newest capture that was taken
-// before the global cutoff and answered with a 2xx status. The full capture
-// metadata is carried through so the archives can be compared and merged
-// later on.
+// before the final global cutoff, answered with a 2xx status, and is not a
+// known placeholder or broken same-origin response. Rejecting those payloads
+// by digest preserves good captures on both sides of temporary outages. The
+// full capture metadata is carried through so archives can be compared later.
 //
 //   node src/002_latestVersions.js
 //   node src/002_latestVersions.js --archive=arquivo.pt
 
 import fs from "fs";
-import { archiveDirs, CUTOFF_FILE } from "./lib/config.js";
+import {
+  archiveDirs, CUTOFF_FILE, OFFLINE_HASHES, BAD_PAGE_HASHES,
+} from "./lib/config.js";
 import { selectArchives } from "./lib/archives/index.js";
 import { ensureDir, readJson, writeJson, parseArgs, formatCount } from "./lib/util.js";
 
 const args = parseArgs();
 const VAGUE_MIMES = new Set(["warc/revisit", "unk", "", "-", null, undefined]);
+const REJECTED_DIGESTS = new Set([
+  ...Object.keys(OFFLINE_HASHES),
+  ...Object.keys(BAD_PAGE_HASHES),
+]);
 
 async function processArchive(archive, cutoff) {
   const dirs = archiveDirs(archive.id);
@@ -22,7 +29,7 @@ async function processArchive(archive, cutoff) {
 
   const best = new Map();
   const mimeHint = new Map();
-  const stats = { captures: 0, afterCutoff: 0, notOk: 0, considered: 0 };
+  const stats = { captures: 0, afterCutoff: 0, rejected: 0, notOk: 0, considered: 0 };
   const urls = new Set();
 
   for await (const capture of archive.streamCaptures({ dirs })) {
@@ -30,6 +37,7 @@ async function processArchive(archive, cutoff) {
     urls.add(capture.k);
 
     if (capture.ts >= cutoff) { stats.afterCutoff++; continue; }
+    if (REJECTED_DIGESTS.has(capture.d)) { stats.rejected++; continue; }
     if (!/^2\d\d$/.test(String(capture.s))) { stats.notOk++; continue; }
     stats.considered++;
 
@@ -75,6 +83,7 @@ async function processArchive(archive, cutoff) {
     cutoff,
     captures: stats.captures,
     capturesAfterCutoff: stats.afterCutoff,
+    capturesRejectedByDigest: stats.rejected,
     capturesNotOk: stats.notOk,
     capturesConsidered: stats.considered,
     urlsTotal: urls.size,
@@ -102,6 +111,7 @@ async function main() {
     }
     console.log(`   captures ............. ${formatCount(stats.captures)}`);
     console.log(`     at/after cutoff .... ${formatCount(stats.afterCutoff)}`);
+    console.log(`     rejected payload ... ${formatCount(stats.rejected)}`);
     console.log(`     not 2xx ............ ${formatCount(stats.notOk)}`);
     console.log(`   distinct URLs ........ ${formatCount(urls)}`);
     console.log(`   with a good capture .. ${formatCount(written)}`);

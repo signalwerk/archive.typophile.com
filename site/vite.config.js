@@ -38,6 +38,21 @@ function forumDevServer() {
             return res.end("no such file");
           }
 
+          // A small explicit set of recovered interface assets keeps its old
+          // /misc/ address. Step 12 publishes these beside the parsed data.
+          if (url.startsWith("/misc/")) {
+            const { MISC_DIR } = await server.ssrLoadModule("/lib/data.mjs");
+            const root = path.resolve(MISC_DIR);
+            const file = path.resolve(root, decodeURIComponent(url.slice("/misc/".length)));
+            if (file.startsWith(`${root}${path.sep}`) && fs.existsSync(file) && fs.statSync(file).isFile()) {
+              const ext = path.extname(file).toLowerCase();
+              if (ext === ".gif") res.setHeader("Content-Type", "image/gif");
+              return res.end(fs.readFileSync(file));
+            }
+            res.statusCode = 404;
+            return res.end("no such interface file");
+          }
+
           if (url.startsWith("/pictures/")) {
             const { PICTURES_DIR } = await server.ssrLoadModule("/lib/data.mjs");
             const name = path.basename(decodeURIComponent(url));

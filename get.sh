@@ -21,9 +21,9 @@ set -e
 # 0. Fetch each archive's capture index.
 node src/000_fetchIndex.js "$@"
 
-# 1. Find when the site went offline. One GLOBAL cutoff for every archive:
-#    the site died once, and archives that never captured a placeholder page
-#    would otherwise keep post-mortem junk.
+# 1. Find the beginning of the final outage. Earlier placeholder periods are
+#    rejected by digest because the real site later returned. The final cutoff
+#    is global so archives that missed it do not keep post-mortem junk.
 node src/001_cutoffDate.js
 
 # 2. Keep the newest good capture of every URL, per archive.
@@ -65,3 +65,7 @@ node src/010_oldUrls.js
 # 11. Parse recovered old discussions that have no captured Drupal node into a
 #     separate node-shaped corpus, keyed by old forum id and message id.
 node src/011_oldMessages.js
+
+# 12. Copy the old site's interface files that parsed post content does not
+#     otherwise pull into the published data set.
+node src/012_specialFiles.js

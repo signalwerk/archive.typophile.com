@@ -9,9 +9,9 @@ export function AboutPage({ totals, forums, archives }) {
 
       <p>
         Typophile was a discussion board about typography and type design. It
-        went offline in 2015 and its pages have not been served since. What you
-        are reading here was rebuilt from copies that web archives happened to
-        keep.
+        went offline in 2015, returned in late 2016, and went offline for the
+        final time in 2019. What you are reading here was rebuilt from copies
+        that web archives happened to keep.
       </p>
 
       <h2 className="section-title">Where it comes from</h2>
@@ -38,9 +38,10 @@ export function AboutPage({ totals, forums, archives }) {
         </li>
       </ul>
       <p>
-        For each address, the newest capture taken before the site went dark is
-        used, and every file is checked against the checksum its archive
-        recorded, so what you see is the bytes that were captured rather than a
+        For each address, the newest valid capture before the final outage is
+        used. Known maintenance, offline and server-error pages are skipped,
+        and every file is checked against the checksum its archive recorded, so
+        what you see is the bytes that were captured rather than a
         reconstruction. Each thread names the archive and the exact moment its
         copy was made.
       </p>
