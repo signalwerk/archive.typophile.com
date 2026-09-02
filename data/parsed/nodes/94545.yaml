@@ -1,14 +1,14 @@
 node: 94545
-title: changing joining type of glyphs from U-JOINING to D-joining
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20140809163117"
-  captured_at: 2014-08-09T16:31:17Z
-  url: http://typophile.com/node/94545
-  digest: EVHUYGXBSOO7TURWNXWI34M34GV4DLTO
+  timestamp: "20170909164329"
+  captured_at: 2017-09-09T16:43:29Z
+  url: http://www.typophile.com/node/94545
+  digest: NMVBH4ITL4YAUVKT47ZZKBZ6T4EUPKEN
   verified: true
   truncated: false
   sound: true
@@ -24,132 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20140809163117"
-      digest: EVHUYGXBSOO7TURWNXWI34M34GV4DLTO
+      timestamp: "20170909164329"
+      digest: NMVBH4ITL4YAUVKT47ZZKBZ6T4EUPKEN
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/94545.html
 post:
   id: 94545
-  user: 195667
-  date: 2012-07-08T23:06:00
-  date_raw: 8 Jul 2012 — 11:06pm
-  votes: null
-  html: |-
-    <p>Hi there<br>
-     I have a problem with joining- type of my newly added glyph. i have added a glyph<br>
-    to  arabic font  of which the  unicode was supplied by the unicode consotium this year. its a dual joining glyph (that joins on both sides)and it has two form medial and final.its unicode is U+0620. But it does not join like other glyphs.it remains in its isolated form . i need to change its joining type from default joining type(which is non-joining or U) to dual joining( D).I dont know how to do it. i m using FONTLAB  STUDIO 5.0 as my tool.<br>
-     thanks in advance</p>
-  html_clean: |-
-    <p>Hi there<br>
-     I have a problem with joining- type of my newly added glyph. i have added a glyph<br>
-    to  arabic font  of which the  unicode was supplied by the unicode consotium this year. its a dual joining glyph (that joins on both sides)and it has two form medial and final.its unicode is U+0620. But it does not join like other glyphs.it remains in its isolated form . i need to change its joining type from default joining type(which is non-joining or U) to dual joining( D).I dont know how to do it. i m using FONTLAB  STUDIO 5.0 as my tool.<br>
-     thanks in advance</p>
-comments:
-  - id: 515106
-    user: 1262
-    date: 2012-07-09T10:41:00
-    date_raw: 9 Jul 2012 — 10:41am
-    votes: null
-    html: <p>The problem is not in the font. OpenType Arabic relies on script shaping engines, e.g. Microsoft's Uniscribe, to analyse character strings and determine which OTL substitution features to apply to each character. The shaping engine makes this determination based on Unicode character properties. So for any Arabic character that the shaping engine knows about, is has a record of whether it is non-joining, dual-joining or right-joining, and then applies the appropriate layout features depending on the position of that character in the text string. The problem you are observing with U+0620 is almost certainly because the shaping engine does <em>not</em> know about this character because it is a new addition to Unicode and the shaping engine has not been updated to include a record of its properties and how to handle the layout.</p>
-    html_clean: <p>The problem is not in the font. OpenType Arabic relies on script shaping engines, e.g. Microsoft's Uniscribe, to analyse character strings and determine which OTL substitution features to apply to each character. The shaping engine makes this determination based on Unicode character properties. So for any Arabic character that the shaping engine knows about, is has a record of whether it is non-joining, dual-joining or right-joining, and then applies the appropriate layout features depending on the position of that character in the text string. The problem you are observing with U+0620 is almost certainly because the shaping engine does <em>not</em> know about this character because it is a new addition to Unicode and the shaping engine has not been updated to include a record of its properties and how to handle the layout.</p>
-  - id: 515173
-    user: 195667
-    date: 2012-07-09T19:45:00
-    date_raw: 9 Jul 2012 — 7:45pm
-    votes: null
-    html: |-
-      <p>thanks a lot John...<br>
-      Can i update the shaping engine and tell it somehow about my new character....</p>
-    html_clean: |-
-      <p>thanks a lot John...<br>
-      Can i update the shaping engine and tell it somehow about my new character....</p>
-  - id: 515174
-    user: 1262
-    date: 2012-07-09T20:16:00
-    date_raw: 9 Jul 2012 — 8:16pm
-    votes: null
-    html: |-
-      <p>No, the shaping engine is an operating system or application component.</p>
-      <p>In what software are you testing your font (including version number) and on what operating system (including version and service pack number if any)?</p>
-    html_clean: |-
-      <p>No, the shaping engine is an operating system or application component.</p>
-      <p>In what software are you testing your font (including version number) and on what operating system (including version and service pack number if any)?</p>
-  - id: 515184
-    user: 195667
-    date: 2012-07-09T22:28:00
-    date_raw: 9 Jul 2012 — 10:28pm
-    votes: null
-    html: |-
-      <p>thanks once again<br>
-      i test my font in Microsoft office word 2007<br>
-      and the operating system i use is Windows 7 ultimate</p>
-    html_clean: |-
-      <p>thanks once again<br>
-      i test my font in Microsoft office word 2007<br>
-      and the operating system i use is Windows 7 ultimate</p>
-  - id: 515190
-    user: 1262
-    date: 2012-07-09T23:47:00
-    date_raw: 9 Jul 2012 — 11:47pm
-    votes: null
-    html: |-
-      <p>Microsoft Office and Windows both ship with versions of the Uniscribe shaping engine. Word will use the Office version of Uniscribe.</p>
-      <p>Try testing your font in Notepad, which will use the Windows version of Notepad. This will reveal whether U+0620 is supported in that version, although I doubt it since the character was added in 2010. That was probably too late for Windows 7 and probably even or Office 2010.</p>
-      <p>I will write to some colleagues at Microsoft to find out whether U+0620 is supported in the upcoming Windows 8 version of Uniscribe.</p>
-    html_clean: |-
-      <p>Microsoft Office and Windows both ship with versions of the Uniscribe shaping engine. Word will use the Office version of Uniscribe.</p>
-      <p>Try testing your font in Notepad, which will use the Windows version of Notepad. This will reveal whether U+0620 is supported in that version, although I doubt it since the character was added in 2010. That was probably too late for Windows 7 and probably even or Office 2010.</p>
-      <p>I will write to some colleagues at Microsoft to find out whether U+0620 is supported in the upcoming Windows 8 version of Uniscribe.</p>
-  - id: 515191
-    user: 195667
-    date: 2012-07-09T23:58:00
-    date_raw: 9 Jul 2012 — 11:58pm
-    votes: null
-    html: |-
-      <p>I tried it with notepad but it does not work..<br>
-      Its the same as in ms word.</p>
-    html_clean: |-
-      <p>I tried it with notepad but it does not work..<br>
-      Its the same as in ms word.</p>
-  - id: 515251
-    user: 1262
-    date: 2012-07-10T10:51:00
-    date_raw: 10 Jul 2012 — 10:51am
-    votes: null
-    html: <p>As I thought, the character was added to Unicode too recently to be supported in Windows 7. I'll let you know when I hear back from contacts at Microsoft re. Windows 8.</p>
-    html_clean: <p>As I thought, the character was added to Unicode too recently to be supported in Windows 7. I'll let you know when I hear back from contacts at Microsoft re. Windows 8.</p>
-  - id: 515253
-    user: 1262
-    date: 2012-07-10T11:12:00
-    date_raw: 10 Jul 2012 — 11:12am
-    votes: null
-    html: |-
-      <p>From MS:</p>
-      <blockquote><p>We added shaping support for U+0620 in Windows 8. We updated the existing shaping engines to Unicode 6.0.</p>
-      <p>Office 2010 won't shape this character on Windows 8, though, because Office uses its own internal copy of Uniscribe which matches Windows 7.</p></blockquote>
-    html_clean: |-
-      <p>From MS:</p>
-      <blockquote><p>We added shaping support for U+0620 in Windows 8. We updated the existing shaping engines to Unicode 6.0.</p>
-      <p>Office 2010 won't shape this character on Windows 8, though, because Office uses its own internal copy of Uniscribe which matches Windows 7.</p></blockquote>
-  - id: 515281
-    user: 25436
-    date: 2012-07-10T16:43:00
-    date_raw: 10 Jul 2012 — 4:43pm
-    votes: null
-    html: <p>I think there is some voodoo incantation that allows one to replace the internal copy of Uniscribe in Office. I haven’t done it in a long time so I don’t remember how. But for individual users or small groups, this is a possible temporary fix once the updated Uniscribe is available.</p>
-    html_clean: <p>I think there is some voodoo incantation that allows one to replace the internal copy of Uniscribe in Office. I haven’t done it in a long time so I don’t remember how. But for individual users or small groups, this is a possible temporary fix once the updated Uniscribe is available.</p>
-  - id: 515287
-    user: 1262
-    date: 2012-07-10T18:31:00
-    date_raw: 10 Jul 2012 — 6:31pm
-    votes: null
-    html: <p>I have not done this recently, but if you have an updated Uniscribe and can locate the one used by Office on your system you can simply replace the usp10.dll file. However, I don't know if this still works (there were concerns about usp10.dll as a possible security risk some time ago, so access to it might be more restricted), and it probably voids your warranty and may be contrary to the Office license agreement.</p>
-    html_clean: <p>I have not done this recently, but if you have an updated Uniscribe and can locate the one used by Office on your system you can simply replace the usp10.dll file. However, I don't know if this still works (there were concerns about usp10.dll as a possible security risk some time ago, so access to it might be more restricted), and it probably voids your warranty and may be contrary to the Office license agreement.</p>
-  - id: 516081
-    user: 195667
-    date: 2012-07-18T07:58:00
-    date_raw: 18 Jul 2012 — 7:58am
-    votes: null
-    html: <p>Thanks very much for this very useful  information.</p>
-    html_clean: <p>Thanks very much for this very useful  information.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

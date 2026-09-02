@@ -1,14 +1,14 @@
 node: 34230
-title: 'FontLab Error: invalid first character in name (text was ".null")'
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20140512025819"
-  captured_at: 2014-05-12T02:58:19Z
-  url: http://typophile.com:80/node/34230
-  digest: UYI23TLE24R6HKJWGCZTLBNLMMLVMDO2
+  timestamp: "20180228184300"
+  captured_at: 2018-02-28T18:43:00Z
+  url: http://www.typophile.com:80/node/34230
+  digest: GWUFTPEJ7OD6WRV675JJT6SZCGPYXP7C
   verified: true
   truncated: false
   sound: true
@@ -24,146 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20140512025819"
-      digest: UYI23TLE24R6HKJWGCZTLBNLMMLVMDO2
+      timestamp: "20180228184300"
+      digest: GWUFTPEJ7OD6WRV675JJT6SZCGPYXP7C
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/34230.html
 post:
   id: 34230
-  user: 18442
-  date: 2007-06-04T08:44:00
-  date_raw: 4 Jun 2007 — 8:44am
-  votes: null
-  html: |-
-    <p>After generating the font, this error message appears:</p>
-    <p>invalid first character in name (text was ".null")[1_tiger_0306:Applications:FontLab 4.6:fontlab.fea 208]</p>
-    <p>does anybody know anything about this error? what does it mean? which "name" and which "text" is meant?</p>
-    <p>thank you!</p>
-  html_clean: |-
-    <p>After generating the font, this error message appears:</p>
-    <p>invalid first character in name (text was ".null")[1_tiger_0306:Applications:FontLab 4.6:fontlab.fea 208]</p>
-    <p>does anybody know anything about this error? what does it mean? which "name" and which "text" is meant?</p>
-    <p>thank you!</p>
-comments:
-  - id: 206682
-    user: 8664
-    date: 2007-06-04T12:46:00
-    date_raw: 4 Jun 2007 — 12:46pm
-    votes: null
-    html: <p>Do your OT features involve substitution from or by '.null' glyph? Or did you kern it with another glyph? Then try removing this kerning pair in the metrics panel, update the kern feature, and generate the font again.</p>
-    html_clean: <p>Do your OT features involve substitution from or by '.null' glyph? Or did you kern it with another glyph? Then try removing this kerning pair in the metrics panel, update the kern feature, and generate the font again.</p>
-  - id: 206785
-    user: 18442
-    date: 2007-06-05T04:44:00
-    date_raw: 5 Jun 2007 — 4:44am
-    votes: null
-    html: <p>finally we found a glyph named ".null" in our font. deleting it, we solved the problem.</p>
-    html_clean: <p>finally we found a glyph named ".null" in our font. deleting it, we solved the problem.</p>
-  - id: 206788
-    user: 8664
-    date: 2007-06-05T05:15:00
-    date_raw: 5 Jun 2007 — 5:15am
-    votes: null
-    html: |-
-      <p>If you generate OTF fonts (with PostScript outlines):<br>
-      Only '.notdef' must be present, but not '.null' and 'CR'.</p>
-      <p>If you generate TTF fonts (or OTF with TT outlines):<br>
-      '.notdef', '.null' (unicode '0000'), 'CR' ('000D') and 'space' ('0020') should be the first four glyphs in your font, in this order. To reorder them, set the Font Window to Index Mode, then pull the glyphs the the correct place.</p>
-      <p>What I meant was, make sure '.null' is not mentioned in any feature.</p>
-    html_clean: |-
-      <p>If you generate OTF fonts (with PostScript outlines):<br>
-      Only '.notdef' must be present, but not '.null' and 'CR'.</p>
-      <p>If you generate TTF fonts (or OTF with TT outlines):<br>
-      '.notdef', '.null' (unicode '0000'), 'CR' ('000D') and 'space' ('0020') should be the first four glyphs in your font, in this order. To reorder them, set the Font Window to Index Mode, then pull the glyphs the the correct place.</p>
-      <p>What I meant was, make sure '.null' is not mentioned in any feature.</p>
-  - id: 370150
-    user: 20652
-    date: 2009-09-28T16:10:00
-    date_raw: 28 Sep 2009 — 4:10pm
-    votes: null
-    html: |-
-      <p>Ouch! I've got a similar error after establishing all my kerning classes and generating the kern feature. When I click to compile the opentype features...</p>
-      <p><code>[FATAL]  invalid first character in name (text was "01e9")</code></p>
-      <p>U+01e9 is kcircumflex. I've tried deleting this glyph, I've tried regenerating the kern feature and I've run the above solutions but still get the same error.</p>
-      <p>Hopefully this is something straightforward...I don't like FATAL errors...can anyone shed any light ;)</p>
-    html_clean: |-
-      <p>Ouch! I've got a similar error after establishing all my kerning classes and generating the kern feature. When I click to compile the opentype features...</p>
-      <p><code>[FATAL]  invalid first character in name (text was "01e9")</code></p>
-      <p>U+01e9 is kcircumflex. I've tried deleting this glyph, I've tried regenerating the kern feature and I've run the above solutions but still get the same error.</p>
-      <p>Hopefully this is something straightforward...I don't like FATAL errors...can anyone shed any light ;)</p>
-  - id: 370177
-    user: 19560
-    date: 2009-09-28T21:11:00
-    date_raw: 28 Sep 2009 — 9:11pm
-    votes: null
-    html: |-
-      <p>Well you've awakened an old thread, but it doesn't look like the original problem was ever fully sussed out. The "name" in question is the glyph name, which must conform to some rules established by Adobe quite a long time ago. Some font tools are more lenient than others with respect to glyph names, and sometimes a tool can assign an illegal name. This can cause trouble when another tool expects or requires strictly legal names and that is what's going on here.</p>
-      <p>From <a href="http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html" title="http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html">http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html</a> section 4 (emphasis mine):</p>
-      <p><code>A glyph name may be up to 31 characters in length, must be entirely comprised of characters from the following set:</code></p>
-      <p>A-Z<br>
-      a-z<br>
-      0-9<br>
-      . (period)<br>
-      _ (underscore)<br>
-      and <strong>must not start with a digit or period</strong>. The only exception is the special character ".notdef".</p>
-      <p>"twocents", "a1", and "_" are valid glyph names. "2cents" and ".twocents" are not.</p>
-      <p>Both of the glyph names here violate the emphasized part above; ".null" begins with a period and "01e9" begins with a digit.</p>
-      <p>To fix the "invalid first character in name" issue, you need to change the glyph name(s), not delete the glyph. There may be other glyphs with illegal names, too. You might try FontLab Studio's function to assign glyph names based on Unicode if you have a lot to rename.</p>
-    html_clean: |-
-      <p>Well you've awakened an old thread, but it doesn't look like the original problem was ever fully sussed out. The "name" in question is the glyph name, which must conform to some rules established by Adobe quite a long time ago. Some font tools are more lenient than others with respect to glyph names, and sometimes a tool can assign an illegal name. This can cause trouble when another tool expects or requires strictly legal names and that is what's going on here.</p>
-      <p>From <a href="http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html" title="http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html" class="link-external">http://www.adobe.com/devnet/opentype/archives/glyphnamelimits.html</a> section 4 (emphasis mine):</p>
-      <p><code>A glyph name may be up to 31 characters in length, must be entirely comprised of characters from the following set:</code></p>
-      <p>A-Z<br>
-      a-z<br>
-      0-9<br>
-      . (period)<br>
-      _ (underscore)<br>
-      and <strong>must not start with a digit or period</strong>. The only exception is the special character ".notdef".</p>
-      <p>"twocents", "a1", and "_" are valid glyph names. "2cents" and ".twocents" are not.</p>
-      <p>Both of the glyph names here violate the emphasized part above; ".null" begins with a period and "01e9" begins with a digit.</p>
-      <p>To fix the "invalid first character in name" issue, you need to change the glyph name(s), not delete the glyph. There may be other glyphs with illegal names, too. You might try FontLab Studio's function to assign glyph names based on Unicode if you have a lot to rename.</p>
-  - id: 370198
-    user: 20652
-    date: 2009-09-29T01:35:00
-    date_raw: 29 Sep 2009 — 1:35am
-    votes: null
-    html: |-
-      <p>&gt; must not start with a digit or period.</p>
-      <p>Interesting. I'll check through all the names. I think they're in the format uni1234 but some could just be 1234. If I use the 'assign glyph names' function, the classes and features will all need search/replace too right?</p>
-      <p>I've a feeling I might just have to wipe my kerning classes and start again. Before I made the classes (and changed the glyph order) the opentype features were compiling correctly.</p>
-      <p>I'll let you know how I get on. Thanks for the pointers.</p>
-    html_clean: |-
-      <p>&gt; must not start with a digit or period.</p>
-      <p>Interesting. I'll check through all the names. I think they're in the format uni1234 but some could just be 1234. If I use the 'assign glyph names' function, the classes and features will all need search/replace too right?</p>
-      <p>I've a feeling I might just have to wipe my kerning classes and start again. Before I made the classes (and changed the glyph order) the opentype features were compiling correctly.</p>
-      <p>I'll let you know how I get on. Thanks for the pointers.</p>
-  - id: 370325
-    user: 20652
-    date: 2009-09-29T14:24:00
-    date_raw: 29 Sep 2009 — 2:24pm
-    votes: null
-    html: |-
-      <p>Ok well it looks like there was something not right in the kerning classes. I wiped them, reassigned glyph names, then remade the kerning classes. With the new glyph names I had to search/replace in the other feature definitions. Now it compiles correctly and I get great looking opentype class kerning! :)</p>
-      <p>(PS there's now a warning that <code>[WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [z zacute zdotaccent zcaron uni01B6] [t uniFB06 ct ft ft.alt it]</code> but I'll live with that unless I can figure out what to do about that...)</p>
-    html_clean: |-
-      <p>Ok well it looks like there was something not right in the kerning classes. I wiped them, reassigned glyph names, then remade the kerning classes. With the new glyph names I had to search/replace in the other feature definitions. Now it compiles correctly and I get great looking opentype class kerning! :)</p>
-      <p>(PS there's now a warning that <code>[WARNING]  Start of new pair positioning subtable; some pairs may never be accessed: [z zacute zdotaccent zcaron uni01B6] [t uniFB06 ct ft ft.alt it]</code> but I'll live with that unless I can figure out what to do about that...)</p>
-  - id: 370328
-    user: 1043
-    date: 2009-09-29T14:36:00
-    date_raw: 29 Sep 2009 — 2:36pm
-    votes: null
-    html: |-
-      <p>That warning usually means that you have the same glyph in more than one kerning class. </p>
-      <p>Note: You can have a glyph in two kerning classes if they are not for the same side of a kerning pair.</p>
-    html_clean: |-
-      <p>That warning usually means that you have the same glyph in more than one kerning class. </p>
-      <p>Note: You can have a glyph in two kerning classes if they are not for the same side of a kerning pair.</p>
-  - id: 370336
-    user: 20652
-    date: 2009-09-29T15:34:00
-    date_raw: 29 Sep 2009 — 3:34pm
-    votes: null
-    html: <p>Aah, thanks Mark, I'll have a look at that.</p>
-    html_clean: <p>Aah, thanks Mark, I'll have a look at that.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

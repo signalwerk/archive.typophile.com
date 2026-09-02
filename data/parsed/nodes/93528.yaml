@@ -1,14 +1,14 @@
 node: 93528
-title: xMin, xMax, etc.
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20130823110019"
-  captured_at: 2013-08-23T11:00:19Z
-  url: http://typophile.com/node/93528
-  digest: FIJVNZFDVIRTFUO7UNQITZDAUCIZOW2A
+  timestamp: "20190921121153"
+  captured_at: 2019-09-21T12:11:53Z
+  url: http://www.typophile.com:80/node/93528
+  digest: AY2I2VPJFKESCNFEZY4JFNEGZMVB7ZO2
   verified: true
   truncated: false
   sound: true
@@ -24,63 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20130823110019"
-      digest: FIJVNZFDVIRTFUO7UNQITZDAUCIZOW2A
+      timestamp: "20190921121153"
+      digest: AY2I2VPJFKESCNFEZY4JFNEGZMVB7ZO2
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/93528.html
 post:
   id: 93528
-  user: 184594
-  date: 2012-05-31T05:23:00
-  date_raw: 31 May 2012 — 5:23am
-  votes: null
-  html: |-
-    <p>Hello everyone,</p>
-    <p>I was just wondering : since xMix, xMax, yMin, and yMax in the 'glyf' table define a bounding box for glyphs, I was wondering for what size is this bounding box given ?</p>
-    <p>Let's say, if a 2000*2000 bounding box is - for example - for a 100 pt "M", then I'd like to be able to get the bounding box for another size with a rule of three.</p>
-    <p>Thanks in advance for your help and your time !</p>
-    <p>Frederic</p>
-  html_clean: |-
-    <p>Hello everyone,</p>
-    <p>I was just wondering : since xMix, xMax, yMin, and yMax in the 'glyf' table define a bounding box for glyphs, I was wondering for what size is this bounding box given ?</p>
-    <p>Let's say, if a 2000*2000 bounding box is - for example - for a 100 pt "M", then I'd like to be able to get the bounding box for another size with a rule of three.</p>
-    <p>Thanks in advance for your help and your time !</p>
-    <p>Frederic</p>
-comments:
-  - id: 511560
-    user: 29994
-    date: 2012-05-31T06:04:00
-    date_raw: 31 May 2012 — 6:04am
-    votes: null
-    html: |-
-      <p>All values of this type inside a font are in 'design units' -- the 'unitsPerEm' value in Opentype font headers (other font types have a similar function defined elsewhere).</p>
-      <p>"Design units" are a virtual construct. When you start drawing characters, imagine you start with a clean square sheet of paper, and you declare up front "I'm going to draw all characters <em>inside</em> these boundaries." The physical size of the sheet does not matter; what does is how many <em>units</em> you divide it in, to be able to assign x and y coordinates to all of the individual points of your characters. The total size of your paper sheet is "one em", and the number of divisions is your "units per em" value.</p>
-      <p>(So why a separate 'bounding box'? Well, suppose you draw your average character set well inside the bounds of your em, but then you want to add <em>one</em> single large character that goes 'over the edge'. Of course you could throw everything away at that point and restart with a larger sheet, but at this point it's easier to step away from the "sheet" simile, and just design beyond the page boundaries. After all, it is just a virtual construct anyway.)</p>
-      <p>To know whether your example, a bounding box of 2000 × 2000 units, is "large" or "small" you need to compare it to the em square size the font was designed on. If this would be a typical Type 1 font, for example, its em square size could be 1000 units. That means that the largest character is twice as large as the em square. On the other hand, if it's a typical Truetype font, its em square size could be 2,048 units and that would make the largest character slightly <em>smaller</em> than a full em width.</p>
-      <p>Note that none of the above tells you <em>anything</em> about the size of individual characters! They could fill the em square from top to bottom, or they could be very small.</p>
-      <p>Back to your question. If you know in advance that the size of a 100 pt "M" is 2000 x 2000 design units, then you don't need to know anything else to calculate the bounding box "in units" for any other size. A 300 pt "M" will also have a bounding box of 2000 x 2000 design units. Even weirder, so will a 3 pt "M"!<br>
-      That is because <em>no matter how big or small</em> you scale your font, design units are only virtual. If you draw a dot on your 'i' at a position of x=10,y=100 <em>in design units</em> and then scale that 'i' up by a factor of 2, the dot will still be at the position x=10,y=100 <em>in design units</em>.</p>
-      <p>So what about the <em>physical</em> coordinates of that dot then, on screen on or paper? Well, of course these will change when you scale up, but that has nothing to do with design units.</p>
-      <p>By way of <em>grande finale</em>, an answer to your question: you can scale a font size up and down until you go blue in the face, but its bounding box in design units will always stay the same.</p>
-    html_clean: |-
-      <p>All values of this type inside a font are in 'design units' -- the 'unitsPerEm' value in Opentype font headers (other font types have a similar function defined elsewhere).</p>
-      <p>"Design units" are a virtual construct. When you start drawing characters, imagine you start with a clean square sheet of paper, and you declare up front "I'm going to draw all characters <em>inside</em> these boundaries." The physical size of the sheet does not matter; what does is how many <em>units</em> you divide it in, to be able to assign x and y coordinates to all of the individual points of your characters. The total size of your paper sheet is "one em", and the number of divisions is your "units per em" value.</p>
-      <p>(So why a separate 'bounding box'? Well, suppose you draw your average character set well inside the bounds of your em, but then you want to add <em>one</em> single large character that goes 'over the edge'. Of course you could throw everything away at that point and restart with a larger sheet, but at this point it's easier to step away from the "sheet" simile, and just design beyond the page boundaries. After all, it is just a virtual construct anyway.)</p>
-      <p>To know whether your example, a bounding box of 2000 × 2000 units, is "large" or "small" you need to compare it to the em square size the font was designed on. If this would be a typical Type 1 font, for example, its em square size could be 1000 units. That means that the largest character is twice as large as the em square. On the other hand, if it's a typical Truetype font, its em square size could be 2,048 units and that would make the largest character slightly <em>smaller</em> than a full em width.</p>
-      <p>Note that none of the above tells you <em>anything</em> about the size of individual characters! They could fill the em square from top to bottom, or they could be very small.</p>
-      <p>Back to your question. If you know in advance that the size of a 100 pt "M" is 2000 x 2000 design units, then you don't need to know anything else to calculate the bounding box "in units" for any other size. A 300 pt "M" will also have a bounding box of 2000 x 2000 design units. Even weirder, so will a 3 pt "M"!<br>
-      That is because <em>no matter how big or small</em> you scale your font, design units are only virtual. If you draw a dot on your 'i' at a position of x=10,y=100 <em>in design units</em> and then scale that 'i' up by a factor of 2, the dot will still be at the position x=10,y=100 <em>in design units</em>.</p>
-      <p>So what about the <em>physical</em> coordinates of that dot then, on screen on or paper? Well, of course these will change when you scale up, but that has nothing to do with design units.</p>
-      <p>By way of <em>grande finale</em>, an answer to your question: you can scale a font size up and down until you go blue in the face, but its bounding box in design units will always stay the same.</p>
-  - id: 511567
-    user: 184594
-    date: 2012-05-31T06:42:00
-    date_raw: 31 May 2012 — 6:42am
-    votes: null
-    html: |-
-      <p>Thank you so much Theunis for your amazing explanation ! </p>
-      <p>With the 'unitsPerEm' I think I'm actually getting exactly what I was looking for !</p>
-    html_clean: |-
-      <p>Thank you so much Theunis for your amazing explanation ! </p>
-      <p>With the 'unitsPerEm' I think I'm actually getting exactly what I was looking for !</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

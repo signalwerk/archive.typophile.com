@@ -1,14 +1,14 @@
 node: 94825
-title: Bad glyph names and how to fix it
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20130823040814"
-  captured_at: 2013-08-23T04:08:14Z
-  url: http://typophile.com/node/94825
-  digest: TG6C5QDLBPMGRDJ7X3STAC7CH44UK6CW
+  timestamp: "20170714051850"
+  captured_at: 2017-07-14T05:18:50Z
+  url: http://www.typophile.com:80/node/94825
+  digest: KW5QYBRMVPPKHRFWC3NNQ3SVOI24DHVT
   verified: true
   truncated: false
   sound: true
@@ -24,67 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20130823040814"
-      digest: TG6C5QDLBPMGRDJ7X3STAC7CH44UK6CW
+      timestamp: "20170714051850"
+      digest: KW5QYBRMVPPKHRFWC3NNQ3SVOI24DHVT
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/94825.html
 post:
   id: 94825
-  user: 19417
-  date: 2012-07-18T04:35:00
-  date_raw: 18 Jul 2012 — 4:35am
-  votes: null
-  html: |-
-    <p>I have a bunch of alternative glyphs named incorrectly. For example, there is a "four_onum.alt". </p>
-    <p>-Is the correct way to name this four.onum.alt or maybe four.onum_alt would be better? From what I understand, four.onum1 is preferred, but it is not that descriptive as I would like.<br>
-    -How big of a problem this kind of naming is and where the problems/compatibility issues would be likely to occur?</p>
-    <p>I'm also intersted to hear about possible ways to fix it. I found <a href="http://www.typophile.com/node/80760" title="www.typophile.com/node/80760">www.typophile.com/node/80760</a> where a "Rename Glyphs by Regex" script by Adam Twardoch was mentioned. This sounds like a tool for the job if it renames glyphs also in the opentype code and classes? However, I didn't find the actual script from Google. Is it publicly available, or should I just turn to Adam directly?</p>
-  html_clean: |-
-    <p>I have a bunch of alternative glyphs named incorrectly. For example, there is a "four_onum.alt". </p>
-    <p>-Is the correct way to name this four.onum.alt or maybe four.onum_alt would be better? From what I understand, four.onum1 is preferred, but it is not that descriptive as I would like.<br>
-    -How big of a problem this kind of naming is and where the problems/compatibility issues would be likely to occur?</p>
-    <p>I'm also intersted to hear about possible ways to fix it. I found <a href="/node/80760/" title="www.typophile.com/node/80760" class="link-kept">www.typophile.com/node/80760</a> where a "Rename Glyphs by Regex" script by Adam Twardoch was mentioned. This sounds like a tool for the job if it renames glyphs also in the opentype code and classes? However, I didn't find the actual script from Google. Is it publicly available, or should I just turn to Adam directly?</p>
-comments:
-  - id: 516097
-    user: 31798
-    date: 2012-07-18T09:51:00
-    date_raw: 18 Jul 2012 — 9:51am
-    votes: null
-    html: |-
-      <p>Any of four.onum.alt, four.onum_alt, or four.onum1 should be fine. There's no reason why the latter should be preferred AFAIK.</p>
-      <p>four_onum.alt, however is definitely not a good idea. The problem will arise in situations where a file is converted to postscript in the middle of a workflow (e.g. when using Acrobat Distiller) in which case unicode values will be lost and those values must be reconstructed from the glyph names.</p>
-      <p>In such cases, the unicode value is determined from the base name ignoring all dot suffixes. The base name must be either a legitimate postscript name (either a name from the Adobe Glyph List or a name of the form uniXXXX) or a ligature composed of legitimate names separated by underscores.</p>
-      <p>four_onum.alt would thus be interpreted as a ligature of four and (the non-legitimately named and likely nonexistent glyph) onum.</p>
-      <p>André</p>
-    html_clean: |-
-      <p>Any of four.onum.alt, four.onum_alt, or four.onum1 should be fine. There's no reason why the latter should be preferred AFAIK.</p>
-      <p>four_onum.alt, however is definitely not a good idea. The problem will arise in situations where a file is converted to postscript in the middle of a workflow (e.g. when using Acrobat Distiller) in which case unicode values will be lost and those values must be reconstructed from the glyph names.</p>
-      <p>In such cases, the unicode value is determined from the base name ignoring all dot suffixes. The base name must be either a legitimate postscript name (either a name from the Adobe Glyph List or a name of the form uniXXXX) or a ligature composed of legitimate names separated by underscores.</p>
-      <p>four_onum.alt would thus be interpreted as a ligature of four and (the non-legitimately named and likely nonexistent glyph) onum.</p>
-      <p>André</p>
-  - id: 516167
-    user: 19417
-    date: 2012-07-19T06:30:00
-    date_raw: 19 Jul 2012 — 6:30am
-    votes: null
-    html: <p>I see, thanks André. So it's definitely something that I should fix. Damn.</p>
-    html_clean: <p>I see, thanks André. So it's definitely something that I should fix. Damn.</p>
-  - id: 516172
-    user: 31798
-    date: 2012-07-19T07:08:00
-    date_raw: 19 Jul 2012 — 7:08am
-    votes: null
-    html: |-
-      <p>I'm not familiar with the script Adam mentioned. Unfortunately I know of no easy way to rename all your glyphs all at once within FontLab. It's easy enough to change the final suffix en masse, but anything involving either the base or a non-final suffix must be done manually or via a python script.</p>
-      <p>André</p>
-    html_clean: |-
-      <p>I'm not familiar with the script Adam mentioned. Unfortunately I know of no easy way to rename all your glyphs all at once within FontLab. It's easy enough to change the final suffix en masse, but anything involving either the base or a non-final suffix must be done manually or via a python script.</p>
-      <p>André</p>
-  - id: 516272
-    user: 19417
-    date: 2012-07-19T23:33:00
-    date_raw: 19 Jul 2012 — 11:33pm
-    votes: null
-    html: <p>Yeah, I really would like to learn Python and do it myself. Both options seem a bit daunting tasks.</p>
-    html_clean: <p>Yeah, I really would like to learn Python and do it myself. Both options seem a bit daunting tasks.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

@@ -1,20 +1,20 @@
 node: 19778
-title: OT features for accented characters
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
-  archive: commoncrawl.org
-  timestamp: "20150420005015"
-  captured_at: 2015-04-20T00:50:15Z
-  url: http://typophile.com/node/19778
-  digest: HJEHOHTOYDKI73BYFW2GME3AAF73LRS4
+  archive: web.archive.org
+  timestamp: "20180228115532"
+  captured_at: 2018-02-28T11:55:32Z
+  url: http://www.typophile.com:80/node/19778
+  digest: MMPZHH4EJCQHOGFV3ZAJICR4JNGPB3JA
   verified: true
   truncated: false
   sound: true
   content: original
   generation: sidebars
-  file: data/archives/commoncrawl.org/files/typophile.com/node/19778.html
+  file: data/archives/web.archive.org/files/typophile.com/node/19778.html
 pages:
   total: 1
   recovered: 1
@@ -23,121 +23,18 @@ pages:
     - 0
   parts:
     - page: 0
-      archive: commoncrawl.org
-      timestamp: "20150420005015"
-      digest: HJEHOHTOYDKI73BYFW2GME3AAF73LRS4
+      archive: web.archive.org
+      timestamp: "20180228115532"
+      digest: MMPZHH4EJCQHOGFV3ZAJICR4JNGPB3JA
       verified: true
       truncated: false
-      file: data/archives/commoncrawl.org/files/typophile.com/node/19778.html
+      file: data/archives/web.archive.org/files/typophile.com/node/19778.html
 post:
   id: 19778
-  user: 9878
-  date: 2006-05-06T22:34:00
-  date_raw: 6 May 2006 — 10:34pm
-  votes: null
-  html: |-
-    <p>I'm working on fonts that should support a maximum of accented characters (precomposed and composed). What's the best way to use OpenType features to avoid making smallcaps, etc. of every accented character (if that's possible)?</p>
-    <p>Can 'ccmp' and 'liga' be applied together on each precomposed character to get composed variants when applying features such as 'c2sc', 'smcp', etc.?<br>
-    How do font renderers handle 'ccmp' and 'liga' when together?</p>
-    <p>The test program (TrueTypeViewer) shows the desired behaviour. For example Â (Acircumflex, ccmp: A + uni0302, liga: A + uni0302) is always rendered as Â (circumflex) when the default 'ccmp' and 'liga' for latn are enabled. When applying 'c2sc' the desired composed smallcap Â (A.small + uni0302) is displayed.</p>
-    <p>Would this work on most systems? Do some display the precomposed forms instead of the composed ones when not advanced feature is applied?<br>
-    How do you deal with advanced features for tons of precomposed characters?</p>
-  html_clean: |-
-    <p>I'm working on fonts that should support a maximum of accented characters (precomposed and composed). What's the best way to use OpenType features to avoid making smallcaps, etc. of every accented character (if that's possible)?</p>
-    <p>Can 'ccmp' and 'liga' be applied together on each precomposed character to get composed variants when applying features such as 'c2sc', 'smcp', etc.?<br>
-    How do font renderers handle 'ccmp' and 'liga' when together?</p>
-    <p>The test program (TrueTypeViewer) shows the desired behaviour. For example Â (Acircumflex, ccmp: A + uni0302, liga: A + uni0302) is always rendered as Â (circumflex) when the default 'ccmp' and 'liga' for latn are enabled. When applying 'c2sc' the desired composed smallcap Â (A.small + uni0302) is displayed.</p>
-    <p>Would this work on most systems? Do some display the precomposed forms instead of the composed ones when not advanced feature is applied?<br>
-    How do you deal with advanced features for tons of precomposed characters?</p>
-comments:
-  - id: 122074
-    user: 1844
-    date: 2006-05-07T02:32:00
-    date_raw: 7 May 2006 — 2:32am
-    votes: null
-    html: |-
-      <p><a href="http://www.typophile.com/node/17517" rel="nofollow">http://www.typophile.com/node/17517</a><br>
-      <a href="http://www.typophile.com/node/17442" rel="nofollow">http://www.typophile.com/node/17442</a><br>
-      <a href="http://www.typophile.com/node/15982" rel="nofollow">http://www.typophile.com/node/15982</a><br>
-      <a href="http://www.typophile.com/node/17665" rel="nofollow">http://www.typophile.com/node/17665</a><br>
-      <a href="http://www.typophile.com/node/16229" rel="nofollow">http://www.typophile.com/node/16229</a></p>
-    html_clean: |-
-      <p><a href="/node/17517/" rel="nofollow" class="link-kept">http://www.typophile.com/node/17517</a><br>
-      <a href="/node/17442/" rel="nofollow" class="link-kept">http://www.typophile.com/node/17442</a><br>
-      <a href="/node/15982/" rel="nofollow" class="link-kept">http://www.typophile.com/node/15982</a><br>
-      <a href="/node/17665/" rel="nofollow" class="link-kept">http://www.typophile.com/node/17665</a><br>
-      <a href="/node/16229/" rel="nofollow" class="link-kept">http://www.typophile.com/node/16229</a></p>
-  - id: 122078
-    user: 1133
-    date: 2006-05-07T05:17:00
-    date_raw: 7 May 2006 — 5:17am
-    votes: null
-    html: |-
-      <p>&gt; Can ‘ccmp’ and ‘liga’ be applied together</p>
-      <p>Any features can be applied together. In such case, the order of the lookups in the font decides which substitutions or positionings are applied first. </p>
-      <p>But what do you want to put into the liga feature? A + uni0302 is not really a substitution that should be placed in the liga feature because Acircumflex is not a ligature. If you intend to hack the OpenType spec, of course you can still do it but keep in mind that your font will considered a hack. </p>
-      <p>&gt; Do some display the precomposed forms instead of<br>
-      &gt; the composed ones when not advanced feature is applied?</p>
-      <p>Yes, some applications apply the Unicode canonical composition process on the text string level, i.e. before the OpenType Layout processing is triggered. Some applications may also perform canonical reordering. </p>
-      <p>Also keep in mind that "ccmp" can be realized through substitutions but you can also add "mark" and "mkmk" features that position diacritical marks through GPOS. Your "ccmp" will be supported in a larger percentage of applications, e.g. TextEdit on Mac OS X 10.4 or InDesign non-Middle East while "mark" will be supported only in savvy applications e.g. Notepad on Windows XP SP-2, Word or InDesign Middle East. </p>
-      <p>A.</p>
-    html_clean: |-
-      <p>&gt; Can ‘ccmp’ and ‘liga’ be applied together</p>
-      <p>Any features can be applied together. In such case, the order of the lookups in the font decides which substitutions or positionings are applied first. </p>
-      <p>But what do you want to put into the liga feature? A + uni0302 is not really a substitution that should be placed in the liga feature because Acircumflex is not a ligature. If you intend to hack the OpenType spec, of course you can still do it but keep in mind that your font will considered a hack. </p>
-      <p>&gt; Do some display the precomposed forms instead of<br>
-      &gt; the composed ones when not advanced feature is applied?</p>
-      <p>Yes, some applications apply the Unicode canonical composition process on the text string level, i.e. before the OpenType Layout processing is triggered. Some applications may also perform canonical reordering. </p>
-      <p>Also keep in mind that "ccmp" can be realized through substitutions but you can also add "mark" and "mkmk" features that position diacritical marks through GPOS. Your "ccmp" will be supported in a larger percentage of applications, e.g. TextEdit on Mac OS X 10.4 or InDesign non-Middle East while "mark" will be supported only in savvy applications e.g. Notepad on Windows XP SP-2, Word or InDesign Middle East. </p>
-      <p>A.</p>
-  - id: 122080
-    user: 9878
-    date: 2006-05-07T05:40:00
-    date_raw: 7 May 2006 — 5:40am
-    votes: null
-    html: |-
-      <p>Thanks Adam.</p>
-      <p>&gt; But what do you want to put into the liga feature? A + uni0302 is<br>
-      &gt; not really a substitution that should be placed in the liga feature<br>
-      &gt; because Acircumflex is not a ligature. If you intend to hack the<br>
-      &gt; OpenType spec, of course you can still do it but keep in mind that<br>
-      &gt; your font will considered a hack.</p>
-      <p>I guess I'll just have 'ccmp' for these since some apps won't do the canonical composition.</p>
-      <p>&gt; Also keep in mind that “ccmp” can be realized through substitutions<br>
-      &gt; but you can also add “mark” and “mkmk” features that position<br>
-      &gt; diacritical marks through GPOS.</p>
-      <p>What would be the point of combining diacritics if there's no anchors to place them ;-) (too bad many fonts with combining diacritics don't have them).</p>
-    html_clean: |-
-      <p>Thanks Adam.</p>
-      <p>&gt; But what do you want to put into the liga feature? A + uni0302 is<br>
-      &gt; not really a substitution that should be placed in the liga feature<br>
-      &gt; because Acircumflex is not a ligature. If you intend to hack the<br>
-      &gt; OpenType spec, of course you can still do it but keep in mind that<br>
-      &gt; your font will considered a hack.</p>
-      <p>I guess I'll just have 'ccmp' for these since some apps won't do the canonical composition.</p>
-      <p>&gt; Also keep in mind that “ccmp” can be realized through substitutions<br>
-      &gt; but you can also add “mark” and “mkmk” features that position<br>
-      &gt; diacritical marks through GPOS.</p>
-      <p>What would be the point of combining diacritics if there's no anchors to place them ;-) (too bad many fonts with combining diacritics don't have them).</p>
-  - id: 122084
-    user: 9878
-    date: 2006-05-07T06:22:00
-    date_raw: 7 May 2006 — 6:22am
-    votes: null
-    html: <p>Thanks for the links Miguel.</p>
-    html_clean: <p>Thanks for the links Miguel.</p>
-  - id: 122112
-    user: 1133
-    date: 2006-05-07T10:41:00
-    date_raw: 7 May 2006 — 10:41am
-    votes: null
-    html: |-
-      <p>&gt; What would be the point of combining diacritics<br>
-      &gt; if there’s no anchors to place them</p>
-      <p>You can have combining diacritics without mark/mkmk but surely it's much better to include these features (that use anchors, obviously). </p>
-      <p>A.</p>
-    html_clean: |-
-      <p>&gt; What would be the point of combining diacritics<br>
-      &gt; if there’s no anchors to place them</p>
-      <p>You can have combining diacritics without mark/mkmk but surely it's much better to include these features (that use anchors, obviously). </p>
-      <p>A.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

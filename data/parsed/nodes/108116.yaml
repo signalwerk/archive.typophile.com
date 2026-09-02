@@ -1,14 +1,14 @@
 node: 108116
-title: How many variants of a character can you put in a OTF/TTF (web)font?
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20140712201601"
-  captured_at: 2014-07-12T20:16:01Z
-  url: http://typophile.com/node/108116
-  digest: ZZJMRZB4VSJ3MLTIBHP5V5MUAB4IPHLL
+  timestamp: "20170421181618"
+  captured_at: 2017-04-21T18:16:18Z
+  url: http://www.typophile.com:80/node/108116
+  digest: DJWVGND632J2L3BXLXKXRT73FBY5RGYK
   verified: true
   truncated: false
   sound: true
@@ -24,153 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20140712201601"
-      digest: ZZJMRZB4VSJ3MLTIBHP5V5MUAB4IPHLL
+      timestamp: "20170421181618"
+      digest: DJWVGND632J2L3BXLXKXRT73FBY5RGYK
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/108116.html
 post:
   id: 108116
-  user: 216292
-  date: 2014-01-09T08:01:00
-  date_raw: 9 Jan 2014 — 8:01am
-  votes: null
-  html: |-
-    <p>I'm trying to figure out a way to get multiple variants of a character in one single font file. Or, to put it another way: can I put multiple font families (or weights) in one OTF/TTF file?</p>
-    <p>My goal is to reduce the number of requests a site has to make in order to retrieve all the used fonts. I'd only need about 40 to 50 glyphs: the alphabet, the digits and the basic punctuation marks. I'm also willing to just use uppercase, so lowercase could be used for a different family.</p>
-    <p>This is specifically for web use.</p>
-    <p>To illustrate, I would like to apply one font familty to this container, and have each line show up in a different typeface:</p>
-    <p>HELLO, USER 123!<br>
-    HELLO, USER 123!<br>
-    HELLO, USER 123!<br>
-    HELLO, USER 123!</p>
-    <p>I think it's not possible, but before I give up on this idea I wanted to check with you guys.</p>
-    <p>I thought about and experimented with the following ideas:</p>
-    <ol>
-    <li>Give each line one of the basic styles with CSS (normal, bold, italic, bolditalic) and instead of bold, italic or bolditalic glyphs, just use normal glyps of three other fonts. Can't be done because these have to be four separate font files.</li>
-    <li>Modify the text so a different character inside the same font is used. Basically, the idea of uppercase and lowercase. This can easily be done in CSS and would work for A to Z, but not for numerals or puncutation. Also, it would be limited to two variants.</li>
-    <li>Expand on that idea by somehow transforming everything to accented letters, so I'd have a, A, ä and Ä. I guess this only works for valid characters (a, but not m for instance). Also, this isn't triggerable from CSS, you can't say "text-transform: umlaut"</li>
-    </ol>
-    <p>I've also brainstormed about a way to merge these files into one with other tricks. I.e. use the same binary container but somehow only use part of the data. Kinda like mulit-part MIME, but for binary. But I guess a stable, cross-browser way to do this is impossible.</p>
-    <p>The best solution I have now is to simply use four different font files, but BASE64-ing them and sticking them inside one CSS file. This actually works very well and caches nicely, the only disadvantage is the BASE64 overhead.</p>
-    <p>But if there's a solution on OTF/TTF-level, I'd be very interested!</p>
-  html_clean: |-
-    <p>I'm trying to figure out a way to get multiple variants of a character in one single font file. Or, to put it another way: can I put multiple font families (or weights) in one OTF/TTF file?</p>
-    <p>My goal is to reduce the number of requests a site has to make in order to retrieve all the used fonts. I'd only need about 40 to 50 glyphs: the alphabet, the digits and the basic punctuation marks. I'm also willing to just use uppercase, so lowercase could be used for a different family.</p>
-    <p>This is specifically for web use.</p>
-    <p>To illustrate, I would like to apply one font familty to this container, and have each line show up in a different typeface:</p>
-    <p>HELLO, USER 123!<br>
-    HELLO, USER 123!<br>
-    HELLO, USER 123!<br>
-    HELLO, USER 123!</p>
-    <p>I think it's not possible, but before I give up on this idea I wanted to check with you guys.</p>
-    <p>I thought about and experimented with the following ideas:</p>
-    <ol>
-    <li>Give each line one of the basic styles with CSS (normal, bold, italic, bolditalic) and instead of bold, italic or bolditalic glyphs, just use normal glyps of three other fonts. Can't be done because these have to be four separate font files.</li>
-    <li>Modify the text so a different character inside the same font is used. Basically, the idea of uppercase and lowercase. This can easily be done in CSS and would work for A to Z, but not for numerals or puncutation. Also, it would be limited to two variants.</li>
-    <li>Expand on that idea by somehow transforming everything to accented letters, so I'd have a, A, ä and Ä. I guess this only works for valid characters (a, but not m for instance). Also, this isn't triggerable from CSS, you can't say "text-transform: umlaut"</li>
-    </ol>
-    <p>I've also brainstormed about a way to merge these files into one with other tricks. I.e. use the same binary container but somehow only use part of the data. Kinda like mulit-part MIME, but for binary. But I guess a stable, cross-browser way to do this is impossible.</p>
-    <p>The best solution I have now is to simply use four different font files, but BASE64-ing them and sticking them inside one CSS file. This actually works very well and caches nicely, the only disadvantage is the BASE64 overhead.</p>
-    <p>But if there's a solution on OTF/TTF-level, I'd be very interested!</p>
-comments:
-  - id: 568926
-    user: 214908
-    date: 2014-01-09T08:20:00
-    date_raw: 9 Jan 2014 — 8:20am
-    votes: null
-    html: <p>I’m not sure if this is helpful and what you want, but you could use sequences of visible characters + zero-width characters (U+200B, U+200C, U+200D, U+FEFF) and define substitution tables with different glyphs in each case.</p>
-    html_clean: <p>I’m not sure if this is helpful and what you want, but you could use sequences of visible characters + zero-width characters (U+200B, U+200C, U+200D, U+FEFF) and define substitution tables with different glyphs in each case.</p>
-  - id: 568927
-    user: 214908
-    date: 2014-01-09T08:33:00
-    date_raw: 9 Jan 2014 — 8:33am
-    votes: null
-    html: "<p>On second thought: a rather better idea is to define language-dependent substitution tables, which should give you full control via CSS <em>lang</em> and/or <em>xml:lang</em>.</p>"
-    html_clean: "<p>On second thought: a rather better idea is to define language-dependent substitution tables, which should give you full control via CSS <em>lang</em> and/or <em>xml:lang</em>.</p>"
-  - id: 568940
-    user: 29994
-    date: 2014-01-09T10:43:00
-    date_raw: 9 Jan 2014 — 10:43am
-    votes: null
-    html: <p>A true OpenType solution, so no guarantees it will work "on every website, with every browser, on every computer", would be using stylistic sets.</p>
-    html_clean: <p>A true OpenType solution, so no guarantees it will work "on every website, with every browser, on every computer", would be using stylistic sets.</p>
-  - id: 568943
-    user: 216292
-    date: 2014-01-09T11:55:00
-    date_raw: 9 Jan 2014 — 11:55am
-    votes: null
-    html: |-
-      <p>@LiliCharlie: That's a very interesting idea, using <code>:lang</code>. I'll have to dig into browser support for this. Am I correct to think it works like this: <code>&lt; element lang="fr"&gt;abc&lt; / element&gt;</code> will ask the render engine to get the glyphs for a, b and c, and the rasterizer/OTF will request these from the font, passing along the information that these should be the French version of these characters? If so: pretty cool.</p>
-      <p>@Theunis de Jong: Very recent browsers are starting to support things like ligatures, alternates and swashes, but for now these are too experimental to rely on. But that would be a perfect solution for me. So this means you could technically put a normal and a bold version in one OTF file, and use bold by saying those are the historical forms, for instance?</p>
-    html_clean: |-
-      <p>@LiliCharlie: That's a very interesting idea, using <code>:lang</code>. I'll have to dig into browser support for this. Am I correct to think it works like this: <code>&lt; element lang="fr"&gt;abc&lt; / element&gt;</code> will ask the render engine to get the glyphs for a, b and c, and the rasterizer/OTF will request these from the font, passing along the information that these should be the French version of these characters? If so: pretty cool.</p>
-      <p>@Theunis de Jong: Very recent browsers are starting to support things like ligatures, alternates and swashes, but for now these are too experimental to rely on. But that would be a perfect solution for me. So this means you could technically put a normal and a bold version in one OTF file, and use bold by saying those are the historical forms, for instance?</p>
-  - id: 568945
-    user: 83217
-    date: 2014-01-09T11:44:00
-    date_raw: 9 Jan 2014 — 11:44am
-    votes: null
-    html: |-
-      <p>As for a CSS-based solution, embedding data in the @font-face is a valid option. As I recall, Typekit distributes their webfonts that way. I think the syntax is</p>
-      <p>url(data:font/truetype;base64,AAEAAAAKAIAAAwAgT1MvMgM2BUoAABCsAAAAYGNtYXCf+IBSAAAArAAABNxnbHlm9HMFtwAAESwA... and so on, until the end==);</p>
-      <p>or owt like that.</p>
-    html_clean: |-
-      <p>As for a CSS-based solution, embedding data in the @font-face is a valid option. As I recall, Typekit distributes their webfonts that way. I think the syntax is</p>
-      <p>url(data:font/truetype;base64,AAEAAAAKAIAAAwAgT1MvMgM2BUoAABCsAAAAYGNtYXCf+IBSAAAArAAABNxnbHlm9HMFtwAAESwA... and so on, until the end==);</p>
-      <p>or owt like that.</p>
-  - id: 568949
-    user: 29994
-    date: 2014-01-09T12:20:00
-    date_raw: 9 Jan 2014 — 12:20pm
-    votes: null
-    html: |-
-      <p>(Ab)using the Historical Forms for Bold is certainly an option, and there must be a few other "common" features that you might use this way. Most OTF features should allow combining with each other -- say, Oldstyle Numerals combined with Swash would use a total different glyph set than each on their own.</p>
-      <p>But the Stylistic Sets I was alluding to are a feature all on their own; twenty of them, in fact. They are unimaginatively named <code>ss01</code> to <code>ss20</code> (a fairly new option is a designer can give useful names to each) and they are specially defined for all  "whatever you can think of" glyphs and glyph combinations.</p>
-      <p>Suppose you made 20 weights of your font, then you could assign one to each set.</p>
-    html_clean: |-
-      <p>(Ab)using the Historical Forms for Bold is certainly an option, and there must be a few other "common" features that you might use this way. Most OTF features should allow combining with each other -- say, Oldstyle Numerals combined with Swash would use a total different glyph set than each on their own.</p>
-      <p>But the Stylistic Sets I was alluding to are a feature all on their own; twenty of them, in fact. They are unimaginatively named <code>ss01</code> to <code>ss20</code> (a fairly new option is a designer can give useful names to each) and they are specially defined for all  "whatever you can think of" glyphs and glyph combinations.</p>
-      <p>Suppose you made 20 weights of your font, then you could assign one to each set.</p>
-  - id: 568953
-    user: 216292
-    date: 2014-01-09T13:31:00
-    date_raw: 9 Jan 2014 — 1:31pm
-    votes: null
-    html: |-
-      <p>That'd be absolutely perfect for the web. You could use <code>ss01</code> et al for different families and still have one single font file. <a class="freelinking external" href="http://www.w3.org/TR/css-fonts-3/#font-variant-alternates-prop" rel="nofollow">More about how this would work in browsers.</a> Unfortunately it's still in the recommendation stage.</p>
-      <p>Very interesting stuff, thanks everyone!!</p>
-    html_clean: |-
-      <p>That'd be absolutely perfect for the web. You could use <code>ss01</code> et al for different families and still have one single font file. <a class="freelinking external link-external" href="http://www.w3.org/TR/css-fonts-3/#font-variant-alternates-prop" rel="nofollow">More about how this would work in browsers.</a> Unfortunately it's still in the recommendation stage.</p>
-      <p>Very interesting stuff, thanks everyone!!</p>
-  - id: 568988
-    user: 21687
-    date: 2014-01-10T00:50:00
-    date_raw: 10 Jan 2014 — 12:50am
-    votes: null
-    html: |-
-      <p>I think the cleanest solution would be to merge the fonts into a TrueType Collection file. The format is described here: <a href="http://www.microsoft.com/typography/otspec/otff.htm" title="http://www.microsoft.com/typography/otspec/otff.htm">http://www.microsoft.com/typography/otspec/otff.htm</a> (scroll halfway down)</p>
-      <p>If I remember correctly there's a tool to build TTC files available in Apple's font tools: <a href="https://developer.apple.com/fonts/" title="https://developer.apple.com/fonts/">https://developer.apple.com/fonts/</a></p>
-      <p>And FontForge can apparently generated TTCs but I haven't tried it.</p>
-    html_clean: |-
-      <p>I think the cleanest solution would be to merge the fonts into a TrueType Collection file. The format is described here: <a href="http://www.microsoft.com/typography/otspec/otff.htm" title="http://www.microsoft.com/typography/otspec/otff.htm" class="link-external">http://www.microsoft.com/typography/otspec/otff.htm</a> (scroll halfway down)</p>
-      <p>If I remember correctly there's a tool to build TTC files available in Apple's font tools: <a href="https://developer.apple.com/fonts/" title="https://developer.apple.com/fonts/" class="link-external">https://developer.apple.com/fonts/</a></p>
-      <p>And FontForge can apparently generated TTCs but I haven't tried it.</p>
-  - id: 569003
-    user: 216292
-    date: 2014-01-10T04:29:00
-    date_raw: 10 Jan 2014 — 4:29am
-    votes: null
-    html: |-
-      <p>That'd be even cleaner. I found this <a class="freelinking external" href="http://lists.w3.org/Archives/Public/public-webfonts-wg/2013Oct/0041.html" rel="nofollow">recent discussion on the W3C mailing list</a> and it looks like it's not supported yet. Also, it looks like there's a little support for fragmented identifiers for SVG — images at least. That could allow us to merge font files into one SVG-file and pick the appropriate one in our <code>font-face</code> declaration by adding <code>#1</code> for the first font, <code>#2</code> for the second, etc.</p>
-      <p>Unfortunately, the conclusion seems to be that there's no reliable cross-browser way of doing this, so BASE64'ing into one CSS file still seems to be the best option.</p>
-    html_clean: |-
-      <p>That'd be even cleaner. I found this <a class="freelinking external link-external" href="http://lists.w3.org/Archives/Public/public-webfonts-wg/2013Oct/0041.html" rel="nofollow">recent discussion on the W3C mailing list</a> and it looks like it's not supported yet. Also, it looks like there's a little support for fragmented identifiers for SVG — images at least. That could allow us to merge font files into one SVG-file and pick the appropriate one in our <code>font-face</code> declaration by adding <code>#1</code> for the first font, <code>#2</code> for the second, etc.</p>
-      <p>Unfortunately, the conclusion seems to be that there's no reliable cross-browser way of doing this, so BASE64'ing into one CSS file still seems to be the best option.</p>
-  - id: 569008
-    user: 21687
-    date: 2014-01-10T05:15:00
-    date_raw: 10 Jan 2014 — 5:15am
-    votes: null
-    html: <p>Ah, bummer. I didn’t know TTC isn’t supported by browsers.</p>
-    html_clean: <p>Ah, bummer. I didn’t know TTC isn’t supported by browsers.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []

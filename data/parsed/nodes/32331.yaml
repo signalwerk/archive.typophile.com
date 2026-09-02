@@ -1,14 +1,14 @@
 node: 32331
-title: AFDK 2.0 Fix Startpoints
+title: null
 forum:
-  id: 6
-  title: Build
+  id: null
+  title: null
 source:
   archive: web.archive.org
-  timestamp: "20131022053530"
-  captured_at: 2013-10-22T05:35:30Z
-  url: http://typophile.com/node/32331
-  digest: 4J3MNQVKJW56XUQXLPVKE5DZAE546IEZ
+  timestamp: "20180730201348"
+  captured_at: 2018-07-30T20:13:48Z
+  url: http://www.typophile.com:80/node/32331
+  digest: GOC52CNHFWAPX3CBXKPOMXRMFH2O2EIK
   verified: true
   truncated: false
   sound: true
@@ -24,183 +24,17 @@ pages:
   parts:
     - page: 0
       archive: web.archive.org
-      timestamp: "20131022053530"
-      digest: 4J3MNQVKJW56XUQXLPVKE5DZAE546IEZ
+      timestamp: "20180730201348"
+      digest: GOC52CNHFWAPX3CBXKPOMXRMFH2O2EIK
       verified: true
       truncated: false
       file: data/archives/web.archive.org/files/typophile.com/node/32331.html
 post:
   id: 32331
-  user: 11526
-  date: 2007-03-17T08:28:00
-  date_raw: 17 Mar 2007 — 8:28am
-  votes: null
-  html: |-
-    <p>Hi,</p>
-    <p>What exactly is the need to set start points correctly? And what is "correct"?</p>
-    <p>If we forget about the bug in FontLab (and hope it’s fixed soon) when a tangent (if a startpoint) gets converted into two nodes on the same spot) – what is the real need to use, for instance, the "Fix Startpoints" macro in AFDK?</p>
-    <p>Or use the "Relocate Startpoints" option in FontLab (where you can choose between four positions)?</p>
-    <p>What could be the worst that happens if I not set the starpoints correctly according to the FDK?</p>
-    <p>Any practical situations that explains the whole picture?</p>
-    <p>I’m anxious to know :)</p>
-  html_clean: |-
-    <p>Hi,</p>
-    <p>What exactly is the need to set start points correctly? And what is "correct"?</p>
-    <p>If we forget about the bug in FontLab (and hope it’s fixed soon) when a tangent (if a startpoint) gets converted into two nodes on the same spot) – what is the real need to use, for instance, the "Fix Startpoints" macro in AFDK?</p>
-    <p>Or use the "Relocate Startpoints" option in FontLab (where you can choose between four positions)?</p>
-    <p>What could be the worst that happens if I not set the starpoints correctly according to the FDK?</p>
-    <p>Any practical situations that explains the whole picture?</p>
-    <p>I’m anxious to know :)</p>
-comments:
-  - id: 191617
-    user: 1844
-    date: 2007-03-17T21:27:00
-    date_raw: 17 Mar 2007 — 9:27pm
-    votes: null
-    html: |-
-      <p>If you open up the macro in a text editor you'll find the following paragraph:</p>
-      <p><em>Purpose: This script sets the start point for every contour in every<br>
-      glyph. Useful for making it easy to compatibilize several single master<br>
-      faces in preparation converting them into an MM face.</em></p>
-      <p>So looks like the main goal of this macro was to lay the work for "Add Master Design", another AFDKO macro.</p>
-      <p>Looking at the Adobe Type 1 Font Format spec, there's a paragraph that reads:</p>
-      <p><em>Whenever possible, use the <strong>closepath</strong> command to draw one<br>
-      of the straight line segments, rather than closing a character<br>
-      with a <strong>closepath</strong> that results in a zero-length line segment.</em></p>
-      <p>This essentially means that a starting point should preferably be placed <em>after</em> a straight line.</p>
-      <p>The placement of the start point(s) can also have some influence on how the glyphs render at small sizes. AFAIK, this is related with which set of hints is in effect for a portion of the outline(s) at a given time.</p>
-      <p>The image below displays the rasterization of similar glyphs representing the letter 'A'. The only difference between them is the placement of the starting points (on the internal contour – the counter – and on the external contour). Observe how the counter is not in its optimal position in some of the examples, and/or how the "legs" of the 'A' are sometimes either too thick or too thin.</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/startpt_A_4418.png"></div><p></p>
-    html_clean: |-
-      <p>If you open up the macro in a text editor you'll find the following paragraph:</p>
-      <p><em>Purpose: This script sets the start point for every contour in every<br>
-      glyph. Useful for making it easy to compatibilize several single master<br>
-      faces in preparation converting them into an MM face.</em></p>
-      <p>So looks like the main goal of this macro was to lay the work for "Add Master Design", another AFDKO macro.</p>
-      <p>Looking at the Adobe Type 1 Font Format spec, there's a paragraph that reads:</p>
-      <p><em>Whenever possible, use the <strong>closepath</strong> command to draw one<br>
-      of the straight line segments, rather than closing a character<br>
-      with a <strong>closepath</strong> that results in a zero-length line segment.</em></p>
-      <p>This essentially means that a starting point should preferably be placed <em>after</em> a straight line.</p>
-      <p>The placement of the start point(s) can also have some influence on how the glyphs render at small sizes. AFAIK, this is related with which set of hints is in effect for a portion of the outline(s) at a given time.</p>
-      <p>The image below displays the rasterization of similar glyphs representing the letter 'A'. The only difference between them is the placement of the starting points (on the internal contour – the counter – and on the external contour). Observe how the counter is not in its optimal position in some of the examples, and/or how the "legs" of the 'A' are sometimes either too thick or too thin.</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/startpt_A_4418.png"></div><p></p>
-  - id: 191633
-    user: 11526
-    date: 2007-03-18T01:35:00
-    date_raw: 18 Mar 2007 — 1:35am
-    votes: null
-    html: |-
-      <p>Miguel,</p>
-      <p>thanks a lot for your explanations – very pedagogic.</p>
-    html_clean: |-
-      <p>Miguel,</p>
-      <p>thanks a lot for your explanations – very pedagogic.</p>
-  - id: 191648
-    user: 1844
-    date: 2007-03-18T07:46:00
-    date_raw: 18 Mar 2007 — 7:46am
-    votes: null
-    html: |-
-      <p>BTW, if you look at <a href="/wiki/Minion" class="freelinking" rel="nofollow">Minion</a> you'll find that all contours have at least one straight segment — although it may be just one unit long in round glyphs such as the 'O'. This was done in order to avoid <a href="/wiki/spiking" class="freelinking" rel="nofollow">spiking</a>, when generating font instances from the MM source. (AFAIK, there's no reason to do this if you're generating the instances with FontLab)<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/minion_o_5567.png"></div><p></p>
-    html_clean: |-
-      <p>BTW, if you look at <a href="/wiki/Minion" class="freelinking link-lost" rel="nofollow">Minion</a> you'll find that all contours have at least one straight segment — although it may be just one unit long in round glyphs such as the 'O'. This was done in order to avoid <a href="/wiki/spiking" class="freelinking link-lost" rel="nofollow">spiking</a>, when generating font instances from the MM source. (AFAIK, there's no reason to do this if you're generating the instances with FontLab)<br>
-      </p><div class="imageWrap"><img src="http://typophile.com/files/minion_o_5567.png"></div><p></p>
-  - id: 191650
-    user: 3135
-    date: 2007-03-18T07:55:00
-    date_raw: 18 Mar 2007 — 7:55am
-    votes: null
-    html: |-
-      <p>Miguel,<br>
-      So you are saying that FontLab MM interpolates differently than the Adobe FDK?</p>
-      <p>ChrisL</p>
-    html_clean: |-
-      <p>Miguel,<br>
-      So you are saying that FontLab MM interpolates differently than the Adobe FDK?</p>
-      <p>ChrisL</p>
-  - id: 191723
-    user: 1844
-    date: 2007-03-18T17:00:00
-    date_raw: 18 Mar 2007 — 5:00pm
-    votes: null
-    html: |-
-      <p>I don't know which tool was used to generate instances (during the font production phase), before we started using FontLab.</p>
-      <p>What I'm saying is, back in the day when Adobe was still producing and selling MM fonts, that trick had to be done, otherwise the rasterizer could create spikes in some glyphs, for instances created on-the-fly by the user — not by the font developer.</p>
-      <p>Nowadays there's no need for that artifact, unless you're licensing your fonts in MM format ;-)</p>
-    html_clean: |-
-      <p>I don't know which tool was used to generate instances (during the font production phase), before we started using FontLab.</p>
-      <p>What I'm saying is, back in the day when Adobe was still producing and selling MM fonts, that trick had to be done, otherwise the rasterizer could create spikes in some glyphs, for instances created on-the-fly by the user — not by the font developer.</p>
-      <p>Nowadays there's no need for that artifact, unless you're licensing your fonts in MM format ;-)</p>
-  - id: 191724
-    user: 3135
-    date: 2007-03-18T17:12:00
-    date_raw: 18 Mar 2007 — 5:12pm
-    votes: null
-    html: |-
-      <p>Thanks Miguel. So it was just instances created on the fly by the old Adobe MM format. I only use MM in fontlab as a way of interpolating between masters.</p>
-      <p>ChrisL</p>
-    html_clean: |-
-      <p>Thanks Miguel. So it was just instances created on the fly by the old Adobe MM format. I only use MM in fontlab as a way of interpolating between masters.</p>
-      <p>ChrisL</p>
-  - id: 191744
-    user: 1927
-    date: 2007-03-18T22:10:00
-    date_raw: 18 Mar 2007 — 10:10pm
-    votes: null
-    html: |-
-      <p>Miguel,<br>
-      What's the meaning of "spiking"?</p>
-    html_clean: |-
-      <p>Miguel,<br>
-      What's the meaning of "spiking"?</p>
-  - id: 191971
-    user: 1844
-    date: 2007-03-20T00:17:00
-    date_raw: 20 Mar 2007 — 12:17am
-    votes: null
-    html: |-
-      <p>It's when a node goes wacky an literarily creates a spike. I've seen a few recently while working on a project. It happened after applying a transformation to the outlines. Now imagine something like this happening while you're using the font... ouch!</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/spike_e_4084.png"></div><p></p>
-      <p>Here's a paragraph from the Adobe Type 1 Font Format spec about it:</p>
-      <p><em>Make sure that any subpath section formed by the closepath<br>
-      command intended to be zero length, is zero length. If not, the<br>
-      closepath command may cause a “spike” or “hangnail” (if the<br>
-      subpath doubles back onto itself) with unexpected results.</em></p>
-    html_clean: |-
-      <p>It's when a node goes wacky an literarily creates a spike. I've seen a few recently while working on a project. It happened after applying a transformation to the outlines. Now imagine something like this happening while you're using the font... ouch!</p>
-      <p></p><div class="imageWrap"><img src="http://typophile.com/files/spike_e_4084.png"></div><p></p>
-      <p>Here's a paragraph from the Adobe Type 1 Font Format spec about it:</p>
-      <p><em>Make sure that any subpath section formed by the closepath<br>
-      command intended to be zero length, is zero length. If not, the<br>
-      closepath command may cause a “spike” or “hangnail” (if the<br>
-      subpath doubles back onto itself) with unexpected results.</em></p>
-  - id: 191986
-    user: 3135
-    date: 2007-03-20T04:59:00
-    date_raw: 20 Mar 2007 — 4:59am
-    votes: null
-    html: |-
-      <p>I kinda like it as an ending e in a name for a punk rock group Miguel :-)</p>
-      <p>ChrisL</p>
-    html_clean: |-
-      <p>I kinda like it as an ending e in a name for a punk rock group Miguel :-)</p>
-      <p>ChrisL</p>
-  - id: 192153
-    user: 1927
-    date: 2007-03-20T19:58:00
-    date_raw: 20 Mar 2007 — 7:58pm
-    votes: null
-    html: |-
-      <p>Miguel.<br>
-      Thanks for your image and information. I understand well.<br>
-      Now I'm working on a project that my predecessor type designer had designed. When I saw these situation just like "Minion", I didn't understand why there were two points at same place. Therefore, I've completely deleted the one of two points. But my predecessor was right. I'm gonna read "Adobe Type 1 Font Format spec" again.<br>
-      And “Fix Startpoints” macro seems useful. I'll try it.</p>
-      <p>Regards.</p>
-    html_clean: |-
-      <p>Miguel.<br>
-      Thanks for your image and information. I understand well.<br>
-      Now I'm working on a project that my predecessor type designer had designed. When I saw these situation just like "Minion", I didn't understand why there were two points at same place. Therefore, I've completely deleted the one of two points. But my predecessor was right. I'm gonna read "Adobe Type 1 Font Format spec" again.<br>
-      And “Fix Startpoints” macro seems useful. I'll try it.</p>
-      <p>Regards.</p>
+  user: null
+  date: null
+  date_raw: null
+  votes: 1
+  html: null
+  html_clean: null
+comments: []
