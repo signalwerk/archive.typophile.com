@@ -1,5 +1,5 @@
 node: 42564
-title: null
+title: MakeOTF and GlyphOrderAndAliasDB problem
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/42564.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180203204318/typophile.com/node/42564.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,77 @@ pages:
       digest: HWKZS6HPA2VRA2Y6PHSOEDNESWJODI6Z
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/42564.html
+      file: data/archives/web.archive.org/files/20180203204318/typophile.com/node/42564.html
 post:
   id: 42564
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 10199
+  date: 2008-02-27T03:19:00
+  date_raw: 27 February 2008 - 3:19am
+  votes: 0
+  html: |-
+    <p>I'm trying to build a font with makeOTF, but I can't get past this error message:<br><strong>makeotfexe [FATAL] line too long [../../GlyphOrderAndAliasDB 3]</strong></p>
+    <p>Any ideas?</p>
+    <p>+++++</p>
+    <p><img src="/sites/default/files/old-images/scrn_4668.png"></p>
+    <p><cite> </cite><br><strong>The text of "current.fpr"</strong><br>
+    DoAliasAndOrder	true<br>
+    InputFontPath	MUSEO2_100.otf<br>
+    GlyphAliasDBPath	../../GlyphOrderAndAliasDB<br>
+    FeaturePath	features<br>
+    FontMenuDBPath	../../FontMenuNameDB<br>
+    kSetfsSelectionBitsOn	[7]</p>
+    <p><strong>terminal output (on "makeOTF -fp")</strong><br>
+    makeotf [NOTE] Running makeotfexe with command string:<br>
+       makeotfexe "-f" "MUSEO2_100.otf.tmp" -ga -ff "features" -osbOn "7" -gf "../../GlyphOrderAndAliasDB" -osv "4" -mf "../../FontMenuNameDB"<br>
+    makeotfexe [FATAL] line too long [../../GlyphOrderAndAliasDB 3]</p>
+    <p>+++++</p>
+  html_clean: |-
+    <p>I'm trying to build a font with makeOTF, but I can't get past this error message:<br><strong>makeotfexe [FATAL] line too long [../../GlyphOrderAndAliasDB 3]</strong></p>
+    <p>Any ideas?</p>
+    <p>+++++</p>
+    <p><img src="/sites/default/files/old-images/scrn_4668.png"></p>
+    <p><cite> </cite><br><strong>The text of "current.fpr"</strong><br>
+    DoAliasAndOrder	true<br>
+    InputFontPath	MUSEO2_100.otf<br>
+    GlyphAliasDBPath	../../GlyphOrderAndAliasDB<br>
+    FeaturePath	features<br>
+    FontMenuDBPath	../../FontMenuNameDB<br>
+    kSetfsSelectionBitsOn	[7]</p>
+    <p><strong>terminal output (on "makeOTF -fp")</strong><br>
+    makeotf [NOTE] Running makeotfexe with command string:<br>
+       makeotfexe "-f" "MUSEO2_100.otf.tmp" -ga -ff "features" -osbOn "7" -gf "../../GlyphOrderAndAliasDB" -osv "4" -mf "../../FontMenuNameDB"<br>
+    makeotfexe [FATAL] line too long [../../GlyphOrderAndAliasDB 3]</p>
+    <p>+++++</p>
+comments:
+  - id: 262080
+    user: 10199
+    date: 2008-02-27T10:27:00
+    date_raw: 27 February 2008 - 10:27am
+    votes: 0
+    html: <p>I've tried it with the example file that came with the AFDKO stuff and that one seems to work fine.  I'll adapt that file to suit my needs. Still can't figure out what I did wrong with the file I made myself though...</p>
+    html_clean: <p>I've tried it with the example file that came with the AFDKO stuff and that one seems to work fine.  I'll adapt that file to suit my needs. Still can't figure out what I did wrong with the file I made myself though...</p>
+  - id: 262104
+    user: 17208
+    date: 2008-02-27T11:45:00
+    date_raw: 27 February 2008 - 11:45am
+    votes: 0
+    html: |-
+      <p>It sounds like a problem with the linebreaks in your file. Make sure you use a a plain text editor (like the free TextWrangler for instance; Apple's TextEdit is not so suitable). Make sure you use Unix linebreaks and finish the last entry in your file with a linebreak too.</p>
+      <p>Hope that helps.</p>
+    html_clean: |-
+      <p>It sounds like a problem with the linebreaks in your file. Make sure you use a a plain text editor (like the free TextWrangler for instance; Apple's TextEdit is not so suitable). Make sure you use Unix linebreaks and finish the last entry in your file with a linebreak too.</p>
+      <p>Hope that helps.</p>
+  - id: 262182
+    user: 10199
+    date: 2008-02-27T15:05:00
+    date_raw: 27 February 2008 - 3:05pm
+    votes: 0
+    html: <p>Paul, that might be it. Ill give it a proper try this weekend. Dankjewel!</p>
+    html_clean: <p>Paul, that might be it. Ill give it a proper try this weekend. Dankjewel!</p>
+  - id: 263077
+    user: 10199
+    date: 2008-03-02T10:29:00
+    date_raw: 2 March 2008 - 10:29am
+    votes: 0
+    html: <p>It works. Thanks!</p>
+    html_clean: <p>It works. Thanks!</p>

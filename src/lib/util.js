@@ -191,6 +191,29 @@ export function localPathFor(urlkey, mime) {
   return [hostDir, ...segments.map(directorySegment), name].join("/");
 }
 
+const CAPTURE_TIMESTAMP = /^\d{14}$/;
+
+// Put the archive's observation time ahead of the URL-derived path. Keeping
+// this separate from localPathFor means collision handling can remain stable:
+// two URL keys that collapse onto one filename receive the same suffix they
+// did before timestamps became part of the on-disk layout.
+export function timestampedCapturePath(timestamp, localPath) {
+  const value = String(timestamp ?? "");
+  if (!CAPTURE_TIMESTAMP.test(value) || !localPath) return null;
+  const first = String(localPath).split("/", 1)[0];
+  if (CAPTURE_TIMESTAMP.test(first)) return first === value ? localPath : null;
+  return `${value}/${localPath}`;
+}
+
+// State records store paths below an archive's files/ directory. Consumers
+// interested in the original URL-shaped part should not need to know whether
+// the record predates the timestamped layout.
+export function captureUrlPath(file) {
+  const parts = String(file ?? "").split("/");
+  if (CAPTURE_TIMESTAMP.test(parts[0])) parts.shift();
+  return parts.join("/") || null;
+}
+
 // --- io helpers ------------------------------------------------------------
 
 export function ensureDir(dir) {

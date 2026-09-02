@@ -1,5 +1,5 @@
 node: 124392
-title: null
+title: Failing to create an SVG-in-OT font using ttx/fonttools
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/124392.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170701152229/typophile.com/node/124392.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,76 @@ pages:
       digest: HHJ4YZ7T4K2FE4FK56YPYCAPGNVVN2QZ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/124392.html
+      file: data/archives/web.archive.org/files/20170701152229/typophile.com/node/124392.html
 post:
   id: 124392
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 216292
+  date: 2015-04-06T14:17:00
+  date_raw: 6 April 2015 - 2:17pm
+  votes: 0
+  html: |-
+    <p>I'm trying to create an SVG-in-OpenType font by adding an 'SVG '-table to an existing font, but the SVG glyph will not render in the final font.</p>
+    <p>This is my process:</p>
+    <p>1. I take an existing font and decompile it with ttx (Behdad's version)</p>
+    <p>2. I add an SVG table with a single svgDoc entry holding an SVG image.</p>
+    <p>3. I recompile the ttx (without errors) and test the font in Firefox (which supports SVG-in-OpenType).</p>
+    <p>Although ttx doesn't throw any errors, the SVG glyph doesn't show up — the original glyph is being shown.</p>
+    <p>My addition to the font looks like this:</p>
+    <p><code>&lt;svg&gt;<br>
+    &lt;svgDoc endGlyphID="4" startGlyphID="4"&gt;<br>
+        &lt;![CDATA[<br>
+        &lt;!-- svg data --&gt;<br>
+        ]]&gt;<br>
+    &lt;/svgDoc&gt;<br>
+    &lt;colorPalettes&gt;<br>
+    &lt;/svg&gt;</code></p>
+    <p>I've tried the following:</p>
+    <p>* Using different TTF fonts to transplant my SVGs into<br>
+    * Using all kinds of different SVGs, including one I took from an existing ttx'ed SVG-in-OpenType font<br>
+    * Matching other tables to those of existing SVG-in-OpenType (e.g. adding a cmap_format_6 table)<br>
+    * Decompiling the generated font to see if nothing was being dropped by ttx</p>
+    <p>I don't know why this doesn't work. It looks so simple, and according to various sources* adding the SVG table should be all there's to it. Inspecting proper SVG-in-OpenType fonts seems to confirm this.</p>
+    <p>Anybody have an idea what I'm doing wrong?</p>
+    <p>* <a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/</a> and <a href="http://www.microsoft.com/typography/otspec/svg.htm">http://www.microsoft.com/typography/otspec/svg.htm</a></p>
+  html_clean: |-
+    <p>I'm trying to create an SVG-in-OpenType font by adding an 'SVG '-table to an existing font, but the SVG glyph will not render in the final font.</p>
+    <p>This is my process:</p>
+    <p>1. I take an existing font and decompile it with ttx (Behdad's version)</p>
+    <p>2. I add an SVG table with a single svgDoc entry holding an SVG image.</p>
+    <p>3. I recompile the ttx (without errors) and test the font in Firefox (which supports SVG-in-OpenType).</p>
+    <p>Although ttx doesn't throw any errors, the SVG glyph doesn't show up — the original glyph is being shown.</p>
+    <p>My addition to the font looks like this:</p>
+    <p><code>&lt;svg&gt;<br>
+    &lt;svgDoc endGlyphID="4" startGlyphID="4"&gt;<br>
+        &lt;![CDATA[<br>
+        &lt;!-- svg data --&gt;<br>
+        ]]&gt;<br>
+    &lt;/svgDoc&gt;<br>
+    &lt;colorPalettes&gt;<br>
+    &lt;/svg&gt;</code></p>
+    <p>I've tried the following:</p>
+    <p>* Using different TTF fonts to transplant my SVGs into<br>
+    * Using all kinds of different SVGs, including one I took from an existing ttx'ed SVG-in-OpenType font<br>
+    * Matching other tables to those of existing SVG-in-OpenType (e.g. adding a cmap_format_6 table)<br>
+    * Decompiling the generated font to see if nothing was being dropped by ttx</p>
+    <p>I don't know why this doesn't work. It looks so simple, and according to various sources* adding the SVG table should be all there's to it. Inspecting proper SVG-in-OpenType fonts seems to confirm this.</p>
+    <p>Anybody have an idea what I'm doing wrong?</p>
+    <p>* <a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/" class="link-external">https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/</a> and <a href="http://www.microsoft.com/typography/otspec/svg.htm" class="link-external">http://www.microsoft.com/typography/otspec/svg.htm</a></p>
+comments:
+  - id: 602398
+    user: 216292
+    date: 2015-04-06T15:50:00
+    date_raw: 6 April 2015 - 3:50pm
+    votes: 0
+    html: |-
+      <p>Ugh. In case someone else ever runs into this: the SVG image can't be copied verbatim; something needs to be added to it. The glyph ID, as used in the GlyphOrder table ttx generates, needs to be added to the SVG. For example</p>
+      <p>&lt;GlyphID id="4" name="exclam"/&gt;</p>
+      <p>would need</p>
+      <p>&lt;svg id="glyph4" ... &gt;</p>
+      <p>And I didn't notice the IDs didn't match. Duh.</p>
+    html_clean: |-
+      <p>Ugh. In case someone else ever runs into this: the SVG image can't be copied verbatim; something needs to be added to it. The glyph ID, as used in the GlyphOrder table ttx generates, needs to be added to the SVG. For example</p>
+      <p>&lt;GlyphID id="4" name="exclam"/&gt;</p>
+      <p>would need</p>
+      <p>&lt;svg id="glyph4" ... &gt;</p>
+      <p>And I didn't notice the IDs didn't match. Duh.</p>

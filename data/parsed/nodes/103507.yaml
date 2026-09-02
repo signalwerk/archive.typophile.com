@@ -1,5 +1,5 @@
 node: 103507
-title: null
+title: Eszett, ß, longs_s in English language
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/103507.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170425160312/typophile.com/node/103507.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,222 @@ pages:
       digest: A64MEOBG2INDUME4HUC2WBLVGIR352PE
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/103507.html
+      file: data/archives/web.archive.org/files/20170425160312/typophile.com/node/103507.html
 post:
   id: 103507
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 56792
+  date: 2013-06-03T09:22:00
+  date_raw: 3 June 2013 - 9:22am
+  votes: 0
+  html: |-
+    <p>Hi everyone,</p>
+    <p>I'm currently trying to talk somebody (trying to reproduce late 1700s style in an English text) out of using the OpenType ›Contextuals‹ feature as a tool to substitute every (!) non-final <code>s</code> by an <code>ſ</code> -- as ſ usage is a lot more complex than that.</p>
+    <p>Now what this issue reminded me of was having seen a <code>longs_s</code> ligature in an English text once -- an <code>ß</code>, effectively. 17th or 18th century, I guess. I just can't find it. Un-ligated <code>longs_s</code> + <code>s</code> <a href="http://i.stack.imgur.com/uSixM.png">are</a> <a href="http://upload.wikimedia.org/wikipedia/commons/3/3d/Long-s-US-Bill-of-Rights.jpg">everywhere,</a> but that's not what I'm looking for.</p>
+    <p>But maybe I'm on the wrong track... has anyone else seen something like this and would be willing to post a specimen?<br>
+    thanks in advance!</p>
+  html_clean: |-
+    <p>Hi everyone,</p>
+    <p>I'm currently trying to talk somebody (trying to reproduce late 1700s style in an English text) out of using the OpenType ›Contextuals‹ feature as a tool to substitute every (!) non-final <code>s</code> by an <code>ſ</code> -- as ſ usage is a lot more complex than that.</p>
+    <p>Now what this issue reminded me of was having seen a <code>longs_s</code> ligature in an English text once -- an <code>ß</code>, effectively. 17th or 18th century, I guess. I just can't find it. Un-ligated <code>longs_s</code> + <code>s</code> <a href="http://i.stack.imgur.com/uSixM.png" class="link-external">are</a> <a href="http://upload.wikimedia.org/wikipedia/commons/3/3d/Long-s-US-Bill-of-Rights.jpg" class="link-external">everywhere,</a> but that's not what I'm looking for.</p>
+    <p>But maybe I'm on the wrong track... has anyone else seen something like this and would be willing to post a specimen?<br>
+    thanks in advance!</p>
+comments:
+  - id: 556108
+    user: 2021
+    date: 2013-06-03T13:06:00
+    date_raw: 3 June 2013 - 1:06pm
+    votes: 0
+    html: |-
+      <p><a href="http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html">http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html</a></p>
+      <p>Accordingly, there may be some italic fonts from the late 18th century that follow the contemporary writing practice of /ß for double-s.</p>
+      <p>I’ve put a long-s feature in several typefaces, but in the “hist” feature (for when and if that gets supported by layout apps) and as a Stylistic Set.</p>
+      <p>My present thinking is to employ a double long s (with appropriate ligature in the ligature feature) in the code, rather than long s followed by short s (except at the end of words, of course), as I think if people are going to use this feature, they would like to see as many long-s’s as possible!</p>
+    html_clean: |-
+      <p><a href="http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html" class="link-external">http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html</a></p>
+      <p>Accordingly, there may be some italic fonts from the late 18th century that follow the contemporary writing practice of /ß for double-s.</p>
+      <p>I’ve put a long-s feature in several typefaces, but in the “hist” feature (for when and if that gets supported by layout apps) and as a Stylistic Set.</p>
+      <p>My present thinking is to employ a double long s (with appropriate ligature in the ligature feature) in the code, rather than long s followed by short s (except at the end of words, of course), as I think if people are going to use this feature, they would like to see as many long-s’s as possible!</p>
+  - id: 556110
+    user: 2021
+    date: 2013-06-03T13:20:00
+    date_raw: 3 June 2013 - 1:20pm
+    votes: 0
+    html: |-
+      <p>Here’s my code:</p>
+      <p><code>feature ss01 {<br>
+      sub s by longs;<br>
+      sub longs' [f fi] by s;<br>
+      sub [f f_f] longs' by s;<br>
+      sub longs' [hyphen quoteright] by s;<br>
+      ignore sub longs' @smcp_source;<br>
+      sub longs' by s;<br>
+      lookup one {<br>
+      sub s' s by longs;<br>
+      } one;<br>
+      }ss01;</code></p>
+      <p></p>
+      <p>And (showing only longs ligatures):</p>
+      <p><code>feature liga {<br>
+      sub longs i by longs_i;<br>
+       sub s longs i by longs_longs_i;<br>
+       sub s longs l by longs_longs_l;<br>
+       sub s longs by longs_longs;<br>
+       sub longs b by longs_b;<br>
+       sub longs h by longs_h;<br>
+       sub longs k by longs_k;<br>
+       sub longs l by longs_l;<br>
+      } liga;</code></p>
+      <p></p>
+    html_clean: |-
+      <p>Here’s my code:</p>
+      <p><code>feature ss01 {<br>
+      sub s by longs;<br>
+      sub longs' [f fi] by s;<br>
+      sub [f f_f] longs' by s;<br>
+      sub longs' [hyphen quoteright] by s;<br>
+      ignore sub longs' @smcp_source;<br>
+      sub longs' by s;<br>
+      lookup one {<br>
+      sub s' s by longs;<br>
+      } one;<br>
+      }ss01;</code></p>
+      <p></p>
+      <p>And (showing only longs ligatures):</p>
+      <p><code>feature liga {<br>
+      sub longs i by longs_i;<br>
+       sub s longs i by longs_longs_i;<br>
+       sub s longs l by longs_longs_l;<br>
+       sub s longs by longs_longs;<br>
+       sub longs b by longs_b;<br>
+       sub longs h by longs_h;<br>
+       sub longs k by longs_k;<br>
+       sub longs l by longs_l;<br>
+      } liga;</code></p>
+      <p></p>
+  - id: 556111
+    user: 17745
+    date: 2013-06-03T13:39:00
+    date_raw: 3 June 2013 - 1:39pm
+    votes: 0
+    html: <p>Not English and not 1700s, I’m afraid (French, 1568), but interesting for showing both a ‘longs_s’ and a ‘longs_longs’ ligature in the same font. The former occurs mainly (though not exclusively) before ‘i’, and is presumably convenient in that position because the font apparently has no ‘longs_longs_i’ ligature.<br><img src="/sites/default/files/old-images/sligs_4367.jpg"></p>
+    html_clean: <p>Not English and not 1700s, I’m afraid (French, 1568), but interesting for showing both a ‘longs_s’ and a ‘longs_longs’ ligature in the same font. The former occurs mainly (though not exclusively) before ‘i’, and is presumably convenient in that position because the font apparently has no ‘longs_longs_i’ ligature.<br><img src="/sites/default/files/old-images/sligs_4367.jpg"></p>
+  - id: 556172
+    user: 50554
+    date: 2013-06-04T04:57:00
+    date_raw: 4 June 2013 - 4:57am
+    votes: 0
+    html: |-
+      <p>I just recently saw an eszet in an English text. It was written by Sir Isaac Newton, so that narrows down the date range somewhat. I'll see if I can track down the example.</p>
+      <p>Ah, here we are. Page 265, starting from here:</p>
+      <p><a href="http://rstl.royalsocietypublishing.org/content/1/1-22/263.full.pdf">http://rstl.royalsocietypublishing.org/content/1/1-22/263.full.pdf</a></p>
+      <p>Dr. John Wallis is actually the author of the passage.</p>
+      <p><img src="/sites/default/files/old-images/eng_eszet_5731.jpg"></p>
+      <p>For that Diſcourſe is to be looked upon onely as an <em>Eßay</em> of the <em>general Hypotheſis</em> ; which as to <em>particulars</em> was to be afterwards adjuſted , from a good <em>General Hiſtery of Tides</em> ; which it's manifeſt enough that he had not ; and which is in a great meaſure yet wanting.</p>
+    html_clean: |-
+      <p>I just recently saw an eszet in an English text. It was written by Sir Isaac Newton, so that narrows down the date range somewhat. I'll see if I can track down the example.</p>
+      <p>Ah, here we are. Page 265, starting from here:</p>
+      <p><a href="http://rstl.royalsocietypublishing.org/content/1/1-22/263.full.pdf" class="link-external">http://rstl.royalsocietypublishing.org/content/1/1-22/263.full.pdf</a></p>
+      <p>Dr. John Wallis is actually the author of the passage.</p>
+      <p><img src="/sites/default/files/old-images/eng_eszet_5731.jpg"></p>
+      <p>For that Diſcourſe is to be looked upon onely as an <em>Eßay</em> of the <em>general Hypotheſis</em> ; which as to <em>particulars</em> was to be afterwards adjuſted , from a good <em>General Hiſtery of Tides</em> ; which it's manifeſt enough that he had not ; and which is in a great meaſure yet wanting.</p>
+  - id: 556237
+    user: 56792
+    date: 2013-06-04T14:21:00
+    date_raw: 4 June 2013 - 2:21pm
+    votes: 0
+    html: "<p>@quadibloc: wonderful, thanks!</p>"
+    html_clean: "<p>@quadibloc: wonderful, thanks!</p>"
+  - id: 556244
+    user: 56792
+    date: 2013-06-04T15:22:00
+    date_raw: 4 June 2013 - 3:22pm
+    votes: 0
+    html: |-
+      <p><em><br>
+      &gt; It was written by Sir Isaac Newton,<br>
+      &gt; so that narrows down the date range somewhat.<br></em></p>
+      <p>NB:<br>
+      p. 267, first documented use of a <strong><code>;)</code></strong> maybe?</p>
+    html_clean: |-
+      <p><em><br>
+      &gt; It was written by Sir Isaac Newton,<br>
+      &gt; so that narrows down the date range somewhat.<br></em></p>
+      <p>NB:<br>
+      p. 267, first documented use of a <strong><code>;)</code></strong> maybe?</p>
+  - id: 556181
+    user: 29994
+    date: 2013-06-04T07:00:00
+    date_raw: 4 June 2013 - 7:00am
+    votes: 0
+    html: |-
+      <p>Interesting. I went to ſearch the original for more occurrences of double-s words to see if they are all handled the same, and lo, on page 2 of that same document, the same word "Essay" appears <em>sans</em> eszet in the very first plain line of text.<br>
+      Seems kind of random to me -- could either be a Compositors' Error?</p>
+    html_clean: |-
+      <p>Interesting. I went to ſearch the original for more occurrences of double-s words to see if they are all handled the same, and lo, on page 2 of that same document, the same word "Essay" appears <em>sans</em> eszet in the very first plain line of text.<br>
+      Seems kind of random to me -- could either be a Compositors' Error?</p>
+  - id: 556206
+    user: 50554
+    date: 2013-06-04T10:58:00
+    date_raw: 4 June 2013 - 10:58am
+    votes: 0
+    html: <p>It's <em>possible</em> that there was a convention that Italics, being more swash-y, used more ligatures than the Roman. Maybe, too, there was no Roman eszet for the typeface in use.</p>
+    html_clean: <p>It's <em>possible</em> that there was a convention that Italics, being more swash-y, used more ligatures than the Roman. Maybe, too, there was no Roman eszet for the typeface in use.</p>
+  - id: 556207
+    user: 2462
+    date: 2013-06-04T11:00:00
+    date_raw: 4 June 2013 - 11:00am
+    votes: 0
+    html: <p>On "Munday, Auguſt 6, 1666," English spelling was not particularly standardized, and it would not be until Samuel Johnson and Noah Webster did their thing. Variations on the part of the compositor were not so much error as license, especially subject to how many ligatures they had in the case.</p>
+    html_clean: <p>On "Munday, Auguſt 6, 1666," English spelling was not particularly standardized, and it would not be until Samuel Johnson and Noah Webster did their thing. Variations on the part of the compositor were not so much error as license, especially subject to how many ligatures they had in the case.</p>
+  - id: 556238
+    user: 56792
+    date: 2013-06-04T14:31:00
+    date_raw: 4 June 2013 - 2:31pm
+    votes: 0
+    html: |-
+      <p><em><br>
+      &gt; not so much error as license<br></em></p>
+      <p>x2</p>
+      <p>That lack of standardization impresses me again and again, particularly when it comes to handwritten stuff. I'm reading a lot of late-1700s-early-1800s in my dayjob, written by scholars, politicians, officers, scriveners, and they would switch back and forth between different spellings of the same word within a single sentence.</p>
+    html_clean: |-
+      <p><em><br>
+      &gt; not so much error as license<br></em></p>
+      <p>x2</p>
+      <p>That lack of standardization impresses me again and again, particularly when it comes to handwritten stuff. I'm reading a lot of late-1700s-early-1800s in my dayjob, written by scholars, politicians, officers, scriveners, and they would switch back and forth between different spellings of the same word within a single sentence.</p>
+  - id: 556242
+    user: 29994
+    date: 2013-06-04T15:16:00
+    date_raw: 4 June 2013 - 3:16pm
+    votes: 0
+    html: |-
+      <blockquote><p>Munday, Auguſt 6, 1666</p></blockquote>
+      <p>Great. Now I have to read it again to see if there were any fire insurances on offer.</p>
+    html_clean: |-
+      <blockquote><p>Munday, Auguſt 6, 1666</p></blockquote>
+      <p>Great. Now I have to read it again to see if there were any fire insurances on offer.</p>
+  - id: 556338
+    user: 909
+    date: 2013-06-05T17:41:00
+    date_raw: 5 June 2013 - 5:41pm
+    votes: 0
+    html: <p>As John Hudson is fond of pointing out, when to use the long s varies between languages and time periods both; any rules-based approach to automatic substitution will only be good for one particular "standard" for long s implementation and generate "wrong" results for others....</p>
+    html_clean: <p>As John Hudson is fond of pointing out, when to use the long s varies between languages and time periods both; any rules-based approach to automatic substitution will only be good for one particular "standard" for long s implementation and generate "wrong" results for others....</p>
+  - id: 556347
+    user: 2021
+    date: 2013-06-05T20:40:00
+    date_raw: 5 June 2013 - 8:40pm
+    votes: 0
+    html: |-
+      <p>True, but there’s nothing wrong with implementing an /ſ feature for a particular language (English) at a particular time (17th and 18th century), which is what I’ve done.</p>
+      <p>Ideally, it would be most appropriate for Caslon or Baskerville typefaces, but that kind of precise historical allusion is rare—most typographers prefer to use old style types for 19th century subject matter for instance, rather than didones.</p>
+      <p>I’ve made other discretionary language-speciﬁc features, such as ordinals (English), lowered umlauts (German), and Turkish non-ligatures, so why not an /ſ Stylistic Set?</p>
+      <p>**</p>
+      <p>Further to Kevin’s insight on typographic licence, I recently posted this image in another thread, and noticed that /ſ is not employed where an /s ligature is available (<em>C’est, cascatelle</em>), or to start a word (<em>sa</em>)—presumably because by the time the reader gets to the second syllable of <em>baiſée</em> or the third syllable of <em>embraſée</em> it’s quite clear what the word will be, and there is no likelihood of mistaking ſ for f, which might occur with <em>ſa</em>. Light seasoning, as it were.<br><img src="/sites/default/files/old-images/Poem4_4132.png"><br>
+      Verlaine: <em>«À la Princesse Roukine», Parallèlement.</em> Paris, Ambroise Vollard, 1900</p>
+    html_clean: |-
+      <p>True, but there’s nothing wrong with implementing an /ſ feature for a particular language (English) at a particular time (17th and 18th century), which is what I’ve done.</p>
+      <p>Ideally, it would be most appropriate for Caslon or Baskerville typefaces, but that kind of precise historical allusion is rare—most typographers prefer to use old style types for 19th century subject matter for instance, rather than didones.</p>
+      <p>I’ve made other discretionary language-speciﬁc features, such as ordinals (English), lowered umlauts (German), and Turkish non-ligatures, so why not an /ſ Stylistic Set?</p>
+      <p>**</p>
+      <p>Further to Kevin’s insight on typographic licence, I recently posted this image in another thread, and noticed that /ſ is not employed where an /s ligature is available (<em>C’est, cascatelle</em>), or to start a word (<em>sa</em>)—presumably because by the time the reader gets to the second syllable of <em>baiſée</em> or the third syllable of <em>embraſée</em> it’s quite clear what the word will be, and there is no likelihood of mistaking ſ for f, which might occur with <em>ſa</em>. Light seasoning, as it were.<br><img src="/sites/default/files/old-images/Poem4_4132.png"><br>
+      Verlaine: <em>«À la Princesse Roukine», Parallèlement.</em> Paris, Ambroise Vollard, 1900</p>

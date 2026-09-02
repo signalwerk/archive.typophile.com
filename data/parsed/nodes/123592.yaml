@@ -1,5 +1,5 @@
 node: 123592
-title: null
+title: FontForge Quick Export OTF Script ?
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/123592.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190619022351/typophile.com/node/123592.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,178 @@ pages:
       digest: 6SYPKBGGAORG7VJNPFTPQWPEHHJWSR45
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/123592.html
+      file: data/archives/web.archive.org/files/20190619022351/typophile.com/node/123592.html
 post:
   id: 123592
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 226701
+  date: 2015-03-03T11:47:00
+  date_raw: 3 March 2015 - 11:47am
+  votes: 0
+  html: |-
+    <p>Hi!</p>
+    <p>I'm relatively new to FontForge after I got some experience with FontLab Studio and so far I like it (especially going open source).<br>
+    While testing a design I noticed that creating OTF fonts for testing in InDesign can be a tedious task. In FontLab I was used to a script that automatically <strong>created a copy</strong> of the file, <strong>removed overlaps</strong> and prompted the <strong>export dialog.</strong> So exporting OTF for testing was done in one click. </p>
+    <p>I bet there is something similar in the FontForge world, but I couldn't find anything...<br>
+    How do you "quick export" test OTFs in FontForge?</p>
+    <p>Thanks!</p>
+    <p>Martin</p>
+  html_clean: |-
+    <p>Hi!</p>
+    <p>I'm relatively new to FontForge after I got some experience with FontLab Studio and so far I like it (especially going open source).<br>
+    While testing a design I noticed that creating OTF fonts for testing in InDesign can be a tedious task. In FontLab I was used to a script that automatically <strong>created a copy</strong> of the file, <strong>removed overlaps</strong> and prompted the <strong>export dialog.</strong> So exporting OTF for testing was done in one click. </p>
+    <p>I bet there is something similar in the FontForge world, but I couldn't find anything...<br>
+    How do you "quick export" test OTFs in FontForge?</p>
+    <p>Thanks!</p>
+    <p>Martin</p>
+comments:
+  - id: 600280
+    user: 65972
+    date: 2015-03-03T13:46:00
+    date_raw: 3 March 2015 - 1:46pm
+    votes: 0
+    html: <p>I just export them. If your OS's font engine isn't hosed, it should deal with overlaps intelligently. YMMV of course.</p>
+    html_clean: <p>I just export them. If your OS's font engine isn't hosed, it should deal with overlaps intelligently. YMMV of course.</p>
+  - id: 600287
+    user: 181984
+    date: 2015-03-03T15:03:00
+    date_raw: 3 March 2015 - 3:03pm
+    votes: 0
+    html: |-
+      <p>I use so one script (saved as file in my /.FontForge/python/ directory) for tests.<br>
+      Script : save copy of my font as temp.sfd, remove overlaps, corect direction etc., generate font (without hints), copy it (or overwrite) to my local fonts directory (<strong>on Linux</strong>) and remove temp files.</p>
+      <p># -*- coding: utf-8 -*-<br>
+      import shutil;<br>
+      import os;</p>
+      <p>def genTestOTF(arg, ft):<br>
+         localFontdir='/.local/share/fonts/';<br>
+         fDir=os.path.expanduser("~")+localFontdir;<br>
+         ftActive=fontforge.activeFont();<br>
+         ftActive.save('temp.sfd');<br>
+         ft=fontforge.open('temp.sfd');<br>
+         aLayer=ft.layers[ft.activeLayer].name;<br>
+         ft.encoding='UnicodeBMP';<br>
+         ft.selection.all();<br>
+         for g in ft.selection.byGlyphs:<br>
+            g.removeOverlap();<br>
+            g.correctDirection();<br>
+            g.canonicalStart();<br>
+            g.canonicalContours();<br>
+         fontNazwa = ft.fontname;<br>
+         plik=fontNazwa+'_test.otf';<br>
+         ft.generate(plik, flags=('opentype','dummy-dsig','apple','no-hints','no-flex'),layer=aLayer)<br>
+         shutil.copy(plik,fDir+plik);<br>
+         ft.close();<br>
+         os.remove(plik);<br>
+         os.remove('temp.sfd');</p>
+      <p>fontforge.registerMenuItem(genTestOTF,None,None,"Font",None,"Generator","Quick test-otf");</p>
+    html_clean: |-
+      <p>I use so one script (saved as file in my /.FontForge/python/ directory) for tests.<br>
+      Script : save copy of my font as temp.sfd, remove overlaps, corect direction etc., generate font (without hints), copy it (or overwrite) to my local fonts directory (<strong>on Linux</strong>) and remove temp files.</p>
+      <p># -*- coding: utf-8 -*-<br>
+      import shutil;<br>
+      import os;</p>
+      <p>def genTestOTF(arg, ft):<br>
+         localFontdir='/.local/share/fonts/';<br>
+         fDir=os.path.expanduser("~")+localFontdir;<br>
+         ftActive=fontforge.activeFont();<br>
+         ftActive.save('temp.sfd');<br>
+         ft=fontforge.open('temp.sfd');<br>
+         aLayer=ft.layers[ft.activeLayer].name;<br>
+         ft.encoding='UnicodeBMP';<br>
+         ft.selection.all();<br>
+         for g in ft.selection.byGlyphs:<br>
+            g.removeOverlap();<br>
+            g.correctDirection();<br>
+            g.canonicalStart();<br>
+            g.canonicalContours();<br>
+         fontNazwa = ft.fontname;<br>
+         plik=fontNazwa+'_test.otf';<br>
+         ft.generate(plik, flags=('opentype','dummy-dsig','apple','no-hints','no-flex'),layer=aLayer)<br>
+         shutil.copy(plik,fDir+plik);<br>
+         ft.close();<br>
+         os.remove(plik);<br>
+         os.remove('temp.sfd');</p>
+      <p>fontforge.registerMenuItem(genTestOTF,None,None,"Font",None,"Generator","Quick test-otf");</p>
+  - id: 600307
+    user: 226701
+    date: 2015-03-04T03:32:00
+    date_raw: 4 March 2015 - 3:32am
+    votes: 0
+    html: |-
+      <p>Thank you gluk, this is exactly what I was looking for. I installed the script and commented out the parts obviously responsible for installing the font to the OS font library, but I run into an error:</p>
+      <p><code><br>
+      File "/Applications/FontForge.app/Contents/Resources/opt/local/share/fontforge/python/test-otf.py" line 9, in genTestOTF<br>
+      ftActive.save("temp.sfd")<br>
+      EnvironmentError: Save As "test.sfd" failed<br></code></p>
+      <p>I'm under Mac OS 10.9.5 running FontForge version "04:18 AEST 7-Jan-2015".<br>
+      I installed the script under /Applications/FontForge.app/Contents/Resources/opt/local/share/fontforge/python/ .</p>
+      <p>How could that be fixed?</p>
+    html_clean: |-
+      <p>Thank you gluk, this is exactly what I was looking for. I installed the script and commented out the parts obviously responsible for installing the font to the OS font library, but I run into an error:</p>
+      <p><code><br>
+      File "/Applications/FontForge.app/Contents/Resources/opt/local/share/fontforge/python/test-otf.py" line 9, in genTestOTF<br>
+      ftActive.save("temp.sfd")<br>
+      EnvironmentError: Save As "test.sfd" failed<br></code></p>
+      <p>I'm under Mac OS 10.9.5 running FontForge version "04:18 AEST 7-Jan-2015".<br>
+      I installed the script under /Applications/FontForge.app/Contents/Resources/opt/local/share/fontforge/python/ .</p>
+      <p>How could that be fixed?</p>
+  - id: 600318
+    user: 181984
+    date: 2015-03-04T05:55:00
+    date_raw: 4 March 2015 - 5:55am
+    votes: 0
+    html: |-
+      <p>another system, different FontForge version, most probably another Python version... :-)<br>
+      Ok,<br>
+      most simplest way to make it, and avoid saveAs:<br>
+      script bellow first save your work, then remove overlaps etc., generate .otf and revert your original font file (ff should ask you).</p>
+      <p># -*- coding: utf-8 -*-<br>
+      import os;</p>
+      <p>def genTestOTF(arg, ft):<br>
+         ft.save();<br>
+         ft.encoding='UnicodeBMP';<br>
+         ft.selection.all();<br>
+         for g in ft.selection.byGlyphs:<br>
+            g.removeOverlap();<br>
+            g.correctDirection();<br>
+            g.canonicalStart();<br>
+            g.canonicalContours();<br>
+         plik=ft.fontname+'_test.otf';<br>
+         ft.generate(plik, flags=('opentype','dummy-dsig','apple','no-hints','no-flex'));<br>
+         ft.selection.none();<br>
+         ft.revert();</p>
+      <p>fontforge.registerMenuItem(genTestOTF,None,None,"Font",None,"Generator","Quick test-otf");</p>
+    html_clean: |-
+      <p>another system, different FontForge version, most probably another Python version... :-)<br>
+      Ok,<br>
+      most simplest way to make it, and avoid saveAs:<br>
+      script bellow first save your work, then remove overlaps etc., generate .otf and revert your original font file (ff should ask you).</p>
+      <p># -*- coding: utf-8 -*-<br>
+      import os;</p>
+      <p>def genTestOTF(arg, ft):<br>
+         ft.save();<br>
+         ft.encoding='UnicodeBMP';<br>
+         ft.selection.all();<br>
+         for g in ft.selection.byGlyphs:<br>
+            g.removeOverlap();<br>
+            g.correctDirection();<br>
+            g.canonicalStart();<br>
+            g.canonicalContours();<br>
+         plik=ft.fontname+'_test.otf';<br>
+         ft.generate(plik, flags=('opentype','dummy-dsig','apple','no-hints','no-flex'));<br>
+         ft.selection.none();<br>
+         ft.revert();</p>
+      <p>fontforge.registerMenuItem(genTestOTF,None,None,"Font",None,"Generator","Quick test-otf");</p>
+  - id: 600369
+    user: 226701
+    date: 2015-03-05T04:15:00
+    date_raw: 5 March 2015 - 4:15am
+    votes: 0
+    html: |-
+      <p>Great workaround, although I have to get used to do these actions on my working file.<br>
+      I'll look into that! </p>
+      <p>BTW, is there a library / collection / community about FontForge scripts that I missed?</p>
+    html_clean: |-
+      <p>Great workaround, although I have to get used to do these actions on my working file.<br>
+      I'll look into that! </p>
+      <p>BTW, is there a library / collection / community about FontForge scripts that I missed?</p>

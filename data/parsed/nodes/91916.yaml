@@ -1,5 +1,5 @@
 node: 91916
-title: null
+title: How do I set up family naming correctly in FontLab on an OT font before I have completed the rest of the family?
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/91916.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190911232827/typophile.com/node/91916.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,108 @@ pages:
       digest: 2FNGM3SMPZDZG4ZJDXPVYZTFNMCNEPT6
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/91916.html
+      file: data/archives/web.archive.org/files/20190911232827/typophile.com/node/91916.html
 post:
   id: 91916
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 84836
+  date: 2012-04-08T22:22:00
+  date_raw: 8 April 2012 - 10:22pm
+  votes: 0
+  html: |-
+    <p>Hey all.</p>
+    <p>I finally finished my new OT font and even tested it for errors and got rid of those. I haven't programmed the features yet. I'll add those soon.</p>
+    <p>Anyway I want to start selling this font pretty soon, and I want to sell it as the single weight that it is right now, before I finish the other wights. It is just the regular weight. I am going to turn this one weight into an entire family over the next couple years, and I was wondering what I need to do to this first weight's family naming structure, in order to prepare it to snap flawlessly into place with the rest of it's family which will be coming out in the future. So that if a user has purchased the font and installed it on their system, and later they buy individual styles like italic, or whatever, or they buy the entire family of 5, which includes the font that they already have installed, what's the best way to set up the family naming structure and naming settings in FontLab to ensure that something weird doesn't happen to the user in that situation in the future?</p>
+    <p>Are there any known family naming issues out there that anyone would like to share? I've heard that family naming can be one of the trickiest things about OT font creation, and I don't want to screw it up.</p>
+    <p>Thanks everyone.</p>
+    <p>PS<br>
+    I have seen a Font­Lab Stu­dio 5 Python Script from Cape Arcona type foundry for Font Fam­ily Nam­ing, that is supposed to "change the font names of all opened fonts for the use as font fam­i­lies. The nam­ing method will also split up the fam­ily into single-font-families in the font menu in non-OT-savvy Win­dows applications." I can't really understand exactly what it does yet, but maybe this would be useful to some, or me. It sounds like it helps you properly set up font family-naming? Here is a link to it: <a href="http://www.cape-arcona.com/news/capearcona/opentype-production/">http://www.cape-arcona.com/news/capearcona/opentype-production/</a></p>
+  html_clean: |-
+    <p>Hey all.</p>
+    <p>I finally finished my new OT font and even tested it for errors and got rid of those. I haven't programmed the features yet. I'll add those soon.</p>
+    <p>Anyway I want to start selling this font pretty soon, and I want to sell it as the single weight that it is right now, before I finish the other wights. It is just the regular weight. I am going to turn this one weight into an entire family over the next couple years, and I was wondering what I need to do to this first weight's family naming structure, in order to prepare it to snap flawlessly into place with the rest of it's family which will be coming out in the future. So that if a user has purchased the font and installed it on their system, and later they buy individual styles like italic, or whatever, or they buy the entire family of 5, which includes the font that they already have installed, what's the best way to set up the family naming structure and naming settings in FontLab to ensure that something weird doesn't happen to the user in that situation in the future?</p>
+    <p>Are there any known family naming issues out there that anyone would like to share? I've heard that family naming can be one of the trickiest things about OT font creation, and I don't want to screw it up.</p>
+    <p>Thanks everyone.</p>
+    <p>PS<br>
+    I have seen a Font­Lab Stu­dio 5 Python Script from Cape Arcona type foundry for Font Fam­ily Nam­ing, that is supposed to "change the font names of all opened fonts for the use as font fam­i­lies. The nam­ing method will also split up the fam­ily into single-font-families in the font menu in non-OT-savvy Win­dows applications." I can't really understand exactly what it does yet, but maybe this would be useful to some, or me. It sounds like it helps you properly set up font family-naming? Here is a link to it: <a href="http://www.cape-arcona.com/news/capearcona/opentype-production/" class="link-external">http://www.cape-arcona.com/news/capearcona/opentype-production/</a></p>
+comments:
+  - id: 504464
+    user: 84836
+    date: 2012-04-09T04:08:00
+    date_raw: 9 April 2012 - 4:08am
+    votes: 0
+    html: |-
+      <p>From reading "Learn Fontlab Fast", here is what I am going to do. I wanted to ask you guys if I should be doing something else to, but here's what I'm gonna do:</p>
+      <p>I'm going to take my font, which is the regular weight, and I'm going to go Save As and rename it "My Font-name Bold", and then I'm going to change it's settings in the Font Info palette to Bold instead or Regular settings. From there I will work on that and turn that into my Bold weight font.</p>
+      <p>What I have come to learn is that with OT fonts, you have to create "mini-families" of no more than four fonts each. Each mini-family must contain at least one "regular" font and may also have style-linked Bold, Italic, and Bold Italic fonts. If you have six font weights/styles total, the second mini-family would contain two fonts. This mini-family structure is not required by Mac, but Windows apps.</p>
+      <p>When I fill in the "Family Name" field, I use only English upper and lowercase letters, numbers and spaces. Must be less than 32 characters long. All fonts within a family should share the same name i.e. "Palatino". I then set the weight and width settings by choosing the closest correct-sounding entries from the pulldown. I then pick the right italic and bold settings as the book describes. Then I hit the "Build Style Name button… Each Style Name in a family must be unique… Finally I hit the "Build Names" button.</p>
+      <p>Then I save and close all fonts.</p>
+      <p>I copy my four .vfb files into a new folder and open them in FontLab. Then I go FILE-Font Info-OpenType Specific Names. I click on the Build OpenType names button and repeat this step for all four fonts. </p>
+      <p>Then I go back to the Names and Copyright main menu, and for each font, in the Family Name field, enter the name of my mini-family e.g. "Palatino" or "Palatino Condensed." </p>
+      <p>In the Style Name, I enter one of the following values: "Regular, Italic, Bold, or Bold Italic" exactly as spelled. I click appropriate Bold or Italic boxes when it's Bold or Italic. </p>
+      <p>I guess that's basically it?</p>
+      <p>Okay I think I'll be okay now. Hopefully Leslie Carbaga isn't mad for basically plagiarizing his book. I just wanted to show you all what I do know and would like others to please share with me some advice even beyond this. I really want to get this perfect the first time I try it.</p>
+      <p>What I'm going to do, is create duplicates of my Regular font, and even though they aren't really bold or bold italic or italic yet, I will name them so and use them as temporary placeholders. I will put them in the same folder, following the procedures above, naming them correctly. My theory is that it shouldn't matter if someone installs my regular font now and one of the others later if I set it up the style-linking on the 3 duplicates of the font correctly. And then when I finish the italic next year I'll follow the same naming procedures, and when they install it, the italic font should appear right next to or right under the regular weight in their app font menus, right? Why would it matter which fonts they install first, whether it's 5 minutes apart or 5 years apart, if I set up this style-linking correctly? Am I wrong?</p>
+    html_clean: |-
+      <p>From reading "Learn Fontlab Fast", here is what I am going to do. I wanted to ask you guys if I should be doing something else to, but here's what I'm gonna do:</p>
+      <p>I'm going to take my font, which is the regular weight, and I'm going to go Save As and rename it "My Font-name Bold", and then I'm going to change it's settings in the Font Info palette to Bold instead or Regular settings. From there I will work on that and turn that into my Bold weight font.</p>
+      <p>What I have come to learn is that with OT fonts, you have to create "mini-families" of no more than four fonts each. Each mini-family must contain at least one "regular" font and may also have style-linked Bold, Italic, and Bold Italic fonts. If you have six font weights/styles total, the second mini-family would contain two fonts. This mini-family structure is not required by Mac, but Windows apps.</p>
+      <p>When I fill in the "Family Name" field, I use only English upper and lowercase letters, numbers and spaces. Must be less than 32 characters long. All fonts within a family should share the same name i.e. "Palatino". I then set the weight and width settings by choosing the closest correct-sounding entries from the pulldown. I then pick the right italic and bold settings as the book describes. Then I hit the "Build Style Name button… Each Style Name in a family must be unique… Finally I hit the "Build Names" button.</p>
+      <p>Then I save and close all fonts.</p>
+      <p>I copy my four .vfb files into a new folder and open them in FontLab. Then I go FILE-Font Info-OpenType Specific Names. I click on the Build OpenType names button and repeat this step for all four fonts. </p>
+      <p>Then I go back to the Names and Copyright main menu, and for each font, in the Family Name field, enter the name of my mini-family e.g. "Palatino" or "Palatino Condensed." </p>
+      <p>In the Style Name, I enter one of the following values: "Regular, Italic, Bold, or Bold Italic" exactly as spelled. I click appropriate Bold or Italic boxes when it's Bold or Italic. </p>
+      <p>I guess that's basically it?</p>
+      <p>Okay I think I'll be okay now. Hopefully Leslie Carbaga isn't mad for basically plagiarizing his book. I just wanted to show you all what I do know and would like others to please share with me some advice even beyond this. I really want to get this perfect the first time I try it.</p>
+      <p>What I'm going to do, is create duplicates of my Regular font, and even though they aren't really bold or bold italic or italic yet, I will name them so and use them as temporary placeholders. I will put them in the same folder, following the procedures above, naming them correctly. My theory is that it shouldn't matter if someone installs my regular font now and one of the others later if I set it up the style-linking on the 3 duplicates of the font correctly. And then when I finish the italic next year I'll follow the same naming procedures, and when they install it, the italic font should appear right next to or right under the regular weight in their app font menus, right? Why would it matter which fonts they install first, whether it's 5 minutes apart or 5 years apart, if I set up this style-linking correctly? Am I wrong?</p>
+  - id: 504470
+    user: 84836
+    date: 2012-04-09T03:28:00
+    date_raw: 9 April 2012 - 3:28am
+    votes: 0
+    html: |-
+      <p>Oh I left out one last step to finalize family naming according to the book. In Studio 5, you are supposed to go to OpenType prefs and under Generating Opentype and TrueType export, you enable "Use OpenType names as menu names on Macintosh" option, (I found this was already that way) and then you select "Append Opentype name record to the..." (again I already had this). Finally under Opentype PS (otf.) enable "Use Postscript Font Name as Full Name" (I already had this too.).</p>
+      <p>Now I'm getting ready to test to see if my family naming structure works by generating and installing these fonts. What's the best way to test to see if there's anything wrong with my family naming?</p>
+    html_clean: |-
+      <p>Oh I left out one last step to finalize family naming according to the book. In Studio 5, you are supposed to go to OpenType prefs and under Generating Opentype and TrueType export, you enable "Use OpenType names as menu names on Macintosh" option, (I found this was already that way) and then you select "Append Opentype name record to the..." (again I already had this). Finally under Opentype PS (otf.) enable "Use Postscript Font Name as Full Name" (I already had this too.).</p>
+      <p>Now I'm getting ready to test to see if my family naming structure works by generating and installing these fonts. What's the best way to test to see if there's anything wrong with my family naming?</p>
+  - id: 504472
+    user: 84836
+    date: 2012-04-09T04:03:00
+    date_raw: 9 April 2012 - 4:03am
+    votes: 0
+    html: |-
+      <p>Success!</p>
+      <p>The font family seems to have loaded into my system correctly. In FontBook, It shows the name of the font, and under that it shows regular, then italic, then bold, then bold italic, in a submenu shifted to the side a little, like with any other style-linked font.</p>
+      <p>Success in Illustrator too. In the font menu, to the right side of the menu, after the name of my font, that familiar arrow is there, and when you hover over my font's name, a little popup window appears to the left, with a list of all of the styles (even though they are all just duplicates of the same weight. I just named them differently and style-linked them according to the instructions of the book.) This is so exciting.</p>
+      <p>Is there anything else I can do to test out how solid my style linking and family naming is?</p>
+    html_clean: |-
+      <p>Success!</p>
+      <p>The font family seems to have loaded into my system correctly. In FontBook, It shows the name of the font, and under that it shows regular, then italic, then bold, then bold italic, in a submenu shifted to the side a little, like with any other style-linked font.</p>
+      <p>Success in Illustrator too. In the font menu, to the right side of the menu, after the name of my font, that familiar arrow is there, and when you hover over my font's name, a little popup window appears to the left, with a list of all of the styles (even though they are all just duplicates of the same weight. I just named them differently and style-linked them according to the instructions of the book.) This is so exciting.</p>
+      <p>Is there anything else I can do to test out how solid my style linking and family naming is?</p>
+  - id: 504496
+    user: 11578
+    date: 2012-04-09T09:11:00
+    date_raw: 9 April 2012 - 9:11am
+    votes: 0
+    html: <p>Those four 'basic' styles should also work with Microsoft products under Windows. What you will need to test is whether your family will appear properly in that environment when you add additional family members.</p>
+    html_clean: <p>Those four 'basic' styles should also work with Microsoft products under Windows. What you will need to test is whether your family will appear properly in that environment when you add additional family members.</p>
+  - id: 505237
+    user: 6421
+    date: 2012-04-13T08:05:00
+    date_raw: 13 April 2012 - 8:05am
+    votes: 0
+    html: |-
+      <p>Hello,</p>
+      <p>regarding the script for correct Font Family Naming from Cape Arcona Type Foundry: well, it works and I can recommend it to you if you don’t want to take care of the naming on your own. :-)</p>
+      <p>We developed it because we wanted to save some time and don’t care about all that naming conventions and stuff every time. The fact, that it can process a whole family is also nice. We use it a lot here at Cape Arcona and are happy with it.</p>
+      <p>Well, beside using a script to make things easier and faster it’s always a good idea to set everything manually in Fontlab and see what comes out and how things work – what you already did! :)</p>
+      <p>Thomas<br>
+      Cape Arcona Type Foundry</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p>regarding the script for correct Font Family Naming from Cape Arcona Type Foundry: well, it works and I can recommend it to you if you don’t want to take care of the naming on your own. :-)</p>
+      <p>We developed it because we wanted to save some time and don’t care about all that naming conventions and stuff every time. The fact, that it can process a whole family is also nice. We use it a lot here at Cape Arcona and are happy with it.</p>
+      <p>Well, beside using a script to make things easier and faster it’s always a good idea to set everything manually in Fontlab and see what comes out and how things work – what you already did! :)</p>
+      <p>Thomas<br>
+      Cape Arcona Type Foundry</p>

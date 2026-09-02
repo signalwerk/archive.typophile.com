@@ -1,5 +1,5 @@
 node: 15724
-title: null
+title: Opentype Contextual glyph replacement
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/15724.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20171117035021/typophile.com/node/15724.html
 pages:
   total: 1
   recovered: 2
@@ -29,23 +29,731 @@ pages:
       digest: 7M57ORXZ2EE67ETUPAKP6LKB35HV3CMJ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/15724.html
+      file: data/archives/web.archive.org/files/20171117035021/typophile.com/node/15724.html
     - page: 1
       archive: web.archive.org
       timestamp: "20120112022636"
       digest: CEC7C57O2Z7Z4ZJRMVWNS33AR2FYLV2U
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/15724__q_page=1.html
+      file: data/archives/web.archive.org/files/20120112022636/typophile.com/node/15724__q_page=1.html
 post:
   id: 15724
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
+  user: 2942
+  date: 2005-10-18T13:49:00
+  date_raw: 18 October 2005 - 1:49pm
+  votes: 0
+  html: |-
+    <p>Has anybody done this yet? Contextual replacement in OpenType using Kerning as the context. </p>
+    <p>I would like to offer a version of my font Army Pool Tiles ( which has kerning pairs ) in a reverse mode. Originally I thought I could just reverse the tiles but then I found I was getting unacceptable overlaps and gaps when the kerning was used ( suprise suprise) - so I need to create context dependent alternatives that fit correctly for the reverse font/s. </p>
+    <p>Has anybody here done this? </p>
+    <p>I am also just starting to learn this aspect of Fontlab. Does anybody have opinions about if it is better to code for contextual substitution in fontlab or with some 3rd part tool?  </p>
+    <p>******<br>
+    Update. I added an image which shows the kerning result. What the blue highlight is showing is the area I am concerned with in a reverse version of my font. In a reverse version the blue area would be mostly filled with tiles. When I apply a kern between the 'V' &amp; 'a', the 'a' comes closer to the 'V'. Without substitution part of the V would be overlapped. What I plan to do is create an 'a' which has it's first line of tiles removed to substitute in when it occurs after 'V' (and some other glyphs). I have 298 pairs total.</p>
+    <p>If I get this working I will show the results.</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/example_0.jpg" width="239" height="96" alt="">
+  html_clean: |-
+    <p>Has anybody done this yet? Contextual replacement in OpenType using Kerning as the context. </p>
+    <p>I would like to offer a version of my font Army Pool Tiles ( which has kerning pairs ) in a reverse mode. Originally I thought I could just reverse the tiles but then I found I was getting unacceptable overlaps and gaps when the kerning was used ( suprise suprise) - so I need to create context dependent alternatives that fit correctly for the reverse font/s. </p>
+    <p>Has anybody here done this? </p>
+    <p>I am also just starting to learn this aspect of Fontlab. Does anybody have opinions about if it is better to code for contextual substitution in fontlab or with some 3rd part tool?  </p>
+    <p>******<br>
+    Update. I added an image which shows the kerning result. What the blue highlight is showing is the area I am concerned with in a reverse version of my font. In a reverse version the blue area would be mostly filled with tiles. When I apply a kern between the 'V' &amp; 'a', the 'a' comes closer to the 'V'. Without substitution part of the V would be overlapped. What I plan to do is create an 'a' which has it's first line of tiles removed to substitute in when it occurs after 'V' (and some other glyphs). I have 298 pairs total.</p>
+    <p>If I get this working I will show the results.</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/example_0.jpg" width="239" height="96" alt="">
 comments:
+  - id: 90977
+    user: 7006
+    date: 2005-10-18T14:16:00
+    date_raw: 18 October 2005 - 2:16pm
+    votes: 0
+    html: <p>i'm confused... can you make your meaning a bit clearer. (for dummies like me)</p>
+    html_clean: <p>i'm confused... can you make your meaning a bit clearer. (for dummies like me)</p>
+  - id: 90978
+    user: 1262
+    date: 2005-10-18T14:16:00
+    date_raw: 18 October 2005 - 2:16pm
+    votes: 0
+    html: "<p>You can't use kerning per se as the context, i.e. there is no way to change whether a lookup is applied depending on whether or not kerning is active, but you can certainly substitute special glyphs to resolve spacing issues. I'm doing this in one of my current projects: I have special glyphs of some lowercase letters to use after g and r, so that they don't collide.</p>"
+    html_clean: "<p>You can't use kerning per se as the context, i.e. there is no way to change whether a lookup is applied depending on whether or not kerning is active, but you can certainly substitute special glyphs to resolve spacing issues. I'm doing this in one of my current projects: I have special glyphs of some lowercase letters to use after g and r, so that they don't collide.</p>"
+  - id: 91002
+    user: 1049
+    date: 2005-10-18T16:04:00
+    date_raw: 18 October 2005 - 4:04pm
+    votes: 0
+    html: |-
+      <p>I think Cambria uses a special 'f' when placed next to 'i' instead of a traditional ligature. </p>
+      <p>Cheers, Si</p>
+    html_clean: |-
+      <p>I think Cambria uses a special 'f' when placed next to 'i' instead of a traditional ligature. </p>
+      <p>Cheers, Si</p>
+  - id: 91009
+    user: 3135
+    date: 2005-10-18T16:36:00
+    date_raw: 18 October 2005 - 4:36pm
+    votes: 0
+    html: |-
+      <p>I am attempting to use a special "r" when next to "i" in a typeface I am working on. That part works fine.  The problem I am having is when I get a double r next to an i.  I can't get the script to compile. I want to get 2 alternnate r's next to the i but instead I get two different kinds of r.  Anybody have any ideas why? The font is in the Critique section here:<br><a href="http://typophile.com/node/15626">http://typophile.com/node/15626</a></p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>I am attempting to use a special "r" when next to "i" in a typeface I am working on. That part works fine.  The problem I am having is when I get a double r next to an i.  I can't get the script to compile. I want to get 2 alternnate r's next to the i but instead I get two different kinds of r.  Anybody have any ideas why? The font is in the Critique section here:<br><a href="/node/15626/" class="link-kept">http://typophile.com/node/15626</a></p>
+      <p>ChrisL</p>
+  - id: 91024
+    user: 2942
+    date: 2005-10-18T18:04:00
+    date_raw: 18 October 2005 - 6:04pm
+    votes: 0
+    html: |-
+      <p>Aha! So you guys are doing this!  </p>
+      <p>Sorry Paul, I am sure the fault is with my explanation. I will post an visual example of why I want to do this - the best way no doubt.</p>
+      <p>John, I didn't think I could get the font's kerning table to talk to the replacement engine in open type - but I can look at my kerning table &amp; see where I might want to make substitutions and then make them based on context ( V next to a or A) etc.</p>
+      <p>Chris, &amp; John: You are using Fontlab to make your substitution scripts right?</p>
+    html_clean: |-
+      <p>Aha! So you guys are doing this!  </p>
+      <p>Sorry Paul, I am sure the fault is with my explanation. I will post an visual example of why I want to do this - the best way no doubt.</p>
+      <p>John, I didn't think I could get the font's kerning table to talk to the replacement engine in open type - but I can look at my kerning table &amp; see where I might want to make substitutions and then make them based on context ( V next to a or A) etc.</p>
+      <p>Chris, &amp; John: You are using Fontlab to make your substitution scripts right?</p>
+  - id: 91030
+    user: 3135
+    date: 2005-10-18T18:50:00
+    date_raw: 18 October 2005 - 6:50pm
+    votes: 0
+    html: |-
+      <p>Eben,<br>
+      I am using FontLab 4.6 on a Mac. I am not an expert by any means. I am just plodding through the opentype resourse PDFs available from Adobe and Microsoft.  John Hudson and Thomas Phinney are very good resources though.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Eben,<br>
+      I am using FontLab 4.6 on a Mac. I am not an expert by any means. I am just plodding through the opentype resourse PDFs available from Adobe and Microsoft.  John Hudson and Thomas Phinney are very good resources though.</p>
+      <p>ChrisL</p>
+  - id: 91035
+    user: 1262
+    date: 2005-10-18T20:18:00
+    date_raw: 18 October 2005 - 8:18pm
+    votes: 0
+    html: <p>Eben, no, I'm not using FontLab for my substitutions. I do all my OpenType Layout work in MS VOLT.</p>
+    html_clean: <p>Eben, no, I'm not using FontLab for my substitutions. I do all my OpenType Layout work in MS VOLT.</p>
+  - id: 91050
+    user: 2942
+    date: 2005-10-19T03:16:00
+    date_raw: 19 October 2005 - 3:16am
+    votes: 0
+    html: <p>How did each of you decide? MS Volt is windows only right?</p>
+    html_clean: <p>How did each of you decide? MS Volt is windows only right?</p>
+  - id: 91058
+    user: 851
+    date: 2005-10-19T05:43:00
+    date_raw: 19 October 2005 - 5:43am
+    votes: 0
+    html: |-
+      <p>Eben, I use FontLab for my own substitutions. VOLT is more powerful and definitely worth learning if you have access to a Windows machine. (Which you also want anyway because FontLab Studio 5 is Windows-only so far, and because soon you'll want to test OpenType font behavior in Avalon applications.) I have not learned VOLT yet because I don't do complex script type design. (Yet.) Er, and because I'm sorta lazy.</p>
+      <p>OpenType is supposed to have contextual kerning at some point in the future. At present, only <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;cat_id=RenderingGraphite">Graphite</a> can do that. So far Graphite is only used in a <a href="http://sila.mozdev.org/screenshots.html">limited range of applications.</a></p>
+    html_clean: |-
+      <p>Eben, I use FontLab for my own substitutions. VOLT is more powerful and definitely worth learning if you have access to a Windows machine. (Which you also want anyway because FontLab Studio 5 is Windows-only so far, and because soon you'll want to test OpenType font behavior in Avalon applications.) I have not learned VOLT yet because I don't do complex script type design. (Yet.) Er, and because I'm sorta lazy.</p>
+      <p>OpenType is supposed to have contextual kerning at some point in the future. At present, only <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;cat_id=RenderingGraphite" class="link-external">Graphite</a> can do that. So far Graphite is only used in a <a href="http://sila.mozdev.org/screenshots.html" class="link-external">limited range of applications.</a></p>
+  - id: 91154
+    user: 2942
+    date: 2005-10-19T16:56:00
+    date_raw: 19 October 2005 - 4:56pm
+    votes: 0
+    html: <p>Update  ^ up top.</p>
+    html_clean: <p>Update  ^ up top.</p>
+  - id: 91158
+    user: 3135
+    date: 2005-10-19T17:13:00
+    date_raw: 19 October 2005 - 5:13pm
+    votes: 0
+    html: |-
+      <p>Eben,<br>
+      I use a Mac so VOLT is not an option.  I am more of a visual person and VOLT may be more geeky than I want albeit very powerful.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Eben,<br>
+      I use a Mac so VOLT is not an option.  I am more of a visual person and VOLT may be more geeky than I want albeit very powerful.</p>
+      <p>ChrisL</p>
+  - id: 91159
+    user: 3135
+    date: 2005-10-19T17:21:00
+    date_raw: 19 October 2005 - 5:21pm
+    votes: 0
+    html: |-
+      <p>Eben,<br>
+      If you can define your context as a particular glyph following a particular glyph or glyphs, it should work fine.  The substitution won't be due to a degree of kerning but the pairing of stated glyphs in sequence.<br>
+      In my case, I am subing r when it precedes i or j.  Here is my script:</p>
+      <p>feature calt { # contextual alternate<br>
+      	sub r' [i j] by r.alt;<br>
+      } calt;</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Eben,<br>
+      If you can define your context as a particular glyph following a particular glyph or glyphs, it should work fine.  The substitution won't be due to a degree of kerning but the pairing of stated glyphs in sequence.<br>
+      In my case, I am subing r when it precedes i or j.  Here is my script:</p>
+      <p>feature calt { # contextual alternate<br>
+      	sub r' [i j] by r.alt;<br>
+      } calt;</p>
+      <p>ChrisL</p>
+  - id: 91171
+    user: 2942
+    date: 2005-10-19T19:01:00
+    date_raw: 19 October 2005 - 7:01pm
+    votes: 0
+    html: |-
+      <p>Wow. Thats cool. Very cool.</p>
+      <p>Actually making the *preceding* character change seems X-TRA cool! </p>
+      <p>Do you know if there are web pages which offer example code so I can start to deduce what is going on in the code? And maybe make off with some that is relevant too? For some reson I get MEGO when I read directions meant for programmers. But I can code CSS &amp; HTML just fine because I can look at the code &amp; look at what it makes &amp; make the intuitive leap. This probably means I won't be coding javascript but maybe I can manage some Opentype code with time. It doesn't look too hairy.</p>
+      <p>I did find this example from Adam Twardoch @ fontlab's MSN help site:</p>
+      <p>feature calt {<br>
+      sub n o' by o.calt1;<br>
+      sub b o' by o.calt2;<br>
+      } calt; </p>
+      <p>It is for 'The first substitutions means: if the "o" glyph is preceded by "n", substitute the "o" with the "o.calt1" glyph. The second means: if the "o" glyph is preceded by "b", substitute the "o" with "o.calt2" '.</p>
+      <p>So... I think I could maybe say:</p>
+      <p>feature calt {<br>
+      sub V a' by a.calt1;<br>
+      } calt; </p>
+      <p>And as long as I have a glyph named 'a.calt1' then it should work. </p>
+      <p>Does anybody know what apps support what open type 'calls' now (eg. 'calt') - or is there a master list somewhere? I imagine that 'calt' is a basic call supported by all apps that support open type - but is this right?</p>
+    html_clean: |-
+      <p>Wow. Thats cool. Very cool.</p>
+      <p>Actually making the *preceding* character change seems X-TRA cool! </p>
+      <p>Do you know if there are web pages which offer example code so I can start to deduce what is going on in the code? And maybe make off with some that is relevant too? For some reson I get MEGO when I read directions meant for programmers. But I can code CSS &amp; HTML just fine because I can look at the code &amp; look at what it makes &amp; make the intuitive leap. This probably means I won't be coding javascript but maybe I can manage some Opentype code with time. It doesn't look too hairy.</p>
+      <p>I did find this example from Adam Twardoch @ fontlab's MSN help site:</p>
+      <p>feature calt {<br>
+      sub n o' by o.calt1;<br>
+      sub b o' by o.calt2;<br>
+      } calt; </p>
+      <p>It is for 'The first substitutions means: if the "o" glyph is preceded by "n", substitute the "o" with the "o.calt1" glyph. The second means: if the "o" glyph is preceded by "b", substitute the "o" with "o.calt2" '.</p>
+      <p>So... I think I could maybe say:</p>
+      <p>feature calt {<br>
+      sub V a' by a.calt1;<br>
+      } calt; </p>
+      <p>And as long as I have a glyph named 'a.calt1' then it should work. </p>
+      <p>Does anybody know what apps support what open type 'calls' now (eg. 'calt') - or is there a master list somewhere? I imagine that 'calt' is a basic call supported by all apps that support open type - but is this right?</p>
+  - id: 91184
+    user: 3135
+    date: 2005-10-19T20:09:00
+    date_raw: 19 October 2005 - 8:09pm
+    votes: 0
+    html: |-
+      <p>Right now the Adobe apps but more will come next year.  Microsoft maybe 2007.</p>
+      <p>You might look at the .fea files of sample fonts from FontLab or peak at the Opentype window of the font to see coded features. </p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Right now the Adobe apps but more will come next year.  Microsoft maybe 2007.</p>
+      <p>You might look at the .fea files of sample fonts from FontLab or peak at the Opentype window of the font to see coded features. </p>
+      <p>ChrisL</p>
+  - id: 91259
+    user: 851
+    date: 2005-10-20T11:19:00
+    date_raw: 20 October 2005 - 11:19am
+    votes: 0
+    html: |-
+      <p>The freeware <a href="http://www.abisource.com/">AbiWord</a> activates contextual alternates automatically in Windows XP Service Pack 2, once you go into international settings and turn on complex script support.</p>
+      <p>On Mac OS X, the inexpensive <a href="http://www.redlers.com/mellelscreenshots.html">Mellel</a> supports contextual alternates plus a number of other OpenType features.</p>
+    html_clean: |-
+      <p>The freeware <a href="http://www.abisource.com/" class="link-external">AbiWord</a> activates contextual alternates automatically in Windows XP Service Pack 2, once you go into international settings and turn on complex script support.</p>
+      <p>On Mac OS X, the inexpensive <a href="http://www.redlers.com/mellelscreenshots.html" class="link-external">Mellel</a> supports contextual alternates plus a number of other OpenType features.</p>
+  - id: 91268
+    user: 108
+    date: 2005-10-20T11:57:00
+    date_raw: 20 October 2005 - 11:57am
+    votes: 0
+    html: |-
+      <p>short sidebar:</p>
+      <p>Dez said: "more geeky".</p>
+      <p>I question that. At what point is working with scripting less geeky in general?</p>
+      <p>;^)</p>
+      <p>as you were.</p>
+    html_clean: |-
+      <p>short sidebar:</p>
+      <p>Dez said: "more geeky".</p>
+      <p>I question that. At what point is working with scripting less geeky in general?</p>
+      <p>;^)</p>
+      <p>as you were.</p>
+  - id: 91285
+    user: 7006
+    date: 2005-10-20T12:28:00
+    date_raw: 20 October 2005 - 12:28pm
+    votes: 0
+    html: |-
+      <p><em>Do you know if there are web pages which offer example code so I can start to deduce what is going on in the code? And maybe make off with some that is relevant too?</em></p>
+      <p>I started a bit of a OpenType crash course in the <a href="/wiki" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">wiki</a> at <a href="/node/add/wiki?edit%5Btitle%5D=OT_How-To" title="Create node &quot;OT_How-To&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal">OT_How-To</a>. There it links to some sample code from Adobe that you can look at and learn from.</p>
+    html_clean: |-
+      <p><em>Do you know if there are web pages which offer example code so I can start to deduce what is going on in the code? And maybe make off with some that is relevant too?</em></p>
+      <p>I started a bit of a OpenType crash course in the <a href="/wiki" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-lost">wiki</a> at <a href="/node/add/wiki?edit%5Btitle%5D=OT_How-To" title="Create node &quot;OT_How-To&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal link-lost">OT_How-To</a>. There it links to some sample code from Adobe that you can look at and learn from.</p>
+  - id: 91333
+    user: 3135
+    date: 2005-10-20T14:58:00
+    date_raw: 20 October 2005 - 2:58pm
+    votes: 0
+    html: |-
+      <p>"I question that. At what point is working with scripting less geeky in general?"</p>
+      <p>When you are not working in a text editor :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>"I question that. At what point is working with scripting less geeky in general?"</p>
+      <p>When you are not working in a text editor :-)</p>
+      <p>ChrisL</p>
+  - id: 91364
+    user: 3135
+    date: 2005-10-20T17:42:00
+    date_raw: 20 October 2005 - 5:42pm
+    votes: 0
+    html: |-
+      <p>"...The problem I am having is when I get a double r next to an i. I can’t get the script to compile. I want to get 2 alternnate r’s next to the i but instead I get two different kinds of r. Anybody have any ideas why? ..."</p>
+      <p>KUDOS to Paul Hunt for helping me with this one! It is now working fine thanks to Paul showing me the proper placement of the single quote and space.</p>
+      <p>ChrisL<br><img src="/sites/default/files/old-images/thanksCowboy.jpg"></p>
+    html_clean: |-
+      <p>"...The problem I am having is when I get a double r next to an i. I can’t get the script to compile. I want to get 2 alternnate r’s next to the i but instead I get two different kinds of r. Anybody have any ideas why? ..."</p>
+      <p>KUDOS to Paul Hunt for helping me with this one! It is now working fine thanks to Paul showing me the proper placement of the single quote and space.</p>
+      <p>ChrisL<br><img src="/sites/default/files/old-images/thanksCowboy.jpg"></p>
+  - id: 91392
+    user: 909
+    date: 2005-10-20T21:47:00
+    date_raw: 20 October 2005 - 9:47pm
+    votes: 0
+    html: |-
+      <p>Ah, I'm late to the party, I see.</p>
+      <p>I've posted some unusual code examples of contextual substitutions on the Adobe User Forum for our OpenType FDK (same code works in FontLab, too).<br><a href="http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20">http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20</a>(FDK)/160</p>
+      <p>I'm also working on an article on contextual subs for my blog. I'll let you know when it's up.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Ah, I'm late to the party, I see.</p>
+      <p>I've posted some unusual code examples of contextual substitutions on the Adobe User Forum for our OpenType FDK (same code works in FontLab, too).<br><a href="http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20" class="link-external">http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20</a>(FDK)/160</p>
+      <p>I'm also working on an article on contextual subs for my blog. I'll let you know when it's up.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 91396
+    user: 2942
+    date: 2005-10-20T22:13:00
+    date_raw: 20 October 2005 - 10:13pm
+    votes: 0
+    html: |-
+      <p>Awesome.</p>
+      <p>I end up grabbing the .AFM from a postsctipt version of my Font to get a complete pair listing. Then I massaged the text in preperation for merging it with the 'Calt' function set.</p>
+      <p>I noticed that I ma going to want to substitute both glyphs in a character pair in one case</p>
+      <p>I was wondering how this code looks to 'yall.</p>
+      <p>The pair is: F J </p>
+      <p>feature calt { #<br>
+      sub F’ J’  by F.calt3 J.calt3;<br>
+      } calt;</p>
+      <p>Also, The code that Chris showed us uses this phrase :  [ij]</p>
+      <p>Is that bracket set effectively saying 'including'?</p>
+      <p>Is so, can you transalte this:</p>
+      <p>feature calt {<br>
+      sub n o’ by o.calt1;<br>
+      sub b o’ by o.calt1;<br>
+      } calt;</p>
+      <p>(Meaning: if you have 'no' or 'bo' sub the o to the glyph o.calt1)</p>
+      <p>to this:</p>
+      <p>feature calt {<br>
+      sub [n b] o’ by o.calt1;<br>
+      } calt;</p>
+      <p>?</p>
+      <p>Thanks!</p>
+    html_clean: |-
+      <p>Awesome.</p>
+      <p>I end up grabbing the .AFM from a postsctipt version of my Font to get a complete pair listing. Then I massaged the text in preperation for merging it with the 'Calt' function set.</p>
+      <p>I noticed that I ma going to want to substitute both glyphs in a character pair in one case</p>
+      <p>I was wondering how this code looks to 'yall.</p>
+      <p>The pair is: F J </p>
+      <p>feature calt { #<br>
+      sub F’ J’  by F.calt3 J.calt3;<br>
+      } calt;</p>
+      <p>Also, The code that Chris showed us uses this phrase :  [ij]</p>
+      <p>Is that bracket set effectively saying 'including'?</p>
+      <p>Is so, can you transalte this:</p>
+      <p>feature calt {<br>
+      sub n o’ by o.calt1;<br>
+      sub b o’ by o.calt1;<br>
+      } calt;</p>
+      <p>(Meaning: if you have 'no' or 'bo' sub the o to the glyph o.calt1)</p>
+      <p>to this:</p>
+      <p>feature calt {<br>
+      sub [n b] o’ by o.calt1;<br>
+      } calt;</p>
+      <p>?</p>
+      <p>Thanks!</p>
+  - id: 91407
+    user: 1262
+    date: 2005-10-20T23:40:00
+    date_raw: 20 October 2005 - 11:40pm
+    votes: 0
+    html: |-
+      <p>John Butler: <em>OpenType is supposed to have contextual kerning at some point in the future. At present, only Graphite can do that.</em></p>
+      <p>I don't think this is accurate, unless you are thinking of contextual kerning in some different sense. I do contextual kerning lookups for Arabic OpenType pretty regularly, e.g. adjusting the kerning between two letters when a mark on the second provides context. As far as I know, this is one of the things that you need to use VOLT for, as the Adobe FDK code used by FontLab doesn't support contextual GPOS.</p>
+      <p>Eben, the main reason I use VOLT for all my OT stuff is that it is much more powerful than what FontLab has available: it supports a wider range of lookup types, including the GPOS mark positioning that I need in most of my projects.</p>
+    html_clean: |-
+      <p>John Butler: <em>OpenType is supposed to have contextual kerning at some point in the future. At present, only Graphite can do that.</em></p>
+      <p>I don't think this is accurate, unless you are thinking of contextual kerning in some different sense. I do contextual kerning lookups for Arabic OpenType pretty regularly, e.g. adjusting the kerning between two letters when a mark on the second provides context. As far as I know, this is one of the things that you need to use VOLT for, as the Adobe FDK code used by FontLab doesn't support contextual GPOS.</p>
+      <p>Eben, the main reason I use VOLT for all my OT stuff is that it is much more powerful than what FontLab has available: it supports a wider range of lookup types, including the GPOS mark positioning that I need in most of my projects.</p>
+  - id: 91408
+    user: 1262
+    date: 2005-10-20T23:43:00
+    date_raw: 20 October 2005 - 11:43pm
+    votes: 0
+    html: |-
+      <p>Chris Lozos: <em>I use a Mac so VOLT is not an option. I am more of a visual person and VOLT may be more geeky than I want albeit very powerful.</em></p>
+      <p>Ironically, one of the things I like about VOLT is that it is <em>more</em> visual than FontLab. You can see the input and output for every lookup directly in the lookup window as you are working.</p>
+    html_clean: |-
+      <p>Chris Lozos: <em>I use a Mac so VOLT is not an option. I am more of a visual person and VOLT may be more geeky than I want albeit very powerful.</em></p>
+      <p>Ironically, one of the things I like about VOLT is that it is <em>more</em> visual than FontLab. You can see the input and output for every lookup directly in the lookup window as you are working.</p>
+  - id: 91414
+    user: 2942
+    date: 2005-10-21T01:28:00
+    date_raw: 21 October 2005 - 1:28am
+    votes: 0
+    html: <p>Hmmm That sounds like a ringing endorsement to me!</p>
+    html_clean: <p>Hmmm That sounds like a ringing endorsement to me!</p>
+  - id: 91425
+    user: 851
+    date: 2005-10-21T06:52:00
+    date_raw: 21 October 2005 - 6:52am
+    votes: 0
+    html: |-
+      <p><em>I don’t think this is accurate, unless you are thinking of contextual kerning in some different sense. I do contextual kerning lookups for Arabic OpenType pretty regularly, e.g. adjusting the kerning between two letters when a mark on the second provides context. As far as I know, this is one of the things that you need to use VOLT for, as the Adobe FDK code used by FontLab doesn’t support contextual GPOS.</em></p>
+      <p>I'm talking about Latin script fonts as rendered in the applications used by most Latin-script OT font buyers by a wide margin.</p>
+    html_clean: |-
+      <p><em>I don’t think this is accurate, unless you are thinking of contextual kerning in some different sense. I do contextual kerning lookups for Arabic OpenType pretty regularly, e.g. adjusting the kerning between two letters when a mark on the second provides context. As far as I know, this is one of the things that you need to use VOLT for, as the Adobe FDK code used by FontLab doesn’t support contextual GPOS.</em></p>
+      <p>I'm talking about Latin script fonts as rendered in the applications used by most Latin-script OT font buyers by a wide margin.</p>
+  - id: 91492
+    user: 2942
+    date: 2005-10-21T15:11:00
+    date_raw: 21 October 2005 - 3:11pm
+    votes: 0
+    html: |-
+      <p>I found a way of doing a two letter calt switch. </p>
+      <p>Example 'FJ' I want altrenate glyphs for both F &amp; J in this case</p>
+      <p>here is how I did it.</p>
+      <p>sub F' J by F.calt3;<br>
+      sub F.calt3 J' by J.calt1;</p>
+      <p>originally I had tried </p>
+      <p>sub F’ J’ by F.calt3 J.calt1;</p>
+      <p>but that didn't work.</p>
+    html_clean: |-
+      <p>I found a way of doing a two letter calt switch. </p>
+      <p>Example 'FJ' I want altrenate glyphs for both F &amp; J in this case</p>
+      <p>here is how I did it.</p>
+      <p>sub F' J by F.calt3;<br>
+      sub F.calt3 J' by J.calt1;</p>
+      <p>originally I had tried </p>
+      <p>sub F’ J’ by F.calt3 J.calt1;</p>
+      <p>but that didn't work.</p>
+  - id: 91501
+    user: 1336
+    date: 2005-10-21T16:06:00
+    date_raw: 21 October 2005 - 4:06pm
+    votes: 0
+    html: <p>Eben, the F' J' sub was never going to work, as the ' means "in this contect, change this one", and having two of them goes against the syntax. Doing it as two lines is definitely the right way, and you'll have to make sure that the F' J comes before the F.alt J' in the feature.</p>
+    html_clean: <p>Eben, the F' J' sub was never going to work, as the ' means "in this contect, change this one", and having two of them goes against the syntax. Doing it as two lines is definitely the right way, and you'll have to make sure that the F' J comes before the F.alt J' in the feature.</p>
+  - id: 91506
+    user: 3135
+    date: 2005-10-21T16:27:00
+    date_raw: 21 October 2005 - 4:27pm
+    votes: 0
+    html: |-
+      <p>"Ironically, one of the things I like about VOLT is that it is more visual than FontLab. You can see the input and output for every lookup directly in the lookup window as you are working."</p>
+      <p>So John, anyone plan to port that puppy to the Mac :-)<br>
+      My fontLab is acting freaky lately, everytime I close and reopen a file, the five features get all jumbled and strung out as one entry.  I have to re-build my features everytime I open a file.  My .fea files seem to have vanished too. Maybe it is just Adam messing with my mind:-)<br>
+      ChrisL</p>
+    html_clean: |-
+      <p>"Ironically, one of the things I like about VOLT is that it is more visual than FontLab. You can see the input and output for every lookup directly in the lookup window as you are working."</p>
+      <p>So John, anyone plan to port that puppy to the Mac :-)<br>
+      My fontLab is acting freaky lately, everytime I close and reopen a file, the five features get all jumbled and strung out as one entry.  I have to re-build my features everytime I open a file.  My .fea files seem to have vanished too. Maybe it is just Adam messing with my mind:-)<br>
+      ChrisL</p>
+  - id: 91507
+    user: 3135
+    date: 2005-10-21T16:29:00
+    date_raw: 21 October 2005 - 4:29pm
+    votes: 0
+    html: |-
+      <p>"<a href="http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20">http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20</a>(FDK)/160"</p>
+      <p>Hi Thomas, welcome to the frey.  I am going to look at your site as soon as I can decifer your URL :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>"<a href="http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20" class="link-external">http://www.adobeforums.com/OpenType%20Font%20Developers%27%20Kit%20</a>(FDK)/160"</p>
+      <p>Hi Thomas, welcome to the frey.  I am going to look at your site as soon as I can decifer your URL :-)</p>
+      <p>ChrisL</p>
+  - id: 91515
+    user: 2942
+    date: 2005-10-21T18:10:00
+    date_raw: 21 October 2005 - 6:10pm
+    votes: 0
+    html: <p>The URL looks like that because it is on a mac I think. The % signs are directories like / are more usually. It does go somewhere - but somewhere needing a password... for now.</p>
+    html_clean: <p>The URL looks like that because it is on a mac I think. The % signs are directories like / are more usually. It does go somewhere - but somewhere needing a password... for now.</p>
+  - id: 91516
+    user: 1043
+    date: 2005-10-21T18:15:00
+    date_raw: 21 October 2005 - 6:15pm
+    votes: 0
+    html: <p>The % signs indicate a character that would not normally be allowed in a URL. %20 is a space; %27 is a single quote. Nothing to do with Macs, I don't think.</p>
+    html_clean: <p>The % signs indicate a character that would not normally be allowed in a URL. %20 is a space; %27 is a single quote. Nothing to do with Macs, I don't think.</p>
+  - id: 91522
+    user: 2942
+    date: 2005-10-21T19:55:00
+    date_raw: 21 October 2005 - 7:55pm
+    votes: 0
+    html: |-
+      <p>It seemed like for a while when people were serving web pages from macs the directories were separated by % signs too. I think when macs went unix/osx this went away but I am not sure...</p>
+      <p>Now I am curious! Mark, How did you find out about the %20?</p>
+    html_clean: |-
+      <p>It seemed like for a while when people were serving web pages from macs the directories were separated by % signs too. I think when macs went unix/osx this went away but I am not sure...</p>
+      <p>Now I am curious! Mark, How did you find out about the %20?</p>
+  - id: 91532
+    user: 3135
+    date: 2005-10-21T21:41:00
+    date_raw: 21 October 2005 - 9:41pm
+    votes: 0
+    html: |-
+      <p>Mac users for many years could use space characters in their file names.  When they started naming web pages and directories, the space habit was still there,  Web servers replaced spaces with %20 because spaces are a no-no in URLs. Mac users have since learned not to use spaces in their URLs and that is why you don't see it anymore.  It had nothing to do with OS-X. Iknew about %20 for years but didn'y know about %27 'til Mark's post tonight.<br>
+      I was joking with Thomas by the way.</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Mac users for many years could use space characters in their file names.  When they started naming web pages and directories, the space habit was still there,  Web servers replaced spaces with %20 because spaces are a no-no in URLs. Mac users have since learned not to use spaces in their URLs and that is why you don't see it anymore.  It had nothing to do with OS-X. Iknew about %20 for years but didn'y know about %27 'til Mark's post tonight.<br>
+      I was joking with Thomas by the way.</p>
+      <p>ChrisL</p>
+  - id: 91538
+    user: 1043
+    date: 2005-10-22T00:40:00
+    date_raw: 22 October 2005 - 12:40am
+    votes: 0
+    html: <p>The % thing is a Unix thing. It indicates that a character code (in hexadecimal) will follow. It's like an escape character. Every programming and scripting language has something like it. In Javascript, it's the backslash.</p>
+    html_clean: <p>The % thing is a Unix thing. It indicates that a character code (in hexadecimal) will follow. It's like an escape character. Every programming and scripting language has something like it. In Javascript, it's the backslash.</p>
+  - id: 91545
+    user: 2942
+    date: 2005-10-22T01:23:00
+    date_raw: 22 October 2005 - 1:23am
+    votes: 0
+    html: <p>“Curiouser and curiouser!” Cried Alice</p>
+    html_clean: <p>“Curiouser and curiouser!” Cried Alice</p>
+  - id: 91594
+    user: 909
+    date: 2005-10-22T15:08:00
+    date_raw: 22 October 2005 - 3:08pm
+    votes: 0
+    html: |-
+      <p>Note that you can do many-to-one subs (contextually or not), or one-to-many, it's just many-to-many that's not supported. However, you can usually get equivalent results by doing one or both of the other two.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Note that you can do many-to-one subs (contextually or not), or one-to-many, it's just many-to-many that's not supported. However, you can usually get equivalent results by doing one or both of the other two.</p>
+      <p>T</p>
+  - id: 91597
+    user: 1262
+    date: 2005-10-22T15:16:00
+    date_raw: 22 October 2005 - 3:16pm
+    votes: 0
+    html: |-
+      <p>John Butler: <em>I’m talking about Latin script fonts as rendered in the applications used by most Latin-script OT font buyers by a wide margin.</em></p>
+      <p>Ah, understood. From the way you stated it originally, it sounded like a limitation of OpenType, rather than a limitation of applications and font some development tools.</p>
+    html_clean: |-
+      <p>John Butler: <em>I’m talking about Latin script fonts as rendered in the applications used by most Latin-script OT font buyers by a wide margin.</em></p>
+      <p>Ah, understood. From the way you stated it originally, it sounded like a limitation of OpenType, rather than a limitation of applications and font some development tools.</p>
+  - id: 91598
+    user: 1262
+    date: 2005-10-22T15:18:00
+    date_raw: 22 October 2005 - 3:18pm
+    votes: 0
+    html: |-
+      <p>Tom Phinney: <em>Note that you can do many-to-one subs (contextually or not), or one-to-many...</em></p>
+      <p>In FDK? As far as I know, one-to-many (type 2 GSUB lookups) are not still supported in FDK/FontLab, although it is a long time since I tried it.</p>
+    html_clean: |-
+      <p>Tom Phinney: <em>Note that you can do many-to-one subs (contextually or not), or one-to-many...</em></p>
+      <p>In FDK? As far as I know, one-to-many (type 2 GSUB lookups) are not still supported in FDK/FontLab, although it is a long time since I tried it.</p>
+  - id: 91599
+    user: 909
+    date: 2005-10-22T15:23:00
+    date_raw: 22 October 2005 - 3:23pm
+    votes: 0
+    html: |-
+      <p>John H: You're probably right that Type 2 lookups aren't currently supported in the FDK and FontLab. If so, it should be fixed in another two FDK releases, some time next summer.</p>
+      <p>(UPDATE: more likely spring 2007)</p>
+      <p>T</p>
+    html_clean: |-
+      <p>John H: You're probably right that Type 2 lookups aren't currently supported in the FDK and FontLab. If so, it should be fixed in another two FDK releases, some time next summer.</p>
+      <p>(UPDATE: more likely spring 2007)</p>
+      <p>T</p>
+  - id: 91900
+    user: 2942
+    date: 2005-10-24T15:24:00
+    date_raw: 24 October 2005 - 3:24pm
+    votes: 0
+    html: |-
+      <p>I have figured out how to do this</p>
+      <p>sub [Yacute F T V X Y f florin] a' by a.calt1;</p>
+      <p>This let's me change my 'a' glyph to 'a.calt1' if it is preceded by Yacute 'F T V X Y f' or 'florin'</p>
+      <p>Which is great. I should be able to get the list down to a somewhat more manageable size  and find and edit errors/omissions more easily now. </p>
+      <p>Speaking of which - I had started to think that it might not be a bad idea to look at the .afm of a similar font to see what pairs are being kerned. I found my original kerning info was best accessed in my own .afm file. Since my face is modular but not a monospace it ends up having a slightly different set of kerning needs than is typical. I am not sure what font I would look to. </p>
+      <p>Any suggestions?</p>
+      <p>Also, Does anybody have any suggestions on how to organize the calt code further? Any common traps to avoid?</p>
+      <p>Any favorite pairs?</p>
+      <p>And last but certainly not least: Now that I have created 30 or so altrenates glyphs I need to figure out the best way to test them in pairs - especially where they precede another glyph. So for instance I need to include F.calt3 in my 'a' lists like this:</p>
+      <p>sub [Yacute F F.calt3 T V X Y f florin] a' by a.calt1;</p>
+      <p>Any suggestions on managing this kind of echo effect in the code?</p>
+    html_clean: |-
+      <p>I have figured out how to do this</p>
+      <p>sub [Yacute F T V X Y f florin] a' by a.calt1;</p>
+      <p>This let's me change my 'a' glyph to 'a.calt1' if it is preceded by Yacute 'F T V X Y f' or 'florin'</p>
+      <p>Which is great. I should be able to get the list down to a somewhat more manageable size  and find and edit errors/omissions more easily now. </p>
+      <p>Speaking of which - I had started to think that it might not be a bad idea to look at the .afm of a similar font to see what pairs are being kerned. I found my original kerning info was best accessed in my own .afm file. Since my face is modular but not a monospace it ends up having a slightly different set of kerning needs than is typical. I am not sure what font I would look to. </p>
+      <p>Any suggestions?</p>
+      <p>Also, Does anybody have any suggestions on how to organize the calt code further? Any common traps to avoid?</p>
+      <p>Any favorite pairs?</p>
+      <p>And last but certainly not least: Now that I have created 30 or so altrenates glyphs I need to figure out the best way to test them in pairs - especially where they precede another glyph. So for instance I need to include F.calt3 in my 'a' lists like this:</p>
+      <p>sub [Yacute F F.calt3 T V X Y f florin] a' by a.calt1;</p>
+      <p>Any suggestions on managing this kind of echo effect in the code?</p>
+  - id: 92034
+    user: 9584
+    date: 2005-10-25T09:14:00
+    date_raw: 25 October 2005 - 9:14am
+    votes: 0
+    html: |-
+      <p>&gt; sub F’ J’ by F.calt3 J.calt1;<br>
+      &gt; but that didn’t work.</p>
+      <p>You may try next code:</p>
+      <p>feature clig {<br>
+      sub @anyletter F' J' by FJ.clig;<br>
+      } clig;</p>
+      <p>where<br>
+      @anyletter — special class contains all letters<br>
+      FJ.clig — specially prepared ligature</p>
+      <p>or more simple, as usual "ligature"</p>
+      <p>It really works, tested with electronics! ;)))</p>
+    html_clean: |-
+      <p>&gt; sub F’ J’ by F.calt3 J.calt1;<br>
+      &gt; but that didn’t work.</p>
+      <p>You may try next code:</p>
+      <p>feature clig {<br>
+      sub @anyletter F' J' by FJ.clig;<br>
+      } clig;</p>
+      <p>where<br>
+      @anyletter — special class contains all letters<br>
+      FJ.clig — specially prepared ligature</p>
+      <p>or more simple, as usual "ligature"</p>
+      <p>It really works, tested with electronics! ;)))</p>
+  - id: 92035
+    user: 1043
+    date: 2005-10-25T09:45:00
+    date_raw: 25 October 2005 - 9:45am
+    votes: 0
+    html: |-
+      <p>Why not just do it as a simple liga feature:</p>
+      <p><code>feature liga {<br>
+      sub F J by F_J;<br>
+      } liga;</code></p>
+      <p>where F_J is your ligature.</p>
+      <p>Seems like a lot of unnecessary trouble to use clig for it.</p>
+    html_clean: |-
+      <p>Why not just do it as a simple liga feature:</p>
+      <p><code>feature liga {<br>
+      sub F J by F_J;<br>
+      } liga;</code></p>
+      <p>where F_J is your ligature.</p>
+      <p>Seems like a lot of unnecessary trouble to use clig for it.</p>
+  - id: 92052
+    user: 2942
+    date: 2005-10-25T10:59:00
+    date_raw: 25 October 2005 - 10:59am
+    votes: 0
+    html: |-
+      <p>I think I understand liga already - but I don't know what clig does yet. I will have to dig into the code references again. Thanks for the examples! Looking into it I found that one good reason to go with Liga aside from simplicity is that it is more broadly supported</p>
+      <p><a href="http://www.typotheque.com/fonts/opentype_feature_support/">http://www.typotheque.com/fonts/opentype_feature_support/</a></p>
+      <p>Simon, Thomas, what code have you eneded up using the most? Liga? There are tons of code ellements out there but for roman type at least it seems like 3-4 bits would be good for up 98% of the time. This idea of mine is admittedly naive - but is it wrong?</p>
+      <p>Also, I see that the code I have been using 'calt' is not supported as widely as Liga. Maybe I aught to reverse course &amp; use liga for all my combinations. It would make for fewer altrnate glyphs - thats for sure!</p>
+      <p>Henadij, Which ones do you use &amp; why?</p>
+    html_clean: |-
+      <p>I think I understand liga already - but I don't know what clig does yet. I will have to dig into the code references again. Thanks for the examples! Looking into it I found that one good reason to go with Liga aside from simplicity is that it is more broadly supported</p>
+      <p><a href="http://www.typotheque.com/fonts/opentype_feature_support/" class="link-external">http://www.typotheque.com/fonts/opentype_feature_support/</a></p>
+      <p>Simon, Thomas, what code have you eneded up using the most? Liga? There are tons of code ellements out there but for roman type at least it seems like 3-4 bits would be good for up 98% of the time. This idea of mine is admittedly naive - but is it wrong?</p>
+      <p>Also, I see that the code I have been using 'calt' is not supported as widely as Liga. Maybe I aught to reverse course &amp; use liga for all my combinations. It would make for fewer altrnate glyphs - thats for sure!</p>
+      <p>Henadij, Which ones do you use &amp; why?</p>
+  - id: 92053
+    user: 1250
+    date: 2005-10-25T11:03:00
+    date_raw: 25 October 2005 - 11:03am
+    votes: 0
+    html: |-
+      <p>Man, it's riveting to see my childhood friend Code<br>
+      so tangibly showing up in a typographic forum...</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Man, it's riveting to see my childhood friend Code<br>
+      so tangibly showing up in a typographic forum...</p>
+      <p>hhp</p>
+  - id: 92064
+    user: 2942
+    date: 2005-10-25T11:45:00
+    date_raw: 25 October 2005 - 11:45am
+    votes: 0
+    html: <p>Does VOLT help you track/manage combinations? Fontlab is great at lots of things but tracking kerns &amp; Opentype code - and the interaction between them doesn't seem to be one of them.</p>
+    html_clean: <p>Does VOLT help you track/manage combinations? Fontlab is great at lots of things but tracking kerns &amp; Opentype code - and the interaction between them doesn't seem to be one of them.</p>
+  - id: 92179
+    user: 9584
+    date: 2005-10-26T03:47:00
+    date_raw: 26 October 2005 - 3:47am
+    votes: 0
+    html: |-
+      <p>&gt; Seems like a lot of unnecessary trouble to use clig for it.</p>
+      <p>May be, or may not to be ;) </p>
+      <p>From my own experience: clig working perfectly (Adobe CS/CS2 products)</p>
+    html_clean: |-
+      <p>&gt; Seems like a lot of unnecessary trouble to use clig for it.</p>
+      <p>May be, or may not to be ;) </p>
+      <p>From my own experience: clig working perfectly (Adobe CS/CS2 products)</p>
+  - id: 92227
+    user: 2942
+    date: 2005-10-26T11:07:00
+    date_raw: 26 October 2005 - 11:07am
+    votes: 0
+    html: |-
+      <p>I said before 'It would make for fewer altrnate glyphs - thats for sure!' This is false. Actually it increases the # by tenfold or so. I still haven't decided which model makes the most sense. I am leaning towards liga because Photoshop 6 &amp; 7 use it. But I haven't decided. Also, which is easier to deal with and manage - the 300 combinations of 30 glyphs or so or the 300 glyphs? The visual and kerning management of 300 glyphs would be easier because each combination is directly represented. Testing would be faster because of a reduced # of characters to change for each test. However the # of tests will be the same. But 30 glyphs makes a lighter font in terms of data size. </p>
+      <p>I am not sure how so many non-standard glyphs would be accepted into an opentype font - alot to be sure but maybe not an infinite amount.</p>
+      <p>My case is atypical because I am using the liga or calt to help me past a problem in the reverse version of the font. </p>
+      <p>Henadij, how many instances end up being created in your work? IS it a large number? What is your method for managing them?</p>
+      <p>Mark, how about you?</p>
+    html_clean: |-
+      <p>I said before 'It would make for fewer altrnate glyphs - thats for sure!' This is false. Actually it increases the # by tenfold or so. I still haven't decided which model makes the most sense. I am leaning towards liga because Photoshop 6 &amp; 7 use it. But I haven't decided. Also, which is easier to deal with and manage - the 300 combinations of 30 glyphs or so or the 300 glyphs? The visual and kerning management of 300 glyphs would be easier because each combination is directly represented. Testing would be faster because of a reduced # of characters to change for each test. However the # of tests will be the same. But 30 glyphs makes a lighter font in terms of data size. </p>
+      <p>I am not sure how so many non-standard glyphs would be accepted into an opentype font - alot to be sure but maybe not an infinite amount.</p>
+      <p>My case is atypical because I am using the liga or calt to help me past a problem in the reverse version of the font. </p>
+      <p>Henadij, how many instances end up being created in your work? IS it a large number? What is your method for managing them?</p>
+      <p>Mark, how about you?</p>
+  - id: 92250
+    user: 1043
+    date: 2005-10-26T13:56:00
+    date_raw: 26 October 2005 - 1:56pm
+    votes: 0
+    html: <p>I don't know. I just saw a simpler way to do what Henadij was doing with the clig definition. I don't have any good ideas how to solve your problem. Seems like you have painted yourself into a corner with this particular design concept. You may be better off not kerning at all.</p>
+    html_clean: <p>I don't know. I just saw a simpler way to do what Henadij was doing with the clig definition. I don't have any good ideas how to solve your problem. Seems like you have painted yourself into a corner with this particular design concept. You may be better off not kerning at all.</p>
+  - id: 92255
+    user: 2942
+    date: 2005-10-26T14:26:00
+    date_raw: 26 October 2005 - 2:26pm
+    votes: 0
+    html: |-
+      <p>Oh, I don't know. It's not so bad. It's a day or two's work once I decide what I want to do and it's an interesting technical &amp; mental excersize for me. </p>
+      <p>One thing I am still unclear about is is how clig is more complex than Liga. Liga is more widely supported and is invoked no matter the context. Whereas in some ways Henadij is getting around the point of having the Clig feature at all ( context ) with his 'sub @anyletter'. Appart from support differences the code is pretty similar in length. The one advantage i see in using Clig is that if you decided to start invoking special cases later on you could do so more quickly/easily with the clig code... On the other hand, Mark, you are right in that Clig code isn't quite orthodox. But all of this is shades of grey.</p>
+    html_clean: |-
+      <p>Oh, I don't know. It's not so bad. It's a day or two's work once I decide what I want to do and it's an interesting technical &amp; mental excersize for me. </p>
+      <p>One thing I am still unclear about is is how clig is more complex than Liga. Liga is more widely supported and is invoked no matter the context. Whereas in some ways Henadij is getting around the point of having the Clig feature at all ( context ) with his 'sub @anyletter'. Appart from support differences the code is pretty similar in length. The one advantage i see in using Clig is that if you decided to start invoking special cases later on you could do so more quickly/easily with the clig code... On the other hand, Mark, you are right in that Clig code isn't quite orthodox. But all of this is shades of grey.</p>
+  - id: 92354
+    user: 9584
+    date: 2005-10-27T05:07:00
+    date_raw: 27 October 2005 - 5:07am
+    votes: 0
+    html: |-
+      <p>Hi, all!<br>
+      I think that clig using is really extreme way, particularly in case<br>
+      sub @anyletter  :)</p>
+      <p>If I need many instances of “ligature”, constructing it from two alternate glyphs seems more logically, but in case of only few instances I prefer clig, particularly if calt definition is complicated and contains constructions such as<br>
+      sub a b c’ by c.alt;<br>
+      which may be not generated with FL 4.x :(</p>
+    html_clean: |-
+      <p>Hi, all!<br>
+      I think that clig using is really extreme way, particularly in case<br>
+      sub @anyletter  :)</p>
+      <p>If I need many instances of “ligature”, constructing it from two alternate glyphs seems more logically, but in case of only few instances I prefer clig, particularly if calt definition is complicated and contains constructions such as<br>
+      sub a b c’ by c.alt;<br>
+      which may be not generated with FL 4.x :(</p>
   - id: 92624
     user: 909
     date: null

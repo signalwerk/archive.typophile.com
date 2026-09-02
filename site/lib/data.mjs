@@ -18,6 +18,7 @@ export const PICTURES_DIR = path.join(USERS_DIR, "pictures");
 export const FILES_DIR = path.join(DATA_DIR, "files");
 export const MISC_DIR = path.join(DATA_DIR, "misc");
 const THREAD_INDEX = path.join(NODES_DIR, "_index.jsonl");
+const THREAD_META = path.join(DATA_DIR, "threads.meta.json");
 const CACHE_FILE = path.resolve(here, "../.cache/index.json");
 
 export const PER_PAGE = 100;
@@ -30,6 +31,24 @@ export function loadNode(id) {
   try {
     return YAML.parse(fs.readFileSync(file, "utf8"));
   } catch {
+    return null;
+  }
+}
+
+// --- where the pages came from ---------------------------------------------
+//
+// Step 9 counts the published threads by the archive each one's copy was taken
+// from, beside the index it writes them into. Reading that one small file is
+// what the about page needs; counting the index again here would give the same
+// answer more slowly and could drift from what the pipeline reported.
+
+export function loadArchiveCounts() {
+  try {
+    const meta = JSON.parse(fs.readFileSync(THREAD_META, "utf8"));
+    return meta?.byArchive ?? null;
+  } catch {
+    // Step 9 has not run, or is from before this file existed. The about page
+    // leaves the counts out rather than showing a number it cannot stand behind.
     return null;
   }
 }

@@ -1,5 +1,5 @@
 node: 124371
-title: null
+title: Replicating Malthus with text-replace
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/124371.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170703172416/typophile.com/node/124371.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,181 @@ pages:
       digest: DHV4IDYYGLJMKH4ZUC6RIOCFQJUT36UG
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/124371.html
+      file: data/archives/web.archive.org/files/20170703172416/typophile.com/node/124371.html
 post:
   id: 124371
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 25589
+  date: 2015-04-05T06:53:00
+  date_raw: 5 April 2015 - 6:53am
+  votes: 0
+  html: |-
+    <p>I’m working on a project which other may find interesting. I’m trying to replicate a publication from 1798 (Malthus’ Essay on the Principle of Population as it affects the future improvement of society). The source files are <span class="caps">HTML</span> (from Project Gutenberg) and I’ve added a <span class="caps">CSS</span> style sheet to produce a <span class="caps">PDF</span> file as close to the printed edition as possible, while still keeping the <span class="caps">HTML</span> in a browsable form. Here are links to my&nbsp;edition:</p>
+    <p><a href="http://css4.pub/2015/malthus/essay.html">http://css4.pub/2015/malthus/essay.html</a><br><a href="http://css4.pub/2015/malthus/essay.pdf">http://css4.pub/2015/malthus/essay.pdf</a></p>
+    <p>And here’s the original from&nbsp;1798:</p>
+    <p><a href="https://archive.org/details/essayonprincipl00malt">https://archive.org/details/essayonprincipl00malt</a></p>
+    <p>The <span class="caps">PDF</span> is produced with <a href="http://www.princexml.com">Prince</a>.</p>
+    <p>The printed first edition uses long s. I didn’t feel like changing the <span class="caps">HTML</span> source files for this purpose and instead uses the ‘text-replace’ property in <span class="caps">CSS</span> to achieve&nbsp;this:</p>
+    <p>  text-replace: “s”&nbsp;“\017F”</p>
+    <p>Now, the long s should not be used at the end of a word, so exceptions must also be&nbsp;coded:</p>
+    <p>  text-replace: “\017F\20”&nbsp;“s\20”    </p>
+    <p>There are more such exceptions, see the <span class="caps">HTML</span> source for the set I’ve been using. I know that some fonts also encode these substitutions. However, I believe it is easier for authors/replicators to edit the <span class="caps">CSS</span> source. Changing font files is frowned upon, no? Also, some other interesting substitutions are encoded. For example, to change “etc.” to “&amp;c.”, one can&nbsp;use:</p>
+    <p>  text-replace: “etc.” “\26&nbsp;c.” </p>
+    <p>And “economist” to&nbsp;“œconomist”:</p>
+    <p>  text-replace: “economist” “\153&nbsp;conomist”  </p>
+    <p>The ‘text-replace’ property is described&nbsp;here:</p>
+    <p><a href="https://books.spec.whatwg.org/#character-substitution" title="Click to visit an external secure URL." class="freelink freelink-external_ssl freelink-external">https://books.spec.whatwg.org/#character-substitution</a></p>
+    <p>It would be interesting to hear of similar projects and how presentational substitutions are&nbsp;encoded. </p>
+    <p>In the past, I’ve also replicated Henrik Ibsen’s poems from 1871 in the same manner, it’s linked from&nbsp;here:</p>
+    <p><a href="http://css4.pub" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://css4.pub</a></p>
+    <p>Cheers,&nbsp;Håkon</p>
+  html_clean: |-
+    <p>I’m working on a project which other may find interesting. I’m trying to replicate a publication from 1798 (Malthus’ Essay on the Principle of Population as it affects the future improvement of society). The source files are <span class="caps">HTML</span> (from Project Gutenberg) and I’ve added a <span class="caps">CSS</span> style sheet to produce a <span class="caps">PDF</span> file as close to the printed edition as possible, while still keeping the <span class="caps">HTML</span> in a browsable form. Here are links to my&nbsp;edition:</p>
+    <p><a href="http://css4.pub/2015/malthus/essay.html" class="link-external">http://css4.pub/2015/malthus/essay.html</a><br><a href="http://css4.pub/2015/malthus/essay.pdf" class="link-external">http://css4.pub/2015/malthus/essay.pdf</a></p>
+    <p>And here’s the original from&nbsp;1798:</p>
+    <p><a href="https://archive.org/details/essayonprincipl00malt" class="link-external">https://archive.org/details/essayonprincipl00malt</a></p>
+    <p>The <span class="caps">PDF</span> is produced with <a href="http://www.princexml.com" class="link-external">Prince</a>.</p>
+    <p>The printed first edition uses long s. I didn’t feel like changing the <span class="caps">HTML</span> source files for this purpose and instead uses the ‘text-replace’ property in <span class="caps">CSS</span> to achieve&nbsp;this:</p>
+    <p>  text-replace: “s”&nbsp;“\017F”</p>
+    <p>Now, the long s should not be used at the end of a word, so exceptions must also be&nbsp;coded:</p>
+    <p>  text-replace: “\017F\20”&nbsp;“s\20”    </p>
+    <p>There are more such exceptions, see the <span class="caps">HTML</span> source for the set I’ve been using. I know that some fonts also encode these substitutions. However, I believe it is easier for authors/replicators to edit the <span class="caps">CSS</span> source. Changing font files is frowned upon, no? Also, some other interesting substitutions are encoded. For example, to change “etc.” to “&amp;c.”, one can&nbsp;use:</p>
+    <p>  text-replace: “etc.” “\26&nbsp;c.” </p>
+    <p>And “economist” to&nbsp;“œconomist”:</p>
+    <p>  text-replace: “economist” “\153&nbsp;conomist”  </p>
+    <p>The ‘text-replace’ property is described&nbsp;here:</p>
+    <p><a href="https://books.spec.whatwg.org/#character-substitution" title="Click to visit an external secure URL." class="freelink freelink-external_ssl freelink-external link-external">https://books.spec.whatwg.org/#character-substitution</a></p>
+    <p>It would be interesting to hear of similar projects and how presentational substitutions are&nbsp;encoded. </p>
+    <p>In the past, I’ve also replicated Henrik Ibsen’s poems from 1871 in the same manner, it’s linked from&nbsp;here:</p>
+    <p><a href="http://css4.pub" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://css4.pub</a></p>
+    <p>Cheers,&nbsp;Håkon</p>
+comments:
+  - id: 602389
+    user: 46071
+    date: 2015-04-06T13:25:00
+    date_raw: 6 April 2015 - 1:25pm
+    votes: -1
+    html: |-
+      <p>Very interesting project!<br>
+      In a perfect world, the right form of |s| would be automatically handled via OpenType features in the font, but support in applications is still spotty (<a href="https://www.typotheque.com/fonts/opentype_feature_support">https://www.typotheque.com/fonts/opentype_feature_support</a>), more so in browsers (<a href="http://caniuse.com/#feat=font-feature">http://caniuse.com/#feat=font-feature</a>).</p>
+    html_clean: |-
+      <p>Very interesting project!<br>
+      In a perfect world, the right form of |s| would be automatically handled via OpenType features in the font, but support in applications is still spotty (<a href="https://www.typotheque.com/fonts/opentype_feature_support" class="link-external">https://www.typotheque.com/fonts/opentype_feature_support</a>), more so in browsers (<a href="http://caniuse.com/#feat=font-feature" class="link-external">http://caniuse.com/#feat=font-feature</a>).</p>
+  - id: 602396
+    user: 2021
+    date: 2015-04-06T15:32:00
+    date_raw: 6 April 2015 - 3:32pm
+    votes: 0
+    html: |-
+      <p>I’ve put an OpenType feature which follows the 18th century English language convention for long s, in several of my typefaces—but none of them are revivals from that era.<br><code><br>
+          sub longs' f by s;<br>
+          sub longs longs' by s;<br>
+          sub f longs' by s;<br>
+          ignore sub longs' @hist1;<br>
+          sub longs' by s; </code></p>
+      <p>(@hist1 = lower case characters)</p>
+    html_clean: |-
+      <p>I’ve put an OpenType feature which follows the 18th century English language convention for long s, in several of my typefaces—but none of them are revivals from that era.<br><code><br>
+          sub longs' f by s;<br>
+          sub longs longs' by s;<br>
+          sub f longs' by s;<br>
+          ignore sub longs' @hist1;<br>
+          sub longs' by s; </code></p>
+      <p>(@hist1 = lower case characters)</p>
+  - id: 602425
+    user: 25589
+    date: 2015-04-07T05:52:00
+    date_raw: 7 April 2015 - 5:52am
+    votes: 1
+    html: |-
+      <p>@Nick,</p>
+      <p>I'm trying to understand your code. Don't you also need to have a "sub s by longs;" at the beginning to perform the majority of subsitutions? And, the last line seems to revert all substitutions? How to you express that an "s" at the end of a word should remain "s"?</p>
+    html_clean: |-
+      <p>@Nick,</p>
+      <p>I'm trying to understand your code. Don't you also need to have a "sub s by longs;" at the beginning to perform the majority of subsitutions? And, the last line seems to revert all substitutions? How to you express that an "s" at the end of a word should remain "s"?</p>
+  - id: 602426
+    user: 25589
+    date: 2015-04-07T05:57:00
+    date_raw: 7 April 2015 - 5:57am
+    votes: 1
+    html: |-
+      <p>@riccard0</p>
+      <p>I can see two reasons against encoding this in the font files. First, is it acceptable/legal for users like me to edit the font files if a font doesn't have the feature I need? Second, I'm not sure that the rules for handling longs are set -- they may vary from language to language or era to era. Having several features in every font file may be an option, but using the human-readable (albeit with unicode code point) 'text-transform' property seems like a more compact and editable solution?</p>
+    html_clean: |-
+      <p>@riccard0</p>
+      <p>I can see two reasons against encoding this in the font files. First, is it acceptable/legal for users like me to edit the font files if a font doesn't have the feature I need? Second, I'm not sure that the rules for handling longs are set -- they may vary from language to language or era to era. Having several features in every font file may be an option, but using the human-readable (albeit with unicode code point) 'text-transform' property seems like a more compact and editable solution?</p>
+  - id: 602433
+    user: 46071
+    date: 2015-04-07T07:51:00
+    date_raw: 7 April 2015 - 7:51am
+    votes: 0
+    html: |-
+      <blockquote><p>First, is it acceptable/legal for users like me to edit the font files if a font doesn't have the feature I need?</p></blockquote>
+      <p>Not unless the license allows it, but you can select an appropriate font and serve it as webfont.</p>
+      <blockquote><p>the rules for handling longs [...] may vary from language to language or era to era</p></blockquote>
+      <p>They do. That's why you have both language and historical related features.<br>
+      As I said, that would be the right solution for the user in a perfect word, where copying the text and pasting it using a different font would not end up with characters either missing or rendered with yet another different font.<br>
+      Today, especially for the creator, your solution is probably the best, and indubitably a very clever one.</p>
+    html_clean: |-
+      <blockquote><p>First, is it acceptable/legal for users like me to edit the font files if a font doesn't have the feature I need?</p></blockquote>
+      <p>Not unless the license allows it, but you can select an appropriate font and serve it as webfont.</p>
+      <blockquote><p>the rules for handling longs [...] may vary from language to language or era to era</p></blockquote>
+      <p>They do. That's why you have both language and historical related features.<br>
+      As I said, that would be the right solution for the user in a perfect word, where copying the text and pasting it using a different font would not end up with characters either missing or rendered with yet another different font.<br>
+      Today, especially for the creator, your solution is probably the best, and indubitably a very clever one.</p>
+  - id: 602436
+    user: 18942
+    date: 2015-04-07T09:32:00
+    date_raw: 7 April 2015 - 9:32am
+    votes: -1
+    html: <p>What Nick used is <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e">Contextual substitutions</a> i.e. substitutions that occur only in a specified context (for example substitute an s only when followed by a letter).  LuaTeX allows using <code>.fea</code> (Adobe feature) files to do that so as to get the functionality without modifying the font.</p>
+    html_clean: <p>What Nick used is <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#5.e" class="link-external">Contextual substitutions</a> i.e. substitutions that occur only in a specified context (for example substitute an s only when followed by a letter).  LuaTeX allows using <code>.fea</code> (Adobe feature) files to do that so as to get the functionality without modifying the font.</p>
+  - id: 602446
+    user: 23584
+    date: 2015-04-07T10:36:00
+    date_raw: 7 April 2015 - 10:36am
+    votes: 0
+    html: <p>My AlQuds Arabic font featured a nicely extended letter /ra but it clashed with the following mark in a couple of  specific cases. To correct it I used a contextual Marks feature to change the mark position when that combination occurs, implemented as an OpenType feature in MS VOLT tool. Iffue solved.</p>
+    html_clean: <p>My AlQuds Arabic font featured a nicely extended letter /ra but it clashed with the following mark in a couple of  specific cases. To correct it I used a contextual Marks feature to change the mark position when that combination occurs, implemented as an OpenType feature in MS VOLT tool. Iffue solved.</p>
+  - id: 602455
+    user: 83217
+    date: 2015-04-07T12:40:00
+    date_raw: 7 April 2015 - 12:40pm
+    votes: 0
+    html: "<p>@howcome: The \"ignore sub\" takes care of that. It details when a substitution is <em>not</em> to happen. The net effect is that 'longs' is substituted by 's' <em>unless</em> it is followed by a lower-case character.</p>"
+    html_clean: "<p>@howcome: The \"ignore sub\" takes care of that. It details when a substitution is <em>not</em> to happen. The net effect is that 'longs' is substituted by 's' <em>unless</em> it is followed by a lower-case character.</p>"
+  - id: 602462
+    user: 2021
+    date: 2015-04-07T15:47:00
+    date_raw: 7 April 2015 - 3:47pm
+    votes: 0
+    html: |-
+      <p>@howcome: true, there is no standard for long s usage.<br>
+      I based my code on studying this excellent resource:<br><a href="http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html">http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html</a></p>
+    html_clean: |-
+      <p>@howcome: true, there is no standard for long s usage.<br>
+      I based my code on studying this excellent resource:<br><a href="http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html" class="link-external">http://babelstone.blogspot.ca/2006/06/rules-for-long-s.html</a></p>
+  - id: 602471
+    user: 25589
+    date: 2015-04-07T16:52:00
+    date_raw: 7 April 2015 - 4:52pm
+    votes: 0
+    html: "<p>Thanks to all for enlightening me. I've now also found an inconsistency in the original 1798 edition: \"necessity\" is spelled with double ss, on page 35; however, on page 42 it is written \"neceſsity\". So the practice must have caused some confusion, even back then.</p>"
+    html_clean: "<p>Thanks to all for enlightening me. I've now also found an inconsistency in the original 1798 edition: \"necessity\" is spelled with double ss, on page 35; however, on page 42 it is written \"neceſsity\". So the practice must have caused some confusion, even back then.</p>"
+  - id: 602534
+    user: 83217
+    date: 2015-04-08T17:13:00
+    date_raw: 8 April 2015 - 5:13pm
+    votes: 0
+    html: <p>Either that, or the setter had run out of 'ſ'.</p>
+    html_clean: <p>Either that, or the setter had run out of 'ſ'.</p>
+  - id: 603810
+    user: 25589
+    date: 2015-04-28T04:50:00
+    date_raw: 28 April 2015 - 4:50am
+    votes: 0
+    html: |-
+      <p>For some reason, the links in the original posting have been removed. Here's another attempt:</p>
+      <p><a href="http://css4.pub/2015/malthus/essay.html">http://css4.pub/2015/malthus/essay.html</a><br><a href="http://css4.pub/2015/malthus/essay.pdf">http://css4.pub/2015/malthus/essay.pdf</a><br><a href="http://archive.org/details/essayonprincipl00malt">http://archive.org/details/essayonprincipl00malt</a><br><a href="http://www.wiumlie.no/2014/ibsen/digte.html#english">http://www.wiumlie.no/2014/ibsen/digte.html#english</a></p>
+    html_clean: |-
+      <p>For some reason, the links in the original posting have been removed. Here's another attempt:</p>
+      <p><a href="http://css4.pub/2015/malthus/essay.html" class="link-external">http://css4.pub/2015/malthus/essay.html</a><br><a href="http://css4.pub/2015/malthus/essay.pdf" class="link-external">http://css4.pub/2015/malthus/essay.pdf</a><br><a href="http://archive.org/details/essayonprincipl00malt" class="link-external">http://archive.org/details/essayonprincipl00malt</a><br><a href="http://www.wiumlie.no/2014/ibsen/digte.html#english" class="link-external">http://www.wiumlie.no/2014/ibsen/digte.html#english</a></p>

@@ -1,5 +1,5 @@
 node: 15926
-title: null
+title: Generate Glyphs in Fontlab Studio
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/15926.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170409033301/typophile.com/node/15926.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,125 @@ pages:
       digest: BBTU22FMDA5UHEV62DK6ERVBIF3T4EWF
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/15926.html
+      file: data/archives/web.archive.org/files/20170409033301/typophile.com/node/15926.html
 post:
   id: 15926
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 6470
+  date: 2005-10-30T12:23:00
+  date_raw: 30 October 2005 - 12:23pm
+  votes: 0
+  html: |-
+    <p>I finally got some time to work with the latest release of FontLab, and encountered a problem. When I used the Generate Glyph function, everything worked fine/as usual <em>except</em> that the accented lowercase i composite characters used the regular i instead of the dotless i. The latter is named <strong>dotlessi</strong> and is mapped to Unicode #0131, so I'm puzzled: did I do something wrong, or is this a bug in the new program?</p>
+    <p>Furthermore, when I tried to logo onto FontLab's website at 13:15 on 30 October, I got this message...</p>
+    <p>DB function failed with error number 1016<br>
+    Can't open file: 'mos_session.MYD'. (errno: 145) SQL=SELECT session_id FROM mos_session WHERE session_id=MD5('24ec44e760cb285c7105a32d1579fa56')<br>
+    SQL =<br>
+    SELECT session_id FROM mos_session WHERE session_id=MD5('24ec44e760cb285c7105a32d1579fa56')</p>
+    <p>Curiouser and criouser...</p>
+  html_clean: |-
+    <p>I finally got some time to work with the latest release of FontLab, and encountered a problem. When I used the Generate Glyph function, everything worked fine/as usual <em>except</em> that the accented lowercase i composite characters used the regular i instead of the dotless i. The latter is named <strong>dotlessi</strong> and is mapped to Unicode #0131, so I'm puzzled: did I do something wrong, or is this a bug in the new program?</p>
+    <p>Furthermore, when I tried to logo onto FontLab's website at 13:15 on 30 October, I got this message...</p>
+    <p>DB function failed with error number 1016<br>
+    Can't open file: 'mos_session.MYD'. (errno: 145) SQL=SELECT session_id FROM mos_session WHERE session_id=MD5('24ec44e760cb285c7105a32d1579fa56')<br>
+    SQL =<br>
+    SELECT session_id FROM mos_session WHERE session_id=MD5('24ec44e760cb285c7105a32d1579fa56')</p>
+    <p>Curiouser and criouser...</p>
+comments:
+  - id: 92859
+    user: 1133
+    date: 2005-10-30T18:16:00
+    date_raw: 30 October 2005 - 6:16pm
+    votes: 0
+    html: |-
+      <p>&gt; When I used the Generate Glyph function,<br>
+      &gt; everything worked fine/as usual except<br>
+      &gt; that the accented lowercase i composite<br>
+      &gt; characters used the regular i instead<br>
+      &gt; of the dotless i.</p>
+      <p>Please describe what exactly you did, step-by-step. </p>
+      <p>Our web hosting company is having problems so our website is currently down. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>&gt; When I used the Generate Glyph function,<br>
+      &gt; everything worked fine/as usual except<br>
+      &gt; that the accented lowercase i composite<br>
+      &gt; characters used the regular i instead<br>
+      &gt; of the dotless i.</p>
+      <p>Please describe what exactly you did, step-by-step. </p>
+      <p>Our web hosting company is having problems so our website is currently down. </p>
+      <p>A.</p>
+  - id: 92865
+    user: 1336
+    date: 2005-10-30T20:46:00
+    date_raw: 30 October 2005 - 8:46pm
+    votes: 0
+    html: |-
+      <p>Nick,<br>
+      thing is... When you make an "iacute", what you get is "i" + "acute". The "i" has its dot up there to begin with. Try this:<br>
+      Create the dotlessi glyph.<br>
+      Glyph / Generate Glyphs...<br>
+      Then in the field ask for dotlessi+acute.<br>
+      Voila!</p>
+      <p>There is a file on you hard disk which is used to build glyphs. It is called "alias.dat", and you can use it to define your glyph-generation rules. So, you can start with your Eth by having the following "recipe" in your alias.dat: Eth D+hyphen</p>
+      <p>That will copy the outlines from the D and the hyphen, which you can then decompose and tweak to get what you want.</p>
+      <p>Hope that was helpful, c</p>
+    html_clean: |-
+      <p>Nick,<br>
+      thing is... When you make an "iacute", what you get is "i" + "acute". The "i" has its dot up there to begin with. Try this:<br>
+      Create the dotlessi glyph.<br>
+      Glyph / Generate Glyphs...<br>
+      Then in the field ask for dotlessi+acute.<br>
+      Voila!</p>
+      <p>There is a file on you hard disk which is used to build glyphs. It is called "alias.dat", and you can use it to define your glyph-generation rules. So, you can start with your Eth by having the following "recipe" in your alias.dat: Eth D+hyphen</p>
+      <p>That will copy the outlines from the D and the hyphen, which you can then decompose and tweak to get what you want.</p>
+      <p>Hope that was helpful, c</p>
+  - id: 93036
+    user: 6470
+    date: 2005-10-31T16:23:00
+    date_raw: 31 October 2005 - 4:23pm
+    votes: 0
+    html: |-
+      <p><em>Please describe what exactly you did, step-by-step</em></p>
+      <p>Thanks, Adam. After adjusting metrics, etc., I selected <em>Generate Glyphs</em>, then chose the file I had been using (successfully at all times) with FontLab 4.6. The contents of the file are...</p>
+      <p>Agrave,Aacute,Acircumflex,Atilde,Adieresis,Aring,Ccedilla,Egrave, Eacute,Ecircumflex,Edieresis,Igrave,Iacute,Icircumflex,Idieresis, Ntilde,Ograve,Oacute,Ocircumflex,Otilde,Odieresis,Scaron,Ugrave, Uacute,Ucircumflex,Udieresis,Yacute,Ydieresis,Zcaron,agrave,aacute, acircumflex,atilde,adieresis,aring,ccedilla,egrave,eacute, ecircumflex,edieresis,igrave,iacute,icircumflex,idieresis, ntilde,ograve,oacute,ocircumflex,otilde,odieresis, scaron,ugrave,uacute,ucircumflex,udieresis,yacute,ydieresis,<br>
+      zcaron (spaces have been added to keep the above string from flying off the page).</p>
+      <p>As I said, there was a character named <strong>dotlessi</strong> and it was mapped to Unicode #0131, as it had been in the past, but the generated glyphs used the regular lowercase i -- not a problem to decompose the character and delete the dot, but a minor annoyance and a sort of puzzlement. Re: Chester's comments -- there IS an <strong>alias.dat</strong> file in my old FontLab 4.6 folder under <strong>Mapping</strong>, but there is no such folder nor file in the FL5 folder. Do I need to copy and paste some files?</p>
+    html_clean: |-
+      <p><em>Please describe what exactly you did, step-by-step</em></p>
+      <p>Thanks, Adam. After adjusting metrics, etc., I selected <em>Generate Glyphs</em>, then chose the file I had been using (successfully at all times) with FontLab 4.6. The contents of the file are...</p>
+      <p>Agrave,Aacute,Acircumflex,Atilde,Adieresis,Aring,Ccedilla,Egrave, Eacute,Ecircumflex,Edieresis,Igrave,Iacute,Icircumflex,Idieresis, Ntilde,Ograve,Oacute,Ocircumflex,Otilde,Odieresis,Scaron,Ugrave, Uacute,Ucircumflex,Udieresis,Yacute,Ydieresis,Zcaron,agrave,aacute, acircumflex,atilde,adieresis,aring,ccedilla,egrave,eacute, ecircumflex,edieresis,igrave,iacute,icircumflex,idieresis, ntilde,ograve,oacute,ocircumflex,otilde,odieresis, scaron,ugrave,uacute,ucircumflex,udieresis,yacute,ydieresis,<br>
+      zcaron (spaces have been added to keep the above string from flying off the page).</p>
+      <p>As I said, there was a character named <strong>dotlessi</strong> and it was mapped to Unicode #0131, as it had been in the past, but the generated glyphs used the regular lowercase i -- not a problem to decompose the character and delete the dot, but a minor annoyance and a sort of puzzlement. Re: Chester's comments -- there IS an <strong>alias.dat</strong> file in my old FontLab 4.6 folder under <strong>Mapping</strong>, but there is no such folder nor file in the FL5 folder. Do I need to copy and paste some files?</p>
+  - id: 93040
+    user: 1336
+    date: 2005-10-31T16:44:00
+    date_raw: 31 October 2005 - 4:44pm
+    votes: 0
+    html: |-
+      <p>Nick,<br>
+      there is only one alias.dat file, so that's the one to monkey with. (Tip: copy the original alias.dat, and rename it somehing like "aliasdatsafe".) I've got a couple of generations of FontLab running at the moment, hence any confusion about location. and at a certain point the app started to use a folder in the User/Library/Application Support directory.</p>
+      <p>If your dotlessi doesn;t have its Unicode index, that shouldn't matter for this exercise. You need to make sure to request this:<br>
+      ...e+dieresis dotlessi+grave dotlessi+acute dotlessi+circumflex dotlessi+dieresis,n+tilde...</p>
+      <p>If you ask for the "i", that's what FL is going to use; it's not smart enough to use the fotlessi. (I also create a dotlessj glyph which is referenced when making the jcaron and jcircumflex glyphs.)</p>
+      <p>Best, c</p>
+    html_clean: |-
+      <p>Nick,<br>
+      there is only one alias.dat file, so that's the one to monkey with. (Tip: copy the original alias.dat, and rename it somehing like "aliasdatsafe".) I've got a couple of generations of FontLab running at the moment, hence any confusion about location. and at a certain point the app started to use a folder in the User/Library/Application Support directory.</p>
+      <p>If your dotlessi doesn;t have its Unicode index, that shouldn't matter for this exercise. You need to make sure to request this:<br>
+      ...e+dieresis dotlessi+grave dotlessi+acute dotlessi+circumflex dotlessi+dieresis,n+tilde...</p>
+      <p>If you ask for the "i", that's what FL is going to use; it's not smart enough to use the fotlessi. (I also create a dotlessj glyph which is referenced when making the jcaron and jcircumflex glyphs.)</p>
+      <p>Best, c</p>
+  - id: 93048
+    user: 7006
+    date: 2005-10-31T17:24:00
+    date_raw: 31 October 2005 - 5:24pm
+    votes: 0
+    html: <p>i think there are some screwy combos in the alias.dat file, i think this is one of the more frequent ones that users will encounter. it's easy enough to change the alias file, as outlined above, but some combos should definately be fixed. i guess the best thing to do would be to contact FontLab directly concerning screwy automatic composites.</p>
+    html_clean: <p>i think there are some screwy combos in the alias.dat file, i think this is one of the more frequent ones that users will encounter. it's easy enough to change the alias file, as outlined above, but some combos should definately be fixed. i guess the best thing to do would be to contact FontLab directly concerning screwy automatic composites.</p>
+  - id: 93120
+    user: 6470
+    date: 2005-11-01T09:40:00
+    date_raw: 1 November 2005 - 9:40am
+    votes: 0
+    html: <p>Thanks for all the input. I checked the OPTIONS tab (which I probably should have done in the first place) and found that the common files for all FontLab applications on my computer were in a non-existent folder under Documents and Settings. I just changed the path to the existing FL4 folder, and things work fine.</p>
+    html_clean: <p>Thanks for all the input. I checked the OPTIONS tab (which I probably should have done in the first place) and found that the common files for all FontLab applications on my computer were in a non-existent folder under Documents and Settings. I just changed the path to the existing FL4 folder, and things work fine.</p>

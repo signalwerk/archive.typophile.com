@@ -1,5 +1,5 @@
 node: 39404
-title: null
+title: Center accent using RoboFab/Python ?
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/39404.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190911221345/typophile.com/node/39404.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,500 @@ pages:
       digest: LBZAWUB3YT3TL3XRLN63Q7OIKSHLRW7W
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/39404.html
+      file: data/archives/web.archive.org/files/20190911221345/typophile.com/node/39404.html
 post:
   id: 39404
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 16986
+  date: 2007-11-24T11:25:00
+  date_raw: 24 November 2007 - 11:25am
+  votes: 0
+  html: |-
+    <p>Hi all,</p>
+    <p>What I trying to do here is find a quicker way to position the accents on italic glyphs. </p>
+    <p>The process I'm usng at the moment - </p>
+    <p>1. With the base glyph and accent in place - Glyph &gt; create glyphs (Picture 1)<br>
+    2. In the glyph window I select the accent and use center. (Picture 2)</p>
+    <p>This seems to work fine as a starting point, but it's really repeative, I was looking for a quicker method possible using a python script.</p>
+    <p>I've had experience with other languages such as ActionScript and PHP, I'm comfortable with the idea of scripting but I've only just started looking at RoboFab and Python so I could have this completely wrong.</p>
+    <p>I wrote this code today in an effect to speed up the process, thinking if I had a value for the aacute I could then use it for the eacute etc. </p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()<br>
+    acute = 20<br>
+    upperShift = 80<br>
+    upperAcc = 164<br>
+    grave = 45<br>
+    circumflex = 0<br>
+    dieresis = 10<br>
+    aring = 70<br>
+    tilde = 15<br>
+    macron = 30<br>
+    breve = 22<br>
+    f['aacute'].components[1].offset = (acute,0)<br>
+    f['agrave'].components[1].offset = (grave,0)<br>
+    f['acircumflex'].components[1].offset = (circumflex,0)<br>
+    f['adieresis'].components[1].offset = (dieresis,0)<br>
+    f['atilde'].components[1].offset = (tilde,0)<br>
+    f['aring'].components[1].offset = (aring,0)<br>
+    f['amacron'].components[1].offset = (macron,0)<br>
+    f['abreve'].components[1].offset = (breve,0)<br>
+    #<br>
+    f['ccedilla'].components[1].offset = (0,0)<br>
+    f['cacute'].components[1].offset = (acute,0)<br>
+    f['ccircumflex'].components[1].offset = (circumflex,0)<br>
+    f['cdotaccent'].components[1].offset = (aring,0)<br>
+    f['ccaron'].components[1].offset = (circumflex,0)<br></code></p>
+    <p>It works to a point but it would be quicker to go to each glyph and use the center method. What I thought would be useful is a center method to use within the code, something like - </p>
+    <p><code><br>
+    f['aacute'].components[1].offset = (center,0)<br>
+    f['agrave'].components[1].offset = (center,0)<br>
+    f['acircumflex'].components[1].offset = (center,0)<br></code></p>
+    <p>So my question is, is this possible</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Picture%201_36.jpg" width="260" height="376" alt="">
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Picture%202_7.jpg" width="308" height="403" alt="">
+  html_clean: |-
+    <p>Hi all,</p>
+    <p>What I trying to do here is find a quicker way to position the accents on italic glyphs. </p>
+    <p>The process I'm usng at the moment - </p>
+    <p>1. With the base glyph and accent in place - Glyph &gt; create glyphs (Picture 1)<br>
+    2. In the glyph window I select the accent and use center. (Picture 2)</p>
+    <p>This seems to work fine as a starting point, but it's really repeative, I was looking for a quicker method possible using a python script.</p>
+    <p>I've had experience with other languages such as ActionScript and PHP, I'm comfortable with the idea of scripting but I've only just started looking at RoboFab and Python so I could have this completely wrong.</p>
+    <p>I wrote this code today in an effect to speed up the process, thinking if I had a value for the aacute I could then use it for the eacute etc. </p>
+    <p><code><br>
+    from robofab.world import CurrentFont<br>
+    f = CurrentFont()<br>
+    acute = 20<br>
+    upperShift = 80<br>
+    upperAcc = 164<br>
+    grave = 45<br>
+    circumflex = 0<br>
+    dieresis = 10<br>
+    aring = 70<br>
+    tilde = 15<br>
+    macron = 30<br>
+    breve = 22<br>
+    f['aacute'].components[1].offset = (acute,0)<br>
+    f['agrave'].components[1].offset = (grave,0)<br>
+    f['acircumflex'].components[1].offset = (circumflex,0)<br>
+    f['adieresis'].components[1].offset = (dieresis,0)<br>
+    f['atilde'].components[1].offset = (tilde,0)<br>
+    f['aring'].components[1].offset = (aring,0)<br>
+    f['amacron'].components[1].offset = (macron,0)<br>
+    f['abreve'].components[1].offset = (breve,0)<br>
+    #<br>
+    f['ccedilla'].components[1].offset = (0,0)<br>
+    f['cacute'].components[1].offset = (acute,0)<br>
+    f['ccircumflex'].components[1].offset = (circumflex,0)<br>
+    f['cdotaccent'].components[1].offset = (aring,0)<br>
+    f['ccaron'].components[1].offset = (circumflex,0)<br></code></p>
+    <p>It works to a point but it would be quicker to go to each glyph and use the center method. What I thought would be useful is a center method to use within the code, something like - </p>
+    <p><code><br>
+    f['aacute'].components[1].offset = (center,0)<br>
+    f['agrave'].components[1].offset = (center,0)<br>
+    f['acircumflex'].components[1].offset = (center,0)<br></code></p>
+    <p>So my question is, is this possible</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Picture%201_36.jpg" width="260" height="376" alt="">
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Picture%202_7.jpg" width="308" height="403" alt="">
+comments:
+  - id: 241826
+    user: 10199
+    date: 2007-11-24T19:29:00
+    date_raw: 24 November 2007 - 7:29pm
+    votes: 0
+    html: <p>Can't help you with the code, but why not use 'Anchors and Carets'?</p>
+    html_clean: <p>Can't help you with the code, but why not use 'Anchors and Carets'?</p>
+  - id: 241829
+    user: 766
+    date: 2007-11-24T20:14:00
+    date_raw: 24 November 2007 - 8:14pm
+    votes: 0
+    html: |-
+      <p>placing accents is easier and faster if you use anchors. you could write code to center the accent to the base-glyph's width... but for accent placement what matters it the optical center, not the mathematical one. with anchors you can mark the alignment points optically.</p>
+      <p>robofab comes with an accent building tool – have you read <a href="http://www.robofab.org/howto/buildingaccents.html">this page</a>?</p>
+      <p>you might also want to take a look at ben kiel's <a href="http://www.benkiel.com/typeDesign/">accentTools</a>.</p>
+      <p>good luck,<br>
+      - gustavo.</p>
+    html_clean: |-
+      <p>placing accents is easier and faster if you use anchors. you could write code to center the accent to the base-glyph's width... but for accent placement what matters it the optical center, not the mathematical one. with anchors you can mark the alignment points optically.</p>
+      <p>robofab comes with an accent building tool – have you read <a href="http://www.robofab.org/howto/buildingaccents.html" class="link-external">this page</a>?</p>
+      <p>you might also want to take a look at ben kiel's <a href="http://www.benkiel.com/typeDesign/" class="link-external">accentTools</a>.</p>
+      <p>good luck,<br>
+      - gustavo.</p>
+  - id: 241851
+    user: 16986
+    date: 2007-11-25T03:57:00
+    date_raw: 25 November 2007 - 3:57am
+    votes: 0
+    html: |-
+      <p>Jon, gferreira,</p>
+      <p>I don't use anchors at the moment cos I found it quicker and easier to select all the emtpy accent glyph windows and then use Glyph &gt; Create glyph. I'll look into using anchors and see if that is quicker.</p>
+      <p>I know the accents placement is better optically rather than mathematical but I wanted them centered as a starting point from which I could adjust them.</p>
+      <p>I think what I need for my code is a way to move the accent at set amount, the offset method will move the glyph to a set point, but what I need is a way to say move accent 120 units (the accents current position - 120units ). I try and see if this is possible.</p>
+      <p>c.</p>
+    html_clean: |-
+      <p>Jon, gferreira,</p>
+      <p>I don't use anchors at the moment cos I found it quicker and easier to select all the emtpy accent glyph windows and then use Glyph &gt; Create glyph. I'll look into using anchors and see if that is quicker.</p>
+      <p>I know the accents placement is better optically rather than mathematical but I wanted them centered as a starting point from which I could adjust them.</p>
+      <p>I think what I need for my code is a way to move the accent at set amount, the offset method will move the glyph to a set point, but what I need is a way to say move accent 120 units (the accents current position - 120units ). I try and see if this is possible.</p>
+      <p>c.</p>
+  - id: 241852
+    user: 7006
+    date: 2007-11-25T04:06:00
+    date_raw: 25 November 2007 - 4:06am
+    votes: 0
+    html: |-
+      <p><em>I don’t use anchors at the moment cos I found it quicker and easier to select all the emtpy accent glyph windows and then use Glyph &gt; Create glyph.</em></p>
+      <p>anchors and the create glyphs functions work together. what you do is set up your anchors on your base characters using a name such as "anchor" and then set them on your diacritics using a name such as "_anchor," so that they are the same except for the underscore before the diacritic anchor names. Once you have these set up, you run the create glyphs action and all your diacritics snap into place. it's a great time saver.</p>
+    html_clean: |-
+      <p><em>I don’t use anchors at the moment cos I found it quicker and easier to select all the emtpy accent glyph windows and then use Glyph &gt; Create glyph.</em></p>
+      <p>anchors and the create glyphs functions work together. what you do is set up your anchors on your base characters using a name such as "anchor" and then set them on your diacritics using a name such as "_anchor," so that they are the same except for the underscore before the diacritic anchor names. Once you have these set up, you run the create glyphs action and all your diacritics snap into place. it's a great time saver.</p>
+  - id: 241853
+    user: 16986
+    date: 2007-11-25T04:25:00
+    date_raw: 25 November 2007 - 4:25am
+    votes: 0
+    html: <p>Sounds like I'm missing a trick here, I'll look into it</p>
+    html_clean: <p>Sounds like I'm missing a trick here, I'll look into it</p>
+  - id: 241864
+    user: 8664
+    date: 2007-11-25T09:00:00
+    date_raw: 25 November 2007 - 9:00am
+    votes: 0
+    html: |-
+      <p>[Thank you! Change the link. And the order of posts too ...]</p>
+      <p>Regarding the method of using Anchors and "Glyph &gt; Generate Glyphs ...", you can also use the "Glyph Generator" script from <a href="http://www.kltf.de/kltf_otproduction.htm">here</a>. The script does the same thing as the "Generate Glyphs ..." panel but more automatically: it generates all composite glyphs defined in the alias.dat if both base glyph and accent glyph are present in the font. This requires that you adjust the alias.dat file to match your desired glyph set. (Make a backup of the original!) For the syntax of alias.dat, see the little help button in the "Generate Glyphs ..." panel.</p>
+      <p>Yesterday's thought:<br>
+      Anchors are helpful, but placing them correctly needs visual control which Anchors themselves do not provide. They are just dots. A visual check of the positioning requires a "real" diacritic glyph (with base glyph and accent).<br>
+      What about combining Rachel Roberts' and the Anchor/"Glyph &gt; Generate Glyphs ..." methods? This could work like this:<br>
+      Add a special 'ACCENT' glyph (and 'ACCENT.uc' and 'ACCENT.sc' if you use uppercase &amp; lowercase variants) to the font. Take the outline of an accent which is easy to position. And add, for every base glyph ('a'), a pseudo-diacritic glyph ('a_DIACRITIC', made of the components 'a' and 'ACCENT').<br>
+      [If you desparately want to use Anchors, a script may grab the Anchor position from the placement of these default accents in the pseudo-diacritic glyph. Then standard scripts like Ben's or the one mentioned above can be used to create diacritic glyphs. But the more direct way would do this:]<br>
+      Finally, a glyph generator script reads the position of the 'ACCENT' component in every pseudo-diacritic glyph ('a_DIACRITIC' etc), and creates all other diacritic glyphs using this position. This requires a list of all glyphs to be generated, and their components, similar to the alias.dat file.<br>
+      In short: It is the same as using Anchors, but with better visual control. And a few additional glyphs.&nbsp;&nbsp;;-)<br>
+      The uppercase-name glyphs would have to be deleted before generating fonts -- they are just helpers used during production. What they grant though is better visual control.<br>
+      [Maybe make both 'ACCENT.top' and 'ACCENT.bottom'.]</p>
+      <p>But in the end, which way you go is a very personal decision.</p>
+      <p>Karsten</p>
+      <p>P.S.<br>
+      Hi Gustavo!</p>
+    html_clean: |-
+      <p>[Thank you! Change the link. And the order of posts too ...]</p>
+      <p>Regarding the method of using Anchors and "Glyph &gt; Generate Glyphs ...", you can also use the "Glyph Generator" script from <a href="http://www.kltf.de/kltf_otproduction.htm" class="link-external">here</a>. The script does the same thing as the "Generate Glyphs ..." panel but more automatically: it generates all composite glyphs defined in the alias.dat if both base glyph and accent glyph are present in the font. This requires that you adjust the alias.dat file to match your desired glyph set. (Make a backup of the original!) For the syntax of alias.dat, see the little help button in the "Generate Glyphs ..." panel.</p>
+      <p>Yesterday's thought:<br>
+      Anchors are helpful, but placing them correctly needs visual control which Anchors themselves do not provide. They are just dots. A visual check of the positioning requires a "real" diacritic glyph (with base glyph and accent).<br>
+      What about combining Rachel Roberts' and the Anchor/"Glyph &gt; Generate Glyphs ..." methods? This could work like this:<br>
+      Add a special 'ACCENT' glyph (and 'ACCENT.uc' and 'ACCENT.sc' if you use uppercase &amp; lowercase variants) to the font. Take the outline of an accent which is easy to position. And add, for every base glyph ('a'), a pseudo-diacritic glyph ('a_DIACRITIC', made of the components 'a' and 'ACCENT').<br>
+      [If you desparately want to use Anchors, a script may grab the Anchor position from the placement of these default accents in the pseudo-diacritic glyph. Then standard scripts like Ben's or the one mentioned above can be used to create diacritic glyphs. But the more direct way would do this:]<br>
+      Finally, a glyph generator script reads the position of the 'ACCENT' component in every pseudo-diacritic glyph ('a_DIACRITIC' etc), and creates all other diacritic glyphs using this position. This requires a list of all glyphs to be generated, and their components, similar to the alias.dat file.<br>
+      In short: It is the same as using Anchors, but with better visual control. And a few additional glyphs.&nbsp;&nbsp;;-)<br>
+      The uppercase-name glyphs would have to be deleted before generating fonts -- they are just helpers used during production. What they grant though is better visual control.<br>
+      [Maybe make both 'ACCENT.top' and 'ACCENT.bottom'.]</p>
+      <p>But in the end, which way you go is a very personal decision.</p>
+      <p>Karsten</p>
+      <p>P.S.<br>
+      Hi Gustavo!</p>
+  - id: 241870
+    user: 766
+    date: 2007-11-25T07:38:00
+    date_raw: 25 November 2007 - 7:38am
+    votes: 0
+    html: |-
+      <p>hello karsten,</p>
+      <p><a href="http://www.kltf.de/kltf_otproduction.htm">this</a> is the right link... ;-)</p>
+      <p>cheers,<br>
+      - gustavo.</p>
+    html_clean: |-
+      <p>hello karsten,</p>
+      <p><a href="http://www.kltf.de/kltf_otproduction.htm" class="link-external">this</a> is the right link... ;-)</p>
+      <p>cheers,<br>
+      - gustavo.</p>
+  - id: 241900
+    user: 16986
+    date: 2007-11-25T11:50:00
+    date_raw: 25 November 2007 - 11:50am
+    votes: 0
+    html: |-
+      <p>Update:</p>
+      <p>I tried the Anchors method but found it more time consuming than my orginal method.</p>
+      <p>So this is the method I came up with:</p>
+      <p>1. I generated the Accent glyphs using the Glyph &gt; Create Gylph which results in the accent being in the wrong position over to the left   <img src="/sites/default/files/old-images/Picture-1_4889.gif"></p>
+      <p>2. With experiments it looks like the distance the accent has to move over to the left to be somewhere in the correct position can be applied to all the lowercase accent glyphs. <img src="/sites/default/files/old-images/Picture-2_4765.gif"></p>
+      <p>I wrote this script to move all the accents over by a set amount</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      f = CurrentFont()<br>
+      shift = 90<br>
+      UppShift = 132<br>
+      #<br>
+      #LowerAccents---------------<br>
+      #<br>
+      aacute = f['aacute'].components[1]<br>
+      agrave = f['agrave'].components[1]<br>
+      acircumflex = f['acircumflex'].components[1]<br>
+      adieresis = f['adieresis'].components[1]<br>
+      atilde = f['atilde'].components[1]<br>
+      aring = f['aring'].components[1]<br>
+      amacron = f['amacron'].components[1]<br>
+      abreve = f['abreve'].components[1]<br>
+      #<br>
+      aacute.move((shift,0))<br>
+      agrave.move((shift,0))<br>
+      acircumflex.move((shift,0))<br>
+      adieresis.move((shift,0))<br>
+      atilde.move((shift,0))<br>
+      aring.move((shift,0))<br>
+      amacron.move((shift,0))<br>
+      abreve.move((shift,0))<br>
+      #<br></code></p>
+      <p>The code seems verbose to me, I'm sure the use of an array with a loop would streamline it down.<br>
+      I've just started with Robofab/Python so i wouldn't know if that's possible or the syntax</p>
+      <p>Anyway the code seems to work for me.</p>
+      <p>Rr.</p>
+    html_clean: |-
+      <p>Update:</p>
+      <p>I tried the Anchors method but found it more time consuming than my orginal method.</p>
+      <p>So this is the method I came up with:</p>
+      <p>1. I generated the Accent glyphs using the Glyph &gt; Create Gylph which results in the accent being in the wrong position over to the left   <img src="/sites/default/files/old-images/Picture-1_4889.gif"></p>
+      <p>2. With experiments it looks like the distance the accent has to move over to the left to be somewhere in the correct position can be applied to all the lowercase accent glyphs. <img src="/sites/default/files/old-images/Picture-2_4765.gif"></p>
+      <p>I wrote this script to move all the accents over by a set amount</p>
+      <p><code><br>
+      from robofab.world import CurrentFont<br>
+      f = CurrentFont()<br>
+      shift = 90<br>
+      UppShift = 132<br>
+      #<br>
+      #LowerAccents---------------<br>
+      #<br>
+      aacute = f['aacute'].components[1]<br>
+      agrave = f['agrave'].components[1]<br>
+      acircumflex = f['acircumflex'].components[1]<br>
+      adieresis = f['adieresis'].components[1]<br>
+      atilde = f['atilde'].components[1]<br>
+      aring = f['aring'].components[1]<br>
+      amacron = f['amacron'].components[1]<br>
+      abreve = f['abreve'].components[1]<br>
+      #<br>
+      aacute.move((shift,0))<br>
+      agrave.move((shift,0))<br>
+      acircumflex.move((shift,0))<br>
+      adieresis.move((shift,0))<br>
+      atilde.move((shift,0))<br>
+      aring.move((shift,0))<br>
+      amacron.move((shift,0))<br>
+      abreve.move((shift,0))<br>
+      #<br></code></p>
+      <p>The code seems verbose to me, I'm sure the use of an array with a loop would streamline it down.<br>
+      I've just started with Robofab/Python so i wouldn't know if that's possible or the syntax</p>
+      <p>Anyway the code seems to work for me.</p>
+      <p>Rr.</p>
+  - id: 241910
+    user: 7006
+    date: 2007-11-25T12:18:00
+    date_raw: 25 November 2007 - 12:18pm
+    votes: 0
+    html: <p>wow! i wish writing scripts were simpler for me than figuring out basic FL functions. guess i better get a crack on python.</p>
+    html_clean: <p>wow! i wish writing scripts were simpler for me than figuring out basic FL functions. guess i better get a crack on python.</p>
+  - id: 241912
+    user: 18185
+    date: 2007-11-25T12:28:00
+    date_raw: 25 November 2007 - 12:28pm
+    votes: 0
+    html: <p>Dang, that's impressive stuff — especially so to me, since I plod along adjusting placements by eye (rather than trusting mechanical measurements first and tweaking later).</p>
+    html_clean: <p>Dang, that's impressive stuff — especially so to me, since I plod along adjusting placements by eye (rather than trusting mechanical measurements first and tweaking later).</p>
+  - id: 241916
+    user: 7006
+    date: 2007-11-25T12:36:00
+    date_raw: 25 November 2007 - 12:36pm
+    votes: 0
+    html: <p>one advantage of setting anchors is that you set them at the optical centers of your glyphs/components. if you're shifting your acute, grave, circumflex, dieresis, dotaccent, &amp;c all by the same fixed amount, not all of them will be centered over your base glyph. to make your script do this more optimally it needs some more algebra, but don't ask me to spout off just what right now.</p>
+    html_clean: <p>one advantage of setting anchors is that you set them at the optical centers of your glyphs/components. if you're shifting your acute, grave, circumflex, dieresis, dotaccent, &amp;c all by the same fixed amount, not all of them will be centered over your base glyph. to make your script do this more optimally it needs some more algebra, but don't ask me to spout off just what right now.</p>
+  - id: 241919
+    user: 18185
+    date: 2007-11-25T12:43:00
+    date_raw: 25 November 2007 - 12:43pm
+    votes: 0
+    html: |-
+      <p><em>... it needs some more algebra ...</em></p>
+      <p>Yep, and it's at that point my eyes usually begin to glaze over. I'd prefer to keep them (my eyes, that is) clear and proceed somewhat stochastically, making optical adjustments as required, proof, then more tweaking, proof, stir and repeat as necessary, then relax and skip the math and aspirin expenses. But to each his/her own, yes?</p>
+    html_clean: |-
+      <p><em>... it needs some more algebra ...</em></p>
+      <p>Yep, and it's at that point my eyes usually begin to glaze over. I'd prefer to keep them (my eyes, that is) clear and proceed somewhat stochastically, making optical adjustments as required, proof, then more tweaking, proof, stir and repeat as necessary, then relax and skip the math and aspirin expenses. But to each his/her own, yes?</p>
+  - id: 241927
+    user: 8664
+    date: 2007-11-25T12:59:00
+    date_raw: 25 November 2007 - 12:59pm
+    votes: 0
+    html: |-
+      <p>RachelR -- <cite>I've just started with Robofab/Python so i wouldn't know if that's possible</cite></p>
+      <p>It is. You can try something like <a href="http://www.kltf.de/stuff/MoveAccentsTypophile.py" target="_blank">this</a>.</p>
+      <p>(As to automatism vs by hand/eye, yes. Automatism is only for a start. And it was for this reason that I suggested the method with a special accent glyph rather than a mere Anchor. However, it's theory so far.)</p>
+    html_clean: |-
+      <p>RachelR -- <cite>I've just started with Robofab/Python so i wouldn't know if that's possible</cite></p>
+      <p>It is. You can try something like <a href="http://www.kltf.de/stuff/MoveAccentsTypophile.py" target="_blank" class="link-external">this</a>.</p>
+      <p>(As to automatism vs by hand/eye, yes. Automatism is only for a start. And it was for this reason that I suggested the method with a special accent glyph rather than a mere Anchor. However, it's theory so far.)</p>
+  - id: 241964
+    user: 16986
+    date: 2007-11-25T16:49:00
+    date_raw: 25 November 2007 - 4:49pm
+    votes: 0
+    html: |-
+      <p>Paul,</p>
+      <p><em><br>
+      if you’re shifting your acute, grave, circumflex, dieresis, dotaccent, &amp;c all by the same fixed amount, not all of them will be centered over your base glyph.<br></em></p>
+      <p>This is my first attempt at using Python so the code isn't very dynamic and limited in it's expandability but it gets me over the shock of all the accents being completely out of place without having to go through each one. With k.l. array and loop example I should be able to make to more compact.</p>
+      <p>Rr.</p>
+    html_clean: |-
+      <p>Paul,</p>
+      <p><em><br>
+      if you’re shifting your acute, grave, circumflex, dieresis, dotaccent, &amp;c all by the same fixed amount, not all of them will be centered over your base glyph.<br></em></p>
+      <p>This is my first attempt at using Python so the code isn't very dynamic and limited in it's expandability but it gets me over the shock of all the accents being completely out of place without having to go through each one. With k.l. array and loop example I should be able to make to more compact.</p>
+      <p>Rr.</p>
+  - id: 242125
+    user: 1688
+    date: 2007-11-26T13:50:00
+    date_raw: 26 November 2007 - 1:50pm
+    votes: 0
+    html: <p>The next logical step would probably be to add a dialog to the merge composites functionality, for instance like this one:<img src="/sites/default/files/old-images/MergeComposits_4968.gif"></p>
+    html_clean: <p>The next logical step would probably be to add a dialog to the merge composites functionality, for instance like this one:<img src="/sites/default/files/old-images/MergeComposits_4968.gif"></p>
+  - id: 242128
+    user: 16986
+    date: 2007-11-26T14:06:00
+    date_raw: 26 November 2007 - 2:06pm
+    votes: 0
+    html: |-
+      <p>blokland,</p>
+      <p>What application is this Merge Composites taken from. Or is this something I can produce using python/Robofab</p>
+      <p>Rr.</p>
+    html_clean: |-
+      <p>blokland,</p>
+      <p>What application is this Merge Composites taken from. Or is this something I can produce using python/Robofab</p>
+      <p>Rr.</p>
+  - id: 242150
+    user: 1688
+    date: 2007-11-26T15:11:00
+    date_raw: 26 November 2007 - 3:11pm
+    votes: 0
+    html: |-
+      <p>Rachel,</p>
+      <p>The ‘Merge Composites’ dialog belongs to one of the standard batch functions of DTL FontMaster. Perhaps you can add something like this to the functionality you developed with the tools you are using, I actually don’t know. I simply could not resist to intrude in this topic and to show the dialog after seeing another re-invention of relatively old technology. </p>
+      <p>For the FM Track during the ATypI TypeTech Forum in Brighton last September I invited Peter Rosenfeld of URW++ to talk about this constant re-invention of old technology. Much type design and font production related functionality that comes by on forums like this one, has been developed in the past thirty plus years for especially the Ikarus system and much was invented by Dr. Peter Karow. FM is based on the Ikarus system and a lot of the batch functionality is built-in and mostly controlled by simple command files. Actually, the coming years we will port even more fairly sophisticated Ikarus (and sometimes relatively old) functions to FM, besides developing new ones.</p>
+      <p>At the risk of being tarred and feathered by this in general non-FM oriented audience, I want to state that the structure of FM has been developed more than that of any other current font production tool with automation and batching in mind. Hence the automation is built-in and not built-on.</p>
+    html_clean: |-
+      <p>Rachel,</p>
+      <p>The ‘Merge Composites’ dialog belongs to one of the standard batch functions of DTL FontMaster. Perhaps you can add something like this to the functionality you developed with the tools you are using, I actually don’t know. I simply could not resist to intrude in this topic and to show the dialog after seeing another re-invention of relatively old technology. </p>
+      <p>For the FM Track during the ATypI TypeTech Forum in Brighton last September I invited Peter Rosenfeld of URW++ to talk about this constant re-invention of old technology. Much type design and font production related functionality that comes by on forums like this one, has been developed in the past thirty plus years for especially the Ikarus system and much was invented by Dr. Peter Karow. FM is based on the Ikarus system and a lot of the batch functionality is built-in and mostly controlled by simple command files. Actually, the coming years we will port even more fairly sophisticated Ikarus (and sometimes relatively old) functions to FM, besides developing new ones.</p>
+      <p>At the risk of being tarred and feathered by this in general non-FM oriented audience, I want to state that the structure of FM has been developed more than that of any other current font production tool with automation and batching in mind. Hence the automation is built-in and not built-on.</p>
+  - id: 242156
+    user: 17208
+    date: 2007-11-26T15:19:00
+    date_raw: 26 November 2007 - 3:19pm
+    votes: 0
+    html: |-
+      <p>Rachel,</p>
+      <p>You can build custom dialogs yourself by using Tal Lemming's excellent DialogKit library for FontLab. Check it out (and more of his stuff) at <a href="http://code.typesupply.com/">http://code.typesupply.com/</a></p>
+    html_clean: |-
+      <p>Rachel,</p>
+      <p>You can build custom dialogs yourself by using Tal Lemming's excellent DialogKit library for FontLab. Check it out (and more of his stuff) at <a href="http://code.typesupply.com/" class="link-external">http://code.typesupply.com/</a></p>
+  - id: 242672
+    user: 1133
+    date: 2007-11-28T06:54:00
+    date_raw: 28 November 2007 - 6:54am
+    votes: 0
+    html: |-
+      <p>Frank, </p>
+      <p>I think those "reinventions" are quite common in most industries. The interesting thing is that whenever a 3rd party comes to look at an existing solution, they usually take some aspects from it, and then it mixes if with new ideas of their own. For example, it is quite obvious that FontLab 4, compared to version 3, was heavily influenced by Fontographer, and then FontLab Studio 5 was somewhat influenced by FontStudio. A shareware font editor FontCreator was recently influenced by FontLab Studio a lot, and FontLab Studio has adopted a few of their ideas as well. </p>
+      <p>Also, sometimes these reinventions happen completely independently -- especially if there are some mathematical, "objective" solutions to certain problems, then it is quite likely that different people arrive at the same conclusions independently of each other. </p>
+      <p>I don't know if it is a good or bad thing, but I believe the influence of Ikarus and DTL FontMaster of FontLab Studio and other Fontlab Ltd. products has been rather small. For example, I have never worked with Ikarus nor FontMaster, and never owned a license of either product. But I guess some influence went in, often because users of FontLab Studio suggested features that they have previously seen in Ikarus. </p>
+      <p>I must admit that I was particularly thrilled to meet Dr Peter Karow this year at the typographic conference in Thessaloniki. I've spent many hours on discussions and exchanging ideas with him, and was very impressed (I had known some of his work through his writings previously, but there were major parts that I was not aware of). </p>
+      <p>Since you have spoken of a certain primary aspect of FontMaster, let me say that in my opinion, one of the unique and important aspects of FontLab Studio, which has always been a focal point in Yuri's development, was the "roundtrip interactive" aspect of the tool. This means that in FontLab Studio, you can take an existing font or start a new one, and then make some changes to an existing glyph or draw a new one, then do some spacing, then do some hinting, then go back to drawing, then do some hinting again and some spacing, and then perhaps some more drawing -- all in just one tool. And during all of that, FontLab Studio maintains as much as possible of the other data. For example, if I open an existing hand-hinted TrueType font and add just one glyph, all of the font's tables, hand hinting, OpenType code etc. remains intact. </p>
+      <p>This aspect of the tool was developed especially because Yuri did not want to make a hard separation between source files and final files. In a sense, he arrived at the conclusion that the final files are often the best source files. </p>
+      <p>I guess that is also one of the main differences, especially when comparing older versions of FontLab and FontMaster. FontLab was in the past highly interactive but had limited batch abilities, while I was under the impression that FontMaster excelled in batch functionalities but was rather limited in the "roundtrip interactivity" aspect. This made the original FontLab a great tool for smaller foundries and original designers while FontMaster was I guess a great tool for very large font libraries. </p>
+      <p>But I guess in the more recent years, the applications started gaining what they lacked before -- FontLab and later FontLab Studio developed many batch abilities, since Python support was added in version 4, while I am under the impression that FontMaster added some interactive features not present before. </p>
+      <p>I guess both DTL and Fontlab Ltd. are -- in their own way -- trying to make tools suitable for all possible scenarios. I guess some users would be interested in using both FontLab's and DTL's tools, but it's somewhat unfortunate that there are hardly any practical ways to exchange data between those applications. </p>
+      <p>Perhaps both Fontlab Ltd. and DTL should consider adding native support for the UFO and GLIF formats developed by the RoboFab group? Those files use XML, which is pretty much a prerequisite in today's data exchange, and they are already used by FontForge, the third player on the market. Fontlab Ltd. purchased a license for RoboFab from its developers some time ago, and we are working on better integrating it with our applications -- I wonder if DTL would be interested to do that as well? </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Frank, </p>
+      <p>I think those "reinventions" are quite common in most industries. The interesting thing is that whenever a 3rd party comes to look at an existing solution, they usually take some aspects from it, and then it mixes if with new ideas of their own. For example, it is quite obvious that FontLab 4, compared to version 3, was heavily influenced by Fontographer, and then FontLab Studio 5 was somewhat influenced by FontStudio. A shareware font editor FontCreator was recently influenced by FontLab Studio a lot, and FontLab Studio has adopted a few of their ideas as well. </p>
+      <p>Also, sometimes these reinventions happen completely independently -- especially if there are some mathematical, "objective" solutions to certain problems, then it is quite likely that different people arrive at the same conclusions independently of each other. </p>
+      <p>I don't know if it is a good or bad thing, but I believe the influence of Ikarus and DTL FontMaster of FontLab Studio and other Fontlab Ltd. products has been rather small. For example, I have never worked with Ikarus nor FontMaster, and never owned a license of either product. But I guess some influence went in, often because users of FontLab Studio suggested features that they have previously seen in Ikarus. </p>
+      <p>I must admit that I was particularly thrilled to meet Dr Peter Karow this year at the typographic conference in Thessaloniki. I've spent many hours on discussions and exchanging ideas with him, and was very impressed (I had known some of his work through his writings previously, but there were major parts that I was not aware of). </p>
+      <p>Since you have spoken of a certain primary aspect of FontMaster, let me say that in my opinion, one of the unique and important aspects of FontLab Studio, which has always been a focal point in Yuri's development, was the "roundtrip interactive" aspect of the tool. This means that in FontLab Studio, you can take an existing font or start a new one, and then make some changes to an existing glyph or draw a new one, then do some spacing, then do some hinting, then go back to drawing, then do some hinting again and some spacing, and then perhaps some more drawing -- all in just one tool. And during all of that, FontLab Studio maintains as much as possible of the other data. For example, if I open an existing hand-hinted TrueType font and add just one glyph, all of the font's tables, hand hinting, OpenType code etc. remains intact. </p>
+      <p>This aspect of the tool was developed especially because Yuri did not want to make a hard separation between source files and final files. In a sense, he arrived at the conclusion that the final files are often the best source files. </p>
+      <p>I guess that is also one of the main differences, especially when comparing older versions of FontLab and FontMaster. FontLab was in the past highly interactive but had limited batch abilities, while I was under the impression that FontMaster excelled in batch functionalities but was rather limited in the "roundtrip interactivity" aspect. This made the original FontLab a great tool for smaller foundries and original designers while FontMaster was I guess a great tool for very large font libraries. </p>
+      <p>But I guess in the more recent years, the applications started gaining what they lacked before -- FontLab and later FontLab Studio developed many batch abilities, since Python support was added in version 4, while I am under the impression that FontMaster added some interactive features not present before. </p>
+      <p>I guess both DTL and Fontlab Ltd. are -- in their own way -- trying to make tools suitable for all possible scenarios. I guess some users would be interested in using both FontLab's and DTL's tools, but it's somewhat unfortunate that there are hardly any practical ways to exchange data between those applications. </p>
+      <p>Perhaps both Fontlab Ltd. and DTL should consider adding native support for the UFO and GLIF formats developed by the RoboFab group? Those files use XML, which is pretty much a prerequisite in today's data exchange, and they are already used by FontForge, the third player on the market. Fontlab Ltd. purchased a license for RoboFab from its developers some time ago, and we are working on better integrating it with our applications -- I wonder if DTL would be interested to do that as well? </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 242864
+    user: 1688
+    date: 2007-11-28T15:43:00
+    date_raw: 28 November 2007 - 3:43pm
+    votes: 0
+    html: |-
+      <p>Adam,</p>
+      <p>DTL FontMaster was from the beginning on a ‘roundtrip interactive’ set of modules. After all the DTL typefaces are designed and produced with these tools. Additionally there is the batch functionality to for instance combine multiple fonts in single databases, merge composites (of course), automatically generate OpenType layout features and even automatically generate a complete library in all font formats with a single command file.</p>
+      <p>FM was actually never developed with the end user market in mind. Originally it was purely meant for internal use at the Dutch Type Library. During the 1990’s we were simply to much hampered by the available font production tools and developing a new program in co-operation with URW++ was the most logical solution. Hence the extensive batch functionality. At a later stage the set of modules was polished somewhat more and made available to the market. Still the new functionality we put in the program is mostly the result of internal demands at DTL.</p>
+      <p>The in the past thirty-plus years proven Ikarus-based file structure of DTL FontMaster with its separate files for respectively glyph databases (BE/IK), naming info (UFM), kerning (AFM/kern.fea) and font encoding (CHA) is very versatile and in our opinion unbeatable, especially for the exchange of data and for automation. Both the BE and IK formats have been published.</p>
+      <p>Instead of supporting another format, we believe more in the bridging like Karsten Luecke demonstrated in Brighton at the FM Track.</p>
+    html_clean: |-
+      <p>Adam,</p>
+      <p>DTL FontMaster was from the beginning on a ‘roundtrip interactive’ set of modules. After all the DTL typefaces are designed and produced with these tools. Additionally there is the batch functionality to for instance combine multiple fonts in single databases, merge composites (of course), automatically generate OpenType layout features and even automatically generate a complete library in all font formats with a single command file.</p>
+      <p>FM was actually never developed with the end user market in mind. Originally it was purely meant for internal use at the Dutch Type Library. During the 1990’s we were simply to much hampered by the available font production tools and developing a new program in co-operation with URW++ was the most logical solution. Hence the extensive batch functionality. At a later stage the set of modules was polished somewhat more and made available to the market. Still the new functionality we put in the program is mostly the result of internal demands at DTL.</p>
+      <p>The in the past thirty-plus years proven Ikarus-based file structure of DTL FontMaster with its separate files for respectively glyph databases (BE/IK), naming info (UFM), kerning (AFM/kern.fea) and font encoding (CHA) is very versatile and in our opinion unbeatable, especially for the exchange of data and for automation. Both the BE and IK formats have been published.</p>
+      <p>Instead of supporting another format, we believe more in the bridging like Karsten Luecke demonstrated in Brighton at the FM Track.</p>
+  - id: 247807
+    user: 8664
+    date: 2007-12-20T14:02:00
+    date_raw: 20 December 2007 - 2:02pm
+    votes: 0
+    html: |-
+      <p>Yet another possibility:</p>
+      <p>When reading Adam's post, I thought: Why not add a (FontMaster) BE format reader/writer to RoboFab? That way, RoboFab rather than FLS or FM themselves would serve as bridges between FLS and FM. My impression is that BE and UFO have more in common than either BE or UFO with VFB. The BE--UFO conversion could work outside of FLS,* the VFB--UFO and 'direct' VFB--BE conversion would require that scripts which read UFO/BE files are used from within FLS.</p>
+      <p>* After all, as Mr Blokland said, the BE format is an 'open' format in that it is fully documented in Peter Karow's books, so anybody actually can read/write it.</p>
+      <p>Using RoboFab and its UFO as mediator would raise interesting questions: Which information are essential for fonts, regardless of the font editor? Is it possible at all to draw a line between font info and an application's options?<br>
+      The available font info (names, metrics, the way font-wide hinting information are provided, etc) slightly differ in FLS and FM.<br>
+      Looking at font names, as one example, these differ a bit with both applications since each of them has its own approach to, and mechanisms for, filling in the 'name' table from user-defined font names. (Speaking of OT fonts.) This means, what appears to be 'mere' font info actually interact with what the font editor does with them upon generating fonts.<br>
+      This raises the question which data a 'meta' font format needs to provide. In my own attempts to 'externalize' some FLS font info to text files (trying to be able to reproduce font generation exactly any time later) I found that this requires not only font info themselves but certain options too which are, strictly speaking, not font but application dependent. UFO as a 'meta' format had to deal with the same question. Last time I checked (some time ago), its font info did not cover every data that I needed to generate a font. (Put differently, whenever a RoboFab-based script uses '.naked()' this means that it touches RoboFab's limits -- and relies on FLS.) How should UFO deal with font info that are specific to either FLS or FM? Currently this is not a real problem since, in real world use, RF/UFO serves merely as an FLS add-on: the existing FoboFab/UFO based stand-alone applications help modifying font data, but to generate PST1, TT or OT fonts one needs to import them back to FLS.<br>
+      Other aspects: masters, anchors, hints, etc.</p>
+      <p>Still I plan to make a more detailed comparison of certain aspects of FLS and FM (which may be useful for RF/UFO as a mediator too) ...</p>
+      <p>Since I used abbreviations:<br>
+      FLS &amp; VFB: <em>FontLab Studio &amp; its font format</em><br>
+      FM &amp; BE: <em>DTL FontMaster &amp; its font format</em><br>
+      RF &amp; UFO: <em>Letterror RoboFab &amp; its font format</em></p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Yet another possibility:</p>
+      <p>When reading Adam's post, I thought: Why not add a (FontMaster) BE format reader/writer to RoboFab? That way, RoboFab rather than FLS or FM themselves would serve as bridges between FLS and FM. My impression is that BE and UFO have more in common than either BE or UFO with VFB. The BE--UFO conversion could work outside of FLS,* the VFB--UFO and 'direct' VFB--BE conversion would require that scripts which read UFO/BE files are used from within FLS.</p>
+      <p>* After all, as Mr Blokland said, the BE format is an 'open' format in that it is fully documented in Peter Karow's books, so anybody actually can read/write it.</p>
+      <p>Using RoboFab and its UFO as mediator would raise interesting questions: Which information are essential for fonts, regardless of the font editor? Is it possible at all to draw a line between font info and an application's options?<br>
+      The available font info (names, metrics, the way font-wide hinting information are provided, etc) slightly differ in FLS and FM.<br>
+      Looking at font names, as one example, these differ a bit with both applications since each of them has its own approach to, and mechanisms for, filling in the 'name' table from user-defined font names. (Speaking of OT fonts.) This means, what appears to be 'mere' font info actually interact with what the font editor does with them upon generating fonts.<br>
+      This raises the question which data a 'meta' font format needs to provide. In my own attempts to 'externalize' some FLS font info to text files (trying to be able to reproduce font generation exactly any time later) I found that this requires not only font info themselves but certain options too which are, strictly speaking, not font but application dependent. UFO as a 'meta' format had to deal with the same question. Last time I checked (some time ago), its font info did not cover every data that I needed to generate a font. (Put differently, whenever a RoboFab-based script uses '.naked()' this means that it touches RoboFab's limits -- and relies on FLS.) How should UFO deal with font info that are specific to either FLS or FM? Currently this is not a real problem since, in real world use, RF/UFO serves merely as an FLS add-on: the existing FoboFab/UFO based stand-alone applications help modifying font data, but to generate PST1, TT or OT fonts one needs to import them back to FLS.<br>
+      Other aspects: masters, anchors, hints, etc.</p>
+      <p>Still I plan to make a more detailed comparison of certain aspects of FLS and FM (which may be useful for RF/UFO as a mediator too) ...</p>
+      <p>Since I used abbreviations:<br>
+      FLS &amp; VFB: <em>FontLab Studio &amp; its font format</em><br>
+      FM &amp; BE: <em>DTL FontMaster &amp; its font format</em><br>
+      RF &amp; UFO: <em>Letterror RoboFab &amp; its font format</em></p>
+      <p>Karsten</p>
+  - id: 247928
+    user: 1262
+    date: 2007-12-21T05:06:00
+    date_raw: 21 December 2007 - 5:06am
+    votes: 0
+    html: |-
+      <p>Karsten: <em>Add a special ’ACCENT’ glyph (and ’ACCENT.uc’ and ’ACCENT.sc’ if you use uppercase &amp; lowercase variants) to the font. Take the outline of an accent which is easy to position. And add, for every base glyph (’a’), a pseudo-diacritic glyph (’a_DIACRITIC’, made of the components ’a’ and ’ACCENT’).</em></p>
+      <p>This is very similar to what we do when working out GPOS mark positioning for complex scripts. It is much easier to visually position an actual mark than to position a dot anchor. So we use component glyphs with names corresponding to the mark glyph group to which they belong, e.g. ABOVE, BELOW, RAKAR, etc.. Then we position these as composites in separate source files, using various automations to get close to where we want them and then going through manually to adjust (usually done by Fiona, who has the best eye for mark positioning). Then we dump the composite position information to a text file and convert it into a VOLT GPOS lookup, so that the VOLT anchor positions are derived from the FL composite placement. The aspect of this I'd most like to have better automated is the final stage: the conversion to the VOLT lookup syntax.</p>
+    html_clean: |-
+      <p>Karsten: <em>Add a special ’ACCENT’ glyph (and ’ACCENT.uc’ and ’ACCENT.sc’ if you use uppercase &amp; lowercase variants) to the font. Take the outline of an accent which is easy to position. And add, for every base glyph (’a’), a pseudo-diacritic glyph (’a_DIACRITIC’, made of the components ’a’ and ’ACCENT’).</em></p>
+      <p>This is very similar to what we do when working out GPOS mark positioning for complex scripts. It is much easier to visually position an actual mark than to position a dot anchor. So we use component glyphs with names corresponding to the mark glyph group to which they belong, e.g. ABOVE, BELOW, RAKAR, etc.. Then we position these as composites in separate source files, using various automations to get close to where we want them and then going through manually to adjust (usually done by Fiona, who has the best eye for mark positioning). Then we dump the composite position information to a text file and convert it into a VOLT GPOS lookup, so that the VOLT anchor positions are derived from the FL composite placement. The aspect of this I'd most like to have better automated is the final stage: the conversion to the VOLT lookup syntax.</p>
+  - id: 248020
+    user: 8664
+    date: 2007-12-21T15:29:00
+    date_raw: 21 December 2007 - 3:29pm
+    votes: 0
+    html: <p>Wow, that's interesting! Thank you for the description of the procedure.</p>
+    html_clean: <p>Wow, that's interesting! Thank you for the description of the procedure.</p>

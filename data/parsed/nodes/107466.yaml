@@ -1,5 +1,5 @@
 node: 107466
-title: null
+title: GPOS feature 'kern' causes overflow of offset to a subtable
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/107466.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180730212031/typophile.com/node/107466.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,65 @@ pages:
       digest: KRKU4ZTG2IXIVB6E5TDKSDCUUC2TZDDO
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/107466.html
+      file: data/archives/web.archive.org/files/20180730212031/typophile.com/node/107466.html
 post:
   id: 107466
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 202944
+  date: 2013-11-29T15:54:00
+  date_raw: 29 November 2013 - 3:54pm
+  votes: 0
+  html: |-
+    <p>I know there's a lot of topics about this error but I've looked everywhere and couldn't find a solution for my problem.</p>
+    <p>Here's what's happening, as soon as I got this error when I tried to compile my font I tried doing some clean up on the classes but nothing worked so I've downloaded AFDKO and installed the macros on Fontlab, ran the AFDKO Kerning macro like a lot of people suggested and got a features.kern file but I don't know what to do now. What do I do with this file in order for Fontlab to let me generate the font without the overflow error?</p>
+    <p>Thanks!</p>
+  html_clean: |-
+    <p>I know there's a lot of topics about this error but I've looked everywhere and couldn't find a solution for my problem.</p>
+    <p>Here's what's happening, as soon as I got this error when I tried to compile my font I tried doing some clean up on the classes but nothing worked so I've downloaded AFDKO and installed the macros on Fontlab, ran the AFDKO Kerning macro like a lot of people suggested and got a features.kern file but I don't know what to do now. What do I do with this file in order for Fontlab to let me generate the font without the overflow error?</p>
+    <p>Thanks!</p>
+comments:
+  - id: 567360
+    user: 5094
+    date: 2013-11-30T09:04:00
+    date_raw: 30 November 2013 - 9:04am
+    votes: 0
+    html: |-
+      <p>You need Karsten Luecke's script, I think it's called</p>
+      <p>KLTF Make Kern Feature</p>
+      <p>from the Karsten Luecke Type Foundry.</p>
+      <p>Anyway, I have purchased the script, and can assure you it does work in FontLab Studio. You'll need to get FL set up to take Python scrips, but that's not too bad.</p>
+    html_clean: |-
+      <p>You need Karsten Luecke's script, I think it's called</p>
+      <p>KLTF Make Kern Feature</p>
+      <p>from the Karsten Luecke Type Foundry.</p>
+      <p>Anyway, I have purchased the script, and can assure you it does work in FontLab Studio. You'll need to get FL set up to take Python scrips, but that's not too bad.</p>
+  - id: 567372
+    user: 202944
+    date: 2013-11-30T20:39:00
+    date_raw: 30 November 2013 - 8:39pm
+    votes: 0
+    html: <p>Thanks for the reply Charles but is there any alternative to that script? From what I've read the AFDKO script works but I'm not sure what to do after I generate the features.kern file.</p>
+    html_clean: <p>Thanks for the reply Charles but is there any alternative to that script? From what I've read the AFDKO script works but I'm not sure what to do after I generate the features.kern file.</p>
+  - id: 567373
+    user: 5094
+    date: 2013-12-14T05:33:00
+    date_raw: 14 December 2013 - 5:33am
+    votes: 0
+    html: <p>Duplicate post from when the edit function didn't work..</p>
+    html_clean: <p>Duplicate post from when the edit function didn't work..</p>
+  - id: 567374
+    user: 5094
+    date: 2013-11-30T23:24:00
+    date_raw: 30 November 2013 - 11:24pm
+    votes: 0
+    html: |-
+      <p>Well, maybe. I don't use the Adobe AFDKO routines.</p>
+      <p>How I'd make a try if I wanted everything inside FontLab for some reason: using the Fontlab OT Features panel, write off the features file -- in effect, you're writing off a simple text file, which will have .fea as a file extension. Should be in the FL manual if I've been unclear.</p>
+      <p>With a text editor, delete all the *data* in the kern feature in that .fea file, leaving the formal "feature" code only. Now, copy &amp; paste the kern data from the AFDKO into the .fea file, where the old kern data use to be. Save, read it (the edited .fea file) back into FontLab, then compile. (BTW -- If you're classes are in the .fea file, make sure you have reset "classes" in FontLab.)</p>
+      <p>But as I understand Adobe's approach, you should be able to just do everything with the Adobe AFDKO routines to make your OpenType fonts. In effect, you use FontLab for drawing only.</p>
+      <p>I use FontLab for everything, so have had to avail myself of Karsten's script. Which works fine; I think it is US$80 now. Well worth it to me. Karsten's one of the good guys -- he has other scripts too, almost all of which are free.</p>
+    html_clean: |-
+      <p>Well, maybe. I don't use the Adobe AFDKO routines.</p>
+      <p>How I'd make a try if I wanted everything inside FontLab for some reason: using the Fontlab OT Features panel, write off the features file -- in effect, you're writing off a simple text file, which will have .fea as a file extension. Should be in the FL manual if I've been unclear.</p>
+      <p>With a text editor, delete all the *data* in the kern feature in that .fea file, leaving the formal "feature" code only. Now, copy &amp; paste the kern data from the AFDKO into the .fea file, where the old kern data use to be. Save, read it (the edited .fea file) back into FontLab, then compile. (BTW -- If you're classes are in the .fea file, make sure you have reset "classes" in FontLab.)</p>
+      <p>But as I understand Adobe's approach, you should be able to just do everything with the Adobe AFDKO routines to make your OpenType fonts. In effect, you use FontLab for drawing only.</p>
+      <p>I use FontLab for everything, so have had to avail myself of Karsten's script. Which works fine; I think it is US$80 now. Well worth it to me. Karsten's one of the good guys -- he has other scripts too, almost all of which are free.</p>

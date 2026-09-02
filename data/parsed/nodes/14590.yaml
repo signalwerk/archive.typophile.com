@@ -1,5 +1,5 @@
 node: 14590
-title: null
+title: Adding opentype features
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/14590.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180128192526/typophile.com/node/14590.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,139 @@ pages:
       digest: FQATZTMUR226FONZS776DB7J2HVWMFHG
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/14590.html
+      file: data/archives/web.archive.org/files/20180128192526/typophile.com/node/14590.html
 post:
   id: 14590
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 7129
+  date: 2005-08-14T10:54:00
+  date_raw: 14 August 2005 - 10:54am
+  votes: 0
+  html: |-
+    <p>Hi,<br>
+    I am working on a font based on my handwriting and have included instructions for ligatures for the typical ffi ffl etc and also for er ar to ...letters that I normally join in my handwriting.<br>
+    However the font includes modern greek and polytonic greek...and I want to include some ligatures for a few joined letters in modern greek.<br>
+    For instance how would I include the substitution for epsilon and iotatonos by glyph FB10 (which at this point is also named fb10)?<br>
+    I put in the opentype instructions initially using VOLT. When I opened the font in Fontlab there was also a feature called zz01 this basically includes all the same info as the liga feature which also appears. Is this extra feature needed for liga to work?<br>
+    feature zz01 {<br>
+     # Latin<br>
+     language zz01 exclude_dflt;<br>
+        sub a r by FB05;<br>
+        sub e r by fb06;<br>
+        sub f f i by ffi;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f i by fi;<br>
+        sub f l by fl;<br>
+        sub l l by fb07;<br>
+        sub t h by fb08;<br>
+        sub t o by fb09;<br>
+        sub a y by fb0a;<br>
+        sub t i by fb0b;<br>
+        sub a u by fb0c;<br>
+        sub t y by fb0d;<br>
+        sub o u by fb0e;<br>
+    } zz01;</p>
+    <p>I have also tried to use class based kerning using the instructions with fontlab but when I create the font and try to test the kerning the only letters which kern are the initail ones used to set up the kerning group. Am I missing something in settings? Currently in my font there are 1922 kerning pairs, is this extreme?</p>
+    <p>Any help in any of these areas would be very greatfully received.<br>
+    Thanks<br>
+    Neil</p>
+  html_clean: |-
+    <p>Hi,<br>
+    I am working on a font based on my handwriting and have included instructions for ligatures for the typical ffi ffl etc and also for er ar to ...letters that I normally join in my handwriting.<br>
+    However the font includes modern greek and polytonic greek...and I want to include some ligatures for a few joined letters in modern greek.<br>
+    For instance how would I include the substitution for epsilon and iotatonos by glyph FB10 (which at this point is also named fb10)?<br>
+    I put in the opentype instructions initially using VOLT. When I opened the font in Fontlab there was also a feature called zz01 this basically includes all the same info as the liga feature which also appears. Is this extra feature needed for liga to work?<br>
+    feature zz01 {<br>
+     # Latin<br>
+     language zz01 exclude_dflt;<br>
+        sub a r by FB05;<br>
+        sub e r by fb06;<br>
+        sub f f i by ffi;<br>
+        sub f f l by ffl;<br>
+        sub f f by ff;<br>
+        sub f i by fi;<br>
+        sub f l by fl;<br>
+        sub l l by fb07;<br>
+        sub t h by fb08;<br>
+        sub t o by fb09;<br>
+        sub a y by fb0a;<br>
+        sub t i by fb0b;<br>
+        sub a u by fb0c;<br>
+        sub t y by fb0d;<br>
+        sub o u by fb0e;<br>
+    } zz01;</p>
+    <p>I have also tried to use class based kerning using the instructions with fontlab but when I create the font and try to test the kerning the only letters which kern are the initail ones used to set up the kerning group. Am I missing something in settings? Currently in my font there are 1922 kerning pairs, is this extreme?</p>
+    <p>Any help in any of these areas would be very greatfully received.<br>
+    Thanks<br>
+    Neil</p>
+comments:
+  - id: 83696
+    user: 1133
+    date: 2005-08-14T11:22:00
+    date_raw: 14 August 2005 - 11:22am
+    votes: 0
+    html: |-
+      <p>Neil, </p>
+      <p>1.  I recommend adopting a proper glyph naming scheme rather than ad-hoc names like "fb06". Read more here:<br><a href="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3065">http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mvie...</a></p>
+      <p>2. When FontLab decompiles an OpenType font with features created in VOLT, it sometimes needs to add the "zzXX". This does not mean these features are in the font. Due to the nature of the Adobe FDK for OpenType source notation (.fea) used in FontLab's OpenType panel, certain features cannot be directly expressed in the source notation as is. This is a limitation of the current version of the Adobe FDK for OpenType that is likely to be improved in the future. </p>
+      <p>Relying on the OpenType feature notation decompiled by FontLab from an existing font is not recommended. The decompilation works in many cases, but it surely does not represent 100% preciseness. </p>
+      <p>Regards,<br>
+      Adam</p>
+    html_clean: |-
+      <p>Neil, </p>
+      <p>1.  I recommend adopting a proper glyph naming scheme rather than ad-hoc names like "fb06". Read more here:<br><a href="http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mview=0&amp;ID_Message=3065" class="link-external">http://groups.msn.com/fontlab/tipsandtricks.msnw?action=get_message&amp;mvie...</a></p>
+      <p>2. When FontLab decompiles an OpenType font with features created in VOLT, it sometimes needs to add the "zzXX". This does not mean these features are in the font. Due to the nature of the Adobe FDK for OpenType source notation (.fea) used in FontLab's OpenType panel, certain features cannot be directly expressed in the source notation as is. This is a limitation of the current version of the Adobe FDK for OpenType that is likely to be improved in the future. </p>
+      <p>Relying on the OpenType feature notation decompiled by FontLab from an existing font is not recommended. The decompilation works in many cases, but it surely does not represent 100% preciseness. </p>
+      <p>Regards,<br>
+      Adam</p>
+  - id: 83699
+    user: 7129
+    date: 2005-08-14T11:55:00
+    date_raw: 14 August 2005 - 11:55am
+    votes: 0
+    html: |-
+      <p>Hi Adam,<br>
+      Thanks for replying.<br>
+      Could you possibly direct me how to implement the liga feature for use with greek characters to be used with a greek layout keyboard( not a physical greek keyboard, but where you can change lanuages for your keyboard). I tried just adding the substitutions to the list already but it causes errors.<br>
+      Also what am I doing wrong regrding class kerning.<br>
+      Many thanks again<br>
+      Neil</p>
+    html_clean: |-
+      <p>Hi Adam,<br>
+      Thanks for replying.<br>
+      Could you possibly direct me how to implement the liga feature for use with greek characters to be used with a greek layout keyboard( not a physical greek keyboard, but where you can change lanuages for your keyboard). I tried just adding the substitutions to the list already but it causes errors.<br>
+      Also what am I doing wrong regrding class kerning.<br>
+      Many thanks again<br>
+      Neil</p>
+  - id: 94311
+    user: 10026
+    date: 2005-11-08T09:20:00
+    date_raw: 8 November 2005 - 9:20am
+    votes: 0
+    html: |-
+      <p>hi,<br>
+      i am workng on a opentype font in fontlab and i was wondering if there was a way to have several differnt options for the same charachter within the same opentype feature. For example swashes if i wanted to replcae the glyph A with A.swsh i would type</p>
+      <p>feature swsh {sub A by A.swsh;}swsh  </p>
+      <p>but if i wanted to give another glyph ontion on the leter A within the same opentype feature is there another way to do it. What I want is to have several glyph applied on top of each other so that the text can give he impression of being randomy chosen.</p>
+      <p>If any one could help me with this i would be very greatful.</p>
+      <p>Many Thanks<br>
+      Neil</p>
+    html_clean: |-
+      <p>hi,<br>
+      i am workng on a opentype font in fontlab and i was wondering if there was a way to have several differnt options for the same charachter within the same opentype feature. For example swashes if i wanted to replcae the glyph A with A.swsh i would type</p>
+      <p>feature swsh {sub A by A.swsh;}swsh  </p>
+      <p>but if i wanted to give another glyph ontion on the leter A within the same opentype feature is there another way to do it. What I want is to have several glyph applied on top of each other so that the text can give he impression of being randomy chosen.</p>
+      <p>If any one could help me with this i would be very greatful.</p>
+      <p>Many Thanks<br>
+      Neil</p>
+  - id: 94461
+    user: 909
+    date: 2005-11-08T22:47:00
+    date_raw: 8 November 2005 - 10:47pm
+    votes: 0
+    html: |-
+      <p>See also this thread on contextual alternates <a href="http://typophile.com/node/15724">http://typophile.com/node/15724</a>, and this thread with discussion of stylistic sets <a href="http://typophile.com/node/16043">http://typophile.com/node/16043</a></p>
+      <p>T</p>
+    html_clean: |-
+      <p>See also this thread on contextual alternates <a href="/node/15724/" class="link-kept">http://typophile.com/node/15724</a>, and this thread with discussion of stylistic sets <a href="/node/16043/" class="link-kept">http://typophile.com/node/16043</a></p>
+      <p>T</p>

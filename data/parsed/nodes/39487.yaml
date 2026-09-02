@@ -1,5 +1,5 @@
 node: 39487
-title: null
+title: InDesign CS3 problem with OT-feature Proportional Oldstyle
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/39487.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180203204009/typophile.com/node/39487.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,791 @@ pages:
       digest: EHUAST3QZV2Z6HIJ6Q2AZ43STUQ5XMXP
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/39487.html
+      file: data/archives/web.archive.org/files/20180203204009/typophile.com/node/39487.html
 post:
   id: 39487
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 10971
+  date: 2007-11-27T10:24:00
+  date_raw: 27 November 2007 - 10:24am
+  votes: 0
+  html: |-
+    <p>Anyone encountered following situation:<br>
+    I am using an OT-font in InDesign CS3 with the OT-feature Proportional Oldstyle. When i turn Ligatures on, the numerals will change to the standard ones (which i don’t want to happen, of course)<br>
+    This does not occur in InDesign CS2. Is this a bug of CS3 or maybe some misleading OT-feature in the font itself?</p>
+    <p>Any help greatly appreciated.</p>
+  html_clean: |-
+    <p>Anyone encountered following situation:<br>
+    I am using an OT-font in InDesign CS3 with the OT-feature Proportional Oldstyle. When i turn Ligatures on, the numerals will change to the standard ones (which i don’t want to happen, of course)<br>
+    This does not occur in InDesign CS2. Is this a bug of CS3 or maybe some misleading OT-feature in the font itself?</p>
+    <p>Any help greatly appreciated.</p>
+comments:
+  - id: 242422
+    user: 19133
+    date: 2007-11-27T12:15:00
+    date_raw: 27 November 2007 - 12:15pm
+    votes: 0
+    html: <p>What font is it?</p>
+    html_clean: <p>What font is it?</p>
+  - id: 242652
+    user: 10971
+    date: 2007-11-28T04:00:00
+    date_raw: 28 November 2007 - 4:00am
+    votes: 0
+    html: <p>I don’t think it’s a font problem, because it behaves correctly in the CS2 applications.</p>
+    html_clean: <p>I don’t think it’s a font problem, because it behaves correctly in the CS2 applications.</p>
+  - id: 242667
+    user: 8664
+    date: 2007-11-28T06:22:00
+    date_raw: 28 November 2007 - 6:22am
+    votes: 0
+    html: |-
+      <p>I suspect that ...</p>
+      <p>It is a font problem.<br>
+      The (FLS) font's feature definition lacks (some of) the initial languagesystem statements. But in 'liga' (and possibly in 'smcp') however, certain lookups are registered for specific languages (e.g. 'DEU' and 'TRK'). This has the effect that after feature compilation only 'liga' (and possibly 'smcp') are registered e.g. for the German language ('DEU').<br>
+      Default numerals in the font are lining numerals.<br>
+      While InDesign CS2 and earlier ignored script and language tags, InDesign CS3 does read them. If a user applies the German dictionary, InDesign CS3 will look for features registered for German and only find the 'liga' feature: as an effect, 'Ligatures' will work, but 'Proportional Oldstyle' numerals won't have any effect, hence the (default) lining numerals.</p>
+      <p>Solution:</p>
+      <p>Adam Twardoch described what to do:<br><a href="http://typophile.com/node/17787" target="_blank">http://typophile.com/node/17787</a><br>
+      (See the three "discussion" links, especially the <a href="http://typophile.com/node/28277#comment-160533" target="_blank">AFDKO thread</a>!)</p>
+      <p>A must-read is this:<br>
+      Christopher Slye's presentation for the ATypI Lisbon Conference. Download "OpenType feature files" from Thomas Phinney's <a href="http://blogs.adobe.com/typblography/2006/10/atypi_2006_pres.html" target="_blank">Typblography</a>. (Direct link to <a href="http://blogs.adobe.com/typblography/atypi2006/slye_lisbon-05.pdf">the PDF</a>.)</p>
+      <p>If fonts with the additional languagesystem statements in the feature code are generated with AFDKO2, all is fine.<br>
+      If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch's Fix DFLT Script Tag script which can be downloaded here:<br><a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a><br>
+      (Requires TTX, see the README.TXT.)</p>
+      <p>[My impression is that there are many fonts out there which share the defect described above.]</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>I suspect that ...</p>
+      <p>It is a font problem.<br>
+      The (FLS) font's feature definition lacks (some of) the initial languagesystem statements. But in 'liga' (and possibly in 'smcp') however, certain lookups are registered for specific languages (e.g. 'DEU' and 'TRK'). This has the effect that after feature compilation only 'liga' (and possibly 'smcp') are registered e.g. for the German language ('DEU').<br>
+      Default numerals in the font are lining numerals.<br>
+      While InDesign CS2 and earlier ignored script and language tags, InDesign CS3 does read them. If a user applies the German dictionary, InDesign CS3 will look for features registered for German and only find the 'liga' feature: as an effect, 'Ligatures' will work, but 'Proportional Oldstyle' numerals won't have any effect, hence the (default) lining numerals.</p>
+      <p>Solution:</p>
+      <p>Adam Twardoch described what to do:<br><a href="/node/17787/" target="_blank" class="link-kept">http://typophile.com/node/17787</a><br>
+      (See the three "discussion" links, especially the <a href="/node/28277/#comment-160533" target="_blank" class="link-kept">AFDKO thread</a>!)</p>
+      <p>A must-read is this:<br>
+      Christopher Slye's presentation for the ATypI Lisbon Conference. Download "OpenType feature files" from Thomas Phinney's <a href="http://blogs.adobe.com/typblography/2006/10/atypi_2006_pres.html" target="_blank" class="link-external">Typblography</a>. (Direct link to <a href="http://blogs.adobe.com/typblography/atypi2006/slye_lisbon-05.pdf" class="link-external">the PDF</a>.)</p>
+      <p>If fonts with the additional languagesystem statements in the feature code are generated with AFDKO2, all is fine.<br>
+      If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch's Fix DFLT Script Tag script which can be downloaded here:<br><a href="http://www.silesian.com/software/FixDFLTScriptTagSL.zip" class="link-external">http://www.silesian.com/software/FixDFLTScriptTagSL.zip</a><br>
+      (Requires TTX, see the README.TXT.)</p>
+      <p>[My impression is that there are many fonts out there which share the defect described above.]</p>
+      <p>Karsten</p>
+  - id: 242678
+    user: 1133
+    date: 2007-11-28T07:07:00
+    date_raw: 28 November 2007 - 7:07am
+    votes: 0
+    html: |-
+      <p>&gt; The (FLS) font’s feature definition lacks<br>
+      &gt; (some of) the initial languagesystem statements. </p>
+      <p>I'd like to emphasize the importance of this -- whenever you are using ANY language-specific OpenType substitutions (e.g. in the "liga" or "locl" features) or whenever your font contains letters from more than just the Latin script (e.g. Cyrillic or alphabetic Greek), you need to enumerate all the languagesystems as I explained <a href="http://typophile.com/node/17787">here</a>. This is not any limitation of FontLab Studio, simply a prerequisite of the format. FontLab Studio does not do it magically for you, but it does not automatically generate any OpenType code either (except the example code for Type 1 Standard-encoded fonts, but that is Latin only, anyway). </p>
+      <p>Also, I'd like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to). </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>&gt; The (FLS) font’s feature definition lacks<br>
+      &gt; (some of) the initial languagesystem statements. </p>
+      <p>I'd like to emphasize the importance of this -- whenever you are using ANY language-specific OpenType substitutions (e.g. in the "liga" or "locl" features) or whenever your font contains letters from more than just the Latin script (e.g. Cyrillic or alphabetic Greek), you need to enumerate all the languagesystems as I explained <a href="/node/17787/" class="link-kept">here</a>. This is not any limitation of FontLab Studio, simply a prerequisite of the format. FontLab Studio does not do it magically for you, but it does not automatically generate any OpenType code either (except the example code for Type 1 Standard-encoded fonts, but that is Latin only, anyway). </p>
+      <p>Also, I'd like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to). </p>
+      <p>Adam</p>
+  - id: 242687
+    user: 3135
+    date: 2007-11-28T07:30:00
+    date_raw: 28 November 2007 - 7:30am
+    votes: 0
+    html: |-
+      <p>Thanks, Adam!</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Thanks, Adam!</p>
+      <p>ChrisL</p>
+  - id: 242721
+    user: 10971
+    date: 2007-11-28T08:50:00
+    date_raw: 28 November 2007 - 8:50am
+    votes: 0
+    html: "<p>Indeed: when i change the dictionary in InDesign CS3 to English, the font behaves as it should. So it must be what Karsten and Adam are pointing out. Thanks for that!</p>"
+    html_clean: "<p>Indeed: when i change the dictionary in InDesign CS3 to English, the font behaves as it should. So it must be what Karsten and Adam are pointing out. Thanks for that!</p>"
+  - id: 242842
+    user: 19133
+    date: 2007-11-28T15:05:00
+    date_raw: 28 November 2007 - 3:05pm
+    votes: 0
+    html: <p>Thanks Karsten -- well understood &amp; described.</p>
+    html_clean: <p>Thanks Karsten -- well understood &amp; described.</p>
+  - id: 242959
+    user: 2021
+    date: 2007-11-29T01:35:00
+    date_raw: 29 November 2007 - 1:35am
+    votes: 0
+    html: |-
+      <p><em>If fonts with the additional languagesystem statements in the feature code are generated with AFDKO2, all is fine.<br>
+      If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch’s Fix DFLT Script Tag script</em></p>
+      <p>I've built all the feature files as per Adam's instructions, but I don't use AFDKO (I can't install it and don't understand Python, they're a bit beyond my code comprehension limit).</p>
+      <p>So will the language features in a font work properly without the line:<br><code>languagesystem DFLT dflt;</code></p>
+      <p>Unless I can figure out how to use AFDKO and Python scripting, would I be better off to make features language-specific the old way, feature, by feature?</p>
+    html_clean: |-
+      <p><em>If fonts with the additional languagesystem statements in the feature code are generated with AFDKO2, all is fine.<br>
+      If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch’s Fix DFLT Script Tag script</em></p>
+      <p>I've built all the feature files as per Adam's instructions, but I don't use AFDKO (I can't install it and don't understand Python, they're a bit beyond my code comprehension limit).</p>
+      <p>So will the language features in a font work properly without the line:<br><code>languagesystem DFLT dflt;</code></p>
+      <p>Unless I can figure out how to use AFDKO and Python scripting, would I be better off to make features language-specific the old way, feature, by feature?</p>
+  - id: 242961
+    user: 1844
+    date: 2007-11-29T02:15:00
+    date_raw: 29 November 2007 - 2:15am
+    votes: 0
+    html: |-
+      <p>&gt; <em>but I don’t use AFDKO (I can’t install it</em></p>
+      <p>I've just posted installation instructions on the wiki. Check them out: <a href="/node/20078" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">AFDKO</a></p>
+      <p>&gt; <em>Unless I can figure out how to use AFDKO</em></p>
+      <p>Once you have the tools installed and running, try building a font using the files contained in the 'ExampleRomanFonts.zip' file, which you can grab from the FDK download page. If you can build this one, you're all set.</p>
+      <p>I also suggest reading the documentation inside the FDK, particularly the 'MakeOTFUserGuide.pdf' and 'CommandLineHowTo.pdf' files.<br>
+      And these two other PDFs should help you understand how to use the tools:<br><a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_Fo...</a><br><a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_St...</a></p>
+    html_clean: |-
+      <p>&gt; <em>but I don’t use AFDKO (I can’t install it</em></p>
+      <p>I've just posted installation instructions on the wiki. Check them out: <a href="/node/20078/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">AFDKO</a></p>
+      <p>&gt; <em>Unless I can figure out how to use AFDKO</em></p>
+      <p>Once you have the tools installed and running, try building a font using the files contained in the 'ExampleRomanFonts.zip' file, which you can grab from the FDK download page. If you can build this one, you're all set.</p>
+      <p>I also suggest reading the documentation inside the FDK, particularly the 'MakeOTFUserGuide.pdf' and 'CommandLineHowTo.pdf' files.<br>
+      And these two other PDFs should help you understand how to use the tools:<br><a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_FontProduction_at_Adobe.pdf" class="link-external">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_Fo...</a><br><a href="http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_StateOfTheArt_Font_QE.pdf" class="link-external">http://blogs.adobe.com/typblography/typotechnica2007/TypoTechnica2007_St...</a></p>
+  - id: 242967
+    user: 2021
+    date: 2007-11-29T03:09:00
+    date_raw: 29 November 2007 - 3:09am
+    votes: 0
+    html: |-
+      <p>Thanks Miguel, I'll give it another shot.</p>
+      <p>***</p>
+      <p>No difference--I just get this, which is completely incomprehensible to me:</p>
+      <p><code>[Nicks-iMac:~] nick% /Applications/FontLab\ Studio/FDK.1/FinishInstallOSX </code></p>
+      <p>Adding a symbolic link from '/Users/nick/bin' to the FDK directory /Applications/FontLab Studio/FDK.1.</p>
+      <p>Adding the FDK path to your login file...<br>
+         I added some lines to the  startup file /Users/nick/.login for the tcsh/csh versions of the Terminal program, in order to add the 'FDK/Tools/osx' directory to your PATH environment variable.<br>
+         I added some lines to the  startup file /Users/nick/.profile for the bash/csh/zsh versions of the Terminal program,  in order to add the 'FDK/Tools/osx' directory to your PATH environment variable.<br>
+      If you cannot run the FDK tools by name from the command-line after closing this window, then your<br>
+      Terminal program may be using a different login file than the ones I modified.<br>
+      If so, you will need to identify your login file, and then add the same two lines to that file. </p>
+    html_clean: |-
+      <p>Thanks Miguel, I'll give it another shot.</p>
+      <p>***</p>
+      <p>No difference--I just get this, which is completely incomprehensible to me:</p>
+      <p><code>[Nicks-iMac:~] nick% /Applications/FontLab\ Studio/FDK.1/FinishInstallOSX </code></p>
+      <p>Adding a symbolic link from '/Users/nick/bin' to the FDK directory /Applications/FontLab Studio/FDK.1.</p>
+      <p>Adding the FDK path to your login file...<br>
+         I added some lines to the  startup file /Users/nick/.login for the tcsh/csh versions of the Terminal program, in order to add the 'FDK/Tools/osx' directory to your PATH environment variable.<br>
+         I added some lines to the  startup file /Users/nick/.profile for the bash/csh/zsh versions of the Terminal program,  in order to add the 'FDK/Tools/osx' directory to your PATH environment variable.<br>
+      If you cannot run the FDK tools by name from the command-line after closing this window, then your<br>
+      Terminal program may be using a different login file than the ones I modified.<br>
+      If so, you will need to identify your login file, and then add the same two lines to that file. </p>
+  - id: 242971
+    user: 10971
+    date: 2007-11-29T03:39:00
+    date_raw: 29 November 2007 - 3:39am
+    votes: 0
+    html: |-
+      <p>Nick,</p>
+      <p>i am also quite ignorant of the Python thing, but after reading the ’CommandLineHowTo.pdf’i managed to get a step further. Important is the following procedure as described in the PDF:</p>
+      <p>To change the prompt, you need to edit an obscure file that sets parameters for the Terminal program when it starts up. Unfortunately, the way the Terminal program works depends on which Unix command line program it is setup to use. There are several, and each one uses a different name for its startup file, and requires a different line of text added to change the prompt. To see which one you have, under the Terminal menu option, choose “Preferences…”, and note the line of text in the top text field.<br>
+      Program name Startup file name Line to add<br>
+      csh .cshrc set prompt="%c$ "<br>
+      tcsh .cshrc set prompt="%c$ "<br>
+      sh .profile PS1='\W $ '<br>
+      zsh .profile PS1='\W $ '<br>
+      bash .bash_profile PS1='\W $ '</p>
+      <p>Notes: the quotes need to be included, and must be either both single or both double quotes. For sh, zsh, and bash, there must be no spaces on either side of the equals sign. You can use any character string you want for the final prompt characters instead of "$ ". I like to have a space at the end of the prompt.<br>
+      Look in your home directory. Unfortunately, files that begin with a period are hidden in the Finder.<br>
+      To make them visible, open a Terminal window and type the following command:<br>
+      defaults write com.apple.finder AppleShowAllFiles TRUE<br>
+      Close all Finder windows, switch to another program, and then switch back to the Finder, and you will be able to see the hidden files. To hide the files once you are done, enter the command line:<br>
+      defaults write com.apple.finder AppleShowAllFiles FALSE<br>
+      If there is no file with the name you need, use a text editor to create it. Add the appropriate line (right column), and save it in your home directory. Close the Terminal window and open a new one.<br>
+      Now the prompt should just show your current directory and a dollar sign, rather than the full path to the current directory.</p>
+      <p>After creating a file .bash_profile/PS1='\W $ ' i was able to install AFDKO and it appears in FontLab’s Menue Tools/External Tools.<br>
+      Hope that helps a bit.</p>
+    html_clean: |-
+      <p>Nick,</p>
+      <p>i am also quite ignorant of the Python thing, but after reading the ’CommandLineHowTo.pdf’i managed to get a step further. Important is the following procedure as described in the PDF:</p>
+      <p>To change the prompt, you need to edit an obscure file that sets parameters for the Terminal program when it starts up. Unfortunately, the way the Terminal program works depends on which Unix command line program it is setup to use. There are several, and each one uses a different name for its startup file, and requires a different line of text added to change the prompt. To see which one you have, under the Terminal menu option, choose “Preferences…”, and note the line of text in the top text field.<br>
+      Program name Startup file name Line to add<br>
+      csh .cshrc set prompt="%c$ "<br>
+      tcsh .cshrc set prompt="%c$ "<br>
+      sh .profile PS1='\W $ '<br>
+      zsh .profile PS1='\W $ '<br>
+      bash .bash_profile PS1='\W $ '</p>
+      <p>Notes: the quotes need to be included, and must be either both single or both double quotes. For sh, zsh, and bash, there must be no spaces on either side of the equals sign. You can use any character string you want for the final prompt characters instead of "$ ". I like to have a space at the end of the prompt.<br>
+      Look in your home directory. Unfortunately, files that begin with a period are hidden in the Finder.<br>
+      To make them visible, open a Terminal window and type the following command:<br>
+      defaults write com.apple.finder AppleShowAllFiles TRUE<br>
+      Close all Finder windows, switch to another program, and then switch back to the Finder, and you will be able to see the hidden files. To hide the files once you are done, enter the command line:<br>
+      defaults write com.apple.finder AppleShowAllFiles FALSE<br>
+      If there is no file with the name you need, use a text editor to create it. Add the appropriate line (right column), and save it in your home directory. Close the Terminal window and open a new one.<br>
+      Now the prompt should just show your current directory and a dollar sign, rather than the full path to the current directory.</p>
+      <p>After creating a file .bash_profile/PS1='\W $ ' i was able to install AFDKO and it appears in FontLab’s Menue Tools/External Tools.<br>
+      Hope that helps a bit.</p>
+  - id: 242975
+    user: 2021
+    date: 2007-11-29T04:01:00
+    date_raw: 29 November 2007 - 4:01am
+    votes: 0
+    html: |-
+      <p>Thanks Juergen, I didn't realise that the "CommandLineHowTo.pdf" would explain how Terminal worked.</p>
+      <p>I'll give it another go...</p>
+    html_clean: |-
+      <p>Thanks Juergen, I didn't realise that the "CommandLineHowTo.pdf" would explain how Terminal worked.</p>
+      <p>I'll give it another go...</p>
+  - id: 242976
+    user: 18375
+    date: 2007-11-29T04:27:00
+    date_raw: 29 November 2007 - 4:27am
+    votes: 0
+    html: |-
+      <p>Don't really want to hijack this thread even further, but ...</p>
+      <p>Are there any Windows specific tips/instructions that are clearer &amp; more "task oriented" than the FDK documentation? Sorry, but sometimes it reads like "if you're on Windows do <em>x</em>, but on a Mac do <em>y</em>, then <em>z</em>, and by the way there's this too" and Lord only knows what platform we're talking about after a few more phrases.</p>
+      <p>Maybe I'm way too dense, but I think some straightforward Jack-hits-the-ball prose would be more beneficial.</p>
+      <p>Thanks for the assistance.<br>
+      Rob</p>
+      <p>P.S. If it matters: using FLS5 on Windows 2000 SP4 with the OS on initial partition, applications on second, data on a third. (Honest. It's weird but it works. And much less fragmentation to fret about as well.) Currently, FLS5 and Python play well together &amp; the previous FDK worked like a charm (miss that GUI, no matter how clunky it looked), but the new edition just falls over dead for me.</p>
+    html_clean: |-
+      <p>Don't really want to hijack this thread even further, but ...</p>
+      <p>Are there any Windows specific tips/instructions that are clearer &amp; more "task oriented" than the FDK documentation? Sorry, but sometimes it reads like "if you're on Windows do <em>x</em>, but on a Mac do <em>y</em>, then <em>z</em>, and by the way there's this too" and Lord only knows what platform we're talking about after a few more phrases.</p>
+      <p>Maybe I'm way too dense, but I think some straightforward Jack-hits-the-ball prose would be more beneficial.</p>
+      <p>Thanks for the assistance.<br>
+      Rob</p>
+      <p>P.S. If it matters: using FLS5 on Windows 2000 SP4 with the OS on initial partition, applications on second, data on a third. (Honest. It's weird but it works. And much less fragmentation to fret about as well.) Currently, FLS5 and Python play well together &amp; the previous FDK worked like a charm (miss that GUI, no matter how clunky it looked), but the new edition just falls over dead for me.</p>
+  - id: 242979
+    user: 1844
+    date: 2007-11-29T04:46:00
+    date_raw: 29 November 2007 - 4:46am
+    votes: 0
+    html: |-
+      <p>&gt; <em>No difference—I just get this</em></p>
+      <p>That's the normal output upon installation. What I'd like to know is, what do you get after going through these steps:<br>
+      1. Open a Terminal window<br>
+      2. Type <code>autohint -u</code><br>
+      3. Hit 'Return'</p>
+      <p>Do you get something like this below? If so, your installation was successful.</p>
+      <p><code>Imported Py23AC v.2.0.1 from /Users/nick/FDK/Tools/osx/FDK.app/Contents/Resources/Python/lib-dynload/Py23AC.so.</code></p>
+      <p>autohint  AutoHinting program v1.14 Jan 3 2007<br>
+      autohint -h<br>
+      autohint -u<br>
+      autohint [-g ] [-gf ] [-cf path] [-a] [-r] [-q] [-c] [-nf] [-ns] [-nb] [-o ]  font-path</p>
+      <p>Auto-hinting program for PostScript and OpenType/CFF fonts.<br>
+      Copyright (c) 2006 Adobe Systems Incorporated</p>
+    html_clean: |-
+      <p>&gt; <em>No difference—I just get this</em></p>
+      <p>That's the normal output upon installation. What I'd like to know is, what do you get after going through these steps:<br>
+      1. Open a Terminal window<br>
+      2. Type <code>autohint -u</code><br>
+      3. Hit 'Return'</p>
+      <p>Do you get something like this below? If so, your installation was successful.</p>
+      <p><code>Imported Py23AC v.2.0.1 from /Users/nick/FDK/Tools/osx/FDK.app/Contents/Resources/Python/lib-dynload/Py23AC.so.</code></p>
+      <p>autohint  AutoHinting program v1.14 Jan 3 2007<br>
+      autohint -h<br>
+      autohint -u<br>
+      autohint [-g ] [-gf ] [-cf path] [-a] [-r] [-q] [-c] [-nf] [-ns] [-nb] [-o ]  font-path</p>
+      <p>Auto-hinting program for PostScript and OpenType/CFF fonts.<br>
+      Copyright (c) 2006 Adobe Systems Incorporated</p>
+  - id: 242980
+    user: 1844
+    date: 2007-11-29T04:49:00
+    date_raw: 29 November 2007 - 4:49am
+    votes: 0
+    html: <p>Rob, I'm not familiar with using or installing the FDK on Windows, but I can try to put up on the wiki a step-by-step installation guide, if that helps.</p>
+    html_clean: <p>Rob, I'm not familiar with using or installing the FDK on Windows, but I can try to put up on the wiki a step-by-step installation guide, if that helps.</p>
+  - id: 242983
+    user: 18375
+    date: 2007-11-29T05:03:00
+    date_raw: 29 November 2007 - 5:03am
+    votes: 0
+    html: |-
+      <p>Thanks, Miguel. Your assistance is very much appreciated. (BTW, can't wait to put your class kerning script to work.)</p>
+      <p>Rob</p>
+    html_clean: |-
+      <p>Thanks, Miguel. Your assistance is very much appreciated. (BTW, can't wait to put your class kerning script to work.)</p>
+      <p>Rob</p>
+  - id: 242999
+    user: 8664
+    date: 2007-11-29T06:28:00
+    date_raw: 29 November 2007 - 6:28am
+    votes: 0
+    html: |-
+      <p>Nick -- <cite>So will the language features in a font work properly without the line:</cite><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<cite>languagesystem DFLT dflt;</cite></p>
+      <p>Yes. This is what Adam meant when he wrote this:<br><cite>Also, I'd like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to).</cite> [Quote from Adam's post above.]</p>
+      <p>Nick --<cite>Unless I can figure out how to use AFDKO and Python scripting, would I be better off to make features language-specific the old way, feature, by feature?</cite></p>
+      <p>I am not sure what you mean by "the old way". If you mean: "without using any languagesystem statements", then no since this would produce mal-functioning fonts. If you mean: "as described in Read Roberts' / Adam Twardoch's posts [links in earlier post] but without the DFLT script tag", then yes. With or without 'DFLT', it is important that your feature definitions are preceded by statements like<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;languagesystem latn dflt;<br>
+      Put a bit differently: Go though all your features and pick all script and language tags you have used, and add according languagesystem statements (by this pattern: "languagesystem" + script tag + language tag + ";") at the top of your feature definitions (in FLS: into the bottom right text field in the OT Panel).<br>
+      You do not need to add scripts/languages that you did not mention in any feature.</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;* * *</p>
+      <p>Mr Davidson: In the AFDKO's installation readme file, it seems that for Windows, only the bulleted paragraph starting "Under Windows, move ..." is of interest. And for installing the FLS Macros, the one starting "To install the FontLab Macros ..."<br>
+      I am an ignorant when it comes to Windows, but with this description even managed to set the environment variables.&nbsp;&nbsp;:)</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;* * *</p>
+      <p>I was reminded that the 'Generate Kern Feature' script requires RoboFab. Some updated links: <a href="/node/13583" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">RoboFab</a></p>
+    html_clean: |-
+      <p>Nick -- <cite>So will the language features in a font work properly without the line:</cite><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<cite>languagesystem DFLT dflt;</cite></p>
+      <p>Yes. This is what Adam meant when he wrote this:<br><cite>Also, I'd like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to).</cite> [Quote from Adam's post above.]</p>
+      <p>Nick --<cite>Unless I can figure out how to use AFDKO and Python scripting, would I be better off to make features language-specific the old way, feature, by feature?</cite></p>
+      <p>I am not sure what you mean by "the old way". If you mean: "without using any languagesystem statements", then no since this would produce mal-functioning fonts. If you mean: "as described in Read Roberts' / Adam Twardoch's posts [links in earlier post] but without the DFLT script tag", then yes. With or without 'DFLT', it is important that your feature definitions are preceded by statements like<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;languagesystem latn dflt;<br>
+      Put a bit differently: Go though all your features and pick all script and language tags you have used, and add according languagesystem statements (by this pattern: "languagesystem" + script tag + language tag + ";") at the top of your feature definitions (in FLS: into the bottom right text field in the OT Panel).<br>
+      You do not need to add scripts/languages that you did not mention in any feature.</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;* * *</p>
+      <p>Mr Davidson: In the AFDKO's installation readme file, it seems that for Windows, only the bulleted paragraph starting "Under Windows, move ..." is of interest. And for installing the FLS Macros, the one starting "To install the FontLab Macros ..."<br>
+      I am an ignorant when it comes to Windows, but with this description even managed to set the environment variables.&nbsp;&nbsp;:)</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;* * *</p>
+      <p>I was reminded that the 'Generate Kern Feature' script requires RoboFab. Some updated links: <a href="/node/13583/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">RoboFab</a></p>
+  - id: 243141
+    user: 2021
+    date: 2007-11-29T14:14:00
+    date_raw: 29 November 2007 - 2:14pm
+    votes: 0
+    html: |-
+      <p><em>what do you get after going through these steps:</em></p>
+      <p><code>command not found</code></p>
+      <p>My problem is that I can't get Terminal to work, despite spending many hours with "CommandLineHowTo.pdf".</p>
+      <p>For instance, consider what happens when I'm instructed to "save it in your home directory". On the assumption that my "home directory" is the one with the cute icon of a house, I put the file <code>cshrc/set prompt=”%c$</code> in there, but then when I open Terminal, I get the message <code>tcsh: Missing }.</code> So where should I put this "prompt" file? </p>
+      <p><em>With or without ’DFLT’, </em></p>
+      <p>This is the thing that confuses me.<br>
+      In the instructions of both Adam's wiki and Chris Slye's pdf, they say that the first line in the bottom right FLS panel should be:<br><code>languagesystem DFLT dflt;</code></p>
+      <p>But you say,</p>
+      <p><em>If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch’s Fix DFLT Script Tag script</em></p>
+      <p>If I can ignore this, why do I still need to run the fonts through a "Fix" script?</p>
+    html_clean: |-
+      <p><em>what do you get after going through these steps:</em></p>
+      <p><code>command not found</code></p>
+      <p>My problem is that I can't get Terminal to work, despite spending many hours with "CommandLineHowTo.pdf".</p>
+      <p>For instance, consider what happens when I'm instructed to "save it in your home directory". On the assumption that my "home directory" is the one with the cute icon of a house, I put the file <code>cshrc/set prompt=”%c$</code> in there, but then when I open Terminal, I get the message <code>tcsh: Missing }.</code> So where should I put this "prompt" file? </p>
+      <p><em>With or without ’DFLT’, </em></p>
+      <p>This is the thing that confuses me.<br>
+      In the instructions of both Adam's wiki and Chris Slye's pdf, they say that the first line in the bottom right FLS panel should be:<br><code>languagesystem DFLT dflt;</code></p>
+      <p>But you say,</p>
+      <p><em>If you generate such fonts in FontLab Studio 5, there will be an error message. You can ignore this, but you need to run the generated .otf fonts through Adam Twardoch’s Fix DFLT Script Tag script</em></p>
+      <p>If I can ignore this, why do I still need to run the fonts through a "Fix" script?</p>
+  - id: 243160
+    user: 1133
+    date: 2007-11-29T15:26:00
+    date_raw: 29 November 2007 - 3:26pm
+    votes: 0
+    html: |-
+      <p>Well, if you ignore the error, you'll end up with a font that has some substitutions assigned to an unregistered script. It's not tragic but not anywhere near reasonable either. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Well, if you ignore the error, you'll end up with a font that has some substitutions assigned to an unregistered script. It's not tragic but not anywhere near reasonable either. </p>
+      <p>A.</p>
+  - id: 243168
+    user: 8664
+    date: 2007-11-29T16:09:00
+    date_raw: 29 November 2007 - 4:09pm
+    votes: 0
+    html: |-
+      <p>Ah, I see. Indeed it's a confusing with all these ifs.</p>
+      <p>When generating fonts directly from FLS, there are these two options:<br>
+      (1) You completely omit the line "languagesystem DFLT dflt;".<br>
+      (2) You include this line (and ignore FontLab Studio's error message) <em>and also</em> run the generated font through Adam's script. This means: you accept the error <em>only because</em> you are going to correct it.</p>
+      <p>When generating fonts via AFDKO 2 (which also means that your features are in external files) you can include this line without any extra work because AFDKO 2 can deal with it.</p>
+      <p>Karsten</p>
+    html_clean: |-
+      <p>Ah, I see. Indeed it's a confusing with all these ifs.</p>
+      <p>When generating fonts directly from FLS, there are these two options:<br>
+      (1) You completely omit the line "languagesystem DFLT dflt;".<br>
+      (2) You include this line (and ignore FontLab Studio's error message) <em>and also</em> run the generated font through Adam's script. This means: you accept the error <em>only because</em> you are going to correct it.</p>
+      <p>When generating fonts via AFDKO 2 (which also means that your features are in external files) you can include this line without any extra work because AFDKO 2 can deal with it.</p>
+      <p>Karsten</p>
+  - id: 243179
+    user: 2021
+    date: 2007-11-29T16:39:00
+    date_raw: 29 November 2007 - 4:39pm
+    votes: 0
+    html: |-
+      <p>OK, if I omit the line "languagesystem DFLT dflt;", how does that effect the font?<br>
+      Does it mean I have to specify the scripts for every feature, i.e.</p>
+      <p><code>script grek;<br>
+      script latn;<br>
+      script cyrl;</code></p>
+      <p>...and repeat the feature code under each?</p>
+    html_clean: |-
+      <p>OK, if I omit the line "languagesystem DFLT dflt;", how does that effect the font?<br>
+      Does it mean I have to specify the scripts for every feature, i.e.</p>
+      <p><code>script grek;<br>
+      script latn;<br>
+      script cyrl;</code></p>
+      <p>...and repeat the feature code under each?</p>
+  - id: 243186
+    user: 1844
+    date: 2007-11-29T16:57:00
+    date_raw: 29 November 2007 - 4:57pm
+    votes: 0
+    html: |-
+      <p>This is my Terminal setup.<br><img src="/sites/default/files/old-images/Terminal_6413.png"></p>
+      <p>Try this:<br>
+      1. Open a Terminal window</p>
+      <p>2. Type <code><strong>pwd</strong></code> and hit 'return'. This prints the working directory you're in. If this is not <code><strong>/Users/nick</strong></code>, type <code><strong>cd /Users/nick</strong></code> and hit 'return', otherwise go to the next step.</p>
+      <p>3. Type <code><strong>ls -al</strong></code> and hit 'return'. This prints the list of files and folders in the current directory. You should see a file named <code><strong>.login</strong></code> and another named <code><strong>.profile</strong></code> . Even if you don't have one or both of these files, proceed to the next step.</p>
+      <p>4. Type <code><strong>pico .login</strong></code> and hit 'return'. This opens up the .login file in pico, a Unix text editor. You should have 3 lines that look like this:<br><code><strong># Initialization for FDK command line tools.<br>
+      setenv FDK_EXE "/Users/nick/bin/FDK/Tools/osx"<br>
+      setenv PATH ${PATH}:"/Users/nick/bin/FDK/Tools/osx"</strong></code><br>
+      If you don't, just copy&amp;paste them, WriteOut the file (Ctrl+O) and Exit (Ctrl+W).</p>
+      <p>5. Type <code><strong>pico .profile</strong></code> and hit 'return'. You should see these lines:<br><code><strong>PS1="\W\$ "<br>
+      set -a # automatically export all variables.<br>
+      # Initialization for FDK command line tools.<br>
+      FDK_EXE="/Users/nick/bin/FDK/Tools/osx"<br>
+      PATH=${PATH}:"/Users/nick/bin/FDK/Tools/osx"</strong></code><br>
+      If the .profile file does not have the lines above, paste them in, write out the file and exit pico.</p>
+      <p>6. Close the Terminal window</p>
+      <p>That should be it. Let us know if it's finally working.</p>
+    html_clean: |-
+      <p>This is my Terminal setup.<br><img src="/sites/default/files/old-images/Terminal_6413.png"></p>
+      <p>Try this:<br>
+      1. Open a Terminal window</p>
+      <p>2. Type <code><strong>pwd</strong></code> and hit 'return'. This prints the working directory you're in. If this is not <code><strong>/Users/nick</strong></code>, type <code><strong>cd /Users/nick</strong></code> and hit 'return', otherwise go to the next step.</p>
+      <p>3. Type <code><strong>ls -al</strong></code> and hit 'return'. This prints the list of files and folders in the current directory. You should see a file named <code><strong>.login</strong></code> and another named <code><strong>.profile</strong></code> . Even if you don't have one or both of these files, proceed to the next step.</p>
+      <p>4. Type <code><strong>pico .login</strong></code> and hit 'return'. This opens up the .login file in pico, a Unix text editor. You should have 3 lines that look like this:<br><code><strong># Initialization for FDK command line tools.<br>
+      setenv FDK_EXE "/Users/nick/bin/FDK/Tools/osx"<br>
+      setenv PATH ${PATH}:"/Users/nick/bin/FDK/Tools/osx"</strong></code><br>
+      If you don't, just copy&amp;paste them, WriteOut the file (Ctrl+O) and Exit (Ctrl+W).</p>
+      <p>5. Type <code><strong>pico .profile</strong></code> and hit 'return'. You should see these lines:<br><code><strong>PS1="\W\$ "<br>
+      set -a # automatically export all variables.<br>
+      # Initialization for FDK command line tools.<br>
+      FDK_EXE="/Users/nick/bin/FDK/Tools/osx"<br>
+      PATH=${PATH}:"/Users/nick/bin/FDK/Tools/osx"</strong></code><br>
+      If the .profile file does not have the lines above, paste them in, write out the file and exit pico.</p>
+      <p>6. Close the Terminal window</p>
+      <p>That should be it. Let us know if it's finally working.</p>
+  - id: 243190
+    user: 1844
+    date: 2007-11-29T17:20:00
+    date_raw: 29 November 2007 - 5:20pm
+    votes: 0
+    html: |-
+      <p>Nick, if you omit the line <code>languagesystem DFLT dflt;</code> the fonts will still work. The difference is that the DFLT/dflt combo will no longer be the default languagesystem. The default languagesystem will be <code>latn/dflt</code> instead. Below is a portion of code written with and without DFLT/dflt.</p>
+      <p><code>#####################<br>
+      ###### NEW WAY ######</code></p>
+      <p>languagesystem DFLT dflt;</p>
+      <p>languagesystem latn dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn DEU;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn TRK;</p>
+      <p>languagesystem cyrl dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem cyrl SRB;</p>
+      <p>languagesystem grek dflt;</p>
+      <p>feature dlig {<br>
+      &nbsp;&nbsp;&nbsp;script DFLT;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c t by c_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s p by s_p;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s t by s_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language DEU include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c h by c_h;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c k by c_k;</p>
+      <p>&nbsp;&nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language SRB include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;script grek;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;<br>
+      } dlig;</p>
+      <p>feature hist {<br>
+      &nbsp;&nbsp;&nbsp;sub s by longs;<br>
+      } hist;</p>
+      <p>#####################<br>
+      ###### OLD WAY ######</p>
+      <p>languagesystem latn dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn DEU;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn TRK;</p>
+      <p>languagesystem cyrl dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem cyrl SRB;</p>
+      <p>languagesystem grek dflt;</p>
+      <p>feature dlig {<br>
+      &nbsp;&nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c t by c_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s p by s_p;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s t by s_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language DEU include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c h by c_h;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c k by c_k;</p>
+      <p>&nbsp;&nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language SRB include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;script grek;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;<br>
+      } dlig;</p>
+      <p>feature hist {<br>
+      &nbsp;&nbsp;&nbsp;sub s by longs;<br>
+      } hist;</p>
+    html_clean: |-
+      <p>Nick, if you omit the line <code>languagesystem DFLT dflt;</code> the fonts will still work. The difference is that the DFLT/dflt combo will no longer be the default languagesystem. The default languagesystem will be <code>latn/dflt</code> instead. Below is a portion of code written with and without DFLT/dflt.</p>
+      <p><code>#####################<br>
+      ###### NEW WAY ######</code></p>
+      <p>languagesystem DFLT dflt;</p>
+      <p>languagesystem latn dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn DEU;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn TRK;</p>
+      <p>languagesystem cyrl dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem cyrl SRB;</p>
+      <p>languagesystem grek dflt;</p>
+      <p>feature dlig {<br>
+      &nbsp;&nbsp;&nbsp;script DFLT;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c t by c_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s p by s_p;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s t by s_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language DEU include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c h by c_h;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c k by c_k;</p>
+      <p>&nbsp;&nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language SRB include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;script grek;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;<br>
+      } dlig;</p>
+      <p>feature hist {<br>
+      &nbsp;&nbsp;&nbsp;sub s by longs;<br>
+      } hist;</p>
+      <p>#####################<br>
+      ###### OLD WAY ######</p>
+      <p>languagesystem latn dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn DEU;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem latn TRK;</p>
+      <p>languagesystem cyrl dflt;<br>
+      &nbsp;&nbsp;&nbsp;languagesystem cyrl SRB;</p>
+      <p>languagesystem grek dflt;</p>
+      <p>feature dlig {<br>
+      &nbsp;&nbsp;&nbsp;script latn;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c t by c_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s p by s_p;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub s t by s_t;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language TRK include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language DEU include_dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c h by c_h;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub c k by c_k;</p>
+      <p>&nbsp;&nbsp;&nbsp;script cyrl;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language SRB include_dflt;</p>
+      <p>&nbsp;&nbsp;&nbsp;script grek;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language dflt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lookup DLIG_DFLT;<br>
+      } dlig;</p>
+      <p>feature hist {<br>
+      &nbsp;&nbsp;&nbsp;sub s by longs;<br>
+      } hist;</p>
+  - id: 243193
+    user: 1844
+    date: 2007-11-29T17:57:00
+    date_raw: 29 November 2007 - 5:57pm
+    votes: 0
+    html: |-
+      <p>&gt; <em>Does it mean I have to specify the scripts for every feature</em></p>
+      <p>If you want a feature to have the same behavior in all the scripts and languages, just put plain/naked 'sub' commands in that feature. See 'hist' above.</p>
+      <p>If you want a language to have a different behavior in particular feature, you'll need to declare which languages do what*. In the example above, all languages have the same behavior in 'dlig' — described in the DLIG_DFLT lookup—, except German. German will inherit all the substitutions from the DLIG_DFLT lookup, but will have 2 additional substitutions.</p>
+      <p>If you test such font in InDesign CS3 you'll see that the c_h and c_k ligatures will only kick-in when the language is German and Discretionary Ligatures is turned on.</p>
+      <p>* Big warning: whenever you specify a particular behavior for one language, you'll have to specify the behavior for *all* the other languages declared upstream in the 'languagesystem' lines. Failing to do so will result in a crippled feature where only that one language will have lookups implemented.</p>
+    html_clean: |-
+      <p>&gt; <em>Does it mean I have to specify the scripts for every feature</em></p>
+      <p>If you want a feature to have the same behavior in all the scripts and languages, just put plain/naked 'sub' commands in that feature. See 'hist' above.</p>
+      <p>If you want a language to have a different behavior in particular feature, you'll need to declare which languages do what*. In the example above, all languages have the same behavior in 'dlig' — described in the DLIG_DFLT lookup—, except German. German will inherit all the substitutions from the DLIG_DFLT lookup, but will have 2 additional substitutions.</p>
+      <p>If you test such font in InDesign CS3 you'll see that the c_h and c_k ligatures will only kick-in when the language is German and Discretionary Ligatures is turned on.</p>
+      <p>* Big warning: whenever you specify a particular behavior for one language, you'll have to specify the behavior for *all* the other languages declared upstream in the 'languagesystem' lines. Failing to do so will result in a crippled feature where only that one language will have lookups implemented.</p>
+  - id: 243255
+    user: 11526
+    date: 2007-11-30T01:54:00
+    date_raw: 30 November 2007 - 1:54am
+    votes: 0
+    html: <p>/track/</p>
+    html_clean: <p>/track/</p>
+  - id: 243301
+    user: 1133
+    date: 2007-11-30T07:38:00
+    date_raw: 30 November 2007 - 7:38am
+    votes: 0
+    html: |-
+      <p>In FontLab Studio, you put the <code>languagesystem</code> declarations in the bottom-right portion of the OpenType panel. The <code>languagesystem</code> declarations apply to all features EXCEPT those that have explicitly defined <code>script</code> and <code>language</code> declarations inside of feature definitions. In other words, the <code>languagesystem</code> list sets up the rules for all features while <code>script</code> and <code>language</code> set up exceptions for single features. </p>
+      <p>If your font only contains text letters from the Latin alphabet plus analphabetics, and it does not use any language exceptions, then you can omit the <code>languagesystem</code> declaration. If you use any exceptions (e.g. for Turkish f-ligatures) or if your font has Cyrillic or Greek text letters (or letters from other scripts), then you have to specify all necessary <code>languagesystem</code> entries. Otherwise, your font won't work properly in InDesign CS3 (although it may have worked OK in InDesign CS and CS2). </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>In FontLab Studio, you put the <code>languagesystem</code> declarations in the bottom-right portion of the OpenType panel. The <code>languagesystem</code> declarations apply to all features EXCEPT those that have explicitly defined <code>script</code> and <code>language</code> declarations inside of feature definitions. In other words, the <code>languagesystem</code> list sets up the rules for all features while <code>script</code> and <code>language</code> set up exceptions for single features. </p>
+      <p>If your font only contains text letters from the Latin alphabet plus analphabetics, and it does not use any language exceptions, then you can omit the <code>languagesystem</code> declaration. If you use any exceptions (e.g. for Turkish f-ligatures) or if your font has Cyrillic or Greek text letters (or letters from other scripts), then you have to specify all necessary <code>languagesystem</code> entries. Otherwise, your font won't work properly in InDesign CS3 (although it may have worked OK in InDesign CS and CS2). </p>
+      <p>Adam</p>
+  - id: 243310
+    user: 3135
+    date: 2007-11-30T08:19:00
+    date_raw: 30 November 2007 - 8:19am
+    votes: 0
+    html: |-
+      <p>Thanks, Adam. That makes it clearer to me. It helps because I was doing fine untill the CS3 upgrade and wondered why suddenly, my Russian text would not kern unless I used the English H&amp;J dictionary, it's Greek to me :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Thanks, Adam. That makes it clearer to me. It helps because I was doing fine untill the CS3 upgrade and wondered why suddenly, my Russian text would not kern unless I used the English H&amp;J dictionary, it's Greek to me :-)</p>
+      <p>ChrisL</p>
+  - id: 243486
+    user: 1844
+    date: 2007-11-30T19:07:00
+    date_raw: 30 November 2007 - 7:07pm
+    votes: 0
+    html: |-
+      <p>Rob, I've updated the <a href="/node/20078" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">AFDKO</a> wiki entry to include instructions for Windows XP.<br>
+      As for the Kern Feature Generator script you'll need to have Robofab installed. I'm planning to remove that dependency in the next version (thanks Karsten!)</p>
+    html_clean: |-
+      <p>Rob, I've updated the <a href="/node/20078/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">AFDKO</a> wiki entry to include instructions for Windows XP.<br>
+      As for the Kern Feature Generator script you'll need to have Robofab installed. I'm planning to remove that dependency in the next version (thanks Karsten!)</p>
+  - id: 243489
+    user: 5094
+    date: 2007-11-30T19:23:00
+    date_raw: 30 November 2007 - 7:23pm
+    votes: 0
+    html: |-
+      <p><cite>If your font only contains text letters from the Latin alphabet plus analphabetics, and it does not use any language exceptions, then you can omit the languagesystem declaration. If you use any exceptions (e.g. for Turkish f-ligatures) or if your font has Cyrillic or Greek text letters (or letters from other scripts), then you have to specify all necessary languagesystem entries. Otherwise, your font won’t work properly in InDesign CS3 (although it may have worked OK in InDesign CS and CS2).</cite></p>
+      <p>Now I'm getting worried. You mean my OT fonts that include Greek, but no language tags, might not work in CS3? Does CS3 take a look at the Unicode and say "Ah, Ha! those characters are in the Greek range, but there is no Greek declaration in this font. Therefore, I'm not going to set those characters!" or some such?</p>
+      <p>We don't use language tags, period. But we do occasionally set text with some Greek and Cyrillic. If CS3 requires language tags to honor characters or features (with no language declaration), we're in trouble.</p>
+    html_clean: |-
+      <p><cite>If your font only contains text letters from the Latin alphabet plus analphabetics, and it does not use any language exceptions, then you can omit the languagesystem declaration. If you use any exceptions (e.g. for Turkish f-ligatures) or if your font has Cyrillic or Greek text letters (or letters from other scripts), then you have to specify all necessary languagesystem entries. Otherwise, your font won’t work properly in InDesign CS3 (although it may have worked OK in InDesign CS and CS2).</cite></p>
+      <p>Now I'm getting worried. You mean my OT fonts that include Greek, but no language tags, might not work in CS3? Does CS3 take a look at the Unicode and say "Ah, Ha! those characters are in the Greek range, but there is no Greek declaration in this font. Therefore, I'm not going to set those characters!" or some such?</p>
+      <p>We don't use language tags, period. But we do occasionally set text with some Greek and Cyrillic. If CS3 requires language tags to honor characters or features (with no language declaration), we're in trouble.</p>
+  - id: 243490
+    user: 18375
+    date: 2007-11-30T19:26:00
+    date_raw: 30 November 2007 - 7:26pm
+    votes: 0
+    html: |-
+      <p>Thanks, Miguel, that really did the trick for me &amp; AFDKO works like a charm (... well, in initial tests anyway). I was puzzled because Python scripts and Robofab were already working fine for me, but the hitch turned out to be some duplicated references and resorting the sequence of the PATH statement. (Seems a Perl interpreter installation scrambled a few registry entries too that I hadn't noticed. <em>Grrrr.</em> I have given myself an appropriate dopeslap for overlooking that potential earlier.) </p>
+      <p>So, in sum: Thanks again for I am once again "a happy camper," so to speak. And now to test that Kern Feature script during the weekend...</p>
+    html_clean: |-
+      <p>Thanks, Miguel, that really did the trick for me &amp; AFDKO works like a charm (... well, in initial tests anyway). I was puzzled because Python scripts and Robofab were already working fine for me, but the hitch turned out to be some duplicated references and resorting the sequence of the PATH statement. (Seems a Perl interpreter installation scrambled a few registry entries too that I hadn't noticed. <em>Grrrr.</em> I have given myself an appropriate dopeslap for overlooking that potential earlier.) </p>
+      <p>So, in sum: Thanks again for I am once again "a happy camper," so to speak. And now to test that Kern Feature script during the weekend...</p>
+  - id: 243517
+    user: 1133
+    date: 2007-11-30T22:06:00
+    date_raw: 30 November 2007 - 10:06pm
+    votes: 0
+    html: |-
+      <p>Charles &amp; others, </p>
+      <p>the OpenType specification prescribes that the text is dissected into "runs", i.e. portions that contain characters in a certain script (writing system, alphabet). OpenType Layout features are always registered in specific scripts (Latin, Cyrillic, Greek, Arabic, Hebrew etc., there is also a more recent "default script" registered by Adobe). </p>
+      <p>The mechanism has been described by John Hudson in his seminal article "Windows Glyph Processing: an OpenType Primer" as early as seven years ago. It is the first article mentioned in the "Developing fonts" section on the Microsoft Typography website, so it's hard to think of a more prominent placement -- see [1].</p>
+      <p>In a complete implementation of OpenType Layout, the features registered under the Latin script are applied to Latin letters, the features registered under the Cyrillic script are applied to Cyrillic letters etc. For non-alphabetic characters, the features that are applied to them need to be registered under all scripts that the font supports. In addition, they may be registered under the DFLT script so e.g. oldstyle numbers of a certain font can be used with Arabic text even though the font does not support Arabic. </p>
+      <p>Microsoft Uniscribe is a quite complete implementation of OpenType Layout, and has been for many years. In Windows Notepad, if complex script processing is enabled on the system, certain OpenType Layout features are applied by default to scripts such as Latin, Cyrillic or Greek (ccmp, liga, clig, mark, mkmk, kern -- see [2] -- also also calt). Cyrillic ligatures will be applied only if they are registered under the cyrl script. </p>
+      <p>Adobe InDesign CS3 is also a quite complete implementation of OpenType Layout, and follows the same principles. Unlike Uniscribe, it does not offer support for complex scripts, but on the other hand it offers support for non-default languages for the standard scripts (e.g. you can use the Turkish language exclusions for the Latin script), something that Uniscribe only offers in theory (as there are no Microsoft applications that use that for the standard scripts). </p>
+      <p>Adobe InDesign CS2 and earlier versions had a SIMPLISTIC implementation of OpenType Layout, which did not dissect the text into runs but instead, it blindly applied OpenType Layout features registered to the Latin script on all text, regardless of the actual script of the text. It was unfortunate that Adobe chose this path at the beginning, but this problem has been discussed frequently on Typophile as well as on the OpenType list. Another side-effect of Adobe's simplification policy was that if you don't specify any languagesystems (i.e. scripts and optionally languages) for the OpenType font in the AFDKO feature syntax (used by AFDKO, FontLab Studio and DTL FontMaster), all features will be by default registered under Latin script, default language. This is explicitly specified -- see [3] -- but I guess some people have implied from this that they don't need to worry about languagesystems at all. Well, actually, they DO, if their fonts have any alphabetic characters from scripts other than Latin (I say "alphabetic characters" because there are many fonts that don't have real Greek alphabetic characters but have a handful of Greek symbols -- these do not fall under the considerations described here as they are treated as "common script" analphabetics). </p>
+      <p>So, if an OpenType font has Cyrillic or Greek letters but its OpenType Layout code registered the features only in the Latin script, then the basic functionality of the font will still work (e.g. you will be able to type letters) but no OpenType Layout features will work (not even kerning). </p>
+      <p>There are OpenType font technology consultants out there (wink wink ;) ) who are able to help you out in details, you know. </p>
+      <p>Regards,<br>
+      Adam</p>
+      <p>[1] <a href="http://www.microsoft.com/typography/DevArticles.mspx">http://www.microsoft.com/typography/DevArticles.mspx</a><br>
+      [2] <a href="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx">http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx</a><br>
+      [3] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
+    html_clean: |-
+      <p>Charles &amp; others, </p>
+      <p>the OpenType specification prescribes that the text is dissected into "runs", i.e. portions that contain characters in a certain script (writing system, alphabet). OpenType Layout features are always registered in specific scripts (Latin, Cyrillic, Greek, Arabic, Hebrew etc., there is also a more recent "default script" registered by Adobe). </p>
+      <p>The mechanism has been described by John Hudson in his seminal article "Windows Glyph Processing: an OpenType Primer" as early as seven years ago. It is the first article mentioned in the "Developing fonts" section on the Microsoft Typography website, so it's hard to think of a more prominent placement -- see [1].</p>
+      <p>In a complete implementation of OpenType Layout, the features registered under the Latin script are applied to Latin letters, the features registered under the Cyrillic script are applied to Cyrillic letters etc. For non-alphabetic characters, the features that are applied to them need to be registered under all scripts that the font supports. In addition, they may be registered under the DFLT script so e.g. oldstyle numbers of a certain font can be used with Arabic text even though the font does not support Arabic. </p>
+      <p>Microsoft Uniscribe is a quite complete implementation of OpenType Layout, and has been for many years. In Windows Notepad, if complex script processing is enabled on the system, certain OpenType Layout features are applied by default to scripts such as Latin, Cyrillic or Greek (ccmp, liga, clig, mark, mkmk, kern -- see [2] -- also also calt). Cyrillic ligatures will be applied only if they are registered under the cyrl script. </p>
+      <p>Adobe InDesign CS3 is also a quite complete implementation of OpenType Layout, and follows the same principles. Unlike Uniscribe, it does not offer support for complex scripts, but on the other hand it offers support for non-default languages for the standard scripts (e.g. you can use the Turkish language exclusions for the Latin script), something that Uniscribe only offers in theory (as there are no Microsoft applications that use that for the standard scripts). </p>
+      <p>Adobe InDesign CS2 and earlier versions had a SIMPLISTIC implementation of OpenType Layout, which did not dissect the text into runs but instead, it blindly applied OpenType Layout features registered to the Latin script on all text, regardless of the actual script of the text. It was unfortunate that Adobe chose this path at the beginning, but this problem has been discussed frequently on Typophile as well as on the OpenType list. Another side-effect of Adobe's simplification policy was that if you don't specify any languagesystems (i.e. scripts and optionally languages) for the OpenType font in the AFDKO feature syntax (used by AFDKO, FontLab Studio and DTL FontMaster), all features will be by default registered under Latin script, default language. This is explicitly specified -- see [3] -- but I guess some people have implied from this that they don't need to worry about languagesystems at all. Well, actually, they DO, if their fonts have any alphabetic characters from scripts other than Latin (I say "alphabetic characters" because there are many fonts that don't have real Greek alphabetic characters but have a handful of Greek symbols -- these do not fall under the considerations described here as they are treated as "common script" analphabetics). </p>
+      <p>So, if an OpenType font has Cyrillic or Greek letters but its OpenType Layout code registered the features only in the Latin script, then the basic functionality of the font will still work (e.g. you will be able to type letters) but no OpenType Layout features will work (not even kerning). </p>
+      <p>There are OpenType font technology consultants out there (wink wink ;) ) who are able to help you out in details, you know. </p>
+      <p>Regards,<br>
+      Adam</p>
+      <p>[1] <a href="http://www.microsoft.com/typography/DevArticles.mspx" class="link-external">http://www.microsoft.com/typography/DevArticles.mspx</a><br>
+      [2] <a href="http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx" class="link-external">http://www.microsoft.com/typography/OpenType%20Dev/standard/intro.mspx</a><br>
+      [3] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html" class="link-external">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html</a></p>
+  - id: 243551
+    user: 2021
+    date: 2007-12-01T01:40:00
+    date_raw: 1 December 2007 - 1:40am
+    votes: 0
+    html: |-
+      <p>Thanks Miguel, I think I have AFDKO installed -- at least, the "autohint" test works OK now.</p>
+      <p>**</p>
+      <p>In the above "NEW WAY" code you posted, FontLab tells me that it's a mistake to specify "script latn;" as "script DFLT;" has already determined latin as the script--</p>
+      <p><code>feature dlig {<br>
+         script DFLT;<br>
+            language dflt;<br>
+               lookup DLIG_DFLT {<br>
+                  sub c t by c_t;<br>
+                  sub s p by s_p;<br>
+                  sub s t by s_t;<br>
+               } DLIG_DFLT;</code></p>
+      <p>   script latn;</p>
+    html_clean: |-
+      <p>Thanks Miguel, I think I have AFDKO installed -- at least, the "autohint" test works OK now.</p>
+      <p>**</p>
+      <p>In the above "NEW WAY" code you posted, FontLab tells me that it's a mistake to specify "script latn;" as "script DFLT;" has already determined latin as the script--</p>
+      <p><code>feature dlig {<br>
+         script DFLT;<br>
+            language dflt;<br>
+               lookup DLIG_DFLT {<br>
+                  sub c t by c_t;<br>
+                  sub s p by s_p;<br>
+                  sub s t by s_t;<br>
+               } DLIG_DFLT;</code></p>
+      <p>   script latn;</p>
+  - id: 243636
+    user: 1844
+    date: 2007-12-01T14:12:00
+    date_raw: 1 December 2007 - 2:12pm
+    votes: 0
+    html: |-
+      <p>&gt; <em>I think I have AFDKO installed — at least, the “autohint” test works OK now.</em></p>
+      <p>Glad to hear that, as I was running out of suggestions for your problem. </p>
+      <p>&gt; <em>FontLab tells me that it’s a mistake to specify “script latn;” as “script DFLT;”</em></p>
+      <p>As it was said around here many many times before, FontLab still uses v1.6 of the FDK and therefore it gives an error when <code>script DFLT</code> is used.</p>
+      <p>I can assure you that the code posted above will compile (and work as expected in InDesign CS3) if you use FDK v2.0, since that's essentially the same code that was used for Arno Pro.</p>
+    html_clean: |-
+      <p>&gt; <em>I think I have AFDKO installed — at least, the “autohint” test works OK now.</em></p>
+      <p>Glad to hear that, as I was running out of suggestions for your problem. </p>
+      <p>&gt; <em>FontLab tells me that it’s a mistake to specify “script latn;” as “script DFLT;”</em></p>
+      <p>As it was said around here many many times before, FontLab still uses v1.6 of the FDK and therefore it gives an error when <code>script DFLT</code> is used.</p>
+      <p>I can assure you that the code posted above will compile (and work as expected in InDesign CS3) if you use FDK v2.0, since that's essentially the same code that was used for Arno Pro.</p>
+  - id: 248171
+    user: 8867
+    date: 2007-12-23T15:03:00
+    date_raw: 23 December 2007 - 3:03pm
+    votes: 0
+    html: <p>Why VOLT won't accept   -- languagesystem DFLT</p>
+    html_clean: <p>Why VOLT won't accept   -- languagesystem DFLT</p>
+  - id: 248188
+    user: 8867
+    date: 2007-12-23T17:18:00
+    date_raw: 23 December 2007 - 5:18pm
+    votes: 0
+    html: |-
+      <p>Adam:  <em>Also, I’d like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to).</em></p>
+      <p>So, why Adobe does this, and MS doesn't?</p>
+    html_clean: |-
+      <p>Adam:  <em>Also, I’d like to point out that there is no *obligation* whatsoever to include the DFLT script tag in OpenType fonts. Adobe does this in their newest fonts but did not in the older fonts, and Microsoft does not use the DFLT script tag at all (and as far as I can tell, they have no intention to).</em></p>
+      <p>So, why Adobe does this, and MS doesn't?</p>
+  - id: 248846
+    user: 1133
+    date: 2007-12-30T07:23:00
+    date_raw: 30 December 2007 - 7:23am
+    votes: 0
+    html: |-
+      <p>Microsoft is primarily interested in implementing language support for complex scripts in their applications, and mostly targets office users. So dingbat, agate-numerals-only, fractions-only etc. fonts are not their concern. Adobe is more design-savvy and tries to address the community of graphic designers, typographic designers, publication designers. Here, uses of fonts outside of a strong language context are more likely, so Adobe wanted a solution for that and proposed the DFLT script tag. The DFLT script tag is a "new thing" and Microsoft does not think they need it, since they did not feel a need for it from the beginning. </p>
+      <p>A.</p>
+    html_clean: |-
+      <p>Microsoft is primarily interested in implementing language support for complex scripts in their applications, and mostly targets office users. So dingbat, agate-numerals-only, fractions-only etc. fonts are not their concern. Adobe is more design-savvy and tries to address the community of graphic designers, typographic designers, publication designers. Here, uses of fonts outside of a strong language context are more likely, so Adobe wanted a solution for that and proposed the DFLT script tag. The DFLT script tag is a "new thing" and Microsoft does not think they need it, since they did not feel a need for it from the beginning. </p>
+      <p>A.</p>

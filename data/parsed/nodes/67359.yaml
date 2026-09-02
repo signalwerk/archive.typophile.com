@@ -1,5 +1,5 @@
 node: 67359
-title: null
+title: How do I script Swash letters, alternates etc.?
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/67359.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190921121313/typophile.com/node/67359.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,143 @@ pages:
       digest: ARY2C75TC2BLBENGK672QY2SBOYTBWAD
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/67359.html
+      file: data/archives/web.archive.org/files/20190921121313/typophile.com/node/67359.html
 post:
   id: 67359
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 52182
+  date: 2010-02-12T09:34:00
+  date_raw: 12 February 2010 - 9:34am
+  votes: 0
+  html: |-
+    <p>I've recently learned how to use Fontlab Studio 5, and I also learned how to script ligatures. But I noticed Illustrator for example has more buttons in the type tool section: Standard Ligatures, Contextual Ligatures, Discretionary Ligatures, Swash, Stylistic Alternates, Titling Alternates, Ordinals and Fractions.</p>
+    <p>So out of that list, I only know how to script the standard ligatures. Does anyone know how to script the others, or do you know a source to learn about it? Most font families contain all the ligatures and swash letters as seperate fonts rather than putting it into a single font (OpenType). Is there a reason for doing this?</p>
+  html_clean: |-
+    <p>I've recently learned how to use Fontlab Studio 5, and I also learned how to script ligatures. But I noticed Illustrator for example has more buttons in the type tool section: Standard Ligatures, Contextual Ligatures, Discretionary Ligatures, Swash, Stylistic Alternates, Titling Alternates, Ordinals and Fractions.</p>
+    <p>So out of that list, I only know how to script the standard ligatures. Does anyone know how to script the others, or do you know a source to learn about it? Most font families contain all the ligatures and swash letters as seperate fonts rather than putting it into a single font (OpenType). Is there a reason for doing this?</p>
+comments:
+  - id: 395885
+    user: 47923
+    date: 2010-02-13T22:27:00
+    date_raw: 13 February 2010 - 10:27pm
+    votes: 0
+    html: |-
+      <p>here is a technical answer.<br>
+      The technique is the same as the ligature,  using the FEATURE.<br>
+      Of course you need new "generated glyph" for the subtitution (eg: "f_f_l", "T_h").</p>
+      <p>FEATURE<br>
+      for ligature is LIGA<br>
+      for Discretionary ligature is DLIG<br>
+      for Contextual ligature is CALT<br>
+      etc.<br>
+      Wiki can help: <a href="http://en.wikipedia.org/wiki/OpenType_feature_tag_list">http://en.wikipedia.org/wiki/OpenType_feature_tag_list</a></p>
+      <p>here is some example:<br>
+      feature liga {<br>
+          sub f f b by f_f_b;<br>
+          sub f f h by f_f_h;<br>
+          sub f f i by ffi;<br>
+      } liga;</p>
+      <p>feature dlig {<br>
+          sub T H   by T_H;<br>
+          sub T T   by T_T;<br>
+          sub T h   by T_h;<br>
+          sub s p   by s_p;<br>
+          sub s t   by s_t;<br>
+      } dlig;</p>
+      <p>feature calt {<br>
+          sub T H E by T_H_E;<br>
+      } calt;</p>
+    html_clean: |-
+      <p>here is a technical answer.<br>
+      The technique is the same as the ligature,  using the FEATURE.<br>
+      Of course you need new "generated glyph" for the subtitution (eg: "f_f_l", "T_h").</p>
+      <p>FEATURE<br>
+      for ligature is LIGA<br>
+      for Discretionary ligature is DLIG<br>
+      for Contextual ligature is CALT<br>
+      etc.<br>
+      Wiki can help: <a href="http://en.wikipedia.org/wiki/OpenType_feature_tag_list" class="link-external">http://en.wikipedia.org/wiki/OpenType_feature_tag_list</a></p>
+      <p>here is some example:<br>
+      feature liga {<br>
+          sub f f b by f_f_b;<br>
+          sub f f h by f_f_h;<br>
+          sub f f i by ffi;<br>
+      } liga;</p>
+      <p>feature dlig {<br>
+          sub T H   by T_H;<br>
+          sub T T   by T_T;<br>
+          sub T h   by T_h;<br>
+          sub s p   by s_p;<br>
+          sub s t   by s_t;<br>
+      } dlig;</p>
+      <p>feature calt {<br>
+          sub T H E by T_H_E;<br>
+      } calt;</p>
+  - id: 395887
+    user: 7508
+    date: 2010-02-13T23:05:00
+    date_raw: 13 February 2010 - 11:05pm
+    votes: 0
+    html: |-
+      <p>&gt; Most font families contain all the ligatures and swash letters as seperate fonts rather than putting it into a single font (OpenType). Is there a reason for doing this?</p>
+      <p>Most of those fonts are pre-OpenType. The preferred way to go these days is to put all these alternates into a single font… unless your users are in a software who doesn’t know how to handle OpenType features.</p>
+    html_clean: |-
+      <p>&gt; Most font families contain all the ligatures and swash letters as seperate fonts rather than putting it into a single font (OpenType). Is there a reason for doing this?</p>
+      <p>Most of those fonts are pre-OpenType. The preferred way to go these days is to put all these alternates into a single font… unless your users are in a software who doesn’t know how to handle OpenType features.</p>
+  - id: 395953
+    user: 52182
+    date: 2010-02-14T12:44:00
+    date_raw: 14 February 2010 - 12:44pm
+    votes: 0
+    html: |-
+      <p>Thank you for your answers. It was most helpful.</p>
+      <p>I'm wondering if anyone knows why Photoshop doesn't support OpenType, or did I just not see it? I also can't find the function in InDesign. I'm sure it will be available in Photoshop CS5.</p>
+    html_clean: |-
+      <p>Thank you for your answers. It was most helpful.</p>
+      <p>I'm wondering if anyone knows why Photoshop doesn't support OpenType, or did I just not see it? I also can't find the function in InDesign. I'm sure it will be available in Photoshop CS5.</p>
+  - id: 400857
+    user: 47923
+    date: 2010-03-11T20:00:00
+    date_raw: 11 March 2010 - 8:00pm
+    votes: 0
+    html: |-
+      <p>in CS4 open type is supported into Photoshop, Illustrator and InDesing</p>
+      <p>in photoshop it's more basic an option is apply to all your text.<br>
+      In InDesign you can you do it on a single Glyph</p>
+      <p>in design go to main menu: WINDOW / Type &amp; Table / Glyphs<br><img src="/sites/default/files/old-images/up-kyra-open-type-font_5375.png"></p>
+    html_clean: |-
+      <p>in CS4 open type is supported into Photoshop, Illustrator and InDesing</p>
+      <p>in photoshop it's more basic an option is apply to all your text.<br>
+      In InDesign you can you do it on a single Glyph</p>
+      <p>in design go to main menu: WINDOW / Type &amp; Table / Glyphs<br><img src="/sites/default/files/old-images/up-kyra-open-type-font_5375.png"></p>
+  - id: 400920
+    user: 52182
+    date: 2010-03-12T06:28:00
+    date_raw: 12 March 2010 - 6:28am
+    votes: 0
+    html: <p>I haven't checked this thread in a while. Meanwhile I found out where to find OpenType in Photoshop. I didn't know how to use it in InDesign yet though. Thanks a lot for the information!</p>
+    html_clean: <p>I haven't checked this thread in a while. Meanwhile I found out where to find OpenType in Photoshop. I didn't know how to use it in InDesign yet though. Thanks a lot for the information!</p>
+  - id: 495122
+    user: 76756
+    date: 2012-02-15T04:23:00
+    date_raw: 15 February 2012 - 4:23am
+    votes: 0
+    html: <p>Indesign has a special interface for that, called "Opentype panel". The same as in Illustrator, really</p>
+    html_clean: <p>Indesign has a special interface for that, called "Opentype panel". The same as in Illustrator, really</p>
+  - id: 495123
+    user: 76756
+    date: 2012-02-15T04:29:00
+    date_raw: 15 February 2012 - 4:29am
+    votes: 0
+    html: '<p>and about applying them - this might help: <a href="http://ilovetypography.com/OpenType/opentype-features.html">http://ilovetypography.com/OpenType/opentype-features.html</a></p>'
+    html_clean: '<p>and about applying them - this might help: <a href="http://ilovetypography.com/OpenType/opentype-features.html" class="link-external">http://ilovetypography.com/OpenType/opentype-features.html</a></p>'
+  - id: 495590
+    user: 52182
+    date: 2012-02-18T03:00:00
+    date_raw: 18 February 2012 - 3:00am
+    votes: 0
+    html: |-
+      <p>Thanks but this threat is very old. That last comment of mine was sent 2 years ago. Meanwhile I've had several jobs where I had to use InDesign daily.</p>
+      <p>This is pretty amusing though. When I was still studying I was the go-to guy in the class for tips on typography and InDesign functionality while two years ago I couldn't even find the OpenType panel.</p>
+    html_clean: |-
+      <p>Thanks but this threat is very old. That last comment of mine was sent 2 years ago. Meanwhile I've had several jobs where I had to use InDesign daily.</p>
+      <p>This is pretty amusing though. When I was still studying I was the go-to guy in the class for tips on typography and InDesign functionality while two years ago I couldn't even find the OpenType panel.</p>

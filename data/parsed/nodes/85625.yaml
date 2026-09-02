@@ -1,5 +1,5 @@
 node: 85625
-title: null
+title: dumps every glyph in a font to a text file
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/85625.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180730212852/typophile.com/node/85625.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,113 @@ pages:
       digest: L6DDGJ6WHHCVKP6LOXC3KLAITSGNRM67
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/85625.html
+      file: data/archives/web.archive.org/files/20180730212852/typophile.com/node/85625.html
 post:
   id: 85625
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 177591
+  date: 2011-09-19T20:11:00
+  date_raw: 19 September 2011 - 8:11pm
+  votes: 0
+  html: |-
+    <p>some friends of mine recommend me to ask this kind of question here</p>
+    <p>I want to write a program which takes font name as the parameter and dumps every glyph in this font to a txt file</p>
+    <p>like    </p>
+    <p>bool dumpEveryGlyph(string fontName); </p>
+    <p>I am wondering if there is any API which can help me to do this? (.net API?  win32 API?)</p>
+    <p>thanks very much</p>
+  html_clean: |-
+    <p>some friends of mine recommend me to ask this kind of question here</p>
+    <p>I want to write a program which takes font name as the parameter and dumps every glyph in this font to a txt file</p>
+    <p>like    </p>
+    <p>bool dumpEveryGlyph(string fontName); </p>
+    <p>I am wondering if there is any API which can help me to do this? (.net API?  win32 API?)</p>
+    <p>thanks very much</p>
+comments:
+  - id: 477913
+    user: 18942
+    date: 2011-09-19T21:02:00
+    date_raw: 19 September 2011 - 9:02pm
+    votes: 0
+    html: '<p>Here is a related thread: <a href="http://typophile.com/node/64147">http://typophile.com/node/64147</a></p>'
+    html_clean: '<p>Here is a related thread: <a href="/node/64147/" class="link-kept">http://typophile.com/node/64147</a></p>'
+  - id: 477945
+    user: 21687
+    date: 2011-09-20T07:07:00
+    date_raw: 20 September 2011 - 7:07am
+    votes: 0
+    html: <p>The tricky thing is that not every glyph in a font must have a code point assigned, that means these unencoded glyphs cannot be represented in a plain text file.</p>
+    html_clean: <p>The tricky thing is that not every glyph in a font must have a code point assigned, that means these unencoded glyphs cannot be represented in a plain text file.</p>
+  - id: 477989
+    user: 29994
+    date: 2011-09-20T15:12:00
+    date_raw: 20 September 2011 - 3:12pm
+    votes: 0
+    html: |-
+      <p>Jens is correct. You cannot dump <em>glyphs</em> into a text file because a glyph means exactly nothing. It's the code points that count, because these form the link between the ASCII (or Unicode) character code you want to display and the actual piece of graphic (the glyph) that's going to be drawn. It's extremely important to understand these concepts correctly before you are going to pull off some low-level trick as you are attempting.</p>
+      <p>(This bypasses any Opentype niceties, but then again it should. Opentype features have nothing to do with codepoints -- well, at least nothing you could 'dump into a txt file'.)</p>
+      <p>There are Windows APIs -- you don't tell, which is a mortal sin, but I presume you <em>are</em> talking about a Windows program here -- that can return font information, but I cannot remember if I really ever bothered to get down with those. My own experimental program is firmly based on my grasp of the file format of Truetype and Opentype font files, so I can locate and extract the all-important <code>cmap</code> entry and work it out from there.</p>
+    html_clean: |-
+      <p>Jens is correct. You cannot dump <em>glyphs</em> into a text file because a glyph means exactly nothing. It's the code points that count, because these form the link between the ASCII (or Unicode) character code you want to display and the actual piece of graphic (the glyph) that's going to be drawn. It's extremely important to understand these concepts correctly before you are going to pull off some low-level trick as you are attempting.</p>
+      <p>(This bypasses any Opentype niceties, but then again it should. Opentype features have nothing to do with codepoints -- well, at least nothing you could 'dump into a txt file'.)</p>
+      <p>There are Windows APIs -- you don't tell, which is a mortal sin, but I presume you <em>are</em> talking about a Windows program here -- that can return font information, but I cannot remember if I really ever bothered to get down with those. My own experimental program is firmly based on my grasp of the file format of Truetype and Opentype font files, so I can locate and extract the all-important <code>cmap</code> entry and work it out from there.</p>
+  - id: 478161
+    user: 18942
+    date: 2011-09-21T19:13:00
+    date_raw: 21 September 2011 - 7:13pm
+    votes: 0
+    html: |-
+      <p>I see the request is from mainland China, where the preferred encoding is neither UTF-8 nor UTF-16 but <a href="http://en.wikipedia.org/wiki/Guobiao_code">GB 18030</a> and where the "niceties" of unicode may not be the main concern.</p>
+      <p>If you install ttx and apply <code>ttx -i -t cmap filename.extension</code> to your font file, giving the file <code>filename.ttx</code>, then the following Python code should give the desired text (on a single line) in <code>filename.txt</code>. Modifying the code to cut into lines, if needed, should be straightforward.</p>
+      <p>from xml.dom.minidom import *<br>
+      import sys, re</p>
+      <p>f=open(sys.argv[1])<br>
+      r1=re.compile(r'(.+)\.ttx$', re.IGNORECASE)<br>
+      foutname=r1.match(sys.argv[1]).group(1)+".txt"<br>
+      fout=open(foutname,'w')</p>
+      <p>doc=parse(f)</p>
+      <p>encdng='gb18030'</p>
+      <p>str=''<br>
+      cmaps=doc.getElementsByTagName('cmap_format_12')<br>
+      if not cmaps:<br>
+        cmaps=doc.getElementsByTagName('cmap_format_4')<br>
+      maps=cmaps[0].getElementsByTagName('map')<br>
+      for map in maps:<br>
+        code=int(map.getAttribute('code'),16)<br>
+        if code &gt; 0x20:<br>
+          str=str+unichr(code)<br>
+      fout.write("%s\n" % (str.encode(encdng)))<br>
+      fout.close</p>
+      <p>Of course, 'gb18030' could be replaced by 'utf-8' or 'utf-16' or some other encoding. If you copy the lines above, save to some file, say <code>dmpcmap.py</code> and then execute</p>
+      <p>python dmpcmap.py filename.ttx</p>
+      <p>you get the text in <code>filename.txt</code></p>
+      <p>This was tested on a Mac with <code>python26 @2.6.7_1+ucs4</code> on the font ST Heiti</p>
+      <p>Michel</p>
+      <p>PS The code does not check the platform because on my Mac, there are fonts without a cmap for Windows and I wanted to get an output file. Also, the code is slow on large files.</p>
+    html_clean: |-
+      <p>I see the request is from mainland China, where the preferred encoding is neither UTF-8 nor UTF-16 but <a href="http://en.wikipedia.org/wiki/Guobiao_code" class="link-external">GB 18030</a> and where the "niceties" of unicode may not be the main concern.</p>
+      <p>If you install ttx and apply <code>ttx -i -t cmap filename.extension</code> to your font file, giving the file <code>filename.ttx</code>, then the following Python code should give the desired text (on a single line) in <code>filename.txt</code>. Modifying the code to cut into lines, if needed, should be straightforward.</p>
+      <p>from xml.dom.minidom import *<br>
+      import sys, re</p>
+      <p>f=open(sys.argv[1])<br>
+      r1=re.compile(r'(.+)\.ttx$', re.IGNORECASE)<br>
+      foutname=r1.match(sys.argv[1]).group(1)+".txt"<br>
+      fout=open(foutname,'w')</p>
+      <p>doc=parse(f)</p>
+      <p>encdng='gb18030'</p>
+      <p>str=''<br>
+      cmaps=doc.getElementsByTagName('cmap_format_12')<br>
+      if not cmaps:<br>
+        cmaps=doc.getElementsByTagName('cmap_format_4')<br>
+      maps=cmaps[0].getElementsByTagName('map')<br>
+      for map in maps:<br>
+        code=int(map.getAttribute('code'),16)<br>
+        if code &gt; 0x20:<br>
+          str=str+unichr(code)<br>
+      fout.write("%s\n" % (str.encode(encdng)))<br>
+      fout.close</p>
+      <p>Of course, 'gb18030' could be replaced by 'utf-8' or 'utf-16' or some other encoding. If you copy the lines above, save to some file, say <code>dmpcmap.py</code> and then execute</p>
+      <p>python dmpcmap.py filename.ttx</p>
+      <p>you get the text in <code>filename.txt</code></p>
+      <p>This was tested on a Mac with <code>python26 @2.6.7_1+ucs4</code> on the font ST Heiti</p>
+      <p>Michel</p>
+      <p>PS The code does not check the platform because on my Mac, there are fonts without a cmap for Windows and I wanted to get an output file. Also, the code is slow on large files.</p>

@@ -1,5 +1,5 @@
 node: 95385
-title: null
+title: "Question: Batch import EPS in Fontlab"
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/95385.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180801025914/typophile.com/node/95385.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,169 @@ pages:
       digest: 4SX3GUVITTA5T4IEZINSQJO2MZO3AQ7V
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/95385.html
+      file: data/archives/web.archive.org/files/20180801025914/typophile.com/node/95385.html
 post:
   id: 95385
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 18978
+  date: 2012-08-07T08:56:00
+  date_raw: 7 August 2012 - 8:56am
+  votes: 0
+  html: |-
+    <p>Hi everybody,<br>
+    Is there a Python script that can batch import multiple EPS files in Fontlab. Searched all over the internet, and found nothing. I need just basic functionality - start from a new empty typeface and import EPS files in sequential mode, no encoding just in index mode. Any ideas! Thank you in advance!</p>
+  html_clean: |-
+    <p>Hi everybody,<br>
+    Is there a Python script that can batch import multiple EPS files in Fontlab. Searched all over the internet, and found nothing. I need just basic functionality - start from a new empty typeface and import EPS files in sequential mode, no encoding just in index mode. Any ideas! Thank you in advance!</p>
+comments:
+  - id: 518319
+    user: 39733
+    date: 2012-08-07T13:38:00
+    date_raw: 7 August 2012 - 1:38pm
+    votes: 0
+    html: <p>This should get you started:<br><a href="http://forum.fontlab.com/fontlab-studio/printing-glyphs-from-python/">http://forum.fontlab.com/fontlab-studio/printing-glyphs-from-python/</a></p>
+    html_clean: <p>This should get you started:<br><a href="http://forum.fontlab.com/fontlab-studio/printing-glyphs-from-python/" class="link-external">http://forum.fontlab.com/fontlab-studio/printing-glyphs-from-python/</a></p>
+  - id: 518349
+    user: 1043
+    date: 2012-08-07T19:55:00
+    date_raw: 7 August 2012 - 7:55pm
+    votes: 0
+    html: <p>Not sure exactly how your EPS files are set up, but <a href="http://www.fontlab.com/font-converter/scanfont/">ScanFont</a> works great for moving art from .ai or .eps files into FontLab. Unfortunately, it doesn't work on Mac running Lion or Mountain Lion yet. They do have options for those in that boat, though.</p>
+    html_clean: <p>Not sure exactly how your EPS files are set up, but <a href="http://www.fontlab.com/font-converter/scanfont/" class="link-external">ScanFont</a> works great for moving art from .ai or .eps files into FontLab. Unfortunately, it doesn't work on Mac running Lion or Mountain Lion yet. They do have options for those in that boat, though.</p>
+  - id: 519026
+    user: 1133
+    date: 2012-08-13T18:16:00
+    date_raw: 13 August 2012 - 6:16pm
+    votes: 0
+    html: |-
+      <p>This will ask you for a folder, find all ".eps" files in it and import them sequentially into the current font, using the basename of each file (without the ".eps" extension) as the glyph name. Should be enough to get you started, I hope. </p>
+      <p>#FLM: Import EPS glyphs from folder<br>
+      import os.path, glob<br>
+      f = fl.font<br>
+      folder = fl.GetPathName("Choose folder with EPS files...")<br>
+      pathmask = "*.eps"<br>
+      paths = []<br>
+      for globmask in [pathmask, pathmask.upper()]:<br>
+        paths += glob.glob(os.path.join(folder, globmask))<br>
+      paths = sorted(list(set(paths)))<br>
+      print "Importing EPS files from %s..." % (folder)<br>
+      for path in paths:<br>
+        basename = os.path.splitext(os.path.split(path)[1])[0]<br>
+        try:<br>
+          g = Glyph()<br>
+          g = g.LoadEPS(path)<br>
+          g.name = basename<br>
+          g.mark = 33<br>
+          f.glyphs.append(g)<br>
+          print "%s.eps imported" % (basename)<br>
+        except:<br>
+          print "%s.eps IGNORED" % (basename)<br>
+      fl.UpdateFont(fl.ifont)<br>
+      print "Finished."</p>
+    html_clean: |-
+      <p>This will ask you for a folder, find all ".eps" files in it and import them sequentially into the current font, using the basename of each file (without the ".eps" extension) as the glyph name. Should be enough to get you started, I hope. </p>
+      <p>#FLM: Import EPS glyphs from folder<br>
+      import os.path, glob<br>
+      f = fl.font<br>
+      folder = fl.GetPathName("Choose folder with EPS files...")<br>
+      pathmask = "*.eps"<br>
+      paths = []<br>
+      for globmask in [pathmask, pathmask.upper()]:<br>
+        paths += glob.glob(os.path.join(folder, globmask))<br>
+      paths = sorted(list(set(paths)))<br>
+      print "Importing EPS files from %s..." % (folder)<br>
+      for path in paths:<br>
+        basename = os.path.splitext(os.path.split(path)[1])[0]<br>
+        try:<br>
+          g = Glyph()<br>
+          g = g.LoadEPS(path)<br>
+          g.name = basename<br>
+          g.mark = 33<br>
+          f.glyphs.append(g)<br>
+          print "%s.eps imported" % (basename)<br>
+        except:<br>
+          print "%s.eps IGNORED" % (basename)<br>
+      fl.UpdateFont(fl.ifont)<br>
+      print "Finished."</p>
+  - id: 519040
+    user: 18978
+    date: 2012-08-14T01:43:00
+    date_raw: 14 August 2012 - 1:43am
+    votes: 0
+    html: <p>Thank you Adam! You are great! I will test it right away!</p>
+    html_clean: <p>Thank you Adam! You are great! I will test it right away!</p>
+  - id: 519042
+    user: 18978
+    date: 2012-08-14T01:49:00
+    date_raw: 14 August 2012 - 1:49am
+    votes: 0
+    html: <p>Oh it works like charm! Thank you again!</p>
+    html_clean: <p>Oh it works like charm! Thank you again!</p>
+  - id: 519264
+    user: 6470
+    date: 2012-08-16T16:15:00
+    date_raw: 16 August 2012 - 4:15pm
+    votes: 0
+    html: |-
+      <p>Vassil,</p>
+      <p>You needn't add to Adam's sense of self-worth: the jaunty hat says it all…</p>
+    html_clean: |-
+      <p>Vassil,</p>
+      <p>You needn't add to Adam's sense of self-worth: the jaunty hat says it all…</p>
+  - id: 519322
+    user: 1133
+    date: 2012-08-17T09:44:00
+    date_raw: 17 August 2012 - 9:44am
+    votes: 0
+    html: |-
+      <p>Oh Nick,<br>
+      very deep inside, I am...<br>
+      ;)</p>
+    html_clean: |-
+      <p>Oh Nick,<br>
+      very deep inside, I am...<br>
+      ;)</p>
+  - id: 534645
+    user: 177248
+    date: 2012-12-19T19:26:00
+    date_raw: 19 December 2012 - 7:26pm
+    votes: 0
+    html: |-
+      <p>twardoch,<br>
+      Can you explain how to use the script you posted? I want to batch import a bunch of eps files into fontlab, but I'm not sure how to use that script. Thanks for any direction you can give.</p>
+    html_clean: |-
+      <p>twardoch,<br>
+      Can you explain how to use the script you posted? I want to batch import a bunch of eps files into fontlab, but I'm not sure how to use that script. Thanks for any direction you can give.</p>
+  - id: 534646
+    user: 177248
+    date: 2012-12-19T19:27:00
+    date_raw: 19 December 2012 - 7:27pm
+    votes: 0
+    html: <p>frankrolf  the link is broken :(</p>
+    html_clean: <p>frankrolf  the link is broken :(</p>
+  - id: 534647
+    user: 177248
+    date: 2012-12-19T19:27:00
+    date_raw: 19 December 2012 - 7:27pm
+    votes: 0
+    html: <p>Mark Simonson Scanfont runs as a WINE version, but I've tried several different EPS files and none seem to be able to import into the program.</p>
+    html_clean: <p>Mark Simonson Scanfont runs as a WINE version, but I've tried several different EPS files and none seem to be able to import into the program.</p>
+  - id: 534653
+    user: 9636
+    date: 2012-12-19T20:47:00
+    date_raw: 19 December 2012 - 8:47pm
+    votes: 0
+    html: |-
+      <p>all you need to do is paste Adam's code into a macro window and hit the "run" button.<br>
+      There's some instruction on basic script use in the manual, I believe. </p>
+      <p>Jason C</p>
+    html_clean: |-
+      <p>all you need to do is paste Adam's code into a macro window and hit the "run" button.<br>
+      There's some instruction on basic script use in the manual, I believe. </p>
+      <p>Jason C</p>
+  - id: 534676
+    user: 177248
+    date: 2012-12-20T06:24:00
+    date_raw: 20 December 2012 - 6:24am
+    votes: 0
+    html: <p>Thanks Jason, I got it to work.</p>
+    html_clean: <p>Thanks Jason, I got it to work.</p>

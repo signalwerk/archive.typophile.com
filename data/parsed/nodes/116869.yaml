@@ -1,5 +1,5 @@
 node: 116869
-title: null
+title: Fontlab, I need a better solution for Ligatures
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/116869.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20171117035111/typophile.com/node/116869.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,60 @@ pages:
       digest: MLDXO67B2NQ2DML7WQ6K457V3XACTBS3
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/116869.html
+      file: data/archives/web.archive.org/files/20171117035111/typophile.com/node/116869.html
 post:
   id: 116869
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 205430
+  date: 2014-05-28T02:51:00
+  date_raw: 28 May 2014 - 2:51am
+  votes: 0
+  html: |-
+    <p>Hi,<br>
+    First, I’m kind of new to this.<br>
+    I’m about to create a Script font and I have some problems with the lower “r” and the other lower glyphs connected to it.</p>
+    <p>Am I supposed to do a ligature for every lower letter connected to the lower “r”? That sounds weird.<br>
+    When I look at my script fonts installed on my computer there are no big amount of ligatures.</p>
+    <p>There must be some other solution to it.<br>
+    When I look at fonts on MyFonts, like Ciao Bella, there are no ligatures for the lower r but when I write it in the “Sample text” field there is a more accurate connection between the lower “o” and the lower “r” and the “e” and the “r” and so on.</p>
+    <p>Any smart and simple solution to this?<br>
+    Please help me.</p>
+    <p>Thank you.<br>
+    Andreas</p>
+  html_clean: |-
+    <p>Hi,<br>
+    First, I’m kind of new to this.<br>
+    I’m about to create a Script font and I have some problems with the lower “r” and the other lower glyphs connected to it.</p>
+    <p>Am I supposed to do a ligature for every lower letter connected to the lower “r”? That sounds weird.<br>
+    When I look at my script fonts installed on my computer there are no big amount of ligatures.</p>
+    <p>There must be some other solution to it.<br>
+    When I look at fonts on MyFonts, like Ciao Bella, there are no ligatures for the lower r but when I write it in the “Sample text” field there is a more accurate connection between the lower “o” and the lower “r” and the “e” and the “r” and so on.</p>
+    <p>Any smart and simple solution to this?<br>
+    Please help me.</p>
+    <p>Thank you.<br>
+    Andreas</p>
+comments:
+  - id: 579339
+    user: 1043
+    date: 2014-05-28T11:52:00
+    date_raw: 28 May 2014 - 11:52am
+    votes: 0
+    html: |-
+      <p>Right, you definitely don't want to make a font with ligatures for every combination of characters. Not only would the font be huge, there are usually more than two characters in a row that may need the same special treatment. </p>
+      <p>The trick is to write a contextual alternates (<code>"calt"</code>) feature. There's more than one way to do it, so you need to plan it out first and then implement it in feature code. One way to do it goes something like this:</p>
+      <p>The default \r will be designed to accept the usual connecting stroke coming from the glyph that precedes it. In the absence of such a glyph, you need to substitute an alternate \r that doesn't connect. The code would look something like this:</p>
+      <p><code>feature calt {<br>
+      ignore sub @glyphsthatconnectontheright r' ;<br>
+      sub r' by r.alt ;<br>
+      } calt ;</code></p>
+      <p>where \r.alt is the non-connecting version of the \r. The <code>ignore</code> line basically says, "if the \r follows a glyph that connects, skip the next part". If it's some other glyph, then it will substitute the alternate \r. (The apostrophe marks the glyph that you want to potentially substitute.)</p>
+      <p>That's the basic idea. There are other approaches. You could for instance make the default \r one that doesn't connect and substitute a connecting alternate when it follows glyphs that connect. Or, your connection scheme may be more complex to get a more natural appearance (more than one possible connecting stroke, for instance, low, medium, high, none).</p>
+    html_clean: |-
+      <p>Right, you definitely don't want to make a font with ligatures for every combination of characters. Not only would the font be huge, there are usually more than two characters in a row that may need the same special treatment. </p>
+      <p>The trick is to write a contextual alternates (<code>"calt"</code>) feature. There's more than one way to do it, so you need to plan it out first and then implement it in feature code. One way to do it goes something like this:</p>
+      <p>The default \r will be designed to accept the usual connecting stroke coming from the glyph that precedes it. In the absence of such a glyph, you need to substitute an alternate \r that doesn't connect. The code would look something like this:</p>
+      <p><code>feature calt {<br>
+      ignore sub @glyphsthatconnectontheright r' ;<br>
+      sub r' by r.alt ;<br>
+      } calt ;</code></p>
+      <p>where \r.alt is the non-connecting version of the \r. The <code>ignore</code> line basically says, "if the \r follows a glyph that connects, skip the next part". If it's some other glyph, then it will substitute the alternate \r. (The apostrophe marks the glyph that you want to potentially substitute.)</p>
+      <p>That's the basic idea. There are other approaches. You could for instance make the default \r one that doesn't connect and substitute a connecting alternate when it follows glyphs that connect. Or, your connection scheme may be more complex to get a more natural appearance (more than one possible connecting stroke, for instance, low, medium, high, none).</p>

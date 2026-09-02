@@ -1,4 +1,4 @@
-import { buildIndex, loadNode, loadUser, buildUserIndex, paginate } from "./data.mjs";
+import { buildIndex, loadNode, loadUser, buildUserIndex, paginate, loadArchiveCounts } from "./data.mjs";
 
 // Turn a route into exactly the data that route needs -- nothing more, so a
 // thread page never pays for the full index being parsed.
@@ -19,7 +19,7 @@ export function resolve(route, getIndex) {
   switch (route.type) {
     case "about": {
       const index = getIndex();
-      return { totals: index.totals, forums: index.forums.length };
+      return { totals: index.totals, forums: index.forums.length, archives: loadArchiveCounts() };
     }
     case "index": {
       const index = getIndex();
@@ -76,4 +76,4 @@ export function resolve(route, getIndex) {
   }
 }
 
-export { buildIndex, loadNode, loadUser, buildUserIndex, paginate };
+export { buildIndex, loadNode, loadUser, buildUserIndex, paginate, loadArchiveCounts };

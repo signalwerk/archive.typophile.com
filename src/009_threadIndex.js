@@ -22,14 +22,16 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 import { DATA } from "./lib/config.js";
+import { ARCHIVE_IDS } from "./lib/archives/index.js";
 import { summarise, summaryVersion } from "./lib/summary.js";
-import { parseArgs, formatCount } from "./lib/util.js";
+import { parseArgs, formatCount, writeJson } from "./lib/util.js";
 
 const args = parseArgs();
 const force = Boolean(args.force);
 
 const NODES_DIR = `${DATA}/parsed/nodes`;
 const INDEX_FILE = `${NODES_DIR}/_index.jsonl`;
+const META_FILE = `${DATA}/parsed/threads.meta.json`;
 const PARSE_STATE = `${DATA}/parsed/state.json`;
 
 // What a cached line has to match to still be good: the capture the thread was
@@ -103,12 +105,36 @@ async function main() {
   await new Promise((resolve) => out.end(resolve));
   fs.renameSync(`${INDEX_FILE}.part`, INDEX_FILE);
 
+  // Which archive each published thread came from. The site says so on its
+  // about page, and the number has to describe the pages that exist rather
+  // than the captures that were selected: step 5 chose 66,645 and a handful
+  // never made it through step 6, so counting the lines written here is the
+  // only count that matches what a reader can open.
+  //
+  // Every archive is listed, zeros included. An archive holding nothing we
+  // ended up using is a real finding about the recovery, not an entry to hide.
+  const byArchive = Object.fromEntries(ARCHIVE_IDS.map((id) => [id, 0]));
+  for (const line of lines) {
+    const id = line.archive ?? "unknown";
+    byArchive[id] = (byArchive[id] ?? 0) + 1;
+  }
+  writeJson(META_FILE, {
+    threads: lines.length,
+    byArchive,
+    generatedAt: new Date().toISOString(),
+  });
+
   const size = fs.statSync(INDEX_FILE).size;
   console.log(`threads ............. ${formatCount(files.length)}`);
   console.log(`  read now .......... ${formatCount(reread)}`);
   console.log(`  still current ..... ${formatCount(reused)}`);
   if (unreadable) console.log(`  unreadable ........ ${formatCount(unreadable)}`);
+  console.log(`\nchosen from:`);
+  for (const [id, n] of Object.entries(byArchive).sort((a, b) => b[1] - a[1])) {
+    console.log(`   ${id.padEnd(18)} ${formatCount(n)}`);
+  }
   console.log(`\nwrote ${formatCount(lines.length)} line(s), ${(size / 1e6).toFixed(1)} MB -> ${INDEX_FILE}`);
+  console.log(`wrote ${META_FILE}`);
 }
 
 main().catch((err) => {

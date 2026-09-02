@@ -1,5 +1,5 @@
 node: 103068
-title: null
+title: '"System Validation" error in Font Book after generating from FontLab'
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/103068.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180920053242/typophile.com/node/103068.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,141 @@ pages:
       digest: I2LYTSPBPSLFQQ5GDKBATQU4MDWJKBEJ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/103068.html
+      file: data/archives/web.archive.org/files/20180920053242/typophile.com/node/103068.html
 post:
   id: 103068
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 197436
+  date: 2013-05-15T23:19:00
+  date_raw: 15 May 2013 - 11:19pm
+  votes: 0
+  html: |-
+    <p>I have a family of fonts I'm building in FontLab. They are all using the same exact kerning data and kerning classes. For some reason, one of the fonts is giving me a "serious error" in Font Book that says there is a "System Validation" error, with no further details.</p>
+    <p>I've tried taking a .vfb file from one of the working fonts, copying over glyphs from the font that's giving me trouble, and generating again. Same error. I think I've pinpointed the problem to be something kerning/class related, as if I copy/paste glyphs that AREN'T in a class and generate the font, I don't get an error in Font Book. But once I copy glyphs that are in a kerning class, I start getting the error.</p>
+    <p>I'm pulling my hair out because I have no idea why this is happening. I've tried resetting the metrics and kerning, then adding the data from the SAME .afm file the other fonts use, no luck. Same thing with the kerning class files. Any idea what could be causing this?! If I can provide you with anything else that might help solve this, just let me know. I'm beyond desperate at this point...</p>
+  html_clean: |-
+    <p>I have a family of fonts I'm building in FontLab. They are all using the same exact kerning data and kerning classes. For some reason, one of the fonts is giving me a "serious error" in Font Book that says there is a "System Validation" error, with no further details.</p>
+    <p>I've tried taking a .vfb file from one of the working fonts, copying over glyphs from the font that's giving me trouble, and generating again. Same error. I think I've pinpointed the problem to be something kerning/class related, as if I copy/paste glyphs that AREN'T in a class and generate the font, I don't get an error in Font Book. But once I copy glyphs that are in a kerning class, I start getting the error.</p>
+    <p>I'm pulling my hair out because I have no idea why this is happening. I've tried resetting the metrics and kerning, then adding the data from the SAME .afm file the other fonts use, no luck. Same thing with the kerning class files. Any idea what could be causing this?! If I can provide you with anything else that might help solve this, just let me know. I'm beyond desperate at this point...</p>
+comments:
+  - id: 554698
+    user: 197436
+    date: 2013-05-19T17:04:00
+    date_raw: 19 May 2013 - 5:04pm
+    votes: 0
+    html: <p>I'll paypal $15 to whoever can solve this problem!</p>
+    html_clean: <p>I'll paypal $15 to whoever can solve this problem!</p>
+  - id: 554703
+    user: 9636
+    date: 2013-05-19T20:37:00
+    date_raw: 19 May 2013 - 8:37pm
+    votes: 0
+    html: |-
+      <p>I know this isn't what you want to hear, but I'd start looking outside FL to fix it. I don't suppose you have Metrics machine?<br>
+      Or how about a simpler solution, have you tried TTXing the font and see if you still get the error?</p>
+      <p>I know, you'd rather know what the problem is, but..<br>
+      Jason C</p>
+    html_clean: |-
+      <p>I know this isn't what you want to hear, but I'd start looking outside FL to fix it. I don't suppose you have Metrics machine?<br>
+      Or how about a simpler solution, have you tried TTXing the font and see if you still get the error?</p>
+      <p>I know, you'd rather know what the problem is, but..<br>
+      Jason C</p>
+  - id: 554712
+    user: 197436
+    date: 2013-05-19T23:34:00
+    date_raw: 19 May 2013 - 11:34pm
+    votes: 0
+    html: |-
+      <p>I've considered looking into other programs, but I think that would end up being next to impossible at this point. The family I'm working on is a layered family, where every font has the same metrics/kerning, classes, etc. Making one font in a different program is just begging for more issues to pop up...</p>
+      <p>I have no idea what TTXing is, but I'll look into it to see if it can help me out.</p>
+    html_clean: |-
+      <p>I've considered looking into other programs, but I think that would end up being next to impossible at this point. The family I'm working on is a layered family, where every font has the same metrics/kerning, classes, etc. Making one font in a different program is just begging for more issues to pop up...</p>
+      <p>I have no idea what TTXing is, but I'll look into it to see if it can help me out.</p>
+  - id: 554730
+    user: 83217
+    date: 2013-05-20T07:10:00
+    date_raw: 20 May 2013 - 7:10am
+    votes: 0
+    html: <p>TTXing is, I believe, the use of the program 'ttx', a nifty bit of software written in Python that lets you view every table in a font.</p>
+    html_clean: <p>TTXing is, I believe, the use of the program 'ttx', a nifty bit of software written in Python that lets you view every table in a font.</p>
+  - id: 554794
+    user: 19493
+    date: 2013-05-20T18:59:00
+    date_raw: 20 May 2013 - 6:59pm
+    votes: 0
+    html: <p>You can get the OS X Font Tools from Apple's site at <a href="http://developer.apple.com/fonts/">http://developer.apple.com/fonts/</a>. It has a small utility that does the same series of tests as the Font Book validation, but generally gives much more verbose report. You'll also find some accompanying documentation with detailed instructions of how to use it.</p>
+    html_clean: <p>You can get the OS X Font Tools from Apple's site at <a href="http://developer.apple.com/fonts/" class="link-external">http://developer.apple.com/fonts/</a>. It has a small utility that does the same series of tests as the Font Book validation, but generally gives much more verbose report. You'll also find some accompanying documentation with detailed instructions of how to use it.</p>
+  - id: 554798
+    user: 9636
+    date: 2013-05-20T21:06:00
+    date_raw: 20 May 2013 - 9:06pm
+    votes: 0
+    html: |-
+      <p>Yeah, sorry, some jingo there.<br>
+      I just meant, run the otf file through TTX, which converts it into an XML file with the .ttx extention, then just run it through TTX again to convert back to otf. The odds are slim this would help, but I've seen weirder things. </p>
+      <p>All things being equal, Grzegorz's suggestion is probably more helpful</p>
+    html_clean: |-
+      <p>Yeah, sorry, some jingo there.<br>
+      I just meant, run the otf file through TTX, which converts it into an XML file with the .ttx extention, then just run it through TTX again to convert back to otf. The odds are slim this would help, but I've seen weirder things. </p>
+      <p>All things being equal, Grzegorz's suggestion is probably more helpful</p>
+  - id: 554800
+    user: 197436
+    date: 2013-05-20T22:25:00
+    date_raw: 20 May 2013 - 10:25pm
+    votes: 0
+    html: |-
+      <p>Thanks guys. I've downloaded os x font tools and have started poking around the tutorial and info docs, not sure which part of it is used for testing fonts though...</p>
+      <p>And I've downloaded TTX, but I'm not sure how to install it. I keep seeing things saying that there is an easy installer for os x, but I just see a bunch of python files. Do I have to install and use in using terminal or is it a stand alone application?</p>
+      <p>EDIT: Nevermind, I figured out how TTX works and was able to convert my .otf to ttx and then back to .otf. Still doesn't validate... I'm still trying to figure out how to test fonts with os x font tools.</p>
+      <p>EDIT2: Alrighty, figured out os x font tools' validator using the "ftxvalidator" command. Either this isn't ouputting any useful information or I'm doing something wrong. These just look like parts of an .xml or plist file... not sure how helpful they are. Screenshot below.</p>
+      <p><img src="/sites/default/files/old-images/Screen Shot 2013-05-20 at 10_3497.23.22 PM.png"></p>
+    html_clean: |-
+      <p>Thanks guys. I've downloaded os x font tools and have started poking around the tutorial and info docs, not sure which part of it is used for testing fonts though...</p>
+      <p>And I've downloaded TTX, but I'm not sure how to install it. I keep seeing things saying that there is an easy installer for os x, but I just see a bunch of python files. Do I have to install and use in using terminal or is it a stand alone application?</p>
+      <p>EDIT: Nevermind, I figured out how TTX works and was able to convert my .otf to ttx and then back to .otf. Still doesn't validate... I'm still trying to figure out how to test fonts with os x font tools.</p>
+      <p>EDIT2: Alrighty, figured out os x font tools' validator using the "ftxvalidator" command. Either this isn't ouputting any useful information or I'm doing something wrong. These just look like parts of an .xml or plist file... not sure how helpful they are. Screenshot below.</p>
+      <p><img src="/sites/default/files/old-images/Screen Shot 2013-05-20 at 10_3497.23.22 PM.png"></p>
+  - id: 554814
+    user: 19493
+    date: 2013-05-21T02:57:00
+    date_raw: 21 May 2013 - 2:57am
+    votes: 0
+    html: <p>Running <code>ftxvalidator</code> with just a filename gives you a report summary, nothing more. Run <code>ftxvalidator -T /path/to/font</code> for a detailed, tabular report. See also <code>ftxvalidator -h</code> (help) for all options available.</p>
+    html_clean: <p>Running <code>ftxvalidator</code> with just a filename gives you a report summary, nothing more. Run <code>ftxvalidator -T /path/to/font</code> for a detailed, tabular report. See also <code>ftxvalidator -h</code> (help) for all options available.</p>
+  - id: 554880
+    user: 4926
+    date: 2013-05-21T16:07:00
+    date_raw: 21 May 2013 - 4:07pm
+    votes: 0
+    html: |-
+      <p>I can try to help to solve this issue if you send me the problem font both in vfb and otf formats.</p>
+      <p>Regards,<br>
+      Johnych</p>
+    html_clean: |-
+      <p>I can try to help to solve this issue if you send me the problem font both in vfb and otf formats.</p>
+      <p>Regards,<br>
+      Johnych</p>
+  - id: 555019
+    user: 197436
+    date: 2013-05-22T17:00:00
+    date_raw: 22 May 2013 - 5:00pm
+    votes: 0
+    html: <p>That'd be great johnych. You can email me at <a href="mailto:hello@willryan.us">hello@willryan.us</a> and I can send you the files and you can take a look.</p>
+    html_clean: <p>That'd be great johnych. You can email me at <a href="mailto:hello@willryan.us">hello@willryan.us</a> and I can send you the files and you can take a look.</p>
+  - id: 555173
+    user: 4926
+    date: 2013-05-24T06:18:00
+    date_raw: 24 May 2013 - 6:18am
+    votes: 0
+    html: <p>Emailed.</p>
+    html_clean: <p>Emailed.</p>
+  - id: 555270
+    user: 197436
+    date: 2013-05-25T10:46:00
+    date_raw: 25 May 2013 - 10:46am
+    votes: 0
+    html: |-
+      <p>Hey guys</p>
+      <p>Malcolm Wooden was able to help me out with this one. Seems like the probably was related to how complex the font was, and me generating it with hinting enabled. Thanks again Malcolm!</p>
+    html_clean: |-
+      <p>Hey guys</p>
+      <p>Malcolm Wooden was able to help me out with this one. Seems like the probably was related to how complex the font was, and me generating it with hinting enabled. Thanks again Malcolm!</p>

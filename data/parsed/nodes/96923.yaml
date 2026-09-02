@@ -1,5 +1,5 @@
 node: 96923
-title: null
+title: Arabic Font only shows .NOTDEF glyph. Help needed.
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/96923.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20171128084840/typophile.com/node/96923.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,149 @@ pages:
       digest: BIW7MBUH2BT3HTX6SDPMHC7QPW7JKTWZ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/96923.html
+      file: data/archives/web.archive.org/files/20171128084840/typophile.com/node/96923.html
 post:
   id: 96923
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 45719
+  date: 2012-10-04T19:32:00
+  date_raw: 4 October 2012 - 7:32pm
+  votes: 0
+  html: |-
+    <p>Hello,</p>
+    <p>I am developing a very basic Arabic font using my hand writing, using FontLab on Windows 7.</p>
+    <p>The problem is that I cant get the font to display in MS Word as well as InDesign.<br>
+    No glyphs are shown. Only .NOTDEF shows for each character. I guess this has something to do with encoding, but cant figure out where to look for the solution.</p>
+    <p>Kindly help.</p>
+    <p>Thanks and regards.</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I am developing a very basic Arabic font using my hand writing, using FontLab on Windows 7.</p>
+    <p>The problem is that I cant get the font to display in MS Word as well as InDesign.<br>
+    No glyphs are shown. Only .NOTDEF shows for each character. I guess this has something to do with encoding, but cant figure out where to look for the solution.</p>
+    <p>Kindly help.</p>
+    <p>Thanks and regards.</p>
+comments:
+  - id: 525072
+    user: 187995
+    date: 2012-10-04T20:54:00
+    date_raw: 4 October 2012 - 8:54pm
+    votes: 0
+    html: |-
+      <p>Have you studied:<br><a href="http://www.unicode.org/versions/Unicode6.1.0/ch08.pdf">http://www.unicode.org/versions/Unicode6.1.0/ch08.pdf</a><br>
+      and<br><a href="http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx">http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx</a></p>
+    html_clean: |-
+      <p>Have you studied:<br><a href="http://www.unicode.org/versions/Unicode6.1.0/ch08.pdf" class="link-external">http://www.unicode.org/versions/Unicode6.1.0/ch08.pdf</a><br>
+      and<br><a href="http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx" class="link-external">http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx</a></p>
+  - id: 525083
+    user: 45719
+    date: 2012-10-04T21:54:00
+    date_raw: 4 October 2012 - 9:54pm
+    votes: 0
+    html: |-
+      <p>Thanks Bob H,</p>
+      <p>I'm aware of these documentations.</p>
+      <p>I'm struggling with encoding of the font. I've created all Isolated glyphs with their corresponding Unicode IDs, but for some weird reason the font is not showing those  glyphs in MS Word.<br>
+      e.g. Alef_Isol has its proper Unicode ID (0627) applied in FontLab. When I Generate Font and install it and type Alef in MS Word it is not displayed. (the font changes to Times New Roman).</p>
+      <p>Hope this explains my problem.</p>
+      <p>Thanks and regards.</p>
+    html_clean: |-
+      <p>Thanks Bob H,</p>
+      <p>I'm aware of these documentations.</p>
+      <p>I'm struggling with encoding of the font. I've created all Isolated glyphs with their corresponding Unicode IDs, but for some weird reason the font is not showing those  glyphs in MS Word.<br>
+      e.g. Alef_Isol has its proper Unicode ID (0627) applied in FontLab. When I Generate Font and install it and type Alef in MS Word it is not displayed. (the font changes to Times New Roman).</p>
+      <p>Hope this explains my problem.</p>
+      <p>Thanks and regards.</p>
+  - id: 525115
+    user: 29994
+    date: 2012-10-05T03:43:00
+    date_raw: 5 October 2012 - 3:43am
+    votes: 0
+    html: |-
+      <p>Perhaps Word automatically attempts to use the correct initial, medial, and final forms, and ignores your Isolated forms.</p>
+      <p>I don't know about Word, but InDesign allows you to manually select the forms. IIRC it also defaults to 'Automatic', but in the Character panel menu ► OpenType ► Positional Forms you can select "Isolated Form".</p>
+      <p>If this works and you are not planning to add the other glyphs, you could simply copy your glyphs into the positions for the others.</p>
+    html_clean: |-
+      <p>Perhaps Word automatically attempts to use the correct initial, medial, and final forms, and ignores your Isolated forms.</p>
+      <p>I don't know about Word, but InDesign allows you to manually select the forms. IIRC it also defaults to 'Automatic', but in the Character panel menu ► OpenType ► Positional Forms you can select "Isolated Form".</p>
+      <p>If this works and you are not planning to add the other glyphs, you could simply copy your glyphs into the positions for the others.</p>
+  - id: 525156
+    user: 1262
+    date: 2012-10-05T11:34:00
+    date_raw: 5 October 2012 - 11:34am
+    votes: 0
+    html: |-
+      <p>First, drag your generated font back into FontLab and check that the encodings have been correctly applied. This will rule out the possibility that the bug is in the font cmap table.</p>
+      <p>As I recall, Windows apps expect any Arabic font to contain the OpenType GSUB features for init, medi and fina form substitutions, and may presume any Arabic font without them to be broken.</p>
+    html_clean: |-
+      <p>First, drag your generated font back into FontLab and check that the encodings have been correctly applied. This will rule out the possibility that the bug is in the font cmap table.</p>
+      <p>As I recall, Windows apps expect any Arabic font to contain the OpenType GSUB features for init, medi and fina form substitutions, and may presume any Arabic font without them to be broken.</p>
+  - id: 525276
+    user: 99297
+    date: 2012-10-06T09:05:00
+    date_raw: 6 October 2012 - 9:05am
+    votes: 0
+    html: |-
+      <p>John</p>
+      <p>&gt;&gt;<cite>As I recall, Windows apps expect any Arabic font to contain the OpenType GSUB features for init, medi and fina form substitutions, and may presume any Arabic font without them to be broken.</cite>&lt;&lt;</p>
+      <p>That may explain why MS Word apparently doesn't accept to disable Open Type font formatting for Arabic ligatures as questioned by me <a href="http://social.msdn.microsoft.com/Forums/en-US/Offtopic/thread/a59f8ef5-d68b-4a25-8bbd-0ce5802b49f8" title="Click to visit an external URL." class="freelink freelink-external freelink-external">here</a> and <a href="http://answers.microsoft.com/en-us/office/forum/office_2010se-word/disabling-open-type-formatting-in-word-2010/0b614a4d-4ae7-4f61-9b8d-2019fc77ce6a" title="Click to visit an external URL." class="freelink freelink-external freelink-external">here</a>, and so far without a satisfactory answer.</p>
+    html_clean: |-
+      <p>John</p>
+      <p>&gt;&gt;<cite>As I recall, Windows apps expect any Arabic font to contain the OpenType GSUB features for init, medi and fina form substitutions, and may presume any Arabic font without them to be broken.</cite>&lt;&lt;</p>
+      <p>That may explain why MS Word apparently doesn't accept to disable Open Type font formatting for Arabic ligatures as questioned by me <a href="http://social.msdn.microsoft.com/Forums/en-US/Offtopic/thread/a59f8ef5-d68b-4a25-8bbd-0ce5802b49f8" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">here</a> and <a href="http://answers.microsoft.com/en-us/office/forum/office_2010se-word/disabling-open-type-formatting-in-word-2010/0b614a4d-4ae7-4f61-9b8d-2019fc77ce6a" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">here</a>, and so far without a satisfactory answer.</p>
+  - id: 525305
+    user: 1262
+    date: 2012-10-06T13:26:00
+    date_raw: 6 October 2012 - 1:26pm
+    votes: 0
+    html: |-
+      <p>You can't turn of basic script shaping features via OpenType Layout UI controls. Such controls are intended to control discretionary typographic features (as in the case of the Gabriola ligatures in your other test), not fundamental features of writing systems. The init, medi and fina features are applied by default to the Arabic script, and cannot be turned off. If one wants to disable such shaping, one has to do so via Unicode control characters such as zero-width non-joiner (U+200C).</p>
+      <p>[Note that what you describe in the MSDN forum as an Arabic 'ligature' is not, in fact a ligature, but an init glyph followed by a fina glyph.]</p>
+    html_clean: |-
+      <p>You can't turn of basic script shaping features via OpenType Layout UI controls. Such controls are intended to control discretionary typographic features (as in the case of the Gabriola ligatures in your other test), not fundamental features of writing systems. The init, medi and fina features are applied by default to the Arabic script, and cannot be turned off. If one wants to disable such shaping, one has to do so via Unicode control characters such as zero-width non-joiner (U+200C).</p>
+      <p>[Note that what you describe in the MSDN forum as an Arabic 'ligature' is not, in fact a ligature, but an init glyph followed by a fina glyph.]</p>
+  - id: 525336
+    user: 99297
+    date: 2012-10-06T14:51:00
+    date_raw: 6 October 2012 - 2:51pm
+    votes: 0
+    html: |-
+      <p>Now that you said it, it's obvious. Thanks.</p>
+      <p>Regarding my mistaken use of the term 'ligature', which feature tags are used to make those substitutions, init and fina ?</p>
+    html_clean: |-
+      <p>Now that you said it, it's obvious. Thanks.</p>
+      <p>Regarding my mistaken use of the term 'ligature', which feature tags are used to make those substitutions, init and fina ?</p>
+  - id: 525344
+    user: 1262
+    date: 2012-10-06T16:11:00
+    date_raw: 6 October 2012 - 4:11pm
+    votes: 0
+    html: <p>Yes. I recommend reading the <a href="http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx">MS Arabic layout engine and font specification</a>.</p>
+    html_clean: <p>Yes. I recommend reading the <a href="http://www.microsoft.com/typography/OpenType%20Dev/arabic/intro.mspx" class="link-external">MS Arabic layout engine and font specification</a>.</p>
+  - id: 525352
+    user: 99297
+    date: 2012-10-06T17:31:00
+    date_raw: 6 October 2012 - 5:31pm
+    votes: 0
+    html: <p>Thanks John, I've just found the feature tags in that spec ("init" and "fina"). Shame on me for asking this silly question.</p>
+    html_clean: <p>Thanks John, I've just found the feature tags in that spec ("init" and "fina"). Shame on me for asking this silly question.</p>
+  - id: 525355
+    user: 45719
+    date: 2012-10-06T18:24:00
+    date_raw: 6 October 2012 - 6:24pm
+    votes: 0
+    html: |-
+      <p>Hello,</p>
+      <p>Thanks Bob H, Theunis de Jong and John Hudson for replying.</p>
+      <p>As I figured it, and correctly pointed out by John Hudson, the CMAP table was corrupt for my font.</p>
+      <p>The solution:  I created a new font file from scratch and copy pasted the glyphs from old to new file.<br>
+      Little bit of hassle, but the font is in initial stages so it was not a big deal.</p>
+      <p>As an aside, I would request the community here to create a template for Basic Arabic font, and provide it as an starter for beginners. Or, if such resource exists provide a pointer to it.</p>
+      <p>Thanks again for all the helpful answers.</p>
+    html_clean: |-
+      <p>Hello,</p>
+      <p>Thanks Bob H, Theunis de Jong and John Hudson for replying.</p>
+      <p>As I figured it, and correctly pointed out by John Hudson, the CMAP table was corrupt for my font.</p>
+      <p>The solution:  I created a new font file from scratch and copy pasted the glyphs from old to new file.<br>
+      Little bit of hassle, but the font is in initial stages so it was not a big deal.</p>
+      <p>As an aside, I would request the community here to create a template for Basic Arabic font, and provide it as an starter for beginners. Or, if such resource exists provide a pointer to it.</p>
+      <p>Thanks again for all the helpful answers.</p>

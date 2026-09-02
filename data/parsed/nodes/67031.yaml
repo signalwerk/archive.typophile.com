@@ -1,5 +1,5 @@
 node: 67031
-title: null
+title: Delete OT Classes with Python
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/67031.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180308052839/typophile.com/node/67031.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,87 @@ pages:
       digest: NFFGLNB7Z45U3HCKYX3ZRLBHVFWY7SZS
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/67031.html
+      file: data/archives/web.archive.org/files/20180308052839/typophile.com/node/67031.html
 post:
   id: 67031
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 3320
+  date: 2010-02-04T19:54:00
+  date_raw: 4 February 2010 - 7:54pm
+  votes: 0
+  html: |-
+    <p>Hi</p>
+    <p>Can anyone tell if it's possible to delete OT Classes using Python. I have tried something like:</p>
+    <p>for k in range(len(f.classes)):<br>
+      s = f.classes[k][0]<br>
+      if s=="_":<br>
+        del f.classes[k]</p>
+    <p>to delete every class that starts with an underscore, but this approach doesn't work. Is there another way to delete classes or am I doing something stupid?</p>
+    <p>tia<br>
+    M</p>
+  html_clean: |-
+    <p>Hi</p>
+    <p>Can anyone tell if it's possible to delete OT Classes using Python. I have tried something like:</p>
+    <p>for k in range(len(f.classes)):<br>
+      s = f.classes[k][0]<br>
+      if s=="_":<br>
+        del f.classes[k]</p>
+    <p>to delete every class that starts with an underscore, but this approach doesn't work. Is there another way to delete classes or am I doing something stupid?</p>
+    <p>tia<br>
+    M</p>
+comments:
+  - id: 393977
+    user: 8664
+    date: 2010-02-05T08:51:00
+    date_raw: 5 February 2010 - 8:51am
+    votes: 0
+    html: |-
+      <p>Try this:</p>
+      <p>f=fl.font<br>
+      fIdx=fl.ifont<br>
+      classes = f.classes<br>
+      for k in range(len(classes)-1,-1,-1):<br>
+      &nbsp;&nbsp;&nbsp;if len(classes[k].strip()) and classes[k][0] == "_":<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del classes[k]<br>
+      f.classes = classes<br>
+      fl.UpdateFont(fIdx)</p>
+    html_clean: |-
+      <p>Try this:</p>
+      <p>f=fl.font<br>
+      fIdx=fl.ifont<br>
+      classes = f.classes<br>
+      for k in range(len(classes)-1,-1,-1):<br>
+      &nbsp;&nbsp;&nbsp;if len(classes[k].strip()) and classes[k][0] == "_":<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del classes[k]<br>
+      f.classes = classes<br>
+      fl.UpdateFont(fIdx)</p>
+  - id: 394061
+    user: 4763
+    date: 2010-02-05T14:29:00
+    date_raw: 5 February 2010 - 2:29pm
+    votes: 0
+    html: <p>Yeah, very strange behaviour of the API. The elements of the list are read-only but the enclosing structure can be overwritten. I ended up with the same workaround.</p>
+    html_clean: <p>Yeah, very strange behaviour of the API. The elements of the list are read-only but the enclosing structure can be overwritten. I ended up with the same workaround.</p>
+  - id: 394302
+    user: 3320
+    date: 2010-02-06T20:14:00
+    date_raw: 6 February 2010 - 8:14pm
+    votes: 0
+    html: |-
+      <p>Thank you Karsten. I must admit I don't understand 100% why that works but thanks you for your solution.</p>
+      <p>M</p>
+    html_clean: |-
+      <p>Thank you Karsten. I must admit I don't understand 100% why that works but thanks you for your solution.</p>
+      <p>M</p>
+  - id: 394994
+    user: 1133
+    date: 2010-02-10T02:33:00
+    date_raw: 10 February 2010 - 2:33am
+    votes: 0
+    html: |-
+      <p>Two things: </p>
+      <p>1. When you delete an element from a list, the number of items in the list obviously is reduced by one. But the initial range(len()) loop is just a static list so if you remove any elements, you'll get an "Index out of range". This is why Karsten is iterating through the loop in the descending order of elements. This is not FontLab-specific, it would happen with every Python list for which you'd remove elements that way. </p>
+      <p>2. Many of FontLab's pseudolist objects only implement partial behavior of list objects. But you can assign such pseudolist object to a real Python list, then perform some list modifications, and then reassign the list back to the FontLab pseudolist. I don't consider this "normal behavior" but, well, the FontLab Python API was developed quite a few years ago and some of the objects behave a bit strangely.</p>
+    html_clean: |-
+      <p>Two things: </p>
+      <p>1. When you delete an element from a list, the number of items in the list obviously is reduced by one. But the initial range(len()) loop is just a static list so if you remove any elements, you'll get an "Index out of range". This is why Karsten is iterating through the loop in the descending order of elements. This is not FontLab-specific, it would happen with every Python list for which you'd remove elements that way. </p>
+      <p>2. Many of FontLab's pseudolist objects only implement partial behavior of list objects. But you can assign such pseudolist object to a real Python list, then perform some list modifications, and then reassign the list back to the FontLab pseudolist. I don't consider this "normal behavior" but, well, the FontLab Python API was developed quite a few years ago and some of the objects behave a bit strangely.</p>

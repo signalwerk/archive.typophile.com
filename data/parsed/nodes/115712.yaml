@@ -1,5 +1,5 @@
 node: 115712
-title: null
+title: Help! Font crashes applications when Arabic characters are needed.
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/115712.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20171128084738/typophile.com/node/115712.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,58 @@ pages:
       digest: 5AHATPXB6INYGBXZI4YEUDTTUBTY4KUO
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/115712.html
+      file: data/archives/web.archive.org/files/20171128084738/typophile.com/node/115712.html
 post:
   id: 115712
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 217789
+  date: 2014-04-11T20:29:00
+  date_raw: 11 April 2014 - 8:29pm
+  votes: 0
+  html: |-
+    <p>I made a font recently and it worked fine. Then I decided to do the Arabic unicode block, then the Arabic presentations A and B.<br>
+    Now that I generated the font, Word crashes (but not InDesign) when I copy an arabic text (from Wikipedia) and paste it in a document using my font. I used UnicodeView and the Character Map to see the font and it all works, except when selecting the Arabic block (0600 - 06FF). CharMap crashes and Unicode View fills the screen with error messages saying some dll crashed and a memory segment was violated, blah blah blah.</p>
+    <p>What intrigues me is the fact that Arabic Presentation Forms A and B (FB50-FDFF &amp; FE70-FEFF respectively) do not generate this error. Also, when generating the font, FontLab Studio 5 does not warn of anything wrong and generation is successful.<br>
+    Any ideas? I'm lost. Easiest thing to do is delete the arabic block, but I'd rather solve this error.</p>
+    <p>PS: I use InDesign CS6, so the text is backwards, so no use. (They say I need InDesign MENA but I won't buy it). My OS is Windows 7, 64b, latin america. My Office is MS Office 2013. Works great with arabic in every font, except mine. So, it IS my font.</p>
+  html_clean: |-
+    <p>I made a font recently and it worked fine. Then I decided to do the Arabic unicode block, then the Arabic presentations A and B.<br>
+    Now that I generated the font, Word crashes (but not InDesign) when I copy an arabic text (from Wikipedia) and paste it in a document using my font. I used UnicodeView and the Character Map to see the font and it all works, except when selecting the Arabic block (0600 - 06FF). CharMap crashes and Unicode View fills the screen with error messages saying some dll crashed and a memory segment was violated, blah blah blah.</p>
+    <p>What intrigues me is the fact that Arabic Presentation Forms A and B (FB50-FDFF &amp; FE70-FEFF respectively) do not generate this error. Also, when generating the font, FontLab Studio 5 does not warn of anything wrong and generation is successful.<br>
+    Any ideas? I'm lost. Easiest thing to do is delete the arabic block, but I'd rather solve this error.</p>
+    <p>PS: I use InDesign CS6, so the text is backwards, so no use. (They say I need InDesign MENA but I won't buy it). My OS is Windows 7, 64b, latin america. My Office is MS Office 2013. Works great with arabic in every font, except mine. So, it IS my font.</p>
+comments:
+  - id: 576128
+    user: 16942
+    date: 2014-04-14T11:50:00
+    date_raw: 14 April 2014 - 11:50am
+    votes: 0
+    html: |-
+      <p>There are lots of diagnosis you can perform to find the problem. With the provided information there is nothing that anyone can do. Try these methods:</p>
+      <p>1. Empty the arabic block glyphs so there is no shape in the glyphs, but glyphs are there and then generate the font. If the font worked, then there is something wrong with shape of glyphs.</p>
+      <p>2. There might be a problem with name of glyphs, make sure that name of glyphs are according to Adobe standards. For example character with unicode number of 0641 should be named uni0641. If you rename glyphs, you have to rewrite the OT features of the font.</p>
+      <p>3. There might be a problem with opentype features of the font. Have you created proper opentype features for the arabic part or you have already used a template with binary OT features? Empty the OT features then generate the font. If the font worked, then you have to consider rethinking the OT features.</p>
+      <p>Good luck</p>
+    html_clean: |-
+      <p>There are lots of diagnosis you can perform to find the problem. With the provided information there is nothing that anyone can do. Try these methods:</p>
+      <p>1. Empty the arabic block glyphs so there is no shape in the glyphs, but glyphs are there and then generate the font. If the font worked, then there is something wrong with shape of glyphs.</p>
+      <p>2. There might be a problem with name of glyphs, make sure that name of glyphs are according to Adobe standards. For example character with unicode number of 0641 should be named uni0641. If you rename glyphs, you have to rewrite the OT features of the font.</p>
+      <p>3. There might be a problem with opentype features of the font. Have you created proper opentype features for the arabic part or you have already used a template with binary OT features? Empty the OT features then generate the font. If the font worked, then you have to consider rethinking the OT features.</p>
+      <p>Good luck</p>
+  - id: 576159
+    user: 217789
+    date: 2014-04-14T17:15:00
+    date_raw: 14 April 2014 - 5:15pm
+    votes: 0
+    html: |-
+      <p>Thanks for the tips. I'll try each one to isolate the failure. I erased the OT features to begin with and the font no longer crashes the apps, but many glyphs appear as missing, even when opening the installed font with Fontlab show they are all present.<br>
+      Thanks again. I'll check it all thoroughly.</p>
+    html_clean: |-
+      <p>Thanks for the tips. I'll try each one to isolate the failure. I erased the OT features to begin with and the font no longer crashes the apps, but many glyphs appear as missing, even when opening the installed font with Fontlab show they are all present.<br>
+      Thanks again. I'll check it all thoroughly.</p>
+  - id: 576165
+    user: 217789
+    date: 2014-04-14T19:29:00
+    date_raw: 14 April 2014 - 7:29pm
+    votes: 0
+    html: <p>Well, guess what? After deleting here and there, resetting here and there, I found out it was the glyph at 0600 the culprit for all this mess. I tried to redraw it, repaste it, re-everything, but the only way to make the entire font work, was fully deleting the 0600 glyph. I filled the OT features again and worked as a charm. Thanks again for your advice, Bahman Eslami!! :)</p>
+    html_clean: <p>Well, guess what? After deleting here and there, resetting here and there, I found out it was the glyph at 0600 the culprit for all this mess. I tried to redraw it, repaste it, re-everything, but the only way to make the entire font work, was fully deleting the 0600 glyph. I filled the OT features again and worked as a charm. Thanks again for your advice, Bahman Eslami!! :)</p>

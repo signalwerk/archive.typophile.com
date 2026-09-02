@@ -1,5 +1,7 @@
 // Step 4 -- download the chosen captures, per archive.
 //
+// Captures are stored below files/<timestamp>/<host>/..., so later support for
+// selecting several versions will not require another filesystem migration.
 // Safe to run as often as you like: a file is only fetched when it is missing
 // or when what is on disk is not the exact capture we want. "Exact" is not a
 // guess -- every archive publishes a base32 SHA-1 of the response payload, and

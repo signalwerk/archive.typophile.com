@@ -1,5 +1,5 @@
 node: 98550
-title: null
+title: Bizarre spacing problem with Baskerville quotation marks
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/98550.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180521084443/typophile.com/node/98550.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,83 @@ pages:
       digest: 5Q7D427L3U76TTX5XDVVO2D3QWRNPHLI
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/98550.html
+      file: data/archives/web.archive.org/files/20180521084443/typophile.com/node/98550.html
 post:
   id: 98550
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 204445
+  date: 2012-12-01T00:50:00
+  date_raw: 1 December 2012 - 12:50am
+  votes: 0
+  html: |-
+    <p>I've just purchased the URW++ version of Baskerville, and I'm encountering a bizarre problem when using quotation marks. Oddly, the same problem seems to exist in ITC Baskerville — but not in other typefaces.<br>
+    I've uploaded a screenshot to show what's happening. For some reason, the quotation marks in Baskerville have far too much space around them. I can't manually correct the problem by adjusting the tracking on the character, either.<br>
+    Again, this is only happening in Baskerville, and I'm using a brand new version that I just purchased from Linotype.</p>
+    <p>Has anyone else encountered this problem, and if so, did you find a solution?</p>
+    <p> <img src="/sites/default/files/old-images/quotespacing_6154.png"></p>
+  html_clean: |-
+    <p>I've just purchased the URW++ version of Baskerville, and I'm encountering a bizarre problem when using quotation marks. Oddly, the same problem seems to exist in ITC Baskerville — but not in other typefaces.<br>
+    I've uploaded a screenshot to show what's happening. For some reason, the quotation marks in Baskerville have far too much space around them. I can't manually correct the problem by adjusting the tracking on the character, either.<br>
+    Again, this is only happening in Baskerville, and I'm using a brand new version that I just purchased from Linotype.</p>
+    <p>Has anyone else encountered this problem, and if so, did you find a solution?</p>
+    <p> <img src="/sites/default/files/old-images/quotespacing_6154.png"></p>
+comments:
+  - id: 532479
+    user: 5094
+    date: 2012-12-01T09:43:00
+    date_raw: 1 December 2012 - 9:43am
+    votes: 0
+    html: |-
+      <p>The space comes either from the sideberaings or a kern -- you can eliminate a kern as a possibility by looking at the character panel with the cursor between the quote and the space (I've seen  kerns between the left &amp; right quotes and the space character before, &amp; they're usually a disaster, one way or another).</p>
+      <p>Or turn the kerning off in a paragraph style, &amp; see if the space disappears...</p>
+      <p>Just possibly, some routine is adding a spacing character, but I doubt it. The "info" panel should show that.</p>
+      <p>Open a new file, with no tracking. scaling, or other ID feature, and type a double open quote mark as the first character. Is it away from the margin? If so, it's likely messed up sidebearings. Of course, a font-editing program would let you check for sure, but not everyone has that software.</p>
+      <p>EDIT:</p>
+      <p>After the checks above, I'd get up with whoever you purchased the font from. If it is in the font, it is a serious bug, &amp; any reputable type publisher should fix the problem, free of charge.</p>
+    html_clean: |-
+      <p>The space comes either from the sideberaings or a kern -- you can eliminate a kern as a possibility by looking at the character panel with the cursor between the quote and the space (I've seen  kerns between the left &amp; right quotes and the space character before, &amp; they're usually a disaster, one way or another).</p>
+      <p>Or turn the kerning off in a paragraph style, &amp; see if the space disappears...</p>
+      <p>Just possibly, some routine is adding a spacing character, but I doubt it. The "info" panel should show that.</p>
+      <p>Open a new file, with no tracking. scaling, or other ID feature, and type a double open quote mark as the first character. Is it away from the margin? If so, it's likely messed up sidebearings. Of course, a font-editing program would let you check for sure, but not everyone has that software.</p>
+      <p>EDIT:</p>
+      <p>After the checks above, I'd get up with whoever you purchased the font from. If it is in the font, it is a serious bug, &amp; any reputable type publisher should fix the problem, free of charge.</p>
+  - id: 532526
+    user: 82305
+    date: 2012-12-01T16:56:00
+    date_raw: 1 December 2012 - 4:56pm
+    votes: 0
+    html: |-
+      <p>That's certainly bizarre.</p>
+      <p>Charles — it's a sidebearing thing, as you can see in the bottom paragraph of the middle column, where a quote starts a line.</p>
+      <p>This is not an ideal solution, but if you need a work-around within InDesign, you can make a GREP style that applies the appropriate negative amount of kerning to any character before an open quote and also the close quote character. Then you just incorporate this as part of your base paragraph style, and the defect is hidden.</p>
+    html_clean: |-
+      <p>That's certainly bizarre.</p>
+      <p>Charles — it's a sidebearing thing, as you can see in the bottom paragraph of the middle column, where a quote starts a line.</p>
+      <p>This is not an ideal solution, but if you need a work-around within InDesign, you can make a GREP style that applies the appropriate negative amount of kerning to any character before an open quote and also the close quote character. Then you just incorporate this as part of your base paragraph style, and the defect is hidden.</p>
+  - id: 532528
+    user: 5094
+    date: 2012-12-01T17:31:00
+    date_raw: 1 December 2012 - 5:31pm
+    votes: 0
+    html: |-
+      <p>I think your kern would disappear when the quote began a line? Or ended one? No character to kern against. I'd imagine other problems, too.</p>
+      <p>BTW, you're trick is the reason I'd start a new document to make sure there isn't something in the file causing this. Probably not, but without a look with a font editor...</p>
+      <p>BTW, a better work around might be to just set two single quotes when you need to set a double...what we always did when we used TeX.</p>
+      <p>If it is sidebearings, I'd complain about a bug to the publisher. And if they didn't respond soon, I'd fix it with a font editor &amp; let 'em sue me. Actually, I believe in the EU that kind of fix is allowed, whatever the license.</p>
+    html_clean: |-
+      <p>I think your kern would disappear when the quote began a line? Or ended one? No character to kern against. I'd imagine other problems, too.</p>
+      <p>BTW, you're trick is the reason I'd start a new document to make sure there isn't something in the file causing this. Probably not, but without a look with a font editor...</p>
+      <p>BTW, a better work around might be to just set two single quotes when you need to set a double...what we always did when we used TeX.</p>
+      <p>If it is sidebearings, I'd complain about a bug to the publisher. And if they didn't respond soon, I'd fix it with a font editor &amp; let 'em sue me. Actually, I believe in the EU that kind of fix is allowed, whatever the license.</p>
+  - id: 532839
+    user: 204445
+    date: 2012-12-03T22:43:00
+    date_raw: 3 December 2012 - 10:43pm
+    votes: 0
+    html: |-
+      <p>Thanks everyone. I think it was a bug in the font itself. Someone from Linotype contacted me, and after re-downloading and re-installing, the problem seemed to be corrected.</p>
+      <p>I was just about ready to do what charles_e said and fix it in Glyph!</p>
+      <p>I appreciate the help — some of your tips will be useful for other situations in the future, too.</p>
+    html_clean: |-
+      <p>Thanks everyone. I think it was a bug in the font itself. Someone from Linotype contacted me, and after re-downloading and re-installing, the problem seemed to be corrected.</p>
+      <p>I was just about ready to do what charles_e said and fix it in Glyph!</p>
+      <p>I appreciate the help — some of your tips will be useful for other situations in the future, too.</p>

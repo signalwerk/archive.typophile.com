@@ -22,7 +22,7 @@ import YAML from "yaml";
 import { archiveDirs, DATA } from "./lib/config.js";
 import { ARCHIVES } from "./lib/archives/index.js";
 import { normaliseHtmlText, parseLegacyThread } from "./lib/legacyThreads.js";
-import { formatCount, writeFileAtomic } from "./lib/util.js";
+import { captureUrlPath, formatCount, writeFileAtomic } from "./lib/util.js";
 
 const NODES_DIR = `${DATA}/parsed/nodes`;
 const INDEX_FILE = `${NODES_DIR}/_index.jsonl`;
@@ -47,42 +47,31 @@ function readLegacyThreads() {
 
   for (const archive of ARCHIVES) {
     const dirs = archiveDirs(archive.id);
-    const root = path.join(dirs.files, "typophile.com/forums/messages");
-    if (!fs.existsSync(root)) continue;
+    if (!fs.existsSync(dirs.downloadState)) continue;
 
-    // Some discussions moved between old forum sections and consequently
-    // survive at more than one forum path. Capture time lets the one-to-one
-    // join retain the last known canonical location.
-    const captureTimes = new Map();
-    if (fs.existsSync(dirs.downloadState)) {
-      for (const line of fs.readFileSync(dirs.downloadState, "utf8").split("\n")) {
-        if (!line.includes("typophile.com/forums/messages/")) continue;
-        try {
-          const entry = JSON.parse(line);
-          if (entry.f && entry.ts) captureTimes.set(entry.f, String(entry.ts));
-        } catch { /* torn state line */ }
-      }
-    }
-
-    for (const forum of fs.readdirSync(root)) {
-      if (!/^\d+$/.test(forum)) continue;
-      const dir = path.join(root, forum);
-      if (!fs.statSync(dir).isDirectory()) continue;
-
-      for (const filename of fs.readdirSync(dir)) {
-        if (!/^\d+(?:__q_.+)?\.html$/i.test(filename)) continue;
-        htmlFiles++;
-        let parsed = null;
-        try {
-          parsed = parseLegacyThread(fs.readFileSync(path.join(dir, filename), "utf8"), forum, filename);
-        } catch { /* an unreadable capture cannot provide a match */ }
-        if (!parsed) continue;
-        parsed.captureTimestamp = captureTimes.get(
-          path.posix.join("typophile.com/forums/messages", forum, filename)
-        ) ?? "";
-        threadCaptures++;
-        if (betterCapture(parsed, threads.get(parsed.key))) threads.set(parsed.key, parsed);
-      }
+    // The timestamp is now a directory above the URL-shaped path, so state is
+    // the authoritative and much cheaper inventory than walking every capture
+    // directory looking for legacy discussions.
+    for (const line of fs.readFileSync(dirs.downloadState, "utf8").split("\n")) {
+      if (!line.includes("typophile.com/forums/messages/")) continue;
+      let entry;
+      try { entry = JSON.parse(line); } catch { continue; }
+      const relative = captureUrlPath(entry.f);
+      const match = /^typophile\.com\/forums\/messages\/(\d+)\/(\d+(?:__q_.+)?)\.html$/i.exec(relative ?? "");
+      if (!match) continue;
+      const forum = match[1];
+      const filename = `${match[2]}.html`;
+      const file = path.join(dirs.files, entry.f);
+      if (!fs.existsSync(file)) continue;
+      htmlFiles++;
+      let parsed = null;
+      try {
+        parsed = parseLegacyThread(fs.readFileSync(file, "utf8"), forum, filename);
+      } catch { /* an unreadable capture cannot provide a match */ }
+      if (!parsed) continue;
+      parsed.captureTimestamp = String(entry.ts ?? "");
+      threadCaptures++;
+      if (betterCapture(parsed, threads.get(parsed.key))) threads.set(parsed.key, parsed);
     }
   }
 

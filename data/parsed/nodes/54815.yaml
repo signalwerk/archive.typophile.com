@@ -1,5 +1,5 @@
 node: 54815
-title: null
+title: Implementing size feature
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/54815.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190311003448/typophile.com/node/54815.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,833 @@ pages:
       digest: MWVZM4BQOIJPIMRQE45ITXALYMEUFY5W
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/54815.html
+      file: data/archives/web.archive.org/files/20190311003448/typophile.com/node/54815.html
 post:
   id: 54815
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 3279
+  date: 2009-02-15T02:33:00
+  date_raw: 15 February 2009 - 2:33am
+  votes: 0
+  html: |-
+    <p>A few years ago I have seen Thomas Phinney's presentation talking about updating Adobe's font library. I have only vague recollection of it, but I remember that he mentioned that all Adobe OTF fonts will include SIZE feature. We (at Typotheque) are in the proces of updating our library, fixing some minor bugs, and making the OTF features better, so I wondered about the use of SIZE feature.</p>
+    <p>What is an advantage of SIZE when a font includes just a single optical master? How is the feature implemented, and what benefit it provides to the users. Is anyone else using it at all?</p>
+    <p>I'd love to hear your comments. Also if Thomas or Miguel is around, can you please explain me how does it work?</p>
+  html_clean: |-
+    <p>A few years ago I have seen Thomas Phinney's presentation talking about updating Adobe's font library. I have only vague recollection of it, but I remember that he mentioned that all Adobe OTF fonts will include SIZE feature. We (at Typotheque) are in the proces of updating our library, fixing some minor bugs, and making the OTF features better, so I wondered about the use of SIZE feature.</p>
+    <p>What is an advantage of SIZE when a font includes just a single optical master? How is the feature implemented, and what benefit it provides to the users. Is anyone else using it at all?</p>
+    <p>I'd love to hear your comments. Also if Thomas or Miguel is around, can you please explain me how does it work?</p>
+comments:
+  - id: 329367
+    user: 1133
+    date: 2009-02-15T12:15:00
+    date_raw: 15 February 2009 - 12:15pm
+    votes: 0
+    html: |-
+      <p>Peter, </p>
+      <p>The "size" feature essentially contains information about the recommended point size for which a certain font should be used. It makes most sense for a family of optical masters but I think it also has some sense for single fonts (as an informative resource) but I don't think anybody ever added the "size" feature for a single-optical-master family. </p>
+      <p>As far as I can tell, XeTeX is the only application that currently supports the "size" feature. To easily install XeTeX on Mac OS X, go to <a href="http://www.tug.org/mactex/morepackages.html">http://www.tug.org/mactex/morepackages.html</a> and install the BasicTeX-2008 package followed by either LaTeXiT or MacTeX-Additions. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>Peter, </p>
+      <p>The "size" feature essentially contains information about the recommended point size for which a certain font should be used. It makes most sense for a family of optical masters but I think it also has some sense for single fonts (as an informative resource) but I don't think anybody ever added the "size" feature for a single-optical-master family. </p>
+      <p>As far as I can tell, XeTeX is the only application that currently supports the "size" feature. To easily install XeTeX on Mac OS X, go to <a href="http://www.tug.org/mactex/morepackages.html" class="link-external">http://www.tug.org/mactex/morepackages.html</a> and install the BasicTeX-2008 package followed by either LaTeXiT or MacTeX-Additions. </p>
+      <p>Adam</p>
+  - id: 330267
+    user: 2969
+    date: 2009-02-19T08:25:00
+    date_raw: 19 February 2009 - 8:25am
+    votes: 0
+    html: |-
+      <p>"What is an advantage of SIZE when a font includes just a single optical master?"<br>
+      The advantage is for the creator to inform the user of the ideal size of a scaleable font in print (or online if people want to double-purpose that bit too). I'm not sure about other programs presenting this to the user, but FontBook 'info' mode shows no 'Size", but 'says' all fonts are 18 pt.;) </p>
+      <p>"How is the feature implemented, and what benefit it provides to the users. Is anyone else using it at all?"<br>
+      A primary vehicle for such urges has become the font name or information from external source(s). </p>
+      <p>There was also once, an opsz table that QuarkExpress of the early 90's used, and that worked on single masters the way I think you imagine this would, collecting the proper size via table from a range of masters and composing with that master/size match. This still requires multiple font names for multiple fonts to perplex menus while distinguishing the sizes, but it would simplify a lot of publishing problems that have not already been solved by templating. </p>
+      <p>In addition, under most circumstances, having a proper c. 1994 size table may also help evolve support for the value of selecting the proper size/whatever from a table pointing to a modern 'ranging master', as all the previous generations of type &amp; typographer solutions did with such hideous difficultly in their own materially complex ways. We here have, only software to deal with. </p>
+      <p>Cheers, and a 2xCheers to those updating their libraries!</p>
+    html_clean: |-
+      <p>"What is an advantage of SIZE when a font includes just a single optical master?"<br>
+      The advantage is for the creator to inform the user of the ideal size of a scaleable font in print (or online if people want to double-purpose that bit too). I'm not sure about other programs presenting this to the user, but FontBook 'info' mode shows no 'Size", but 'says' all fonts are 18 pt.;) </p>
+      <p>"How is the feature implemented, and what benefit it provides to the users. Is anyone else using it at all?"<br>
+      A primary vehicle for such urges has become the font name or information from external source(s). </p>
+      <p>There was also once, an opsz table that QuarkExpress of the early 90's used, and that worked on single masters the way I think you imagine this would, collecting the proper size via table from a range of masters and composing with that master/size match. This still requires multiple font names for multiple fonts to perplex menus while distinguishing the sizes, but it would simplify a lot of publishing problems that have not already been solved by templating. </p>
+      <p>In addition, under most circumstances, having a proper c. 1994 size table may also help evolve support for the value of selecting the proper size/whatever from a table pointing to a modern 'ranging master', as all the previous generations of type &amp; typographer solutions did with such hideous difficultly in their own materially complex ways. We here have, only software to deal with. </p>
+      <p>Cheers, and a 2xCheers to those updating their libraries!</p>
+  - id: 330625
+    user: 909
+    date: 2009-02-20T15:31:00
+    date_raw: 20 February 2009 - 3:31pm
+    votes: 0
+    html: |-
+      <p><cite>I don’t think anybody ever added the “size” feature for a single-optical-master family.</cite></p>
+      <p>All Adobe's fonts were revised to include this, as Peter mentioned in his post.</p>
+      <p>It could simply be informative for the user, but this information could also be used to automatically track the font when used at a significantly larger/smaller size than the design size. Both of these reasons were considered relevant in the Adobe decision.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p><cite>I don’t think anybody ever added the “size” feature for a single-optical-master family.</cite></p>
+      <p>All Adobe's fonts were revised to include this, as Peter mentioned in his post.</p>
+      <p>It could simply be informative for the user, but this information could also be used to automatically track the font when used at a significantly larger/smaller size than the design size. Both of these reasons were considered relevant in the Adobe decision.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 330775
+    user: 29486
+    date: 2009-02-21T12:21:00
+    date_raw: 21 February 2009 - 12:21pm
+    votes: 0
+    html: |-
+      <p>Thomas, do any of Adobe's products support the size tag?</p>
+      <p>—Noam</p>
+    html_clean: |-
+      <p>Thomas, do any of Adobe's products support the size tag?</p>
+      <p>—Noam</p>
+  - id: 330810
+    user: 909
+    date: 2009-02-21T16:47:00
+    date_raw: 21 February 2009 - 4:47pm
+    votes: 0
+    html: |-
+      <p>"LiveCycle," a server-based forms product, does, oddly enough. (Odd that would be the only one.)</p>
+      <p>I certainly lobbied hard for 'size' support several times over the years.</p>
+      <p>T</p>
+    html_clean: |-
+      <p>"LiveCycle," a server-based forms product, does, oddly enough. (Odd that would be the only one.)</p>
+      <p>I certainly lobbied hard for 'size' support several times over the years.</p>
+      <p>T</p>
+  - id: 330818
+    user: 29486
+    date: 2009-02-21T18:13:00
+    date_raw: 21 February 2009 - 6:13pm
+    votes: 0
+    html: |-
+      <p>Well God bless you for your efforts, sir! I'm working on a size-aware font for my MFA thesis, and right now I'm figuring out how it would get implemented in the wild. Plug-ins seem like one way to go.</p>
+      <p>—Noam</p>
+    html_clean: |-
+      <p>Well God bless you for your efforts, sir! I'm working on a size-aware font for my MFA thesis, and right now I'm figuring out how it would get implemented in the wild. Plug-ins seem like one way to go.</p>
+      <p>—Noam</p>
+  - id: 330859
+    user: 21687
+    date: 2009-02-22T04:39:00
+    date_raw: 22 February 2009 - 4:39am
+    votes: 0
+    html: <p><a href="http://scripts.sil.org/xetex">XeTeX</a> supports the size feature.</p>
+    html_clean: <p><a href="http://scripts.sil.org/xetex" class="link-external">XeTeX</a> supports the size feature.</p>
+  - id: 330873
+    user: 1250
+    date: 2009-02-22T09:36:00
+    date_raw: 22 February 2009 - 9:36am
+    votes: 0
+    html: |-
+      <p>When one says "supports the size feature", what exactly happens? Does the app somehow convey to the user what the recommended size is, does it <em>prevent</em> the use of the font at any other size, or what?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>When one says "supports the size feature", what exactly happens? Does the app somehow convey to the user what the recommended size is, does it <em>prevent</em> the use of the font at any other size, or what?</p>
+      <p>hhp</p>
+  - id: 330945
+    user: 909
+    date: 2009-02-22T15:20:00
+    date_raw: 22 February 2009 - 3:20pm
+    votes: 0
+    html: |-
+      <p>I am assuming this is about having a linked group that are "the same font" except for being different optical size variants. LiveCycle will then automatically pick the correct font from that subset. This is the main functionality that was intended for the OpenType feature tag when it was conceived.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>I am assuming this is about having a linked group that are "the same font" except for being different optical size variants. LiveCycle will then automatically pick the correct font from that subset. This is the main functionality that was intended for the OpenType feature tag when it was conceived.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 330955
+    user: 21687
+    date: 2009-02-22T15:37:00
+    date_raw: 22 February 2009 - 3:37pm
+    votes: 0
+    html: <p>Yes, that's the way it works in XeTeX too.</p>
+    html_clean: <p>Yes, that's the way it works in XeTeX too.</p>
+  - id: 331067
+    user: 29486
+    date: 2009-02-23T11:36:00
+    date_raw: 23 February 2009 - 11:36am
+    votes: 0
+    html: |-
+      <p>For me, the holy grail would be having different optical sizes exist within the same font as alternate glyphs, to be intelligently substituted as needed by the software. Far fetched, perhaps, but hey...it's my thesis, I gotta dream big right?</p>
+      <p>—Noam</p>
+    html_clean: |-
+      <p>For me, the holy grail would be having different optical sizes exist within the same font as alternate glyphs, to be intelligently substituted as needed by the software. Far fetched, perhaps, but hey...it's my thesis, I gotta dream big right?</p>
+      <p>—Noam</p>
+  - id: 332942
+    user: 1133
+    date: 2009-03-04T16:14:00
+    date_raw: 4 March 2009 - 4:14pm
+    votes: 0
+    html: |-
+      <p>Noam, </p>
+      <p>Remember that ideally, different optical sizes might have different default linespacing values (looser for smaller sizes, tighter for large sizes). Also, if the stem thickness differs between the optical sizes, it would greatly complicate the hinting. And finally, OpenType fonts are limited to 65,535 glyphs per font — not a problem for European fonts but certainly a problem for Asian fonts. </p>
+      <p>I think that having separate fonts for each optical size is reasonable. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>Noam, </p>
+      <p>Remember that ideally, different optical sizes might have different default linespacing values (looser for smaller sizes, tighter for large sizes). Also, if the stem thickness differs between the optical sizes, it would greatly complicate the hinting. And finally, OpenType fonts are limited to 65,535 glyphs per font — not a problem for European fonts but certainly a problem for Asian fonts. </p>
+      <p>I think that having separate fonts for each optical size is reasonable. </p>
+      <p>Adam</p>
+  - id: 332943
+    user: 1133
+    date: 2009-03-04T16:14:00
+    date_raw: 4 March 2009 - 4:14pm
+    votes: 0
+    html: |-
+      <p>Noam, </p>
+      <p>Remember that ideally, different optical sizes might have different default linespacing values (looser for smaller sizes, tighter for large sizes). Also, if the stem thickness differs between the optical sizes, it would greatly complicate the hinting. And finally, OpenType fonts are limited to 65,535 glyphs per font — not a problem for European fonts but certainly a problem for Asian fonts. </p>
+      <p>I think that having separate fonts for each optical size is reasonable. </p>
+      <p>Adam</p>
+    html_clean: |-
+      <p>Noam, </p>
+      <p>Remember that ideally, different optical sizes might have different default linespacing values (looser for smaller sizes, tighter for large sizes). Also, if the stem thickness differs between the optical sizes, it would greatly complicate the hinting. And finally, OpenType fonts are limited to 65,535 glyphs per font — not a problem for European fonts but certainly a problem for Asian fonts. </p>
+      <p>I think that having separate fonts for each optical size is reasonable. </p>
+      <p>Adam</p>
+  - id: 333258
+    user: 2969
+    date: 2009-03-06T05:36:00
+    date_raw: 6 March 2009 - 5:36am
+    votes: 0
+    html: |-
+      <p>"...having different optical sizes exist within the same font as alternate glyphs, to be intelligently substituted as needed..."<br>
+      This suggestion is part of any good optical scaling system and was suggested as part of the proposal for a size table to add to the OT spec. Although the idea of a master outline embedded in a single master is superior for a million reasons, one still needs to account for glyphs whose contours do not vary to target with a single contour definition. Kanji needs this for smaller sized glyphs that need to lose features, and Latin needs it for smaller fi lig. e.g. that must lose its dot vs. larger sizes where the dot may stay. </p>
+      <p>Twardock: "... it would greatly complicate the hinting"<br>
+      How? How greatly?</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"...having different optical sizes exist within the same font as alternate glyphs, to be intelligently substituted as needed..."<br>
+      This suggestion is part of any good optical scaling system and was suggested as part of the proposal for a size table to add to the OT spec. Although the idea of a master outline embedded in a single master is superior for a million reasons, one still needs to account for glyphs whose contours do not vary to target with a single contour definition. Kanji needs this for smaller sized glyphs that need to lose features, and Latin needs it for smaller fi lig. e.g. that must lose its dot vs. larger sizes where the dot may stay. </p>
+      <p>Twardock: "... it would greatly complicate the hinting"<br>
+      How? How greatly?</p>
+      <p>Cheers!</p>
+  - id: 333312
+    user: 1262
+    date: 2009-03-06T13:07:00
+    date_raw: 6 March 2009 - 1:07pm
+    votes: 0
+    html: |-
+      <p>I presume Adam means that putting all the optically adjusted glyphs within a single font would complicate the hinting by requiring multiple sets of CVT values for the different stem weights and alignment heights. Definitely a complication, although not an insurmountable one. It would be more difficult in terms of FontLab hinting than it would be in VTT.</p>
+      <p>In general, though, I agree with Adam: there's no significant benefit to putting all the size-variant glyphs in a single font vs. having them in multiple fonts, any more than there would be in putting all the weight variant or italic variant forms of a type family in a single font.</p>
+      <p>But I don't think the current ‘size’ GPOS feature implementation is in any way a good one. Basically, it's a hack that uses the GPOS table in a way that is completely unlike every other use of that table, and I believe that is one of the reasons why the feature is not supported outside of, apparently, two applications. It falls outside of the basic OTL processing model, and developers who have taken the time to understand and implement that model simply ignore the ‘size’ feature.</p>
+      <p>I suggested a dedicated SIZE table to Adobe and MS a few years ago, and David drafted a proposal for such a table last year. I suspect there will be some disagreement about the contents of the proposed table and how it should work, but in any case someone needs to turn this proposal into a draft technical spec, because until that happens I don't think we'll get a lot of serious engagement with the idea from MS and Adobe.</p>
+    html_clean: |-
+      <p>I presume Adam means that putting all the optically adjusted glyphs within a single font would complicate the hinting by requiring multiple sets of CVT values for the different stem weights and alignment heights. Definitely a complication, although not an insurmountable one. It would be more difficult in terms of FontLab hinting than it would be in VTT.</p>
+      <p>In general, though, I agree with Adam: there's no significant benefit to putting all the size-variant glyphs in a single font vs. having them in multiple fonts, any more than there would be in putting all the weight variant or italic variant forms of a type family in a single font.</p>
+      <p>But I don't think the current ‘size’ GPOS feature implementation is in any way a good one. Basically, it's a hack that uses the GPOS table in a way that is completely unlike every other use of that table, and I believe that is one of the reasons why the feature is not supported outside of, apparently, two applications. It falls outside of the basic OTL processing model, and developers who have taken the time to understand and implement that model simply ignore the ‘size’ feature.</p>
+      <p>I suggested a dedicated SIZE table to Adobe and MS a few years ago, and David drafted a proposal for such a table last year. I suspect there will be some disagreement about the contents of the proposed table and how it should work, but in any case someone needs to turn this proposal into a draft technical spec, because until that happens I don't think we'll get a lot of serious engagement with the idea from MS and Adobe.</p>
+  - id: 333333
+    user: 1250
+    date: 2009-03-06T14:26:00
+    date_raw: 6 March 2009 - 2:26pm
+    votes: 0
+    html: |-
+      <p>&gt; there’s no significant benefit</p>
+      <p>?<br>
+      Convenience (not having to switch fonts manually) is always<br>
+      a major benefit. Just like how OT makes it so much nicer when<br>
+      using formerly-so-called "expert" characters.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; there’s no significant benefit</p>
+      <p>?<br>
+      Convenience (not having to switch fonts manually) is always<br>
+      a major benefit. Just like how OT makes it so much nicer when<br>
+      using formerly-so-called "expert" characters.</p>
+      <p>hhp</p>
+  - id: 333379
+    user: 5094
+    date: 2009-03-06T19:52:00
+    date_raw: 6 March 2009 - 7:52pm
+    votes: 0
+    html: <p>Unless you're going to have a different master for every size, when to change sizes is another matter best left up to the user.</p>
+    html_clean: <p>Unless you're going to have a different master for every size, when to change sizes is another matter best left up to the user.</p>
+  - id: 333381
+    user: 1250
+    date: 2009-03-06T20:19:00
+    date_raw: 6 March 2009 - 8:19pm
+    votes: 0
+    html: |-
+      <p>The user should certainly have the choice to use a font at<br>
+      a "non-recommended" size, but I think the software can and<br>
+      should make the "default" selection. Remember that: the<br>
+      software can be smart enough to choose the closest best size;<br>
+      and the size recommendation can (and almost always should)<br>
+      be a range, not a single size.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>The user should certainly have the choice to use a font at<br>
+      a "non-recommended" size, but I think the software can and<br>
+      should make the "default" selection. Remember that: the<br>
+      software can be smart enough to choose the closest best size;<br>
+      and the size recommendation can (and almost always should)<br>
+      be a range, not a single size.</p>
+      <p>hhp</p>
+  - id: 333387
+    user: 2021
+    date: 2009-03-06T22:19:00
+    date_raw: 6 March 2009 - 10:19pm
+    votes: 0
+    html: |-
+      <p>From an economic point of view, it would make more sense to have the optical sizes in separate fonts. After all, it takes a lot of time to adapt a normal font to either headline or micro variants, and not every user needs them all. So if a foundry wants to recover its investment when all the variants are in a single font, that will make for a very expensive font, and many customers ending up buying variants they might not really need. Or deciding not to buy at all.</p>
+      <p>**</p>
+      <p>The foundry should be able to put some information in the fonts that determines the optimum <strong>relative</strong> size at which to use them.</p>
+      <p>For instance, if I design a Didone face where the hairline/serif thickness of the "micro" or "footnote" version at 7 pt is the same as that of the "normal text" size at 10 pt, that ratio of 70% should be embedable in the fonts and recognizable by layout applications. It's not quite the same as specifying an optimum size for each "optical" variant.</p>
+      <p>This quality of size relationship is also fundamental in monoline typefaces such as Luc de Groots's Taz and my Bodoni Egyptian, where the line thickness of different weights is calculated to equalize when they are set at specific size ratios.</p>
+    html_clean: |-
+      <p>From an economic point of view, it would make more sense to have the optical sizes in separate fonts. After all, it takes a lot of time to adapt a normal font to either headline or micro variants, and not every user needs them all. So if a foundry wants to recover its investment when all the variants are in a single font, that will make for a very expensive font, and many customers ending up buying variants they might not really need. Or deciding not to buy at all.</p>
+      <p>**</p>
+      <p>The foundry should be able to put some information in the fonts that determines the optimum <strong>relative</strong> size at which to use them.</p>
+      <p>For instance, if I design a Didone face where the hairline/serif thickness of the "micro" or "footnote" version at 7 pt is the same as that of the "normal text" size at 10 pt, that ratio of 70% should be embedable in the fonts and recognizable by layout applications. It's not quite the same as specifying an optimum size for each "optical" variant.</p>
+      <p>This quality of size relationship is also fundamental in monoline typefaces such as Luc de Groots's Taz and my Bodoni Egyptian, where the line thickness of different weights is calculated to equalize when they are set at specific size ratios.</p>
+  - id: 333399
+    user: 4406
+    date: 2009-03-07T00:47:00
+    date_raw: 7 March 2009 - 12:47am
+    votes: 0
+    html: |-
+      <p>I like the idea of relative sizes, but I don't think it scales linearly as you suggest. There's not that much difference between 36pt and 72pt metal, but the difference between 6pt and 12pt is profound. (I have a bunch of ATF cutting slips and know how to read them, if anybody needs convincing).</p>
+      <p>Of course, one of the goals of multiple masters, oh so many years ago, was to make the production of different size variants happen dynamically, and I think there was some support for it in a few apps, but it also never really got off the ground.</p>
+    html_clean: |-
+      <p>I like the idea of relative sizes, but I don't think it scales linearly as you suggest. There's not that much difference between 36pt and 72pt metal, but the difference between 6pt and 12pt is profound. (I have a bunch of ATF cutting slips and know how to read them, if anybody needs convincing).</p>
+      <p>Of course, one of the goals of multiple masters, oh so many years ago, was to make the production of different size variants happen dynamically, and I think there was some support for it in a few apps, but it also never really got off the ground.</p>
+  - id: 333422
+    user: 2969
+    date: 2009-03-07T06:48:00
+    date_raw: 7 March 2009 - 6:48am
+    votes: 0
+    html: |-
+      <p>"From an economic point of view, it would make more sense to have the optical sizes in separate fonts."<br>
+      From an economic point of view, it makes vastly more sense to have all the optical sizes in a single variable master, and be able to deliver it!</p>
+      <p>"There’s not that much difference between 36pt and 72pt metal... "<br>
+      This is well known. The variations required for optical sizing are increasingly non-linear to the bottom, which is why Multiple Masters could not die early enough. </p>
+      <p>"Remember that: the software can be smart enough... "<br>
+      It's all academic because my inventory of pro bono draft technical specs for multibillion dollar companies who can't get beyond their 'embrace and pollute' attitude towards standards — is exhausted. Which reminds me! where the hell is Hithcock's 'white' paper on TT instructions ignored and added by cleartype? ISO is not pleased. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"From an economic point of view, it would make more sense to have the optical sizes in separate fonts."<br>
+      From an economic point of view, it makes vastly more sense to have all the optical sizes in a single variable master, and be able to deliver it!</p>
+      <p>"There’s not that much difference between 36pt and 72pt metal... "<br>
+      This is well known. The variations required for optical sizing are increasingly non-linear to the bottom, which is why Multiple Masters could not die early enough. </p>
+      <p>"Remember that: the software can be smart enough... "<br>
+      It's all academic because my inventory of pro bono draft technical specs for multibillion dollar companies who can't get beyond their 'embrace and pollute' attitude towards standards — is exhausted. Which reminds me! where the hell is Hithcock's 'white' paper on TT instructions ignored and added by cleartype? ISO is not pleased. </p>
+      <p>Cheers!</p>
+  - id: 333446
+    user: 2021
+    date: 2009-03-07T13:11:00
+    date_raw: 7 March 2009 - 1:11pm
+    votes: 0
+    html: |-
+      <p><em>From an economic point of view, it makes vastly more sense to have all the optical sizes in a single variable master, and be able to deliver it!</em></p>
+      <p>Well, it depends whose economy you're talking about. </p>
+      <p><em>the difference between 6pt and 12pt is profound.</em></p>
+      <p>Not at all.<br>
+      If the stroke thickness of Font A at 24 pt is the same as that of Font B at 12 pt, then the thicknesses will be the same when A is at 12 pt and B at 6 pt.</p>
+    html_clean: |-
+      <p><em>From an economic point of view, it makes vastly more sense to have all the optical sizes in a single variable master, and be able to deliver it!</em></p>
+      <p>Well, it depends whose economy you're talking about. </p>
+      <p><em>the difference between 6pt and 12pt is profound.</em></p>
+      <p>Not at all.<br>
+      If the stroke thickness of Font A at 24 pt is the same as that of Font B at 12 pt, then the thicknesses will be the same when A is at 12 pt and B at 6 pt.</p>
+  - id: 333448
+    user: 1250
+    date: 2009-03-07T13:50:00
+    date_raw: 7 March 2009 - 1:50pm
+    votes: 0
+    html: |-
+      <p>No Nick, it's not linear (ideally). Especially not above 12 (too big to read immersively) and below 9 (too small to read immersively). Outside the immersive reading range the performance requirements are different.</p>
+      <p>&gt; which is why Multiple Masters could not die early enough.</p>
+      <p>I'm pretty sure I remember David Lemon once stating that MM was not [necessarily] linear*; at the very least it was multi-linear (meaning a bunch of small lines that simulate a curve). The limitations of [retail] font design software is a different matter.</p>
+      <p>* In fact the MM format even supported the "non-continuous" switching of glyphs based on size (think of the "Q" in Caslon's italics).</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>No Nick, it's not linear (ideally). Especially not above 12 (too big to read immersively) and below 9 (too small to read immersively). Outside the immersive reading range the performance requirements are different.</p>
+      <p>&gt; which is why Multiple Masters could not die early enough.</p>
+      <p>I'm pretty sure I remember David Lemon once stating that MM was not [necessarily] linear*; at the very least it was multi-linear (meaning a bunch of small lines that simulate a curve). The limitations of [retail] font design software is a different matter.</p>
+      <p>* In fact the MM format even supported the "non-continuous" switching of glyphs based on size (think of the "Q" in Caslon's italics).</p>
+      <p>hhp</p>
+  - id: 333450
+    user: 4406
+    date: 2009-03-07T13:57:00
+    date_raw: 7 March 2009 - 1:57pm
+    votes: 0
+    html: |-
+      <p>Ooh, the fight is on!</p>
+      <p>@dberlow: <em>The variations required for optical sizing are increasingly non-linear to the bottom, which is why Multiple Masters could not die early enough.</em></p>
+      <p>Nope. The Multiple Master format definitely has support for nonlinear parameters, by means of the BlendDesignMap feature. Here's the relevant figure from Adobe Tech Note 5091 (which I've been into recently because I'm citing another passage for my thesis):</p>
+      <p><img src="/sites/default/files/old-images/blenddesignmap_3793.png"></p>
+      <p>I'm not sure how many fonts used this feature correctly, but then again, there were precious few Multiple Master fonts that even tried to do an optical scaling axis. There's Minion and Adobe Jenson. Any others? [Edit: according to <a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=328600">Adobe</a>, there's also Sanvito.]</p>
+      <p>@Nick: <em>If the stroke thickness of Font A at 24 pt is the same as that of Font B at 12 pt, then the thicknesses will be the same when A is at 12 pt and B at 6 pt.</em></p>
+      <p>That is absolutely not true for ATF metal, which I've studied extensively. I can haul out scans, curves, and decoded cutting slips, but it would take me some time, and I'm not sure how easily convinced you'd be by such gearhead arguments anyway.</p>
+    html_clean: |-
+      <p>Ooh, the fight is on!</p>
+      <p>@dberlow: <em>The variations required for optical sizing are increasingly non-linear to the bottom, which is why Multiple Masters could not die early enough.</em></p>
+      <p>Nope. The Multiple Master format definitely has support for nonlinear parameters, by means of the BlendDesignMap feature. Here's the relevant figure from Adobe Tech Note 5091 (which I've been into recently because I'm citing another passage for my thesis):</p>
+      <p><img src="/sites/default/files/old-images/blenddesignmap_3793.png"></p>
+      <p>I'm not sure how many fonts used this feature correctly, but then again, there were precious few Multiple Master fonts that even tried to do an optical scaling axis. There's Minion and Adobe Jenson. Any others? [Edit: according to <a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=328600" class="link-external">Adobe</a>, there's also Sanvito.]</p>
+      <p>@Nick: <em>If the stroke thickness of Font A at 24 pt is the same as that of Font B at 12 pt, then the thicknesses will be the same when A is at 12 pt and B at 6 pt.</em></p>
+      <p>That is absolutely not true for ATF metal, which I've studied extensively. I can haul out scans, curves, and decoded cutting slips, but it would take me some time, and I'm not sure how easily convinced you'd be by such gearhead arguments anyway.</p>
+  - id: 333451
+    user: 1250
+    date: 2009-03-07T14:32:00
+    date_raw: 7 March 2009 - 2:32pm
+    votes: 0
+    html: |-
+      <p>Thank you Raph.</p>
+      <p>Some people need the numbers.<br>
+      Some people are afraid of them.<br>
+      And some people know when to hold 'em and know when to fold 'em.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Thank you Raph.</p>
+      <p>Some people need the numbers.<br>
+      Some people are afraid of them.<br>
+      And some people know when to hold 'em and know when to fold 'em.</p>
+      <p>hhp</p>
+  - id: 333461
+    user: 3135
+    date: 2009-03-07T15:50:00
+    date_raw: 7 March 2009 - 3:50pm
+    votes: 0
+    html: |-
+      <p>Tracking (the bane of David's existence :-)</p>
+      <p>ChrisL</p>
+    html_clean: |-
+      <p>Tracking (the bane of David's existence :-)</p>
+      <p>ChrisL</p>
+  - id: 333475
+    user: 2021
+    date: 2009-03-07T17:37:00
+    date_raw: 7 March 2009 - 5:37pm
+    votes: 0
+    html: |-
+      <p>Raph, Hrant, here's what I mean.</p>
+      <p><img src="/sites/default/files/old-images/Ns_5827.jpg"></p>
+      <p>In the first example (Scotch Modern), I've designed the serif thicknesses and hairlines of the Normal and Micro to match when the first is at 10 pt and the second at 7 pt. As long as this 10:7 ratio is maintained, the fine tolerances match.</p>
+      <p>In the second example (Bodoni Egyptian), similar thing, although these are not optical sizes per se, but different weights of the face. </p>
+      <p>Of course, there is the issue of press gain and hinting, and adjustments to the letter proportions, but the idea is to keep the threshhold of the face's finesse constant between optical sizes.</p>
+    html_clean: |-
+      <p>Raph, Hrant, here's what I mean.</p>
+      <p><img src="/sites/default/files/old-images/Ns_5827.jpg"></p>
+      <p>In the first example (Scotch Modern), I've designed the serif thicknesses and hairlines of the Normal and Micro to match when the first is at 10 pt and the second at 7 pt. As long as this 10:7 ratio is maintained, the fine tolerances match.</p>
+      <p>In the second example (Bodoni Egyptian), similar thing, although these are not optical sizes per se, but different weights of the face. </p>
+      <p>Of course, there is the issue of press gain and hinting, and adjustments to the letter proportions, but the idea is to keep the threshhold of the face's finesse constant between optical sizes.</p>
+  - id: 333494
+    user: 1250
+    date: 2009-03-07T21:24:00
+    date_raw: 7 March 2009 - 9:24pm
+    votes: 0
+    html: |-
+      <p>&gt; the idea is to keep the threshhold of the<br>
+      &gt; face’s finesse constant between optical sizes.</p>
+      <p>Well, no.<br>
+      You need more <em>overall</em> optical compensation, the lower you go.</p>
+      <p>&gt; these are not optical sizes per se, but different weights of the face. </p>
+      <p>Those are not optical sizes, period.<br>
+      Weight change is only one of the many factors.<br>
+      The other big ones are vertical proportions, spacing and width.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; the idea is to keep the threshhold of the<br>
+      &gt; face’s finesse constant between optical sizes.</p>
+      <p>Well, no.<br>
+      You need more <em>overall</em> optical compensation, the lower you go.</p>
+      <p>&gt; these are not optical sizes per se, but different weights of the face. </p>
+      <p>Those are not optical sizes, period.<br>
+      Weight change is only one of the many factors.<br>
+      The other big ones are vertical proportions, spacing and width.</p>
+      <p>hhp</p>
+  - id: 333498
+    user: 1262
+    date: 2009-03-07T21:40:00
+    date_raw: 7 March 2009 - 9:40pm
+    votes: 0
+    html: |-
+      <p>Hrant: <em>Convenience (not having to switch fonts manually) is always a major benefit.</em></p>
+      <p>I'm presupposing an automated mechanism to select the desirable glyphs, whether at the glyph level from within a single font or at the family level from among numerous fonts. Wherever the size-specific glyphs are stored, there needs to be a) a mechanism to automatically display them at appropriate sizes and b) a mechanism to override that automatic display.</p>
+      <p>So given these mechanisms, there is no significant benefit to putting all the size variants in a single font, and Adam has identified a number of downsides to that approach.</p>
+    html_clean: |-
+      <p>Hrant: <em>Convenience (not having to switch fonts manually) is always a major benefit.</em></p>
+      <p>I'm presupposing an automated mechanism to select the desirable glyphs, whether at the glyph level from within a single font or at the family level from among numerous fonts. Wherever the size-specific glyphs are stored, there needs to be a) a mechanism to automatically display them at appropriate sizes and b) a mechanism to override that automatic display.</p>
+      <p>So given these mechanisms, there is no significant benefit to putting all the size variants in a single font, and Adam has identified a number of downsides to that approach.</p>
+  - id: 333528
+    user: 2969
+    date: 2009-03-08T07:03:00
+    date_raw: 8 March 2009 - 7:03am
+    votes: 0
+    html: |-
+      <p>"Nope. The Multiple Master format definitely has support for nonlinear parameters, by means of the BlendDesignMap feature."<br>
+      Yep. The Multiple Master format definitely has support for piecewise nonlinear intermediates, but not enough intermediates are allowed to approximate the bottom end of all optically mastered designs, just the simpler ones.  But I ain't a gonna fight about it until you've taken a run at it with MM tech. ;)</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>"Nope. The Multiple Master format definitely has support for nonlinear parameters, by means of the BlendDesignMap feature."<br>
+      Yep. The Multiple Master format definitely has support for piecewise nonlinear intermediates, but not enough intermediates are allowed to approximate the bottom end of all optically mastered designs, just the simpler ones.  But I ain't a gonna fight about it until you've taken a run at it with MM tech. ;)</p>
+      <p>Cheers!</p>
+  - id: 333595
+    user: 2021
+    date: 2009-03-08T18:30:00
+    date_raw: 8 March 2009 - 6:30pm
+    votes: 0
+    html: |-
+      <p>@Hrant: <em>You need more overall optical compensation, the lower you go.</em></p>
+      <p>So how do you handle the relative thickness, at different optical sizes, of serifs and hairlines in a didone face, if not by equalization?</p>
+      <p>@Hrant: <em>Those are not optical sizes, period.</em></p>
+      <p>As I said, not per se. But a typographer may combine different sizes of different weights of a monoline face to homogenize the stroke weight. This effect may also include line rules.</p>
+    html_clean: |-
+      <p>@Hrant: <em>You need more overall optical compensation, the lower you go.</em></p>
+      <p>So how do you handle the relative thickness, at different optical sizes, of serifs and hairlines in a didone face, if not by equalization?</p>
+      <p>@Hrant: <em>Those are not optical sizes, period.</em></p>
+      <p>As I said, not per se. But a typographer may combine different sizes of different weights of a monoline face to homogenize the stroke weight. This effect may also include line rules.</p>
+  - id: 333598
+    user: 2021
+    date: 2009-03-08T18:46:00
+    date_raw: 8 March 2009 - 6:46pm
+    votes: 0
+    html: |-
+      <p>Raph: <em>That is absolutely not true for ATF metal,</em></p>
+      <p>Of course not, because you can only set a metal font at one size.</p>
+      <p>We're talking about what happens when digital fonts are not set at the optimal optical size.<br>
+      Consider, if font A, optimized for 10 pt, is used in a layout with font B, optimized for 7 pt, and font A is changed to 11 pt? what should happen to font B?</p>
+      <p>1. Size increased to 7.7 pt<br>
+      2. Size unchanged<br>
+      3. Size unchanged and made slightly heavier</p>
+    html_clean: |-
+      <p>Raph: <em>That is absolutely not true for ATF metal,</em></p>
+      <p>Of course not, because you can only set a metal font at one size.</p>
+      <p>We're talking about what happens when digital fonts are not set at the optimal optical size.<br>
+      Consider, if font A, optimized for 10 pt, is used in a layout with font B, optimized for 7 pt, and font A is changed to 11 pt? what should happen to font B?</p>
+      <p>1. Size increased to 7.7 pt<br>
+      2. Size unchanged<br>
+      3. Size unchanged and made slightly heavier</p>
+  - id: 333601
+    user: 1250
+    date: 2009-03-08T18:57:00
+    date_raw: 8 March 2009 - 6:57pm
+    votes: 0
+    html: |-
+      <p>&gt; a typographer may combine different sizes of different<br>
+      &gt; weights of a monoline face to homogenize the stroke weight.</p>
+      <p>Sure. Like that survivalist on TV who<br>
+      eats mildly poisonous spiders for lunch.</p>
+      <p>&gt; you can only set a metal font at one size.</p>
+      <p>That's entirely beside the point.</p>
+      <p>&gt; We’re talking about what happens when digital<br>
+      &gt; fonts are not set at the optimal optical size.</p>
+      <p>No, we <em>were</em> talking about the [non-]linearity of features relative to scale.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; a typographer may combine different sizes of different<br>
+      &gt; weights of a monoline face to homogenize the stroke weight.</p>
+      <p>Sure. Like that survivalist on TV who<br>
+      eats mildly poisonous spiders for lunch.</p>
+      <p>&gt; you can only set a metal font at one size.</p>
+      <p>That's entirely beside the point.</p>
+      <p>&gt; We’re talking about what happens when digital<br>
+      &gt; fonts are not set at the optimal optical size.</p>
+      <p>No, we <em>were</em> talking about the [non-]linearity of features relative to scale.</p>
+      <p>hhp</p>
+  - id: 333607
+    user: 4406
+    date: 2009-03-08T20:16:00
+    date_raw: 8 March 2009 - 8:16pm
+    votes: 0
+    html: |-
+      <p>@Nick: I see what your point, and I think it's valid in some design settings, but not for optical scaling in general. I stand by my assertion - the amount of adjustment (and, as Hrant points out, includes spacing, width, and vertical proportions in addition to stroke thickness) is considerably more between, say 6 and 12 points, as it is between 36 and 72.</p>
+      <p>@dberlow: Okay, that's a different argument. There's lots not to like about Multiple Masters, and the need for an exponential increase in number of masters is one of them, but again, I stand my assertion that the format is <em>capable</em> of nonlinearities, both in mapping the amount of adjustment nonlinearly by point size (which is what the figure refers to) and in allowing intermediates (which is what you seem to be mostly talking about).</p>
+      <p>Would anyone truly say that Minion's optical scaling is weak because of an inadequate number of intermediate masters? I think that if your goal was to precisely replicate, say, an existing optically scaled metal face, there would be problems, but if you do it in a way that's natural for the format, I think MM is adequate.</p>
+      <p>To make that argument a little more concrete, in ATF scaling, the vertical proportions are identical from 10 points up, and the 8pt and 6pt sizes have shorter descenders. Getting <em>exactly</em> that effect in MM is not easy. At the very least, you'd need to make an intermediate at the 10pt size. But I don't think there's anything wrong with just nonlinearly interpolating, so that (using the curve above), the 12pt vertical proportions would be about halfway between 6 and 72pt. I don't think there's anything wrong with that - a reasonable approach that conversely would be very difficult to achieve in metal.</p>
+    html_clean: |-
+      <p>@Nick: I see what your point, and I think it's valid in some design settings, but not for optical scaling in general. I stand by my assertion - the amount of adjustment (and, as Hrant points out, includes spacing, width, and vertical proportions in addition to stroke thickness) is considerably more between, say 6 and 12 points, as it is between 36 and 72.</p>
+      <p>@dberlow: Okay, that's a different argument. There's lots not to like about Multiple Masters, and the need for an exponential increase in number of masters is one of them, but again, I stand my assertion that the format is <em>capable</em> of nonlinearities, both in mapping the amount of adjustment nonlinearly by point size (which is what the figure refers to) and in allowing intermediates (which is what you seem to be mostly talking about).</p>
+      <p>Would anyone truly say that Minion's optical scaling is weak because of an inadequate number of intermediate masters? I think that if your goal was to precisely replicate, say, an existing optically scaled metal face, there would be problems, but if you do it in a way that's natural for the format, I think MM is adequate.</p>
+      <p>To make that argument a little more concrete, in ATF scaling, the vertical proportions are identical from 10 points up, and the 8pt and 6pt sizes have shorter descenders. Getting <em>exactly</em> that effect in MM is not easy. At the very least, you'd need to make an intermediate at the 10pt size. But I don't think there's anything wrong with just nonlinearly interpolating, so that (using the curve above), the 12pt vertical proportions would be about halfway between 6 and 72pt. I don't think there's anything wrong with that - a reasonable approach that conversely would be very difficult to achieve in metal.</p>
+  - id: 333618
+    user: 2021
+    date: 2009-03-08T23:04:00
+    date_raw: 8 March 2009 - 11:04pm
+    votes: 0
+    html: '<p>@Hrant, Raph: If two different optical sizes of the same type are scaled together, the relationship between them is linear. Think of it as a single "Caps with Small Caps" font at different sizes.</p>'
+    html_clean: '<p>@Hrant, Raph: If two different optical sizes of the same type are scaled together, the relationship between them is linear. Think of it as a single "Caps with Small Caps" font at different sizes.</p>'
+  - id: 333623
+    user: 1250
+    date: 2009-03-08T23:33:00
+    date_raw: 8 March 2009 - 11:33pm
+    votes: 0
+    html: |-
+      <p>&gt; If two different optical sizes of the same type are<br>
+      &gt; scaled together, the relationship between them is linear.</p>
+      <p>Of course, but how is this relationship useful? It's not something that plays any role in good craft. At least not at the level of type design itself. And even in the <em>use</em> of type, since we hopefully agree that using a given size master at a different size is non-ideal, what's the point?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; If two different optical sizes of the same type are<br>
+      &gt; scaled together, the relationship between them is linear.</p>
+      <p>Of course, but how is this relationship useful? It's not something that plays any role in good craft. At least not at the level of type design itself. And even in the <em>use</em> of type, since we hopefully agree that using a given size master at a different size is non-ideal, what's the point?</p>
+      <p>hhp</p>
+  - id: 333626
+    user: 1262
+    date: 2009-03-08T23:53:00
+    date_raw: 8 March 2009 - 11:53pm
+    votes: 0
+    html: |-
+      <p>Hrant: <em>...we hopefully agree that using a given size master at a different size is non-ideal...</em></p>
+      <p>That is certainly the case when types designed for larger sizes are used at small sizes, because the lightness of the strokes, the tight spacing, and the small counters deleteriously affect readability.<br>
+      It isn't necessarily the case, though, when types for small size are used at larger sizes, because in that case the chunkiness of the small size types become a stylistic feature of the typography.</p>
+      <p>This is one of the things that is often overlooked in discussions of size-specific type: the methods applied to making type work at small sizes are essentially functionally, while the conventions applied to making type for large sizes are essentially aesthetic. And note that I refer to the one as methods and to the other as conventions. There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights: these are conventions derived from cultural notions of elegance. So I think the question of the linearity or non-linearity of size-specific type depends very much on what happens on either side of the point at which the functional and the aesthetic meet and, indeed, on what happens at that point.</p>
+    html_clean: |-
+      <p>Hrant: <em>...we hopefully agree that using a given size master at a different size is non-ideal...</em></p>
+      <p>That is certainly the case when types designed for larger sizes are used at small sizes, because the lightness of the strokes, the tight spacing, and the small counters deleteriously affect readability.<br>
+      It isn't necessarily the case, though, when types for small size are used at larger sizes, because in that case the chunkiness of the small size types become a stylistic feature of the typography.</p>
+      <p>This is one of the things that is often overlooked in discussions of size-specific type: the methods applied to making type work at small sizes are essentially functionally, while the conventions applied to making type for large sizes are essentially aesthetic. And note that I refer to the one as methods and to the other as conventions. There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights: these are conventions derived from cultural notions of elegance. So I think the question of the linearity or non-linearity of size-specific type depends very much on what happens on either side of the point at which the functional and the aesthetic meet and, indeed, on what happens at that point.</p>
+  - id: 333627
+    user: 1250
+    date: 2009-03-09T00:12:00
+    date_raw: 9 March 2009 - 12:12am
+    votes: 0
+    html: |-
+      <p>&gt; the chunkiness of the small size types<br>
+      &gt; become a stylistic feature of the typography.</p>
+      <p>Indeed, and sometimes features of small type are "extracted" and used in type meant only for larger sizes (think Amplitude, and Bradlo earlier). On the other hand, such "chunkiness" has tellingly never really been a mainstream aesthetic preference, and one could claim that the human consciousness leans towards attributes (such a geometric congruence) that are essentially display-centric and anti-text. To put it another way, taste is admittedly variable (individually and socially) but still falls within some bounds set by the primal human psyche. This is what leads me to believe that a text font <em>must</em> have a certain ugliness (visible only when set large) to really be optimal.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; the chunkiness of the small size types<br>
+      &gt; become a stylistic feature of the typography.</p>
+      <p>Indeed, and sometimes features of small type are "extracted" and used in type meant only for larger sizes (think Amplitude, and Bradlo earlier). On the other hand, such "chunkiness" has tellingly never really been a mainstream aesthetic preference, and one could claim that the human consciousness leans towards attributes (such a geometric congruence) that are essentially display-centric and anti-text. To put it another way, taste is admittedly variable (individually and socially) but still falls within some bounds set by the primal human psyche. This is what leads me to believe that a text font <em>must</em> have a certain ugliness (visible only when set large) to really be optimal.</p>
+      <p>hhp</p>
+  - id: 333631
+    user: 2021
+    date: 2009-03-09T01:51:00
+    date_raw: 9 March 2009 - 1:51am
+    votes: 0
+    html: |-
+      <p><em>...how is this relationship useful? It’s not something that plays any role in good craft...</em></p>
+      <p>It's important to work at the optimal optical sizes when combining optical weights.<br>
+      For instance, if two fonts are designed to work optimally at 9 pt and 6 pt, if they are combined at 10 and 6, that won't look as good as 10 and 6.7. A deviation of one point from optimal size is not of itself particularly significant, but is much more noticeable in combination.</p>
+    html_clean: |-
+      <p><em>...how is this relationship useful? It’s not something that plays any role in good craft...</em></p>
+      <p>It's important to work at the optimal optical sizes when combining optical weights.<br>
+      For instance, if two fonts are designed to work optimally at 9 pt and 6 pt, if they are combined at 10 and 6, that won't look as good as 10 and 6.7. A deviation of one point from optimal size is not of itself particularly significant, but is much more noticeable in combination.</p>
+  - id: 333646
+    user: 2969
+    date: 2009-03-09T06:50:00
+    date_raw: 9 March 2009 - 6:50am
+    votes: 0
+    html: |-
+      <p>John: "There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights... "<br>
+      There is. Having evenly balanced white space in and around the characters is functional. Larger external spaces of a small master size can be diminished by tracking, but the internal spaces cannot be regulated for the external spaces from a small master at large sizes. Now you will tell me how much you like Verdana at 72 point. In serif faces, the large clunky serifs of small sizes used large are a distracting chord against the tiny serifs of the smaller sizes. Now you will tell me how much you like Georgia at 72 point.</p>
+      <p>Ralph: "Would anyone truly say that Minion’s optical scaling is weak because of an inadequate number of intermediate masters?"<br>
+      Minion, and most other Adobe MM do not push very far in the normal axes of width and weight, so no, Minion is not weak. But when I talk about the suitability of a technology for a purpose, I always think broadly in terms of scripts and styles and not specifically to foundries or families that avoid stylistic extrema.  </p>
+      <p>Cheers</p>
+    html_clean: |-
+      <p>John: "There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights... "<br>
+      There is. Having evenly balanced white space in and around the characters is functional. Larger external spaces of a small master size can be diminished by tracking, but the internal spaces cannot be regulated for the external spaces from a small master at large sizes. Now you will tell me how much you like Verdana at 72 point. In serif faces, the large clunky serifs of small sizes used large are a distracting chord against the tiny serifs of the smaller sizes. Now you will tell me how much you like Georgia at 72 point.</p>
+      <p>Ralph: "Would anyone truly say that Minion’s optical scaling is weak because of an inadequate number of intermediate masters?"<br>
+      Minion, and most other Adobe MM do not push very far in the normal axes of width and weight, so no, Minion is not weak. But when I talk about the suitability of a technology for a purpose, I always think broadly in terms of scripts and styles and not specifically to foundries or families that avoid stylistic extrema.  </p>
+      <p>Cheers</p>
+  - id: 333673
+    user: 8664
+    date: 2009-03-09T09:55:00
+    date_raw: 9 March 2009 - 9:55am
+    votes: 0
+    html: |-
+      <p><cite>Minion, and most other Adobe MM do not push very far in the normal axes of width and weight, so no, Minion is not weak. But when I talk about the suitability of a technology for a purpose, I always think broadly in terms of scripts and styles and not specifically to foundries or families that avoid stylistic extrema.</cite></p>
+      <p>An interesting point which applies to other aspects of font technology too.<br>
+      For example, OT layout tables are designed to address so-called "complex scripts" but fail to do so in practice as soon as things are getting as complex as the term promises. Ben Kiel's recent presentation at <a href="http://robofab.com/robothon/index.html" target="_blank">RoboThon</a> (the best conference I attended so far) illustrated that even "simple" things like kerning can easily get one in trouble. One limitation is 16-bit offset values in GSUB and GPOS. The more fundamental limitation is in the atomistic approach that these tables follow: defining layout behavior piece by piece for every possible specific context is ok for substituting an initial form here or there, including for pseudo-random effects, but better do not try to address a huge number of interacting contexts ...</p>
+      <p>Admittedly off-topic as regards the size feature. Regard as just another example for the same phenomenon: simplifying the layout behavior is making a design compromise, an attempt to "avoid stylistic extrema".<br>
+      (How technology and tools influence design bugs me a lot recently.)</p>
+    html_clean: |-
+      <p><cite>Minion, and most other Adobe MM do not push very far in the normal axes of width and weight, so no, Minion is not weak. But when I talk about the suitability of a technology for a purpose, I always think broadly in terms of scripts and styles and not specifically to foundries or families that avoid stylistic extrema.</cite></p>
+      <p>An interesting point which applies to other aspects of font technology too.<br>
+      For example, OT layout tables are designed to address so-called "complex scripts" but fail to do so in practice as soon as things are getting as complex as the term promises. Ben Kiel's recent presentation at <a href="http://robofab.com/robothon/index.html" target="_blank" class="link-external">RoboThon</a> (the best conference I attended so far) illustrated that even "simple" things like kerning can easily get one in trouble. One limitation is 16-bit offset values in GSUB and GPOS. The more fundamental limitation is in the atomistic approach that these tables follow: defining layout behavior piece by piece for every possible specific context is ok for substituting an initial form here or there, including for pseudo-random effects, but better do not try to address a huge number of interacting contexts ...</p>
+      <p>Admittedly off-topic as regards the size feature. Regard as just another example for the same phenomenon: simplifying the layout behavior is making a design compromise, an attempt to "avoid stylistic extrema".<br>
+      (How technology and tools influence design bugs me a lot recently.)</p>
+  - id: 333679
+    user: 1250
+    date: 2009-03-09T10:41:00
+    date_raw: 9 March 2009 - 10:41am
+    votes: 0
+    html: |-
+      <p>&gt; if two fonts are designed to work optimally at 9 pt and 6 pt, if they<br>
+      &gt; are combined at 10 and 6, that won’t look as good as 10 and 6.7.</p>
+      <p>Granted, but this is pretty tangential to what we<br>
+      were discussing: the proper design of optical sizes.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; if two fonts are designed to work optimally at 9 pt and 6 pt, if they<br>
+      &gt; are combined at 10 and 6, that won’t look as good as 10 and 6.7.</p>
+      <p>Granted, but this is pretty tangential to what we<br>
+      were discussing: the proper design of optical sizes.</p>
+      <p>hhp</p>
+  - id: 333728
+    user: 1262
+    date: 2009-03-09T13:35:00
+    date_raw: 9 March 2009 - 1:35pm
+    votes: 0
+    html: |-
+      <p>Me: <em>There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights...</em></p>
+      <p>David: <em>There is. Having evenly balanced white space in and around the characters is functional.</em></p>
+      <p>Of course, so <em>if</em> one's larger size types are lighter and have smaller x-heights, then they also need tighter spacing, or if they have tighter spacing then they need to have smaller x-height to tighten the internal space. But my point is that it is an aesthetic convention that larger size types are lighter, part of a larger set of typographic conventions related to page design, and not something that is inherently functional to readability, in the way that beefing up and opening out smaller type is. The fact this is an aesthetic convention of larger type and not a functional requirement is demonstrated by the great variety of heavy, chunky display types available. There is nothing that determines that larger type needs to be elegantly light and airy: that is just one possible style.</p>
+      <p><em>In serif faces, the large clunky serifs of small sizes used large are a distracting chord against the tiny serifs of the smaller sizes.</em></p>
+      <p>This is a good point, but it presupposes the typographic conventions of page design to which I referred above: particular kinds of combinations of larger and small type in a closely related style on the same page. Important stuff, to be sure, but the methods necessary to make small type readable are independent of these conventions: you have to do them regardless of whether there will also be large type appearing in proximity. The conventions of large type are not of the same functional order.</p>
+    html_clean: |-
+      <p>Me: <em>There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights...</em></p>
+      <p>David: <em>There is. Having evenly balanced white space in and around the characters is functional.</em></p>
+      <p>Of course, so <em>if</em> one's larger size types are lighter and have smaller x-heights, then they also need tighter spacing, or if they have tighter spacing then they need to have smaller x-height to tighten the internal space. But my point is that it is an aesthetic convention that larger size types are lighter, part of a larger set of typographic conventions related to page design, and not something that is inherently functional to readability, in the way that beefing up and opening out smaller type is. The fact this is an aesthetic convention of larger type and not a functional requirement is demonstrated by the great variety of heavy, chunky display types available. There is nothing that determines that larger type needs to be elegantly light and airy: that is just one possible style.</p>
+      <p><em>In serif faces, the large clunky serifs of small sizes used large are a distracting chord against the tiny serifs of the smaller sizes.</em></p>
+      <p>This is a good point, but it presupposes the typographic conventions of page design to which I referred above: particular kinds of combinations of larger and small type in a closely related style on the same page. Important stuff, to be sure, but the methods necessary to make small type readable are independent of these conventions: you have to do them regardless of whether there will also be large type appearing in proximity. The conventions of large type are not of the same functional order.</p>
+  - id: 333732
+    user: 2021
+    date: 2009-03-09T13:44:00
+    date_raw: 9 March 2009 - 1:44pm
+    votes: 0
+    html: |-
+      <p>Karsten, it could also be said that the limitations of tools serve to focus design.<br>
+      For instance, when I couldn't get a pseudo-random script font to compile in FontLab, because it had a huge kern feature, that forced me to rationalize the fit of the face, by adjusting sidebearings and reducing the number of kerning classes. More work, but also a more rigorously designed typeface.</p>
+      <p>But I hear what you're saying. Duffy Script creates its pseudo-random effect with four alternates of every character--that's not quite enough to minimize the possibility of repetitive sequences as much as I'd like. So there's a technological dead end there.</p>
+      <p>Ultimately, Donald Knuth's concept of the metafont, stroke-based rather than outline-based, would seem to offer more potential as a means of creating typography that is amenable to digital processes. Is the font industry going to be sidewiped by someone developing a layout engine and a set of fonts which uses that technology?</p>
+      <p>Hrant, we have gone off topic a bit, but Peter's request for comments on the SIZE feature was quite broad in scope.</p>
+      <p>Actually, I haven't put SIZE in any fonts yet. Because I'm not comfortable putting features I can't test into fonts.<br>
+      I have put some unsupported features in fonts, for instance "hist", but at least that can be tested in FontLab's OT Preview.<br>
+      I primarily target the CS applications, so when InDesign supports this feature, then I will consider it.</p>
+    html_clean: |-
+      <p>Karsten, it could also be said that the limitations of tools serve to focus design.<br>
+      For instance, when I couldn't get a pseudo-random script font to compile in FontLab, because it had a huge kern feature, that forced me to rationalize the fit of the face, by adjusting sidebearings and reducing the number of kerning classes. More work, but also a more rigorously designed typeface.</p>
+      <p>But I hear what you're saying. Duffy Script creates its pseudo-random effect with four alternates of every character--that's not quite enough to minimize the possibility of repetitive sequences as much as I'd like. So there's a technological dead end there.</p>
+      <p>Ultimately, Donald Knuth's concept of the metafont, stroke-based rather than outline-based, would seem to offer more potential as a means of creating typography that is amenable to digital processes. Is the font industry going to be sidewiped by someone developing a layout engine and a set of fonts which uses that technology?</p>
+      <p>Hrant, we have gone off topic a bit, but Peter's request for comments on the SIZE feature was quite broad in scope.</p>
+      <p>Actually, I haven't put SIZE in any fonts yet. Because I'm not comfortable putting features I can't test into fonts.<br>
+      I have put some unsupported features in fonts, for instance "hist", but at least that can be tested in FontLab's OT Preview.<br>
+      I primarily target the CS applications, so when InDesign supports this feature, then I will consider it.</p>
+  - id: 333734
+    user: 1250
+    date: 2009-03-09T14:08:00
+    date_raw: 9 March 2009 - 2:08pm
+    votes: 0
+    html: |-
+      <p>&gt; the limitations of tools serve to focus design.</p>
+      <p>Good point (although not exactly "focus").</p>
+      <p>&gt; Donald Knuth’s concept of the metafont, stroke-based rather<br>
+      &gt; than outline-based, would seem to offer more potential as a means<br>
+      &gt; of creating typography that is amenable to digital processes.</p>
+      <p>I'd agree, but sadly -and hopefully much<br>
+      more significantly- it's very anti-reader.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; the limitations of tools serve to focus design.</p>
+      <p>Good point (although not exactly "focus").</p>
+      <p>&gt; Donald Knuth’s concept of the metafont, stroke-based rather<br>
+      &gt; than outline-based, would seem to offer more potential as a means<br>
+      &gt; of creating typography that is amenable to digital processes.</p>
+      <p>I'd agree, but sadly -and hopefully much<br>
+      more significantly- it's very anti-reader.</p>
+      <p>hhp</p>
+  - id: 333742
+    user: 8664
+    date: 2009-03-09T14:44:00
+    date_raw: 9 March 2009 - 2:44pm
+    votes: 0
+    html: <p>Honestly, I prefer a tool/technology serving me rather than me serving a tool/technology.&nbsp;&nbsp;;-)</p>
+    html_clean: <p>Honestly, I prefer a tool/technology serving me rather than me serving a tool/technology.&nbsp;&nbsp;;-)</p>
+  - id: 333746
+    user: 2021
+    date: 2009-03-09T15:21:00
+    date_raw: 9 March 2009 - 3:21pm
+    votes: 0
+    html: |-
+      <p>John: <em>There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights...</em></p>
+      <p>Several reasons:</p>
+      <p>Firstly, something practical. Consider body text set at 10 pt, and footnotes at 7 pt.<br>
+      Now suppose that the footnote text font has a larger x-height, corresponding to 7.5 pt of the body text.<br>
+      What is the advantage of this, in a layout, for the typographer?</p>
+      <p>Compare the ratio of size to leading, in the body and footnote.<br>
+      If body is set 10 on 12 and footnote at 7 on 9, the ratios are 0.83 and 0.78.<br>
+      To equalize the proportion, the footnote should be set 7 on 8.4, or 7.5 on 9.<br>
+      So, having a larger x-height in small text allows for a whole-number leading value.</p>
+      <p>Secondly, think of the footnote text not as 7 pt with a big x-height, but as 7.5 pt with shorter extenders.<br>
+      What is the advantage of shorter extenders in small type?</p>
+      <p>Well, it depends on the leading.<br>
+      So, say the typographer equalizes the ratio of x-height to between-x-height space, in the two type sizes.<br>
+      This is a principle which typographers follow.<br>
+      What is the advantage of having shorter extenders in the smaller size?</p>
+      <p>Consider the gap, or tolerance, between descenders and ascenders in adjacent lines.<br>
+      If this is decreased proportionately in the footnote text, it will of course be a smaller absolute value.<br>
+      However, this "distance between" is of the same order as the distance between glyphs, i.e. their sidebearings.<br>
+      So if the horizontal proximity space between glyphs is proportionately increased in small optical sizes, then the vertical proximity should also be increased. </p>
+      <p>This is because the smaller type becomes, the more the tolerances involved approach absolute values at the threshold of perception. Another way of saying this is that legibility issues are more crucial at small sizes than readability issues. Hence "non-linearity" of design with relation to size.</p>
+      <p>Thirdly, there is the question of overall density of a text block.<br>
+      Micro type is necessarily bolder than normal text size type. Even with wider sidebearings, text colour may still be bolder than that of the main text. Reducing the size of extenders and capitals compensates, so that the two optical sizes still look like the same weight of type.</p>
+      <p>Fourthly, the small-cute connection.<br>
+      Humans are programmed to like the appearance of small creatures with big features, presumably so that we don't devour our young. </p>
+      <p><img src="/sites/default/files/old-images/images_5951.jpeg"><br>
+      Note shorter extenders in the smaller optical size (left).</p>
+    html_clean: |-
+      <p>John: <em>There is nothing that functionally determines that types for larger sizes need to be lighter or have smaller x-heights...</em></p>
+      <p>Several reasons:</p>
+      <p>Firstly, something practical. Consider body text set at 10 pt, and footnotes at 7 pt.<br>
+      Now suppose that the footnote text font has a larger x-height, corresponding to 7.5 pt of the body text.<br>
+      What is the advantage of this, in a layout, for the typographer?</p>
+      <p>Compare the ratio of size to leading, in the body and footnote.<br>
+      If body is set 10 on 12 and footnote at 7 on 9, the ratios are 0.83 and 0.78.<br>
+      To equalize the proportion, the footnote should be set 7 on 8.4, or 7.5 on 9.<br>
+      So, having a larger x-height in small text allows for a whole-number leading value.</p>
+      <p>Secondly, think of the footnote text not as 7 pt with a big x-height, but as 7.5 pt with shorter extenders.<br>
+      What is the advantage of shorter extenders in small type?</p>
+      <p>Well, it depends on the leading.<br>
+      So, say the typographer equalizes the ratio of x-height to between-x-height space, in the two type sizes.<br>
+      This is a principle which typographers follow.<br>
+      What is the advantage of having shorter extenders in the smaller size?</p>
+      <p>Consider the gap, or tolerance, between descenders and ascenders in adjacent lines.<br>
+      If this is decreased proportionately in the footnote text, it will of course be a smaller absolute value.<br>
+      However, this "distance between" is of the same order as the distance between glyphs, i.e. their sidebearings.<br>
+      So if the horizontal proximity space between glyphs is proportionately increased in small optical sizes, then the vertical proximity should also be increased. </p>
+      <p>This is because the smaller type becomes, the more the tolerances involved approach absolute values at the threshold of perception. Another way of saying this is that legibility issues are more crucial at small sizes than readability issues. Hence "non-linearity" of design with relation to size.</p>
+      <p>Thirdly, there is the question of overall density of a text block.<br>
+      Micro type is necessarily bolder than normal text size type. Even with wider sidebearings, text colour may still be bolder than that of the main text. Reducing the size of extenders and capitals compensates, so that the two optical sizes still look like the same weight of type.</p>
+      <p>Fourthly, the small-cute connection.<br>
+      Humans are programmed to like the appearance of small creatures with big features, presumably so that we don't devour our young. </p>
+      <p><img src="/sites/default/files/old-images/images_5951.jpeg"><br>
+      Note shorter extenders in the smaller optical size (left).</p>
+  - id: 333768
+    user: 1262
+    date: 2009-03-09T16:46:00
+    date_raw: 9 March 2009 - 4:46pm
+    votes: 0
+    html: |-
+      <p>Nick, when I was talking about ‘large’ type, I meant larger than text sizes, what we might call display type, but also some sizes of e.g. subheads. As I acknowledged in my response to David, there are good reasons for reducing the x-height and tightening the spacing of lighter, more elegant styles of letters so that they work well alongside smaller type of the same style. But these are design decisions that are subsequent to particular styles of typography, not to the size of the type per se. But when we are dealing with small type, but which I mean typical text sizes and smaller, then we are making design decisions that are not subsequent to particular styles of typography but to fundamentals of legibility and readability.</p>
+      <p>To put it another way: 6pt type needs to have certain characteristics in order to be legible and readable; 36pt type can have virtually any common type characteristics and still be legible and readable. So the factors determining the design for type at 36pt are predominantly aesthetic, and insofar as they are functional they are so within the aesthetic framework of particular typographic styles and systems.</p>
+    html_clean: |-
+      <p>Nick, when I was talking about ‘large’ type, I meant larger than text sizes, what we might call display type, but also some sizes of e.g. subheads. As I acknowledged in my response to David, there are good reasons for reducing the x-height and tightening the spacing of lighter, more elegant styles of letters so that they work well alongside smaller type of the same style. But these are design decisions that are subsequent to particular styles of typography, not to the size of the type per se. But when we are dealing with small type, but which I mean typical text sizes and smaller, then we are making design decisions that are not subsequent to particular styles of typography but to fundamentals of legibility and readability.</p>
+      <p>To put it another way: 6pt type needs to have certain characteristics in order to be legible and readable; 36pt type can have virtually any common type characteristics and still be legible and readable. So the factors determining the design for type at 36pt are predominantly aesthetic, and insofar as they are functional they are so within the aesthetic framework of particular typographic styles and systems.</p>
+  - id: 333773
+    user: 1250
+    date: 2009-03-09T17:01:00
+    date_raw: 9 March 2009 - 5:01pm
+    votes: 0
+    html: |-
+      <p>&gt; legibility issues are more crucial at small sizes than readability issues.</p>
+      <p>Yes, and the fact that legibility at small sizes is largely a result of <em>visibility</em> is why shorter extenders (ie larger relative x-height) are better for smaller sizes. But this is why the bulk of your argument fails; all those scenarios are easily addressed by a consideration of what the reader needs, as opposed to what a designer does. For example just because some typographers try to equalize vertical proportions and such across sizes doesn't make it a good idea; in my book that's deluded Modernism - an "internal game". The reader does not benefit, he suffers.</p>
+      <p>&gt; Reducing the size of extenders and capitals compensates</p>
+      <p>No, because human vision has already played that role. Smaller type needs to be darker simply because our eyes see it lighter. The ideal amount of spacing and width and the ideal vertical proportions and leading stem from such realities, not some designer's whim or habits.</p>
+      <p>&gt; presumably so that we don’t devour our young.</p>
+      <p>So you only eat unattractive things?  :-)</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; legibility issues are more crucial at small sizes than readability issues.</p>
+      <p>Yes, and the fact that legibility at small sizes is largely a result of <em>visibility</em> is why shorter extenders (ie larger relative x-height) are better for smaller sizes. But this is why the bulk of your argument fails; all those scenarios are easily addressed by a consideration of what the reader needs, as opposed to what a designer does. For example just because some typographers try to equalize vertical proportions and such across sizes doesn't make it a good idea; in my book that's deluded Modernism - an "internal game". The reader does not benefit, he suffers.</p>
+      <p>&gt; Reducing the size of extenders and capitals compensates</p>
+      <p>No, because human vision has already played that role. Smaller type needs to be darker simply because our eyes see it lighter. The ideal amount of spacing and width and the ideal vertical proportions and leading stem from such realities, not some designer's whim or habits.</p>
+      <p>&gt; presumably so that we don’t devour our young.</p>
+      <p>So you only eat unattractive things?  :-)</p>
+      <p>hhp</p>
+  - id: 333904
+    user: 2969
+    date: 2009-03-10T09:13:00
+    date_raw: 10 March 2009 - 9:13am
+    votes: 0
+    html: |-
+      <p>John: "The fact this is an aesthetic convention of larger type and not a functional requirement..." and "...the factors determining the design for type at 36pt are predominantly aesthetic..."</p>
+      <p>Facts and definitions of function vary with distance and mirrors, I guess. I'm sure you can not draw the line between aesthetic and function so clearly in either the old or new design paradigms, or in the confluencial format/devices we today employ. E.g I'm not just making the x smaller, the spacing and width narrower and the strokes lighter to be Mr. Elegant — I'm out to fit more on a headline, or make it useful bigger, or both. That sounds functional to me. </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>John: "The fact this is an aesthetic convention of larger type and not a functional requirement..." and "...the factors determining the design for type at 36pt are predominantly aesthetic..."</p>
+      <p>Facts and definitions of function vary with distance and mirrors, I guess. I'm sure you can not draw the line between aesthetic and function so clearly in either the old or new design paradigms, or in the confluencial format/devices we today employ. E.g I'm not just making the x smaller, the spacing and width narrower and the strokes lighter to be Mr. Elegant — I'm out to fit more on a headline, or make it useful bigger, or both. That sounds functional to me. </p>
+      <p>Cheers!</p>

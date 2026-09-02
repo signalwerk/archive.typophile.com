@@ -1,5 +1,5 @@
 node: 57013
-title: null
+title: Urdu features
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/57013.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170701151545/typophile.com/node/57013.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,320 @@ pages:
       digest: F3XBO3S6VT4IK672EAHDLYDSBMUUZXKI
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/57013.html
+      file: data/archives/web.archive.org/files/20170701151545/typophile.com/node/57013.html
 post:
   id: 57013
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 43760
+  date: 2009-04-15T04:08:00
+  date_raw: 15 April 2009 - 4:08am
+  votes: 0
+  html: |-
+    <p>Sorry for cross-posting, I posted this on the Fontlab forum yesterday but didn't get any response so I thought I'd try here.</p>
+    <p>I'm fairly new to the details of OpenType, and I wonder if anyone here can help me. Just a quick intro to get some context for the question: Urdu traditionally uses a very complex variant of Arabic script called '<a href="/node/57832" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">Nastaleeq</a>' (or any number of alternative spellings!) where words are written sloping downwards from right-to-left, so initial characters are small and high-up, with final characters big and swirly at the bottom. This makes it hard to specify technically, and there is no Unicode standard for the process AFAIK. </p>
+    <p>We've got a couple of Urdu fonts here, one of which uses an enormous number of ligatures (about 10,000 of them), another of which uses more standard Arabic joining rules, but with far more variants of each character. What I'm trying to do is find where in the font the information is stored for these two processes. Bringing the fonts into FontLab Studio, the features tables aren't terribly helpful - here's a sample from rlig:</p>
+    <p>lookup rlig54 {<br>
+    } rlig54;</p>
+    <p>Am I looking in the right place? The fonts work great in Word, so the features must be working correctly.</p>
+    <p>In case it helps, the two fonts are Jamil Noori Nastaleeq and Nafees Nastaleeq</p>
+    <p>Thanks for any advice</p>
+  html_clean: |-
+    <p>Sorry for cross-posting, I posted this on the Fontlab forum yesterday but didn't get any response so I thought I'd try here.</p>
+    <p>I'm fairly new to the details of OpenType, and I wonder if anyone here can help me. Just a quick intro to get some context for the question: Urdu traditionally uses a very complex variant of Arabic script called '<a href="/node/57832/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">Nastaleeq</a>' (or any number of alternative spellings!) where words are written sloping downwards from right-to-left, so initial characters are small and high-up, with final characters big and swirly at the bottom. This makes it hard to specify technically, and there is no Unicode standard for the process AFAIK. </p>
+    <p>We've got a couple of Urdu fonts here, one of which uses an enormous number of ligatures (about 10,000 of them), another of which uses more standard Arabic joining rules, but with far more variants of each character. What I'm trying to do is find where in the font the information is stored for these two processes. Bringing the fonts into FontLab Studio, the features tables aren't terribly helpful - here's a sample from rlig:</p>
+    <p>lookup rlig54 {<br>
+    } rlig54;</p>
+    <p>Am I looking in the right place? The fonts work great in Word, so the features must be working correctly.</p>
+    <p>In case it helps, the two fonts are Jamil Noori Nastaleeq and Nafees Nastaleeq</p>
+    <p>Thanks for any advice</p>
+comments:
+  - id: 341755
+    user: 29994
+    date: 2009-04-15T06:36:00
+    date_raw: 15 April 2009 - 6:36am
+    votes: 0
+    html: |-
+      <p>FontLab is not a good choice for examining Arabic fonts, as it lacks all support for contextual alternates.</p>
+      <p>Try DTL's OTMaster -- even the free Light version <a href="http://www.fonttools.org" title="Click to visit an external URL." class="freelink freelink-external freelink-external">(download)</a> is able to display the tables. It's not as readable as Adobe's OpenType script notation, but then again, that does not support context alternates either.</p>
+      <p>Which makes some sense, as FontLab is built around Adobe's font tools. Arabic fonts get their smarts from Microsoft's VOLT tool (reportedly, even Adobe's fonts).</p>
+      <p>OTMaster displays the OT information in a rough-and-ready format, which means you will have to know everything about OpenType substitutions. I will not even mention which of the many, many tables you must inspect, because if you don't know, you won't know what you are looking it.</p>
+    html_clean: |-
+      <p>FontLab is not a good choice for examining Arabic fonts, as it lacks all support for contextual alternates.</p>
+      <p>Try DTL's OTMaster -- even the free Light version <a href="http://www.fonttools.org" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">(download)</a> is able to display the tables. It's not as readable as Adobe's OpenType script notation, but then again, that does not support context alternates either.</p>
+      <p>Which makes some sense, as FontLab is built around Adobe's font tools. Arabic fonts get their smarts from Microsoft's VOLT tool (reportedly, even Adobe's fonts).</p>
+      <p>OTMaster displays the OT information in a rough-and-ready format, which means you will have to know everything about OpenType substitutions. I will not even mention which of the many, many tables you must inspect, because if you don't know, you won't know what you are looking it.</p>
+  - id: 341778
+    user: 16321
+    date: 2009-04-15T08:44:00
+    date_raw: 15 April 2009 - 8:44am
+    votes: 0
+    html: <p>Danny if you are doing this for research purposes, I should mention the Tasmeem system <a href="http://www.winsoft-international.com/en/products/tasmeem.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.winsoft-international.com/en/products/tasmeem.html</a>. I believe Thomas Milo et al are working on a Nastaliq for this system. Here is Titus Nemeth's primer on the system <a href="http://sehstoerung.sonance.net/pdfs/T_Nemeth%20-%20A%20primer%20for%20Arabic%20Typeface%20Design_web.pdf" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://sehstoerung.sonance.net/pdfs/T_Nemeth%20-%20A%20primer%20for%20Arabic%20Typeface%20Design_web.pdf</a></p>
+    html_clean: <p>Danny if you are doing this for research purposes, I should mention the Tasmeem system <a href="http://www.winsoft-international.com/en/products/tasmeem.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.winsoft-international.com/en/products/tasmeem.html</a>. I believe Thomas Milo et al are working on a Nastaliq for this system. Here is Titus Nemeth's primer on the system <a href="http://sehstoerung.sonance.net/pdfs/T_Nemeth%20-%20A%20primer%20for%20Arabic%20Typeface%20Design_web.pdf" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://sehstoerung.sonance.net/pdfs/T_Nemeth%20-%20A%20primer%20for%20Arabic%20Typeface%20Design_web.pdf</a></p>
+  - id: 343692
+    user: 1133
+    date: 2009-04-26T15:18:00
+    date_raw: 26 April 2009 - 3:18pm
+    votes: 0
+    html: |-
+      <p>The Adobe FDK for OpenType syntax that is used in FontLab Studio is good for developing new features but it is not ideal for representing a "dump" of the features taken from the final font. Indeed, <a href="http://www.fontmaster.nl/english/OTMaster_rdrct.html">DTL OTMaster</a> or the free FontTools/TTX (which is bundled with <a href="http://www.adobe.com/devnet/opentype/afdko/">Adobe FDK for OpenType</a> and <a href="http://fonttools.sourceforge.net/">available separately</a>) are much better tools to look at how the features are defined. OTMaster provides a graphical representation while FontTools/TTX creates XML text dumps which can be viewed in any text editor. </p>
+      <p>Cheers,<br>
+      Adam</p>
+    html_clean: |-
+      <p>The Adobe FDK for OpenType syntax that is used in FontLab Studio is good for developing new features but it is not ideal for representing a "dump" of the features taken from the final font. Indeed, <a href="http://www.fontmaster.nl/english/OTMaster_rdrct.html" class="link-external">DTL OTMaster</a> or the free FontTools/TTX (which is bundled with <a href="http://www.adobe.com/devnet/opentype/afdko/" class="link-external">Adobe FDK for OpenType</a> and <a href="http://fonttools.sourceforge.net/" class="link-external">available separately</a>) are much better tools to look at how the features are defined. OTMaster provides a graphical representation while FontTools/TTX creates XML text dumps which can be viewed in any text editor. </p>
+      <p>Cheers,<br>
+      Adam</p>
+  - id: 360676
+    user: 23169
+    date: 2009-08-09T03:31:00
+    date_raw: 9 August 2009 - 3:31am
+    votes: 0
+    html: |-
+      <p>Hi Danny,</p>
+      <p>We just completed a new nastaliq typeface. It's based on Persian, but supports the whole Arabic block in Unicode. It was designed for Urdu and to get the Pakistani "flavour" rather than the Persian one, we provide a series of typographic parameters in the Tasmeem interface.</p>
+      <p>BTW, allow me to put you straight when you write: "Urdu traditionally uses a very complex variant of Arabic script called ’Nastaleeq’".</p>
+      <p>Nastaliq is outrageously complicated if you are forced to reproduce with 15th century typesetting concepts, without an analysis of the internal logic of historical Arabic scripts, an aspect that I call "script grammar". That would be analogous to cloning the hand-held calculator without even suspecting that there is math involved - something that would require a massive data base with at least the outcome of all common supermarket additions and still miss the point of what calculating entails.</p>
+      <p>Think again: how could nastaliq be "very complex" and at the same time be the script of choice for the majority (population wise) of the Arabic-scripted world, and why would there be a massive demand to adapt it for computer use?</p>
+      <p>The truth is, that nastaliq or naskh-i taʿlīq (slanted naskh - naskh 	<em>italic</em>) is an extreme simplification of traditional, pre-typographic naskh. Efficient and elegant at the same time. It took us 300 glyphs to cover nastaliq.</p>
+      <p>As a boon, for the same text well-constructed nastaliq needs only a fraction of the length required by ordinary computer typefaces of comparable size, allowing for generous line spacing to lend it elegance and legibility.</p>
+      <p>We were not the first to discover the straightforward simplicity of nastaliq. The first realistic Arabic typesetting - as opposed to the uninformed caricatures produced in the West and the competent, but failing experiments in the East - was based on <em>ta'lîk</em> (taʿlīq), the Ottoman variant of nastaliq (see image, 1840's, attributed to Ohanis Mühendisoğlu). It dates from the second quarter of the 19th century and it appeared about a quarter of a century before a comparable quality of naskh typography was attained.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com<img src=">"&gt;www.decotype.com[img:sites/default/files/old-images/Ottoman_Taliq_Typogr...</a></p>
+    html_clean: |-
+      <p>Hi Danny,</p>
+      <p>We just completed a new nastaliq typeface. It's based on Persian, but supports the whole Arabic block in Unicode. It was designed for Urdu and to get the Pakistani "flavour" rather than the Persian one, we provide a series of typographic parameters in the Tasmeem interface.</p>
+      <p>BTW, allow me to put you straight when you write: "Urdu traditionally uses a very complex variant of Arabic script called ’Nastaleeq’".</p>
+      <p>Nastaliq is outrageously complicated if you are forced to reproduce with 15th century typesetting concepts, without an analysis of the internal logic of historical Arabic scripts, an aspect that I call "script grammar". That would be analogous to cloning the hand-held calculator without even suspecting that there is math involved - something that would require a massive data base with at least the outcome of all common supermarket additions and still miss the point of what calculating entails.</p>
+      <p>Think again: how could nastaliq be "very complex" and at the same time be the script of choice for the majority (population wise) of the Arabic-scripted world, and why would there be a massive demand to adapt it for computer use?</p>
+      <p>The truth is, that nastaliq or naskh-i taʿlīq (slanted naskh - naskh 	<em>italic</em>) is an extreme simplification of traditional, pre-typographic naskh. Efficient and elegant at the same time. It took us 300 glyphs to cover nastaliq.</p>
+      <p>As a boon, for the same text well-constructed nastaliq needs only a fraction of the length required by ordinary computer typefaces of comparable size, allowing for generous line spacing to lend it elegance and legibility.</p>
+      <p>We were not the first to discover the straightforward simplicity of nastaliq. The first realistic Arabic typesetting - as opposed to the uninformed caricatures produced in the West and the competent, but failing experiments in the East - was based on <em>ta'lîk</em> (taʿlīq), the Ottoman variant of nastaliq (see image, 1840's, attributed to Ohanis Mühendisoğlu). It dates from the second quarter of the 19th century and it appeared about a quarter of a century before a comparable quality of naskh typography was attained.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com<img src=" class="link-external">"&gt;www.decotype.com[img:sites/default/files/old-images/Ottoman_Taliq_Typogr...</a></p>
+  - id: 360681
+    user: 23169
+    date: 2009-08-09T03:46:00
+    date_raw: 9 August 2009 - 3:46am
+    votes: 0
+    html: |-
+      <p>As a comparison I am adding a piece of competent naskh typesetting from the same period. It struggles to implement  all script rules, but fails technically.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com">www.decotype.com</a></p>
+      <p><img src="/sites/default/files/old-images/Pre-Muhendisyan_compressed_4536.jpg"></p>
+    html_clean: |-
+      <p>As a comparison I am adding a piece of competent naskh typesetting from the same period. It struggles to implement  all script rules, but fails technically.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com" class="link-external">www.decotype.com</a></p>
+      <p><img src="/sites/default/files/old-images/Pre-Muhendisyan_compressed_4536.jpg"></p>
+  - id: 360688
+    user: 23169
+    date: 2009-08-09T04:57:00
+    date_raw: 9 August 2009 - 4:57am
+    votes: 0
+    html: |-
+      <p>More material for comparison: the first mature naskh typography - in shape, script grammar and technical realization, again by Ohanis Mühendisoğlu: 1865 (a quarter of a century after his nastaliq/ta`liq typeface). As fully-blown naskh typography this quality set the standard and has never been surpassed.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com<img src=">"&gt;www.decotype.com[img:sites/default/files/old-images/Muhendisyan_detail_5...</a></p>
+    html_clean: |-
+      <p>More material for comparison: the first mature naskh typography - in shape, script grammar and technical realization, again by Ohanis Mühendisoğlu: 1865 (a quarter of a century after his nastaliq/ta`liq typeface). As fully-blown naskh typography this quality set the standard and has never been surpassed.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com<img src=" class="link-external">"&gt;www.decotype.com[img:sites/default/files/old-images/Muhendisyan_detail_5...</a></p>
+  - id: 360696
+    user: 23169
+    date: 2009-08-09T06:55:00
+    date_raw: 9 August 2009 - 6:55am
+    votes: 0
+    html: |-
+      <p>One final illustration showing how much more efficient nastaliq is in terms of surface use. Please note that the so-called complex forms in fact enhance legibility: they are much more distinct than the monotonous repetitive shapes of the western simplified approach. It is also interesting to observe that the nastaliq tradition has proven to resistant to alien simplification attempts.</p>
+      <p>In the illustration the nastaliq line is green. It is remarkably shorter than any of the other typefaces, all set in the same size.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com">www.decotype.com</a></p>
+      <p><a href="http://www.decotype.com/Tasmeem/UDHR_Samples_3.pdf">www.decotype.com/Tasmeem/UDHR_Samples_3.pdf</a><br><img src="/sites/default/files/old-images/UDHR_Samples_3-9_4388.gif"></p>
+    html_clean: |-
+      <p>One final illustration showing how much more efficient nastaliq is in terms of surface use. Please note that the so-called complex forms in fact enhance legibility: they are much more distinct than the monotonous repetitive shapes of the western simplified approach. It is also interesting to observe that the nastaliq tradition has proven to resistant to alien simplification attempts.</p>
+      <p>In the illustration the nastaliq line is green. It is remarkably shorter than any of the other typefaces, all set in the same size.</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com" class="link-external">www.decotype.com</a></p>
+      <p><a href="http://www.decotype.com/Tasmeem/UDHR_Samples_3.pdf" class="link-external">www.decotype.com/Tasmeem/UDHR_Samples_3.pdf</a><br><img src="/sites/default/files/old-images/UDHR_Samples_3-9_4388.gif"></p>
+  - id: 361037
+    user: 23169
+    date: 2009-08-11T00:56:00
+    date_raw: 11 August 2009 - 12:56am
+    votes: 0
+    html: |-
+      <p>One final observation:</p>
+      <p>The idea that Urdu script is "very complex" is analogous to the idea that Nastaleeq has "any number of alternative spellings".  </p>
+      <p>The preferred Arabic script variety by Pakistani's (whether they write Urdu, Pashtu, Panjabi or Kasmiri) has only ONE spelling: </p>
+      <p>نستعلیق</p>
+      <p>:-)</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com">www.decotype.com</a></p>
+    html_clean: |-
+      <p>One final observation:</p>
+      <p>The idea that Urdu script is "very complex" is analogous to the idea that Nastaleeq has "any number of alternative spellings".  </p>
+      <p>The preferred Arabic script variety by Pakistani's (whether they write Urdu, Pashtu, Panjabi or Kasmiri) has only ONE spelling: </p>
+      <p>نستعلیق</p>
+      <p>:-)</p>
+      <p>Thomas Milo<br>
+      DecoType<br><a href="http://www.decotype.com" class="link-external">www.decotype.com</a></p>
+  - id: 601850
+    user: 85951
+    date: 2015-03-29T13:40:00
+    date_raw: 29 March 2015 - 1:40pm
+    votes: 0
+    html: |-
+      <p>As a user of Arabic script day in day out, I very much appreciate the fact that people like Thomas Milo and those in DectoType have invested in producing something as good for the script as Tasmeem. I think their work have served the Arabic Script and the Islamic culture very much. Currently, I am in the process of documenting the transition of the Arabic Script from calligraphy to typography. Tasmeem will obviously feature in the evolution process.</p>
+      <p>However, in researching the development of Tasmeem and the Arabic Calligraphic (Composition?) Engine, ACE, I almost always came across Thomas Milo's high acclaim of Ohanis Mühendisoğlu as the real "muhendis" of Arabic Typography. I was not successful in finding any references to "Ohanis Mühendisoğlu" other than those made by Thomas Milo. All search results have directed me back to Milo.</p>
+      <p>Conversely, searching under the topic of Arabic Typography in general returned numerous references to Ibrahim Müteferrika who Milo refers to in one of his articles as a Hungarian renegade with a short lived contribution to the evolution of Arabic Typography. Among the Hungarians, who Ibrahim defected, one has actually celebrated Müteferrika's contribution and provided good examples of his work on the web site:</p>
+      <p><a href="http://muteferrika.mtak.hu/hu/eletrajz.htm">http://muteferrika.mtak.hu/hu/eletrajz.htm</a></p>
+      <p>I will be grateful to Thomas and others who can refer me to independent sources on Ohanis Mühendisoğlu so that I can better see how he relates to the development of Arabic Typography as opposed to what Müteferrika had contributed.</p>
+      <p>Best regards</p>
+      <p>Khalid</p>
+    html_clean: |-
+      <p>As a user of Arabic script day in day out, I very much appreciate the fact that people like Thomas Milo and those in DectoType have invested in producing something as good for the script as Tasmeem. I think their work have served the Arabic Script and the Islamic culture very much. Currently, I am in the process of documenting the transition of the Arabic Script from calligraphy to typography. Tasmeem will obviously feature in the evolution process.</p>
+      <p>However, in researching the development of Tasmeem and the Arabic Calligraphic (Composition?) Engine, ACE, I almost always came across Thomas Milo's high acclaim of Ohanis Mühendisoğlu as the real "muhendis" of Arabic Typography. I was not successful in finding any references to "Ohanis Mühendisoğlu" other than those made by Thomas Milo. All search results have directed me back to Milo.</p>
+      <p>Conversely, searching under the topic of Arabic Typography in general returned numerous references to Ibrahim Müteferrika who Milo refers to in one of his articles as a Hungarian renegade with a short lived contribution to the evolution of Arabic Typography. Among the Hungarians, who Ibrahim defected, one has actually celebrated Müteferrika's contribution and provided good examples of his work on the web site:</p>
+      <p><a href="http://muteferrika.mtak.hu/hu/eletrajz.htm" class="link-external">http://muteferrika.mtak.hu/hu/eletrajz.htm</a></p>
+      <p>I will be grateful to Thomas and others who can refer me to independent sources on Ohanis Mühendisoğlu so that I can better see how he relates to the development of Arabic Typography as opposed to what Müteferrika had contributed.</p>
+      <p>Best regards</p>
+      <p>Khalid</p>
+  - id: 601861
+    user: 12550
+    date: 2015-03-29T13:05:00
+    date_raw: 29 March 2015 - 1:05pm
+    votes: 0
+    html: |-
+      <p>Many Thanks Khalid for the link .<br>
+      2. As a user of Arabic script day in day out, what is your take to my twin fonts?<br><a href="http://typophile.com/files/PBMJ.pdf">http://typophile.com/files/PBMJ.pdf</a></p>
+    html_clean: |-
+      <p>Many Thanks Khalid for the link .<br>
+      2. As a user of Arabic script day in day out, what is your take to my twin fonts?<br><a href="http://typophile.com/files/PBMJ.pdf" class="link-lost">http://typophile.com/files/PBMJ.pdf</a></p>
+  - id: 601862
+    user: 85951
+    date: 2015-03-29T14:58:00
+    date_raw: 29 March 2015 - 2:58pm
+    votes: 0
+    html: |-
+      <p>Very interesting, though not the kind that I would use day in day out because probably for a different stylistic requirement. Can you tell more about it? I couldn't recognize the language. What language was that?</p>
+      <p>Many cheers.</p>
+      <p>K</p>
+    html_clean: |-
+      <p>Very interesting, though not the kind that I would use day in day out because probably for a different stylistic requirement. Can you tell more about it? I couldn't recognize the language. What language was that?</p>
+      <p>Many cheers.</p>
+      <p>K</p>
+  - id: 601863
+    user: 85951
+    date: 2015-03-30T01:07:00
+    date_raw: 30 March 2015 - 1:07am
+    votes: 0
+    html: <p>And Aziz, Mühendisoğlu. Got anything on Mühendisoğlu?</p>
+    html_clean: <p>And Aziz, Mühendisoğlu. Got anything on Mühendisoğlu?</p>
+  - id: 602095
+    user: 12550
+    date: 2015-04-01T09:19:00
+    date_raw: 1 April 2015 - 9:19am
+    votes: 0
+    html: |-
+      <p>khalid &gt; I couldn't recognize the language. What language was that?<br>
+      @ <a href="http://www.jawiware.org/">http://www.jawiware.org/</a><br><a href="http://typophile.com/node/122620">http://typophile.com/node/122620</a></p>
+      <p>khalid &gt; Got anything on Mühendisoglu?<br>
+      Does the font with the lovey tilted Kaf seem closer to it?!<br><a href="http://typophile.com/files/PBM-Aziz.pdf">http://typophile.com/files/PBM-Aziz.pdf</a><br><a href="http://typophile.com/files/TwinKLe.png">http://typophile.com/files/TwinKLe.png</a></p>
+    html_clean: |-
+      <p>khalid &gt; I couldn't recognize the language. What language was that?<br>
+      @ <a href="http://www.jawiware.org/" class="link-external">http://www.jawiware.org/</a><br><a href="/node/122620/" class="link-kept">http://typophile.com/node/122620</a></p>
+      <p>khalid &gt; Got anything on Mühendisoglu?<br>
+      Does the font with the lovey tilted Kaf seem closer to it?!<br><a href="http://typophile.com/files/PBM-Aziz.pdf" class="link-lost">http://typophile.com/files/PBM-Aziz.pdf</a><br><a href="http://typophile.com/files/TwinKLe.png" class="link-lost">http://typophile.com/files/TwinKLe.png</a></p>
+  - id: 602171
+    user: 85951
+    date: 2015-04-02T14:47:00
+    date_raw: 2 April 2015 - 2:47pm
+    votes: 0
+    html: |-
+      <p>Very interesting again. I actually didn't realize that the Arabic script is still alive in Malaysia. (Talk to an Iraqi and you will know how much exposure is important.) The geographic expanse of Arabic script sort of confirms my interest in contributing to its development.</p>
+      <p>However, I'm still in the simplified Arabic approach. Based on the typography that my eyes and the eyes of most Arabic script users are accustomed to, I started designing Arabic fonts in this style some time back. My knowledge and skills are still developing in OpenType, but I think I will remain with the simplified approach for the time being. I will not religiously defend it though, but I think the available technology and standards only allow as much. And I still think there is much unrealized visual and stylistic potential that I can explore using the simplified Arabic approach.</p>
+      <p>Technology accessibility is an important factor. Take ACE for example. It can do quite some nifty typography, but it is locked to InDesign. On the other hand OpenType is openly available on most, if not all, computer operating systems and it is the basis of web fonts too.</p>
+      <p>On a different but related note, take a look at the sumptuous photo below of Jawi writing in Ruq'aa I found while researching Jawi (thanks to  you). Just feel that ink flowing out of the nib on the nicely colored paper. Hear the subdued click of the nib as it goes up flying out of a graceful curve. I think haptics will keep paper print and writing alive for a long time to come.</p>
+      <p>I can go enjoy the weekend now.</p>
+    html_clean: |-
+      <p>Very interesting again. I actually didn't realize that the Arabic script is still alive in Malaysia. (Talk to an Iraqi and you will know how much exposure is important.) The geographic expanse of Arabic script sort of confirms my interest in contributing to its development.</p>
+      <p>However, I'm still in the simplified Arabic approach. Based on the typography that my eyes and the eyes of most Arabic script users are accustomed to, I started designing Arabic fonts in this style some time back. My knowledge and skills are still developing in OpenType, but I think I will remain with the simplified approach for the time being. I will not religiously defend it though, but I think the available technology and standards only allow as much. And I still think there is much unrealized visual and stylistic potential that I can explore using the simplified Arabic approach.</p>
+      <p>Technology accessibility is an important factor. Take ACE for example. It can do quite some nifty typography, but it is locked to InDesign. On the other hand OpenType is openly available on most, if not all, computer operating systems and it is the basis of web fonts too.</p>
+      <p>On a different but related note, take a look at the sumptuous photo below of Jawi writing in Ruq'aa I found while researching Jawi (thanks to  you). Just feel that ink flowing out of the nib on the nicely colored paper. Hear the subdued click of the nib as it goes up flying out of a graceful curve. I think haptics will keep paper print and writing alive for a long time to come.</p>
+      <p>I can go enjoy the weekend now.</p>
+  - id: 602207
+    user: 12550
+    date: 2015-04-02T23:48:00
+    date_raw: 2 April 2015 - 11:48pm
+    votes: 0
+    html: |-
+      <p>Khalid&gt; Take ACE for example... it is locked to InDesign.</p>
+      <p>On the other hand, <a href="http://Maryamsoft.com/QalamBartar/">QalamBartar</a> is locked to none. <a href="http://Maryamsoft.com/QalamBartar/">QB</a> goes even with Windows Notepad @ Mac TextEdit as well.<br><a href="http://typophile.com/files/QB.pdf">http://typophile.com/files/QB.pdf</a><br><a href="http://typophile.com/files/QB.swf">http://typophile.com/files/QB.swf</a></p>
+      <p>I religiously defend <a href="http://Maryamsoft.com/QalamBartar/">it</a>.<br><a href="http://maryamsoft.com/w_Naskh-Aziz/">http://maryamsoft.com/w_Naskh-Aziz/</a><br><a href="http://typophile.com/files/YS-Aziz_1.pdf">http://typophile.com/files/YS-Aziz_1.pdf</a><br><a href="http://Maryamsoft.com/FontShop/wm_Reyhan/">http://Maryamsoft.com/FontShop/wm_Reyhan/</a><br><a href="http://typophile.com/files/YS-Reyhan.pdf">http://typophile.com/files/YS-Reyhan.pdf</a></p>
+      <p>Regarding Ruq'aa @ Jawi, enjoy more:<br><a href="http://typophile.com/node/74436">http://typophile.com/node/74436</a><br><a href="http://Maryamsoft.com/FontShop/wm_Tahriri/">http://Maryamsoft.com/FontShop/wm_Tahriri/</a></p>
+      <p><a href="http://www.typophile.com/node/28634#comment-161482">Still in the simplified </a><a href="http://typophile.com/node/92658">approach?</a></p>
+      <p>BTW: Is it hard to answer <a href="http://Typophile.com/node/120811">this?</a></p>
+      <p>Have a blessed Friday</p>
+    html_clean: |-
+      <p>Khalid&gt; Take ACE for example... it is locked to InDesign.</p>
+      <p>On the other hand, <a href="http://Maryamsoft.com/QalamBartar/" class="link-external">QalamBartar</a> is locked to none. <a href="http://Maryamsoft.com/QalamBartar/" class="link-external">QB</a> goes even with Windows Notepad @ Mac TextEdit as well.<br><a href="/files/qb.pdf" class="link-kept">http://typophile.com/files/QB.pdf</a><br><a href="/files/qb.swf" class="link-kept">http://typophile.com/files/QB.swf</a></p>
+      <p>I religiously defend <a href="http://Maryamsoft.com/QalamBartar/" class="link-external">it</a>.<br><a href="http://maryamsoft.com/w_Naskh-Aziz/" class="link-external">http://maryamsoft.com/w_Naskh-Aziz/</a><br><a href="http://typophile.com/files/YS-Aziz_1.pdf" class="link-lost">http://typophile.com/files/YS-Aziz_1.pdf</a><br><a href="http://Maryamsoft.com/FontShop/wm_Reyhan/" class="link-external">http://Maryamsoft.com/FontShop/wm_Reyhan/</a><br><a href="/files/ys-reyhan.pdf" class="link-kept">http://typophile.com/files/YS-Reyhan.pdf</a></p>
+      <p>Regarding Ruq'aa @ Jawi, enjoy more:<br><a href="/node/74436/" class="link-kept">http://typophile.com/node/74436</a><br><a href="http://Maryamsoft.com/FontShop/wm_Tahriri/" class="link-external">http://Maryamsoft.com/FontShop/wm_Tahriri/</a></p>
+      <p><a href="/node/28634/#comment-161482" class="link-kept">Still in the simplified </a><a href="/node/92658/" class="link-kept">approach?</a></p>
+      <p>BTW: Is it hard to answer <a href="/node/120811/" class="link-kept">this?</a></p>
+      <p>Have a blessed Friday</p>
+  - id: 602286
+    user: 85951
+    date: 2015-04-04T01:49:00
+    date_raw: 4 April 2015 - 1:49am
+    votes: 0
+    html: |-
+      <p>Thank you Aziz.</p>
+      <p>The work is indeed very impressive.</p>
+      <p>If you can kindly clarify whether QB is locked to MirEmad or not? There does seem to be some kind of propriety shaping dynamics behind the fonts.</p>
+      <p>The discussions on the thread below seem to suggest so:<br><a href="http://typophile.com/node/48495">http://typophile.com/node/48495</a></p>
+    html_clean: |-
+      <p>Thank you Aziz.</p>
+      <p>The work is indeed very impressive.</p>
+      <p>If you can kindly clarify whether QB is locked to MirEmad or not? There does seem to be some kind of propriety shaping dynamics behind the fonts.</p>
+      <p>The discussions on the thread below seem to suggest so:<br><a href="/node/48495/" class="link-kept">http://typophile.com/node/48495</a></p>
+  - id: 602316
+    user: 12550
+    date: 2015-04-04T10:17:00
+    date_raw: 4 April 2015 - 10:17am
+    votes: 0
+    html: |-
+      <p>Thank you Khalid for appreciating our 2 tools - QB @ ME - @ their unique dynamic Arabic fonts<br>
+      ME , with fixed number of fonts, is still in distribution but we do recommend QB for professional users and (Type) designers. In addition to all the functionality of ME, QB makes it easy to<br>
+      1. access any glyph by the click-on-it-in-the-Selector-n-fly-to-it functionality , and<br>
+      2. add selected QB fonts (Basic as well as Calligraphic) that can be ordered @ downloaded online.</p>
+      <p>Willing to try <a href="http://typophile.com/node/120811">QB?</a></p>
+    html_clean: |-
+      <p>Thank you Khalid for appreciating our 2 tools - QB @ ME - @ their unique dynamic Arabic fonts<br>
+      ME , with fixed number of fonts, is still in distribution but we do recommend QB for professional users and (Type) designers. In addition to all the functionality of ME, QB makes it easy to<br>
+      1. access any glyph by the click-on-it-in-the-Selector-n-fly-to-it functionality , and<br>
+      2. add selected QB fonts (Basic as well as Calligraphic) that can be ordered @ downloaded online.</p>
+      <p>Willing to try <a href="/node/120811/" class="link-kept">QB?</a></p>
+  - id: 602317
+    user: 85951
+    date: 2015-04-04T11:26:00
+    date_raw: 4 April 2015 - 11:26am
+    votes: 0
+    html: |-
+      <p>Yes, I am. I have just sent you an email in private. Let's continue our discussions there.</p>
+      <p>Best regards</p>
+    html_clean: |-
+      <p>Yes, I am. I have just sent you an email in private. Let's continue our discussions there.</p>
+      <p>Best regards</p>
+  - id: 602822
+    user: 23169
+    date: 2015-04-13T15:08:00
+    date_raw: 13 April 2015 - 3:08pm
+    votes: 0
+    html: |-
+      <p>Hi Khalid,<br>
+      Mühendisoğlu or Mühendisyan is better known among Turkish specialists, but too little has been published to far. But don't worry - more people are discovering him.</p>
+      <p>As for the ACE - Advanced Composition Engine - it will soon be liberated from InDesign. </p>
+      <p>If you need more information, you can contact me though skype: t.milo</p>
+    html_clean: |-
+      <p>Hi Khalid,<br>
+      Mühendisoğlu or Mühendisyan is better known among Turkish specialists, but too little has been published to far. But don't worry - more people are discovering him.</p>
+      <p>As for the ACE - Advanced Composition Engine - it will soon be liberated from InDesign. </p>
+      <p>If you need more information, you can contact me though skype: t.milo</p>

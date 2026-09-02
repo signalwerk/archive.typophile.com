@@ -1,5 +1,5 @@
 node: 121142
-title: null
+title: Lookup calls and lookup types
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/121142.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180716062835/typophile.com/node/121142.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,461 @@ pages:
       digest: ZDJDVN4JXBC7XHLUTJLOTDBORGWWXKE4
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/121142.html
+      file: data/archives/web.archive.org/files/20180716062835/typophile.com/node/121142.html
 post:
   id: 121142
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 9356
+  date: 2014-11-07T19:10:00
+  date_raw: 7 November 2014 - 7:10pm
+  votes: 0
+  html: |-
+    <p>I think I'm getting to grips with OpenType coding -  I just birthed my first contextual one-to-many substitution, and am as proud as you'd expect - but I'm still puzzled by one thing and unsure about another.</p>
+    <p>The puzzle is that when I define-and-run a lookup, the layout engine goes back to the start of the glyph run, as I'd expect. But when I call a lookup, it doesn't, at least in FontLab. Is that just how it is? </p>
+    <p>The uncertainty is over whether all kinds of lookup types are allowed in all features, or whether it's better to stick to the lookup types specified for features at <a href="http://www.microsoft.com/typography/otspec/features_ae.htm" title="Click to visit an external URL." class="freelink freelink-external freelink-external">the Microsoft OT spec site</a>. I know FontLab is liberal, but are all apps?</p>
+    <p>Thanks very much for any help!<br>
+    George</p>
+  html_clean: |-
+    <p>I think I'm getting to grips with OpenType coding -  I just birthed my first contextual one-to-many substitution, and am as proud as you'd expect - but I'm still puzzled by one thing and unsure about another.</p>
+    <p>The puzzle is that when I define-and-run a lookup, the layout engine goes back to the start of the glyph run, as I'd expect. But when I call a lookup, it doesn't, at least in FontLab. Is that just how it is? </p>
+    <p>The uncertainty is over whether all kinds of lookup types are allowed in all features, or whether it's better to stick to the lookup types specified for features at <a href="http://www.microsoft.com/typography/otspec/features_ae.htm" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">the Microsoft OT spec site</a>. I know FontLab is liberal, but are all apps?</p>
+    <p>Thanks very much for any help!<br>
+    George</p>
+comments:
+  - id: 592818
+    user: 9108
+    date: 2014-11-08T05:43:00
+    date_raw: 8 November 2014 - 5:43am
+    votes: 0
+    html: |-
+      <p>If you didn't read <a href="http://ansuz.sooke.bc.ca/entry/131" title="Click to visit an external URL." class="freelink freelink-external freelink-external">this article will help</a></p>
+      <p><a href="http://typophile.com/node/120773#comment-591468" title="Click to visit an external URL." class="freelink freelink-external freelink-external">not all apps, I think;</a> InDesign accepts such wrong substitution in stylistic set (at least CS5).</p>
+    html_clean: |-
+      <p>If you didn't read <a href="http://ansuz.sooke.bc.ca/entry/131" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">this article will help</a></p>
+      <p><a href="/node/120773/#comment-591468" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">not all apps, I think;</a> InDesign accepts such wrong substitution in stylistic set (at least CS5).</p>
+  - id: 592845
+    user: 9356
+    date: 2014-11-08T16:39:00
+    date_raw: 8 November 2014 - 4:39pm
+    votes: 0
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 592847
+    user: 9356
+    date: 2014-11-09T00:14:00
+    date_raw: 9 November 2014 - 12:14am
+    votes: 0
+    html: |-
+      <p>Thanks JanekZ! I knew about that article, but it doesn't talk about the fact that the following snippet will turn all 'a's into 'c's: </p>
+      <p>sub a by b;<br>
+      lookup ReRun {<br>
+        sub b by c;<br>
+      } ReRun;</p>
+      <p>whereas this snippet won't: </p>
+      <p>lookup DoesntReRun {<br>
+        sub b by c;<br>
+      } DoesntReRun;<br>
+      sub a by b;<br>
+      lookup DoesntReRun;</p>
+      <p>Do you think the ban on lookup types in features where they're not specified only applies to substitutions that take or return the wrong number of glyphs? Or does it mean you also can't do contextual substitutions where only non-contextual are specified, or non-contextual where contextual are specified? There are places where bending the rules would be handy even for basic stuff: for instance, contextual substitutions in <code>locl</code> for Catalan punt volat; one-to-many in <code>smcp</code> for decomposing germandbls.smcp to s.smcp.DEU s.smcp.DEU; and many-to-one in <code>salt</code> or <code>ss01</code> for replacing s.smcp.DEU s.smcp.DEU with germandbls.smcp.alt.</p>
+    html_clean: |-
+      <p>Thanks JanekZ! I knew about that article, but it doesn't talk about the fact that the following snippet will turn all 'a's into 'c's: </p>
+      <p>sub a by b;<br>
+      lookup ReRun {<br>
+        sub b by c;<br>
+      } ReRun;</p>
+      <p>whereas this snippet won't: </p>
+      <p>lookup DoesntReRun {<br>
+        sub b by c;<br>
+      } DoesntReRun;<br>
+      sub a by b;<br>
+      lookup DoesntReRun;</p>
+      <p>Do you think the ban on lookup types in features where they're not specified only applies to substitutions that take or return the wrong number of glyphs? Or does it mean you also can't do contextual substitutions where only non-contextual are specified, or non-contextual where contextual are specified? There are places where bending the rules would be handy even for basic stuff: for instance, contextual substitutions in <code>locl</code> for Catalan punt volat; one-to-many in <code>smcp</code> for decomposing germandbls.smcp to s.smcp.DEU s.smcp.DEU; and many-to-one in <code>salt</code> or <code>ss01</code> for replacing s.smcp.DEU s.smcp.DEU with germandbls.smcp.alt.</p>
+  - id: 592855
+    user: 9108
+    date: 2014-11-08T18:38:00
+    date_raw: 8 November 2014 - 6:38pm
+    votes: 0
+    html: |-
+      <p>Warning: this is only my opinion and it may or may not be true.</p>
+      <p>"the following snippet will turn all 'a's into 'c's"<br>
+      It doesn't work that way for me, neither in FontLab nor in FontForge.<br>
+      1. Your example is equivalent* to:<br>
+      sub a by b; # 1st rule<br>
+      sub b by c; # 2nd rule<br>
+      2. It will work that way:<br>
+      -   "abc" -&gt; "bbc" ["a" is substituted by "b"; no more "a"s] 1st rule<br>
+      -   "bbc" -&gt; "bcc" [<strong>second</strong> "b" is substituted by "c"; no more "b"s] 2nd rule<br>
+      3. If your first example works as you described, then try:<br>
+      sub a by b;<br>
+      sub b by a;<br>
+      (or better not...)</p>
+      <p>* "A lookup is a group of rules of the same type." Your feature has rules of the same type (one to one substitution) so no need to hide them in a lookups.</p>
+    html_clean: |-
+      <p>Warning: this is only my opinion and it may or may not be true.</p>
+      <p>"the following snippet will turn all 'a's into 'c's"<br>
+      It doesn't work that way for me, neither in FontLab nor in FontForge.<br>
+      1. Your example is equivalent* to:<br>
+      sub a by b; # 1st rule<br>
+      sub b by c; # 2nd rule<br>
+      2. It will work that way:<br>
+      -   "abc" -&gt; "bbc" ["a" is substituted by "b"; no more "a"s] 1st rule<br>
+      -   "bbc" -&gt; "bcc" [<strong>second</strong> "b" is substituted by "c"; no more "b"s] 2nd rule<br>
+      3. If your first example works as you described, then try:<br>
+      sub a by b;<br>
+      sub b by a;<br>
+      (or better not...)</p>
+      <p>* "A lookup is a group of rules of the same type." Your feature has rules of the same type (one to one substitution) so no need to hide them in a lookups.</p>
+  - id: 592862
+    user: 9356
+    date: 2014-11-08T22:06:00
+    date_raw: 8 November 2014 - 10:06pm
+    votes: 0
+    html: |-
+      <p>Odd it doesn't work for you; it does for me in FL. But my first example isn't equivalent to<br><code><br>
+        sub a by b;<br>
+        sub b by c;<br></code><br>
+      Those two lines just turn a string of 'a's into 'b's, not into 'c's (as you know) because without a separate lookup for the second rule the layout engine doesn't go back to the start of the glyph run. What puzzles me is that, in my second example, <code>lookup DoesntReRun;</code> doesn't send the layout engine back to the start in the same way as defining and running the lookup in place does.</p>
+    html_clean: |-
+      <p>Odd it doesn't work for you; it does for me in FL. But my first example isn't equivalent to<br><code><br>
+        sub a by b;<br>
+        sub b by c;<br></code><br>
+      Those two lines just turn a string of 'a's into 'b's, not into 'c's (as you know) because without a separate lookup for the second rule the layout engine doesn't go back to the start of the glyph run. What puzzles me is that, in my second example, <code>lookup DoesntReRun;</code> doesn't send the layout engine back to the start in the same way as defining and running the lookup in place does.</p>
+  - id: 592869
+    user: 18942
+    date: 2014-11-08T22:13:00
+    date_raw: 8 November 2014 - 10:13pm
+    votes: 0
+    html: |-
+      <p>It is my understanding that the  cursor never goes backwards (though contextual rules allow looking at left contexts). </p>
+      <p>If you have many substitution rules in a lookup, it is my understanding that the first that matches is applied. If you have many lookups they are applied in a row. So if the string is ab and the first lookup says to replace a by b and b by c, then you will endup with bc because the first rule matches a and will replace a by b and then the cursor moves forward one position and then the second rules applies for b. If you have a first lookup that replaces a by b and a second lookup that remplaces b by c, then a will be replaced by b by the first lookup and then b by c by the second lookup and then the cursor will move forward one position to the second character and then the second lookup will replace b by c to give cc as a result. If your first lookup replaces b by c and the second replaces a by b, then on ab the first lookup does nothing on a and the second replaces it by b and then the cursor moves to the second glyph that is replaced by c; the resulting string is bc. </p>
+      <p>I tried with FontForge with the following code: on ab, ss01 gives bc, ss02 gives cc and ss03 gives bc as expected.</p>
+      <p>feature ss01 {<br>
+       lookup trysubboth {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+          sub \b by \c ;<br>
+       } trysubboth;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup trysubboth;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup trysubboth;<br>
+      } ss01;</p>
+      <p>feature ss02 {<br>
+       lookup subab2 {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+       } subab2;<br>
+       lookup subbc2 {<br>
+        lookupflag 0;<br>
+          sub \b by \c ;<br>
+       } subbc2;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup subab2;<br>
+            lookup subbc2;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup subab2;<br>
+            lookup subbc2;<br>
+      } ss02;</p>
+      <p>feature ss03 {<br>
+       lookup subbc3 {<br>
+        lookupflag 0;<br>
+          sub \b by \c ;<br>
+       } subbc3;<br>
+       lookup subab3 {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+       } subab3;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup subbc3;<br>
+            lookup subab3;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup subbc3;<br>
+            lookup subab3;<br>
+      } ss03;</p>
+    html_clean: |-
+      <p>It is my understanding that the  cursor never goes backwards (though contextual rules allow looking at left contexts). </p>
+      <p>If you have many substitution rules in a lookup, it is my understanding that the first that matches is applied. If you have many lookups they are applied in a row. So if the string is ab and the first lookup says to replace a by b and b by c, then you will endup with bc because the first rule matches a and will replace a by b and then the cursor moves forward one position and then the second rules applies for b. If you have a first lookup that replaces a by b and a second lookup that remplaces b by c, then a will be replaced by b by the first lookup and then b by c by the second lookup and then the cursor will move forward one position to the second character and then the second lookup will replace b by c to give cc as a result. If your first lookup replaces b by c and the second replaces a by b, then on ab the first lookup does nothing on a and the second replaces it by b and then the cursor moves to the second glyph that is replaced by c; the resulting string is bc. </p>
+      <p>I tried with FontForge with the following code: on ab, ss01 gives bc, ss02 gives cc and ss03 gives bc as expected.</p>
+      <p>feature ss01 {<br>
+       lookup trysubboth {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+          sub \b by \c ;<br>
+       } trysubboth;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup trysubboth;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup trysubboth;<br>
+      } ss01;</p>
+      <p>feature ss02 {<br>
+       lookup subab2 {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+       } subab2;<br>
+       lookup subbc2 {<br>
+        lookupflag 0;<br>
+          sub \b by \c ;<br>
+       } subbc2;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup subab2;<br>
+            lookup subbc2;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup subab2;<br>
+            lookup subbc2;<br>
+      } ss02;</p>
+      <p>feature ss03 {<br>
+       lookup subbc3 {<br>
+        lookupflag 0;<br>
+          sub \b by \c ;<br>
+       } subbc3;<br>
+       lookup subab3 {<br>
+        lookupflag 0;<br>
+          sub \a by \b ;<br>
+       } subab3;<br>
+        script DFLT;<br>
+           language dflt ;<br>
+            lookup subbc3;<br>
+            lookup subab3;<br>
+        script latn;<br>
+           language dflt ;<br>
+            lookup subbc3;<br>
+            lookup subab3;<br>
+      } ss03;</p>
+  - id: 592873
+    user: 9356
+    date: 2014-11-09T09:38:00
+    date_raw: 9 November 2014 - 9:38am
+    votes: 0
+    html: |-
+      <p>Thanks Michel. The <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#7.a" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Adobe Feature File spec</a> says the cursor does go back with each lookup: "each lookup corresponds to one 'pass' over the glyph run". You can prove it by giving a string of 'a's to the following code, which returns not 'i's, as it would if the layout engine went through all lookups before moving on to the next glyph, but 'j's:<br>
+      sub a by b;<br>
+      lookup proof {<br>
+        sub b' a by i;<br>
+        sub b' b by j;<br>
+      } proof;<br>
+      That's why I expected <code>lookup DoesntReRun;</code> at the end of my second example to send the cursor back to the start, turning all the new 'b's produced by <code>sub a by b;</code> into 'c's. The following code does do what I'd expected, despite using only lookup calls rather than definition-and-execution in place:<br>
+      lookup sub_a {<br>
+        sub a by b;<br>
+      } sub_a;<br>
+      lookup sub_b {<br>
+        sub b by c;<br>
+      } sub_b;<br>
+      feature xxxx {<br>
+        lookup sub_a;<br>
+        lookup sub_b;<br>
+      } xxxx;</p>
+      <p>But now I've noticed something else odd: the last piece of code does exactly the same thing if you swap the order of the lookup calls, but changes its behaviour if you swap the order of the lookup <em>definitions</em>. Specifically, given a string of 'a's, it returns 'b's instead of 'c's. This language is weird.</p>
+    html_clean: |-
+      <p>Thanks Michel. The <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#7.a" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Adobe Feature File spec</a> says the cursor does go back with each lookup: "each lookup corresponds to one 'pass' over the glyph run". You can prove it by giving a string of 'a's to the following code, which returns not 'i's, as it would if the layout engine went through all lookups before moving on to the next glyph, but 'j's:<br>
+      sub a by b;<br>
+      lookup proof {<br>
+        sub b' a by i;<br>
+        sub b' b by j;<br>
+      } proof;<br>
+      That's why I expected <code>lookup DoesntReRun;</code> at the end of my second example to send the cursor back to the start, turning all the new 'b's produced by <code>sub a by b;</code> into 'c's. The following code does do what I'd expected, despite using only lookup calls rather than definition-and-execution in place:<br>
+      lookup sub_a {<br>
+        sub a by b;<br>
+      } sub_a;<br>
+      lookup sub_b {<br>
+        sub b by c;<br>
+      } sub_b;<br>
+      feature xxxx {<br>
+        lookup sub_a;<br>
+        lookup sub_b;<br>
+      } xxxx;</p>
+      <p>But now I've noticed something else odd: the last piece of code does exactly the same thing if you swap the order of the lookup calls, but changes its behaviour if you swap the order of the lookup <em>definitions</em>. Specifically, given a string of 'a's, it returns 'b's instead of 'c's. This language is weird.</p>
+  - id: 592886
+    user: 18942
+    date: 2014-11-09T05:41:00
+    date_raw: 9 November 2014 - 5:41am
+    votes: 0
+    html: |-
+      <p>I had noticed that the order of the declaration affected the result. I could see it with the Fontforge grahical interface. That is why I declared twice the substitutions above. Weird.</p>
+      <p>Your proof leaves me puzzled. In  Haralambous' <em>Fonts &amp; Encodings</em>, section D 9.4.5 contains about 5 pages of explanations on how contextual substitutions work with accompanying xml code generated by ttx. I would first look there.</p>
+    html_clean: |-
+      <p>I had noticed that the order of the declaration affected the result. I could see it with the Fontforge grahical interface. That is why I declared twice the substitutions above. Weird.</p>
+      <p>Your proof leaves me puzzled. In  Haralambous' <em>Fonts &amp; Encodings</em>, section D 9.4.5 contains about 5 pages of explanations on how contextual substitutions work with accompanying xml code generated by ttx. I would first look there.</p>
+  - id: 592889
+    user: 9108
+    date: 2014-11-09T05:57:00
+    date_raw: 9 November 2014 - 5:57am
+    votes: 0
+    html: |-
+      <p>The Terrible Secret of OpenType 2</p>
+      <p>[7.b. Ordering of lookups and subtables]<br>
+      "Lookups will be created in the GSUB/GPOS table's LookupList in the same order as the corresponding named lookup blocks or runs of rules in the feature file"<br>
+      so if you have named lookups:<br><code>lookup sub_b<br>
+      lookup sub_a</code><br>
+      in that order, then:<br><code>feature xxxx {<br>
+        lookup sub_a;<br>
+        lookup sub_b;<br>
+      } xxxx</code><br>
+      is executed in order of named lookups.<br><img src="/sites/default/files/old-images/The Terrible Secret1_5528.jpg"><br><img src="/sites/default/files/old-images/The Terrible Secret2_6466.jpg"></p>
+    html_clean: |-
+      <p>The Terrible Secret of OpenType 2</p>
+      <p>[7.b. Ordering of lookups and subtables]<br>
+      "Lookups will be created in the GSUB/GPOS table's LookupList in the same order as the corresponding named lookup blocks or runs of rules in the feature file"<br>
+      so if you have named lookups:<br><code>lookup sub_b<br>
+      lookup sub_a</code><br>
+      in that order, then:<br><code>feature xxxx {<br>
+        lookup sub_a;<br>
+        lookup sub_b;<br>
+      } xxxx</code><br>
+      is executed in order of named lookups.<br><img src="/sites/default/files/old-images/The Terrible Secret1_5528.jpg"><br><img src="/sites/default/files/old-images/The Terrible Secret2_6466.jpg"></p>
+  - id: 592911
+    user: 9356
+    date: 2014-11-11T14:07:00
+    date_raw: 11 November 2014 - 2:07pm
+    votes: 0
+    html: |-
+      <p>Thanks both of you. My provisional understanding, after some more experimentation, is that it works as if<br>
+      1) Sequences of rules outside explicit lookups within the same script and language, with the same lookupflag, and of the same lookup type (e.g. non-contextual one-to-one or reverse contextual) are converted to anonymous lookups. For this purpose, lookup calls are treated as boundaries between rule sequences.<br>
+      2) Lookup definitions written outside a feature but called within one are copied in written order to the top of the feature's code.<br>
+      2) All lookup calls themselves are then deleted.<br>
+      Which is impressively user-hostile, but no more so than the fact that rules written after script latn;<br>
+      language dflt; are actually excluded from all latin-script languages not explicitly mentioned (hope I've got that right).</p>
+    html_clean: |-
+      <p>Thanks both of you. My provisional understanding, after some more experimentation, is that it works as if<br>
+      1) Sequences of rules outside explicit lookups within the same script and language, with the same lookupflag, and of the same lookup type (e.g. non-contextual one-to-one or reverse contextual) are converted to anonymous lookups. For this purpose, lookup calls are treated as boundaries between rule sequences.<br>
+      2) Lookup definitions written outside a feature but called within one are copied in written order to the top of the feature's code.<br>
+      2) All lookup calls themselves are then deleted.<br>
+      Which is impressively user-hostile, but no more so than the fact that rules written after script latn;<br>
+      language dflt; are actually excluded from all latin-script languages not explicitly mentioned (hope I've got that right).</p>
+  - id: 593083
+    user: 31798
+    date: 2014-11-11T00:24:00
+    date_raw: 11 November 2014 - 12:24am
+    votes: 0
+    html: |-
+      <p><cite> 2) Lookup definitions written outside a feature but called within one are copied in written order to the top of the feature's code.</cite><br><cite>2) All lookup calls themselves are then deleted.</cite></p>
+      <p>This is incorrect. To understand what's going on you need to understand that the GSUB table within a font is a set of ordered lookups, and that feature tags simply indicate a set of lookups which are to be applied when that feature is active. To illustrate this, consider the following:</p>
+      <p>feature xxxx {<br>
+          sub a by b;<br>
+          sub x by y;<br>
+          lookup lookupA {<br>
+              sub c by d;<br>
+          } 1ookupA;<br>
+      } xxxx;</p>
+      <p>feature yyyy {<br>
+          sub a by c;<br>
+          lookupA;<br>
+      } yyyy;</p>
+      <p>The above code will create a GSUB table containing three lookups as follows, which appear in the order in which they are defined (implicitly or explicitly) in your code:<br>
+      lookup1 {<br>
+          sub a by b;<br>
+          sub x by y;<br>
+      } lookup1;<br>
+      lookupA {<br>
+          sub c by d;<br>
+      } lookupA;<br>
+      lookup2 {<br>
+          sub a by c;<br>
+      } lookup2;</p>
+      <p>Feature tag xxxx will specify that lookup1 and lookupA are to be applied.<br>
+      Feature tag yyyy will specify that lookup2 and lookupA are to be called.</p>
+      <p>The fact that the call to lookupA appears <em> after </em> the line <code> sub a by c; </code> does not override the fact that lookupA has been defined <em> before </em> lookup2 in the feature file.</p>
+      <p>So, if you apply feature yyyy to the string 'abc' the output will be 'cbd' rather than 'dbd' since it is the order of the lookup definitions, not the order of the lookup calls which is relevant.</p>
+      <p>André</p>
+    html_clean: |-
+      <p><cite> 2) Lookup definitions written outside a feature but called within one are copied in written order to the top of the feature's code.</cite><br><cite>2) All lookup calls themselves are then deleted.</cite></p>
+      <p>This is incorrect. To understand what's going on you need to understand that the GSUB table within a font is a set of ordered lookups, and that feature tags simply indicate a set of lookups which are to be applied when that feature is active. To illustrate this, consider the following:</p>
+      <p>feature xxxx {<br>
+          sub a by b;<br>
+          sub x by y;<br>
+          lookup lookupA {<br>
+              sub c by d;<br>
+          } 1ookupA;<br>
+      } xxxx;</p>
+      <p>feature yyyy {<br>
+          sub a by c;<br>
+          lookupA;<br>
+      } yyyy;</p>
+      <p>The above code will create a GSUB table containing three lookups as follows, which appear in the order in which they are defined (implicitly or explicitly) in your code:<br>
+      lookup1 {<br>
+          sub a by b;<br>
+          sub x by y;<br>
+      } lookup1;<br>
+      lookupA {<br>
+          sub c by d;<br>
+      } lookupA;<br>
+      lookup2 {<br>
+          sub a by c;<br>
+      } lookup2;</p>
+      <p>Feature tag xxxx will specify that lookup1 and lookupA are to be applied.<br>
+      Feature tag yyyy will specify that lookup2 and lookupA are to be called.</p>
+      <p>The fact that the call to lookupA appears <em> after </em> the line <code> sub a by c; </code> does not override the fact that lookupA has been defined <em> before </em> lookup2 in the feature file.</p>
+      <p>So, if you apply feature yyyy to the string 'abc' the output will be 'cbd' rather than 'dbd' since it is the order of the lookup definitions, not the order of the lookup calls which is relevant.</p>
+      <p>André</p>
+  - id: 593084
+    user: 31798
+    date: 2014-11-11T00:29:00
+    date_raw: 11 November 2014 - 12:29am
+    votes: 0
+    html: |-
+      <p>I should also add that this is one reason I strongly object to attempts to treat opentype coding as a type of programming language, since it leads one to think of lookup calls as analogous to procedure calls which they really aren't (this issue came up recently in a different thread).</p>
+      <p>André</p>
+    html_clean: |-
+      <p>I should also add that this is one reason I strongly object to attempts to treat opentype coding as a type of programming language, since it leads one to think of lookup calls as analogous to procedure calls which they really aren't (this issue came up recently in a different thread).</p>
+      <p>André</p>
+  - id: 593105
+    user: 9356
+    date: 2014-11-11T11:44:00
+    date_raw: 11 November 2014 - 11:44am
+    votes: 0
+    html: <p>Thanks André. You're right that the model I gave isn't the way things actually work, though I think it's behaviourally identical to the way things actually work. And it includes the fact that the position of lookup calls in the code of a feature still has semantic relevance, in that rules written above and below will be put into different lookups.</p>
+    html_clean: <p>Thanks André. You're right that the model I gave isn't the way things actually work, though I think it's behaviourally identical to the way things actually work. And it includes the fact that the position of lookup calls in the code of a feature still has semantic relevance, in that rules written above and below will be put into different lookups.</p>
+  - id: 593127
+    user: 3135
+    date: 2014-11-11T12:45:00
+    date_raw: 11 November 2014 - 12:45pm
+    votes: 0
+    html: <p>Type design is not in Kansas anymore ;-)</p>
+    html_clean: <p>Type design is not in Kansas anymore ;-)</p>
+  - id: 593134
+    user: 9356
+    date: 2014-11-11T14:06:00
+    date_raw: 11 November 2014 - 2:06pm
+    votes: 0
+    html: <p>:-)</p>
+    html_clean: <p>:-)</p>
+  - id: 593173
+    user: 18942
+    date: 2014-11-11T22:02:00
+    date_raw: 11 November 2014 - 10:02pm
+    votes: 0
+    html: |-
+      <p>The <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#7.a">opentype engine's layout algorithm</a> is indeed rather clear. Another "proof" that there is more than one pass is that with</p>
+      <p>feature calt {<br>
+        script latn;<br>
+           language dflt ;<br>
+             sub  \a \a'   by \b;<br>
+      } calt;</p>
+      <p>feature dlig {<br>
+        script latn;<br>
+           language dflt ;<br>
+            sub \a \b by \c ;<br>
+      } dlig;</p>
+      <p> 'aaaaaa' is replaced by 'ccc'  if calt and dlig are activated.</p>
+    html_clean: |-
+      <p>The <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#7.a" class="link-external">opentype engine's layout algorithm</a> is indeed rather clear. Another "proof" that there is more than one pass is that with</p>
+      <p>feature calt {<br>
+        script latn;<br>
+           language dflt ;<br>
+             sub  \a \a'   by \b;<br>
+      } calt;</p>
+      <p>feature dlig {<br>
+        script latn;<br>
+           language dflt ;<br>
+            sub \a \b by \c ;<br>
+      } dlig;</p>
+      <p> 'aaaaaa' is replaced by 'ccc'  if calt and dlig are activated.</p>

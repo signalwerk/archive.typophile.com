@@ -1,5 +1,5 @@
 node: 121636
-title: null
+title: Robofont Alternate Characters
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/121636.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170811055500/typophile.com/node/121636.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,94 @@ pages:
       digest: QFRG6Z54YGTZIBT2IKS27WWKW5W2JTRP
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/121636.html
+      file: data/archives/web.archive.org/files/20170811055500/typophile.com/node/121636.html
 post:
   id: 121636
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 224630
+  date: 2014-11-27T21:50:00
+  date_raw: 27 November 2014 - 9:50pm
+  votes: 0
+  html: |-
+    <p>I'm new to Robofont and opentype features. This is in fact my first foray in producing a font. I've got a base character set and and alternate characters for many of them. </p>
+    <p>At the moment I am using stylistic alternates, but am finding that when I try to use the font in Illustrator or InDesign I change a character to it's alternate and all the following characters I type are also alternates when applicable. This doesn't happen all the time, only at certain times.</p>
+    <p>Tried using feature ss01 and ss02 to define the .salt1's and .salt2's but I got the same issue regardless.</p>
+    <p>Any advice on how to properly code multiple alternate characters and not have them replace base characters when typing would be appreciated. </p>
+    <p>Thanks</p>
+    <p>CODE:</p>
+    <p>feature aalt{<br>
+    feature salt;<br>
+    feature liga;<br>
+    } aalt;</p>
+    <p>feature salt { # my Stylistic Alternates<br>
+    		sub a from [a.salt];<br>
+    		sub A from [A.salt];<br>
+    		sub three from [three.salt];<br>
+    		sub four from [four.salt];<br>
+    		sub five from [five.salt];<br>
+    		sub B from [B.salt B.salt2];<br>
+    		sub D from [D.salt];<br>
+    		sub E from [E.salt E.salt2];<br>
+    		sub F from [F.salt];<br>
+    		sub H from [H.salt];<br>
+    		sub I from [I.salt];<br>
+    		sub R from [R.salt];<br>
+    		sub u from [u.salt];<br>
+    		sub z from [z.salt];<br>
+    		sub Z from [Z.salt];<br>
+    		sub T from [T.salt];<br>
+    		sub N from [N.salt];<br>
+    		sub ampersand from [ampersand.salt];<br>
+    	} salt;</p>
+    <p>feature liga { # my Ligatures<br>
+    		sub f f by f_f.liga;<br>
+    		sub f i by f_i.liga;<br>
+    		sub f l by f_l.liga;<br>
+    		sub f f i by f_f_i.liga;<br>
+    		sub f f y by f_f_y.liga;<br>
+    	} liga;</p>
+  html_clean: |-
+    <p>I'm new to Robofont and opentype features. This is in fact my first foray in producing a font. I've got a base character set and and alternate characters for many of them. </p>
+    <p>At the moment I am using stylistic alternates, but am finding that when I try to use the font in Illustrator or InDesign I change a character to it's alternate and all the following characters I type are also alternates when applicable. This doesn't happen all the time, only at certain times.</p>
+    <p>Tried using feature ss01 and ss02 to define the .salt1's and .salt2's but I got the same issue regardless.</p>
+    <p>Any advice on how to properly code multiple alternate characters and not have them replace base characters when typing would be appreciated. </p>
+    <p>Thanks</p>
+    <p>CODE:</p>
+    <p>feature aalt{<br>
+    feature salt;<br>
+    feature liga;<br>
+    } aalt;</p>
+    <p>feature salt { # my Stylistic Alternates<br>
+    		sub a from [a.salt];<br>
+    		sub A from [A.salt];<br>
+    		sub three from [three.salt];<br>
+    		sub four from [four.salt];<br>
+    		sub five from [five.salt];<br>
+    		sub B from [B.salt B.salt2];<br>
+    		sub D from [D.salt];<br>
+    		sub E from [E.salt E.salt2];<br>
+    		sub F from [F.salt];<br>
+    		sub H from [H.salt];<br>
+    		sub I from [I.salt];<br>
+    		sub R from [R.salt];<br>
+    		sub u from [u.salt];<br>
+    		sub z from [z.salt];<br>
+    		sub Z from [Z.salt];<br>
+    		sub T from [T.salt];<br>
+    		sub N from [N.salt];<br>
+    		sub ampersand from [ampersand.salt];<br>
+    	} salt;</p>
+    <p>feature liga { # my Ligatures<br>
+    		sub f f by f_f.liga;<br>
+    		sub f i by f_i.liga;<br>
+    		sub f l by f_l.liga;<br>
+    		sub f f i by f_f_i.liga;<br>
+    		sub f f y by f_f_y.liga;<br>
+    	} liga;</p>
+comments:
+  - id: 594732
+    user: 14650
+    date: 2014-12-02T09:07:00
+    date_raw: 2 December 2014 - 9:07am
+    votes: 0
+    html: <p>I think the problem here is your apps rather than the font. In Illustrator when you select a .salt glyph while typing it switches the "salt" feature on from that point on unless you flip it back immediately. I find that kind of behavior annoying, but that's how it's set up. So I always recommend setting all of your text first. That will put in ligatures and contextual alternates by default unless you deselect those features. Then afterwards you can either switch on salt or any other available feature to the whole thing, or use the glyph palette to change individual letters. I don't use InDesign all that much, but I suspect it has similar behavior with stylistic sets.</p>
+    html_clean: <p>I think the problem here is your apps rather than the font. In Illustrator when you select a .salt glyph while typing it switches the "salt" feature on from that point on unless you flip it back immediately. I find that kind of behavior annoying, but that's how it's set up. So I always recommend setting all of your text first. That will put in ligatures and contextual alternates by default unless you deselect those features. Then afterwards you can either switch on salt or any other available feature to the whole thing, or use the glyph palette to change individual letters. I don't use InDesign all that much, but I suspect it has similar behavior with stylistic sets.</p>

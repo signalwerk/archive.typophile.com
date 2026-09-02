@@ -1,5 +1,5 @@
 node: 125518
-title: null
+title: App on iOS renders complex script marks with wrong vertical positioning
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/125518.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170629042005/typophile.com/node/125518.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,80 @@ pages:
       digest: 44QLUGBSGSDBWTOEU5RJ6DWQA4Y2U2B5
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/125518.html
+      file: data/archives/web.archive.org/files/20170629042005/typophile.com/node/125518.html
 post:
   id: 125518
-  user: null
-  date: null
-  date_raw: null
+  user: 23584
+  date: 2017-02-16T18:11:00
+  date_raw: 16 February 2017 - 6:11pm
   votes: 1
-  html: null
-  html_clean: null
-comments: []
+  html: |-
+    <p>I am posting this under General Discussions because it concerns a very technical issue that transcends Arabic.<br>
+    My favorite iOS apps (ArtStudio, Pages for iPhone and iPad) render Arabic mark positioning correctly, except for an otherwise excellent  app called InkPad. InkPad for the iPad is a superb vector drawing app and renders Arabic fonts correctly except that mark positioning goes haywire for all Arabic fonts. The attached image shows how the pink marks on my AlQuds SemiBold  font are displaced in Inkpad from their intended position shown in black. The adjustments differ for each letter but the app applies them in the opposite direction up or down!<br>
+     I wrote to the developer a few years ago but the issue is too technical for them. Can Typophile experts help pinpoint the trouble?  Thanks.</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/forum-files/Inkpad%20harakat%20test.jpg" width="512" height="512" alt="">
+  html_clean: |-
+    <p>I am posting this under General Discussions because it concerns a very technical issue that transcends Arabic.<br>
+    My favorite iOS apps (ArtStudio, Pages for iPhone and iPad) render Arabic mark positioning correctly, except for an otherwise excellent  app called InkPad. InkPad for the iPad is a superb vector drawing app and renders Arabic fonts correctly except that mark positioning goes haywire for all Arabic fonts. The attached image shows how the pink marks on my AlQuds SemiBold  font are displaced in Inkpad from their intended position shown in black. The adjustments differ for each letter but the app applies them in the opposite direction up or down!<br>
+     I wrote to the developer a few years ago but the issue is too technical for them. Can Typophile experts help pinpoint the trouble?  Thanks.</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/forum-files/Inkpad%20harakat%20test.jpg" width="512" height="512" alt="">
+comments:
+  - id: 604443
+    user: 1262
+    date: 2017-02-17T12:46:00
+    date_raw: 17 February 2017 - 12:46pm
+    votes: 1
+    html: |-
+      <p>Very interesting bug. It's strange that sometimes the error is up and sometimes down. Can you derive a pattern relative to the actual GPOS anchor data, or to the default heights of the marks and how these are adjusted in the GPOS? I'm guessing, just by looking at your example, that the GPOS values might be being applied in reverse, i.e. that when you lower a mark from its default height, InkPad is raising it, and vice versa. But I'd need to see how your mark glyphs sit relative to the 0,0 position in order to determine what's going on.</p>
+      <p>In order to determine what's at fault, you need to find out what layout engine InkPad is using for OpenType Layout.</p>
+    html_clean: |-
+      <p>Very interesting bug. It's strange that sometimes the error is up and sometimes down. Can you derive a pattern relative to the actual GPOS anchor data, or to the default heights of the marks and how these are adjusted in the GPOS? I'm guessing, just by looking at your example, that the GPOS values might be being applied in reverse, i.e. that when you lower a mark from its default height, InkPad is raising it, and vice versa. But I'd need to see how your mark glyphs sit relative to the 0,0 position in order to determine what's going on.</p>
+      <p>In order to determine what's at fault, you need to find out what layout engine InkPad is using for OpenType Layout.</p>
+  - id: 604446
+    user: 23584
+    date: 2017-02-17T18:24:00
+    date_raw: 17 February 2017 - 6:24pm
+    votes: 0
+    html: <p>Hi John Indeed it is a simple flip of the positioning instruction reversing the direction. If you draw a line through the locus of midpoints between the pink and black marks in the diagram, you will get the original level of all the top marks at around the 620 mark . For what its worth I attach the Marks positioning data.</p>
+    html_clean: <p>Hi John Indeed it is a simple flip of the positioning instruction reversing the direction. If you draw a line through the locus of midpoints between the pink and black marks in the diagram, you will get the original level of all the top marks at around the 620 mark . For what its worth I attach the Marks positioning data.</p>
+  - id: 604447
+    user: 1262
+    date: 2017-02-17T21:22:00
+    date_raw: 17 February 2017 - 9:22pm
+    votes: 0
+    html: <p>I can't offer any more advice without knowing how InkPad is doing OpenType Layout shaping. Is it using Apple's CoreText engine in the OS, or something else? [Note that I've heard reports of CoreText GPOS bugs in Sierra and the latest iOS, but nothing like you show here.]</p>
+    html_clean: <p>I can't offer any more advice without knowing how InkPad is doing OpenType Layout shaping. Is it using Apple's CoreText engine in the OS, or something else? [Note that I've heard reports of CoreText GPOS bugs in Sierra and the latest iOS, but nothing like you show here.]</p>
+  - id: 604448
+    user: 23584
+    date: 2017-02-17T21:47:00
+    date_raw: 17 February 2017 - 9:47pm
+    votes: 0
+    html: <p>Thanks I have written to the developers of the app, StoneStudio, and asked them to look into the discussions here and respond. The app is open source and the code is at <a href="https://github.com/sprang/Inkpad">https://github.com/sprang/Inkpad</a></p>
+    html_clean: <p>Thanks I have written to the developers of the app, StoneStudio, and asked them to look into the discussions here and respond. The app is open source and the code is at <a href="https://github.com/sprang/Inkpad" class="link-external">https://github.com/sprang/Inkpad</a></p>
+  - id: 604602
+    user: 23584
+    date: 2017-03-09T03:23:00
+    date_raw: 9 March 2017 - 3:23am
+    votes: 1
+    html: |-
+      <p>The InkPad app developer wrote me the following, which confirms John Hudson's suggestion that CoreText may be responsible.<br>
+      " have checked this program's source code and found that using the iOS system CoreText in this program. So, maybe this problem can't be fixed so far. But I will do my best to see if this bug could be fixed in the future.<br>
+      Thanks again for you using my app and reporting this bug."</p>
+    html_clean: |-
+      <p>The InkPad app developer wrote me the following, which confirms John Hudson's suggestion that CoreText may be responsible.<br>
+      " have checked this program's source code and found that using the iOS system CoreText in this program. So, maybe this problem can't be fixed so far. But I will do my best to see if this bug could be fixed in the future.<br>
+      Thanks again for you using my app and reporting this bug."</p>
+  - id: 604633
+    user: 1262
+    date: 2017-03-14T13:18:00
+    date_raw: 14 March 2017 - 1:18pm
+    votes: 0
+    html: <p>Are you able to test some other Arabic fonts in InkPad to see whether this is a common problem or something that is only affecting your font?</p>
+    html_clean: <p>Are you able to test some other Arabic fonts in InkPad to see whether this is a common problem or something that is only affecting your font?</p>
+  - id: 604672
+    user: 23584
+    date: 2017-03-16T04:57:00
+    date_raw: 16 March 2017 - 4:57am
+    votes: 0
+    html: <p>I did test that - it changes the mark adjustment values in the fonts that have them which I tested. Al Nile however is unchanged, probably because the marks have no positioning changes.</p>
+    html_clean: <p>I did test that - it changes the mark adjustment values in the fonts that have them which I tested. Al Nile however is unchanged, probably because the marks have no positioning changes.</p>

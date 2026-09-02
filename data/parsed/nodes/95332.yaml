@@ -1,5 +1,5 @@
 node: 95332
-title: null
+title: How to build woff/web fonts from otf?
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/95332.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170803161531/typophile.com/node/95332.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,194 @@ pages:
       digest: KQ3PFHMH54EXLO4R3IEXAIM7UBBZBSC6
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/95332.html
+      file: data/archives/web.archive.org/files/20170803161531/typophile.com/node/95332.html
 post:
   id: 95332
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 197804
+  date: 2012-08-05T04:46:00
+  date_raw: 5 August 2012 - 4:46am
+  votes: 0
+  html: |-
+    <p>Hello,</p>
+    <p>I was wondering which tools are available to create/convert web fonts from OTF (cff) files? I'm on OSX and it could be command line tools as well.<br>
+    I know there are more than a few sites available that can do it for you, but I'm looking at fonts that I'd like to convert myself and also test with OT features.</p>
+    <p>I've looked at sfntly from Google but it's still a work in progress and also does not handle OTF/CFF fonts.<br>
+    There's an (old) tool from JKew (<a href="http://people.mozilla.org/~jkew/woff/">http://people.mozilla.org/~jkew/woff/</a>) but could not test it yet (the pre-compiled version doesn't run atm).</p>
+    <p>Any ideas or pointers?</p>
+    <p>Regards,<br>
+    Rolf</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>I was wondering which tools are available to create/convert web fonts from OTF (cff) files? I'm on OSX and it could be command line tools as well.<br>
+    I know there are more than a few sites available that can do it for you, but I'm looking at fonts that I'd like to convert myself and also test with OT features.</p>
+    <p>I've looked at sfntly from Google but it's still a work in progress and also does not handle OTF/CFF fonts.<br>
+    There's an (old) tool from JKew (<a href="http://people.mozilla.org/~jkew/woff/" class="link-external">http://people.mozilla.org/~jkew/woff/</a>) but could not test it yet (the pre-compiled version doesn't run atm).</p>
+    <p>Any ideas or pointers?</p>
+    <p>Regards,<br>
+    Rolf</p>
+comments:
+  - id: 518071
+    user: 17101
+    date: 2012-08-05T05:05:00
+    date_raw: 5 August 2012 - 5:05am
+    votes: 0
+    html: <p>Sfntly does indeed handle OTF/CFF fonts.</p>
+    html_clean: <p>Sfntly does indeed handle OTF/CFF fonts.</p>
+  - id: 518097
+    user: 1794
+    date: 2012-08-05T12:45:00
+    date_raw: 5 August 2012 - 12:45pm
+    votes: 0
+    html: '<p>The FontSquirrel @font-face generator is certainly the best free tool around and it also offers a lot of extra options to deal with things like OpenType features: <a href="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a></p>'
+    html_clean: '<p>The FontSquirrel @font-face generator is certainly the best free tool around and it also offers a lot of extra options to deal with things like OpenType features: <a href="http://www.fontsquirrel.com/fontface/generator" class="link-external">http://www.fontsquirrel.com/fontface/generator</a></p>'
+  - id: 518098
+    user: 17101
+    date: 2012-08-05T12:55:00
+    date_raw: 5 August 2012 - 12:55pm
+    votes: 0
+    html: <p>But Fontsquirrel converts OTF/CFF to TTF.</p>
+    html_clean: <p>But Fontsquirrel converts OTF/CFF to TTF.</p>
+  - id: 518105
+    user: 9108
+    date: 2012-08-05T13:37:00
+    date_raw: 5 August 2012 - 1:37pm
+    votes: 0
+    html: <p>FontForge</p>
+    html_clean: <p>FontForge</p>
+  - id: 518121
+    user: 18942
+    date: 2012-08-05T20:15:00
+    date_raw: 5 August 2012 - 8:15pm
+    votes: 0
+    html: |-
+      <p>I ran the following test. I made an otf file without a UniquID (using ttx) that I named <code>unicasem.otf</code> and giving the following trace:</p>
+      <p>  681 % otfinfo -i unicasem.otf<br>
+        Family:              unicase<br>
+        Subfamily:           Medium<br>
+        Full name:           unicase<br>
+        PostScript name:     unicase<br>
+        Version:             Version 001.000<br>
+        Copyright:           Created by Boyer Michel</p>
+      <p>and I sent it to the font-face generator to get my "package". In particular I received a ttf file. Here is a trace:</p>
+      <p>  692 % otfinfo -i unicasem-webfont.ttf<br>
+        Family:              unicase<br>
+        Subfamily:           Medium<br>
+        Full name:           unicase Medium<br>
+        PostScript name:     unicase<br>
+        Version:             Version 001.000<br>
+        Unique ID:           FontForge 2.0 : unicase : 5-8-2012<br>
+        Copyright:           Created by Boyer Michel</p>
+      <p>Note the UniqueID that was put into the font by the fontface generator.</p>
+    html_clean: |-
+      <p>I ran the following test. I made an otf file without a UniquID (using ttx) that I named <code>unicasem.otf</code> and giving the following trace:</p>
+      <p>  681 % otfinfo -i unicasem.otf<br>
+        Family:              unicase<br>
+        Subfamily:           Medium<br>
+        Full name:           unicase<br>
+        PostScript name:     unicase<br>
+        Version:             Version 001.000<br>
+        Copyright:           Created by Boyer Michel</p>
+      <p>and I sent it to the font-face generator to get my "package". In particular I received a ttf file. Here is a trace:</p>
+      <p>  692 % otfinfo -i unicasem-webfont.ttf<br>
+        Family:              unicase<br>
+        Subfamily:           Medium<br>
+        Full name:           unicase Medium<br>
+        PostScript name:     unicase<br>
+        Version:             Version 001.000<br>
+        Unique ID:           FontForge 2.0 : unicase : 5-8-2012<br>
+        Copyright:           Created by Boyer Michel</p>
+      <p>Note the UniqueID that was put into the font by the fontface generator.</p>
+  - id: 518147
+    user: 1794
+    date: 2012-08-06T02:33:00
+    date_raw: 6 August 2012 - 2:33am
+    votes: 0
+    html: |-
+      <p><cite>But Fontsquirrel converts OTF/CFF to TTF.</cite></p>
+      <p>So? The original post only mentions creating webfonts <strong>from</strong> CFF.</p>
+    html_clean: |-
+      <p><cite>But Fontsquirrel converts OTF/CFF to TTF.</cite></p>
+      <p>So? The original post only mentions creating webfonts <strong>from</strong> CFF.</p>
+  - id: 518176
+    user: 83217
+    date: 2012-08-06T08:55:00
+    date_raw: 6 August 2012 - 8:55am
+    votes: 0
+    html: <p>As I recall, <code>sfnt2woff</code> (the JKew tool) can convert both OTF flavours to WOFF.</p>
+    html_clean: <p>As I recall, <code>sfnt2woff</code> (the JKew tool) can convert both OTF flavours to WOFF.</p>
+  - id: 518186
+    user: 18942
+    date: 2012-08-06T10:14:00
+    date_raw: 6 August 2012 - 10:14am
+    votes: 0
+    html: |-
+      <p><cite>the pre-compiled version doesn't run atm</cite></p>
+      <p>I just tried on my MacBook Pro with OS X 10.6 and had no problem running it.  I first right clicked on the link and saved the file  <code>sfnt2woff.txt</code>. Then I executed</p>
+      <p>  mv sfnt2woff.txt sfnt2woff<br>
+        chmod 755 sfnt2woff</p>
+      <p>and put <code>sfnt2woff</code> in my <code>~/bin</code> directory (which is in my PATH).</p>
+      <p>Added: I just tried on a Mini and I directly got the file <code>sfnt2woff</code> but still had to use <code>chmod</code> to make it executable.</p>
+    html_clean: |-
+      <p><cite>the pre-compiled version doesn't run atm</cite></p>
+      <p>I just tried on my MacBook Pro with OS X 10.6 and had no problem running it.  I first right clicked on the link and saved the file  <code>sfnt2woff.txt</code>. Then I executed</p>
+      <p>  mv sfnt2woff.txt sfnt2woff<br>
+        chmod 755 sfnt2woff</p>
+      <p>and put <code>sfnt2woff</code> in my <code>~/bin</code> directory (which is in my PATH).</p>
+      <p>Added: I just tried on a Mini and I directly got the file <code>sfnt2woff</code> but still had to use <code>chmod</code> to make it executable.</p>
+  - id: 518440
+    user: 197804
+    date: 2012-08-08T14:51:00
+    date_raw: 8 August 2012 - 2:51pm
+    votes: 0
+    html: "<p>@Frank: Are you sure sfntly handles CFF? When I was playing with it last time (back in March) Brian (from the project) wrote: <em>\"[...] Currently sfntly can recognize the CFF table block but cannot take the CFF table apart or reassemble it; ie: cannot edit or subset it. We also want to subset OTF/CFF fonts so we are working on adding subsetting support for CFF but it's a biggish task and will take a while (several seasons).\"</em> I think it can read the font, but that's it really.. no real support yet.</p>"
+    html_clean: "<p>@Frank: Are you sure sfntly handles CFF? When I was playing with it last time (back in March) Brian (from the project) wrote: <em>\"[...] Currently sfntly can recognize the CFF table block but cannot take the CFF table apart or reassemble it; ie: cannot edit or subset it. We also want to subset OTF/CFF fonts so we are working on adding subsetting support for CFF but it's a biggish task and will take a while (several seasons).\"</em> I think it can read the font, but that's it really.. no real support yet.</p>"
+  - id: 518441
+    user: 17101
+    date: 2012-08-08T14:55:00
+    date_raw: 8 August 2012 - 2:55pm
+    votes: 0
+    html: <p>I don’t know about subsetting, but I think converting to WOFF and EOT.</p>
+    html_clean: <p>I don’t know about subsetting, but I think converting to WOFF and EOT.</p>
+  - id: 518442
+    user: 197804
+    date: 2012-08-08T14:55:00
+    date_raw: 8 August 2012 - 2:55pm
+    votes: 0
+    html: |-
+      <p>@Michel: yes, I guess I was busy with something else in my head and forget about to either move it to a did in PATH or call it with the full path like ~/ohyes/sfnt2woff<br>
+      I'm going to try this one, thanks for the tips.</p>
+    html_clean: |-
+      <p>@Michel: yes, I guess I was busy with something else in my head and forget about to either move it to a did in PATH or call it with the full path like ~/ohyes/sfnt2woff<br>
+      I'm going to try this one, thanks for the tips.</p>
+  - id: 518446
+    user: 197804
+    date: 2012-08-08T15:06:00
+    date_raw: 8 August 2012 - 3:06pm
+    votes: 0
+    html: |-
+      <p>@Ralf H: thanks for the tips, I will check fontsquirrel again. The thing is that by using it I'm not sure what's going on behind the scenes. I don't know that either when I'm calling sfntly (well, I can check the source code), but at the moment I want to try it locally first anyway to see if I can generate the same results.</p>
+      <p>As for conversion CFF to TTF, it's indeed not my main concern at the moment. But I rather not convert it right away (automatically) to start with the basics first and then compare later. Like, I don't know if anyone seriously compared the fonts after applying Font Squirrel TT hinting automatically (and by self made conversion or whatever)</p>
+    html_clean: |-
+      <p>@Ralf H: thanks for the tips, I will check fontsquirrel again. The thing is that by using it I'm not sure what's going on behind the scenes. I don't know that either when I'm calling sfntly (well, I can check the source code), but at the moment I want to try it locally first anyway to see if I can generate the same results.</p>
+      <p>As for conversion CFF to TTF, it's indeed not my main concern at the moment. But I rather not convert it right away (automatically) to start with the basics first and then compare later. Like, I don't know if anyone seriously compared the fonts after applying Font Squirrel TT hinting automatically (and by self made conversion or whatever)</p>
+  - id: 567365
+    user: 216077
+    date: 2013-11-30T12:41:00
+    date_raw: 30 November 2013 - 12:41pm
+    votes: 0
+    html: |-
+      <p>Hi Rolf,</p>
+      <p>I've build a webfont generator that converts TTF &amp; OTF files into all usual web-font formats (WOFF, EOT, SVG). It also offers subsetting and auto-hinting if you need this. I called it <a href="http://fontie.flowyapps.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Fontie, the magic webfont generator</a>.</p>
+      <p>I also wrote <a href="http://pixelsvsbytes.com/blog/2013/11/how-to-create-perfect-web-fonts-in-3-steps/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">a post about how everything works and what tools I use behind the scenes</a>.</p>
+      <p>Bai<br>
+      Torben</p>
+      <p>PS: Excuse me for linking to my own stuff, but I think this could be of some help here ;) Please tell me if this is not appreciated and I'll remove the links...</p>
+      <p>PPS: Whoops, I just realized the threads date. So also sorry for reviving an an old thread ;(</p>
+    html_clean: |-
+      <p>Hi Rolf,</p>
+      <p>I've build a webfont generator that converts TTF &amp; OTF files into all usual web-font formats (WOFF, EOT, SVG). It also offers subsetting and auto-hinting if you need this. I called it <a href="http://fontie.flowyapps.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Fontie, the magic webfont generator</a>.</p>
+      <p>I also wrote <a href="http://pixelsvsbytes.com/blog/2013/11/how-to-create-perfect-web-fonts-in-3-steps/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">a post about how everything works and what tools I use behind the scenes</a>.</p>
+      <p>Bai<br>
+      Torben</p>
+      <p>PS: Excuse me for linking to my own stuff, but I think this could be of some help here ;) Please tell me if this is not appreciated and I'll remove the links...</p>
+      <p>PPS: Whoops, I just realized the threads date. So also sorry for reviving an an old thread ;(</p>

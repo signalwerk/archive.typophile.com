@@ -1,5 +1,5 @@
 node: 124791
-title: null
+title: Simplify kerning programmatically
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/124791.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170701224928/typophile.com/node/124791.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,89 @@ pages:
       digest: WGE7NBFJBAGS6Y2KIQWMTWFSHLSBT7KU
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/124791.html
+      file: data/archives/web.archive.org/files/20170701224928/typophile.com/node/124791.html
 post:
   id: 124791
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 227982
+  date: 2015-04-22T11:40:00
+  date_raw: 22 April 2015 - 11:40am
+  votes: 0
+  html: |-
+    <p>I have a very irregularly shaped, non-latin font, where I have to kern every letter pair. Let's say this font contains eleven letters. I have set the right margin of one letter – let's call it "A" – to 50 units. Then I kern that letter with the other ten letters, let's call them "B" to "K".</p>
+    <p>After kerning, I realize that of the ten letter pairs, eight ("B" to "I") have a kerning of -10 units, one ("J") has a kerning of +10, and one ("K") has no kerning (i.e. 0).</p>
+    <p>My font data now looks like this:</p>
+    <p>    A 50<br>
+            B -10<br>
+            C -10<br>
+            D -10<br>
+            E -10<br>
+            F -10<br>
+            G -10<br>
+            H -10<br>
+            I -10<br>
+            J +10</p>
+    <p>To simplify the kerning, I would like to change the right margin of letter "A" from 50 to 40 units (50 - 10 = 40), the kerning of the eight letters from -10 to 0 (-10 + 10 = 0), the kerning of "J" from 10 to 20 (10 + 10 = 20), and the kerning of "K" from 0 to 10 (0 + 10 = 10).</p>
+    <p>My font data should then look like this:</p>
+    <p>    A 40<br>
+            J +20<br>
+            k +10</p>
+    <p>which results in the same spaces between pairs as before (e.g. 50 - 10 = 40 - 0).</p>
+    <p>Now, instead of going through the font and changing the margin and kerning manually, which is time consuming and error prone, I would like to do this programmatically.</p>
+    <p>While I was thinking about writing a Python script that will read the kerning information from the font file into arrays and then loop through the arrays and calculate the new values, I am wondering if there is font software that allows this manipulation out of the box, or maybe there are scripts available online that do this manipulation, and I could save me a couple of hours of inventing the wheel a second time.</p>
+    <p>Do you know of such solutions?</p>
+  html_clean: |-
+    <p>I have a very irregularly shaped, non-latin font, where I have to kern every letter pair. Let's say this font contains eleven letters. I have set the right margin of one letter – let's call it "A" – to 50 units. Then I kern that letter with the other ten letters, let's call them "B" to "K".</p>
+    <p>After kerning, I realize that of the ten letter pairs, eight ("B" to "I") have a kerning of -10 units, one ("J") has a kerning of +10, and one ("K") has no kerning (i.e. 0).</p>
+    <p>My font data now looks like this:</p>
+    <p>    A 50<br>
+            B -10<br>
+            C -10<br>
+            D -10<br>
+            E -10<br>
+            F -10<br>
+            G -10<br>
+            H -10<br>
+            I -10<br>
+            J +10</p>
+    <p>To simplify the kerning, I would like to change the right margin of letter "A" from 50 to 40 units (50 - 10 = 40), the kerning of the eight letters from -10 to 0 (-10 + 10 = 0), the kerning of "J" from 10 to 20 (10 + 10 = 20), and the kerning of "K" from 0 to 10 (0 + 10 = 10).</p>
+    <p>My font data should then look like this:</p>
+    <p>    A 40<br>
+            J +20<br>
+            k +10</p>
+    <p>which results in the same spaces between pairs as before (e.g. 50 - 10 = 40 - 0).</p>
+    <p>Now, instead of going through the font and changing the margin and kerning manually, which is time consuming and error prone, I would like to do this programmatically.</p>
+    <p>While I was thinking about writing a Python script that will read the kerning information from the font file into arrays and then loop through the arrays and calculate the new values, I am wondering if there is font software that allows this manipulation out of the box, or maybe there are scripts available online that do this manipulation, and I could save me a couple of hours of inventing the wheel a second time.</p>
+    <p>Do you know of such solutions?</p>
+comments:
+  - id: 603479
+    user: 21309
+    date: 2015-04-23T02:29:00
+    date_raw: 23 April 2015 - 2:29am
+    votes: 0
+    html: |-
+      <p>I don't have an answer to your question, but in general reducing the number of kerning pairs by changing the left and/or right side bearings is not a good idea.</p>
+      <p>If your metrics are correct, don't change them. If they are not good, then correct them before starting with your kerning.</p>
+      <p>Also be aware in your example all other characters that are likely to pair with A should now include the additional 10 units as well, so:<br>
+      A +10<br>
+      L +10<br>
+      M +10<br>
+      etc</p>
+    html_clean: |-
+      <p>I don't have an answer to your question, but in general reducing the number of kerning pairs by changing the left and/or right side bearings is not a good idea.</p>
+      <p>If your metrics are correct, don't change them. If they are not good, then correct them before starting with your kerning.</p>
+      <p>Also be aware in your example all other characters that are likely to pair with A should now include the additional 10 units as well, so:<br>
+      A +10<br>
+      L +10<br>
+      M +10<br>
+      etc</p>
+  - id: 603491
+    user: 227982
+    date: 2015-04-23T05:36:00
+    date_raw: 23 April 2015 - 5:36am
+    votes: 0
+    html: |-
+      <p>Thank you, erwindenissen. In my example the font does not contain any letters beyond "K", so there are no "L" or "M", but I get what you mean and will take care not to forget that.</p>
+      <p>As for "correct metrics", my font does not have regular letter shapes, so I cannot set, for example, the right side bearing to be the same for "n", "h" and "m". For better understanding, think of a symbol font where each glyph contains a unique form. Or hieroglyphs, where each glyph contains a different shape. I gave latin letters in my example only because you have them on your system, and I did not want to include images of my font.</p>
+    html_clean: |-
+      <p>Thank you, erwindenissen. In my example the font does not contain any letters beyond "K", so there are no "L" or "M", but I get what you mean and will take care not to forget that.</p>
+      <p>As for "correct metrics", my font does not have regular letter shapes, so I cannot set, for example, the right side bearing to be the same for "n", "h" and "m". For better understanding, think of a symbol font where each glyph contains a unique form. Or hieroglyphs, where each glyph contains a different shape. I gave latin letters in my example only because you have them on your system, and I did not want to include images of my font.</p>

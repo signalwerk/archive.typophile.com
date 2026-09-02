@@ -1,5 +1,5 @@
 node: 88928
-title: null
+title: Scaling up a font for web use
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/88928.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170613150119/typophile.com/node/88928.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,141 @@ pages:
       digest: CPI6KSY4YDFOLU7EDE4ILBI6BOWGNNX2
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/88928.html
+      file: data/archives/web.archive.org/files/20170613150119/typophile.com/node/88928.html
 post:
   id: 88928
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 183510
+  date: 2012-01-09T10:53:00
+  date_raw: 9 January 2012 - 10:53am
+  votes: 0
+  html: |-
+    <p>So I've run into an issue with backup fonts for a client specific font being used on a templated web site.</p>
+    <p>The client font runs about 10% smaller than every other font, so that means if I specify the font-size at say 32px, and the user can't use the custom font for whatever reason, the displayed backup (in this case Impact) ends up a fair bit larger and can break unexpectedly.</p>
+    <p>As far as I can tell the only solution is to take the custom font and scale it up to create a more custom version. Whats the best way to do this? Is there a quick piece of software capable of this or do I have to go into a font editing software and scale every single glyph (ughh!)?</p>
+  html_clean: |-
+    <p>So I've run into an issue with backup fonts for a client specific font being used on a templated web site.</p>
+    <p>The client font runs about 10% smaller than every other font, so that means if I specify the font-size at say 32px, and the user can't use the custom font for whatever reason, the displayed backup (in this case Impact) ends up a fair bit larger and can break unexpectedly.</p>
+    <p>As far as I can tell the only solution is to take the custom font and scale it up to create a more custom version. Whats the best way to do this? Is there a quick piece of software capable of this or do I have to go into a font editing software and scale every single glyph (ughh!)?</p>
+comments:
+  - id: 490750
+    user: 1794
+    date: 2012-01-09T10:59:00
+    date_raw: 9 January 2012 - 10:59am
+    votes: 0
+    html: |-
+      <p>There’s fontsize-adjust in CSS for that: <a href="http://www.w3.org/TR/css3-fonts/#font-size-adjust-prop">http://www.w3.org/TR/css3-fonts/#font-size-adjust-prop</a><br>
+      Doesn’t work in older browsers though.</p>
+    html_clean: |-
+      <p>There’s fontsize-adjust in CSS for that: <a href="http://www.w3.org/TR/css3-fonts/#font-size-adjust-prop" class="link-external">http://www.w3.org/TR/css3-fonts/#font-size-adjust-prop</a><br>
+      Doesn’t work in older browsers though.</p>
+  - id: 490757
+    user: 50404
+    date: 2012-01-09T11:37:00
+    date_raw: 9 January 2012 - 11:37am
+    votes: 0
+    html: <p>Assuming your fallback fonts are standard, you can use the Font Squirrel Generator (in Expert mode) to auto-resize the glyphs to match your target fallback font.</p>
+    html_clean: <p>Assuming your fallback fonts are standard, you can use the Font Squirrel Generator (in Expert mode) to auto-resize the glyphs to match your target fallback font.</p>
+  - id: 490766
+    user: 1262
+    date: 2012-01-09T13:25:00
+    date_raw: 9 January 2012 - 1:25pm
+    votes: 0
+    html: |-
+      <p>If you do opt to adjust the scaling of your custom font, the easiest way to do this is simply to change the font UPM value. To increase the size of the font +10%, you would reduce the UPM value by 10%. So, for instance, if your font has a UPM value of 1000, you would reduce this to 900. This is the best way to scale an already mastered font, because it means that you don't have issues with rounding of outline geometry, loss of hints, having to recalculate vertical metrics, etc.</p>
+      <p>The one caveat with this approach is that if your font is PS format some PDF creation software will incorrectly scale a font whose UPM does not equal 1000.</p>
+    html_clean: |-
+      <p>If you do opt to adjust the scaling of your custom font, the easiest way to do this is simply to change the font UPM value. To increase the size of the font +10%, you would reduce the UPM value by 10%. So, for instance, if your font has a UPM value of 1000, you would reduce this to 900. This is the best way to scale an already mastered font, because it means that you don't have issues with rounding of outline geometry, loss of hints, having to recalculate vertical metrics, etc.</p>
+      <p>The one caveat with this approach is that if your font is PS format some PDF creation software will incorrectly scale a font whose UPM does not equal 1000.</p>
+  - id: 490782
+    user: 183510
+    date: 2012-01-09T15:22:00
+    date_raw: 9 January 2012 - 3:22pm
+    votes: 0
+    html: |-
+      <p>Ralf - font-size-adjust only seems to work with Firefox (darn, that would have worked too!)</p>
+      <p>fontquirrel - The fallback is Impact which is generally an accepted standard. Font Squirrel seems to mess up the custom font though for whatever reason when converting. I set it to match x-height of the various options, and it just returns nothing for that letter. It works if I don't match x-height</p>
+      <p>John - What software would I use to change the UPM? Anything free by chance?</p>
+    html_clean: |-
+      <p>Ralf - font-size-adjust only seems to work with Firefox (darn, that would have worked too!)</p>
+      <p>fontquirrel - The fallback is Impact which is generally an accepted standard. Font Squirrel seems to mess up the custom font though for whatever reason when converting. I set it to match x-height of the various options, and it just returns nothing for that letter. It works if I don't match x-height</p>
+      <p>John - What software would I use to change the UPM? Anything free by chance?</p>
+  - id: 490797
+    user: 1262
+    date: 2012-01-09T17:35:00
+    date_raw: 9 January 2012 - 5:35pm
+    votes: 0
+    html: |-
+      <p>Ideally, you want to change the UPM while not touching anything else in the font, so I would recommend using <a href="http://sourceforge.net/projects/fonttools/">TTX</a> for this, if you want a free tool. I use DTL OTMaster for this kind of work, but it isn't free.</p>
+      <p>Using TTX, you would decompile the font's head table using this syntax from the command line:</p>
+      <p><code>ttx -t head [inputfontfilename]</code></p>
+      <p>Then open the resulting .ttx xml file in a text editor, change the UPM value and save the xml file. Then merge the .ttx xml into the font:</p>
+      <p><code>ttx -m [inputfontfilename] [inputttxfilename]</code></p>
+    html_clean: |-
+      <p>Ideally, you want to change the UPM while not touching anything else in the font, so I would recommend using <a href="http://sourceforge.net/projects/fonttools/" class="link-external">TTX</a> for this, if you want a free tool. I use DTL OTMaster for this kind of work, but it isn't free.</p>
+      <p>Using TTX, you would decompile the font's head table using this syntax from the command line:</p>
+      <p><code>ttx -t head [inputfontfilename]</code></p>
+      <p>Then open the resulting .ttx xml file in a text editor, change the UPM value and save the xml file. Then merge the .ttx xml into the font:</p>
+      <p><code>ttx -m [inputfontfilename] [inputttxfilename]</code></p>
+  - id: 490802
+    user: 9108
+    date: 2012-01-09T19:04:00
+    date_raw: 9 January 2012 - 7:04pm
+    votes: 0
+    html: |-
+      <p>Thanks John, it works!<br>
+      BTW TTX for win: <a href="http://typophile.com/node/67406#comment-469074">http://typophile.com/node/67406#comment-469074</a></p>
+    html_clean: |-
+      <p>Thanks John, it works!<br>
+      BTW TTX for win: <a href="/node/67406/#comment-469074" class="link-kept">http://typophile.com/node/67406#comment-469074</a></p>
+  - id: 491020
+    user: 7222
+    date: 2012-01-11T16:11:00
+    date_raw: 11 January 2012 - 4:11pm
+    votes: 0
+    html: |-
+      <p>Nathan, you can also leave the fonts as-is and apply different CSS rules based on whether the custom font has loaded or not — which WebFont Loader can tell you: <a href="http://code.google.com/apis/webfonts/docs/webfont_loader.html">http://code.google.com/apis/webfonts/docs/webfont_loader.html</a></p>
+      <p>We sometimes write about "font events" on the Typekit blog, because WFL is baked right into our standard JS. Here's an example you can follow even if you don't use Typekit: <a href="http://blog.typekit.com/2010/11/02/font-events-fallback-fonts-and-styles-2/">http://blog.typekit.com/2010/11/02/font-events-fallback-fonts-and-styles-2/</a></p>
+    html_clean: |-
+      <p>Nathan, you can also leave the fonts as-is and apply different CSS rules based on whether the custom font has loaded or not — which WebFont Loader can tell you: <a href="http://code.google.com/apis/webfonts/docs/webfont_loader.html" class="link-external">http://code.google.com/apis/webfonts/docs/webfont_loader.html</a></p>
+      <p>We sometimes write about "font events" on the Typekit blog, because WFL is baked right into our standard JS. Here's an example you can follow even if you don't use Typekit: <a href="http://blog.typekit.com/2010/11/02/font-events-fallback-fonts-and-styles-2/" class="link-external">http://blog.typekit.com/2010/11/02/font-events-fallback-fonts-and-styles-2/</a></p>
+  - id: 491356
+    user: 3095
+    date: 2012-01-15T12:05:00
+    date_raw: 15 January 2012 - 12:05pm
+    votes: 0
+    html: <p>Silly question, but if the client's font is Impact, wouldn't it be a lot easier just to use Impact as a web font from the Fonts.com web fonts service? (<a href="http://www.webfonts.fonts.com">www.webfonts.fonts.com</a>)  That way it would be automatically downloaded to all the major web browsers.</p>
+    html_clean: <p>Silly question, but if the client's font is Impact, wouldn't it be a lot easier just to use Impact as a web font from the Fonts.com web fonts service? (<a href="http://www.webfonts.fonts.com" class="link-external">www.webfonts.fonts.com</a>)  That way it would be automatically downloaded to all the major web browsers.</p>
+  - id: 491370
+    user: 1049
+    date: 2012-01-15T13:16:00
+    date_raw: 15 January 2012 - 1:16pm
+    votes: 0
+    html: <p>At ATypI Font Bureau demonstrated a range of hinted fonts on Impact-like metrics. Might be good alternatives if you want to have an Imapact fallback story/minimal reflow when the web font loads in.</p>
+    html_clean: <p>At ATypI Font Bureau demonstrated a range of hinted fonts on Impact-like metrics. Might be good alternatives if you want to have an Imapact fallback story/minimal reflow when the web font loads in.</p>
+  - id: 491601
+    user: 2969
+    date: 2012-01-17T07:40:00
+    date_raw: 17 January 2012 - 7:40am
+    votes: 0
+    html: |-
+      <p>"Doesn’t work in older browsers though."<br>
+      ugly<br>
+      "...you want to change the UPM..."<br>
+      uglier<br>
+      "...but if the client's font is Impact..."<br>
+      ugliest<br>
+      "Font Bureau demonstrated a range of hinted fonts on Impact-like metrics..."<br>
+      Say ahhhhh refreshedly! </p>
+      <p>Time rewards all beautiful thoughts, though time is also the payment required for those who pursue such thoughts through to excellence in web type. ;)</p>
+      <p>We had to write a complicated py script to take proper aim at the issue and strike within a few hours of intelligent work from the target.</p>
+    html_clean: |-
+      <p>"Doesn’t work in older browsers though."<br>
+      ugly<br>
+      "...you want to change the UPM..."<br>
+      uglier<br>
+      "...but if the client's font is Impact..."<br>
+      ugliest<br>
+      "Font Bureau demonstrated a range of hinted fonts on Impact-like metrics..."<br>
+      Say ahhhhh refreshedly! </p>
+      <p>Time rewards all beautiful thoughts, though time is also the payment required for those who pursue such thoughts through to excellence in web type. ;)</p>
+      <p>We had to write a complicated py script to take proper aim at the issue and strike within a few hours of intelligent work from the target.</p>

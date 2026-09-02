@@ -9,7 +9,7 @@ import fs from "fs";
 import path from "path";
 import { archiveDirs, DATA } from "./config.js";
 import { ARCHIVES } from "./archives/index.js";
-import { ensureDirCached } from "./util.js";
+import { captureUrlPath, ensureDirCached } from "./util.js";
 
 export const ASSETS_DIR = `${DATA}/parsed/files`;
 
@@ -42,7 +42,9 @@ export function buildAssetIndex() {
 
       // The stored path already went through the same sanitising the
       // downloader used, so reuse it rather than rebuilding one from the URL.
-      const rel = r.f.split("/").slice(1).join("/");
+      const storedPath = captureUrlPath(r.f);
+      if (!storedPath) continue;
+      const rel = storedPath.split("/").slice(1).join("/");
       best.set(r.k, { source, rel, ts: String(r.ts), verified: r.ok === true });
     }
   }

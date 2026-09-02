@@ -1,5 +1,5 @@
 node: 54063
-title: null
+title: "FontForge: Build Menu Not Available"
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/54063.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190921083642/typophile.com/node/54063.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,106 @@ pages:
       digest: 2TO4N7NXGVJ63SYWSKKRMWS2XYI7TBLO
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/54063.html
+      file: data/archives/web.archive.org/files/20190921083642/typophile.com/node/54063.html
 post:
   id: 54063
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 37459
+  date: 2009-01-27T17:14:00
+  date_raw: 27 January 2009 - 5:14pm
+  votes: 0
+  html: |-
+    <p>Hi all,<br>
+    Sorry, a newbie question. I am trying to create a ligature in FontForge, yet I cannot access the Element\Build\Build Composite Glyph menu (both Build and Build Composite Glyph are greyed out). </p>
+    <p>I am not in Bitmap view.</p>
+    <p>Could you please tell me how I can access this menu?</p>
+    <p>Thanks!<br>
+    CaleD</p>
+  html_clean: |-
+    <p>Hi all,<br>
+    Sorry, a newbie question. I am trying to create a ligature in FontForge, yet I cannot access the Element\Build\Build Composite Glyph menu (both Build and Build Composite Glyph are greyed out). </p>
+    <p>I am not in Bitmap view.</p>
+    <p>Could you please tell me how I can access this menu?</p>
+    <p>Thanks!<br>
+    CaleD</p>
+comments:
+  - id: 325504
+    user: 14556
+    date: 2009-01-28T14:51:00
+    date_raw: 28 January 2009 - 2:51pm
+    votes: 0
+    html: |-
+      <p>You have to have a glyph space selected, either in the font or glyph view, that FontForge thinks is eligible for compositing (i.e., most ligatures and digraphs, and most but not all accented characters; e.g., fi, fl, oe, OE, ij, IJ, i, j, é, among many others, but not ae and AE for some reason). Furthermore, the source parts for the combined glyphs must already exist.<br>
+      Then you can select options from the Build submenu. </p>
+      <p>Under File&gt; Preferences... there is an option to set the accent compositing height. I've been meaning to write to George about that bit. I think it should be in font info rather than the overall prefs, since that may change from one font to another, and it would be useful to have that carried with the particular font.</p>
+    html_clean: |-
+      <p>You have to have a glyph space selected, either in the font or glyph view, that FontForge thinks is eligible for compositing (i.e., most ligatures and digraphs, and most but not all accented characters; e.g., fi, fl, oe, OE, ij, IJ, i, j, é, among many others, but not ae and AE for some reason). Furthermore, the source parts for the combined glyphs must already exist.<br>
+      Then you can select options from the Build submenu. </p>
+      <p>Under File&gt; Preferences... there is an option to set the accent compositing height. I've been meaning to write to George about that bit. I think it should be in font info rather than the overall prefs, since that may change from one font to another, and it would be useful to have that carried with the particular font.</p>
+  - id: 325548
+    user: 37459
+    date: 2009-01-28T17:55:00
+    date_raw: 28 January 2009 - 5:55pm
+    votes: 0
+    html: |-
+      <p>Ah, I see.</p>
+      <p>So encoding the font as Latin 1 doesn't seem to give me the option of adding ligatures, but if I encode it as Unicode BMP I do have this option in some spaces.</p>
+      <p>I loaded Myriad Pro into FontForge just to see where these ligatures were hiding, but I couldn't seem to track them down in the table (I'm sure there's a better name). However, if I load the lookup subtable, FontForge gives me a preview of the ligature. </p>
+      <p>Where are the ligatures (fi, ffi, ffl, ff, fl, ct, st etc) hiding, and what encoding is generally recommended?</p>
+      <p>Thanks again</p>
+    html_clean: |-
+      <p>Ah, I see.</p>
+      <p>So encoding the font as Latin 1 doesn't seem to give me the option of adding ligatures, but if I encode it as Unicode BMP I do have this option in some spaces.</p>
+      <p>I loaded Myriad Pro into FontForge just to see where these ligatures were hiding, but I couldn't seem to track them down in the table (I'm sure there's a better name). However, if I load the lookup subtable, FontForge gives me a preview of the ligature. </p>
+      <p>Where are the ligatures (fi, ffi, ffl, ff, fl, ct, st etc) hiding, and what encoding is generally recommended?</p>
+      <p>Thanks again</p>
+  - id: 325581
+    user: 14556
+    date: 2009-01-28T21:13:00
+    date_raw: 28 January 2009 - 9:13pm
+    votes: 0
+    html: |-
+      <p>Unicode BMP is the encoding I'd recommend if you're going to output an OpenType font. Naturally you aren't going to fill every one of those slots. As for which glyphs you <em>need,</em> I suggest a union of Latin-1, Latin-0, Macintosh Latin, Windows Latin, and Adobe Standard. Then set it back to Unicode BMP once you're done.</p>
+      <p>Still, that's kind of a clumsy way to deal with it. This article might prove more useful: <a href="http://blogs.adobe.com/typblography/2008/08/extended_latin.html#more" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://blogs.adobe.com/typblography/2008/08/extended_latin.html#more</a>.</p>
+      <p>You will find some of those ligatures in amongst those encoding tables. Some you will have to add in yourself. Some ligatures have no assignment in Unicode. Both those that do and don't should be addressed with OT features.</p>
+      <p>FontForge has the View&gt;Goto feature that can help you find those difficult to locate glyphs and unicode ranges.</p>
+    html_clean: |-
+      <p>Unicode BMP is the encoding I'd recommend if you're going to output an OpenType font. Naturally you aren't going to fill every one of those slots. As for which glyphs you <em>need,</em> I suggest a union of Latin-1, Latin-0, Macintosh Latin, Windows Latin, and Adobe Standard. Then set it back to Unicode BMP once you're done.</p>
+      <p>Still, that's kind of a clumsy way to deal with it. This article might prove more useful: <a href="http://blogs.adobe.com/typblography/2008/08/extended_latin.html#more" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://blogs.adobe.com/typblography/2008/08/extended_latin.html#more</a>.</p>
+      <p>You will find some of those ligatures in amongst those encoding tables. Some you will have to add in yourself. Some ligatures have no assignment in Unicode. Both those that do and don't should be addressed with OT features.</p>
+      <p>FontForge has the View&gt;Goto feature that can help you find those difficult to locate glyphs and unicode ranges.</p>
+  - id: 325589
+    user: 37459
+    date: 2009-01-28T21:39:00
+    date_raw: 28 January 2009 - 9:39pm
+    votes: 0
+    html: <p>That's wonderful, thanks very much!</p>
+    html_clean: <p>That's wonderful, thanks very much!</p>
+  - id: 325593
+    user: 37459
+    date: 2009-01-28T22:08:00
+    date_raw: 28 January 2009 - 10:08pm
+    votes: 0
+    html: |-
+      <p>Apologies, I have a couple more questions (for now!)</p>
+      <p>When I install the font and use it in Illustrator (CS1), it seems to make the first character 'invisible'. That is, the first character that appears when I type is the second character that I typed. This problem doesn't occur in MS Word.</p>
+      <p>Also, I can't seem to get the space character to work properly in either programme (in MS Word, a space becomes Times New Roman and in Illustrator it doesn't appear at all). In FontForge's Metrics window, however, the space displays as it should. </p>
+      <p>Sorry for so many questions, but you have been very helpful!</p>
+    html_clean: |-
+      <p>Apologies, I have a couple more questions (for now!)</p>
+      <p>When I install the font and use it in Illustrator (CS1), it seems to make the first character 'invisible'. That is, the first character that appears when I type is the second character that I typed. This problem doesn't occur in MS Word.</p>
+      <p>Also, I can't seem to get the space character to work properly in either programme (in MS Word, a space becomes Times New Roman and in Illustrator it doesn't appear at all). In FontForge's Metrics window, however, the space displays as it should. </p>
+      <p>Sorry for so many questions, but you have been very helpful!</p>
+  - id: 325594
+    user: 14556
+    date: 2009-01-28T22:10:00
+    date_raw: 28 January 2009 - 10:10pm
+    votes: 0
+    html: <p>hmm... I don't know what to tell you about that. Anyone else?</p>
+    html_clean: <p>hmm... I don't know what to tell you about that. Anyone else?</p>
+  - id: 325603
+    user: 37459
+    date: 2009-01-28T22:58:00
+    date_raw: 28 January 2009 - 10:58pm
+    votes: 0
+    html: <p>Hmm, remarkably both problems appear to have fixed themselves after I adjusted the kerning.</p>
+    html_clean: <p>Hmm, remarkably both problems appear to have fixed themselves after I adjusted the kerning.</p>

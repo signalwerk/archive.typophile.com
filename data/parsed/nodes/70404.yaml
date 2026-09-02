@@ -1,5 +1,5 @@
 node: 70404
-title: null
+title: "Webfont Obfuscation: An interim solution?"
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/70404.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190821190309/typophile.com/node/70404.html
 pages:
   total: 3
   recovered: 3
@@ -30,30 +30,746 @@ pages:
       digest: BQN3QLRETV563TGJFY3WYA3RKZQZ3CAS
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/70404.html
+      file: data/archives/web.archive.org/files/20190821190309/typophile.com/node/70404.html
     - page: 1
       archive: web.archive.org
       timestamp: "20111226155325"
       digest: 6KOUJSPBZWTDA226BSHH2VCAWGLKNSTA
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/70404__q_page=1.html
+      file: data/archives/web.archive.org/files/20111226155325/typophile.com/node/70404__q_page=1.html
     - page: 2
       archive: web.archive.org
       timestamp: "20111226151940"
       digest: 6DQSKRWCSO6BSKN5G3T5HLNXPLC73IA5
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/70404__q_page=2.html
+      file: data/archives/web.archive.org/files/20111226151940/typophile.com/node/70404__q_page=2.html
 post:
   id: 70404
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
+  user: 49759
+  date: 2010-05-14T00:30:00
+  date_raw: 14 May 2010 - 12:30am
+  votes: 0
+  html: |-
+    <p>While we are waiting for WOFF support broadly, there are some protective measures available for webfonts to prevent them from being installed locally.</p>
+    <p>There is a technique of obfuscating the <code>name</code> table, rendering it <strong>unusable as a system font, but fully functional as a webfont</strong>. Ethan Dunham of Font Squirrel and Fontspring has led much of the research below, based on some prior work from Peter Bilak of Typotheque and Philip Taylor with his Font Optimizer [0]</p>
+    <p>Specifically, these are the modifications for a TrueType font:</p>
+    <ul><li>Delete all name entries except for platformID 3, platEncID 1, LangID 0x0409</li></ul><ul><li>Set entry 1 (Font Family) to  '' (empty string)
+    </li><li>Set entry 2 (Font Subfamily) to a unicode smiley:☺ [1]
+    </li><li>Set entry 3 (Unique ID) to '' (empty string)
+    </li><li>Set entry 4 (Full name) to smiley:☺
+    </li><li>Entry 5 (Version) may optionally be changed. Ethan recommends inserting some verbage about the font being protected. It shows up in the get info window on Mac
+    </li><li>Set entry 6 (Postscript name) to smiley:☺
+    </li><li>Entries 7-14 can remain as is
+    </li><li>Delete entries 15+</li></ul><p>Create two Mac entries: platformID 1, platEncID 0, LangID 0x0</p>
+    <ul><li>Set entry 1 to blank (basically have an entry but no value)
+    </li><li>Set entry 4 to the Font Name (optional but will show up in Get Info)</li></ul><p>When the Font Family name is an empty string, it is uninstallable in Windows. Meanwhile, the OpenType spec indicates that two-byte unicode characters (like the smiley) won't work in a font name on Mac at all. [2] As a result, it's rejected by OS X and not possible to install. Linux isn't able to cope with these modifications either. [3]</p>
+    <p>These changes are done not only to the TrueType "naked" font, but can also be applied to the underlying TTF embedded in the EOT and WOFF files as well. It's also worth noting that Chrome's font sanitizing library OTS completely avoids the <code>name</code> table. [4]   </p>
+    <p><strong>I believe all non-free fonts should employ these changes as they are distributed for web use</strong>, essentially providing them with a similar "garden fence"-level of protection [5] as WOFF. Fontspring is already employing this technique, and you can test it out with the WebOnly option at the Font Squirrel generator [6].</p>
+    <p>If you guys think this is worthwhile, I'd love to help draft this up into something more official so it's a documented standard that all foundries can use when preparing their work for sale as a webfont.</p>
+    <p>[0] <a href="http://bitbucket.org/philip/font-optimizer/src/tip/obfuscate-font.pl" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://bitbucket.org/philip/font-optimizer/src/tip/obfuscate-font.pl</a><br>
+    [1] <a href="http://www.fileformat.info/info/unicode/char/263a/index.htm" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.fileformat.info/info/unicode/char/263a/index.htm</a><br>
+    [2] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#9.e" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#9.e</a><br>
+    [3] <a href="http://paulirish.com/i/LinuxWebfont.png" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://paulirish.com/i/LinuxWebfont.png</a><br>
+    [4] <a href="http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23</a><br>
+    [5] <a href="http://lists.w3.org/Archives/Public/www-font/2010AprJun/0061.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://lists.w3.org/Archives/Public/www-font/2010AprJun/0061.html</a><br>
+    [6] <a href="http://www.fontsquirrel.com/fontface/generator" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.fontsquirrel.com/fontface/generator</a></p>
+    <p>Edit: Clarified the Windows installability reason. Worth noting: when the full name doesn't match Font Family + subfamily, it is uninstallable in Windows, however they match with this above technique, which is why the EOTs with this modification still work. (thx Ethan)</p>
+  html_clean: |-
+    <p>While we are waiting for WOFF support broadly, there are some protective measures available for webfonts to prevent them from being installed locally.</p>
+    <p>There is a technique of obfuscating the <code>name</code> table, rendering it <strong>unusable as a system font, but fully functional as a webfont</strong>. Ethan Dunham of Font Squirrel and Fontspring has led much of the research below, based on some prior work from Peter Bilak of Typotheque and Philip Taylor with his Font Optimizer [0]</p>
+    <p>Specifically, these are the modifications for a TrueType font:</p>
+    <ul><li>Delete all name entries except for platformID 3, platEncID 1, LangID 0x0409</li></ul><ul><li>Set entry 1 (Font Family) to  '' (empty string)
+    </li><li>Set entry 2 (Font Subfamily) to a unicode smiley:☺ [1]
+    </li><li>Set entry 3 (Unique ID) to '' (empty string)
+    </li><li>Set entry 4 (Full name) to smiley:☺
+    </li><li>Entry 5 (Version) may optionally be changed. Ethan recommends inserting some verbage about the font being protected. It shows up in the get info window on Mac
+    </li><li>Set entry 6 (Postscript name) to smiley:☺
+    </li><li>Entries 7-14 can remain as is
+    </li><li>Delete entries 15+</li></ul><p>Create two Mac entries: platformID 1, platEncID 0, LangID 0x0</p>
+    <ul><li>Set entry 1 to blank (basically have an entry but no value)
+    </li><li>Set entry 4 to the Font Name (optional but will show up in Get Info)</li></ul><p>When the Font Family name is an empty string, it is uninstallable in Windows. Meanwhile, the OpenType spec indicates that two-byte unicode characters (like the smiley) won't work in a font name on Mac at all. [2] As a result, it's rejected by OS X and not possible to install. Linux isn't able to cope with these modifications either. [3]</p>
+    <p>These changes are done not only to the TrueType "naked" font, but can also be applied to the underlying TTF embedded in the EOT and WOFF files as well. It's also worth noting that Chrome's font sanitizing library OTS completely avoids the <code>name</code> table. [4]   </p>
+    <p><strong>I believe all non-free fonts should employ these changes as they are distributed for web use</strong>, essentially providing them with a similar "garden fence"-level of protection [5] as WOFF. Fontspring is already employing this technique, and you can test it out with the WebOnly option at the Font Squirrel generator [6].</p>
+    <p>If you guys think this is worthwhile, I'd love to help draft this up into something more official so it's a documented standard that all foundries can use when preparing their work for sale as a webfont.</p>
+    <p>[0] <a href="http://bitbucket.org/philip/font-optimizer/src/tip/obfuscate-font.pl" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://bitbucket.org/philip/font-optimizer/src/tip/obfuscate-font.pl</a><br>
+    [1] <a href="http://www.fileformat.info/info/unicode/char/263a/index.htm" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.fileformat.info/info/unicode/char/263a/index.htm</a><br>
+    [2] <a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#9.e" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#9.e</a><br>
+    [3] <a href="http://paulirish.com/i/LinuxWebfont.png" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://paulirish.com/i/LinuxWebfont.png</a><br>
+    [4] <a href="http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23</a><br>
+    [5] <a href="http://lists.w3.org/Archives/Public/www-font/2010AprJun/0061.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://lists.w3.org/Archives/Public/www-font/2010AprJun/0061.html</a><br>
+    [6] <a href="http://www.fontsquirrel.com/fontface/generator" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.fontsquirrel.com/fontface/generator</a></p>
+    <p>Edit: Clarified the Windows installability reason. Worth noting: when the full name doesn't match Font Family + subfamily, it is uninstallable in Windows, however they match with this above technique, which is why the EOTs with this modification still work. (thx Ethan)</p>
 comments:
+  - id: 411269
+    user: 655
+    date: 2010-05-14T03:29:00
+    date_raw: 14 May 2010 - 3:29am
+    votes: 0
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 411289
+    user: 50404
+    date: 2010-05-14T07:18:00
+    date_raw: 14 May 2010 - 7:18am
+    votes: 0
+    html: <p>Like Paul said, you can already do this with the <a href="http://www.fontsquirrel.com/fontface/generator">Generator</a> by selecting the "WebOnly" Option. I'm interested to hear your thoughts on it all. A more robust foundry service is in the works.</p>
+    html_clean: <p>Like Paul said, you can already do this with the <a href="http://www.fontsquirrel.com/fontface/generator" class="link-external">Generator</a> by selecting the "WebOnly" Option. I'm interested to hear your thoughts on it all. A more robust foundry service is in the works.</p>
+  - id: 411295
+    user: 35894
+    date: 2010-05-14T07:46:00
+    date_raw: 14 May 2010 - 7:46am
+    votes: 0
+    html: |-
+      <p>Whoa, finally something on the subject.</p>
+      <p>I've posted a question on the css-design google group, but, clearly, that was a wrong place to ask such a question (no replies).<br><a href="http://groups.google.com/group/css-design/browse_thread/thread/d3ccff333398096c">http://groups.google.com/group/css-design/browse_thread/thread/d3ccff333...</a></p>
+      <p>Thank you guys.</p>
+      <p>So, all the mentioned stuff is already being done if I use "WebOnly" from the Fontsquirell?</p>
+      <p>Ethan, Paul, you rock.</p>
+    html_clean: |-
+      <p>Whoa, finally something on the subject.</p>
+      <p>I've posted a question on the css-design google group, but, clearly, that was a wrong place to ask such a question (no replies).<br><a href="http://groups.google.com/group/css-design/browse_thread/thread/d3ccff333398096c" class="link-external">http://groups.google.com/group/css-design/browse_thread/thread/d3ccff333...</a></p>
+      <p>Thank you guys.</p>
+      <p>So, all the mentioned stuff is already being done if I use "WebOnly" from the Fontsquirell?</p>
+      <p>Ethan, Paul, you rock.</p>
+  - id: 411302
+    user: 1794
+    date: 2010-05-14T07:48:00
+    date_raw: 14 May 2010 - 7:48am
+    votes: 0
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 411303
+    user: 57851
+    date: 2010-05-14T07:52:00
+    date_raw: 14 May 2010 - 7:52am
+    votes: 0
+    html: |-
+      <p>Thanks for doing the research, guys. This is one to save, keep, and refer back to constantly. </p>
+      <p>Top work!</p>
+    html_clean: |-
+      <p>Thanks for doing the research, guys. This is one to save, keep, and refer back to constantly. </p>
+      <p>Top work!</p>
+  - id: 411314
+    user: 50404
+    date: 2010-05-14T08:43:00
+    date_raw: 14 May 2010 - 8:43am
+    votes: 0
+    html: |-
+      <p>@Misha - Yes, all this is already being done in the generator.</p>
+      <p>@Elliot - Thanks!</p>
+      <p>One clarification to Paul's documentation: It is uninstallable on Windows not because the names don't match (they do and that is why the EOT works), but because the Family Name is .</p>
+    html_clean: |-
+      <p>@Misha - Yes, all this is already being done in the generator.</p>
+      <p>@Elliot - Thanks!</p>
+      <p>One clarification to Paul's documentation: It is uninstallable on Windows not because the names don't match (they do and that is why the EOT works), but because the Family Name is .</p>
+  - id: 411341
+    user: 1049
+    date: 2010-05-14T10:19:00
+    date_raw: 14 May 2010 - 10:19am
+    votes: 0
+    html: <p>I think the problem with solutions like this is that a browser or OS would be well within its rights to reject such a font. We've seen security fixes for font-based attacks from Mozilla and Apple in recent months. As part of the hardening of apps and OS's against attack, support for hack fonts may disappear in an instant - through a security fix or browser update. That's probably okay for a service like Typekit that can react instantly, but for someone hosting their own EOTs or raw fonts that would appear to be a problem.</p>
+    html_clean: <p>I think the problem with solutions like this is that a browser or OS would be well within its rights to reject such a font. We've seen security fixes for font-based attacks from Mozilla and Apple in recent months. As part of the hardening of apps and OS's against attack, support for hack fonts may disappear in an instant - through a security fix or browser update. That's probably okay for a service like Typekit that can react instantly, but for someone hosting their own EOTs or raw fonts that would appear to be a problem.</p>
+  - id: 411348
+    user: 50404
+    date: 2010-05-14T10:38:00
+    date_raw: 14 May 2010 - 10:38am
+    votes: 0
+    html: <p>@Simon - Agreed, it is a potential issue. But can you see any reason why they would suddenly start paying attention to the table if they aren't already?</p>
+    html_clean: <p>@Simon - Agreed, it is a potential issue. But can you see any reason why they would suddenly start paying attention to the table if they aren't already?</p>
+  - id: 411352
+    user: 46055
+    date: 2010-05-14T10:50:00
+    date_raw: 14 May 2010 - 10:50am
+    votes: 0
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 411357
+    user: 49759
+    date: 2010-05-14T11:16:00
+    date_raw: 14 May 2010 - 11:16am
+    votes: 0
+    html: |-
+      <p>@sii, Yeah, totally a legitimate concern. I've asked a friend who works on the Chrome team that developed OTS (arguably the most aggressive in-browser font security software) to look this over. My expectation is he'll give the thumbs up, but like you, I want to feel confident about it.</p>
+      <p>Since OTS was started, it has had <a href="http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23">this comment in the source</a>, which puts me at ease:<br><code>  // NAME is a required table, but we don't want anything to do with it. Thus,<br>
+        // we don't bother parsing it and we just serialise an empty name table.</code></p>
+      <p>I'll also try to bounce this off John Daggett and Jonathan Kew of Mozilla. If you have contact with any webfonts engineers with IE, I'd love their input</p>
+    html_clean: |-
+      <p>@sii, Yeah, totally a legitimate concern. I've asked a friend who works on the Chrome team that developed OTS (arguably the most aggressive in-browser font security software) to look this over. My expectation is he'll give the thumbs up, but like you, I want to feel confident about it.</p>
+      <p>Since OTS was started, it has had <a href="http://code.google.com/p/ots/source/browse/trunk/src/name.cc#23" class="link-external">this comment in the source</a>, which puts me at ease:<br><code>  // NAME is a required table, but we don't want anything to do with it. Thus,<br>
+        // we don't bother parsing it and we just serialise an empty name table.</code></p>
+      <p>I'll also try to bounce this off John Daggett and Jonathan Kew of Mozilla. If you have contact with any webfonts engineers with IE, I'd love their input</p>
+  - id: 411360
+    user: 1049
+    date: 2010-05-14T11:23:00
+    date_raw: 14 May 2010 - 11:23am
+    votes: 0
+    html: |-
+      <p>&gt;would suddenly start paying attention to the table if they aren't already?</p>
+      <p>If a documented exploit involved malformed name table entries, they may verify all entries not just the one associated with the exploit.</p>
+      <p>&gt;If you have contact with any webfonts engineers with IE, I'd love their input</p>
+      <p>For sure, I'll point them at this thread.</p>
+      <p>Cheers, Si</p>
+    html_clean: |-
+      <p>&gt;would suddenly start paying attention to the table if they aren't already?</p>
+      <p>If a documented exploit involved malformed name table entries, they may verify all entries not just the one associated with the exploit.</p>
+      <p>&gt;If you have contact with any webfonts engineers with IE, I'd love their input</p>
+      <p>For sure, I'll point them at this thread.</p>
+      <p>Cheers, Si</p>
+  - id: 411379
+    user: 909
+    date: 2010-05-14T13:45:00
+    date_raw: 14 May 2010 - 1:45pm
+    votes: 0
+    html: |-
+      <p>I'm curious what other browsers may have been tested besides IE, Firefox and Chrome. How about Opera? Anything else? Any obscure browsers known to NOT work?</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>I'm curious what other browsers may have been tested besides IE, Firefox and Chrome. How about Opera? Anything else? Any obscure browsers known to NOT work?</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 411381
+    user: 50404
+    date: 2010-05-14T13:55:00
+    date_raw: 14 May 2010 - 1:55pm
+    votes: 0
+    html: <p>Yes, Opera Mac works fine. And I don't care honestly about obscure browsers. What is the Extensis strategy for protecting fonts?</p>
+    html_clean: <p>Yes, Opera Mac works fine. And I don't care honestly about obscure browsers. What is the Extensis strategy for protecting fonts?</p>
+  - id: 411383
+    user: 49759
+    date: 2010-05-14T14:13:00
+    date_raw: 14 May 2010 - 2:13pm
+    votes: 0
+    html: |-
+      <p>&gt; How about Opera? Anything else? Any obscure browsers known to NOT work?</p>
+      <p>Opera Windows and Opera Mac work with these files. </p>
+      <p>Camino doesn't yet support @font-face but since they lean heavily on Gecko, it's safe to say the experience will match Firefox.</p>
+      <p>I don't believe Epiphany or Konqueror either support @font-face yet (or really any of CSS3).</p>
+    html_clean: |-
+      <p>&gt; How about Opera? Anything else? Any obscure browsers known to NOT work?</p>
+      <p>Opera Windows and Opera Mac work with these files. </p>
+      <p>Camino doesn't yet support @font-face but since they lean heavily on Gecko, it's safe to say the experience will match Firefox.</p>
+      <p>I don't believe Epiphany or Konqueror either support @font-face yet (or really any of CSS3).</p>
+  - id: 411401
+    user: 1049
+    date: 2010-05-14T15:46:00
+    date_raw: 14 May 2010 - 3:46pm
+    votes: 0
+    html: <p>I heard back from one of the lead font engineers. He agreed with my assessment, but declined to speculate on the likelihood of Windows or IE changing their behavior.</p>
+    html_clean: <p>I heard back from one of the lead font engineers. He agreed with my assessment, but declined to speculate on the likelihood of Windows or IE changing their behavior.</p>
+  - id: 411446
+    user: 909
+    date: 2010-05-14T20:58:00
+    date_raw: 14 May 2010 - 8:58pm
+    votes: 0
+    html: |-
+      <p>Ethan (fontsquirrel) asked: <cite>What is the Extensis strategy for protecting fonts?</cite></p>
+      <p>In the current "technology preview" of our service, we do a bunch of measures at different levels, including a number of things relating to font processing, along these general lines.</p>
+      <p>That being said, there's no question that this level of font crippling is more extensive than what we're currently doing. It's something we'll be looking at carefully.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+    html_clean: |-
+      <p>Ethan (fontsquirrel) asked: <cite>What is the Extensis strategy for protecting fonts?</cite></p>
+      <p>In the current "technology preview" of our service, we do a bunch of measures at different levels, including a number of things relating to font processing, along these general lines.</p>
+      <p>That being said, there's no question that this level of font crippling is more extensive than what we're currently doing. It's something we'll be looking at carefully.</p>
+      <p>Cheers,</p>
+      <p>T</p>
+  - id: 411483
+    user: 44873
+    date: 2010-05-15T08:47:00
+    date_raw: 15 May 2010 - 8:47am
+    votes: 0
+    html: |-
+      <p>@paul and all:</p>
+      <p>As you probably know, Ethan and I have discussed this a bit.<br>
+      And as TP will attest, I was on a quest for the "uninstallable font name" months ago (because of the local() problem) but you and Ethan beat me to it and I appreciate and salute the hack.</p>
+      <p>My initial reaction was like Sii's - a general nervousness. There's something about it that seems frail, easily broken.</p>
+      <p>However, after mulling, the bottom line is: if the naming scheme is legit as far as the OT spec is concerned, there is no reason that I can see that it is any more vulnerable - security wise - than any other combination of entries in the name table.</p>
+      <p>(And remember, no security guy is ever, ever going to tell you that something is 100% rock solid safe. If we could predict what an attacker might come up with, there would be no ongoing need for security guys. The question is: is this less safe than any other set of naming entries? Not that I can see.)</p>
+      <p>Which leads me to a whole other line of inquiry...</p>
+      <p>All along, it has been assumed that the font delivered to the browser is easily installable in the OS. It's fair to say that this is what bothered commercial font vendors the most.<br>
+      However, you've shown that's not true. The uninstallable font already exists, de facto, you've found it. And all it requires is some particular comination of entries in the name table.</p>
+      <p>All along, the focus has been on what browsers are going to to do with a font that was assumed to be installable when the real problem has always been what the OS was going to do if the user, let's say, extracted it out of the cache and tried to install it.<br>
+      Success at that has always been assumed.</p>
+      <p>With all the brouhaha going on at the W3C working group over embedding bits and mandates about what browsers and WOFF conversion tools SHALL or MUST do, my question is, why not codify something like this? It already exists.</p>
+      <p>What would be objectionable about a naming scheme that makes the font uninstallable by asking that the underlying OS should, pretty please, not install a font so named?</p>
+      <p>I can't see the major players like MSFT or Apple objecting to this.</p>
+      <p>I mean, this issue was the prime impetus behind EOT and, ultimately, WOFF so why not tackle it from this angle, as well?</p>
+      <p>I dunno, just tossing out the idea. Worth thinking through, I think.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@paul and all:</p>
+      <p>As you probably know, Ethan and I have discussed this a bit.<br>
+      And as TP will attest, I was on a quest for the "uninstallable font name" months ago (because of the local() problem) but you and Ethan beat me to it and I appreciate and salute the hack.</p>
+      <p>My initial reaction was like Sii's - a general nervousness. There's something about it that seems frail, easily broken.</p>
+      <p>However, after mulling, the bottom line is: if the naming scheme is legit as far as the OT spec is concerned, there is no reason that I can see that it is any more vulnerable - security wise - than any other combination of entries in the name table.</p>
+      <p>(And remember, no security guy is ever, ever going to tell you that something is 100% rock solid safe. If we could predict what an attacker might come up with, there would be no ongoing need for security guys. The question is: is this less safe than any other set of naming entries? Not that I can see.)</p>
+      <p>Which leads me to a whole other line of inquiry...</p>
+      <p>All along, it has been assumed that the font delivered to the browser is easily installable in the OS. It's fair to say that this is what bothered commercial font vendors the most.<br>
+      However, you've shown that's not true. The uninstallable font already exists, de facto, you've found it. And all it requires is some particular comination of entries in the name table.</p>
+      <p>All along, the focus has been on what browsers are going to to do with a font that was assumed to be installable when the real problem has always been what the OS was going to do if the user, let's say, extracted it out of the cache and tried to install it.<br>
+      Success at that has always been assumed.</p>
+      <p>With all the brouhaha going on at the W3C working group over embedding bits and mandates about what browsers and WOFF conversion tools SHALL or MUST do, my question is, why not codify something like this? It already exists.</p>
+      <p>What would be objectionable about a naming scheme that makes the font uninstallable by asking that the underlying OS should, pretty please, not install a font so named?</p>
+      <p>I can't see the major players like MSFT or Apple objecting to this.</p>
+      <p>I mean, this issue was the prime impetus behind EOT and, ultimately, WOFF so why not tackle it from this angle, as well?</p>
+      <p>I dunno, just tossing out the idea. Worth thinking through, I think.</p>
+      <p>Rich</p>
+  - id: 411500
+    user: 1262
+    date: 2010-05-15T11:57:00
+    date_raw: 15 May 2010 - 11:57am
+    votes: 0
+    html: |-
+      <p>Rich: <em>if the naming scheme is legit as far as the OT spec is concerned</em></p>
+      <p>There's the rub, I think. The proposed modifications of the name table are not really legit as far as the OT spec is concerned, at least as interpreted by the OS makers, which is precisely why the system will not install such fonts. This method of obfuscation is based on a current difference between the handling of web fonts and the installation of fonts on the system, and I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</p>
+    html_clean: |-
+      <p>Rich: <em>if the naming scheme is legit as far as the OT spec is concerned</em></p>
+      <p>There's the rub, I think. The proposed modifications of the name table are not really legit as far as the OT spec is concerned, at least as interpreted by the OS makers, which is precisely why the system will not install such fonts. This method of obfuscation is based on a current difference between the handling of web fonts and the installation of fonts on the system, and I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</p>
+  - id: 411501
+    user: 15065
+    date: 2010-05-15T12:01:00
+    date_raw: 15 May 2010 - 12:01pm
+    votes: 0
+    html: <p>.</p>
+    html_clean: <p>.</p>
+  - id: 411516
+    user: 4763
+    date: 2010-05-15T15:00:00
+    date_raw: 15 May 2010 - 3:00pm
+    votes: 0
+    html: |-
+      <p>Thanks for the summary, Paul!</p>
+      <p>Non-complicance concerns aside, would it be worth trying to corrupt the font file even further so that it can't be fixed with a font editor?<br>
+      I played around a bit and managed to create a TTF that works as a web font in Safari but crashes FontLab when you try to open it; TTX doesn't work either but FontForge can open it. The problem is that it doesn't work in Chrome. It's just a quick attempt – maybe a TrueType file format wiz could devise something that works in browsers but can't be opened in editors?</p>
+    html_clean: |-
+      <p>Thanks for the summary, Paul!</p>
+      <p>Non-complicance concerns aside, would it be worth trying to corrupt the font file even further so that it can't be fixed with a font editor?<br>
+      I played around a bit and managed to create a TTF that works as a web font in Safari but crashes FontLab when you try to open it; TTX doesn't work either but FontForge can open it. The problem is that it doesn't work in Chrome. It's just a quick attempt – maybe a TrueType file format wiz could devise something that works in browsers but can't be opened in editors?</p>
+  - id: 411531
+    user: 12278
+    date: 2010-05-15T16:49:00
+    date_raw: 15 May 2010 - 4:49pm
+    votes: 0
+    html: <p>Is there a way to make this more complicated, or are we now in a plateu-face looking at possible standards?</p>
+    html_clean: <p>Is there a way to make this more complicated, or are we now in a plateu-face looking at possible standards?</p>
+  - id: 411550
+    user: 50404
+    date: 2010-05-15T20:40:00
+    date_raw: 15 May 2010 - 8:40pm
+    votes: 0
+    html: |-
+      <p>@Tim- Chrome is the kicker because they are using a library to "qualify" a font. It must pass a myriad tests before it is considered safe. Obviously whatever you did raised a red flag. That is why the NAME table at this point is where our energy is focused.</p>
+      <p>@Tomi- Ideally yes, but it is all undiscovered and untested. Likely there are few to none other alternatives right now. A font still has to behave like a font after all.</p>
+    html_clean: |-
+      <p>@Tim- Chrome is the kicker because they are using a library to "qualify" a font. It must pass a myriad tests before it is considered safe. Obviously whatever you did raised a red flag. That is why the NAME table at this point is where our energy is focused.</p>
+      <p>@Tomi- Ideally yes, but it is all undiscovered and untested. Likely there are few to none other alternatives right now. A font still has to behave like a font after all.</p>
+  - id: 411639
+    user: 44873
+    date: 2010-05-16T21:08:00
+    date_raw: 16 May 2010 - 9:08pm
+    votes: 0
+    html: |-
+      <p>@jh</p>
+      <p><em>This method of obfuscation is based on a current difference between the handling of web fonts and the installation of fonts on the system, and I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</em></p>
+      <p>Yes, it exploits a "blind spot" in the way Windows and OSX currently recognize a font.<br>
+      And there is no way to know if the blind spot will stay blind unless MSFT and Apple say it will.</p>
+      <p>But going forward, how about a simple naming convention that signals to the OS that the font should not be installed?<br>
+      Be aware that commercial font producers and web designers may soon have a very common interest here.<br>
+      If I break my little tush re-hinting a font, playing with the outlines, converting it,  and subsetting it a certain way, I might very well want to sell the thing and not want it easily installable either.</p>
+      <p>With the acquiescence of only two parties: MSFT and Apple, things can be made simple. And I can't see what beef anybody would or could have. Forget embedding bits and EPAR tables and all that sh-t. Why couldn't a simple naming convention be adopted that asks the OS not to install the font? Making it Browser Cache-Only.<br>
+      I mean, why not? Too simple?<br>
+      Not much of a garden fence, but about as good as WOFF. And the two together would be about all you could hope for.</p>
+      <p>And since the internal name of the font is really irrelevant to @font-face, why not just decide on an internal keyword name that requests this non-installable treatment?<br>
+      There is precedence for it with the keyword font names in the CSS 2.1 draft, too.<br>
+      (cursive, serif, sans-serif, monospace - how about adding 'cache' to the list and asking user-agents to check for a match in the font's internal data and ask the platform providers to respect it?</p>
+      <p>Sii, is this nuts?</p>
+      <p>Just thinking out loud...</p>
+      <p>(Have to figure out how to get backward-compatibility, though. Can Ethan's hack be merged with such a thing? Probably.)</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p>@jh</p>
+      <p><em>This method of obfuscation is based on a current difference between the handling of web fonts and the installation of fonts on the system, and I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</em></p>
+      <p>Yes, it exploits a "blind spot" in the way Windows and OSX currently recognize a font.<br>
+      And there is no way to know if the blind spot will stay blind unless MSFT and Apple say it will.</p>
+      <p>But going forward, how about a simple naming convention that signals to the OS that the font should not be installed?<br>
+      Be aware that commercial font producers and web designers may soon have a very common interest here.<br>
+      If I break my little tush re-hinting a font, playing with the outlines, converting it,  and subsetting it a certain way, I might very well want to sell the thing and not want it easily installable either.</p>
+      <p>With the acquiescence of only two parties: MSFT and Apple, things can be made simple. And I can't see what beef anybody would or could have. Forget embedding bits and EPAR tables and all that sh-t. Why couldn't a simple naming convention be adopted that asks the OS not to install the font? Making it Browser Cache-Only.<br>
+      I mean, why not? Too simple?<br>
+      Not much of a garden fence, but about as good as WOFF. And the two together would be about all you could hope for.</p>
+      <p>And since the internal name of the font is really irrelevant to @font-face, why not just decide on an internal keyword name that requests this non-installable treatment?<br>
+      There is precedence for it with the keyword font names in the CSS 2.1 draft, too.<br>
+      (cursive, serif, sans-serif, monospace - how about adding 'cache' to the list and asking user-agents to check for a match in the font's internal data and ask the platform providers to respect it?</p>
+      <p>Sii, is this nuts?</p>
+      <p>Just thinking out loud...</p>
+      <p>(Have to figure out how to get backward-compatibility, though. Can Ethan's hack be merged with such a thing? Probably.)</p>
+      <p>Rich</p>
+  - id: 411641
+    user: 1049
+    date: 2010-05-16T21:37:00
+    date_raw: 16 May 2010 - 9:37pm
+    votes: 0
+    html: |-
+      <p>I doubt clients or OS’s would respect an unofficial keyword, not part of the OpenType standard. However, if the OpenType spec were rev'd to include a "do not install" bit, then I would expect that clients and OS’s would support it. </p>
+      <p>I think there would likely be push-back on standardization of such a bit. WOFF is already a “do not install” format, and depending on how clients temporarily install linked or embedded fonts they may run afoul of OS-level checks causing app compat issues. Add to this the ease of flipping the bit, it would seem to be a lot of work for little reward. </p>
+      <p>I think a more promising approach, one more likely to succeed, would be a fully spec’d permissions/electronic EULA table, where “do not install” is just one of several properties exposed.</p>
+    html_clean: |-
+      <p>I doubt clients or OS’s would respect an unofficial keyword, not part of the OpenType standard. However, if the OpenType spec were rev'd to include a "do not install" bit, then I would expect that clients and OS’s would support it. </p>
+      <p>I think there would likely be push-back on standardization of such a bit. WOFF is already a “do not install” format, and depending on how clients temporarily install linked or embedded fonts they may run afoul of OS-level checks causing app compat issues. Add to this the ease of flipping the bit, it would seem to be a lot of work for little reward. </p>
+      <p>I think a more promising approach, one more likely to succeed, would be a fully spec’d permissions/electronic EULA table, where “do not install” is just one of several properties exposed.</p>
+  - id: 411670
+    user: 2969
+    date: 2010-05-17T05:07:00
+    date_raw: 17 May 2010 - 5:07am
+    votes: 0
+    html: |-
+      <p>&gt;Why couldn't a simple naming convention be adopted that asks the OS not to install the font? </p>
+      <p>Lol.</p>
+    html_clean: |-
+      <p>&gt;Why couldn't a simple naming convention be adopted that asks the OS not to install the font? </p>
+      <p>Lol.</p>
+  - id: 411698
+    user: 44873
+    date: 2010-05-17T09:44:00
+    date_raw: 17 May 2010 - 9:44am
+    votes: 0
+    html: |-
+      <p><em>I think a more promising approach, one more likely to succeed, would be a fully spec’d permissions/electronic EULA table, where “do not install” is just one of several properties exposed.</em></p>
+      <p>Promising in a way, perhaps, but I have problems with what it promises.<br>
+      I'd rather it remain as is than go down that road.</p>
+      <p>Rich</p>
+    html_clean: |-
+      <p><em>I think a more promising approach, one more likely to succeed, would be a fully spec’d permissions/electronic EULA table, where “do not install” is just one of several properties exposed.</em></p>
+      <p>Promising in a way, perhaps, but I have problems with what it promises.<br>
+      I'd rather it remain as is than go down that road.</p>
+      <p>Rich</p>
+  - id: 411713
+    user: 49759
+    date: 2010-05-17T11:09:00
+    date_raw: 17 May 2010 - 11:09am
+    votes: 0
+    html: |-
+      <p>&gt; I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</p>
+      <p>Why not? </p>
+      <p>Here's a slice of the browsers in use and their marketshare:<br>
+      EOT (IE 6-8): 52.7%<br>
+      WOFF (FF3.5+, Chrome6): 20.8%<br>
+      TTF/OTF (FF&lt;3.5, Chrome&lt;6, Opera): 25.4%<br>
+      SVG or no support: 1.1%</p>
+      <p>So there is still a good 25% of users completely unserved by a EOT/WOFF license like FontShop's.</p>
+      <p>We still don't know for sure about Apple's plans to support WOFF. Last I heard, their lead engineer <a href="http://krijnhoetmer.nl/irc-logs/whatwg/20100303#l-194" title="Click to visit an external URL." class="freelink freelink-external freelink-external">said it's easier for them to make WOFF an installable format</a>, so that hardly solves the problem.</p>
+      <p>But now we have a format, which has protection on the level of WOFF (and even better in some cases), and works in all browsers *today*. Simon, John, David: that doesn't interest you?</p>
+    html_clean: |-
+      <p>&gt; I don't see any grounds for either presuming that this difference will be maintained in its present state or that such a difference can be formalised.</p>
+      <p>Why not? </p>
+      <p>Here's a slice of the browsers in use and their marketshare:<br>
+      EOT (IE 6-8): 52.7%<br>
+      WOFF (FF3.5+, Chrome6): 20.8%<br>
+      TTF/OTF (FF&lt;3.5, Chrome&lt;6, Opera): 25.4%<br>
+      SVG or no support: 1.1%</p>
+      <p>So there is still a good 25% of users completely unserved by a EOT/WOFF license like FontShop's.</p>
+      <p>We still don't know for sure about Apple's plans to support WOFF. Last I heard, their lead engineer <a href="http://krijnhoetmer.nl/irc-logs/whatwg/20100303#l-194" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">said it's easier for them to make WOFF an installable format</a>, so that hardly solves the problem.</p>
+      <p>But now we have a format, which has protection on the level of WOFF (and even better in some cases), and works in all browsers *today*. Simon, John, David: that doesn't interest you?</p>
+  - id: 411716
+    user: 1049
+    date: 2010-05-17T11:50:00
+    date_raw: 17 May 2010 - 11:50am
+    votes: 0
+    html: |-
+      <p>&gt;But now we have a format, which has protection on the level of WOFF (and even better in some cases), </p>
+      <p>I wouldn't describe what you've outlined as a "format", rather a set of obfuscation techniques. I find them interesting, but not that surprising - obfuscation is generally required by any font-maker considering font linking and embedding schemes, and the services (like Ascender's and Typekit) include obfuscation. </p>
+      <p>&gt;works in all browsers *today*.  </p>
+      <p>My only point was that they may not work tomorrow. In which case they'll evolve, or die. </p>
+      <p>&gt;their lead engineer said it's easier for them to make WOFF an installable format</p>
+      <p>I think it’s up to the W3C working group to ensure that <strong>compliant</strong> apps and clients do not treat WOFF as an installable font format.</p>
+    html_clean: |-
+      <p>&gt;But now we have a format, which has protection on the level of WOFF (and even better in some cases), </p>
+      <p>I wouldn't describe what you've outlined as a "format", rather a set of obfuscation techniques. I find them interesting, but not that surprising - obfuscation is generally required by any font-maker considering font linking and embedding schemes, and the services (like Ascender's and Typekit) include obfuscation. </p>
+      <p>&gt;works in all browsers *today*.  </p>
+      <p>My only point was that they may not work tomorrow. In which case they'll evolve, or die. </p>
+      <p>&gt;their lead engineer said it's easier for them to make WOFF an installable format</p>
+      <p>I think it’s up to the W3C working group to ensure that <strong>compliant</strong> apps and clients do not treat WOFF as an installable font format.</p>
+  - id: 411718
+    user: 14637
+    date: 2010-05-17T11:42:00
+    date_raw: 17 May 2010 - 11:42am
+    votes: 0
+    html: <p>One issue with putting garbage data in a font is that it is hard to predict all the workflows which it might affect. Have you tested printing to PostScript and non-PostScript printers, and to PDF?</p>
+    html_clean: <p>One issue with putting garbage data in a font is that it is hard to predict all the workflows which it might affect. Have you tested printing to PostScript and non-PostScript printers, and to PDF?</p>
+  - id: 411732
+    user: 44873
+    date: 2010-05-17T14:01:00
+    date_raw: 17 May 2010 - 2:01pm
+    votes: 0
+    html: |-
+      <p>@davidberlow</p>
+      <p>&gt;lol</p>
+      <p>Just a bit of giveback for all the amusement you've provided me!</p>
+      <p>(Hey, will you be at Extensis' shindig in Boston this weekend?)</p>
+      <p>rich</p>
+    html_clean: |-
+      <p>@davidberlow</p>
+      <p>&gt;lol</p>
+      <p>Just a bit of giveback for all the amusement you've provided me!</p>
+      <p>(Hey, will you be at Extensis' shindig in Boston this weekend?)</p>
+      <p>rich</p>
+  - id: 411752
+    user: 2969
+    date: 2010-05-17T17:26:00
+    date_raw: 17 May 2010 - 5:26pm
+    votes: 0
+    html: |-
+      <p>PI&gt;David: that doesn't interest you?</p>
+      <p>Yes Paul it does. Thank you for the interesting material. We have adopted much like what you describe in some of our web font obfuscation technology to serve dressed naked fonts.</p>
+      <p>I'm always a bit leery about doing any messing with the font names because they are so fragile to the user, and I can't help imagining that useful file and font names <em>with</em> meta data support is a good goal to seek for users now. </p>
+      <p>One of the classic issues we've been facing (all composers and users of digital type), for the last 30 years, is how to keep track of fonts, (from conception to uses), mostly by file name and font name. So, e.g. for years we've been shoehorning size and foundry info into names along with family, repertoire and style info. </p>
+      <p>As I understand it, I could have to ship fonts like: FBSavageGothicBoldCondensedItalicDisplayProWebForIPadSVG18PTnot4woff.svg, and the file name could be SHTHD211.</p>
+      <p>Sii&gt;My only point was that they may not work tomorrow. In which case they'll evolve, or die.</p>
+      <p>Simon's point is well taken, but all obfuscation techniques must evolve or die of pressure from other, arguably, overriding forces as well. The point is, however, it is the combination of obfuscation and meta data, one for the garden and one for the court, that protect fonts from most manner of ill gotten gain. It is not the font format.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>PI&gt;David: that doesn't interest you?</p>
+      <p>Yes Paul it does. Thank you for the interesting material. We have adopted much like what you describe in some of our web font obfuscation technology to serve dressed naked fonts.</p>
+      <p>I'm always a bit leery about doing any messing with the font names because they are so fragile to the user, and I can't help imagining that useful file and font names <em>with</em> meta data support is a good goal to seek for users now. </p>
+      <p>One of the classic issues we've been facing (all composers and users of digital type), for the last 30 years, is how to keep track of fonts, (from conception to uses), mostly by file name and font name. So, e.g. for years we've been shoehorning size and foundry info into names along with family, repertoire and style info. </p>
+      <p>As I understand it, I could have to ship fonts like: FBSavageGothicBoldCondensedItalicDisplayProWebForIPadSVG18PTnot4woff.svg, and the file name could be SHTHD211.</p>
+      <p>Sii&gt;My only point was that they may not work tomorrow. In which case they'll evolve, or die.</p>
+      <p>Simon's point is well taken, but all obfuscation techniques must evolve or die of pressure from other, arguably, overriding forces as well. The point is, however, it is the combination of obfuscation and meta data, one for the garden and one for the court, that protect fonts from most manner of ill gotten gain. It is not the font format.</p>
+      <p>Cheers!</p>
+  - id: 411756
+    user: 49759
+    date: 2010-05-17T17:51:00
+    date_raw: 17 May 2010 - 5:51pm
+    votes: 0
+    html: |-
+      <p>Sii&gt;My only point was that they may not work tomorrow. In which case they'll evolve, or die.</p>
+      <p>Sure. Though being future-proof isn't really a goal of this project. It looks pretty certain we'll have WOFF support across all browsers within 9 months. </p>
+      <p>This is stated as an interim solution, as I'd think foundries would be interested in licensing their fonts to work, securely, in 100% of supporting browsers today. :)</p>
+    html_clean: |-
+      <p>Sii&gt;My only point was that they may not work tomorrow. In which case they'll evolve, or die.</p>
+      <p>Sure. Though being future-proof isn't really a goal of this project. It looks pretty certain we'll have WOFF support across all browsers within 9 months. </p>
+      <p>This is stated as an interim solution, as I'd think foundries would be interested in licensing their fonts to work, securely, in 100% of supporting browsers today. :)</p>
+  - id: 411760
+    user: 18547
+    date: 2010-05-17T19:05:00
+    date_raw: 17 May 2010 - 7:05pm
+    votes: 0
+    html: |-
+      <p>I'm absolutely astonished that all discussions so far are concentrated on the feasibility of this hack and nobody is making the principled argument that intentional poisoning of standard data formats is unconditionally evil, and security by obscurity really never works -- especially when the structure of the underlying format is public knowledge.</p>
+      <p>Since any software that encounters the intentionally crippled data may behave in unpredictable ways and thus open up vectors for attack, this kinds of hack -- in an environment as fragile as the web no less -- puts the data integrity and system security of the user in great danger and is therefore utterly irresponsible. As an user, I would consider this kind of technique a willful act of intrusion and endangerment -- much like <a href="http://en.wikipedia.org/wiki/Sony_BMG_CD_copy_protection_scandal">rootkit DRM</a> -- and say to anyone who employs it: Go to hell!</p>
+      <p>Some -- actually, many, as it seems -- people here need a computer security 101 lecture: The integrity of data exchanged in an open environment has -- by magnitude -- higher priority than a little bit more visual enhancement for your website.</p>
+    html_clean: |-
+      <p>I'm absolutely astonished that all discussions so far are concentrated on the feasibility of this hack and nobody is making the principled argument that intentional poisoning of standard data formats is unconditionally evil, and security by obscurity really never works -- especially when the structure of the underlying format is public knowledge.</p>
+      <p>Since any software that encounters the intentionally crippled data may behave in unpredictable ways and thus open up vectors for attack, this kinds of hack -- in an environment as fragile as the web no less -- puts the data integrity and system security of the user in great danger and is therefore utterly irresponsible. As an user, I would consider this kind of technique a willful act of intrusion and endangerment -- much like <a href="http://en.wikipedia.org/wiki/Sony_BMG_CD_copy_protection_scandal" class="link-external">rootkit DRM</a> -- and say to anyone who employs it: Go to hell!</p>
+      <p>Some -- actually, many, as it seems -- people here need a computer security 101 lecture: The integrity of data exchanged in an open environment has -- by magnitude -- higher priority than a little bit more visual enhancement for your website.</p>
+  - id: 411766
+    user: 1049
+    date: 2010-05-17T19:02:00
+    date_raw: 17 May 2010 - 7:02pm
+    votes: 0
+    html: |-
+      <p>&gt;intentional poisoning of standard data formats is unconditionally evil</p>
+      <p><img src="/sites/default/files/old-images/poison_5110.PNG"></p>
+    html_clean: |-
+      <p>&gt;intentional poisoning of standard data formats is unconditionally evil</p>
+      <p><img src="/sites/default/files/old-images/poison_5110.PNG"></p>
+  - id: 411767
+    user: 14829
+    date: 2010-05-17T19:28:00
+    date_raw: 17 May 2010 - 7:28pm
+    votes: 0
+    html: |-
+      <p><cite>One issue with putting garbage data in a font is that it is hard to predict all the workflows which it might affect. Have you tested printing to PostScript and non-PostScript printers, and to PDF?</cite></p>
+      <p>Still interested in an answer to Read's question.</p>
+    html_clean: |-
+      <p><cite>One issue with putting garbage data in a font is that it is hard to predict all the workflows which it might affect. Have you tested printing to PostScript and non-PostScript printers, and to PDF?</cite></p>
+      <p>Still interested in an answer to Read's question.</p>
+  - id: 411770
+    user: 14722
+    date: 2010-05-17T20:04:00
+    date_raw: 17 May 2010 - 8:04pm
+    votes: 0
+    html: |-
+      <p><cite>I'm absolutely astonished that all discussions so far are concentrated on the feasibility of this hack and nobody is making the principled argument that intentional poisoning of standard data formats is unconditionally evil, and security by obscurity really never works -- especially when the structure of the underlying format is public knowledge.</cite></p>
+      <p>You have to remember that this entire discussion is pretty much based on an inane fantasy in which intentional piracy is inevitable but users unintentionally pirate fonts by downloading web fonts and installing them without realizing that the a font license should be paid for somewhere along the way. So you really shouldn’t be surprised that the methods for preventing such a scenario are equally ridiculous.</p>
+    html_clean: |-
+      <p><cite>I'm absolutely astonished that all discussions so far are concentrated on the feasibility of this hack and nobody is making the principled argument that intentional poisoning of standard data formats is unconditionally evil, and security by obscurity really never works -- especially when the structure of the underlying format is public knowledge.</cite></p>
+      <p>You have to remember that this entire discussion is pretty much based on an inane fantasy in which intentional piracy is inevitable but users unintentionally pirate fonts by downloading web fonts and installing them without realizing that the a font license should be paid for somewhere along the way. So you really shouldn’t be surprised that the methods for preventing such a scenario are equally ridiculous.</p>
+  - id: 411773
+    user: 50404
+    date: 2010-05-17T20:38:00
+    date_raw: 17 May 2010 - 8:38pm
+    votes: 0
+    html: <p>James - Not sure I understand the tone of your post. What would you suggest? Typekit obfuscates, Fontspring obfuscates, Extensis, Ascender, Typotheque etc... To serve fonts on the web at this point has to involve a certain level of trust. None of the schemes offered by these services is unbreakable. I've easily downloaded fonts from all of the them. But if I was a "casual pirate" without the font tools, I would stumble here. Would you be comfortable with your naked fonts on the web?</p>
+    html_clean: <p>James - Not sure I understand the tone of your post. What would you suggest? Typekit obfuscates, Fontspring obfuscates, Extensis, Ascender, Typotheque etc... To serve fonts on the web at this point has to involve a certain level of trust. None of the schemes offered by these services is unbreakable. I've easily downloaded fonts from all of the them. But if I was a "casual pirate" without the font tools, I would stumble here. Would you be comfortable with your naked fonts on the web?</p>
+  - id: 411774
+    user: 18547
+    date: 2010-05-17T20:53:00
+    date_raw: 17 May 2010 - 8:53pm
+    votes: 0
+    html: |-
+      <p>I suggest you stop messing with the standard formats and keep waiting for a standard-conform web font technology that you like. Not having web fonts is not a big deal -- having intentionally corrupted data is a huge deal.</p>
+      <p>And yes, as an developer of several open source projects, I have absolutely no problem whatsoever giving away my work for free. But that's beyond the point.</p>
+    html_clean: |-
+      <p>I suggest you stop messing with the standard formats and keep waiting for a standard-conform web font technology that you like. Not having web fonts is not a big deal -- having intentionally corrupted data is a huge deal.</p>
+      <p>And yes, as an developer of several open source projects, I have absolutely no problem whatsoever giving away my work for free. But that's beyond the point.</p>
+  - id: 411778
+    user: 14722
+    date: 2010-05-17T22:54:00
+    date_raw: 17 May 2010 - 10:54pm
+    votes: 0
+    html: <p>I am just continually confounded at how much thought and effort goes into trying to protect web fonts from being used as system fonts given that casual pirates will probably always take the casual route and just google “fontname font rapidshare OR torrent”. I don’t entirely love the idea of naked fonts on the web. But I don’t see a need for all these hacks because I think it silly to believe that anyone who will to make the effort to pirate web fonts would pay for fonts to begin with.</p>
+    html_clean: <p>I am just continually confounded at how much thought and effort goes into trying to protect web fonts from being used as system fonts given that casual pirates will probably always take the casual route and just google “fontname font rapidshare OR torrent”. I don’t entirely love the idea of naked fonts on the web. But I don’t see a need for all these hacks because I think it silly to believe that anyone who will to make the effort to pirate web fonts would pay for fonts to begin with.</p>
+  - id: 411808
+    user: 2969
+    date: 2010-05-18T07:50:00
+    date_raw: 18 May 2010 - 7:50am
+    votes: 0
+    html: |-
+      <p>henrypijames &gt;I suggest you stop messing with the standard formats </p>
+      <p>Thank you for your comments. My advice is that you should read more. Nothing poisonous is being done to the standard itself. The parts of the standard that are used for web fonts are unmolested when compared, e.g. to the glyph standards, etc. </p>
+      <p>Type developers tread a complex maze of non-standard interpretations of the standard formats where OS developers play every hidden card they have to improve the performance of fonts on their systems, often with disregard to; the standard, the courtesy of documentation, and the web. </p>
+      <p>You could consider this kind of technique a willful act of intrusion and endangerment and tell them to go to hell, fine. We prefer to work through these difficulties like agnostics, (and I admire you for how little you know on this topic). </p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>henrypijames &gt;I suggest you stop messing with the standard formats </p>
+      <p>Thank you for your comments. My advice is that you should read more. Nothing poisonous is being done to the standard itself. The parts of the standard that are used for web fonts are unmolested when compared, e.g. to the glyph standards, etc. </p>
+      <p>Type developers tread a complex maze of non-standard interpretations of the standard formats where OS developers play every hidden card they have to improve the performance of fonts on their systems, often with disregard to; the standard, the courtesy of documentation, and the web. </p>
+      <p>You could consider this kind of technique a willful act of intrusion and endangerment and tell them to go to hell, fine. We prefer to work through these difficulties like agnostics, (and I admire you for how little you know on this topic). </p>
+      <p>Cheers!</p>
+  - id: 411844
+    user: 44873
+    date: 2010-05-18T12:12:00
+    date_raw: 18 May 2010 - 12:12pm
+    votes: 0
+    html: |-
+      <p>@paul irish</p>
+      <p><em>This is stated as an interim solution, as I'd think foundries would be interested in licensing their fonts to work, securely, in 100% of supporting browsers today.</em></p>
+      <p>I think you've unintentionally hit the nail on the head. I don't think font producers - in the main - are much interested in licensing their fonts to work in 100% of browsers today. I've never, ever heard any enthusiasm for providing web fonts at all. <strong>And I don't think there will be much enthusiasm for it after WOFF and EOT are ubiquitous, either.</strong></p>
+      <p>One thing I <em>have</em> heard regarding licensing for the web is that "We don't yet know what business model is going to work". And that therefore, judgment should be suspended while experimentation with different models goes forward.</p>
+      <p>Yet, the one experiment I have yet to see tried by any established commercial font producer would seem to me to be the first choice/no-brainer: take a few fonts with good screen quality and offer to license them for web use and see what happens.<br>
+      Until such a test marketing occurs, anybody who waxes forth about "well, we don't know what will work" is simply full of hot air IMHO.</p>
+    html_clean: |-
+      <p>@paul irish</p>
+      <p><em>This is stated as an interim solution, as I'd think foundries would be interested in licensing their fonts to work, securely, in 100% of supporting browsers today.</em></p>
+      <p>I think you've unintentionally hit the nail on the head. I don't think font producers - in the main - are much interested in licensing their fonts to work in 100% of browsers today. I've never, ever heard any enthusiasm for providing web fonts at all. <strong>And I don't think there will be much enthusiasm for it after WOFF and EOT are ubiquitous, either.</strong></p>
+      <p>One thing I <em>have</em> heard regarding licensing for the web is that "We don't yet know what business model is going to work". And that therefore, judgment should be suspended while experimentation with different models goes forward.</p>
+      <p>Yet, the one experiment I have yet to see tried by any established commercial font producer would seem to me to be the first choice/no-brainer: take a few fonts with good screen quality and offer to license them for web use and see what happens.<br>
+      Until such a test marketing occurs, anybody who waxes forth about "well, we don't know what will work" is simply full of hot air IMHO.</p>
+  - id: 411848
+    user: 1262
+    date: 2010-05-18T12:49:00
+    date_raw: 18 May 2010 - 12:49pm
+    votes: 0
+    html: |-
+      <p>James: <em>I am just continually confounded at how much thought and effort goes into trying to protect web fonts from being used as system fonts given that casual pirates will probably always take the casual route and just google “fontname font rapidshare OR torrent”.</em></p>
+      <p>That's not my definition of 'casual piracy'. That's an intentional act to obtain a thing, not having a thing arrive on your computer because you visited a website.</p>
+      <p><em>But I don’t see a need for all these hacks because I think it silly to believe that anyone who will to make the effort to pirate web fonts would pay for fonts to begin with.</em></p>
+      <p>Exclusivity is a core value of a typeface. This is why clients pay more for exclusive use of a typeface than they do for non-exclusive use, and why retail licensors expect diminishing returns for a popular font: the more people who have a font, the less value it is perceived to have. Unlicensed use undermines this value, so whether the unlicensed user would or would not have paid for a license to begin with is irrelevant. It's especially irrelevant to my clients who are looking to use fonts on the web that are not available for licensing to other parties anyway. They are not interested in protecting sales, they are interested in protecting their investment in the exclusive value of those fonts.<br>
+      ___</p>
+      <p>Now, having said that, let me be clear that I'm not in favour of font obfuscation methods. The proper response to browsers that only support naked fonts for @font-face is not to support those browsers.</p>
+    html_clean: |-
+      <p>James: <em>I am just continually confounded at how much thought and effort goes into trying to protect web fonts from being used as system fonts given that casual pirates will probably always take the casual route and just google “fontname font rapidshare OR torrent”.</em></p>
+      <p>That's not my definition of 'casual piracy'. That's an intentional act to obtain a thing, not having a thing arrive on your computer because you visited a website.</p>
+      <p><em>But I don’t see a need for all these hacks because I think it silly to believe that anyone who will to make the effort to pirate web fonts would pay for fonts to begin with.</em></p>
+      <p>Exclusivity is a core value of a typeface. This is why clients pay more for exclusive use of a typeface than they do for non-exclusive use, and why retail licensors expect diminishing returns for a popular font: the more people who have a font, the less value it is perceived to have. Unlicensed use undermines this value, so whether the unlicensed user would or would not have paid for a license to begin with is irrelevant. It's especially irrelevant to my clients who are looking to use fonts on the web that are not available for licensing to other parties anyway. They are not interested in protecting sales, they are interested in protecting their investment in the exclusive value of those fonts.<br>
+      ___</p>
+      <p>Now, having said that, let me be clear that I'm not in favour of font obfuscation methods. The proper response to browsers that only support naked fonts for @font-face is not to support those browsers.</p>
+  - id: 411854
+    user: 1262
+    date: 2010-05-18T13:06:00
+    date_raw: 18 May 2010 - 1:06pm
+    votes: 0
+    html: |-
+      <p>Henry: <em>I suggest you stop messing with the standard formats and keep waiting for a standard-conform web font technology that you like. Not having web fonts is not a big deal -- having intentionally corrupted data is a huge deal.</em></p>
+      <p>I'd agree with that.</p>
+      <p>One of the things that OpenType made possible was the cleaning up of a lot of hacked, non-standard font data that had proliferated during the 8-bit years.</p>
+    html_clean: |-
+      <p>Henry: <em>I suggest you stop messing with the standard formats and keep waiting for a standard-conform web font technology that you like. Not having web fonts is not a big deal -- having intentionally corrupted data is a huge deal.</em></p>
+      <p>I'd agree with that.</p>
+      <p>One of the things that OpenType made possible was the cleaning up of a lot of hacked, non-standard font data that had proliferated during the 8-bit years.</p>
+  - id: 411864
+    user: 14829
+    date: 2010-05-18T13:54:00
+    date_raw: 18 May 2010 - 1:54pm
+    votes: 0
+    html: |-
+      <p><cite>I don't think font producers - in the main - are much interested in licensing their fonts to work in 100% of browsers today. I've never, ever heard any enthusiasm for providing web fonts at all. And I don't think there will be much enthusiasm for it after WOFF and EOT are ubiquitous, either.</cite></p>
+      <p>Wha?</p>
+      <p>Monotype's new service, along with Typekit and all the others, provide fonts that are compatible with virtually all browsers. I'm sure Monotype, Ascender, FontShop, et al. are quite enthusiastic about it. Quite a while ago, Adobe joined Monotype in Microsoft to support standardization of EOT, the goal of which was to get web fonts working in all browsers.</p>
+    html_clean: |-
+      <p><cite>I don't think font producers - in the main - are much interested in licensing their fonts to work in 100% of browsers today. I've never, ever heard any enthusiasm for providing web fonts at all. And I don't think there will be much enthusiasm for it after WOFF and EOT are ubiquitous, either.</cite></p>
+      <p>Wha?</p>
+      <p>Monotype's new service, along with Typekit and all the others, provide fonts that are compatible with virtually all browsers. I'm sure Monotype, Ascender, FontShop, et al. are quite enthusiastic about it. Quite a while ago, Adobe joined Monotype in Microsoft to support standardization of EOT, the goal of which was to get web fonts working in all browsers.</p>
+  - id: 411866
+    user: 2969
+    date: 2010-05-18T14:08:00
+    date_raw: 18 May 2010 - 2:08pm
+    votes: 0
+    html: |-
+      <p>JH&gt; Now, having said that, let me be clear that I'm not in favour of font obfuscation methods. </p>
+      <p>Me neither it all sucks. When OT is Safest, you know what I mean. </p>
+      <p>Jh&gt; The proper response to browsers that only support naked fonts for @font-face is not to support those browsers.</p>
+      <p>Now now. If we all felt that way about each browser maker's choice, we'd have nothing to @font-face to at all.</p>
+      <p>Cheers!</p>
+    html_clean: |-
+      <p>JH&gt; Now, having said that, let me be clear that I'm not in favour of font obfuscation methods. </p>
+      <p>Me neither it all sucks. When OT is Safest, you know what I mean. </p>
+      <p>Jh&gt; The proper response to browsers that only support naked fonts for @font-face is not to support those browsers.</p>
+      <p>Now now. If we all felt that way about each browser maker's choice, we'd have nothing to @font-face to at all.</p>
+      <p>Cheers!</p>
+  - id: 411887
+    user: 1262
+    date: 2010-05-18T15:50:00
+    date_raw: 18 May 2010 - 3:50pm
+    votes: 0
+    html: |-
+      <p>David: <em>...we'd have nothing to @font-face to at all.</em></p>
+      <p>I'd say that, at the present time, there is precious little to which to @font-face, but a lot of people pretending that there is and trying to make us think that there is some kind of pressing imperative that obliges us to do in a matter of a few months -- using whatever hacks and compromises will get us to market -- what has clearly not been a pressing imperative for more than a decade. It's surely a good thing that web type is finally moving, but between total inertia and running blindly off a cliff there is a lot of leeway for the kind of movement that goes places. There is going to be a cross-browser, standard web font format, and I don't see the point of compromising either principles or data to support what will quickly be, in the context of that format, non-standard legacy solutions affecting a minority of users. I see no more reason to support 100% of current browsers than I did to support 100% of word processing and page layout applications that didn't handle Unicode text or could only access variants using PUA mappings.<br>
+      ___</p>
+      <p>For me, web fonts present something of a novel situation. For a dozen years, I've been making a lot of fonts that in one way or another wouldn't work in current software. I'd make them, ship them, and wait for the applications to support the features. Sometimes I took the long road, and had to propose characters to Unicode, get them approved and published in the standard, and wait for them to be supported in software before the font would work.</p>
+      <p>So it's quite amusing to be looking at a situation in which software makers have invented a web served font mechanism for which there are almost no fonts.</p>
+    html_clean: |-
+      <p>David: <em>...we'd have nothing to @font-face to at all.</em></p>
+      <p>I'd say that, at the present time, there is precious little to which to @font-face, but a lot of people pretending that there is and trying to make us think that there is some kind of pressing imperative that obliges us to do in a matter of a few months -- using whatever hacks and compromises will get us to market -- what has clearly not been a pressing imperative for more than a decade. It's surely a good thing that web type is finally moving, but between total inertia and running blindly off a cliff there is a lot of leeway for the kind of movement that goes places. There is going to be a cross-browser, standard web font format, and I don't see the point of compromising either principles or data to support what will quickly be, in the context of that format, non-standard legacy solutions affecting a minority of users. I see no more reason to support 100% of current browsers than I did to support 100% of word processing and page layout applications that didn't handle Unicode text or could only access variants using PUA mappings.<br>
+      ___</p>
+      <p>For me, web fonts present something of a novel situation. For a dozen years, I've been making a lot of fonts that in one way or another wouldn't work in current software. I'd make them, ship them, and wait for the applications to support the features. Sometimes I took the long road, and had to propose characters to Unicode, get them approved and published in the standard, and wait for them to be supported in software before the font would work.</p>
+      <p>So it's quite amusing to be looking at a situation in which software makers have invented a web served font mechanism for which there are almost no fonts.</p>
+  - id: 411896
+    user: 17101
+    date: 2010-05-18T17:23:00
+    date_raw: 18 May 2010 - 5:23pm
+    votes: 0
+    html: "<p>Slightly off topic @John: I’ve seen way too many fonts designed with zero attention to how they behave in MS Office! That’s a definite dealbreaker for identities, at least if someone are going to use the fonts inhouse.</p>"
+    html_clean: "<p>Slightly off topic @John: I’ve seen way too many fonts designed with zero attention to how they behave in MS Office! That’s a definite dealbreaker for identities, at least if someone are going to use the fonts inhouse.</p>"
+  - id: 411905
+    user: 50404
+    date: 2010-05-18T19:42:00
+    date_raw: 18 May 2010 - 7:42pm
+    votes: 0
+    html: <p>This thread really makes me chuckle. Thanks guys.</p>
+    html_clean: <p>This thread really makes me chuckle. Thanks guys.</p>
+  - id: 411907
+    user: 49759
+    date: 2010-05-18T20:07:00
+    date_raw: 18 May 2010 - 8:07pm
+    votes: 0
+    html: |-
+      <p>FWIW John Daggett (editor of the CSS3 Fonts spec) and font maestro at Mozilla gave his feedback on the details above:</p>
+      <p><cite>Yeah, that should work fine I think.  I would try printing under OSX, since that's where swizzling the PS name might matter.  If the FF code changes in the future it will probably change towards the Chrome way of doing things, namely dropping the name table altogether so that we avoid all the nonsense associated with it on Windows.</cite></p>
+    html_clean: |-
+      <p>FWIW John Daggett (editor of the CSS3 Fonts spec) and font maestro at Mozilla gave his feedback on the details above:</p>
+      <p><cite>Yeah, that should work fine I think.  I would try printing under OSX, since that's where swizzling the PS name might matter.  If the FF code changes in the future it will probably change towards the Chrome way of doing things, namely dropping the name table altogether so that we avoid all the nonsense associated with it on Windows.</cite></p>
+  - id: 411915
+    user: 1262
+    date: 2010-05-18T22:09:00
+    date_raw: 18 May 2010 - 10:09pm
+    votes: 0
+    html: <p>How is a a font identified without the name table? How is style linking handled without the name table?</p>
+    html_clean: <p>How is a a font identified without the name table? How is style linking handled without the name table?</p>
   - id: 411916
     user: 1262
     date: null

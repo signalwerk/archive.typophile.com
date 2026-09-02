@@ -35,13 +35,13 @@ Node v24. The only root dependencies are `cheerio` and `yaml`.
 
 | | |
 | --- | --- |
-| threads | 65,044 (`data/parsed/nodes/<id>.yaml`) |
-| comments | 407,700 |
-| members | 27,841 files, 27,840 with numeric ids |
-| embedded files | 25,755 (`data/parsed/files/`, 2.5 GB) |
+| threads | 66,630 (`data/parsed/nodes/<id>.yaml`) |
+| comments | 412,434 |
+| members | 28,614 files, 28,610 with numeric ids |
+| embedded files | 29,041 (`data/parsed/files/`, 2.8 GB) |
 | interface files | 1 (`data/parsed/misc/`) |
-| legacy-only discussions | 993 (`data/parsed/messages/<forum-id>-<old-id>.yaml`), 6,236 posts |
-| `data/parsed` total | 3.5 GB |
+| legacy-only discussions | 1,111 (`data/parsed/messages/<forum-id>-<old-id>.yaml`), 8,406 posts |
+| `data/parsed` total | 3.8 GB |
 
 Consequences that bite:
 
@@ -74,7 +74,8 @@ copies the 2.5 GB of embedded files into `dist/`. Rendering itself is cheap
 ## Architecture
 
 ```
-archives ──0-4──> data/archives/<archive>/files/…      raw captures, digest-verified
+archives ──0-4──> data/archives/<archive>/files/<timestamp>/<host>/…
+                                                        raw captures, digest-verified
              5-6──> data/parsed/nodes/<id>.yaml         one thread per file
                7──> data/parsed/users/<id>.yaml + _index.jsonl
                8──> html_clean written into each thread YAML
@@ -105,10 +106,10 @@ are collapsed to the snapshot with the most posts. Step 10 depends on the step
 9 index for the cheap title/date side of the join, but changing `old_url` does
 not invalidate that index because the summary shape does not include it.
 
-Verified on the current corpus: 14,021 legacy HTML files contain 4,536 thread
-snapshots representing 3,138 distinct old discussion URLs. Of those, 2,125
-modern nodes match uniquely, with 19 old moved-forum aliases folded onto their
-newest captured location; 993 old discussions are `MISSING`, and one is
+Verified on the current corpus: 14,023 legacy HTML files contain 4,530 thread
+snapshots representing 3,137 distinct old discussion URLs. Of those, 2,006
+modern nodes match uniquely, with 17 old moved-forum aliases folded onto their
+newest captured location; 1,111 old discussions are `MISSING`, and one is
 `AMBIGUOUS`. The earliest 58 discussions use malformed single-hyphen Discus
 markers (`<!-Post...-!>`) and are parsed alongside the later proper comments.
 
@@ -116,13 +117,13 @@ Step 11 consumes only the `MISSING` lines and writes the ordinary raw thread
 shape (`node`, `title`, `old_url`, `forum`, `source`, `pages`, `post`, and
 `comments`) to `data/parsed/messages/<forum-id>-<old-message-id>.yaml`. Both ids
 are required: ten message ids survive at two forum paths, and every one of the
-993 old URLs must remain distinct. Query-string captures of the exact same
+1,111 old URLs must remain distinct. Query-string captures of the exact same
 forum/message URL are merged by Discus post id because later pages sometimes
 omit posts visible in earlier captures; the newest observation of an edited
 post wins. Moved-forum aliases are not merged. `source.content` says `merged
 snapshots` when this happened and `source.snapshots` records how many captures
-contributed. The current corpus merges 1,223 parseable snapshots into 6,236
-recovered entries (993 opening posts and 5,243 replies).
+contributed. The current corpus merges 1,446 parseable snapshots into 8,406
+recovered entries (1,111 opening posts and 7,295 replies).
 
 Step 11 reconstructs the complete `messages/` directory in `messages.part/`
 and swaps it into place only after processing the current `MISSING` set. It
@@ -137,7 +138,7 @@ scoped to `parsed/nodes/`. Old Discus profiles had no Drupal numeric user id;
 the `user` field therefore uses the stable slug of the old profile key (or the
 display name when there was no profile link), just as regular guest/vanity
 authors use string ids. Step 11 learns the old-to-new author relation from the
-2,125 discussions already matched to nodes: opening posts align through the
+2,006 discussions already matched to nodes: opening posts align through the
 thread relation, while replies require an exact naive timestamp + normalised
 body match. It accepts an identity only when all evidence points to one id that
 exists in `users/_index.jsonl`; it never guesses from a display name. Conflicts
@@ -145,9 +146,9 @@ remain legacy string ids and are logged as `AMBIGUOUS_USER`; identities with no
 migrated-post evidence are `UNRESOLVED_USER`. Log lines include the old profile
 key, names, candidate ids, entry count, and discussion count.
 
-The resolver currently learns 1,480 unambiguous mappings from 21,517 migrated
-posts. In the legacy-only corpus this resolves 518 identities / 5,232 entries;
-388 identities / 818 entries remain unresolved and six identities / 186
+The resolver currently learns 1,419 unambiguous mappings from 19,727 migrated
+posts. In the legacy-only corpus this resolves 566 identities / 7,207 entries;
+476 identities / 1,023 entries remain unresolved and four identities / 176
 entries are ambiguous. The mapping plus user-index content hash is part of each
 message fingerprint, so newly captured matched nodes or a changed user index
 invalidate affected output. `messages.meta.json` holds the totals.
@@ -200,7 +201,7 @@ changes. They differ in what they hash, and that difference matters enormously.
 | `profileParserVersion()` in `src/007_users.js` | `lib/userProfile.js` | re-parses the downloaded `/user/` profile pages |
 | `cleanerVersion()` in `src/008_cleanHtml.js` | `lib/assets.js` + its own whole source | re-cleans all 65k threads, ~4 min |
 | `summaryVersion()` in `src/lib/summary.js` | **only `summarise.toString()`** | re-reads all 65k YAMLs, ~60 s |
-| `parserVersion()` in `src/011_oldMessages.js` | `lib/legacyThreads.js` + its own whole source | re-parses 993 legacy-only discussions after rebuilding the author map |
+| `parserVersion()` in `src/011_oldMessages.js` | `lib/legacyThreads.js` + its own whole source | re-parses 1,111 legacy-only discussions after rebuilding the author map |
 
 **Trap:** editing `src/006_parseNodes.js` at all — even a comment — re-parses
 the entire corpus from archive HTML. This is why the thread index went into its
@@ -226,6 +227,20 @@ omit them. Do not add them back to `source`: doing so makes every parser or
 resolver change dirty the whole corpus in Git even when the parsed content is
 otherwise byte-identical. The archive, timestamp, digest and source file remain
 in each YAML for provenance.
+
+Step 6 has three explicitly detected HTML generations. `classic` handles the
+early `#content-frame` pages, `sidebars` handles the pre-outage theme with
+`div#node-*`, and `drupal7` handles the site returned after the 2016 reboot.
+The last of these has both ordinary `article#node-*` markup (including wiki,
+font-id, type-id, blog and some forum nodes) and Advanced Forum
+`div#post-*.forum-post` markup. Drupal's body class `no-sidebars` is not the
+older `sidebars` generation: detectors must compare complete class tokens,
+not search for `sidebars` as a substring. Wiki pages intentionally omit a
+byline but still produce a post containing their body.
+
+The live step 5 is `src/005_selectNodes.js`; parsing is step 6, and its
+generation-specific implementations belong in `src/lib/generations.js`. Step
+5 only selects captures; do not introduce a competing parser there.
 
 ## The site
 
@@ -265,6 +280,16 @@ digest before that date, plus known same-origin error payloads in
 temporary outage. In particular, `/files/img-thing_5442.jpg` is an ordinary
 2016 asset, not a special case.
 
+Downloaded archive files are timestamp-first:
+`data/archives/<archive>/files/<14-digit timestamp>/<host>/<path>`. Both the
+step 3 job `file` and the archive-state `f` field contain that timestamp.
+Consumers matching the URL-shaped portion must call `captureUrlPath()` rather
+than assume the host is the first path component. The timestamp layer was
+added to permit multiple versions later; steps 2--4 still select, list and
+store only one chosen capture per URL, and download state is still keyed by
+the URL key `k`. Existing captures were migrated in place with no network
+download; the one-off migration script was deliberately not retained.
+
 ## Conventions
 
 - ESM throughout (`"type": "module"`), two-space indent, double quotes.
@@ -281,19 +306,21 @@ temporary outage. In particular, `/files/img-thing_5442.jpg` is an ordinary
   Wayback-wrapped vanity links must be reduced to their original Typophile
   path. `/readthetype` is a verified alias of user 15065: the archived vanity
   profile's login form names `user/15065` and both profile forms use
-  `picture-15065.jpg`. `guest` is the only non-numeric user in the current
-  corpus; it is a synthetic bucket for bylines with no profile link, not one
-  identifiable person. Step 7 prunes user YAML and copied pictures that
-  disappear after this normalization.
+  `picture-15065.jpg`. Four non-numeric users remain in the current corpus:
+  `guest` is a synthetic bucket for bylines with no profile link, not one
+  identifiable person, while `jackieki-not-verified`, `alaskan-not-verified`
+  and `gandalf-not-verified` are literal archived bylines with no numeric
+  profile evidence. Step 7 prunes user YAML and copied pictures that disappear
+  after this normalization.
 - Counts print through `formatCount`, aligned with dot leaders.
 
 ## Known problems
 
 - **`README.md` is partly stale.** It still describes ~11,227 threads (now
-  65,044), a `site/lib/sanitize.mjs` that no longer exists (that work is step
+  66,630), a `site/lib/sanitize.mjs` that no longer exists (that work is step
   8), says embedded images "will not load" (step 8 now points them at our
   copies), and lists post-processing the HTML as still to do (done).
-- **Repository size.** `data/parsed` (3.5 GB, including 2.5 GB of binary files)
+- **Repository size.** `data/parsed` (3.8 GB, including 2.8 GB of binary files)
   is committed so the GitHub Action can build without re-downloading. Any
   change that rewrites every thread YAML adds another full copy to git history,
   permanently. Weigh this before changing step 6 or 8 output formatting.

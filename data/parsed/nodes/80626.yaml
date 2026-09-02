@@ -1,5 +1,5 @@
 node: 80626
-title: null
+title: Replacing glyphs with Python in OTF
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/80626.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170803161238/typophile.com/node/80626.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,72 @@ pages:
       digest: RJZRHYBZHOE7VG2ULX533TP6L64FKYIU
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/80626.html
+      file: data/archives/web.archive.org/files/20170803161238/typophile.com/node/80626.html
 post:
   id: 80626
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 10002
+  date: 2011-03-30T03:44:00
+  date_raw: 30 March 2011 - 3:44am
+  votes: 0
+  html: |-
+    <p>Hi everybody, I have a question. I know I can replace glyphs in the same OpenType font. </p>
+    <p>However, is it possible to replace glyphs in one OpenType font to glyphs from another OpenType font. Is there a python script available for that? Or is there some other way to achieve that? Thank you in advance.</p>
+  html_clean: |-
+    <p>Hi everybody, I have a question. I know I can replace glyphs in the same OpenType font. </p>
+    <p>However, is it possible to replace glyphs in one OpenType font to glyphs from another OpenType font. Is there a python script available for that? Or is there some other way to achieve that? Thank you in advance.</p>
+comments:
+  - id: 457813
+    user: 6470
+    date: 2011-03-30T10:39:00
+    date_raw: 30 March 2011 - 10:39am
+    votes: 0
+    html: <p>There are several options available under <strong>Tools &gt; Merge Fonts</strong> which may accomplish what you want to do...</p>
+    html_clean: <p>There are several options available under <strong>Tools &gt; Merge Fonts</strong> which may accomplish what you want to do...</p>
+  - id: 457816
+    user: 10002
+    date: 2011-03-30T11:02:00
+    date_raw: 30 March 2011 - 11:02am
+    votes: 0
+    html: |-
+      <p>Thanks, but that's not what I was asking about. I guess, I wasn't clear. I'm not talking about replacing glyphs via Fontlab. </p>
+      <p>I want to be able to replace specific glyphs in already generated OTF from a different OTF that are in the same folder for example. I know that if I apply a script I can change f f l to a ligature ffl in one particular font. But is it possible to control a font with a script from within a different font,.. being able to replace, let's say, a lowercase "g" from one font with another "g" from a different font? I hope this explains. Thanks.</p>
+    html_clean: |-
+      <p>Thanks, but that's not what I was asking about. I guess, I wasn't clear. I'm not talking about replacing glyphs via Fontlab. </p>
+      <p>I want to be able to replace specific glyphs in already generated OTF from a different OTF that are in the same folder for example. I know that if I apply a script I can change f f l to a ligature ffl in one particular font. But is it possible to control a font with a script from within a different font,.. being able to replace, let's say, a lowercase "g" from one font with another "g" from a different font? I hope this explains. Thanks.</p>
+  - id: 457836
+    user: 83217
+    date: 2011-03-30T13:53:00
+    date_raw: 30 March 2011 - 1:53pm
+    votes: 0
+    html: <p>In CSS, unicode-range will do it, as long as the UA (User Agent) supports it.</p>
+    html_clean: <p>In CSS, unicode-range will do it, as long as the UA (User Agent) supports it.</p>
+  - id: 457855
+    user: 1133
+    date: 2011-03-30T15:49:00
+    date_raw: 30 March 2011 - 3:49pm
+    votes: 0
+    html: |-
+      <p>Nycgraphiste,</p>
+      <p>without a high-level font editor such as FontLab Studio, it can be quite tricky. Especially with OpenType PS (.otf) fonts which rely on the compression of the CFF table through subroutines. </p>
+      <p>It's possible, using the FontTools/TTX Python toolkit, but it requires quite a lot of low-level knowledge of the OpenType font format. </p>
+      <p>One solution might be to try compiling FontForge as a Python module (which unfortunately I haven't been able to do on a Linux server), and/or use the UFO/GLIF format to exchange the glyph data. </p>
+      <p>It's not trivial. But yes, it can be done.</p>
+    html_clean: |-
+      <p>Nycgraphiste,</p>
+      <p>without a high-level font editor such as FontLab Studio, it can be quite tricky. Especially with OpenType PS (.otf) fonts which rely on the compression of the CFF table through subroutines. </p>
+      <p>It's possible, using the FontTools/TTX Python toolkit, but it requires quite a lot of low-level knowledge of the OpenType font format. </p>
+      <p>One solution might be to try compiling FontForge as a Python module (which unfortunately I haven't been able to do on a Linux server), and/or use the UFO/GLIF format to exchange the glyph data. </p>
+      <p>It's not trivial. But yes, it can be done.</p>
+  - id: 457925
+    user: 10002
+    date: 2011-03-31T01:59:00
+    date_raw: 31 March 2011 - 1:59am
+    votes: 0
+    html: |-
+      <p>Twardoch,</p>
+      <p>I meant doing it in Fontlab Studio. So how is it possible to do it via FS? Is it rather complicated or not to attach such a script to a font that would work on other fonts, because I'm not an advanced (or intermediate) scripter?</p>
+      <p>The issue here is that there is a specific OpenType font created for a particular brand. The concept is to use different fonts (in publication materials) alongside the custom font but some of the glyphs (characters in the brand name) will always be replaced with the corresponding glyphs from that custom font. Cheers.</p>
+    html_clean: |-
+      <p>Twardoch,</p>
+      <p>I meant doing it in Fontlab Studio. So how is it possible to do it via FS? Is it rather complicated or not to attach such a script to a font that would work on other fonts, because I'm not an advanced (or intermediate) scripter?</p>
+      <p>The issue here is that there is a specific OpenType font created for a particular brand. The concept is to use different fonts (in publication materials) alongside the custom font but some of the glyphs (characters in the brand name) will always be replaced with the corresponding glyphs from that custom font. Cheers.</p>

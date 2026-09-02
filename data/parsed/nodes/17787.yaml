@@ -1,5 +1,5 @@
 node: 17787
-title: null
+title: script tag
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/17787.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170819204134/typophile.com/node/17787.html
 pages:
   total: 1
   recovered: 1
@@ -28,6 +28,131 @@ pages:
       digest: P65VNQWPLJILAX4XPSLRAHJGTDX56COS
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/17787.html
-post: null
+      file: data/archives/web.archive.org/files/20170819204134/typophile.com/node/17787.html
+post:
+  id: 17787
+  user: null
+  date: null
+  date_raw: null
+  votes: null
+  html: |-
+    <p><strong><a href="/node/add/wiki?edit%5Btitle%5D=Indices" title="Create node &quot;Indices&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal">Indices</a>&nbsp;: <a href="/node/30028" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">Technical Info</a>&nbsp;: Script&nbsp;Tag</strong></p>
+    <p><a href="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm">http://www.microsoft.com/OpenType/<span class="caps">OTS</span>pec/scripttags.htm</a></p>
+    <p><strong>Discussion:</strong><br><a href="http://typophile.com/node/21243">What is the proper Eng shape?</a><br><a href="http://typophile.com/node/28277#comment-160533"><span class="caps">AFDKO</span> 2.0: Post your feedback here</a><br><a href="http://typophile.com/node/29469">OpenType features take a vacation with one font using <span class="caps">FL5</span>&nbsp;Mac</a></p>
+    <p><strong><a href="/node/add/wiki?edit%5Btitle%5D=Indices" title="Create node &quot;Indices&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal">Indices</a>&nbsp;: <a href="/node/add/wiki?edit%5Btitle%5D=OT_How-To" title="Create node &quot;OT_How-To&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal">OpenType How-To</a>&nbsp;: Script&nbsp;Tags</strong></p>
+    <p>In the lower-right part of the OpenType panel, declare *all* the languagesystems that your <span class="caps">OT</span> code&nbsp;uses.</p>
+    <p>You should at any case declare these&nbsp;two:</p>
+    <p>languagesystem <span class="caps">DFLT</span> dflt;<br>
+    languagesystem latn&nbsp;dflt;</p>
+    <p>Then, you should declare all the languages that use the Latin script for which you have some special handling. For the Scedilla-&gt;Scommaaccent “locl” behavior, declare Moldavian (<span class="caps">MOL</span>) and Romanian (<span class="caps">ROM</span>). For the special “i” casing and ligature treatment, declare Azeri (<span class="caps">AZE</span>), Crimean Tatar (<span class="caps">CRT</span>) and Turkish (<span class="caps">TRK</span>, *not* <span class="caps">TUR</span>!):</p>
+    <p>languagesystem latn <span class="caps">AZE</span>;<br>
+    languagesystem latn <span class="caps">CRT</span>;<br>
+    languagesystem latn <span class="caps">MOL</span>;<br>
+    languagesystem latn <span class="caps">ROM</span>;<br>
+    languagesystem latn <span class="caps">TRK</span>;</p>
+    <p>If your font includes any Cyrillic glyphs, you should also declare the Cyrillic&nbsp;script:</p>
+    <p>languagesystem cyrl&nbsp;dflt;</p>
+    <p>If you want to include special Serbian glyphs in locl, declare Serbian as&nbsp;well:</p>
+    <p>languagesystem cyrl <span class="caps">SRB</span>;</p>
+    <p>If your font includes any Greek language glyphs (i.e. not mathematical Greek), you should also declare the Greek&nbsp;script:</p>
+    <p>languagesystem grek&nbsp;dflt;</p>
+    <p>So your lower-right part of the OpenType panel may look like&nbsp;this:</p>
+    <p>languagesystem <span class="caps">DFLT</span> dflt;<br>
+    languagesystem latn dflt;<br>
+    languagesystem latn <span class="caps">AZE</span>;<br>
+    languagesystem latn <span class="caps">CRT</span>;<br>
+    languagesystem latn <span class="caps">MOL</span>;<br>
+    languagesystem latn <span class="caps">ROM</span>;<br>
+    languagesystem latn <span class="caps">TRK</span>;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem cyrl <span class="caps">SRB</span>;<br>
+    languagesystem grek&nbsp;dflt;</p>
+    <p>This provides a map for all the languagesystems that will be included in your font. If a feature definition does not use any exceptions, it will be automatically assigned to all the languagesystems defined&nbsp;there.</p>
+    <p>If a feature definition defines any exceptional handling for any of the languagesystems, you must enumerate all of these languagesystems once again, inside of the feature definition, and you must specify for each of them the appropriate action (i.e. “exclude_dflt” or “include_dflt” plus some lookups if&nbsp;necessary).</p>
+    <p>As for “smcp”, “c2sc” and “liga” handling of Turkish “i”, I recommend using the new Adobe approach. That&nbsp;is,</p>
+    <p>feature locl { # Localized Forms<br>
+    script latn;<br>
+    # Handling of Turkish i<br>
+    language <span class="caps">TRK</span> exclude_dflt;<br>
+    lookup locl_TRK {<br>
+    sub [i I.smcp] by [i.<span class="caps">TRK</span> Idotaccent.smcp];<br>
+    # The “i.<span class="caps">TRK</span>” glyph should be an identical copy of “i”<br>
+    } locl_TRK;<br>
+    language <span class="caps">AZE</span> exclude_dflt;<br>
+    lookup locl_TRK;<br>
+    language <span class="caps">CRT</span> exclude_dflt;<br>
+    lookup locl_TRK;<br>
+    # Handling of Romanian Scommaaccent<br>
+    language <span class="caps">ROM</span> exclude_dflt;<br>
+    lookup locl_ROM {<br>
+    sub [Scedilla scedilla] by [Scommaaccent scommaaccent];<br>
+    sub Scedilla.smcp by Scommaaccent.smcp;<br>
+    } locl_ROM;<br>
+    language <span class="caps">MOL</span> exclude_dflt;<br>
+    lookup locl_ROM;<br>
+    }&nbsp;locl;</p>
+    <p>(You may also want to include the Serbian glyph handling&nbsp;there).</p>
+    <p>This way, you will avoid the need to deal with “script” and “language” in <span class="caps">ANY</span> other OpenType feature&nbsp;definition.</p>
+    <p>Simply make sure that in the feature definition of “smcp” (or in the appropriate classes), “i” gets replaced by “I.smcp” and “i.<span class="caps">TRK</span>” by “Idotaccent.smcp”. Of course “dotlessi” should be replaced by “I.smcp” as&nbsp;well.</p>
+    <p><em>Written by <a href="/node/12241" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal">Adam Twardoch</a> in <a href="http://typophile.com/node/29469/168548">OpenType Features Take a&nbsp;Vacation…</a></em></p>
+  html_clean: |-
+    <p><strong><a href="/node/add/wiki?edit%5Btitle%5D=Indices" title="Create node &quot;Indices&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal link-lost">Indices</a>&nbsp;: <a href="/node/30028/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">Technical Info</a>&nbsp;: Script&nbsp;Tag</strong></p>
+    <p><a href="http://www.microsoft.com/OpenType/OTSpec/scripttags.htm" class="link-external">http://www.microsoft.com/OpenType/<span class="caps">OTS</span>pec/scripttags.htm</a></p>
+    <p><strong>Discussion:</strong><br><a href="/node/21243/" class="link-kept">What is the proper Eng shape?</a><br><a href="/node/28277/#comment-160533" class="link-kept"><span class="caps">AFDKO</span> 2.0: Post your feedback here</a><br><a href="/node/29469/" class="link-kept">OpenType features take a vacation with one font using <span class="caps">FL5</span>&nbsp;Mac</a></p>
+    <p><strong><a href="/node/add/wiki?edit%5Btitle%5D=Indices" title="Create node &quot;Indices&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal link-lost">Indices</a>&nbsp;: <a href="/node/add/wiki?edit%5Btitle%5D=OT_How-To" title="Create node &quot;OT_How-To&quot;" class="freelink freelink-freelinking_prepopulate notfound freelink-internal link-lost">OpenType How-To</a>&nbsp;: Script&nbsp;Tags</strong></p>
+    <p>In the lower-right part of the OpenType panel, declare *all* the languagesystems that your <span class="caps">OT</span> code&nbsp;uses.</p>
+    <p>You should at any case declare these&nbsp;two:</p>
+    <p>languagesystem <span class="caps">DFLT</span> dflt;<br>
+    languagesystem latn&nbsp;dflt;</p>
+    <p>Then, you should declare all the languages that use the Latin script for which you have some special handling. For the Scedilla-&gt;Scommaaccent “locl” behavior, declare Moldavian (<span class="caps">MOL</span>) and Romanian (<span class="caps">ROM</span>). For the special “i” casing and ligature treatment, declare Azeri (<span class="caps">AZE</span>), Crimean Tatar (<span class="caps">CRT</span>) and Turkish (<span class="caps">TRK</span>, *not* <span class="caps">TUR</span>!):</p>
+    <p>languagesystem latn <span class="caps">AZE</span>;<br>
+    languagesystem latn <span class="caps">CRT</span>;<br>
+    languagesystem latn <span class="caps">MOL</span>;<br>
+    languagesystem latn <span class="caps">ROM</span>;<br>
+    languagesystem latn <span class="caps">TRK</span>;</p>
+    <p>If your font includes any Cyrillic glyphs, you should also declare the Cyrillic&nbsp;script:</p>
+    <p>languagesystem cyrl&nbsp;dflt;</p>
+    <p>If you want to include special Serbian glyphs in locl, declare Serbian as&nbsp;well:</p>
+    <p>languagesystem cyrl <span class="caps">SRB</span>;</p>
+    <p>If your font includes any Greek language glyphs (i.e. not mathematical Greek), you should also declare the Greek&nbsp;script:</p>
+    <p>languagesystem grek&nbsp;dflt;</p>
+    <p>So your lower-right part of the OpenType panel may look like&nbsp;this:</p>
+    <p>languagesystem <span class="caps">DFLT</span> dflt;<br>
+    languagesystem latn dflt;<br>
+    languagesystem latn <span class="caps">AZE</span>;<br>
+    languagesystem latn <span class="caps">CRT</span>;<br>
+    languagesystem latn <span class="caps">MOL</span>;<br>
+    languagesystem latn <span class="caps">ROM</span>;<br>
+    languagesystem latn <span class="caps">TRK</span>;<br>
+    languagesystem cyrl dflt;<br>
+    languagesystem cyrl <span class="caps">SRB</span>;<br>
+    languagesystem grek&nbsp;dflt;</p>
+    <p>This provides a map for all the languagesystems that will be included in your font. If a feature definition does not use any exceptions, it will be automatically assigned to all the languagesystems defined&nbsp;there.</p>
+    <p>If a feature definition defines any exceptional handling for any of the languagesystems, you must enumerate all of these languagesystems once again, inside of the feature definition, and you must specify for each of them the appropriate action (i.e. “exclude_dflt” or “include_dflt” plus some lookups if&nbsp;necessary).</p>
+    <p>As for “smcp”, “c2sc” and “liga” handling of Turkish “i”, I recommend using the new Adobe approach. That&nbsp;is,</p>
+    <p>feature locl { # Localized Forms<br>
+    script latn;<br>
+    # Handling of Turkish i<br>
+    language <span class="caps">TRK</span> exclude_dflt;<br>
+    lookup locl_TRK {<br>
+    sub [i I.smcp] by [i.<span class="caps">TRK</span> Idotaccent.smcp];<br>
+    # The “i.<span class="caps">TRK</span>” glyph should be an identical copy of “i”<br>
+    } locl_TRK;<br>
+    language <span class="caps">AZE</span> exclude_dflt;<br>
+    lookup locl_TRK;<br>
+    language <span class="caps">CRT</span> exclude_dflt;<br>
+    lookup locl_TRK;<br>
+    # Handling of Romanian Scommaaccent<br>
+    language <span class="caps">ROM</span> exclude_dflt;<br>
+    lookup locl_ROM {<br>
+    sub [Scedilla scedilla] by [Scommaaccent scommaaccent];<br>
+    sub Scedilla.smcp by Scommaaccent.smcp;<br>
+    } locl_ROM;<br>
+    language <span class="caps">MOL</span> exclude_dflt;<br>
+    lookup locl_ROM;<br>
+    }&nbsp;locl;</p>
+    <p>(You may also want to include the Serbian glyph handling&nbsp;there).</p>
+    <p>This way, you will avoid the need to deal with “script” and “language” in <span class="caps">ANY</span> other OpenType feature&nbsp;definition.</p>
+    <p>Simply make sure that in the feature definition of “smcp” (or in the appropriate classes), “i” gets replaced by “I.smcp” and “i.<span class="caps">TRK</span>” by “Idotaccent.smcp”. Of course “dotlessi” should be replaced by “I.smcp” as&nbsp;well.</p>
+    <p><em>Written by <a href="/node/12241/" title="Click to view a local node." class="freelink freelink-nodetitle freelink-internal link-kept">Adam Twardoch</a> in <a href="/node/29469/" class="link-kept">OpenType Features Take a&nbsp;Vacation…</a></em></p>
 comments: []

@@ -22,7 +22,7 @@ import YAML from "yaml";
 import { archiveDirs, DATA } from "./lib/config.js";
 import { ARCHIVES } from "./lib/archives/index.js";
 import { normaliseHtmlText, parseLegacyCapture } from "./lib/legacyThreads.js";
-import { ensureDir, formatCount, urlKeyToUrl, writeFileAtomic, writeJson } from "./lib/util.js";
+import { captureUrlPath, ensureDir, formatCount, urlKeyToUrl, writeFileAtomic, writeJson } from "./lib/util.js";
 
 const MATCH_LOG = `${DATA}/parsed/old-urls.log`;
 const NODES_DIR = `${DATA}/parsed/nodes`;
@@ -105,7 +105,8 @@ function availableCaptures(wanted) {
       if (!line.includes("typophile.com/forums/messages/")) continue;
       let entry;
       try { entry = JSON.parse(line); } catch { continue; }
-      const match = /^typophile\.com\/forums\/messages\/(\d+)\/(\d+)(?:__q_.+)?\.html$/i.exec(entry.f ?? "");
+      const relative = captureUrlPath(entry.f);
+      const match = /^typophile\.com\/forums\/messages\/(\d+)\/(\d+)(?:__q_.+)?\.html$/i.exec(relative ?? "");
       if (!match) continue;
       const forum = Number(match[1]);
       const thread = Number(match[2]);
@@ -117,7 +118,7 @@ function availableCaptures(wanted) {
         archive: archive.id,
         file,
         relFile: file,
-        filename: path.basename(entry.f),
+        filename: path.basename(relative),
         forum,
         timestamp: String(entry.ts ?? ""),
         digest: entry.d ?? null,

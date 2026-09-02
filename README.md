@@ -161,21 +161,25 @@ data/
       raw/                       the index exactly as the archive served it
       index/latest.jsonl         one line per URL: the capture we want
       index/downloads.jsonl      the same, plus local path and how to fetch it
-      files/typophile.com/...    the downloaded originals
+      files/<timestamp>/         capture time, for example 20170613145704/
+        typophile.com/...        the downloaded originals
       state/downloads.jsonl      what is on disk and verified
       state/failures.jsonl       captures that could not be fetched or verified
     arquivo.pt/                  same layout
     commoncrawl.org/             same layout
 ```
 
-Local paths come from the CDX url key, so `/node/3687` lands at
-`files/typophile.com/node/3687.html`. An extension is only added when the URL
-has none, query strings become a `__q_` suffix, and the rare case of two URLs
-normalising onto one filename is resolved with a short hash. Directory segments
-give up their dots (`/index.php/member/register` becomes
+Local paths contain both the capture timestamp and the path derived from the
+CDX URL key, so a capture of `/node/17355` at `20170613145704` lands at
+`files/20170613145704/typophile.com/node/17355.html`. An extension is only
+added when the URL has none, query strings become a `__q_` suffix, and the rare
+case of two URLs normalising onto one filename is resolved with a short hash.
+Directory segments give up their dots (`/index.php/member/register` becomes
 `index%2Ephp/member/register.html`) so that a path can never be a file and a
-folder at once. The same URL gets the same relative path in every archive,
-which makes the archives directly comparable.
+folder at once. The URL-derived tail is the same in every archive, while the
+timestamp makes room for several versions of one URL without a future layout
+change. The current selection and download logic still chooses only one
+capture per URL.
 
 ## Archive quirks worth knowing
 
@@ -228,6 +232,7 @@ date:
 
 | generation | markers | byline | comments | date format |
 | --- | --- | --- | --- | --- |
+| `drupal7` | `article#node-<id>` or `div#post-<id>.forum-post` | `.submitted` or `.author-name` + `.forum-posted-on` | `#comments` or `#forum-comments` | `22 October 2017 - 8:48pm` |
 | `sidebars` | `body.sidebars`, `div#node-<id>` | `.content-head .submitted` | `#comments` → `a#comment-<id>` + `div.comment` | `20 Oct 2003 — 11:32am` |
 | `classic` | `#content-frame`, `div.node > .info` | `.info` | `a#comment-<id>` + `div.comment` | `24.Jan.2004 6.23pm` |
 
@@ -235,6 +240,11 @@ A page matching **no** generation is never guessed at — it is reported as an
 error in the log and left unparsed. New generations go in
 [src/lib/generations.js](src/lib/generations.js): add a `detect` and a `parse`,
 and the rest of the pipeline picks it up.
+
+The `drupal7` generation is the site that returned after the 2016 reboot. It
+also covers wiki pages, whose template intentionally has no author or date;
+their body is still preserved as the opening post. Drupal's `no-sidebars`
+class is not the older `sidebars` generation.
 
 ### Output
 
@@ -270,11 +280,12 @@ comments:
     …
 ```
 
-`date` is deliberately naive: no timezone appears anywhere on the page, so
-inventing one would be a lie. `date_raw` keeps the original string.
+`date` is deliberately naive: the displayed bylines do not identify a timezone
+consistently across generations, so converting them to an invented common zone
+would be a lie. `date_raw` keeps the original visible string.
 
-`votes` is `null` throughout — neither surviving generation renders a score.
-The extraction hook is in place should a generation that does turn up.
+`votes` is `null` where the page renders no score. The post-reboot Drupal
+generation exposes its number-up/down score, which is preserved when present.
 
 `user_path` preserves a vanity profile URL when one appeared in the byline.
 The verified `/readthetype` vanity profile resolves to numeric user 15065; a

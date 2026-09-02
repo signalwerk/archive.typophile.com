@@ -1,5 +1,5 @@
 node: 103890
-title: null
+title: "Brill typeface: Is this a Word issue, a typeface issue or a PDF creation issue?"
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/103890.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180928100641/typophile.com/node/103890.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,204 @@ pages:
       digest: O4LEGMSHIXEF7NNZJS2G47IU372UOTXA
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/103890.html
+      file: data/archives/web.archive.org/files/20180928100641/typophile.com/node/103890.html
 post:
   id: 103890
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 29977
+  date: 2013-06-16T08:11:00
+  date_raw: 16 June 2013 - 8:11am
+  votes: 0
+  html: |-
+    <p>In my pursuit of finding the typefaces that correctly render both <strong>the combining diacritics</strong> and Serbian versions of Cyrillic italics letters I've just checked how does <em>Brill</em> fare. Weirdly, it only fails to convert one letter properly, but what is weird is that even though the letters appear correctly in <em>Word</em>, they do not when one creates a PDF.</p>
+    <p>Why does it happen?</p>
+    <p>The only typefaces that manage to do these things correctly are two SIL ones, even ALPHABETUM, which seems to have the most complete set of characters, does not have the correct italics.</p>
+  html_clean: |-
+    <p>In my pursuit of finding the typefaces that correctly render both <strong>the combining diacritics</strong> and Serbian versions of Cyrillic italics letters I've just checked how does <em>Brill</em> fare. Weirdly, it only fails to convert one letter properly, but what is weird is that even though the letters appear correctly in <em>Word</em>, they do not when one creates a PDF.</p>
+    <p>Why does it happen?</p>
+    <p>The only typefaces that manage to do these things correctly are two SIL ones, even ALPHABETUM, which seems to have the most complete set of characters, does not have the correct italics.</p>
+comments:
+  - id: 557443
+    user: 18942
+    date: 2013-06-16T10:47:00
+    date_raw: 16 June 2013 - 10:47am
+    votes: 0
+    html: |-
+      <p>Sylf, your question is a bit cryptic. I'll also be cryptic. There is in Brill Italic the substitution</p>
+      <p>    sub \uni043D by \uni043F.Serbian ;</p>
+      <p>where I would have expected <code>\uni043F</code> on the left hand side. Here are the roman and the corresponding italic obtained with XeLaTeX.</p>
+      <p><img src="/sites/default/files/old-images/brill_serb130613_6659.png"></p>
+      <p>Added later on (I guess it is now less cryptic).<br>
+      Also XeLaTeX does not accept selecting the Serbian language for the font family Brill; after calling<br><code>\setmainfont[Script=Cyrillic,Language=Serbian]{Brill}</code><br>
+      XeLaTeX does not give the Serbian italic when using <code>\textit</code>, probably because Serbian is not defined for the regular. I had to declare a separate font for the italic to get it above. I don't know if this is a XeLaTeX bug or not but Arno has Cyrillic/Serbian also for the roman, avoiding such a problem (and giving a different looking output for cyrillic small letter p and cyrillic small letter n).</p>
+      <p><img src="/sites/default/files/old-images/arno_serb130616_3776.png"></p>
+    html_clean: |-
+      <p>Sylf, your question is a bit cryptic. I'll also be cryptic. There is in Brill Italic the substitution</p>
+      <p>    sub \uni043D by \uni043F.Serbian ;</p>
+      <p>where I would have expected <code>\uni043F</code> on the left hand side. Here are the roman and the corresponding italic obtained with XeLaTeX.</p>
+      <p><img src="/sites/default/files/old-images/brill_serb130613_6659.png"></p>
+      <p>Added later on (I guess it is now less cryptic).<br>
+      Also XeLaTeX does not accept selecting the Serbian language for the font family Brill; after calling<br><code>\setmainfont[Script=Cyrillic,Language=Serbian]{Brill}</code><br>
+      XeLaTeX does not give the Serbian italic when using <code>\textit</code>, probably because Serbian is not defined for the regular. I had to declare a separate font for the italic to get it above. I don't know if this is a XeLaTeX bug or not but Arno has Cyrillic/Serbian also for the roman, avoiding such a problem (and giving a different looking output for cyrillic small letter p and cyrillic small letter n).</p>
+      <p><img src="/sites/default/files/old-images/arno_serb130616_3776.png"></p>
+  - id: 557455
+    user: 48632
+    date: 2013-06-16T12:13:00
+    date_raw: 16 June 2013 - 12:13pm
+    votes: 0
+    html: |-
+      <p>Sylph, I do not work with Serbian glyphs. But let me reference an older thread about PDFs made in Word 2010. The problem was that with Opentype Postscript flavor fonts, MS Word always converted to curves when going to PDF, regardless of the embeddability of the font.<br>
+      I do not know (but I would like to know) if this was fixed in Word 2013. I do not know what Word version you are using. I do not know if this is related to what you are seeing. Glad I could help!<br><a href="http://typophile.com/node/72404">http://typophile.com/node/72404</a><br>
+      Read what Si_Daniels has to say in the middle.</p>
+    html_clean: |-
+      <p>Sylph, I do not work with Serbian glyphs. But let me reference an older thread about PDFs made in Word 2010. The problem was that with Opentype Postscript flavor fonts, MS Word always converted to curves when going to PDF, regardless of the embeddability of the font.<br>
+      I do not know (but I would like to know) if this was fixed in Word 2013. I do not know what Word version you are using. I do not know if this is related to what you are seeing. Glad I could help!<br><a href="/node/72404/" class="link-kept">http://typophile.com/node/72404</a><br>
+      Read what Si_Daniels has to say in the middle.</p>
+  - id: 557459
+    user: 29977
+    date: 2013-06-16T13:59:00
+    date_raw: 16 June 2013 - 1:59pm
+    votes: 0
+    html: |-
+      <p>Thank you, Michel and J.!</p>
+      <p>So judging by what you two wrote this is a typeface issue and a Microsoft Word issue. The Word I'm using is from the Office 2013. Which means that whatever the issue was, it isn't corrected.</p>
+      <p>As for Brill: why would a Cyrillic <em>n</em> in italics produce a correct Serbian cursive Cyrillic <em>p</em>?</p>
+    html_clean: |-
+      <p>Thank you, Michel and J.!</p>
+      <p>So judging by what you two wrote this is a typeface issue and a Microsoft Word issue. The Word I'm using is from the Office 2013. Which means that whatever the issue was, it isn't corrected.</p>
+      <p>As for Brill: why would a Cyrillic <em>n</em> in italics produce a correct Serbian cursive Cyrillic <em>p</em>?</p>
+  - id: 557460
+    user: 29977
+    date: 2013-06-16T14:03:00
+    date_raw: 16 June 2013 - 2:03pm
+    votes: 0
+    html: <p>And also, I was wrong – there is only <strong>one typeface</strong> so far in the World that can both produce the correct italics and correctly combine the combining diacritics. That is what I meant by the line above. It is Gentium.</p>
+    html_clean: <p>And also, I was wrong – there is only <strong>one typeface</strong> so far in the World that can both produce the correct italics and correctly combine the combining diacritics. That is what I meant by the line above. It is Gentium.</p>
+  - id: 557461
+    user: 18942
+    date: 2013-06-16T14:24:00
+    date_raw: 16 June 2013 - 2:24pm
+    votes: 0
+    html: |-
+      <blockquote><p>
+      As for Brill: why would a Cyrillic <em>n</em> in italics produce a correct Serbian cursive Cyrillic <em>p</em>?
+      </p></blockquote>
+      <p>Because the Unicode character <code>043D</code> is </p>
+      <p>043D	CYRILLIC SMALL LETTER EN</p>
+      <p>and the substitution rule in Brill as extracted above from the italic using FrontForge says to substitute uni043D, i.e. cyrillic small letter en, with uni043F.Serbian i.e. the Serbian variant of Unicode character 043F, namely </p>
+      <p>043F	CYRILLIC SMALL LETTER PE</p>
+      <p>That is how Unicode fonts work. The font contains substitution tables to apply for given scripts and languages. </p>
+      <p>How that particular substitution appeared that way in Brill is a bit mysterious to me.</p>
+    html_clean: |-
+      <blockquote><p>
+      As for Brill: why would a Cyrillic <em>n</em> in italics produce a correct Serbian cursive Cyrillic <em>p</em>?
+      </p></blockquote>
+      <p>Because the Unicode character <code>043D</code> is </p>
+      <p>043D	CYRILLIC SMALL LETTER EN</p>
+      <p>and the substitution rule in Brill as extracted above from the italic using FrontForge says to substitute uni043D, i.e. cyrillic small letter en, with uni043F.Serbian i.e. the Serbian variant of Unicode character 043F, namely </p>
+      <p>043F	CYRILLIC SMALL LETTER PE</p>
+      <p>That is how Unicode fonts work. The font contains substitution tables to apply for given scripts and languages. </p>
+      <p>How that particular substitution appeared that way in Brill is a bit mysterious to me.</p>
+  - id: 557462
+    user: 1262
+    date: 2013-06-16T14:25:00
+    date_raw: 16 June 2013 - 2:25pm
+    votes: 0
+    html: |-
+      <p>Definite bug in the OTL GSUB code for the Serbian pe. The VOLT source has a typo and the lookup currently reads<br><code>c.en -&gt; c.pe.Serbian</code><br>
+      when it should read<br><code>c.pe -&gt; c.pe.Serbian</code></p>
+      <p>Thanks for catching that. I'll get a fix to Brill a.s.a.p.</p>
+    html_clean: |-
+      <p>Definite bug in the OTL GSUB code for the Serbian pe. The VOLT source has a typo and the lookup currently reads<br><code>c.en -&gt; c.pe.Serbian</code><br>
+      when it should read<br><code>c.pe -&gt; c.pe.Serbian</code></p>
+      <p>Thanks for catching that. I'll get a fix to Brill a.s.a.p.</p>
+  - id: 557481
+    user: 18942
+    date: 2013-06-16T20:47:00
+    date_raw: 16 June 2013 - 8:47pm
+    votes: 0
+    html: |-
+      <blockquote><p>
+      “there is only <strong>one typeface</strong> so far in the World that can both produce the correct italics and correctly combine the combining diacritics. That is what I meant by the line above. It is Gentium.”
+      </p></blockquote>
+      <p>What is the problem with DejaVu Serif?</p>
+    html_clean: |-
+      <blockquote><p>
+      “there is only <strong>one typeface</strong> so far in the World that can both produce the correct italics and correctly combine the combining diacritics. That is what I meant by the line above. It is Gentium.”
+      </p></blockquote>
+      <p>What is the problem with DejaVu Serif?</p>
+  - id: 557606
+    user: 18942
+    date: 2013-06-18T11:24:00
+    date_raw: 18 June 2013 - 11:24am
+    votes: 0
+    html: |-
+      <p>@Sylph: Your picture before “Why does it happen?” is </p>
+      <p>and contains the italic cyrillic small letter letter sha, “<em>ш </em>”. In the Wiki article <a href="http://en.wikipedia.org/wiki/Serbian_alphabet#Differences_from_other_Cyrillic_alphabets">Serbian alphabet</a> there is the following picture where the third column is meant to correspond to the Serbian italic.<br><img src="/sites/default/files/old-images/200px-Serbian_Cyrillic_Italic_6557.png"><br>
+      Is there any font with an underlined italic cyrillic small letter sha?  Is that underline documented?</p>
+    html_clean: |-
+      <p>@Sylph: Your picture before “Why does it happen?” is </p>
+      <p>and contains the italic cyrillic small letter letter sha, “<em>ш </em>”. In the Wiki article <a href="http://en.wikipedia.org/wiki/Serbian_alphabet#Differences_from_other_Cyrillic_alphabets" class="link-external">Serbian alphabet</a> there is the following picture where the third column is meant to correspond to the Serbian italic.<br><img src="/sites/default/files/old-images/200px-Serbian_Cyrillic_Italic_6557.png"><br>
+      Is there any font with an underlined italic cyrillic small letter sha?  Is that underline documented?</p>
+  - id: 557646
+    user: 18942
+    date: 2013-06-18T17:06:00
+    date_raw: 18 June 2013 - 5:06pm
+    votes: 0
+    html: |-
+      <blockquote><p>
+      Is there any font with an underlined italic cyrillic small letter sha?
+      </p></blockquote>
+      <p>Ok, I found one in GNU's Free Serif Italic, <a href="http://ftp.gnu.org/gnu/freefont/">http://ftp.gnu.org/gnu/freefont/</a>, as a stylistic alternate.</p>
+      <p><img src="/sites/default/files/old-images/freeserifit_serb_alt_3917.png"></p>
+    html_clean: |-
+      <blockquote><p>
+      Is there any font with an underlined italic cyrillic small letter sha?
+      </p></blockquote>
+      <p>Ok, I found one in GNU's Free Serif Italic, <a href="http://ftp.gnu.org/gnu/freefont/" class="link-external">http://ftp.gnu.org/gnu/freefont/</a>, as a stylistic alternate.</p>
+      <p><img src="/sites/default/files/old-images/freeserifit_serb_alt_3917.png"></p>
+  - id: 557667
+    user: 17347
+    date: 2013-06-19T01:54:00
+    date_raw: 19 June 2013 - 1:54am
+    votes: 0
+    html: '<p>“The only typefaces…”: <a href="http://Andron Cyrillic" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://Andron Cyrillic</a></p>'
+    html_clean: '<p>“The only typefaces…”: <a href="http://Andron Cyrillic" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://Andron Cyrillic</a></p>'
+  - id: 561820
+    user: 29977
+    date: 2013-08-02T05:55:00
+    date_raw: 2 August 2013 - 5:55am
+    votes: 0
+    html: |-
+      <p>So is this fixed Brill getting released or is 2.02 the version available online?</p>
+      <p><a href="http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-agreement">http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-a...</a></p>
+    html_clean: |-
+      <p>So is this fixed Brill getting released or is 2.02 the version available online?</p>
+      <p><a href="http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-agreement" class="link-external">http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-a...</a></p>
+  - id: 562990
+    user: 29977
+    date: 2013-08-19T15:32:00
+    date_raw: 19 August 2013 - 3:32pm
+    votes: 0
+    html: <p>So, John Hudson, will this see the light of day or is it an internal fix?</p>
+    html_clean: <p>So, John Hudson, will this see the light of day or is it an internal fix?</p>
+  - id: 563002
+    user: 1262
+    date: 2013-08-19T18:39:00
+    date_raw: 19 August 2013 - 6:39pm
+    votes: 0
+    html: <p>This has been fixed and Brill have the new fonts. They're testing some other changes I've made, so I'm not sure when the new versions will be released.</p>
+    html_clean: <p>This has been fixed and Brill have the new fonts. They're testing some other changes I've made, so I'm not sure when the new versions will be released.</p>
+  - id: 587779
+    user: 29977
+    date: 2014-09-09T05:07:00
+    date_raw: 9 September 2014 - 5:07am
+    votes: 0
+    html: <p>Will Brill include all the Phonetic Extensions symbols?</p>
+    html_clean: <p>Will Brill include all the Phonetic Extensions symbols?</p>
+  - id: 592486
+    user: 48632
+    date: 2014-11-04T11:37:00
+    date_raw: 4 November 2014 - 11:37am
+    votes: 0
+    html: <p>Brill version 2.06 available; read the EULA, of course:<br><a href="http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-agreement">http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-a...</a></p>
+    html_clean: <p>Brill version 2.06 available; read the EULA, of course:<br><a href="http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-agreement" class="link-external">http://www.brill.com/about/brill-typeface/brill-fonts-end-user-license-a...</a></p>

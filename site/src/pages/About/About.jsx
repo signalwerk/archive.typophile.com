@@ -2,6 +2,19 @@ import { Layout } from "../../components/Layout/Layout.jsx";
 
 const REPO = "https://github.com/signalwerk/archive.typophile.com";
 
+// How many of the pages here came out of one archive, as step 9 counted them.
+//
+// Zero is a real answer and is written out in words rather than dropped: an
+// archive that holds a few Typophile pages but was beaten to every one of them
+// by a later capture elsewhere still belongs on this list, because it was
+// searched. An absent count means step 9 has not run, and then nothing is
+// claimed at all.
+function Pages({ n }) {
+  if (n == null) return null;
+  const what = n === 0 ? "no pages" : n === 1 ? "1 page" : `${n.toLocaleString("en-US")} pages`;
+  return <> ({what})</>;
+}
+
 export function AboutPage({ totals, forums, archives }) {
   return (
     <Layout>
@@ -24,17 +37,20 @@ export function AboutPage({ totals, forums, archives }) {
           <a href="https://web.archive.org/" rel="noreferrer">
             Internet Archive Wayback Machine
           </a>
+          <Pages n={archives?.["web.archive.org"]} />
         </li>
         <li>
           <a href="https://arquivo.pt/" rel="noreferrer">
             Arquivo.pt
           </a>
           , the Portuguese Web Archive
+          <Pages n={archives?.["arquivo.pt"]} />
         </li>
         <li>
           <a href="https://commoncrawl.org/" rel="noreferrer">
             Common Crawl
           </a>
+          <Pages n={archives?.["commoncrawl.org"]} />
         </li>
       </ul>
       <p>
@@ -43,7 +59,10 @@ export function AboutPage({ totals, forums, archives }) {
         and every file is checked against the checksum its archive recorded, so
         what you see is the bytes that were captured rather than a
         reconstruction. Each thread names the archive and the exact moment its
-        copy was made.
+        copy was made, and links to that capture where the archive publishes
+        one. Common Crawl does not: it releases its crawls as bulk data with no
+        page to open, so those threads can only give the address the copy was
+        taken from.
       </p>
 
       <h2 className="section-title">It is incomplete</h2>
@@ -110,7 +129,8 @@ export function AboutPage({ totals, forums, archives }) {
       </ul>
       <p>
         The originals are not ours to alter: every thread names the archive its
-        copy came from and the moment it was taken, and links to that capture.
+        copy came from and the moment it was taken, and links to that exact
+        capture wherever the archive can show it.
       </p>
 
       <h2 className="section-title">Who made it</h2>

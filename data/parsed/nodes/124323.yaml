@@ -1,5 +1,5 @@
 node: 124323
-title: null
+title: When would thin and hair spaces need to be breakable
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/124323.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170520201241/typophile.com/node/124323.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,224 @@ pages:
       digest: 3WNHG6ZUDQ5VNBP5ELAAJ3YHFZHMD6CP
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/124323.html
+      file: data/archives/web.archive.org/files/20170520201241/typophile.com/node/124323.html
 post:
   id: 124323
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 176144
+  date: 2015-04-02T16:42:00
+  date_raw: 2 April 2015 - 4:42pm
+  votes: 0
+  html: <p>Are there any uses for thin or hair space where it wouldn't make sense for them to be non-breaking? I ask because I can't think of any, and the fact they aren't hard spaces makes them pretty unusable in reflowable text such as web. Why did Unicode not at least go with two equal sets of spaces, one of which would be non-breaking, instead of just a single  non-breaking word space?</p>
+  html_clean: <p>Are there any uses for thin or hair space where it wouldn't make sense for them to be non-breaking? I ask because I can't think of any, and the fact they aren't hard spaces makes them pretty unusable in reflowable text such as web. Why did Unicode not at least go with two equal sets of spaces, one of which would be non-breaking, instead of just a single  non-breaking word space?</p>
+comments:
+  - id: 602182
+    user: 803
+    date: 2015-04-02T16:55:00
+    date_raw: 2 April 2015 - 4:55pm
+    votes: 0
+    html: <p>The intent of those were originally to do fine-tuning by hand on metal justified type and should not be breakable. Even in today's world of digital type they are still useful.</p>
+    html_clean: <p>The intent of those were originally to do fine-tuning by hand on metal justified type and should not be breakable. Even in today's world of digital type they are still useful.</p>
+  - id: 602183
+    user: 176144
+    date: 2015-04-02T17:48:00
+    date_raw: 2 April 2015 - 5:48pm
+    votes: 0
+    html: <p>Can you give some examples for digital type?</p>
+    html_clean: <p>Can you give some examples for digital type?</p>
+  - id: 602209
+    user: 1794
+    date: 2015-04-03T01:42:00
+    date_raw: 3 April 2015 - 1:42am
+    votes: 0
+    html: |-
+      <p>They are great for any sort of groups of figures or letters, which are meant to be shown as a unit. Abbreviations, dates, large numbers, bank accounts, measurement units, mathematical equations …<br>
+      You basically encode that the unit belongs together, but is just visually separated a little bit. And that’s why you don’t want it to break at the end of the line. Power Supply: 110<br>
+      V</p>
+    html_clean: |-
+      <p>They are great for any sort of groups of figures or letters, which are meant to be shown as a unit. Abbreviations, dates, large numbers, bank accounts, measurement units, mathematical equations …<br>
+      You basically encode that the unit belongs together, but is just visually separated a little bit. And that’s why you don’t want it to break at the end of the line. Power Supply: 110<br>
+      V</p>
+  - id: 602213
+    user: 46071
+    date: 2015-04-03T03:33:00
+    date_raw: 3 April 2015 - 3:33am
+    votes: 0
+    html: |-
+      <p>Also, they're needed in French to set some punctuation.<br>
+      Anyway, I agree with inktrap: their default behaviour should be non-breaking. And that's how they work in InDesign, for example.<br>
+      I don't know how Unicode encoded spaces are supposed to act.</p>
+    html_clean: |-
+      <p>Also, they're needed in French to set some punctuation.<br>
+      Anyway, I agree with inktrap: their default behaviour should be non-breaking. And that's how they work in InDesign, for example.<br>
+      I don't know how Unicode encoded spaces are supposed to act.</p>
+  - id: 602218
+    user: 226229
+    date: 2015-04-03T07:15:00
+    date_raw: 3 April 2015 - 7:15am
+    votes: 0
+    html: <p>Agree wholeheartedly with all the responses. They are very valuable as non-breaking. I cannot think of a non non-breaking use for them.</p>
+    html_clean: <p>Agree wholeheartedly with all the responses. They are very valuable as non-breaking. I cannot think of a non non-breaking use for them.</p>
+  - id: 602222
+    user: 18942
+    date: 2015-04-03T11:05:00
+    date_raw: 3 April 2015 - 11:05am
+    votes: 0
+    html: |-
+      <p>According to the Unicode Standard Annex #14,  <a href="http://unicode.org/reports/tr14/tr14-17.html">Line Breaking Properties</a>, the following characters are in the class <strong>BA</strong>, which means there is an opportunity to break after, but not before.</p>
+      <p>2000    EN QUAD<br>
+      2001    EM QUAD<br>
+      2002    EN SPACE<br>
+      2003    EM SPACE<br>
+      2004    THREE-PER-EM SPACE<br>
+      2005    FOUR-PER-EM SPACE<br>
+      2006    SIX-PER-EM SPACE<br>
+      2008    PUNCTUATION SPACE<br>
+      2009    THIN SPACE<br>
+      200A    HAIR SPACE<br>
+      205F    MEDIUM MATHEMATICAL SPACE</p>
+      <p>That being said, the breaking algorithm (cf  <a href="http://unicode.org/reports/tr14/tr14-17.html#ExampleTable">Example Pair Table</a>) specifies that you may not break after a character in <strong>BA</strong>  if it is followed by a character in one of the classes <strong>CL</strong>, <strong>EX</strong>, <strong>SY</strong>, <strong>IS</strong>, <strong>ZW</strong> and <strong>WJ</strong>.</p>
+      <p><strong>EX</strong> contains the exclamation mark and the question mark; <strong>IS</strong> contains the semicolon. It appears that French typography is saved and does not need the narrow no-break space (<code>U+202F</code>; cf <a href="http://unicode.org/udhr/n/notes_fra.html">Unicode Notes on French</a>).  A consequence of the algorithm is that those characters may not be "unusable in reflowable text such as web" as you say.</p>
+    html_clean: |-
+      <p>According to the Unicode Standard Annex #14,  <a href="http://unicode.org/reports/tr14/tr14-17.html" class="link-external">Line Breaking Properties</a>, the following characters are in the class <strong>BA</strong>, which means there is an opportunity to break after, but not before.</p>
+      <p>2000    EN QUAD<br>
+      2001    EM QUAD<br>
+      2002    EN SPACE<br>
+      2003    EM SPACE<br>
+      2004    THREE-PER-EM SPACE<br>
+      2005    FOUR-PER-EM SPACE<br>
+      2006    SIX-PER-EM SPACE<br>
+      2008    PUNCTUATION SPACE<br>
+      2009    THIN SPACE<br>
+      200A    HAIR SPACE<br>
+      205F    MEDIUM MATHEMATICAL SPACE</p>
+      <p>That being said, the breaking algorithm (cf  <a href="http://unicode.org/reports/tr14/tr14-17.html#ExampleTable" class="link-external">Example Pair Table</a>) specifies that you may not break after a character in <strong>BA</strong>  if it is followed by a character in one of the classes <strong>CL</strong>, <strong>EX</strong>, <strong>SY</strong>, <strong>IS</strong>, <strong>ZW</strong> and <strong>WJ</strong>.</p>
+      <p><strong>EX</strong> contains the exclamation mark and the question mark; <strong>IS</strong> contains the semicolon. It appears that French typography is saved and does not need the narrow no-break space (<code>U+202F</code>; cf <a href="http://unicode.org/udhr/n/notes_fra.html" class="link-external">Unicode Notes on French</a>).  A consequence of the algorithm is that those characters may not be "unusable in reflowable text such as web" as you say.</p>
+  - id: 602232
+    user: 176144
+    date: 2015-04-03T12:53:00
+    date_raw: 3 April 2015 - 12:53pm
+    votes: 0
+    html: <p>Michael, that's all nice and well (although it still doesn't specify guillemets) but it doesn't work at least in <a href="http://codepen.io/anon/pen/XJQQeg" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Firefox</a>.</p>
+    html_clean: <p>Michael, that's all nice and well (although it still doesn't specify guillemets) but it doesn't work at least in <a href="http://codepen.io/anon/pen/XJQQeg" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Firefox</a>.</p>
+  - id: 602234
+    user: 1794
+    date: 2015-04-03T13:12:00
+    date_raw: 3 April 2015 - 1:12pm
+    votes: 0
+    html: |-
+      <p>You just forgot the semicolon ;-)<br>
+      It’s &amp; # x 2 0 0 9 ;</p>
+    html_clean: |-
+      <p>You just forgot the semicolon ;-)<br>
+      It’s &amp; # x 2 0 0 9 ;</p>
+  - id: 602235
+    user: 18942
+    date: 2015-04-03T13:51:00
+    date_raw: 3 April 2015 - 1:51pm
+    votes: 0
+    html: |-
+      <p>There is indeed a problem with Firefox. The following code appears to avoid it</p>
+      <p>Lorem ipsum dolor sit amet, ut decore postea<br>
+      vituperata mel. Iriure timeam ius<br>
+      e&lt;span style="letter-spacing:.1em"&gt;i&lt;/span&gt;; dolore<br>
+      numquam ad qu&lt;span style="letter-spacing:.1em"&gt;i&lt;/span&gt;?<br>
+      Mnesarchum sadipscing cotidieque pro id, ut vix scripta aliquid<br>
+      mentitu&lt;span style="letter-spacing:.1em"&gt;m&lt;/span&gt;!<br>
+      Et amet suas usu, zril honestatis dissentiunt nam at,<br>
+      eu prima legimus<br>
+      &lt;span style="letter-spacing:.1em"&gt;«&lt;/span&gt;vertere&lt;span style="letter-spacing:.1em"&gt;m&lt;/span&gt;»<br>
+      nam.  Nam ad odio accusamus.</p>
+      <p>It uses <code>letter-spacing</code> as I would use <code>\kern</code> with TeX. Some preprocessing would however be needed to get that as input text.</p>
+    html_clean: |-
+      <p>There is indeed a problem with Firefox. The following code appears to avoid it</p>
+      <p>Lorem ipsum dolor sit amet, ut decore postea<br>
+      vituperata mel. Iriure timeam ius<br>
+      e&lt;span style="letter-spacing:.1em"&gt;i&lt;/span&gt;; dolore<br>
+      numquam ad qu&lt;span style="letter-spacing:.1em"&gt;i&lt;/span&gt;?<br>
+      Mnesarchum sadipscing cotidieque pro id, ut vix scripta aliquid<br>
+      mentitu&lt;span style="letter-spacing:.1em"&gt;m&lt;/span&gt;!<br>
+      Et amet suas usu, zril honestatis dissentiunt nam at,<br>
+      eu prima legimus<br>
+      &lt;span style="letter-spacing:.1em"&gt;«&lt;/span&gt;vertere&lt;span style="letter-spacing:.1em"&gt;m&lt;/span&gt;»<br>
+      nam.  Nam ad odio accusamus.</p>
+      <p>It uses <code>letter-spacing</code> as I would use <code>\kern</code> with TeX. Some preprocessing would however be needed to get that as input text.</p>
+  - id: 602253
+    user: 50554
+    date: 2015-04-03T16:20:00
+    date_raw: 3 April 2015 - 4:20pm
+    votes: 0
+    html: |-
+      <p><cite>The intent of those were originally to do fine-tuning by hand on metal justified type and should not be breakable.</cite></p>
+      <p>In the case of characters with a place in Unicode, a hairline space indeed should not be breakable, since it would be used for letterspacing - or for adjusting kerning (but that is not a "legitimate" use, because the font is responsible for getting that right).</p>
+      <p>But when a hair space was used in metal type, it might well have been used to adjust the size of a breakable space between words. Not that text gets to reflow after it's set in metal, of course... but it means that the example given here seems to contradict, rather than reinforce, the point being made.</p>
+      <p><strong>But</strong> this gets me to thinking of some possible pre-Unicode computer representations of text, in which a hairline space might have the same meaning as with metal type.</p>
+      <p>Let's think of an IBM Executive typewriter as a first step to a concrete example. It used a coarse 5-unit proportional spacing system; it had typebars, being an ordinary electric typewriter otherwise, not a Selectric.</p>
+      <p>The space bar had a little "2" printed on it, with a segment on the left side having "3" on it. The 2 unit space was the normal word space, the 3 unit space was a wider space which took up the same amount of space as a digit, useful for tabular matter.</p>
+      <p>The backspace key went back by only one unit.</p>
+      <p>So it didn't have a hairline space key that advanced by 1 unit; when justifying lines by a second retyping, one would have to remember the sequence 2, 3, 22, 23, 33, 223, 233, 333 to know what to type for the successive widths of spaces.</p>
+      <p>Thus, in a phototypesetter system where the unit system is hardcoded and fairly coarse, one could imagine a code that stands for a "one-unit space" which might be part of a group of several spaces, and the sequences of spaces as a whole might be either breaking or non-breaking. (Presumably this would be determined by the presence of a "justifying space" of variable width in the cluster, although a non-breaking justifying space is also useful - one doesn't want a non-breaking space to have to be at risk of winding up conspicuously narrower than the other spaces on the same line.)</p>
+    html_clean: |-
+      <p><cite>The intent of those were originally to do fine-tuning by hand on metal justified type and should not be breakable.</cite></p>
+      <p>In the case of characters with a place in Unicode, a hairline space indeed should not be breakable, since it would be used for letterspacing - or for adjusting kerning (but that is not a "legitimate" use, because the font is responsible for getting that right).</p>
+      <p>But when a hair space was used in metal type, it might well have been used to adjust the size of a breakable space between words. Not that text gets to reflow after it's set in metal, of course... but it means that the example given here seems to contradict, rather than reinforce, the point being made.</p>
+      <p><strong>But</strong> this gets me to thinking of some possible pre-Unicode computer representations of text, in which a hairline space might have the same meaning as with metal type.</p>
+      <p>Let's think of an IBM Executive typewriter as a first step to a concrete example. It used a coarse 5-unit proportional spacing system; it had typebars, being an ordinary electric typewriter otherwise, not a Selectric.</p>
+      <p>The space bar had a little "2" printed on it, with a segment on the left side having "3" on it. The 2 unit space was the normal word space, the 3 unit space was a wider space which took up the same amount of space as a digit, useful for tabular matter.</p>
+      <p>The backspace key went back by only one unit.</p>
+      <p>So it didn't have a hairline space key that advanced by 1 unit; when justifying lines by a second retyping, one would have to remember the sequence 2, 3, 22, 23, 33, 223, 233, 333 to know what to type for the successive widths of spaces.</p>
+      <p>Thus, in a phototypesetter system where the unit system is hardcoded and fairly coarse, one could imagine a code that stands for a "one-unit space" which might be part of a group of several spaces, and the sequences of spaces as a whole might be either breaking or non-breaking. (Presumably this would be determined by the presence of a "justifying space" of variable width in the cluster, although a non-breaking justifying space is also useful - one doesn't want a non-breaking space to have to be at risk of winding up conspicuously narrower than the other spaces on the same line.)</p>
+  - id: 602277
+    user: 18942
+    date: 2015-04-03T22:11:00
+    date_raw: 3 April 2015 - 10:11pm
+    votes: 0
+    html: <p>I just checked that if we use &lt;span style="white-space:nowrap"&gt;&amp;thinsp;&lt;/span&gt; instead of &amp;#x2009; Firefox behaves correctly.</p>
+    html_clean: <p>I just checked that if we use &lt;span style="white-space:nowrap"&gt;&amp;thinsp;&lt;/span&gt; instead of &amp;#x2009; Firefox behaves correctly.</p>
+  - id: 602285
+    user: 1794
+    date: 2015-04-04T01:20:00
+    date_raw: 4 April 2015 - 1:20am
+    votes: 0
+    html: |-
+      <p>So it looks like there is still no simple, recommendable and bullet-proof solution for this on the web. :-(</p>
+      <p>U+202F would be the way to go in theory, but most fonts will not have it and the browser’s fallback results might be unacceptable.<br>
+      The SPAN solutions do work, but they are just styling, not encoding. So they might not be preserved properly when copied and the people who edit the texts of websites often don’t even have the permissions or knowledge to write this stuff out in HTML/CSS.</p>
+    html_clean: |-
+      <p>So it looks like there is still no simple, recommendable and bullet-proof solution for this on the web. :-(</p>
+      <p>U+202F would be the way to go in theory, but most fonts will not have it and the browser’s fallback results might be unacceptable.<br>
+      The SPAN solutions do work, but they are just styling, not encoding. So they might not be preserved properly when copied and the people who edit the texts of websites often don’t even have the permissions or knowledge to write this stuff out in HTML/CSS.</p>
+  - id: 602671
+    user: 176144
+    date: 2015-04-11T00:32:00
+    date_raw: 11 April 2015 - 12:32am
+    votes: 0
+    html: |-
+      <p>Reasonable way of doing it would be to use normal non-breaking spaces and style their width in CSS. That way, when copying, or if CSS fails, people would still get the non-breaking space which they already use and expect in those situations.</p>
+      <blockquote><p><strong>Lorem&nbsp;? Ipsum.</strong></p>
+      <p><strong>Lorem</strong><code>&lt;span class="thin"&gt;</code><strong>&amp;#160;</strong><code>&lt;/span&gt;</code><strong>? Ipsum.</strong></p>
+      <p>.thin {<br>
+          display: inline-block;<br>
+          width:   0.125em; /* 1/8 em */<br>
+          }</p></blockquote>
+      <p>Ellipses and consecutive quotation marks could just be wrapped in spans and tracked, 'cause people usually don't write them with, or expect, spaces inside. (If you also do it that way in InDesign with a tracked character style, you can map it to a classed span when exporting to HTML or EPUB.)</p>
+      <blockquote><p><strong>Lorem, “&nbsp;‘Ipsum’ dolor” sit amet .&nbsp;.&nbsp;.&nbsp;?</strong></p>
+      <p><strong>Lorem, </strong><code>&lt;span class="ls-punct"&gt;</code><strong>“‘</strong><code>&lt;/span&gt;</code><strong>Ipsum’ dolor” sit amet </strong><code>&lt;span class="ls-punct"&gt;</code><strong>...?</strong><code>&lt;/span&gt;</code></p>
+      <p>.ls-punct {<br>
+          letter-spacing: 0.125em;<br>
+          white-space:    nowrap;<br>
+          }</p></blockquote>
+    html_clean: |-
+      <p>Reasonable way of doing it would be to use normal non-breaking spaces and style their width in CSS. That way, when copying, or if CSS fails, people would still get the non-breaking space which they already use and expect in those situations.</p>
+      <blockquote><p><strong>Lorem&nbsp;? Ipsum.</strong></p>
+      <p><strong>Lorem</strong><code>&lt;span class="thin"&gt;</code><strong>&amp;#160;</strong><code>&lt;/span&gt;</code><strong>? Ipsum.</strong></p>
+      <p>.thin {<br>
+          display: inline-block;<br>
+          width:   0.125em; /* 1/8 em */<br>
+          }</p></blockquote>
+      <p>Ellipses and consecutive quotation marks could just be wrapped in spans and tracked, 'cause people usually don't write them with, or expect, spaces inside. (If you also do it that way in InDesign with a tracked character style, you can map it to a classed span when exporting to HTML or EPUB.)</p>
+      <blockquote><p><strong>Lorem, “&nbsp;‘Ipsum’ dolor” sit amet .&nbsp;.&nbsp;.&nbsp;?</strong></p>
+      <p><strong>Lorem, </strong><code>&lt;span class="ls-punct"&gt;</code><strong>“‘</strong><code>&lt;/span&gt;</code><strong>Ipsum’ dolor” sit amet </strong><code>&lt;span class="ls-punct"&gt;</code><strong>...?</strong><code>&lt;/span&gt;</code></p>
+      <p>.ls-punct {<br>
+          letter-spacing: 0.125em;<br>
+          white-space:    nowrap;<br>
+          }</p></blockquote>

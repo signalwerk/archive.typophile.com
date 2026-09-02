@@ -1,5 +1,5 @@
 node: 117930
-title: null
+title: Remove embedding restriction from my font
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/117930.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190927102016/typophile.com/node/117930.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,99 @@ pages:
       digest: SOTI3DT3MXQHXWFP62JEDK3Q7DKJS5ZQ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/117930.html
+      file: data/archives/web.archive.org/files/20190927102016/typophile.com/node/117930.html
 post:
   id: 117930
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 27488
+  date: 2014-07-13T08:58:00
+  date_raw: 13 July 2014 - 8:58am
+  votes: 0
+  html: |-
+    <p>I created a font years ago (OTF) before the embedding restriction became an issue. How can i remove any embedding restrictions without re-creating the font in FontLab (too many VOLT hours involved). Just to change the flag!<br>
+    An old MS tool (Font properties editor) won't help since it doesn't allow to completely remove the restriction to "Installable", only to increase the restriction. Any idea?</p>
+  html_clean: |-
+    <p>I created a font years ago (OTF) before the embedding restriction became an issue. How can i remove any embedding restrictions without re-creating the font in FontLab (too many VOLT hours involved). Just to change the flag!<br>
+    An old MS tool (Font properties editor) won't help since it doesn't allow to completely remove the restriction to "Installable", only to increase the restriction. Any idea?</p>
+comments:
+  - id: 582738
+    user: 18942
+    date: 2014-07-13T17:58:00
+    date_raw: 13 July 2014 - 5:58pm
+    votes: 0
+    html: |-
+      <p>Here are three methods</p>
+      <ol><li>Use the fonttools as described in the url <a href="http://www.typophile.com/node/102671">http://www.typophile.com/node/102671</a>
+      </li>
+      <li>Use ttx. First execute <code>ttx -t OS/2 fontname.ttf</code> (or otf); that  produces a small file named <code>fontname.ttx</code> containing only the <code>OS/2</code> table; you then replace with a text editor the value given at the line <code>&lt;fsType value="00000000 00001000"/&gt;</code> (the value you get is probably different) by the value you want; you then finally  execute the command <code>ttx -m fontname.ttf fontname.ttx</code> to get your new font.
+      </li>
+      <li> Buy DTL OTMaster to edit the OS/2 table; we are told the font is left otherwise untouched. If it is not, you tell us.
+      </li>
+      </ol>
+    html_clean: |-
+      <p>Here are three methods</p>
+      <ol><li>Use the fonttools as described in the url <a href="/node/102671/" class="link-kept">http://www.typophile.com/node/102671</a>
+      </li>
+      <li>Use ttx. First execute <code>ttx -t OS/2 fontname.ttf</code> (or otf); that  produces a small file named <code>fontname.ttx</code> containing only the <code>OS/2</code> table; you then replace with a text editor the value given at the line <code>&lt;fsType value="00000000 00001000"/&gt;</code> (the value you get is probably different) by the value you want; you then finally  execute the command <code>ttx -m fontname.ttf fontname.ttx</code> to get your new font.
+      </li>
+      <li> Buy DTL OTMaster to edit the OS/2 table; we are told the font is left otherwise untouched. If it is not, you tell us.
+      </li>
+      </ol>
+  - id: 582751
+    user: 27488
+    date: 2014-07-13T15:46:00
+    date_raw: 13 July 2014 - 3:46pm
+    votes: 0
+    html: |-
+      <p>I try to find a way to avoid using command line. It is strange MS didn't update their tool since 1997...<br>
+      There are many fonts waiting to change that flag (all are my fonts) .</p>
+    html_clean: |-
+      <p>I try to find a way to avoid using command line. It is strange MS didn't update their tool since 1997...<br>
+      There are many fonts waiting to change that flag (all are my fonts) .</p>
+  - id: 582760
+    user: 18942
+    date: 2014-07-13T18:08:00
+    date_raw: 13 July 2014 - 6:08pm
+    votes: 0
+    html: |-
+      <p>It  is clearly written in the Microsoft link <a href="http://www.microsoft.com/typography/property/fpedit.htm">http://www.microsoft.com/typography/property/fpedit.htm</a> </p>
+      <blockquote><p>
+      <strong>Embedding</strong> - embedding permissions may be made more restrictive.
+      </p></blockquote>
+      <p>An update would not help you unless they changed their mind about that. </p>
+      <p>By the way SIL is also using line commands. They have a command <code>hackos2</code> in their impressive list  <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=fontutils">FontUtils</a> of font utilities (that I have never tried).</p>
+    html_clean: |-
+      <p>It  is clearly written in the Microsoft link <a href="http://www.microsoft.com/typography/property/fpedit.htm" class="link-external">http://www.microsoft.com/typography/property/fpedit.htm</a> </p>
+      <blockquote><p>
+      <strong>Embedding</strong> - embedding permissions may be made more restrictive.
+      </p></blockquote>
+      <p>An update would not help you unless they changed their mind about that. </p>
+      <p>By the way SIL is also using line commands. They have a command <code>hackos2</code> in their impressive list  <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=fontutils" class="link-external">FontUtils</a> of font utilities (that I have never tried).</p>
+  - id: 582792
+    user: 27488
+    date: 2014-07-14T08:03:00
+    date_raw: 14 July 2014 - 8:03am
+    votes: 0
+    html: <p>Thank you so much.</p>
+    html_clean: <p>Thank you so much.</p>
+  - id: 582880
+    user: 951
+    date: 2014-07-15T00:50:00
+    date_raw: 15 July 2014 - 12:50am
+    votes: 0
+    html: <p>There's embed, which seems to do exactly what you want:<br><a href="http://carnage-melon.tom7.org/embed/">http://carnage-melon.tom7.org/embed/</a></p>
+    html_clean: <p>There's embed, which seems to do exactly what you want:<br><a href="http://carnage-melon.tom7.org/embed/" class="link-external">http://carnage-melon.tom7.org/embed/</a></p>
+  - id: 584263
+    user: 45774
+    date: 2014-07-28T10:06:00
+    date_raw: 28 July 2014 - 10:06am
+    votes: 0
+    html: |-
+      <p>With regard to embed.exe I would verify with Font Validator, that the checksum is correctly computed. As far as I remember, there is a tool, that does not compute the checksum correctly. I think, it was embed.exe.</p>
+      <p><cite>I try to find a way to avoid using command line. It is strange MS didn't update their tool since 1997...<br>
+      There are many fonts waiting to change that flag (all are my fonts) .</cite></p>
+      <p>You can easily do it with TTX, a batch file and the search and replace function of UltraEdit. TTX correctly computes the checksum.</p>
+    html_clean: |-
+      <p>With regard to embed.exe I would verify with Font Validator, that the checksum is correctly computed. As far as I remember, there is a tool, that does not compute the checksum correctly. I think, it was embed.exe.</p>
+      <p><cite>I try to find a way to avoid using command line. It is strange MS didn't update their tool since 1997...<br>
+      There are many fonts waiting to change that flag (all are my fonts) .</cite></p>
+      <p>You can easily do it with TTX, a batch file and the search and replace function of UltraEdit. TTX correctly computes the checksum.</p>

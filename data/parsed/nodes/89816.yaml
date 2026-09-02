@@ -1,5 +1,5 @@
 node: 89816
-title: null
+title: iOS Postscript font bug
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/89816.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20191010042153/typophile.com/node/89816.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,492 @@ pages:
       digest: QHB7TH2S4ADREYYIKJAUEZR5E4TCL5OS
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/89816.html
+      file: data/archives/web.archive.org/files/20191010042153/typophile.com/node/89816.html
 post:
   id: 89816
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 17101
+  date: 2012-02-06T16:13:00
+  date_raw: 6 February 2012 - 4:13pm
+  votes: 0
+  html: |-
+    <p>Hi,</p>
+    <p><img src="/sites/default/files/old-images/prob_3470.png"></p>
+    <p>I’ve come across a bug in iOS causing rendering errors with Postscript flavoured fonts. Some characters are rendered lighter than others in landscape mode (subpixels), but when you zoom in or switch to portrait mode (greyscale) they appear correctly again. Tim Brown (edit: Tim Ahrens) over at Typekit looked into the issue with the font in question (I’ve only tested Mobile Safari on iPad, but Tim also sees these problems on the iPod):</p>
+    <p><cite><br>
+    I think you have discovered a rather weird bug in the iOS type rendering engine. I can reproduce this and have tried to figure out what exactly it is that causes the problem. It must be in the actual outline drawings of the letters in question, not the hinting, features or any other font metadata.<br>
+    It seems that the rasterizer is not 100% numerically stable and runs into problems when certain constellations of nodes and BCPs occur. It is difficult to pin down exactly what these constellations are, which is not too surprising considering it is a bug.<br>
+    I had a closer look at the v, which rendered strangely on my iPod. After a bit of playing around, it turned out that tweaking one curve is enough to make it render correctly (see the arrow on the attached image). Looking at this example, and how the other glyphs are drawn, I suspect that it could be related to "retracted" BCPs, although in some cases, they don't seem to cause any problems. I personally also work with retracted BCPs a lot and I am not aware of any rule or convention that forbids this. That said, the only fix I can think of right now would be to "extract" the BCPs.<br></cite></p>
+    <p><img src="/sites/default/files/old-images/-1_5755.png"></p>
+    <p>Have anyone else experience this? Can someone shed any light?</p>
+  html_clean: |-
+    <p>Hi,</p>
+    <p><img src="/sites/default/files/old-images/prob_3470.png"></p>
+    <p>I’ve come across a bug in iOS causing rendering errors with Postscript flavoured fonts. Some characters are rendered lighter than others in landscape mode (subpixels), but when you zoom in or switch to portrait mode (greyscale) they appear correctly again. Tim Brown (edit: Tim Ahrens) over at Typekit looked into the issue with the font in question (I’ve only tested Mobile Safari on iPad, but Tim also sees these problems on the iPod):</p>
+    <p><cite><br>
+    I think you have discovered a rather weird bug in the iOS type rendering engine. I can reproduce this and have tried to figure out what exactly it is that causes the problem. It must be in the actual outline drawings of the letters in question, not the hinting, features or any other font metadata.<br>
+    It seems that the rasterizer is not 100% numerically stable and runs into problems when certain constellations of nodes and BCPs occur. It is difficult to pin down exactly what these constellations are, which is not too surprising considering it is a bug.<br>
+    I had a closer look at the v, which rendered strangely on my iPod. After a bit of playing around, it turned out that tweaking one curve is enough to make it render correctly (see the arrow on the attached image). Looking at this example, and how the other glyphs are drawn, I suspect that it could be related to "retracted" BCPs, although in some cases, they don't seem to cause any problems. I personally also work with retracted BCPs a lot and I am not aware of any rule or convention that forbids this. That said, the only fix I can think of right now would be to "extract" the BCPs.<br></cite></p>
+    <p><img src="/sites/default/files/old-images/-1_5755.png"></p>
+    <p>Have anyone else experience this? Can someone shed any light?</p>
+comments:
+  - id: 494098
+    user: 17101
+    date: 2012-02-06T16:23:00
+    date_raw: 6 February 2012 - 4:23pm
+    votes: 0
+    html: |-
+      <p><img src="/sites/default/files/old-images/closeup_4599.png"></p>
+      <p>A close up of the outlines. Disclaimer: This is a slightly different variant, but uses the same basic node set-up.</p>
+    html_clean: |-
+      <p><img src="/sites/default/files/old-images/closeup_4599.png"></p>
+      <p>A close up of the outlines. Disclaimer: This is a slightly different variant, but uses the same basic node set-up.</p>
+  - id: 494101
+    user: 1250
+    date: 2012-02-06T16:42:00
+    date_raw: 6 February 2012 - 4:42pm
+    votes: 0
+    html: |-
+      <p>Having BCPs on both ends of a curve is indeed<br>
+      good practice, I guess because some renderers<br>
+      assume that's the way it has to be. Annoying.</p>
+      <p>BTW, holding down Shift-Alt while clicking a<br>
+      "half-dead" curve makes FL add/balance the<br>
+      BCPs, although it usually needs tweaking.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Having BCPs on both ends of a curve is indeed<br>
+      good practice, I guess because some renderers<br>
+      assume that's the way it has to be. Annoying.</p>
+      <p>BTW, holding down Shift-Alt while clicking a<br>
+      "half-dead" curve makes FL add/balance the<br>
+      BCPs, although it usually needs tweaking.</p>
+      <p>hhp</p>
+  - id: 494103
+    user: 39515
+    date: 2012-02-06T17:16:00
+    date_raw: 6 February 2012 - 5:16pm
+    votes: 0
+    html: |-
+      <p>Hmm... I've had a closer look at the font in question. All horizontal serifs have the same BCP configuration, like the 'v' in the close-up here, while only the diagonals have the rendering problems, right? That makes no sense at all, does it? </p>
+      <p>I think it's a highly unsatisfactory solution having to redefine all the serifs because of this, as this practice is not in any way non-standard. (At least, Font Audit does not think it is.) People need to write better renderers.</p>
+    html_clean: |-
+      <p>Hmm... I've had a closer look at the font in question. All horizontal serifs have the same BCP configuration, like the 'v' in the close-up here, while only the diagonals have the rendering problems, right? That makes no sense at all, does it? </p>
+      <p>I think it's a highly unsatisfactory solution having to redefine all the serifs because of this, as this practice is not in any way non-standard. (At least, Font Audit does not think it is.) People need to write better renderers.</p>
+  - id: 494104
+    user: 3254
+    date: 2012-02-06T17:46:00
+    date_raw: 6 February 2012 - 5:46pm
+    votes: 0
+    html: |-
+      <p>Tangential FontLab question:<br>
+      Is there a modifier key or other method for grabbing such a fully-retracted handle? I'm used to option-click-and-drag to drag a handle out of a node that doesn't already have one, but if the node has a handle right on top, this sometimes doesn't work to grab it--it will often the node instead and leave the handle behind.</p>
+    html_clean: |-
+      <p>Tangential FontLab question:<br>
+      Is there a modifier key or other method for grabbing such a fully-retracted handle? I'm used to option-click-and-drag to drag a handle out of a node that doesn't already have one, but if the node has a handle right on top, this sometimes doesn't work to grab it--it will often the node instead and leave the handle behind.</p>
+  - id: 494107
+    user: 39515
+    date: 2012-02-06T18:53:00
+    date_raw: 6 February 2012 - 6:53pm
+    votes: 0
+    html: <p>Hmm, I've thought that too, Craig, but isn't that behaviour only typical when you drag the mouse the wrong way, that is in the direction of the extended handle, by mistake? I didn't know about the method Hrant mentioned, but it works very well, though it changes the curve somewhat (but probably often for the better).</p>
+    html_clean: <p>Hmm, I've thought that too, Craig, but isn't that behaviour only typical when you drag the mouse the wrong way, that is in the direction of the extended handle, by mistake? I didn't know about the method Hrant mentioned, but it works very well, though it changes the curve somewhat (but probably often for the better).</p>
+  - id: 494108
+    user: 1250
+    date: 2012-02-06T19:04:00
+    date_raw: 6 February 2012 - 7:04pm
+    votes: 0
+    html: |-
+      <p>Due credit: I learned about it from Nina,<br>
+      who I think got it from the FontFont boys.</p>
+      <p>It's a damn shame we have to do that,<br>
+      not least because "half-dead" curves are<br>
+      actually much more natural to modify.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Due credit: I learned about it from Nina,<br>
+      who I think got it from the FontFont boys.</p>
+      <p>It's a damn shame we have to do that,<br>
+      not least because "half-dead" curves are<br>
+      actually much more natural to modify.</p>
+      <p>hhp</p>
+  - id: 494110
+    user: 1250
+    date: 2012-02-06T19:08:00
+    date_raw: 6 February 2012 - 7:08pm
+    votes: 0
+    html: |-
+      <p>BTW, you know you have some other "issues" there, right?<br>
+      Like missing inflection points, and "crossing projection" BCPs.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>BTW, you know you have some other "issues" there, right?<br>
+      Like missing inflection points, and "crossing projection" BCPs.</p>
+      <p>hhp</p>
+  - id: 494111
+    user: 39515
+    date: 2012-02-06T19:48:00
+    date_raw: 6 February 2012 - 7:48pm
+    votes: 0
+    html: <p>Well, to be honest, no. Font Audit makes no red arrow, so I've done that now and then in Satyr, but perhaps I shouldn't trust Font Audit on that. I like to draw that way, but I guess I should insert inflection points. I just like to use as few as possible, as Satyr lacks lines, changes become more manageable that way.</p>
+    html_clean: <p>Well, to be honest, no. Font Audit makes no red arrow, so I've done that now and then in Satyr, but perhaps I shouldn't trust Font Audit on that. I like to draw that way, but I guess I should insert inflection points. I just like to use as few as possible, as Satyr lacks lines, changes become more manageable that way.</p>
+  - id: 494113
+    user: 1250
+    date: 2012-02-06T20:40:00
+    date_raw: 6 February 2012 - 8:40pm
+    votes: 0
+    html: |-
+      <p>Actually those two things FontAudit is supposed to catch...</p>
+      <p>And yes, as with half-dead curves, explicit<br>
+      inflection points should go in as late as<br>
+      possible, even after [any] trapping.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Actually those two things FontAudit is supposed to catch...</p>
+      <p>And yes, as with half-dead curves, explicit<br>
+      inflection points should go in as late as<br>
+      possible, even after [any] trapping.</p>
+      <p>hhp</p>
+  - id: 494143
+    user: 21687
+    date: 2012-02-07T05:53:00
+    date_raw: 7 February 2012 - 5:53am
+    votes: 0
+    html: |-
+      <p>»Half-dead curves«, I love that term :) We call them in-point bezier control points, quite prosaicly.</p>
+      <p>We advise to avoid them because they will lead to distortions and extra points being inserted when the curves are converted to TTF:</p>
+      <p><img src="/sites/default/files/old-images/half-dead-ttf_3424.png"></p>
+      <p>The PS curve is in the mask.</p>
+      <p>FontAudit isn't very reliable. Some of the things it does find are more design hints than technical errors, and it doesn't find more severe errors like half-dead curves or self-intersecting outlines.</p>
+    html_clean: |-
+      <p>»Half-dead curves«, I love that term :) We call them in-point bezier control points, quite prosaicly.</p>
+      <p>We advise to avoid them because they will lead to distortions and extra points being inserted when the curves are converted to TTF:</p>
+      <p><img src="/sites/default/files/old-images/half-dead-ttf_3424.png"></p>
+      <p>The PS curve is in the mask.</p>
+      <p>FontAudit isn't very reliable. Some of the things it does find are more design hints than technical errors, and it doesn't find more severe errors like half-dead curves or self-intersecting outlines.</p>
+  - id: 494156
+    user: 13487
+    date: 2012-02-07T08:52:00
+    date_raw: 7 February 2012 - 8:52am
+    votes: 0
+    html: |-
+      <p><cite>"Due credit: I learned about it from Nina, who I think got it from the FontFont boys."</cite></p>
+      <p>Wait, what? I got the «avoid in-point BCPs» rule from the FF boys (hello Jens!). The Alt-Shift-click technique was something I found more or less by accident while playing around in FL. I think what it does is make the curve [more] symmetrical, which isn't always what's needed. I basically ended up correcting all of my «half-dead curves» manually. :-\</p>
+    html_clean: |-
+      <p><cite>"Due credit: I learned about it from Nina, who I think got it from the FontFont boys."</cite></p>
+      <p>Wait, what? I got the «avoid in-point BCPs» rule from the FF boys (hello Jens!). The Alt-Shift-click technique was something I found more or less by accident while playing around in FL. I think what it does is make the curve [more] symmetrical, which isn't always what's needed. I basically ended up correcting all of my «half-dead curves» manually. :-\</p>
+  - id: 494161
+    user: 8664
+    date: 2012-02-07T09:26:00
+    date_raw: 7 February 2012 - 9:26am
+    votes: 0
+    html: |-
+      <p>Frode (citing Tim Brown) – <cite>I suspect that it could be related to "retracted" BCPs</cite></p>
+      <p>hhp – <cite>Having BCPs on both ends of a curve is indeed good practice</cite></p>
+      <p>Jens – <cite>We advise to avoid them because they will lead to distortions and extra points being inserted when the curves are converted to TTF</cite></p>
+      <p>While you are not saying this explicitly, your comments can be read as "it's a font quality issue that needs to be address on font level" which would be the wrong message. Type designers and font producers cannot, and should not, offer workaround for all other parties' faults.<br>
+      If certain point constellations cause rasterization issues, it is a rasterizer bug which needs to be fixed. (Hello Apple.)<br>
+      If they cause issues with cubic to quadratic bezier conversion in one or another font editor, then the conversion mechanism needs to – and can – be fixed. (Hello FontLab.)</p>
+    html_clean: |-
+      <p>Frode (citing Tim Brown) – <cite>I suspect that it could be related to "retracted" BCPs</cite></p>
+      <p>hhp – <cite>Having BCPs on both ends of a curve is indeed good practice</cite></p>
+      <p>Jens – <cite>We advise to avoid them because they will lead to distortions and extra points being inserted when the curves are converted to TTF</cite></p>
+      <p>While you are not saying this explicitly, your comments can be read as "it's a font quality issue that needs to be address on font level" which would be the wrong message. Type designers and font producers cannot, and should not, offer workaround for all other parties' faults.<br>
+      If certain point constellations cause rasterization issues, it is a rasterizer bug which needs to be fixed. (Hello Apple.)<br>
+      If they cause issues with cubic to quadratic bezier conversion in one or another font editor, then the conversion mechanism needs to – and can – be fixed. (Hello FontLab.)</p>
+  - id: 494164
+    user: 17101
+    date: 2012-02-07T09:54:00
+    date_raw: 7 February 2012 - 9:54am
+    votes: 0
+    html: <p>I agree. This is an Apple issue. I couldn't report a bug without a dev account. Any Apple people lurking here?</p>
+    html_clean: <p>I agree. This is an Apple issue. I couldn't report a bug without a dev account. Any Apple people lurking here?</p>
+  - id: 494180
+    user: 1250
+    date: 2012-02-07T11:39:00
+    date_raw: 7 February 2012 - 11:39am
+    votes: 0
+    html: |-
+      <p>&gt; I found more or less by accident</p>
+      <p>Ah, sorry, my memory failed!</p>
+      <p>&gt; Type designers and font producers cannot, and should<br>
+      &gt; not, offer workaround for all other parties' faults.</p>
+      <p>Cannot: Why not? Well, not all, but as many as possible.<br>
+      Should not: Who pays for that? The user... who then<br>
+      blames you and moves on to a font that "just works".</p>
+      <p>The best designers <em>assimilate</em> problems.</p>
+      <p>&gt; This is an Apple issue.</p>
+      <p>This might seem atypical coming from<br>
+      me, but you can't only blame Apple here.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; I found more or less by accident</p>
+      <p>Ah, sorry, my memory failed!</p>
+      <p>&gt; Type designers and font producers cannot, and should<br>
+      &gt; not, offer workaround for all other parties' faults.</p>
+      <p>Cannot: Why not? Well, not all, but as many as possible.<br>
+      Should not: Who pays for that? The user... who then<br>
+      blames you and moves on to a font that "just works".</p>
+      <p>The best designers <em>assimilate</em> problems.</p>
+      <p>&gt; This is an Apple issue.</p>
+      <p>This might seem atypical coming from<br>
+      me, but you can't only blame Apple here.</p>
+      <p>hhp</p>
+  - id: 494190
+    user: 8664
+    date: 2012-02-07T14:05:00
+    date_raw: 7 February 2012 - 2:05pm
+    votes: 0
+    html: <p>You don't expect a reply to that, do you?</p>
+    html_clean: <p>You don't expect a reply to that, do you?</p>
+  - id: 494191
+    user: 1250
+    date: 2012-02-07T14:32:00
+    date_raw: 7 February 2012 - 2:32pm
+    votes: 0
+    html: |-
+      <p>It doesn't matter what I expect. Just do what<br>
+      you think is right. On my end I'm likely to<br>
+      benefit from a reply, since my purpose here<br>
+      remains to learn, and I'm sure you can teach<br>
+      me things.</p>
+      <p>--</p>
+      <p>Who benefits when one refuses to tweak<br>
+      curves that expose a flaw in a renderer?<br>
+      How much time are you saving? And what<br>
+      are the chances a large corporation will<br>
+      care enough (beyond its own products,<br>
+      which it can easily tweak to mask the flaw)<br>
+      to spend money fixing the problem? Maybe<br>
+      if you can get somebody of the stature of<br>
+      Matthew Carter to create a highly desirable<br>
+      font that exposes the flaw... What are the<br>
+      chances of that? Nobody can reach the top<br>
+      a profession without some pragmatism.</p>
+      <p>Getting FontLab to improve the conversion<br>
+      would of course be much easier. On the other<br>
+      hand if the TT version of a font is removing an<br>
+      issue that the PS version might sporadically<br>
+      suffer from, maybe that's actually a disservice?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>It doesn't matter what I expect. Just do what<br>
+      you think is right. On my end I'm likely to<br>
+      benefit from a reply, since my purpose here<br>
+      remains to learn, and I'm sure you can teach<br>
+      me things.</p>
+      <p>--</p>
+      <p>Who benefits when one refuses to tweak<br>
+      curves that expose a flaw in a renderer?<br>
+      How much time are you saving? And what<br>
+      are the chances a large corporation will<br>
+      care enough (beyond its own products,<br>
+      which it can easily tweak to mask the flaw)<br>
+      to spend money fixing the problem? Maybe<br>
+      if you can get somebody of the stature of<br>
+      Matthew Carter to create a highly desirable<br>
+      font that exposes the flaw... What are the<br>
+      chances of that? Nobody can reach the top<br>
+      a profession without some pragmatism.</p>
+      <p>Getting FontLab to improve the conversion<br>
+      would of course be much easier. On the other<br>
+      hand if the TT version of a font is removing an<br>
+      issue that the PS version might sporadically<br>
+      suffer from, maybe that's actually a disservice?</p>
+      <p>hhp</p>
+  - id: 494192
+    user: 7222
+    date: 2012-02-07T14:33:00
+    date_raw: 7 February 2012 - 2:33pm
+    votes: 0
+    html: |-
+      <p>I'll be happy to see this issue resolved. Thanks for pursuing a fix, Frode.</p>
+      <p>Wanted to clarify something: the feedback Frode cites atop this thread is from <strong>Tim Ahrens</strong>. I am immeasurably flattered to have been mistaken for him; My knowledge and experience in this area pales in comparison.</p>
+    html_clean: |-
+      <p>I'll be happy to see this issue resolved. Thanks for pursuing a fix, Frode.</p>
+      <p>Wanted to clarify something: the feedback Frode cites atop this thread is from <strong>Tim Ahrens</strong>. I am immeasurably flattered to have been mistaken for him; My knowledge and experience in this area pales in comparison.</p>
+  - id: 494205
+    user: 17101
+    date: 2012-02-07T15:25:00
+    date_raw: 7 February 2012 - 3:25pm
+    votes: 0
+    html: <p>Tim &amp; Tim! I’m so sorry!</p>
+    html_clean: <p>Tim &amp; Tim! I’m so sorry!</p>
+  - id: 494256
+    user: 21687
+    date: 2012-02-08T07:03:00
+    date_raw: 8 February 2012 - 7:03am
+    votes: 0
+    html: |-
+      <p><em>While you are not saying this explicitly, your comments can be read as "it's a font quality issue that needs to be address on font level" which would be the wrong message.</em></p>
+      <p>Karsten is right, of course. It is definitely related to our own workflow. We need reproducible results when converting PostScript to TrueType curves, so we need to take that into account as early in the process as possible.</p>
+      <p>Frode, does this bug occur also in Mac OS rendering? For all I know, it is the same rasterizer as on iOS (except for different settings for subpixel vs. greyscale antialiasing). The FreeType rasterizer is also related, you may want to test with it.</p>
+    html_clean: |-
+      <p><em>While you are not saying this explicitly, your comments can be read as "it's a font quality issue that needs to be address on font level" which would be the wrong message.</em></p>
+      <p>Karsten is right, of course. It is definitely related to our own workflow. We need reproducible results when converting PostScript to TrueType curves, so we need to take that into account as early in the process as possible.</p>
+      <p>Frode, does this bug occur also in Mac OS rendering? For all I know, it is the same rasterizer as on iOS (except for different settings for subpixel vs. greyscale antialiasing). The FreeType rasterizer is also related, you may want to test with it.</p>
+  - id: 494257
+    user: 2969
+    date: 2012-02-08T07:23:00
+    date_raw: 8 February 2012 - 7:23am
+    votes: 0
+    html: |-
+      <p>@Jens<em>-We need reproducible results when converting PostScript to TrueType curves, so we need to take that into account as early in the process as possible.</em></p>
+      <p>As early in the process as possible, you would want to design your outlines as TT curves instead of PS. This is one reason why I've been pushing so hard (since 1989), for native TT drawing in font design apps!</p>
+    html_clean: |-
+      <p>@Jens<em>-We need reproducible results when converting PostScript to TrueType curves, so we need to take that into account as early in the process as possible.</em></p>
+      <p>As early in the process as possible, you would want to design your outlines as TT curves instead of PS. This is one reason why I've been pushing so hard (since 1989), for native TT drawing in font design apps!</p>
+  - id: 494259
+    user: 1250
+    date: 2012-02-08T08:17:00
+    date_raw: 8 February 2012 - 8:17am
+    votes: 0
+    html: |-
+      <p>Question:<br>
+      Are there no observed "bad behaviors" among PS renderers*?<br>
+      I'm talking about bad behaviors that can be circumvented with<br>
+      simple tweaks as above.</p>
+      <p>* Which I do realize are much more<br>
+      relevant in print than onscreen, and<br>
+      due to resolution less problematic.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Question:<br>
+      Are there no observed "bad behaviors" among PS renderers*?<br>
+      I'm talking about bad behaviors that can be circumvented with<br>
+      simple tweaks as above.</p>
+      <p>* Which I do realize are much more<br>
+      relevant in print than onscreen, and<br>
+      due to resolution less problematic.</p>
+      <p>hhp</p>
+  - id: 494280
+    user: 1262
+    date: 2012-02-08T12:51:00
+    date_raw: 8 February 2012 - 12:51pm
+    votes: 0
+    html: |-
+      <p>The question of 'half dead' curve constructions is one that I've pondered for a while. So far as I recall, there is nothing in the PS font format specs to prohibit them, and yet Adobe seem to consistently avoid them in their own fonts.</p>
+      <p>[I avoid them for the same reason that Jens gives: they muck up PS-to-TT conversion algorithms.]</p>
+    html_clean: |-
+      <p>The question of 'half dead' curve constructions is one that I've pondered for a while. So far as I recall, there is nothing in the PS font format specs to prohibit them, and yet Adobe seem to consistently avoid them in their own fonts.</p>
+      <p>[I avoid them for the same reason that Jens gives: they muck up PS-to-TT conversion algorithms.]</p>
+  - id: 494283
+    user: 3135
+    date: 2012-02-08T13:29:00
+    date_raw: 8 February 2012 - 1:29pm
+    votes: 0
+    html: <p>I assume someone let Apple know about this?</p>
+    html_clean: <p>I assume someone let Apple know about this?</p>
+  - id: 494285
+    user: 1250
+    date: 2012-02-08T14:07:00
+    date_raw: 8 February 2012 - 2:07pm
+    votes: 0
+    html: |-
+      <p>Prohibit is one thing, advise against is another.<br>
+      Does TT even explicitly prohibit half-dead curves?<br>
+      What I'm wondering is, if we know that a given font will<br>
+      only ever be in PS, is it <em>safe</em> to leave in half-dead curves?</p>
+      <p>BTW, Adobe does break some PS rules though - like<br>
+      Slimbach doesn't bother with explicit extrema for<br>
+      very small curves, like at the tips of bulgy serifs.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Prohibit is one thing, advise against is another.<br>
+      Does TT even explicitly prohibit half-dead curves?<br>
+      What I'm wondering is, if we know that a given font will<br>
+      only ever be in PS, is it <em>safe</em> to leave in half-dead curves?</p>
+      <p>BTW, Adobe does break some PS rules though - like<br>
+      Slimbach doesn't bother with explicit extrema for<br>
+      very small curves, like at the tips of bulgy serifs.</p>
+      <p>hhp</p>
+  - id: 494287
+    user: 3135
+    date: 2012-02-08T13:44:00
+    date_raw: 8 February 2012 - 1:44pm
+    votes: 0
+    html: <p>But that makes sense,Hrant. If adding xtremma points screws up the tiny curve but gives no problem to hinting, why not?</p>
+    html_clean: <p>But that makes sense,Hrant. If adding xtremma points screws up the tiny curve but gives no problem to hinting, why not?</p>
+  - id: 494290
+    user: 1250
+    date: 2012-02-08T13:52:00
+    date_raw: 8 February 2012 - 1:52pm
+    votes: 0
+    html: |-
+      <p>I haven't seen it such that it would mess up the curve.<br>
+      And doesn't its absence mess up TT conversion?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I haven't seen it such that it would mess up the curve.<br>
+      And doesn't its absence mess up TT conversion?</p>
+      <p>hhp</p>
+  - id: 494292
+    user: 8664
+    date: 2012-02-08T14:01:00
+    date_raw: 8 February 2012 - 2:01pm
+    votes: 0
+    html: |-
+      <p>hhp – <cite>Prohibit is one thing, advise against is another.</cite></p>
+      <p>Exactly. And when a spec doesn't prohibit something, and all but one library are fine with it, there is no need to advise against it.</p>
+      <p>A too big discussion for a too little thing.</p>
+    html_clean: |-
+      <p>hhp – <cite>Prohibit is one thing, advise against is another.</cite></p>
+      <p>Exactly. And when a spec doesn't prohibit something, and all but one library are fine with it, there is no need to advise against it.</p>
+      <p>A too big discussion for a too little thing.</p>
+  - id: 494293
+    user: 1250
+    date: 2012-02-08T14:07:00
+    date_raw: 8 February 2012 - 2:07pm
+    votes: 0
+    html: |-
+      <p>&gt; all but one library are fine with it</p>
+      <p>I don't get it. There are many foundries that<br>
+      play along and tweak their curves to bypass<br>
+      renderer flaws. And I myself am sad to say,<br>
+      iGadget rendering isn't a "little thing".</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>&gt; all but one library are fine with it</p>
+      <p>I don't get it. There are many foundries that<br>
+      play along and tweak their curves to bypass<br>
+      renderer flaws. And I myself am sad to say,<br>
+      iGadget rendering isn't a "little thing".</p>
+      <p>hhp</p>
+  - id: 494295
+    user: 8664
+    date: 2012-02-08T14:21:00
+    date_raw: 8 February 2012 - 2:21pm
+    votes: 0
+    html: <p>You can spend all day wrapping your head around it if you formulate it as vaguely as "many foundries that play along and tweak their curves to bypass renderer flaws". Which foundries exactly? And which renderer flaws, in plural, are you referring to? The original post is about a very specific one which, afaik, exists in a single renderer.</p>
+    html_clean: <p>You can spend all day wrapping your head around it if you formulate it as vaguely as "many foundries that play along and tweak their curves to bypass renderer flaws". Which foundries exactly? And which renderer flaws, in plural, are you referring to? The original post is about a very specific one which, afaik, exists in a single renderer.</p>
+  - id: 494297
+    user: 1250
+    date: 2012-02-08T14:29:00
+    date_raw: 8 February 2012 - 2:29pm
+    votes: 0
+    html: |-
+      <p>So you're saying only FontFont is überpicky, and the only flaw is this one?</p>
+      <p>BTW, since you caused me to re-read the original post, I just<br>
+      realized that this flaw <strong>is</strong> with PS outlines! So that settles that.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>So you're saying only FontFont is überpicky, and the only flaw is this one?</p>
+      <p>BTW, since you caused me to re-read the original post, I just<br>
+      realized that this flaw <strong>is</strong> with PS outlines! So that settles that.</p>
+      <p>hhp</p>
+  - id: 607863
+    user: 2969
+    date: 2018-06-04T07:19:00
+    date_raw: 4 June 2018 - 7:19am
+    votes: 0
+    html: |-
+      <p>The adobe curveto command requires two off-curve points between two on-curve points.  </p>
+      <p>‘’This operator draws a curve from the current point to the point (x3, y3) using points (x1, y1) and (x2, y2) as control points. The curve is a Bézier cubic curve. In such a curve, the tangent of the curve at the current point will be a line segment running from the current point to (x1, y1) and the tangent at (x3, y3) is the line running from (x3, y3) to (x2, y2).’’</p>
+      <p>If you can read at least as well as me, There are No Exceptions, It is Deeply Baked into PS interpreters and the cff format. </p>
+      <p>Deeply, means there is as much chance of changing to “half-deadness” as there is of one being hit by lightning while being attacked by a shark in the middle of a hailstorm in the desert.</p>
+      <p>If you read better than me, let us know.</p>
+    html_clean: |-
+      <p>The adobe curveto command requires two off-curve points between two on-curve points.  </p>
+      <p>‘’This operator draws a curve from the current point to the point (x3, y3) using points (x1, y1) and (x2, y2) as control points. The curve is a Bézier cubic curve. In such a curve, the tangent of the curve at the current point will be a line segment running from the current point to (x1, y1) and the tangent at (x3, y3) is the line running from (x3, y3) to (x2, y2).’’</p>
+      <p>If you can read at least as well as me, There are No Exceptions, It is Deeply Baked into PS interpreters and the cff format. </p>
+      <p>Deeply, means there is as much chance of changing to “half-deadness” as there is of one being hit by lightning while being attacked by a shark in the middle of a hailstorm in the desert.</p>
+      <p>If you read better than me, let us know.</p>

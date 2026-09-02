@@ -12,7 +12,9 @@ export function render(route, data) {
     case "about":
       return {
         title: "About — Typophile archive",
-        html: renderToStaticMarkup(<AboutPage totals={data.totals} forums={data.forums} />),
+        html: renderToStaticMarkup(
+          <AboutPage totals={data.totals} forums={data.forums} archives={data.archives} />
+        ),
       };
     case "index": {
       const { items, page, pages } = data.page;

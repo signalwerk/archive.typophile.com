@@ -13,7 +13,7 @@ import crypto from "crypto";
 import { archiveDirs, CUTOFF_FILE } from "./lib/config.js";
 import { selectArchives } from "./lib/archives/index.js";
 import {
-  ensureDir, readJsonl, readJson, writeJson, localPathFor,
+  ensureDir, readJsonl, readJson, writeJson, localPathFor, timestampedCapturePath,
   parseArgs, formatCount, formatBytes,
 } from "./lib/util.js";
 
@@ -41,19 +41,24 @@ async function processArchive(archive) {
     if (mimes && !mimes.has(entry.m)) { filtered++; continue; }
     if (jobs.length >= limit) { filtered++; continue; }
 
-    let file = localPathFor(entry.k, entry.m);
-    if (!file) { filtered++; continue; }
+    let localPath = localPathFor(entry.k, entry.m);
+    if (!localPath) { filtered++; continue; }
 
     // Two URLs can normalise onto one filename (`/foo` and `/foo.html`).
-    if (taken.has(file)) {
+    // Resolve this before adding the timestamp, otherwise two colliding URLs
+    // captured at different moments would silently lose their stable suffix.
+    if (taken.has(localPath)) {
       const suffix = crypto.createHash("sha1").update(entry.k).digest("hex").slice(0, 8);
-      const dot = file.lastIndexOf(".");
-      file = dot > file.lastIndexOf("/")
-        ? `${file.slice(0, dot)}~${suffix}${file.slice(dot)}`
-        : `${file}~${suffix}`;
+      const dot = localPath.lastIndexOf(".");
+      localPath = dot > localPath.lastIndexOf("/")
+        ? `${localPath.slice(0, dot)}~${suffix}${localPath.slice(dot)}`
+        : `${localPath}~${suffix}`;
       collisions++;
     }
-    taken.set(file, entry.k);
+    taken.set(localPath, entry.k);
+
+    const file = timestampedCapturePath(entry.ts, localPath);
+    if (!file) { filtered++; continue; }
 
     byMime.set(entry.m, (byMime.get(entry.m) || 0) + 1);
     bytes += entry.len || 0;

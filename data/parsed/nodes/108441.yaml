@@ -1,5 +1,5 @@
 node: 108441
-title: null
+title: Fonts language support
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/108441.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190809104015/typophile.com/node/108441.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,389 @@ pages:
       digest: OTW3NECW7CGYA3NFHORTJXEJPFMYA66D
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/108441.html
+      file: data/archives/web.archive.org/files/20190809104015/typophile.com/node/108441.html
 post:
   id: 108441
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 215967
+  date: 2014-01-22T09:59:00
+  date_raw: 22 January 2014 - 9:59am
+  votes: 0
+  html: |-
+    <p>Hello everybody, I have a question and I can't find an answer in the internet.</p>
+    <p>I'm in a process of designing a typeface - <a href="http://dribbble.com/goloub/projects/177343-TT-Nord ">TT Nord</a>. It's not the final design by that link. Anyway, what bothers me is that I've drawn many glyphs, including Cyrillic extended and Latin extended a and b and others. Is there any way to know what languages does my font support? Maybe a script or some kind of a web service? </p>
+    <p>Thanks in advance?</p>
+  html_clean: |-
+    <p>Hello everybody, I have a question and I can't find an answer in the internet.</p>
+    <p>I'm in a process of designing a typeface - <a href="http://dribbble.com/goloub/projects/177343-TT-Nord " class="link-external">TT Nord</a>. It's not the final design by that link. Anyway, what bothers me is that I've drawn many glyphs, including Cyrillic extended and Latin extended a and b and others. Is there any way to know what languages does my font support? Maybe a script or some kind of a web service? </p>
+    <p>Thanks in advance?</p>
+comments:
+  - id: 569785
+    user: 65972
+    date: 2014-01-22T16:05:00
+    date_raw: 22 January 2014 - 4:05pm
+    votes: 0
+    html: <p>I don't know of any automatic way to do it. Your face supplies the glyphs for scripts (Latin, Cyrillic, etc), of which various subsets are used to write various languages. It would be nice to know that language Foo uses all of SomeBlock except Bar, with the addition of Baz and Qux from AnotherBlock. That would make it easy to say, "My font provides full support for language Foo", which it going to be more relevant to most people than saying, "My font provides full support for the Latin script". This information may be partially compiled somewhere (e.g. "Latin alphabets" on the English Wikipedia), but it's a manual verification process.</p>
+    html_clean: <p>I don't know of any automatic way to do it. Your face supplies the glyphs for scripts (Latin, Cyrillic, etc), of which various subsets are used to write various languages. It would be nice to know that language Foo uses all of SomeBlock except Bar, with the addition of Baz and Qux from AnotherBlock. That would make it easy to say, "My font provides full support for language Foo", which it going to be more relevant to most people than saying, "My font provides full support for the Latin script". This information may be partially compiled somewhere (e.g. "Latin alphabets" on the English Wikipedia), but it's a manual verification process.</p>
+  - id: 569798
+    user: 32723
+    date: 2014-01-22T19:35:00
+    date_raw: 22 January 2014 - 7:35pm
+    votes: 0
+    html: |-
+      <p>There is no such tool. I did a wide research about languages and alphabets between 2010 and 2013 for my own font project. Unhappily, no source is complete. If you have interest, here are some good information and sources:</p>
+      <p>The Wikipedia article about <a href="http://en.wikipedia.org/wiki/Latin-derived_alphabet" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Latin-derived alphabets</a> is the nearest single source I know. For deeper information, you can take a look on <a href="http://en.wikipedia.org/wiki/A" title="Click to visit an external URL." class="freelink freelink-external freelink-external">each letter</a> and language article published in Wikipedia. Each letter article brings a table with diacritical combinations.</p>
+      <p>A good place regarding Latin script is <a href="http://blogs.adobe.com/typblography/2008/08/extended_latin.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">this post</a> from Adobe's Typblography. You may also find useful <a href="http://diacritics.typo.cz/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">this site about diacritics</a>.</p>
+      <p>Regarding transliterations, there is an <a href="http://transliteration.eki.ee/index.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">excellent archive</a> made by Thomas Pedersen. It's almost hidden in the Estonian Language Institute site.</p>
+      <p>You can also consider to do the contrary: define which languages you want to support and then include the proper characters. Unicode blocks are heterogeneous and the Latin ones brings together glyphs needed to less common European languages besides Asian languages, Medieval characters and even Roman signs.</p>
+      <p>For example: Latin Extended Additional includes 1E9E, the German uppercase double S. It seems ok to include that. In the same block you find the Vietnamese accented and double-accented vowels. Of course, you would ignore them if Vietnamese support is out of your target. This Unicode block also adds several precomposed combinations to support Indic, Hebrew and Cyrillic transliterations. Again, you must choose if transliterations would be supported.</p>
+      <p>A similar definition must be made about Phonetic alphabets, currency and letterlike symbols. This will take some research, but you will not include unnecessary glyphs.</p>
+      <p>Some additional data about Unicode blocks:</p>
+      <ol><li>
+      Latin B has mostly glyphs to African languages, but also mix rarely used European glyphs and Pinyin transliteration.
+      </li>
+      <li>
+      Latin C brings glyphs to Cyrillic transliterations and old African orthographies. 2C6D and 2C70 are needed to complete African support, the remaining probably are out of your scope.
+      </li>
+      <li>
+      Latin D has many Medieval additions and support for old orthographies. Probably the whole block is unnecessary to you.
+      </li>
+      <li>
+      Latin Additional is a mess. Define the languages and look in detail this block.
+      </li>
+      <li>
+      IPA and Phonetic block. Just needed to phonetic support.
+      </li>
+      <li>
+      Super and subscripts. Add the whole block if you want to keep up to date with contemporary type trend.
+      </li>
+      <li>
+      Currencies. The very basic set is: dollar, cent, pound, yen, currency (generic) and euro. An improved set also includes thai, cólon, naira, won, new sheqel, kruvinia (hryvnia), tenge, new rupee (20B9) and tugrik. Most of others are historical.
+      </li>
+      <li>
+      Letterlike. nº, liter, estimated, TM, and Ohm are basic. Others may be included or not according to your scope, but are not essential.
+      </li>
+      <li>
+      Punctuation. Basic: 2002, 2003, 2013, 2014, 2018 to 2022, 2026, 2027, 2032, 2033, 2039, 203A, and 2044.
+      </li>
+      </ol><p>Here in Typophile you will find a number of quite informative threads. Some:<br><a href="http://typophile.com/node/67458" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://typophile.com/node/67458</a><br><a href="http://typophile.com/node/84563" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://typophile.com/node/84563</a><br><a href="http://typophile.com/node/77983" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://typophile.com/node/77983</a></p>
+      <p>The thread where I presented <a href="http://typophile.com/node/67787#comment-402703" title="Click to visit an external URL." class="freelink freelink-external freelink-external">my own font project</a> has some good information about this, kindly gave by fellow typophilers. The link above points to where this discussion begun.</p>
+      <p>Other threads I also begun may be useful:<br><a href="http://typophile.com/node/74164" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Unicode and diacritics</a><br><a href="http://typophile.com/node/78082" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Eng and hooked N</a><br><a href="http://typophile.com/node/73886" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Currencies and others</a><br><a href="http://typophile.com/node/71504" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Greek and Cyrillic</a><br><a href="http://typophile.com/node/78088" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Slashed letters</a></p>
+    html_clean: |-
+      <p>There is no such tool. I did a wide research about languages and alphabets between 2010 and 2013 for my own font project. Unhappily, no source is complete. If you have interest, here are some good information and sources:</p>
+      <p>The Wikipedia article about <a href="http://en.wikipedia.org/wiki/Latin-derived_alphabet" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Latin-derived alphabets</a> is the nearest single source I know. For deeper information, you can take a look on <a href="http://en.wikipedia.org/wiki/A" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">each letter</a> and language article published in Wikipedia. Each letter article brings a table with diacritical combinations.</p>
+      <p>A good place regarding Latin script is <a href="http://blogs.adobe.com/typblography/2008/08/extended_latin.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">this post</a> from Adobe's Typblography. You may also find useful <a href="http://diacritics.typo.cz/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">this site about diacritics</a>.</p>
+      <p>Regarding transliterations, there is an <a href="http://transliteration.eki.ee/index.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">excellent archive</a> made by Thomas Pedersen. It's almost hidden in the Estonian Language Institute site.</p>
+      <p>You can also consider to do the contrary: define which languages you want to support and then include the proper characters. Unicode blocks are heterogeneous and the Latin ones brings together glyphs needed to less common European languages besides Asian languages, Medieval characters and even Roman signs.</p>
+      <p>For example: Latin Extended Additional includes 1E9E, the German uppercase double S. It seems ok to include that. In the same block you find the Vietnamese accented and double-accented vowels. Of course, you would ignore them if Vietnamese support is out of your target. This Unicode block also adds several precomposed combinations to support Indic, Hebrew and Cyrillic transliterations. Again, you must choose if transliterations would be supported.</p>
+      <p>A similar definition must be made about Phonetic alphabets, currency and letterlike symbols. This will take some research, but you will not include unnecessary glyphs.</p>
+      <p>Some additional data about Unicode blocks:</p>
+      <ol><li>
+      Latin B has mostly glyphs to African languages, but also mix rarely used European glyphs and Pinyin transliteration.
+      </li>
+      <li>
+      Latin C brings glyphs to Cyrillic transliterations and old African orthographies. 2C6D and 2C70 are needed to complete African support, the remaining probably are out of your scope.
+      </li>
+      <li>
+      Latin D has many Medieval additions and support for old orthographies. Probably the whole block is unnecessary to you.
+      </li>
+      <li>
+      Latin Additional is a mess. Define the languages and look in detail this block.
+      </li>
+      <li>
+      IPA and Phonetic block. Just needed to phonetic support.
+      </li>
+      <li>
+      Super and subscripts. Add the whole block if you want to keep up to date with contemporary type trend.
+      </li>
+      <li>
+      Currencies. The very basic set is: dollar, cent, pound, yen, currency (generic) and euro. An improved set also includes thai, cólon, naira, won, new sheqel, kruvinia (hryvnia), tenge, new rupee (20B9) and tugrik. Most of others are historical.
+      </li>
+      <li>
+      Letterlike. nº, liter, estimated, TM, and Ohm are basic. Others may be included or not according to your scope, but are not essential.
+      </li>
+      <li>
+      Punctuation. Basic: 2002, 2003, 2013, 2014, 2018 to 2022, 2026, 2027, 2032, 2033, 2039, 203A, and 2044.
+      </li>
+      </ol><p>Here in Typophile you will find a number of quite informative threads. Some:<br><a href="/node/67458/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">http://typophile.com/node/67458</a><br><a href="/node/84563/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">http://typophile.com/node/84563</a><br><a href="/node/77983/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">http://typophile.com/node/77983</a></p>
+      <p>The thread where I presented <a href="/node/67787/#comment-402703" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">my own font project</a> has some good information about this, kindly gave by fellow typophilers. The link above points to where this discussion begun.</p>
+      <p>Other threads I also begun may be useful:<br><a href="/node/74164/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">Unicode and diacritics</a><br><a href="/node/78082/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">Eng and hooked N</a><br><a href="/node/73886/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">Currencies and others</a><br><a href="/node/71504/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">Greek and Cyrillic</a><br><a href="/node/78088/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-kept">Slashed letters</a></p>
+  - id: 569800
+    user: 5094
+    date: 2014-01-22T21:16:00
+    date_raw: 22 January 2014 - 9:16pm
+    votes: 0
+    html: <p>Wonderful resource, thanks!</p>
+    html_clean: <p>Wonderful resource, thanks!</p>
+  - id: 569806
+    user: 32723
+    date: 2014-01-23T00:53:00
+    date_raw: 23 January 2014 - 12:53am
+    votes: 0
+    html: |-
+      <p>I am glad to know you find this useful, Charles. Here are other sites which helped me during this research:</p>
+      <p><a href="http://wals.info/index" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Atlas of Languages</a><br><a href="http://www.ethnologue.com/home.asp" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Ethnologue</a><br><a href="http://www.etnolinguistica.org" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Etnolinguistica</a><br><a href="http://www.evertype.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Evertype</a><br><a href="http://www.languagegeek.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external">LanguageGeek</a><br><a href="http://www.linguasphere.org/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Linguasphere</a><br><a href="http://www.omniglot.com/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Omniglot</a><br><a href="http://Script Source" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://Script Source</a><br><a href="http://www.endangeredlanguages.com/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Endangered Languages</a><br><a href="http://multitree.linguistlist.org/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">MultiTree</a><br><a href="http://www.ldc.upenn.edu/exploration/#CBOLD" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Language Exploration</a></p>
+    html_clean: |-
+      <p>I am glad to know you find this useful, Charles. Here are other sites which helped me during this research:</p>
+      <p><a href="http://wals.info/index" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Atlas of Languages</a><br><a href="http://www.ethnologue.com/home.asp" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Ethnologue</a><br><a href="http://www.etnolinguistica.org" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Etnolinguistica</a><br><a href="http://www.evertype.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Evertype</a><br><a href="http://www.languagegeek.com" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">LanguageGeek</a><br><a href="http://www.linguasphere.org/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Linguasphere</a><br><a href="http://www.omniglot.com/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Omniglot</a><br><a href="http://Script Source" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://Script Source</a><br><a href="http://www.endangeredlanguages.com/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Endangered Languages</a><br><a href="http://multitree.linguistlist.org/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">MultiTree</a><br><a href="http://www.ldc.upenn.edu/exploration/#CBOLD" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Language Exploration</a></p>
+  - id: 569810
+    user: 215967
+    date: 2014-01-23T02:06:00
+    date_raw: 23 January 2014 - 2:06am
+    votes: 0
+    html: |-
+      <p>Thank you Chris for your advices and Igor for such wonderful resources, they will help me a lot, definitely!</p>
+      <p>I want to fill an almost empty niche of supporting minor languages, at least of ethnic minorities, particularly those in Russia.</p>
+      <p>Forgive me my ignorance, but on MyFonts.com each font has supported languages specified. Since I've never submitted to MyFonts yet, I'd like to know is it done automatically, or each author describes language support manually?</p>
+    html_clean: |-
+      <p>Thank you Chris for your advices and Igor for such wonderful resources, they will help me a lot, definitely!</p>
+      <p>I want to fill an almost empty niche of supporting minor languages, at least of ethnic minorities, particularly those in Russia.</p>
+      <p>Forgive me my ignorance, but on MyFonts.com each font has supported languages specified. Since I've never submitted to MyFonts yet, I'd like to know is it done automatically, or each author describes language support manually?</p>
+  - id: 569811
+    user: 217020
+    date: 2014-01-23T03:10:00
+    date_raw: 23 January 2014 - 3:10am
+    votes: 0
+    html: |-
+      <p>There is no such tool, and such a tool would never be complete.</p>
+      <p>In addition to the links posted by Igor Freiberger:</p>
+      <p>- the eki-letter database (oldish, but still good): <a href="http://www.eki.ee/letter/" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.eki.ee/letter/</a></p>
+      <p>- unicode cldr has a list of exemplar characters per language (base, extended, punctuation etc). You can read it from the database or browse:</p>
+      <p><a href="http://cldr.unicode.org/cldr-features" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://cldr.unicode.org/cldr-features</a><br><a href="http://cldr.unicode.org/index/charts" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://cldr.unicode.org/index/charts</a><br><a href="http://www.unicode.org/cldr/charts/dev/by_type/index.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.unicode.org/cldr/charts/dev/by_type/index.html</a><br><a href="http://www.unicode.org/cldr/charts/dev/by_type/core_data.alphabetic_information.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://www.unicode.org/cldr/charts/dev/by_type/core_data.alphabetic_information.html</a></p>
+      <p>Unicode cldr only contains information about the most used languages, and their "official" characters in current orthography or typography. E.g. there is no information about more exotic languages like Yiddish. Old orthography like long-s (most European languages in 18th century) or LETTER U WITH SMALL E ABOVE (used in German instead Umlaut U+DIARESIS) is not supported.</p>
+    html_clean: |-
+      <p>There is no such tool, and such a tool would never be complete.</p>
+      <p>In addition to the links posted by Igor Freiberger:</p>
+      <p>- the eki-letter database (oldish, but still good): <a href="http://www.eki.ee/letter/" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.eki.ee/letter/</a></p>
+      <p>- unicode cldr has a list of exemplar characters per language (base, extended, punctuation etc). You can read it from the database or browse:</p>
+      <p><a href="http://cldr.unicode.org/cldr-features" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://cldr.unicode.org/cldr-features</a><br><a href="http://cldr.unicode.org/index/charts" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://cldr.unicode.org/index/charts</a><br><a href="http://www.unicode.org/cldr/charts/dev/by_type/index.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.unicode.org/cldr/charts/dev/by_type/index.html</a><br><a href="http://www.unicode.org/cldr/charts/dev/by_type/core_data.alphabetic_information.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://www.unicode.org/cldr/charts/dev/by_type/core_data.alphabetic_information.html</a></p>
+      <p>Unicode cldr only contains information about the most used languages, and their "official" characters in current orthography or typography. E.g. there is no information about more exotic languages like Yiddish. Old orthography like long-s (most European languages in 18th century) or LETTER U WITH SMALL E ABOVE (used in German instead Umlaut U+DIARESIS) is not supported.</p>
+  - id: 569829
+    user: 32723
+    date: 2014-01-23T06:21:00
+    date_raw: 23 January 2014 - 6:21am
+    votes: 0
+    html: |-
+      <dl><dd><em><br>
+      Forgive me my ignorance, but on MyFonts.com each font has supported languages specified. Since I've never submitted to MyFonts yet, I'd like to know is it done automatically, or each author describes language support manually?<br></em></dd>
+      </dl><p>Maybe they use an internal tool or rely on information sent by the designer. But note that MyFonts does not identify all languages supported by a given font. The advanced search just offers 13 group of languages, most based on scripts. In the technical info they list common character sets, again related to a handful of languages.</p>
+      <dl><dd><em><br>
+      I want to fill an almost empty niche of supporting minor languages, at least of ethnic minorities, particularly those in Russia.<br></em></dd>
+      </dl><p>Begin here: <a href="http://en.wikipedia.org/wiki/Category:Languages_of_Russia" title="Click to visit an external URL." class="freelink freelink-external freelink-external">Wikipedia: Languages of Russia</a></p>
+      <p>I am doing exactly this with my font projects, besides supporting Cyrillic variations to Bulgarian and Serbian. AFAIK, there are just four or five typefaces with this kind of support, and none of them is really goood.</p>
+      <p>Unhappily, when I begun to do this, I do not registered my findings in an organised way –just made a large table with needed glyphs and some notes, but didn't listed glyphs by language.</p>
+      <p>Some less known minority languages are poorly documented and it is really difficult to find data about the proper way to design their glyphs. But as a native Russian, you are entitled to find much more than I did.</p>
+      <p>This would give an idea (sorry for the large image):</p>
+      <p><img src="/sites/default/files/old-images/2014-01-23_10-06-27b_4115.png"></p>
+      <p>I know, quite a strange goal to a Brazilian, but I am addict to Cyrillic. If you want further contact, can reach me at contato ( ) if . pro . br.</p>
+    html_clean: |-
+      <dl><dd><em><br>
+      Forgive me my ignorance, but on MyFonts.com each font has supported languages specified. Since I've never submitted to MyFonts yet, I'd like to know is it done automatically, or each author describes language support manually?<br></em></dd>
+      </dl><p>Maybe they use an internal tool or rely on information sent by the designer. But note that MyFonts does not identify all languages supported by a given font. The advanced search just offers 13 group of languages, most based on scripts. In the technical info they list common character sets, again related to a handful of languages.</p>
+      <dl><dd><em><br>
+      I want to fill an almost empty niche of supporting minor languages, at least of ethnic minorities, particularly those in Russia.<br></em></dd>
+      </dl><p>Begin here: <a href="http://en.wikipedia.org/wiki/Category:Languages_of_Russia" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">Wikipedia: Languages of Russia</a></p>
+      <p>I am doing exactly this with my font projects, besides supporting Cyrillic variations to Bulgarian and Serbian. AFAIK, there are just four or five typefaces with this kind of support, and none of them is really goood.</p>
+      <p>Unhappily, when I begun to do this, I do not registered my findings in an organised way –just made a large table with needed glyphs and some notes, but didn't listed glyphs by language.</p>
+      <p>Some less known minority languages are poorly documented and it is really difficult to find data about the proper way to design their glyphs. But as a native Russian, you are entitled to find much more than I did.</p>
+      <p>This would give an idea (sorry for the large image):</p>
+      <p><img src="/sites/default/files/old-images/2014-01-23_10-06-27b_4115.png"></p>
+      <p>I know, quite a strange goal to a Brazilian, but I am addict to Cyrillic. If you want further contact, can reach me at contato ( ) if . pro . br.</p>
+  - id: 570001
+    user: 909
+    date: 2014-01-25T19:56:00
+    date_raw: 25 January 2014 - 7:56pm
+    votes: 0
+    html: |-
+      <p>“There is no such tool.” There are actually several such tools!</p>
+      <p>Fontaine was first released in March 2009. <a href="http://fontaine.sourceforge.net/">http://fontaine.sourceforge.net/</a></p>
+      <p>Speakeasy in October 2010. <a href="https://github.com/typekit/speakeasy">https://github.com/typekit/speakeasy</a></p>
+      <p>Neither had all that impressive a data collection, so I drew on both those sources and added a LOT more data at Extensis. We released that data in April of last year, download it here:<br><a href="http://blog.webink.com/custom-font-subsetting-for-faster-websites/">http://blog.webink.com/custom-font-subsetting-for-faster-websites/</a></p>
+      <p>It is not perfect, but it covers over 150 languages and character sets. We use the data internally with a proprietary scanning tool.</p>
+      <p>I do agree with Igor that “no source is complete,” and neither is my data. But it is considerably better than nothing. Most type designers just want to figure out either what characters to add to cover a given language, or what languages are supported by a given character set, and have a one-stop answer to the question. For the languages covered by this data—and there are a lot of them—it should be reasonably solid. Where I am suspicious of the data source or have not done sufficient cross-checks, that is noted in the file.</p>
+    html_clean: |-
+      <p>“There is no such tool.” There are actually several such tools!</p>
+      <p>Fontaine was first released in March 2009. <a href="http://fontaine.sourceforge.net/" class="link-external">http://fontaine.sourceforge.net/</a></p>
+      <p>Speakeasy in October 2010. <a href="https://github.com/typekit/speakeasy" class="link-external">https://github.com/typekit/speakeasy</a></p>
+      <p>Neither had all that impressive a data collection, so I drew on both those sources and added a LOT more data at Extensis. We released that data in April of last year, download it here:<br><a href="http://blog.webink.com/custom-font-subsetting-for-faster-websites/" class="link-external">http://blog.webink.com/custom-font-subsetting-for-faster-websites/</a></p>
+      <p>It is not perfect, but it covers over 150 languages and character sets. We use the data internally with a proprietary scanning tool.</p>
+      <p>I do agree with Igor that “no source is complete,” and neither is my data. But it is considerably better than nothing. Most type designers just want to figure out either what characters to add to cover a given language, or what languages are supported by a given character set, and have a one-stop answer to the question. For the languages covered by this data—and there are a lot of them—it should be reasonably solid. Where I am suspicious of the data source or have not done sufficient cross-checks, that is noted in the file.</p>
+  - id: 570085
+    user: 65972
+    date: 2014-01-27T11:00:00
+    date_raw: 27 January 2014 - 11:00am
+    votes: 0
+    html: |-
+      <p>Thomas - <strong>thank you</strong> for this information! I'd never heard of these. I wish the fontaine and speakeasy sites were a bit more verbose, and screenshots would be helpful.</p>
+      <p>—CT</p>
+    html_clean: |-
+      <p>Thomas - <strong>thank you</strong> for this information! I'd never heard of these. I wish the fontaine and speakeasy sites were a bit more verbose, and screenshots would be helpful.</p>
+      <p>—CT</p>
+  - id: 570224
+    user: 215967
+    date: 2014-01-29T07:48:00
+    date_raw: 29 January 2014 - 7:48am
+    votes: 0
+    html: |-
+      <p>Thank you Thomas, those are precious links!<br>
+      However, I'd agree with ChristTrekker, I wish I knew how to use those tools.</p>
+    html_clean: |-
+      <p>Thank you Thomas, those are precious links!<br>
+      However, I'd agree with ChristTrekker, I wish I knew how to use those tools.</p>
+  - id: 570231
+    user: 65972
+    date: 2014-01-29T09:31:00
+    date_raw: 29 January 2014 - 9:31am
+    votes: 0
+    html: |-
+      <p>I am now including fontaine-generated language reports on my individual font pages. I wonder if Mr. Trager would import your data set to improve its output. BTW, <a href="http://www.unifont.org/fontaine">www.unifont.org/fontaine</a> is better for learning about it than the SF page.</p>
+      <p>Haven't looked at speakeasy since I don't do ruby.</p>
+      <p>—CT</p>
+    html_clean: |-
+      <p>I am now including fontaine-generated language reports on my individual font pages. I wonder if Mr. Trager would import your data set to improve its output. BTW, <a href="http://www.unifont.org/fontaine" class="link-external">www.unifont.org/fontaine</a> is better for learning about it than the SF page.</p>
+      <p>Haven't looked at speakeasy since I don't do ruby.</p>
+      <p>—CT</p>
+  - id: 570255
+    user: 909
+    date: 2014-01-29T13:14:00
+    date_raw: 29 January 2014 - 1:14pm
+    votes: 0
+    html: <p>I have heard from a couple of folks who said they were interested in doing such a thing. I have started pinging, it would be good to make that happen.</p>
+    html_clean: <p>I have heard from a couple of folks who said they were interested in doing such a thing. I have started pinging, it would be good to make that happen.</p>
+  - id: 570282
+    user: 909
+    date: 2014-01-29T18:37:00
+    date_raw: 29 January 2014 - 6:37pm
+    votes: 0
+    html: |-
+      <p>Actually, it seems Dave Crossland integrated our data file into PyFontaine a while back. He has already integrated the newest one as well.  :)<br><a href="https://github.com/davelab6/pyfontaine">https://github.com/davelab6/pyfontaine</a></p>
+      <p>This is a Python re-implementation of Fontaine. However, it does not currently use the Extensis data as broadly as it could/should. I pointed that out and I gather it will be updated pretty quickly. I gather there is a lot more happening on PyFontaine in the last few years than on Fontaine proper.</p>
+    html_clean: |-
+      <p>Actually, it seems Dave Crossland integrated our data file into PyFontaine a while back. He has already integrated the newest one as well.  :)<br><a href="https://github.com/davelab6/pyfontaine" class="link-external">https://github.com/davelab6/pyfontaine</a></p>
+      <p>This is a Python re-implementation of Fontaine. However, it does not currently use the Extensis data as broadly as it could/should. I pointed that out and I gather it will be updated pretty quickly. I gather there is a lot more happening on PyFontaine in the last few years than on Fontaine proper.</p>
+  - id: 570446
+    user: 44873
+    date: 2014-01-31T20:58:00
+    date_raw: 31 January 2014 - 8:58pm
+    votes: 0
+    html: |-
+      <p>fontaine<br>
+      pyfontaine</p>
+      <p>This is a little far afield, I know,  but does anybody here remember Frank Fontaine?</p>
+      <p>Betcha Dezcom does.</p>
+    html_clean: |-
+      <p>fontaine<br>
+      pyfontaine</p>
+      <p>This is a little far afield, I know,  but does anybody here remember Frank Fontaine?</p>
+      <p>Betcha Dezcom does.</p>
+  - id: 570449
+    user: 909
+    date: 2014-02-01T00:25:00
+    date_raw: 1 February 2014 - 12:25am
+    votes: 0
+    html: <p>PyFontaine has been updated to use the data in all the appropriate ways. Very slick!</p>
+    html_clean: <p>PyFontaine has been updated to use the data in all the appropriate ways. Very slick!</p>
+  - id: 570524
+    user: 18942
+    date: 2014-02-02T09:31:00
+    date_raw: 2 February 2014 - 9:31am
+    votes: 0
+    html: |-
+      <p>Thomas</p>
+      <p>I had a look at your xml file. Nice initiative! The number of languages you cover is impressive.</p>
+      <p>However your code for French (my mother tongue) does not appear to match what I read on your blog. If the characters listed in <code>subsetting-codepoints</code> are considered as accessory, then you have put there characters that are so frequently used in French that they are on the French azerty keyboard as well as the Canadian French keyboard, namely çèàùé (for the others you need to use a dead key); they are certainly not accessory.</p>
+      <p>The French alphabet is very clearly listed on the German Wiki <a href="http://de.wikipedia.org/wiki/Französisches_Alphabet">Französisches Alphabet</a> as well as the French Wiki <a href="http://fr.wikipedia.org/wiki/Alphabet_français">Alphabet français</a>, where characters specific to French (to be added to what you call "English") are listed separately.</p>
+      <p>So, the small characters needed to be in the font to contain the French alphabet (and my understanding is that they should appear in <code>scanning-codepoints</code> similarly to what was done for Portuguese) are (using intervals)</p>
+      <p>0x00E0,0x00E2,0x00E6-0x00EB,0x00EE,0x00EF,<br>
+      0x00F4,0x00F9,0x00FB,0x00FC,0x00FF,0x0153</p>
+      <p>The corresponding capitals are</p>
+      <p>0x00C0,0x00C2,0x00C6-0x00CB,0x00CE,0x00CF,<br>
+      0x00D4,0x00D9,0x00DB,0x00DC,0x0178,0x0152</p>
+      <p>That list assumes, of course, that if <code>parent</code> is <code>English</code> then the scanning code points of English are inherited.</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>Thomas</p>
+      <p>I had a look at your xml file. Nice initiative! The number of languages you cover is impressive.</p>
+      <p>However your code for French (my mother tongue) does not appear to match what I read on your blog. If the characters listed in <code>subsetting-codepoints</code> are considered as accessory, then you have put there characters that are so frequently used in French that they are on the French azerty keyboard as well as the Canadian French keyboard, namely çèàùé (for the others you need to use a dead key); they are certainly not accessory.</p>
+      <p>The French alphabet is very clearly listed on the German Wiki <a href="http://de.wikipedia.org/wiki/Französisches_Alphabet" class="link-external">Französisches Alphabet</a> as well as the French Wiki <a href="http://fr.wikipedia.org/wiki/Alphabet_français" class="link-external">Alphabet français</a>, where characters specific to French (to be added to what you call "English") are listed separately.</p>
+      <p>So, the small characters needed to be in the font to contain the French alphabet (and my understanding is that they should appear in <code>scanning-codepoints</code> similarly to what was done for Portuguese) are (using intervals)</p>
+      <p>0x00E0,0x00E2,0x00E6-0x00EB,0x00EE,0x00EF,<br>
+      0x00F4,0x00F9,0x00FB,0x00FC,0x00FF,0x0153</p>
+      <p>The corresponding capitals are</p>
+      <p>0x00C0,0x00C2,0x00C6-0x00CB,0x00CE,0x00CF,<br>
+      0x00D4,0x00D9,0x00DB,0x00DC,0x0178,0x0152</p>
+      <p>That list assumes, of course, that if <code>parent</code> is <code>English</code> then the scanning code points of English are inherited.</p>
+      <p>Michel</p>
+  - id: 571059
+    user: 909
+    date: 2014-02-09T17:41:00
+    date_raw: 9 February 2014 - 5:41pm
+    votes: 0
+    html: |-
+      <p>Thanks, I think you are the first non-Extensis person to point out a bug in our file!</p>
+      <p>French is one of the ones we inherited from one of the other data sources. Clearly it had some significant issues.  :(  I have updated it for the next release.</p>
+    html_clean: |-
+      <p>Thanks, I think you are the first non-Extensis person to point out a bug in our file!</p>
+      <p>French is one of the ones we inherited from one of the other data sources. Clearly it had some significant issues.  :(  I have updated it for the next release.</p>
+  - id: 571078
+    user: 18942
+    date: 2014-02-09T21:31:00
+    date_raw: 9 February 2014 - 9:31pm
+    votes: 0
+    html: |-
+      <p>Thomas,</p>
+      <p>I noticed a few other things</p>
+      <p>In Cyrillic you list 108 characters including 65 from Russian.<br>
+      Why not just list the 43 new characters that are added to Russian since Russian is parent?</p>
+      <p>For Ukrainian, you use Cyrillic as parent; 8 of the 9 characters you list in the scanning-codepoints for Ukrainian are already in Cyrillic. Why not choose Russian as parent for Ukrainian?</p>
+      <p>In the languages Tajik, TalyshCyrillic, TurkmenCyrillic, Tuvan, Udmurt you have Cyrillic as parent-name; the attribute "parent-name" is used nowhere else. Was that intended? Maybe parent should have been Russian (or Cyrillic)?</p>
+      <p>The scanning codepoints you list for Urdu are those I see in the file src/orthographies/Urdu.h of the fontaine sources. However the fontaine file fontface.cpp contains the code</p>
+      <p>   // Arabic:<br>
+         //<br>
+         if(_checkOrthography(Arabic::pData)){<br>
+                 _checkOrthography(Farsi::pData);<br>
+                 _checkOrthography(Urdu::pData);<br>
+                 _checkOrthography(Kazakh::pData);<br>
+                 _checkOrthography(Pashto::pData);<br>
+                 _checkOrthography(Sindhi::pData);<br>
+                 _checkOrthography(Uighur::pData);<br>
+         }</p>
+      <p>I would personally have put Arabic as parent for each of those languages before checking any further.</p>
+      <p>Michel</p>
+    html_clean: |-
+      <p>Thomas,</p>
+      <p>I noticed a few other things</p>
+      <p>In Cyrillic you list 108 characters including 65 from Russian.<br>
+      Why not just list the 43 new characters that are added to Russian since Russian is parent?</p>
+      <p>For Ukrainian, you use Cyrillic as parent; 8 of the 9 characters you list in the scanning-codepoints for Ukrainian are already in Cyrillic. Why not choose Russian as parent for Ukrainian?</p>
+      <p>In the languages Tajik, TalyshCyrillic, TurkmenCyrillic, Tuvan, Udmurt you have Cyrillic as parent-name; the attribute "parent-name" is used nowhere else. Was that intended? Maybe parent should have been Russian (or Cyrillic)?</p>
+      <p>The scanning codepoints you list for Urdu are those I see in the file src/orthographies/Urdu.h of the fontaine sources. However the fontaine file fontface.cpp contains the code</p>
+      <p>   // Arabic:<br>
+         //<br>
+         if(_checkOrthography(Arabic::pData)){<br>
+                 _checkOrthography(Farsi::pData);<br>
+                 _checkOrthography(Urdu::pData);<br>
+                 _checkOrthography(Kazakh::pData);<br>
+                 _checkOrthography(Pashto::pData);<br>
+                 _checkOrthography(Sindhi::pData);<br>
+                 _checkOrthography(Uighur::pData);<br>
+         }</p>
+      <p>I would personally have put Arabic as parent for each of those languages before checking any further.</p>
+      <p>Michel</p>
+  - id: 571388
+    user: 909
+    date: 2014-02-14T13:27:00
+    date_raw: 14 February 2014 - 1:27pm
+    votes: 0
+    html: |-
+      <p>Thanks for all the feedback! It's great to have somebody else actually looking at this.</p>
+      <p>These sound like good improvements (and in some cases outright bugs). I'll do a review of the file next week and issue a revision.  :)</p>
+    html_clean: |-
+      <p>Thanks for all the feedback! It's great to have somebody else actually looking at this.</p>
+      <p>These sound like good improvements (and in some cases outright bugs). I'll do a review of the file next week and issue a revision.  :)</p>
+  - id: 571389
+    user: 3135
+    date: 2014-02-14T14:07:00
+    date_raw: 14 February 2014 - 2:07pm
+    votes: 0
+    html: <p>Crazy Guggenheim</p>
+    html_clean: <p>Crazy Guggenheim</p>

@@ -1,8 +1,8 @@
 node: 78856
-title: null
+title: Problem with Appearance of Slight Diagonals in Contours
 forum:
-  id: null
-  title: null
+  id: 9
+  title: Display
 source:
   archive: web.archive.org
   timestamp: "20170820230112"
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/78856.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170820230112/typophile.com/node/78856.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,68 @@ pages:
       digest: 5ZOMFI6QJZFOFBGOAB2L4HC5KIHBKEYQ
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/78856.html
+      file: data/archives/web.archive.org/files/20170820230112/typophile.com/node/78856.html
 post:
   id: 78856
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 44822
+  date: 2011-02-07T19:09:00
+  date_raw: 7 February 2011 - 7:09pm
+  votes: 0
+  html: |-
+    <p>I am in the early stages of developing a chromatic face that, by design, employs a lot of slight diagonals (1 to 5 degrees off the horizontal or vertical). The glyphs are made to look as if they were formed by folding strips of paper (I know, I know it's been done before). In addition to the pair of companion chromatic fonts within the family (each representing a different side of the strip of paper), I want to make a monotone version that somehow achieves the 2-sided effect without the use of multiple colors.</p>
+    <p>The solution I've arrived at to simulate that 2-sided effect is to, in the areas representing the back of the strip of paper, block or mask out strokes that run parallel with the strip. The problem I've encountered in testing the viability of this solution is that the edges of the strokes (set at the aforementioned slight diagonal angles), as well as the edges of some of the solid sections, appear quite "jaggy" when I test the PS OpenType font in Illustrator or InDesign.</p>
+    <p>The curious thing, to me, is that those same slight diagonal edges appear comparatively less jaggy in the Glyph Window within FLS5 and when the two test letters are typeset in TextEdit. However, when printed the jagginess of those edges is observed in outputs from both Illustrator and TextEdit.</p>
+    <p>Are there any settings, tricks, preferences in FontLab that can remedy this or is this issue just to be expected when working with slight angled contours and unfixable?</p>
+    <p>A PDF with multiple screenshots is attached to better illustrate my quandary. It is best viewed at 100%, so as to get a more accurate sense of the problem. A brief rundown of my system and process is included at the bottom of the document. </p>
+    <p>Thank You,<br>
+    Andy<img src="/sites/default/files/old-images/Example_3543.png"></p>
+    <span class="file"><img class="file-icon" alt="PDF icon" title="application/pdf" src="/modules/file/icons/application-pdf.png"> <a href="http://www.typophile.com/sites/default/files/old-images/Slight_Diagonals_Render_Problem_Question.pdf" type="application/pdf; length=747639">Slight_Diagonals_Render_Problem_Question.pdf</a></span>
+  html_clean: |-
+    <p>I am in the early stages of developing a chromatic face that, by design, employs a lot of slight diagonals (1 to 5 degrees off the horizontal or vertical). The glyphs are made to look as if they were formed by folding strips of paper (I know, I know it's been done before). In addition to the pair of companion chromatic fonts within the family (each representing a different side of the strip of paper), I want to make a monotone version that somehow achieves the 2-sided effect without the use of multiple colors.</p>
+    <p>The solution I've arrived at to simulate that 2-sided effect is to, in the areas representing the back of the strip of paper, block or mask out strokes that run parallel with the strip. The problem I've encountered in testing the viability of this solution is that the edges of the strokes (set at the aforementioned slight diagonal angles), as well as the edges of some of the solid sections, appear quite "jaggy" when I test the PS OpenType font in Illustrator or InDesign.</p>
+    <p>The curious thing, to me, is that those same slight diagonal edges appear comparatively less jaggy in the Glyph Window within FLS5 and when the two test letters are typeset in TextEdit. However, when printed the jagginess of those edges is observed in outputs from both Illustrator and TextEdit.</p>
+    <p>Are there any settings, tricks, preferences in FontLab that can remedy this or is this issue just to be expected when working with slight angled contours and unfixable?</p>
+    <p>A PDF with multiple screenshots is attached to better illustrate my quandary. It is best viewed at 100%, so as to get a more accurate sense of the problem. A brief rundown of my system and process is included at the bottom of the document. </p>
+    <p>Thank You,<br>
+    Andy<img src="/sites/default/files/old-images/Example_3543.png"></p>
+    <span class="file"><img class="file-icon" alt="PDF icon" title="application/pdf" src="/modules/file/icons/application-pdf.png"> <a href="http://www.typophile.com/sites/default/files/old-images/Slight_Diagonals_Render_Problem_Question.pdf" type="application/pdf; length=747639" class="link-lost">Slight_Diagonals_Render_Problem_Question.pdf</a></span>
+comments:
+  - id: 451200
+    user: 6470
+    date: 2011-02-08T10:51:00
+    date_raw: 8 February 2011 - 10:51am
+    votes: 0
+    html: <p>Probably a dumb question, but are the diagonal segments lines or curves?</p>
+    html_clean: <p>Probably a dumb question, but are the diagonal segments lines or curves?</p>
+  - id: 451215
+    user: 29994
+    date: 2011-02-08T13:56:00
+    date_raw: 8 February 2011 - 1:56pm
+    votes: 0
+    html: |-
+      <p>It's all just on the screen.</p>
+      <p>Apparently, all of these programs use different anti-aliasing techniques. There is no monitor sharp enough to draw a slightly slanted line without jaggies, and it only depends on the drawing algorithm how bad they are.</p>
+      <p><cite>However, when printed the jagginess of those edges is observed in outputs from both Illustrator and TextEdit.</cite></p>
+      <p>How much dpi? 300? 600? Inkjet, laser? Offset printing?</p>
+      <p>If it really bothers you (as in "I want to have it look good, even on a 50 dpi '90s VGA monitor"), make the lines perfectly perpendicular to the horizontals and/or verticals, and hope no-one rotates your font.</p>
+    html_clean: |-
+      <p>It's all just on the screen.</p>
+      <p>Apparently, all of these programs use different anti-aliasing techniques. There is no monitor sharp enough to draw a slightly slanted line without jaggies, and it only depends on the drawing algorithm how bad they are.</p>
+      <p><cite>However, when printed the jagginess of those edges is observed in outputs from both Illustrator and TextEdit.</cite></p>
+      <p>How much dpi? 300? 600? Inkjet, laser? Offset printing?</p>
+      <p>If it really bothers you (as in "I want to have it look good, even on a 50 dpi '90s VGA monitor"), make the lines perfectly perpendicular to the horizontals and/or verticals, and hope no-one rotates your font.</p>
+  - id: 451225
+    user: 44822
+    date: 2011-02-08T14:59:00
+    date_raw: 8 February 2011 - 2:59pm
+    votes: 0
+    html: |-
+      <p>oldnick:<br>
+      The diagonal segments, as well as the rest of the path, are lines.</p>
+      <p>Theunis:<br>
+      The outputs were produced on a Xerox ColorQube 9201 (laser) at whatever its default resolution is (not sure), although it does have a photo print mode for higher resolution which I'll give a shot. And thanks for the clarification on how it is a display issue.</p>
+    html_clean: |-
+      <p>oldnick:<br>
+      The diagonal segments, as well as the rest of the path, are lines.</p>
+      <p>Theunis:<br>
+      The outputs were produced on a Xerox ColorQube 9201 (laser) at whatever its default resolution is (not sure), although it does have a photo print mode for higher resolution which I'll give a shot. And thanks for the clarification on how it is a display issue.</p>

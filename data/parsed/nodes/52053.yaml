@@ -1,5 +1,5 @@
 node: 52053
-title: null
+title: Letter frequency data incl. uppercase
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/52053.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170409005224/typophile.com/node/52053.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,95 @@ pages:
       digest: F5MO5AKTMBNN4VN4WG4C2MQDLB3M7CVO
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/52053.html
+      file: data/archives/web.archive.org/files/20170409005224/typophile.com/node/52053.html
 post:
   id: 52053
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 1262
+  date: 2008-11-24T22:10:00
+  date_raw: 24 November 2008 - 10:10pm
+  votes: 0
+  html: <p>There are some good resources online for finding letter frequency data for English and other major languages, including both corpus and dictionary keyword derived data. But none of the corpus data I've looked at so far maintains a distinction between upper- and lowercase letters. Has anyone seen such data? I want to know what the average frequency of individual uppercase letters is.</p>
+  html_clean: <p>There are some good resources online for finding letter frequency data for English and other major languages, including both corpus and dictionary keyword derived data. But none of the corpus data I've looked at so far maintains a distinction between upper- and lowercase letters. Has anyone seen such data? I want to know what the average frequency of individual uppercase letters is.</p>
+comments:
+  - id: 314585
+    user: 1250
+    date: 2008-11-25T00:35:00
+    date_raw: 25 November 2008 - 12:35am
+    votes: 0
+    html: |-
+      <p>I'm pretty sure I've never seen that.</p>
+      <p>But here's a way to extract such data: take a list of word frequencies, and use a thesaurus (I mean a digital one) to eliminate all the entries that are not proper nouns. The first letters of the words you're left with coupled with the frequencies of the respective words should constitute a decent estimate.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>I'm pretty sure I've never seen that.</p>
+      <p>But here's a way to extract such data: take a list of word frequencies, and use a thesaurus (I mean a digital one) to eliminate all the entries that are not proper nouns. The first letters of the words you're left with coupled with the frequencies of the respective words should constitute a decent estimate.</p>
+      <p>hhp</p>
+  - id: 314603
+    user: 7006
+    date: 2008-11-25T04:07:00
+    date_raw: 25 November 2008 - 4:07am
+    votes: 0
+    html: <p>John, this SHOULD be fairly easy to find out with Unicode encoded text, yeah? If you have a corpus, I have a small app developed by typophile Aric Bills that should crunch the numbers for you. Let me get in contact with him and see if he will let me pass the app along to you, or perhaps he may contact you directly as he did me.</p>
+    html_clean: <p>John, this SHOULD be fairly easy to find out with Unicode encoded text, yeah? If you have a corpus, I have a small app developed by typophile Aric Bills that should crunch the numbers for you. Let me get in contact with him and see if he will let me pass the app along to you, or perhaps he may contact you directly as he did me.</p>
+  - id: 314682
+    user: 23991
+    date: 2008-11-25T12:09:00
+    date_raw: 25 November 2008 - 12:09pm
+    votes: 0
+    html: |-
+      <p>This one does the trick. Both upper and lower cases in multiple languages.</p>
+      <p><a href="http://www.characterfrequencyanalyzer.com/english/index.php">http://www.characterfrequencyanalyzer.com/english/index.php</a></p>
+      <p>Even counts obscure letters like Yat or long s.<br>
+      _____________________________________________<br>
+      Personal Art and Design Portal of Ivan Gulkov<br><a href="http://www.ivangdesign.com">www.ivangdesign.com</a></p>
+    html_clean: |-
+      <p>This one does the trick. Both upper and lower cases in multiple languages.</p>
+      <p><a href="http://www.characterfrequencyanalyzer.com/english/index.php" class="link-external">http://www.characterfrequencyanalyzer.com/english/index.php</a></p>
+      <p>Even counts obscure letters like Yat or long s.<br>
+      _____________________________________________<br>
+      Personal Art and Design Portal of Ivan Gulkov<br><a href="http://www.ivangdesign.com" class="link-external">www.ivangdesign.com</a></p>
+  - id: 314741
+    user: 1262
+    date: 2008-11-25T18:40:00
+    date_raw: 25 November 2008 - 6:40pm
+    votes: 0
+    html: <p>I don't have a corpus, Paul, but could probably find one. For my purposes, a corpus of scholarly works in English would be best. In case you're wondering why I'm after this, I'm trying to quantify the amount of space saved by using one typeface instead of another; since the capitals in the new type are quite a lot narrower than in the old one, they may have a significant impact.</p>
+    html_clean: <p>I don't have a corpus, Paul, but could probably find one. For my purposes, a corpus of scholarly works in English would be best. In case you're wondering why I'm after this, I'm trying to quantify the amount of space saved by using one typeface instead of another; since the capitals in the new type are quite a lot narrower than in the old one, they may have a significant impact.</p>
+  - id: 314762
+    user: 1250
+    date: 2008-11-25T23:35:00
+    date_raw: 25 November 2008 - 11:35pm
+    votes: 0
+    html: |-
+      <p>There's more than one way to skin this cat. A lot of it I think<br>
+      depends on what the client <em>wants</em> to see in terms of analysis.</p>
+      <p>For one thing, this is all deterministic; there can be no strict quantification in any case. Letter frequencies are always estimates, in some ways better but in other ways worse than simply setting a longish typical text supplied by the client to get an actual reading of comparative economy.</p>
+      <p>What you might do instead is simply figure out what proportion of text is caps (I've heard it's ~5%*), calculate the average set width of each font's caps, and use those three numbers to arrive at the economic difference. A refinement of this would be to weight the averaging based on general (non-cap) letter frequencies; a further refinement would be to use frequencies of initial letters of words only (whereby for example "Y" would have a very low weight).</p>
+      <p>* 15% for German?</p>
+      <p>Another twist is that letter frequencies are not enough when it comes to figuring out the effect of letter widths on economy. The proportion of paragraph breaks is just as important if not more so. A font that saves a certain degree of horizontal space can have all its savings trashed by a paragraph break! The greater the proportion of paragraph breaks, the more moot narrowness of glyphs becomes.</p>
+      <p>All this makes me think that using a sample text from the client to compare the fonts would make more sense than relying on frequency stats. But frankly in any case I think the savings will be so small (except maybe for German) that the awkwardness of very narrow caps will kill it.</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>There's more than one way to skin this cat. A lot of it I think<br>
+      depends on what the client <em>wants</em> to see in terms of analysis.</p>
+      <p>For one thing, this is all deterministic; there can be no strict quantification in any case. Letter frequencies are always estimates, in some ways better but in other ways worse than simply setting a longish typical text supplied by the client to get an actual reading of comparative economy.</p>
+      <p>What you might do instead is simply figure out what proportion of text is caps (I've heard it's ~5%*), calculate the average set width of each font's caps, and use those three numbers to arrive at the economic difference. A refinement of this would be to weight the averaging based on general (non-cap) letter frequencies; a further refinement would be to use frequencies of initial letters of words only (whereby for example "Y" would have a very low weight).</p>
+      <p>* 15% for German?</p>
+      <p>Another twist is that letter frequencies are not enough when it comes to figuring out the effect of letter widths on economy. The proportion of paragraph breaks is just as important if not more so. A font that saves a certain degree of horizontal space can have all its savings trashed by a paragraph break! The greater the proportion of paragraph breaks, the more moot narrowness of glyphs becomes.</p>
+      <p>All this makes me think that using a sample text from the client to compare the fonts would make more sense than relying on frequency stats. But frankly in any case I think the savings will be so small (except maybe for German) that the awkwardness of very narrow caps will kill it.</p>
+      <p>hhp</p>
+  - id: 314940
+    user: 1262
+    date: 2008-11-26T15:35:00
+    date_raw: 26 November 2008 - 3:35pm
+    votes: 0
+    html: |-
+      <p><em>A font that saves a certain degree of horizontal space can have all its savings trashed by a paragraph break! The greater the proportion of paragraph breaks, the more moot narrowness of glyphs becomes.</em></p>
+      <p>Very true.</p>
+      <p><em>All this makes me think that using a sample text from the client to compare the fonts would make more sense than relying on frequency stats.</em></p>
+      <p>Oh, I'm doing that too. The frequency stats provide a generic baseline comparison between different typefaces, but real documents provide a better indication of actual benefits/costs.</p>
+    html_clean: |-
+      <p><em>A font that saves a certain degree of horizontal space can have all its savings trashed by a paragraph break! The greater the proportion of paragraph breaks, the more moot narrowness of glyphs becomes.</em></p>
+      <p>Very true.</p>
+      <p><em>All this makes me think that using a sample text from the client to compare the fonts would make more sense than relying on frequency stats.</em></p>
+      <p>Oh, I'm doing that too. The frequency stats provide a generic baseline comparison between different typefaces, but real documents provide a better indication of actual benefits/costs.</p>

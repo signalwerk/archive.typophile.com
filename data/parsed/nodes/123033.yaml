@@ -1,5 +1,5 @@
 node: 123033
-title: null
+title: Font Size problem
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/123033.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170701205126/typophile.com/node/123033.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,50 @@ pages:
       digest: I3ND3PLKPJTGYQNFYZJB52OSFLUSNEN7
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/123033.html
+      file: data/archives/web.archive.org/files/20170701205126/typophile.com/node/123033.html
 post:
   id: 123033
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 225208
+  date: 2015-02-03T06:02:00
+  date_raw: 3 February 2015 - 6:02am
+  votes: 0
+  html: |-
+    <p>I'm new to font creation and have almost finished making a font based on an artists hand writing. The problem I have is when I go to "Quick Test" the font the glyphs appears small while the cursor itself if huge (see pic). This also happens when I generate the font and test in Illustrator. I'm sure it's something simple but I was unable to find where to change this value. I would prefer not to recreate the font from scratch. Thanks in advance. Cheers</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/example_8.jpg" width="1366" height="768" alt="">
+  html_clean: |-
+    <p>I'm new to font creation and have almost finished making a font based on an artists hand writing. The problem I have is when I go to "Quick Test" the font the glyphs appears small while the cursor itself if huge (see pic). This also happens when I generate the font and test in Illustrator. I'm sure it's something simple but I was unable to find where to change this value. I would prefer not to recreate the font from scratch. Thanks in advance. Cheers</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/example_8.jpg" width="1366" height="768" alt="">
+comments:
+  - id: 598790
+    user: 23584
+    date: 2015-02-03T19:00:00
+    date_raw: 3 February 2015 - 7:00pm
+    votes: 0
+    html: |-
+      <p>Hi<br>
+      I reproduced part of your problem by changing the UPM value from 1000 to 10000 in Font Info Metrics and Dimensions panel. Could that be the problem? A typical value is 1000.<br>
+      Changing UPM makes the glyphs larger or smaller. No need to redesign the font. Tools/ Action.../ Contour/Scale with checking the scale metrics and proportional scale boxes checked. This can change the size of any selected glyph. Use a copy of your font to experiment on. Change UPM. Select the H and g glyphs (typical ascender and descender) and apply the scaling Action. Quick Test HgHgHg. If OK apply to entire font by checking the box bottom left of the Scale panel in Action.<br>
+      Make sure you use copies of the font and apply Ctrl Z to revert while experimenting.<br>
+      Good luck hope this solves it.<br>
+      Vladimir</p>
+    html_clean: |-
+      <p>Hi<br>
+      I reproduced part of your problem by changing the UPM value from 1000 to 10000 in Font Info Metrics and Dimensions panel. Could that be the problem? A typical value is 1000.<br>
+      Changing UPM makes the glyphs larger or smaller. No need to redesign the font. Tools/ Action.../ Contour/Scale with checking the scale metrics and proportional scale boxes checked. This can change the size of any selected glyph. Use a copy of your font to experiment on. Change UPM. Select the H and g glyphs (typical ascender and descender) and apply the scaling Action. Quick Test HgHgHg. If OK apply to entire font by checking the box bottom left of the Scale panel in Action.<br>
+      Make sure you use copies of the font and apply Ctrl Z to revert while experimenting.<br>
+      Good luck hope this solves it.<br>
+      Vladimir</p>
+  - id: 598861
+    user: 909
+    date: 2015-02-04T21:33:00
+    date_raw: 4 February 2015 - 9:33pm
+    votes: 0
+    html: <p>Yes, it is probably an issue with the font size vs UPM, or possibly other vertical metrics in the font.</p>
+    html_clean: <p>Yes, it is probably an issue with the font size vs UPM, or possibly other vertical metrics in the font.</p>
+  - id: 598895
+    user: 21309
+    date: 2015-02-05T04:09:00
+    date_raw: 5 February 2015 - 4:09am
+    votes: 0
+    html: <p>I think your outlines and upem are okay, but you should check the spacing metrics; e.g. Win Ascent, Win Descent, as well as the Ascender and Descender values.</p>
+    html_clean: <p>I think your outlines and upem are okay, but you should check the spacing metrics; e.g. Win Ascent, Win Descent, as well as the Ascender and Descender values.</p>

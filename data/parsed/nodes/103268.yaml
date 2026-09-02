@@ -1,5 +1,5 @@
 node: 103268
-title: null
+title: How to generate colour bitmap fonts for Mac OS 10.7/8
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/103268.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20190911224816/typophile.com/node/103268.html
 pages:
   total: 1
   recovered: 1
@@ -28,6 +28,100 @@ pages:
       digest: P3X2WBNNQQ6NTXGB7KIIBGA6YUFIPIM4
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/103268.html
-post: null
-comments: []
+      file: data/archives/web.archive.org/files/20190911224816/typophile.com/node/103268.html
+post:
+  id: 103268
+  user: 21687
+  date: 2013-05-24T04:57:00
+  date_raw: 24 May 2013 - 4:57am
+  votes: null
+  html: |-
+    <p>A while ago I researched out of curiosity if it was possible to build fonts with embedded colour bitmaps like the Apple Color Emoji font on Mac OS 10.7/10.8. I figured out the «sbix» table format and wrote some code that can be hooked into the Python FontTools to decompile and compile the sbix table which contains the image data.</p>
+    <p>Some of my research was generously allowed to happen during my working hours at FontShop International.</p>
+    <p>After pondering for a while what to do with this knowledge, me and FontShop International finally decided to make the code public to encourage experimentation.</p>
+    <p>So without further ado, please check out the attached demo scripts.</p>
+    <p><a href="http://www.kutilek.de/download/sbix_code.zip">sbix_code.zip</a> | <a href="http://www.kutilek.de/download/sbix_demo.zip">sbix_demo.zip</a></p>
+    <p>INSTALLATION</p>
+    <p>Add the three files in <a href="http://www.kutilek.de/download/sbix_code.zip">sbix_code.zip</a> to the directory <code>ttLib/tables</code> of your existing <a href="https://sourceforge.net/projects/fonttools/">FontTools</a> installation. You can probably find it in <code>/Library/Python/2.7/site-packages/fontTools/</code>.</p>
+    <p>USAGE</p>
+    <p>Check out the demo scripts in <a href="http://www.kutilek.de/download/sbix_demo.zip">sbix_demo.zip</a> for examples of how to build your own colour bitmap font or extract the images from an existing font. If you want a proof of concept, view the included <code>ColorTestSbix.ttf</code> on Mac OS X. It should look like in the included font book screenshot. The name ColorTest is a bit misleading as it’s only a scanned typewriter face in greyscale ;)</p>
+    <p>If you just run <code>addSbixImages.py</code>, it will add the pngs from <code>set_150</code> to the file <code>ColorTest.ttf</code> and save the resulting font as <code>ColorTestSbix.ttf</code>.</p>
+    <p>If you have the original Apple Color Emoji font, you can use <code>extractSbixImages.py</code> to extract the pngs from it. They will be saved in the <code>extracted</code> directory.</p>
+    <p>Have fun!</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/fontbookColor.png" width="1425" height="515" alt="">
+  html_clean: |-
+    <p>A while ago I researched out of curiosity if it was possible to build fonts with embedded colour bitmaps like the Apple Color Emoji font on Mac OS 10.7/10.8. I figured out the «sbix» table format and wrote some code that can be hooked into the Python FontTools to decompile and compile the sbix table which contains the image data.</p>
+    <p>Some of my research was generously allowed to happen during my working hours at FontShop International.</p>
+    <p>After pondering for a while what to do with this knowledge, me and FontShop International finally decided to make the code public to encourage experimentation.</p>
+    <p>So without further ado, please check out the attached demo scripts.</p>
+    <p><a href="http://www.kutilek.de/download/sbix_code.zip" class="link-external">sbix_code.zip</a> | <a href="http://www.kutilek.de/download/sbix_demo.zip" class="link-external">sbix_demo.zip</a></p>
+    <p>INSTALLATION</p>
+    <p>Add the three files in <a href="http://www.kutilek.de/download/sbix_code.zip" class="link-external">sbix_code.zip</a> to the directory <code>ttLib/tables</code> of your existing <a href="https://sourceforge.net/projects/fonttools/" class="link-external">FontTools</a> installation. You can probably find it in <code>/Library/Python/2.7/site-packages/fontTools/</code>.</p>
+    <p>USAGE</p>
+    <p>Check out the demo scripts in <a href="http://www.kutilek.de/download/sbix_demo.zip" class="link-external">sbix_demo.zip</a> for examples of how to build your own colour bitmap font or extract the images from an existing font. If you want a proof of concept, view the included <code>ColorTestSbix.ttf</code> on Mac OS X. It should look like in the included font book screenshot. The name ColorTest is a bit misleading as it’s only a scanned typewriter face in greyscale ;)</p>
+    <p>If you just run <code>addSbixImages.py</code>, it will add the pngs from <code>set_150</code> to the file <code>ColorTest.ttf</code> and save the resulting font as <code>ColorTestSbix.ttf</code>.</p>
+    <p>If you have the original Apple Color Emoji font, you can use <code>extractSbixImages.py</code> to extract the pngs from it. They will be saved in the <code>extracted</code> directory.</p>
+    <p>Have fun!</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/fontbookColor.png" width="1425" height="515" alt="">
+comments:
+  - id: 555266
+    user: 1250
+    date: 2013-05-25T09:36:00
+    date_raw: 25 May 2013 - 9:36am
+    votes: null
+    html: |-
+      <p>Jens, wonderful! Very nice of you (and FSI). I'm going to sit down and give this a shot. But is it limited to running on OSX?</p>
+      <p>BTW is the "reverse-engineering" of the sbix table something Apple could complain about?</p>
+      <p>hhp</p>
+    html_clean: |-
+      <p>Jens, wonderful! Very nice of you (and FSI). I'm going to sit down and give this a shot. But is it limited to running on OSX?</p>
+      <p>BTW is the "reverse-engineering" of the sbix table something Apple could complain about?</p>
+      <p>hhp</p>
+  - id: 555275
+    user: 21687
+    date: 2013-05-25T11:33:00
+    date_raw: 25 May 2013 - 11:33am
+    votes: null
+    html: |-
+      <p>Hrant, the Python scripts are not limited to OS X. But Windows doesn’t come with any Python preinstalled, so you have to install it first (and then the Python FontTools) if you don’t have it. (Of course the generated fonts will not show any bitmaps on Windows.)</p>
+      <p>Regarding the reverse-engineering, I’m not the first one who has figured out the sbix format, or built a proof-of-concept font (Theunis de Jong did so in <a href="http://typophile.com/node/96671#comment-524462">http://typophile.com/node/96671#comment-524462</a>), so my maybe naive view is that if Apple wasn’t OK with it, they would have complained already ;)</p>
+    html_clean: |-
+      <p>Hrant, the Python scripts are not limited to OS X. But Windows doesn’t come with any Python preinstalled, so you have to install it first (and then the Python FontTools) if you don’t have it. (Of course the generated fonts will not show any bitmaps on Windows.)</p>
+      <p>Regarding the reverse-engineering, I’m not the first one who has figured out the sbix format, or built a proof-of-concept font (Theunis de Jong did so in <a href="/node/96671/#comment-524462" class="link-kept">http://typophile.com/node/96671#comment-524462</a>), so my maybe naive view is that if Apple wasn’t OK with it, they would have complained already ;)</p>
+  - id: 557220
+    user: 21687
+    date: 2013-06-13T15:02:00
+    date_raw: 13 June 2013 - 3:02pm
+    votes: null
+    html: <p>Somebody reported a bug in <code>_s_b_i_x.py</code> that would affect fonts with more than one bitmap size. The offset of the 2nd and all following sets was off by 8 bytes. I have corrected the bug and uploaded the new file to the link above.</p>
+    html_clean: <p>Somebody reported a bug in <code>_s_b_i_x.py</code> that would affect fonts with more than one bitmap size. The offset of the 2nd and all following sets was off by 8 bytes. I have corrected the bug and uploaded the new file to the link above.</p>
+  - id: 557223
+    user: 11526
+    date: 2013-06-13T15:13:00
+    date_raw: 13 June 2013 - 3:13pm
+    votes: null
+    html: <p>Nice.</p>
+    html_clean: <p>Nice.</p>
+  - id: 567025
+    user: 25260
+    date: 2013-11-14T20:19:00
+    date_raw: 14 November 2013 - 8:19pm
+    votes: null
+    html: |-
+      <p>Hi,<br>
+      That's a nice experimentation.<br>
+      I was playing around with it and it seems I encounter a problem now that I am on Mavericks.<br>
+      The script doesn't find the font and say<br><code> IOError: [Errno 2] No such file or directory: 'ColorTest.ttf' </code><br>
+      Last time I look at it, I was on Mountain Lion and didn't face this problem.<br>
+      Did you know in Maverick what is causing the script or python to fail to see the font file ?<br>
+      Thanks for your help.</p>
+      <p>adr</p>
+    html_clean: |-
+      <p>Hi,<br>
+      That's a nice experimentation.<br>
+      I was playing around with it and it seems I encounter a problem now that I am on Mavericks.<br>
+      The script doesn't find the font and say<br><code> IOError: [Errno 2] No such file or directory: 'ColorTest.ttf' </code><br>
+      Last time I look at it, I was on Mountain Lion and didn't face this problem.<br>
+      Did you know in Maverick what is causing the script or python to fail to see the font file ?<br>
+      Thanks for your help.</p>
+      <p>adr</p>

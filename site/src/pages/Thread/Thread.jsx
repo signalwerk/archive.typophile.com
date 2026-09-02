@@ -3,6 +3,9 @@ import { Crumbs } from "../../components/Crumbs/Crumbs.jsx";
 import { formatDate } from "../../components/DateTime/DateTime.jsx";
 import { MetaLine } from "../../components/MetaLine/MetaLine.jsx";
 import { Avatar } from "../../components/Avatar/Avatar.jsx";
+// The pipeline owns the archives and therefore the shape of their addresses;
+// see src/lib/replay.js.
+import { captureUrl, originalUrl } from "../../../../src/lib/replay.js";
 
 function Entry({ entry, op = false, anchor, user }) {
   const name = user?.name || "unknown";
@@ -37,6 +40,9 @@ function Entry({ entry, op = false, anchor, user }) {
 
 export function ThreadPage({ doc, users = {} }) {
   const comments = doc.comments ?? [];
+  // The archive this page came from, at the moment it was taken -- not the
+  // original address, which has answered nothing since 2019.
+  const capture = captureUrl(doc.source);
   return (
     <Layout>
       <div className="thread-head">
@@ -79,7 +85,13 @@ export function ThreadPage({ doc, users = {} }) {
 
       <p className="foot">
         Captured from {doc.source?.archive} on {formatDate(doc.source?.captured_at)}.{" "}
-        <a href={doc.source?.url} rel="nofollow noreferrer">original URL</a>
+        {/* Common Crawl runs no replay service, so its pages can only offer the
+            address the capture was taken from. */}
+        {capture ? (
+          <a href={capture} rel="nofollow noreferrer">view this capture</a>
+        ) : (
+          <a href={originalUrl(doc.source)} rel="nofollow noreferrer">original URL</a>
+        )}
       </p>
     </Layout>
   );

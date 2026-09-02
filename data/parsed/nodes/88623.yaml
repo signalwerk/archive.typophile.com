@@ -1,5 +1,5 @@
 node: 88623
-title: null
+title: Compilation fails in MS VOLT if lookups exceed 275
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/88623.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20170718050011/typophile.com/node/88623.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,59 @@ pages:
       digest: DCRVQYNG676XPHTOMA3XAYFK3KNPTUTO
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/88623.html
+      file: data/archives/web.archive.org/files/20170718050011/typophile.com/node/88623.html
 post:
   id: 88623
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 43535
+  date: 2011-12-27T15:56:00
+  date_raw: 27 December 2011 - 3:56pm
+  votes: 0
+  html: |-
+    <p>Hello,</p>
+    <p>Is there a limit for lookup numbers in a font?<br>
+    I am currently working on an Arabic Font in MS VOLT. My font consists of more than 4000 glyphs. Now a days I am working on the kerning of pairs. The number of Lookups in my font project has reached to 275 and now when I add another Lookup to this project then the compilation fails in VOLT. What could be its reason? The options to Use extension lookups and to Use Pair Position Format 2 are turned on in the VOLT.</p>
+    <p>If I add new kerning pairs to the present lookups even then the compilation fails. Till yet I have made a very large number of kerning pairs but as compared to the remaining pairs it is very little (I think more than three quarters of kerning is still remaining and also I have to add quite a number of lookups to finish the project. So what should I do to solve the issue?</p>
+  html_clean: |-
+    <p>Hello,</p>
+    <p>Is there a limit for lookup numbers in a font?<br>
+    I am currently working on an Arabic Font in MS VOLT. My font consists of more than 4000 glyphs. Now a days I am working on the kerning of pairs. The number of Lookups in my font project has reached to 275 and now when I add another Lookup to this project then the compilation fails in VOLT. What could be its reason? The options to Use extension lookups and to Use Pair Position Format 2 are turned on in the VOLT.</p>
+    <p>If I add new kerning pairs to the present lookups even then the compilation fails. Till yet I have made a very large number of kerning pairs but as compared to the remaining pairs it is very little (I think more than three quarters of kerning is still remaining and also I have to add quite a number of lookups to finish the project. So what should I do to solve the issue?</p>
+comments:
+  - id: 488942
+    user: 3320
+    date: 2011-12-28T12:36:00
+    date_raw: 28 December 2011 - 12:36pm
+    votes: 0
+    html: <p>Try rearranging the lookup order. Perhaps try placing all the kern lookups at the beginning of the GPOS.</p>
+    html_clean: <p>Try rearranging the lookup order. Perhaps try placing all the kern lookups at the beginning of the GPOS.</p>
+  - id: 496186
+    user: 43535
+    date: 2012-02-23T09:21:00
+    date_raw: 23 February 2012 - 9:21am
+    votes: 0
+    html: |-
+      <p>The problem is solved as I worked out to refine the complete MS VOLT project of my font and removed some positioning data from the lookups. </p>
+      <p>It appears that there is no limit for lookup numbers as there are more than 425 lookups in my font at present and VOLT is compiling it correctly but certainly there is a limit for positioning data in MS VOLT and when this limit is reached then the compilation starts failing in MS VOLT.</p>
+    html_clean: |-
+      <p>The problem is solved as I worked out to refine the complete MS VOLT project of my font and removed some positioning data from the lookups. </p>
+      <p>It appears that there is no limit for lookup numbers as there are more than 425 lookups in my font at present and VOLT is compiling it correctly but certainly there is a limit for positioning data in MS VOLT and when this limit is reached then the compilation starts failing in MS VOLT.</p>
+  - id: 496383
+    user: 29572
+    date: 2012-02-24T21:05:00
+    date_raw: 24 February 2012 - 9:05pm
+    votes: 0
+    html: <p>We have fonts that contain many hundreds of GPOS Lookups in VOLT and providing they are organised properly and 'Extension Lookups' is turned on they compile ok.</p>
+    html_clean: <p>We have fonts that contain many hundreds of GPOS Lookups in VOLT and providing they are organised properly and 'Extension Lookups' is turned on they compile ok.</p>
+  - id: 496426
+    user: 43535
+    date: 2012-02-25T09:02:00
+    date_raw: 25 February 2012 - 9:02am
+    votes: 0
+    html: |-
+      <p>That is why I have used the word positioning data, not Positioning lookups. These many hundreds of of GPOS lookups may contain small amount of data as compared to my font. As the positioning lookups are properly arranged in my font in kern, curs, mark, mkmk order and also the Extention lookups is turned on.</p>
+      <p>This limit is also mentioned by Sergey Malkin here</p>
+      <p><a href="http://forum.fontlab.com/archive-old-microsoft-volt-group/lookup-quantity-limit-t6901.0.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external">http://forum.fontlab.com/archive-old-microsoft-volt-group/lookup-quantity-limit-t6901.0.html</a></p>
+    html_clean: |-
+      <p>That is why I have used the word positioning data, not Positioning lookups. These many hundreds of of GPOS lookups may contain small amount of data as compared to my font. As the positioning lookups are properly arranged in my font in kern, curs, mark, mkmk order and also the Extention lookups is turned on.</p>
+      <p>This limit is also mentioned by Sergey Malkin here</p>
+      <p><a href="http://forum.fontlab.com/archive-old-microsoft-volt-group/lookup-quantity-limit-t6901.0.html" title="Click to visit an external URL." class="freelink freelink-external freelink-external link-external">http://forum.fontlab.com/archive-old-microsoft-volt-group/lookup-quantity-limit-t6901.0.html</a></p>

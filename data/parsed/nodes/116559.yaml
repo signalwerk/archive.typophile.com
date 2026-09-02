@@ -1,5 +1,5 @@
 node: 116559
-title: null
+title: Greek ligatures problem in InDesign CS6
 forum:
   id: null
   title: null
@@ -13,8 +13,8 @@ source:
   truncated: false
   sound: true
   content: original
-  generation: sidebars
-  file: data/archives/web.archive.org/files/typophile.com/node/116559.html
+  generation: drupal7
+  file: data/archives/web.archive.org/files/20180228150714/typophile.com/node/116559.html
 pages:
   total: 1
   recovered: 1
@@ -28,13 +28,160 @@ pages:
       digest: KJVBD3GZR4H6S4AWH2P2BQ25W6TP4IIP
       verified: true
       truncated: false
-      file: data/archives/web.archive.org/files/typophile.com/node/116559.html
+      file: data/archives/web.archive.org/files/20180228150714/typophile.com/node/116559.html
 post:
   id: 116559
-  user: null
-  date: null
-  date_raw: null
-  votes: 1
-  html: null
-  html_clean: null
-comments: []
+  user: 46559
+  date: 2014-05-15T03:26:00
+  date_raw: 15 May 2014 - 3:26am
+  votes: 0
+  html: |-
+    <p>Dear friends<br>
+    Im not enough experienced with FontLab and I need some help. Im facing the following problem while working in InDesign (CS6 - v.8.0.2, MacOSX 10.9.2). OpenType fonts with Greek ligatures do not show old texts correctly when OT features are enabled, in contrast with texts typed from scratch.</p>
+    <p>Old/new text<br>
+    Language: Greek<br>
+    Ligatures: enabled<br>
+    Result: no ligatures<br>
+    ___________________________<br>
+    Old text<br>
+    Language: English<br>
+    Ligatures: enabled<br>
+    Result: corrupted text with ligatures<br>
+    ___________________________<br>
+    New text<br>
+    Language: English<br>
+    Ligatures: enabled<br>
+    Result: ligatures ok</p>
+    <p>Has anyone encountered also this problem? Is this an Adobe or a FontLab issue? Any help or suggestion will be very much welcomed. Thank you very much in advance!</p>
+    <p>Konstantinos Siskakis<br>
+    Thessaloniki, Greece</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Ligatures%20problem.jpg" width="1375" height="755" alt="">
+  html_clean: |-
+    <p>Dear friends<br>
+    Im not enough experienced with FontLab and I need some help. Im facing the following problem while working in InDesign (CS6 - v.8.0.2, MacOSX 10.9.2). OpenType fonts with Greek ligatures do not show old texts correctly when OT features are enabled, in contrast with texts typed from scratch.</p>
+    <p>Old/new text<br>
+    Language: Greek<br>
+    Ligatures: enabled<br>
+    Result: no ligatures<br>
+    ___________________________<br>
+    Old text<br>
+    Language: English<br>
+    Ligatures: enabled<br>
+    Result: corrupted text with ligatures<br>
+    ___________________________<br>
+    New text<br>
+    Language: English<br>
+    Ligatures: enabled<br>
+    Result: ligatures ok</p>
+    <p>Has anyone encountered also this problem? Is this an Adobe or a FontLab issue? Any help or suggestion will be very much welcomed. Thank you very much in advance!</p>
+    <p>Konstantinos Siskakis<br>
+    Thessaloniki, Greece</p>
+    <img typeof="foaf:Image" class="img-responsive" src="http://www.typophile.com/sites/default/files/old-images/Ligatures%20problem.jpg" width="1375" height="755" alt="">
+comments:
+  - id: 578433
+    user: 5094
+    date: 2014-05-15T22:17:00
+    date_raw: 15 May 2014 - 10:17pm
+    votes: 0
+    html: |-
+      <p>Perhaps something very basic. If the old text does not use Unicode encoding, then the ligatures will not work, since the pieces being looked for do not exist, as far as the program knows.</p>
+      <p>A bit more subtle would be if you've used, say, "theta" for a name, but your statements use the Unicode index, or vice versa.</p>
+      <p>For example,</p>
+      <p>sub pi omicron upsilon by pi_omicron_upsilon;</p>
+      <p>won't work if pi, omicron, or upsilon are *named* uni030c, uni03BF or uni03C5 in your "old text" document. Or even if just one of them is.</p>
+      <p>For debugging, I'd start assuming something like that, since you're getting scrambled text in English as well. An encoding issue. Remember, FontLab is quite literal, it won't equate a name with a Unicode index within a feature statement, and it won't make the substitution in a text (old or new) if the encoding isn't in the precise form it expects.</p>
+    html_clean: |-
+      <p>Perhaps something very basic. If the old text does not use Unicode encoding, then the ligatures will not work, since the pieces being looked for do not exist, as far as the program knows.</p>
+      <p>A bit more subtle would be if you've used, say, "theta" for a name, but your statements use the Unicode index, or vice versa.</p>
+      <p>For example,</p>
+      <p>sub pi omicron upsilon by pi_omicron_upsilon;</p>
+      <p>won't work if pi, omicron, or upsilon are *named* uni030c, uni03BF or uni03C5 in your "old text" document. Or even if just one of them is.</p>
+      <p>For debugging, I'd start assuming something like that, since you're getting scrambled text in English as well. An encoding issue. Remember, FontLab is quite literal, it won't equate a name with a Unicode index within a feature statement, and it won't make the substitution in a text (old or new) if the encoding isn't in the precise form it expects.</p>
+  - id: 578465
+    user: 46559
+    date: 2014-05-16T12:57:00
+    date_raw: 16 May 2014 - 12:57pm
+    votes: 0
+    html: |-
+      <p>Dear Charles<br>
+      thanks for your answer. Maybe, I have to say that all those texts work properly in InDesign CS4. That's why I'm thinking about an Adobe issue.<br>
+      Konstantinos Siskakis</p>
+    html_clean: |-
+      <p>Dear Charles<br>
+      thanks for your answer. Maybe, I have to say that all those texts work properly in InDesign CS4. That's why I'm thinking about an Adobe issue.<br>
+      Konstantinos Siskakis</p>
+  - id: 578493
+    user: 5094
+    date: 2014-05-16T19:49:00
+    date_raw: 16 May 2014 - 7:49pm
+    votes: 0
+    html: |-
+      <p><cite>I have to say that all those texts work properly in InDesign CS4</cite></p>
+      <p>Same text files, same font files? We're getting beyond my expertise here, but I'd say, then, it might be language tags. Significant changes in how those interact with CS4 and CS6, I believe. But that shouldn't scramble the English. We don't use language tags in our shop, but of course it is a closed system.</p>
+      <p>Just to make sure: You have exactly the same text files, and exactly the same font files. Everything is fine using CS4, not fine with CS6. (And you're not using the World Composer with text set as right to left in CS6... No, that'd be noticeable.)</p>
+    html_clean: |-
+      <p><cite>I have to say that all those texts work properly in InDesign CS4</cite></p>
+      <p>Same text files, same font files? We're getting beyond my expertise here, but I'd say, then, it might be language tags. Significant changes in how those interact with CS4 and CS6, I believe. But that shouldn't scramble the English. We don't use language tags in our shop, but of course it is a closed system.</p>
+      <p>Just to make sure: You have exactly the same text files, and exactly the same font files. Everything is fine using CS4, not fine with CS6. (And you're not using the World Composer with text set as right to left in CS6... No, that'd be noticeable.)</p>
+  - id: 578503
+    user: 46559
+    date: 2014-05-17T02:54:00
+    date_raw: 17 May 2014 - 2:54am
+    votes: 0
+    html: |-
+      <p>Exactly same text file and same font as you can see. Maybe its something that has to do with language tags. Or a new Adobe issue...<br>
+      Konstantinos Siskakis<br><img src="/sites/default/files/old-images/Ligatures_5135.jpg"></p>
+    html_clean: |-
+      <p>Exactly same text file and same font as you can see. Maybe its something that has to do with language tags. Or a new Adobe issue...<br>
+      Konstantinos Siskakis<br><img src="/sites/default/files/old-images/Ligatures_5135.jpg"></p>
+  - id: 578519
+    user: 5094
+    date: 2014-05-17T11:53:00
+    date_raw: 17 May 2014 - 11:53am
+    votes: 0
+    html: |-
+      <p>OK. I had misunderstood. I took your original post to mean the ligatures were not working -- that is, were not forming. Everything I wrote was based on that (incorrect) assumption.</p>
+      <p>For what is actually going on with the two files, someone would likely have to sit down with everything to de-bug. All FontLab will do is let you see the code used for forming the ligatures. Why there is extra space may be due to something in the OT features, but without everything available for examination, one just can't tell. And of course, that may not be the source of the problem.</p>
+    html_clean: |-
+      <p>OK. I had misunderstood. I took your original post to mean the ligatures were not working -- that is, were not forming. Everything I wrote was based on that (incorrect) assumption.</p>
+      <p>For what is actually going on with the two files, someone would likely have to sit down with everything to de-bug. All FontLab will do is let you see the code used for forming the ligatures. Why there is extra space may be due to something in the OT features, but without everything available for examination, one just can't tell. And of course, that may not be the source of the problem.</p>
+  - id: 578520
+    user: 46559
+    date: 2014-05-17T12:00:00
+    date_raw: 17 May 2014 - 12:00pm
+    votes: 0
+    html: |-
+      <p>I would also have to say that ligatures work properly in Illustrator CS6!<br>
+      Konstantinos Siskakis</p>
+    html_clean: |-
+      <p>I would also have to say that ligatures work properly in Illustrator CS6!<br>
+      Konstantinos Siskakis</p>
+  - id: 579275
+    user: 909
+    date: 2014-05-27T16:21:00
+    date_raw: 27 May 2014 - 4:21pm
+    votes: 0
+    html: |-
+      <p>I am guessing that maybe the features are not correctly registered to all the writing systems in the font? Perhaps the "old texts" are existing document files that are tagged in the app as being Greek, and thus triggering processing of only the Greek features. The "new texts" may not have any particular language assigned and hence, work fine using default processing.</p>
+      <p>Forgive me if this is already well-understood and not what is happening here.</p>
+    html_clean: |-
+      <p>I am guessing that maybe the features are not correctly registered to all the writing systems in the font? Perhaps the "old texts" are existing document files that are tagged in the app as being Greek, and thus triggering processing of only the Greek features. The "new texts" may not have any particular language assigned and hence, work fine using default processing.</p>
+      <p>Forgive me if this is already well-understood and not what is happening here.</p>
+  - id: 579558
+    user: 46559
+    date: 2014-05-31T15:11:00
+    date_raw: 31 May 2014 - 3:11pm
+    votes: 0
+    html: |-
+      <p>Dear Thomas thanks a lot!<br>
+      I think that you are right!</p>
+    html_clean: |-
+      <p>Dear Thomas thanks a lot!<br>
+      I think that you are right!</p>
+  - id: 579714
+    user: 909
+    date: 2014-06-02T21:09:00
+    date_raw: 2 June 2014 - 9:09pm
+    votes: 0
+    html: <p>Excellent, glad to be of help.  :)</p>
+    html_clean: <p>Excellent, glad to be of help.  :)</p>
